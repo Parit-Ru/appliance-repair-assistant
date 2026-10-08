@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "_readme": "รายการอุปกรณ์ที่ควรเตรียมก่อนซ่อม แยกตามประเภทเครื่อง",
+
+  "reviewed_by_author": true,
+  "_reviewed_by_author_note": "ตรวจและรับรองแล้วโดยผู้พัฒนาเมื่อ 8 กันยายน 2569 — เก็บครบทั้ง 7 รายการตามที่ AI ร่างไว้ รวมถึงข้อ flashlight และ step_stool ที่ไม่มีในคู่มือ (อนุมานจากสามัญสำนึกเรื่องความปลอดภัย/การเข้าถึง)",
+
+  "equipment": [
+    { "equipment_id": "usb_c_cable",      "name_th": "สายชาร์จ USB-C",              "name_en": "USB-C charging cable" },
+    { "equipment_id": "notepad_or_phone", "name_th": "กระดาษปากกา หรือมือถือ",      "name_en": "Notepad or phone" },
+    { "equipment_id": "dry_cloth",        "name_th": "ผ้าแห้ง",                     "name_en": "Dry cloth" },
+    { "equipment_id": "soft_brush",       "name_th": "แปรงขนนุ่ม",                  "name_en": "Soft brush" },
+    { "equipment_id": "drain_brush",      "name_th": "แปรงล้างท่อ",                 "name_en": "Drain pipe brush" },
+    { "equipment_id": "flashlight",       "name_th": "ไฟฉาย",                       "name_en": "Flashlight" },
+    { "equipment_id": "step_stool",       "name_th": "บันไดหรือเก้าอี้ที่มั่นคง",    "name_en": "Step stool" }
+  ],
+
+  "usage": [
+    {
+      "device_category": "Air Conditioner",
+      "items": [
+        {
+          "equipment_id": "usb_c_cable",
+          "purpose_th": "ชาร์จรีโมทที่แบตหมด ช่องชาร์จอยู่ด้านล่างของรีโมท",
+          "source_page": 43,
+          "_evidence": "คู่มือหน้า 43 หัวข้อ 'The remote control does not work' ระบุให้ชาร์จผ่านช่อง USB type C ที่ด้านล่างรีโมท"
+        },
+        {
+          "equipment_id": "notepad_or_phone",
+          "purpose_th": "จดรหัสข้อผิดพลาดที่หน้าจอแสดง ไว้แจ้งช่างเมื่อติดต่อศูนย์บริการ",
+          "source_page": 44,
+          "_evidence": "คู่มือหน้า 44 หัวข้อ 'The indoor unit display shows an error message' ระบุให้จดรหัสไว้แจ้งผู้ให้บริการ"
+        },
+        {
+          "equipment_id": "soft_brush",
+          "purpose_th": "ปัดฝุ่นและเศษผงออกจากแผ่นกรองอากาศ",
+          "author_note": "คู่มือบอกให้ทำความสะอาดแผ่นกรองเป็นประจำ แต่ไม่ได้ระบุว่าใช้อุปกรณ์อะไร ผู้พัฒนาเป็นผู้เพิ่มรายการนี้"
+        },
+        {
+          "equipment_id": "dry_cloth",
+          "purpose_th": "เช็ดแผ่นกรองอากาศให้แห้งสนิทก่อนใส่กลับเข้าเครื่อง",
+          "author_note": "คู่มือไม่ได้ระบุขั้นตอนการทำให้แห้ง ผู้พัฒนาเป็นผู้เพิ่มรายการนี้"
+        },
+        {
+          "equipment_id": "drain_brush",
+          "purpose_th": "ทำความสะอาดท่อน้ำทิ้งที่เป็นสาเหตุของกลิ่นไม่พึงประสงค์",
+          "author_note": "คู่มือหน้า 44 บอกให้ตรวจและทำความสะอาดท่อน้ำทิ้ง แต่ไม่ได้ระบุอุปกรณ์ ผู้พัฒนาเป็นผู้เพิ่มรายการนี้"
+        },
+        {
+          "equipment_id": "flashlight",
+          "purpose_th": "ส่องดูตำแหน่งเบรกเกอร์ ซึ่งมักอยู่ในตู้ไฟที่แสงน้อย",
+          "author_note": "คู่มือบอกให้ตรวจเบรกเกอร์ แต่ไม่ได้ระบุอุปกรณ์ ผู้พัฒนาเป็นผู้เพิ่มรายการนี้เพื่อความปลอดภัย"
+        },
+        {
+          "equipment_id": "step_stool",
+          "purpose_th": "ขึ้นถึงแผ่นกรองอากาศของเครื่องที่ติดตั้งบนผนังสูง",
+          "author_note": "คู่มือไม่ได้กล่าวถึง ผู้พัฒนาเป็นผู้เพิ่มรายการนี้"
+        }
+      ]
+    }
+  ]
+}

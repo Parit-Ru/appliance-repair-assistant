@@ -1,0 +1,294 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fixbot.dev/schemas/troubleshooting-graph.v2.schema.json",
+  "title": "FixBot Troubleshooting Graph (v2)",
+  "description": "Deterministic troubleshooting graph. The graph controls multi-turn diagnostic dialogue; the LLM never decides the next step. Changes from v1: confidence removed from nodes (now computed per-session from retrieval), config supports variant-keyed lookup, new 'input' node type, external_reference for cross-document links.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "graph_id",
+    "device_category",
+    "brand",
+    "model_pattern",
+    "entry_symptom",
+    "source",
+    "page_range",
+    "source_chunk_id",
+    "entry_node",
+    "nodes"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": 2,
+      "description": "Pinned so the traversal engine can reject graphs it wasn't built for"
+    },
+    "graph_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]+$"
+    },
+    "device_category": {
+      "type": "string",
+      "enum": [
+        "Air Conditioner",
+        "Refrigerator",
+        "Washing Machine",
+        "Microwave",
+        "Television",
+        "Printer",
+        "Dishwasher",
+        "Dryer",
+        "Smartphone",
+        "Laptop"
+      ]
+    },
+    "brand": { "type": "string", "minLength": 1 },
+    "model_pattern": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Model family this graph covers, with * as wildcard (e.g. 'AR70H**D1***'). Because one graph can span several capacity variants, any spec value that differs between variants must go in config as a variant table, not a scalar."
+    },
+    "entry_symptom": {
+      "type": "string",
+      "minLength": 1,
+      "description": "English symptom text, embedded for graph matching"
+    },
+    "entry_symptom_th": {
+      "type": "string",
+      "description": "Thai symptom text. Embedded alongside the English one so Thai queries match without relying on cross-lingual embedding quality."
+    },
+    "entry_symptom_aliases": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Alternate phrasings users actually type. Also embedded. Improves recall for colloquial input."
+    },
+    "source": { "type": "string", "minLength": 1 },
+    "page_range": {
+      "type": "array",
+      "items": { "type": "integer", "minimum": 1 },
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "source_chunk_id": { "type": "string", "minLength": 1 },
+    "severity": { "type": "string", "enum": ["low", "medium", "high", "critical"] },
+    "difficulty": { "type": "string", "enum": ["easy", "medium", "hard"] },
+
+    "config": {
+      "type": "object",
+      "description": "Spec constants extracted from source documents. Each entry is either a single value or a variant table keyed by model pattern.",
+      "additionalProperties": { "$ref": "#/$defs/config_entry" }
+    },
+
+    "entry_node": { "type": "string", "minLength": 1 },
+    "nodes": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/node" }
+    }
+  },
+
+  "$defs": {
+    "node_id_ref": {
+      "type": "string",
+      "pattern": "^n[a-z0-9_]+$"
+    },
+
+    "outcome_kind": {
+      "type": "string",
+      "enum": ["user_fixed", "normal_behavior", "handoff_informed", "handoff_unknown"],
+      "description": "What actually happened. user_fixed = a step was performed and worked. normal_behavior = nothing was broken. handoff_informed = escalation carrying a specific finding for the technician. handoff_unknown = escalation because the graph ran out of options."
+    },
+
+    "config_entry": {
+      "oneOf": [
+        {
+          "type": "object",
+          "required": ["kind", "value", "unit", "source"],
+          "additionalProperties": false,
+          "properties": {
+            "kind": { "const": "scalar" },
+            "value": { "type": ["number", "string"] },
+            "unit": { "type": "string" },
+            "source": { "$ref": "#/$defs/value_provenance" }
+          }
+        },
+        {
+          "type": "object",
+          "required": ["kind", "unit", "variants", "source"],
+          "additionalProperties": false,
+          "properties": {
+            "kind": { "const": "by_model_variant" },
+            "unit": { "type": "string" },
+            "variants": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "object",
+                "required": ["match", "value"],
+                "additionalProperties": false,
+                "properties": {
+                  "match": {
+                    "type": "string",
+                    "description": "Model pattern with * wildcards, e.g. 'AR70*07*****'. First match wins, so order from most to least specific."
+                  },
+                  "value": { "type": ["number", "string"] }
+                }
+              }
+            },
+            "source": { "$ref": "#/$defs/value_provenance" }
+          }
+        }
+      ]
+    },
+
+    "value_provenance": {
+      "type": "object",
+      "required": ["origin"],
+      "properties": {
+        "origin": {
+          "type": "string",
+          "enum": ["source_manual", "other_official_document", "author_assumption"],
+          "description": "Where this number came from. author_assumption values must never be shown to users as if the manual stated them."
+        },
+        "document": { "type": "string" },
+        "page": { "type": "integer", "minimum": 1 },
+        "note": { "type": "string" }
+      }
+    },
+
+    "external_reference": {
+      "type": "object",
+      "required": ["document", "section", "in_knowledge_base"],
+      "properties": {
+        "document": { "type": "string" },
+        "section": { "type": "string" },
+        "page": { "type": "integer", "minimum": 1 },
+        "in_knowledge_base": {
+          "type": "boolean",
+          "description": "Whether this document is indexed. When false the UI must present it as 'see the printed manual', not as a link."
+        }
+      }
+    },
+
+    "node": {
+      "type": "object",
+      "required": ["node_id", "type"],
+      "properties": {
+        "node_id": { "type": "string", "pattern": "^n[a-z0-9_]+$" },
+        "type": {
+          "type": "string",
+          "enum": ["checkpoint", "instruction", "input", "resolution", "escalation"]
+        },
+        "safety_critical": { "type": "boolean", "default": false },
+        "safety_warning": { "type": "string" },
+        "has_image": { "type": "boolean", "default": false },
+        "image_url": { "type": "string", "format": "uri" },
+        "author_note": { "type": "string" },
+        "external_reference": { "$ref": "#/$defs/external_reference" }
+      },
+
+      "allOf": [
+        {
+          "if": { "properties": { "type": { "const": "checkpoint" } }, "required": ["type"] },
+          "then": {
+            "required": ["node_id", "type", "question", "on_yes", "on_no"],
+            "properties": {
+              "question": { "type": "string", "minLength": 1 },
+              "on_yes": { "$ref": "#/$defs/node_id_ref" },
+              "on_no": { "$ref": "#/$defs/node_id_ref" }
+            },
+            "not": {
+              "anyOf": [
+                { "required": ["next"] },
+                { "required": ["content"] },
+                { "required": ["outcome_kind"] },
+                { "required": ["store_as"] }
+              ]
+            }
+          }
+        },
+
+        {
+          "if": { "properties": { "type": { "const": "instruction" } }, "required": ["type"] },
+          "then": {
+            "required": ["node_id", "type", "content", "next"],
+            "properties": {
+              "content": { "type": "string", "minLength": 1 },
+              "next": { "$ref": "#/$defs/node_id_ref" }
+            },
+            "not": {
+              "anyOf": [
+                { "required": ["on_yes"] },
+                { "required": ["on_no"] },
+                { "required": ["question"] },
+                { "required": ["outcome_kind"] },
+                { "required": ["store_as"] }
+              ]
+            }
+          }
+        },
+
+        {
+          "if": { "properties": { "type": { "const": "input" } }, "required": ["type"] },
+          "then": {
+            "required": ["node_id", "type", "prompt", "input_type", "store_as", "next"],
+            "properties": {
+              "prompt": { "type": "string", "minLength": 1 },
+              "input_type": {
+                "type": "string",
+                "enum": ["error_code", "model_number", "number", "text"],
+                "description": "Drives client-side keyboard and validation"
+              },
+              "pattern": {
+                "type": "string",
+                "description": "Optional regex the answer must satisfy"
+              },
+              "store_as": {
+                "type": "string",
+                "pattern": "^[a-z0-9_]+$",
+                "description": "Key under which the value is saved in session variables"
+              },
+              "next": { "$ref": "#/$defs/node_id_ref" },
+              "on_invalid": {
+                "$ref": "#/$defs/node_id_ref",
+                "description": "Where to go if the value fails validation. Defaults to re-prompting the same node."
+              }
+            },
+            "not": {
+              "anyOf": [
+                { "required": ["on_yes"] },
+                { "required": ["on_no"] },
+                { "required": ["content"] },
+                { "required": ["outcome_kind"] }
+              ]
+            }
+          }
+        },
+
+        {
+          "if": {
+            "properties": { "type": { "enum": ["resolution", "escalation"] } },
+            "required": ["type"]
+          },
+          "then": {
+            "required": ["node_id", "type", "content", "outcome_kind"],
+            "properties": {
+              "content": { "type": "string", "minLength": 1 },
+              "outcome_kind": { "$ref": "#/$defs/outcome_kind" }
+            },
+            "not": {
+              "anyOf": [
+                { "required": ["on_yes"] },
+                { "required": ["on_no"] },
+                { "required": ["next"] },
+                { "required": ["question"] },
+                { "required": ["confidence"] },
+                { "required": ["store_as"] }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  }
+}

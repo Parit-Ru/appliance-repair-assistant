@@ -1,0 +1,1057 @@
+{
+  "schema_version": 2,
+  "manual_id": "samsung_ac_ar70h",
+  "device_category": "Air Conditioner",
+  "brand": "Samsung",
+  "model_pattern": "AR70H**D1***",
+  "source_manual": "RAC255-00_IB_26Y_AR80H_WindFree_GEO_CB_EN-WEB_251229-D04",
+  "count": 13,
+  "graphs": [
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_ac_ar70h_cannot_change_airflow_direction",
+      "device_category": "Air Conditioner",
+      "brand": "Samsung",
+      "model_pattern": "AR70H**D1***",
+      "entry_symptom": "Cannot change the airflow direction",
+      "entry_symptom_th": "ปรับทิศทางลมไม่ได้ บานสวิงไม่ขยับ",
+      "source": "RAC255-00_IB_26Y_AR80H_WindFree_GEO_CB_EN-WEB_251229-D04",
+      "page_range": [
+        43,
+        43
+      ],
+      "source_chunk_id": "manual_Samsung_AirConditioner_AR70HD1_p43_cannot_change_airflow_direction",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "ฟังก์ชัน Good Sleep เปิดใช้งานอยู่ในโหมด Cool หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_explain_good_sleep",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_explain_good_sleep",
+          "type": "instruction",
+          "content": "เมื่อเปิดฟังก์ชัน Good Sleep ในโหมด Cool เครื่องจะล็อกทิศทางลมไว้อัตโนมัติ ผู้ใช้ไม่สามารถปรับเองได้ หากต้องการปรับทิศทางลม ให้ปิดฟังก์ชัน Good Sleep ก่อน",
+          "safety_critical": false,
+          "next": "n_check_after_disable"
+        },
+        {
+          "node_id": "n_check_after_disable",
+          "type": "checkpoint",
+          "question": "หลังปิดฟังก์ชัน Good Sleep แล้ว ปรับทิศทางลมได้หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "ปรับทิศทางลมได้แล้ว — สาเหตุคือฟังก์ชัน Good Sleep ล็อกทิศทางลมไว้ ซึ่งเป็นการทำงานปกติของเครื่อง",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "คู่มือระบุสาเหตุเดียวสำหรับอาการนี้คือฟังก์ชัน Good Sleep ในโหมด Cool หากไม่ใช่กรณีนี้ บานปรับทิศทางลมอาจติดขัดหรือมอเตอร์มีปัญหา แนะนำให้ติดต่อศูนย์บริการ Samsung",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_ac_ar70h_cannot_change_fan_speed",
+      "device_category": "Air Conditioner",
+      "brand": "Samsung",
+      "model_pattern": "AR70H**D1***",
+      "entry_symptom": "Cannot change the fan speed",
+      "entry_symptom_th": "ปรับความแรงพัดลมไม่ได้",
+      "source": "RAC255-00_IB_26Y_AR80H_WindFree_GEO_CB_EN-WEB_251229-D04",
+      "page_range": [
+        43,
+        43
+      ],
+      "source_chunk_id": "manual_Samsung_AirConditioner_AR70HD1_p43_cannot_change_fan_speed",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "เครื่องอยู่ในโหมด AI Auto หรือโหมด Dry อยู่หรือไม่? ดูที่หน้าจอเครื่องภายในหรือรีโมท",
+          "safety_critical": false,
+          "on_yes": "n_explain_auto_dry",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n_explain_auto_dry",
+          "type": "instruction",
+          "content": "ในโหมด AI Auto และโหมด Dry เครื่องจะควบคุมความเร็วพัดลมอัตโนมัติ ผู้ใช้ไม่สามารถปรับเองได้ หากต้องการปรับความเร็วพัดลม ให้เปลี่ยนไปใช้โหมด Cool หรือ Fan ด้วยปุ่ม Mode บนรีโมท",
+          "safety_critical": false,
+          "next": "n_check_after_mode"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "ฟังก์ชัน Good Sleep เปิดใช้งานอยู่ในโหมด Cool หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_explain_good_sleep",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_explain_good_sleep",
+          "type": "instruction",
+          "content": "เมื่อเปิดฟังก์ชัน Good Sleep ในโหมด Cool เครื่องจะควบคุมความเร็วพัดลมอัตโนมัติเพื่อให้เหมาะกับการนอน ผู้ใช้ไม่สามารถปรับเองได้ หากต้องการปรับ ให้ปิดฟังก์ชัน Good Sleep ก่อน",
+          "safety_critical": false,
+          "next": "n_check_after_mode"
+        },
+        {
+          "node_id": "n_check_after_mode",
+          "type": "checkpoint",
+          "question": "หลังเปลี่ยนโหมดหรือปิดฟังก์ชันแล้ว ปรับความเร็วพัดลมได้หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "ปรับความเร็วพัดลมได้แล้ว — สาเหตุคือเครื่องอยู่ในโหมดที่ควบคุมความเร็วพัดลมอัตโนมัติ ซึ่งเป็นการทำงานปกติของเครื่อง",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "อาการไม่ตรงกับสาเหตุที่ระบุไว้ในคู่มือ (โหมด AI Auto, โหมด Dry, หรือฟังก์ชัน Good Sleep) แนะนำให้ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่องและโหมดที่ใช้งานอยู่",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_ac_ar70h_cannot_change_temperature",
+      "device_category": "Air Conditioner",
+      "brand": "Samsung",
+      "model_pattern": "AR70H**D1***",
+      "entry_symptom": "Cannot change the temperature",
+      "entry_symptom_th": "ปรับอุณหภูมิไม่ได้",
+      "source": "RAC255-00_IB_26Y_AR80H_WindFree_GEO_CB_EN-WEB_251229-D04",
+      "page_range": [
+        43,
+        43
+      ],
+      "source_chunk_id": "manual_Samsung_AirConditioner_AR70HD1_p43_cannot_change_temperature",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "เครื่องกำลังทำงานอยู่ในโหมด Fan (พัดลม) หรือไม่? ดูที่หน้าจอเครื่องในหรือรีโมท",
+          "safety_critical": false,
+          "on_yes": "n_explain_fan_mode",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_explain_fan_mode",
+          "type": "instruction",
+          "content": "ในโหมด Fan เครื่องจะไม่สามารถตั้งอุณหภูมิได้ เพราะโหมดนี้ทำหน้าที่หมุนเวียนอากาศเท่านั้น ไม่ได้ทำความเย็น หากต้องการตั้งอุณหภูมิ ให้เปลี่ยนไปใช้โหมด Cool ด้วยปุ่ม Mode บนรีโมทคอนโทรล",
+          "safety_critical": false,
+          "next": "n_confirm_mode_change"
+        },
+        {
+          "node_id": "n_confirm_mode_change",
+          "type": "checkpoint",
+          "question": "หลังเปลี่ยนเป็นโหมด Cool แล้ว ตั้งอุณหภูมิได้หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "แก้ไขเรียบร้อย — สาเหตุคือเครื่องอยู่ในโหมด Fan ซึ่งไม่รองรับการตั้งอุณหภูมิ",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "อาการไม่ตรงกับสาเหตุที่ระบุไว้ในคู่มือ (โหมด Fan) แนะนำให้ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่องและอาการที่พบ",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_ac_ar70h_condensation_indoor",
+      "device_category": "Air Conditioner",
+      "brand": "Samsung",
+      "model_pattern": "AR70H**D1***",
+      "entry_symptom": "Condensation forms on the surface of the indoor unit",
+      "entry_symptom_th": "มีหยดน้ำเกาะที่ตัวแอร์ แอร์มีฝ้า",
+      "source": "RAC255-00_IB_26Y_AR80H_WindFree_GEO_CB_EN-WEB_251229-D04",
+      "page_range": [
+        44,
+        44
+      ],
+      "source_chunk_id": "manual_Samsung_AirConditioner_AR70HD1_p44_condensation_indoor",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "หยดน้ำหรือฝ้าที่พบเกาะอยู่บนผิวด้านนอกของเครื่องภายใน ใช่หรือไม่? (ไม่ใช่น้ำไหลหยดลงพื้นเป็นทาง)",
+          "safety_critical": false,
+          "on_yes": "n2",
+          "on_no": "n_escalate_leak"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "ขณะนี้เครื่องทำงานในโหมด Cool และห้องมีความชื้นสูง หรือตั้งอุณหภูมิต่ำกว่าอุณหภูมิห้องมาก ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_normal",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_normal",
+          "type": "resolution",
+          "content": "นี่เป็นอาการปกติ ไม่ใช่ความเสียหาย — เมื่อความชื้นในห้องสูงหรืออุณหภูมิที่ตั้งไว้ต่างจากอุณหภูมิห้องมาก ไอน้ำในอากาศจะควบแน่นเป็นหยดน้ำบนผิวเครื่องที่เย็น หากต้องการลดอาการนี้ ให้ปรับอุณหภูมิให้สูงขึ้นเล็กน้อย หรือลดความชื้นในห้อง",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "node_id": "n_escalate_leak",
+          "type": "escalation",
+          "content": "น้ำที่ไหลหยดลงพื้นเป็นทางไม่ใช่อาการควบแน่นปกติ อาจเกิดจากท่อน้ำทิ้งอุดตัน ถาดรองน้ำแตกร้าว หรือการติดตั้งไม่ได้ระดับ แนะนำให้ปิดเครื่องและติดต่อศูนย์บริการ Samsung เพื่อป้องกันความเสียหายต่อฝ้าเพดานหรือผนัง",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "อาการควบแน่นที่เกิดขึ้นนอกเงื่อนไขที่คู่มือระบุ อาจเกี่ยวข้องกับฉนวนท่อเสื่อมสภาพหรือปริมาณสารทำความเย็นผิดปกติ แนะนำให้ติดต่อศูนย์บริการ Samsung เพื่อตรวจสอบ",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_ac_ar70h_error_message",
+      "device_category": "Air Conditioner",
+      "brand": "Samsung",
+      "model_pattern": "AR70H**D1***",
+      "entry_symptom": "The indoor unit display shows an error message",
+      "entry_symptom_th": "หน้าจอแอร์ขึ้นรหัสข้อผิดพลาด ขึ้น error",
+      "source": "RAC255-00_IB_26Y_AR80H_WindFree_GEO_CB_EN-WEB_251229-D04",
+      "page_range": [
+        44,
+        44
+      ],
+      "source_chunk_id": "manual_Samsung_AirConditioner_AR70HD1_p44_error_message",
+      "severity": "medium",
+      "difficulty": "hard",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "หน้าจอเครื่องภายในแสดงรหัสข้อผิดพลาด (error code) เป็นตัวอักษรและตัวเลข เช่น E1, E5, C4 ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_record_code",
+          "on_no": "n_escalate_no_code"
+        },
+        {
+          "node_id": "n_record_code",
+          "type": "input",
+          "prompt": "กรอกรหัสข้อผิดพลาดที่แสดงบนหน้าจอ เช่น E1 หรือ C4 (กรอกให้ครบทั้งตัวอักษรและตัวเลข)",
+          "input_type": "error_code",
+          "pattern": "^[A-Za-z]{1,2}[0-9]{1,3}$",
+          "store_as": "error_code",
+          "safety_critical": false,
+          "next": "n_escalate_with_code",
+          "on_invalid": "n_invalid_code"
+        },
+        {
+          "node_id": "n_escalate_with_code",
+          "type": "escalation",
+          "content": "รหัสข้อผิดพลาด {{error_code}} บ่งชี้ปัญหาที่ต้องให้ช่างผู้เชี่ยวชาญตรวจสอบ ติดต่อศูนย์บริการ Samsung และแจ้งรหัส {{error_code}} พร้อมรุ่นเครื่อง เพื่อให้ช่างเตรียมอะไหล่ที่ถูกต้องมาได้",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "node_id": "n_escalate_no_code",
+          "type": "escalation",
+          "content": "หากหน้าจอแสดงข้อความผิดปกติแต่ไม่ใช่รหัสข้อผิดพลาด ให้ถ่ายรูปหน้าจอไว้ แล้วติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่องและอาการที่พบ",
+          "outcome_kind": "handoff_unknown"
+        },
+        {
+          "node_id": "n_invalid_code",
+          "type": "instruction",
+          "content": "รูปแบบรหัสไม่ตรงกับที่คาดไว้ รหัสข้อผิดพลาดของ Samsung มักเป็นตัวอักษร 1-2 ตัวตามด้วยตัวเลข เช่น E1, E5, C4 ลองดูหน้าจออีกครั้ง หากรหัสหายไปแล้ว ให้เปิดเครื่องใหม่แล้วสังเกตหน้าจอ",
+          "safety_critical": false,
+          "next": "n_record_code"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_ac_ar70h_improper_airflow_temperature",
+      "device_category": "Air Conditioner",
+      "brand": "Samsung",
+      "model_pattern": "AR70H**D1***",
+      "entry_symptom": "Improper airflow temperature",
+      "entry_symptom_th": "แอร์ไม่เย็น ลมออกมาไม่เย็น",
+      "entry_symptom_aliases": [
+        "แอร์เย็นน้อยลง",
+        "แอร์ไม่ค่อยเย็น",
+        "AC not cooling well"
+      ],
+      "source": "RAC255-00_IB_26Y_AR80H_WindFree_GEO_CB_EN-WEB_251229-D04",
+      "page_range": [
+        43,
+        43
+      ],
+      "source_chunk_id": "manual_Samsung_AirConditioner_AR70HD1_p43_improper_airflow_temperature",
+      "severity": "medium",
+      "difficulty": "easy",
+      "config": {
+        "max_pipe_length": {
+          "kind": "by_model_variant",
+          "unit": "m",
+          "variants": [
+            {
+              "match": "AR70*07*****",
+              "value": 20
+            },
+            {
+              "match": "AR70*09*****",
+              "value": 20
+            },
+            {
+              "match": "AR70*12*****",
+              "value": 20
+            },
+            {
+              "match": "AR70*15*****",
+              "value": 20
+            },
+            {
+              "match": "AR70*18*****",
+              "value": 30
+            },
+            {
+              "match": "AR70*24*****",
+              "value": 30
+            }
+          ],
+          "source": {
+            "origin": "other_official_document",
+            "document": "Air conditioner Installation manual AR70H**C1*** / AR70H**CA***",
+            "note": "Pipe length table: 07/09/12/15 max 20 m; 18/24 max 30 m. Minimum 3 m for all variants."
+          }
+        },
+        "min_pipe_length": {
+          "kind": "scalar",
+          "value": 3,
+          "unit": "m",
+          "source": {
+            "origin": "other_official_document",
+            "document": "Air conditioner Installation manual AR70H**C1*** / AR70H**CA***",
+            "note": "Minimum pipe length is 3 m across all AR70H capacity variants."
+          }
+        }
+      },
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "เครื่องอยู่ในโหมด Cool หรือไม่? ถ้าใช่ อุณหภูมิที่ตั้งไว้ต่ำกว่าอุณหภูมิห้องปัจจุบันหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_doors",
+          "on_no": "n_fix_temperature"
+        },
+        {
+          "node_id": "n_fix_temperature",
+          "type": "instruction",
+          "content": "ในโหมด Cool การทำความเย็นจะเกิดขึ้นก็ต่อเมื่ออุณหภูมิที่ตั้งไว้ต่ำกว่าอุณหภูมิห้องจริง — ใช้รีโมทคอนโทรลตั้งอุณหภูมิให้ต่ำกว่าอุณหภูมิห้องปัจจุบัน",
+          "safety_critical": false,
+          "next": "n_recheck_temp"
+        },
+        {
+          "node_id": "n_recheck_temp",
+          "type": "checkpoint",
+          "question": "หลังปรับอุณหภูมิแล้ว รอสักครู่ ลมที่เป่าออกมาเย็นลงหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n_doors"
+        },
+        {
+          "node_id": "n_fix_filter",
+          "type": "instruction",
+          "content": "ถอดแผ่นกรองอากาศออกมาทำความสะอาด ล้างด้วยน้ำสะอาดและผึ่งให้แห้งก่อนใส่กลับ ควรทำความสะอาดเป็นประจำทุก 2 สัปดาห์",
+          "safety_critical": false,
+          "next": "n_recheck_filter"
+        },
+        {
+          "node_id": "n_recheck_filter",
+          "type": "checkpoint",
+          "question": "หลังทำความสะอาดแผ่นกรองอากาศแล้ว อุณหภูมิลมที่เป่าออกมาดีขึ้นหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n_outdoor"
+        },
+        {
+          "node_id": "n_fix_outdoor",
+          "type": "instruction",
+          "content": "นำสิ่งกีดขวางรอบตัวเครื่องภายนอกออก ให้มีพื้นที่ว่างรอบเครื่องอย่างน้อย 30 ซม. เพื่อให้ระบายความร้อนได้ดี",
+          "safety_critical": false,
+          "next": "n_recheck_outdoor"
+        },
+        {
+          "node_id": "n_recheck_outdoor",
+          "type": "checkpoint",
+          "question": "หลังจากนำสิ่งกีดขวางออกแล้ว รอ 15–30 นาที อุณหภูมิลมเย็นขึ้นหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n_pipe"
+        },
+        {
+          "node_id": "n_fix_doors",
+          "type": "instruction",
+          "content": "ปิดประตูและหน้าต่างทุกบานในห้องที่เปิดแอร์ เพื่อป้องกันลมร้อนจากภายนอกเข้ามา",
+          "safety_critical": false,
+          "next": "n_recheck_doors"
+        },
+        {
+          "node_id": "n_recheck_doors",
+          "type": "checkpoint",
+          "question": "หลังปิดประตู/หน้าต่างแล้ว รอ 15–30 นาที ห้องเย็นลงหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n_filter"
+        },
+        {
+          "node_id": "n_fix_pipe",
+          "type": "instruction",
+          "content": "ระยะท่อที่ยาวเกินกำหนดจะทำให้ประสิทธิภาพการทำความเย็นลดลง ปรึกษาช่างติดตั้งเพื่อตรวจสอบระยะท่อจริงและพิจารณาย้ายตำแหน่งเครื่อง",
+          "safety_critical": false,
+          "next": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "ปัญหาอุณหภูมิลมไม่เย็นได้รับการแก้ไขแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่สามารถแก้ปัญหาอุณหภูมิลมไม่เย็นได้ด้วยขั้นตอนจากคู่มือ แนะนำให้ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ลองทำไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        },
+        {
+          "node_id": "n_filter",
+          "type": "checkpoint",
+          "question": "แผ่นกรองอากาศ (air filter) สกปรกหรืออุดตันด้วยฝุ่นหรือเศษสิ่งสกปรกหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_fix_filter",
+          "on_no": "n_outdoor"
+        },
+        {
+          "node_id": "n_outdoor",
+          "type": "checkpoint",
+          "question": "ตัวเครื่องภายนอก (outdoor unit) มีสิ่งกีดขวางบังอยู่หรือติดตั้งชิดผนัง/วัตถุมากเกินไปหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_fix_outdoor",
+          "on_no": "n_pipe"
+        },
+        {
+          "node_id": "n_doors",
+          "type": "checkpoint",
+          "question": "มีประตูหรือหน้าต่างเปิดอยู่ในห้องที่เปิดแอร์หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_fix_doors",
+          "on_no": "n_filter"
+        },
+        {
+          "node_id": "n_pipe",
+          "type": "checkpoint",
+          "question": "ทราบหรือไม่ว่าระยะท่อระหว่างเครื่องในกับเครื่องนอกยาวเกินที่กำหนดไว้สำหรับรุ่นนี้? (รุ่น 07/09/12/15 สูงสุด 20 เมตร, รุ่น 18/24 สูงสุด 30 เมตร — หากไม่ทราบ ให้ตอบไม่ใช่)",
+          "safety_critical": false,
+          "author_note": "ค่าจาก config.max_pipe_length ซึ่งอ้างอิงตารางในคู่มือติดตั้ง AR70H (v1 เคยใส่ 15 เมตรซึ่งผิด) คำถามเปิดช่องให้ตอบ 'ไม่ทราบ' ได้ เพราะผู้ใช้ทั่วไปไม่มีทางรู้ระยะท่อของตัวเอง",
+          "on_yes": "n_fix_pipe",
+          "on_no": "n_escalate"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_ac_ar70h_indicator_blinking",
+      "device_category": "Air Conditioner",
+      "brand": "Samsung",
+      "model_pattern": "AR70H**D1***",
+      "entry_symptom": "The indicator on the indoor unit display blinks continuously",
+      "entry_symptom_th": "ไฟกะพริบที่หน้าจอแอร์ ไฟกระพริบไม่หยุด",
+      "source": "RAC255-00_IB_26Y_AR80H_WindFree_GEO_CB_EN-WEB_251229-D04",
+      "page_range": [
+        43,
+        43
+      ],
+      "source_chunk_id": "manual_Samsung_AirConditioner_AR70HD1_p43_indicator_blinking",
+      "severity": "medium",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "ไฟสัญญาณบนหน้าจอเครื่องภายในกะพริบต่อเนื่องไม่หยุด ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_power_off",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_power_off",
+          "type": "instruction",
+          "content": "กดปุ่ม Power เพื่อปิดเครื่อง หากปิดด้วยปุ่มไม่ได้ ให้ถอดปลั๊กไฟออก แล้วรอประมาณ 1 นาที",
+          "safety_critical": true,
+          "safety_warning": "ก่อนถอดปลั๊ก: ตรวจสอบว่ามือแห้งสนิทและยืนบนพื้นแห้ง จับที่ตัวปลั๊กเท่านั้น ห้ามดึงที่สายไฟ หากปลั๊กหรือสายไฟมีรอยไหม้ ร้อนผิดปกติ หรือมีกลิ่นไหม้ ห้ามแตะต้อง — ให้ตัดไฟที่เบรกเกอร์แล้วติดต่อช่างทันที",
+          "author_note": "safety_warning เพิ่มเติมโดยผู้พัฒนา คู่มือต้นฉบับระบุเพียง 'disconnect the power plug' โดยไม่มีคำเตือน",
+          "next": "n_power_back_on"
+        },
+        {
+          "node_id": "n_power_back_on",
+          "type": "instruction",
+          "content": "เสียบปลั๊กกลับเข้าที่ แล้วเปิดเครื่องขึ้นมาใหม่",
+          "safety_critical": true,
+          "safety_warning": "ตรวจสอบว่ามือแห้งก่อนเสียบปลั๊ก และเสียบให้แน่นสนิท",
+          "author_note": "safety_warning เพิ่มเติมโดยผู้พัฒนา",
+          "next": "n_check_blinking"
+        },
+        {
+          "node_id": "n_check_blinking",
+          "type": "checkpoint",
+          "question": "หลังเปิดเครื่องใหม่ ไฟสัญญาณยังกะพริบต่อเนื่องอยู่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_escalate_malfunction",
+          "on_no": "n_resolved"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "ไฟสัญญาณหยุดกะพริบแล้ว เครื่องกลับมาทำงานปกติ — หากอาการกลับมาอีกภายในไม่กี่วัน ควรให้ช่างตรวจสอบ",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate_malfunction",
+          "type": "escalation",
+          "content": "ไฟสัญญาณที่ยังกะพริบต่อเนื่องหลังรีสตาร์ทแล้ว บ่งชี้ว่าเครื่องมีความผิดปกติที่ต้องให้ช่างตรวจสอบ ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่องและลักษณะการกะพริบ (กะพริบกี่ครั้ง เป็นจังหวะอย่างไร)",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "อาการไม่ตรงกับที่ระบุในคู่มือสำหรับกรณีไฟสัญญาณกะพริบต่อเนื่อง แนะนำให้ติดต่อศูนย์บริการ Samsung เพื่อตรวจสอบอาการที่พบ",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_ac_ar70h_odors_from_unit",
+      "device_category": "Air Conditioner",
+      "brand": "Samsung",
+      "model_pattern": "AR70H**D1***",
+      "entry_symptom": "Odors are coming from the unit during regular operation",
+      "entry_symptom_th": "แอร์มีกลิ่นเหม็น กลิ่นอับ",
+      "entry_symptom_aliases": [
+        "แอร์เหม็นอับ",
+        "แอร์มีกลิ่นเหม็นเน่า"
+      ],
+      "source": "RAC255-00_IB_26Y_AR80H_WindFree_GEO_CB_EN-WEB_251229-D04",
+      "page_range": [
+        44,
+        44
+      ],
+      "source_chunk_id": "manual_Samsung_AirConditioner_AR70HD1_p44_odors_from_unit",
+      "severity": "low",
+      "difficulty": "easy",
+      "config": {
+        "fan_mode_ventilation_hours": {
+          "kind": "scalar",
+          "value": "3-4",
+          "unit": "hours",
+          "source": {
+            "origin": "source_manual",
+            "document": "RAC255-00_IB_26Y_AR80H_WindFree_GEO_CB_EN-WEB_251229-D04",
+            "page": 44,
+            "note": "Manual specifies running Fan mode for 3 to 4 hours to clear smoky odors."
+          }
+        }
+      },
+      "entry_node": "n0",
+      "nodes": [
+        {
+          "node_id": "n0",
+          "type": "instruction",
+          "content": "ก่อนอื่น ทราบไว้ว่าไม่มีชิ้นส่วนใดในเครื่องปรับอากาศที่สร้างกลิ่นแรงด้วยตัวเอง กลิ่นที่ได้มักมาจากอากาศในห้องหรือท่อน้ำทิ้งที่สกปรก",
+          "safety_critical": false,
+          "next": "n1"
+        },
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "ห้องที่ติดตั้งเครื่องมีควันหรือกลิ่นจากภายนอกหรือไม่? เช่น ควันบุหรี่ ควันจากการทำอาหาร หรือกลิ่นจากภายนอกอาคาร",
+          "safety_critical": false,
+          "on_yes": "n_ventilate",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n_ventilate",
+          "type": "instruction",
+          "content": "ระบายอากาศในห้องโดยเปิดประตูหน้าต่าง หรือเปิดเครื่องในโหมด Fan (พัดลม) ทิ้งไว้ 3 ถึง 4 ชั่วโมง เพื่อไล่กลิ่นที่สะสมอยู่ในเครื่องออก",
+          "safety_critical": false,
+          "next": "n_check_after_ventilate"
+        },
+        {
+          "node_id": "n_check_after_ventilate",
+          "type": "checkpoint",
+          "question": "หลังระบายอากาศแล้ว กลิ่นหายไปหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "ท่อน้ำทิ้ง (drain pipe) ของเครื่องสะอาดหรือไม่? ลองตรวจดูว่ามีคราบสกปรก ตะไคร่ หรือน้ำขังอยู่หรือเปล่า",
+          "safety_critical": false,
+          "on_yes": "n_escalate",
+          "on_no": "n_clean_drain"
+        },
+        {
+          "node_id": "n_clean_drain",
+          "type": "instruction",
+          "content": "ทำความสะอาดท่อน้ำทิ้งเพื่อกำจัดคราบสกปรกและตะไคร่ที่เป็นแหล่งกลิ่น และควรทำความสะอาดเป็นประจำเพื่อป้องกันการสะสม",
+          "safety_critical": false,
+          "next": "n_check_after_drain"
+        },
+        {
+          "node_id": "n_check_after_drain",
+          "type": "checkpoint",
+          "question": "หลังทำความสะอาดท่อน้ำทิ้งแล้ว กลิ่นหายไปหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "กลิ่นหายไปแล้ว — แนะนำให้ทำความสะอาดแผ่นกรองอากาศและท่อน้ำทิ้งเป็นประจำเพื่อป้องกันกลิ่นกลับมา",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "หากกลิ่นยังคงอยู่หลังจากระบายอากาศและทำความสะอาดท่อน้ำทิ้งแล้ว อาจมีเชื้อราหรือคราบสะสมภายในคอยล์เย็นที่ต้องล้างโดยช่างผู้เชี่ยวชาญ แนะนำให้ติดต่อศูนย์บริการ Samsung เพื่อขอบริการล้างเครื่อง",
+          "outcome_kind": "handoff_informed"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_ac_ar70h_remote_not_working",
+      "device_category": "Air Conditioner",
+      "brand": "Samsung",
+      "model_pattern": "AR70H**D1***",
+      "entry_symptom": "The remote control does not work",
+      "entry_symptom_th": "รีโมทใช้ไม่ได้ กดแล้วไม่ตอบสนอง",
+      "entry_symptom_aliases": [
+        "รีโมทกดไม่ติด",
+        "remote control unresponsive"
+      ],
+      "source": "RAC255-00_IB_26Y_AR80H_WindFree_GEO_CB_EN-WEB_251229-D04",
+      "page_range": [
+        43,
+        43
+      ],
+      "source_chunk_id": "manual_Samsung_AirConditioner_AR70HD1_p43_remote_not_working",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "หน้าจอบนรีโมทคอนโทรลติดสว่างปกติหรือไม่? (ถ้าจอมืดสนิท แสดงว่าแบตหมด)",
+          "safety_critical": false,
+          "on_yes": "n2",
+          "on_no": "n_charge_remote"
+        },
+        {
+          "node_id": "n_charge_remote",
+          "type": "instruction",
+          "content": "ชาร์จรีโมทคอนโทรลผ่านพอร์ต USB Type-C ที่ด้านล่างของรีโมท ใช้สายชาร์จมาตรฐาน ชาร์จทิ้งไว้อย่างน้อย 30 นาทีก่อนลองใช้อีกครั้ง",
+          "safety_critical": false,
+          "next": "n_check_after_charge"
+        },
+        {
+          "node_id": "n_check_after_charge",
+          "type": "checkpoint",
+          "question": "หลังชาร์จแล้ว รีโมทใช้งานได้หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "มีสิ่งกีดขวางระหว่างรีโมทกับเครื่องภายในหรือไม่? เช่น เฟอร์นิเจอร์ ผ้าม่าน หรือหันรีโมทไปคนละทิศ",
+          "safety_critical": false,
+          "on_yes": "n_clear_path",
+          "on_no": "n3"
+        },
+        {
+          "node_id": "n_clear_path",
+          "type": "instruction",
+          "content": "ย้ายสิ่งกีดขวางออก และเล็งรีโมทไปที่ตัวรับสัญญาณบนเครื่องภายในโดยตรง ในระยะไม่เกิน 7 เมตร",
+          "safety_critical": false,
+          "next": "n_check_after_clear"
+        },
+        {
+          "node_id": "n_check_after_clear",
+          "type": "checkpoint",
+          "question": "หลังย้ายสิ่งกีดขวางแล้ว รีโมทใช้งานได้หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "node_id": "n3",
+          "type": "checkpoint",
+          "question": "มีแสงจ้าส่องใกล้เครื่องภายในหรือไม่? เช่น หลอดฟลูออเรสเซนต์ ป้ายไฟนีออน หรือแสงแดดส่องตรง",
+          "safety_critical": false,
+          "on_yes": "n_reduce_light",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_reduce_light",
+          "type": "instruction",
+          "content": "ย้ายแหล่งกำเนิดแสงจ้าออกห่างจากเครื่อง หรือปิดแสงนั้นชั่วคราวเพื่อทดสอบ แสงจากหลอดฟลูออเรสเซนต์และป้ายไฟนีออนสามารถรบกวนสัญญาณอินฟราเรดจากรีโมทได้",
+          "safety_critical": false,
+          "next": "n_check_after_light"
+        },
+        {
+          "node_id": "n_check_after_light",
+          "type": "checkpoint",
+          "question": "หลังจัดการแสงรบกวนแล้ว รีโมทใช้งานได้หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "รีโมทคอนโทรลกลับมาใช้งานได้ปกติแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับข้อมูลในคู่มือ รีโมทอาจชำรุด หรือตัวรับสัญญาณบนเครื่องภายในมีปัญหา แนะนำให้ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่องและรุ่นรีโมท",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_ac_ar70h_stops_working",
+      "device_category": "Air Conditioner",
+      "brand": "Samsung",
+      "model_pattern": "AR70H**D1***",
+      "entry_symptom": "The air conditioner stops working",
+      "entry_symptom_th": "แอร์ไม่ทำงาน เปิดไม่ติด",
+      "entry_symptom_aliases": [
+        "แอร์ดับเอง",
+        "แอร์ตัดเอง",
+        "AC turns off by itself"
+      ],
+      "source": "RAC255-00_IB_26Y_AR80H_WindFree_GEO_CB_EN-WEB_251229-D04",
+      "page_range": [
+        43,
+        43
+      ],
+      "source_chunk_id": "manual_Samsung_AirConditioner_AR70HD1_p43_stops_working",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "เครื่องได้รับไฟฟ้าอยู่หรือไม่? (ตรวจปลั๊ก/เต้ารับ)",
+          "safety_critical": false,
+          "on_yes": "n2",
+          "on_no": "n_fix_power"
+        },
+        {
+          "node_id": "n_fix_power",
+          "type": "instruction",
+          "content": "ตรวจสอบให้แน่ใจว่าเครื่องได้รับไฟฟ้า — ปลั๊กเสียบแน่น และเต้ารับมีไฟ (ลองเสียบอุปกรณ์อื่นทดสอบ)",
+          "safety_critical": false,
+          "next": "n_recheck_power"
+        },
+        {
+          "node_id": "n_recheck_power",
+          "type": "checkpoint",
+          "question": "หลังตรวจสอบแล้ว เครื่องกลับมาทำงานหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "เบรกเกอร์ไฟฟ้า (circuit breaker) ตัดอยู่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_fix_breaker",
+          "on_no": "n3"
+        },
+        {
+          "node_id": "n_fix_breaker",
+          "type": "instruction",
+          "content": "สับเบรกเกอร์กลับขึ้น แล้วลองเปิดเครื่องใหม่",
+          "safety_critical": true,
+          "safety_warning": "ก่อนแตะเบรกเกอร์: ตรวจสอบว่ามือแห้งและยืนบนพื้นแห้ง หากเบรกเกอร์ตัดซ้ำทันทีหลังสับขึ้น ห้ามสับซ้ำอีก — ให้ติดต่อช่างไฟฟ้าทันที (อาจมีไฟฟ้าลัดวงจร)",
+          "author_note": "safety_warning เพิ่มเติมโดยผู้พัฒนา ไม่มีในคู่มือต้นฉบับ",
+          "next": "n_recheck_breaker"
+        },
+        {
+          "node_id": "n_recheck_breaker",
+          "type": "checkpoint",
+          "question": "หลังสับเบรกเกอร์แล้ว เครื่องกลับมาทำงานปกติหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n3",
+          "type": "checkpoint",
+          "question": "มีการตั้งฟังก์ชัน Timed Off ไว้หรือไม่ ซึ่งอาจสั่งปิดเครื่องอัตโนมัติ?",
+          "safety_critical": false,
+          "on_yes": "n_fix_timer",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_fix_timer",
+          "type": "instruction",
+          "content": "เปิดเครื่องขึ้นมาใหม่อีกครั้งด้วยรีโมทคอนโทรล หากต้องการยกเลิกการตั้งเวลาปิด ให้กดปุ่ม Timed Off บนรีโมทเพื่อปิดฟังก์ชัน",
+          "safety_critical": false,
+          "next": "n_resolved"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "ปัญหาได้รับการแก้ไขแล้ว เครื่องกลับมาทำงานปกติ",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับข้อมูลในคู่มือสำหรับกรณีนี้ แนะนำให้ติดต่อศูนย์บริการ Samsung พร้อมแจ้งอาการที่พบ และรายละเอียดสิ่งที่ได้ลองทำไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_ac_ar70h_timer_not_working",
+      "device_category": "Air Conditioner",
+      "brand": "Samsung",
+      "model_pattern": "AR70H**D1***",
+      "entry_symptom": "The Timed on/off function does not work",
+      "entry_symptom_th": "ตั้งเวลาเปิดปิดไม่ได้ ตั้งแล้วไม่ทำงาน",
+      "source": "RAC255-00_IB_26Y_AR80H_WindFree_GEO_CB_EN-WEB_251229-D04",
+      "page_range": [
+        43,
+        43
+      ],
+      "source_chunk_id": "manual_Samsung_AirConditioner_AR70HD1_p43_timer_not_working",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "ตอนตั้งเวลา คุณได้กดปุ่มยืนยัน (confirm/set) บนรีโมทหลังเลือกเวลาแล้วหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_escalate",
+          "on_no": "n_press_confirm"
+        },
+        {
+          "node_id": "n_press_confirm",
+          "type": "instruction",
+          "content": "ตั้งเวลาใหม่อีกครั้ง แล้วกดปุ่มยืนยัน (confirm/set) บนรีโมทเพื่อบันทึกการตั้งค่า หากไม่กดยืนยัน ระบบจะไม่บันทึกเวลาที่ตั้งไว้",
+          "safety_critical": false,
+          "next": "n_check_timer"
+        },
+        {
+          "node_id": "n_check_timer",
+          "type": "checkpoint",
+          "question": "หลังกดยืนยันแล้ว สัญลักษณ์การตั้งเวลาปรากฏบนหน้าจอเครื่องหรือรีโมทหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "ตั้งเวลาสำเร็จแล้ว — สาเหตุคือไม่ได้กดปุ่มยืนยันหลังเลือกเวลา",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "คู่มือระบุสาเหตุเดียวสำหรับอาการนี้คือการไม่กดปุ่มยืนยัน หากทำถูกต้องแล้วยังไม่ได้ผล แนะนำให้ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่องและรุ่นรีโมท",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_ac_ar70h_unit_generating_noise",
+      "device_category": "Air Conditioner",
+      "brand": "Samsung",
+      "model_pattern": "AR70H**D1***",
+      "entry_symptom": "The unit is generating noise",
+      "entry_symptom_th": "แอร์มีเสียงดัง เสียงผิดปกติ",
+      "source": "RAC255-00_IB_26Y_AR80H_WindFree_GEO_CB_EN-WEB_251229-D04",
+      "page_range": [
+        44,
+        44
+      ],
+      "source_chunk_id": "manual_Samsung_AirConditioner_AR70HD1_p44_unit_generating_noise",
+      "severity": "low",
+      "difficulty": "easy",
+      "config": {
+        "min_pipe_length_no_coil": {
+          "kind": "scalar",
+          "value": 3,
+          "unit": "m",
+          "source": {
+            "origin": "source_manual",
+            "document": "RAC255-00_IB_26Y_AR80H_WindFree_GEO_CB_EN-WEB_251229-D04",
+            "page": 44,
+            "note": "Manual states that below 3 m with no coil, noise transmits through the piping."
+          }
+        }
+      },
+      "entry_node": "n0",
+      "nodes": [
+        {
+          "node_id": "n0",
+          "type": "instruction",
+          "content": "เสียงบางระดับจากการทำงานของเครื่องปรับอากาศเป็นเรื่องปกติ เช่น เสียงลมพัด เสียงน้ำยาไหลเวียน หรือเสียงพลาสติกขยายตัวตามอุณหภูมิ",
+          "safety_critical": false,
+          "next": "n1"
+        },
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "เสียงที่ได้ยินดังผิดปกติหรือรบกวนการใช้งานหรือไม่? (ถ้าเป็นเสียงเบาๆ ตามปกติ ให้ตอบไม่ใช่)",
+          "safety_critical": false,
+          "on_yes": "n2",
+          "on_no": "n_normal"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "ระยะท่อระหว่างเครื่องภายในกับเครื่องภายนอกสั้นกว่า 3 เมตร และตอนติดตั้งไม่ได้ขดท่อเป็นวง (coil) ใช่หรือไม่?",
+          "safety_critical": false,
+          "author_note": "ค่า 3 เมตร มาจาก config.min_pipe_length_no_coil_m ระบุไว้ชัดเจนในคู่มือต้นฉบับ",
+          "on_yes": "n_explain_piping",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_explain_piping",
+          "type": "instruction",
+          "content": "เมื่อท่อสั้นกว่า 3 เมตรและไม่ได้ขดท่อเป็นวง เสียงจากเครื่องภายนอกจะส่งผ่านท่อมาถึงเครื่องภายในได้มากกว่าปกติ วิธีแก้คือให้ช่างติดตั้งขดท่อเป็นวงเพื่อดูดซับแรงสั่นสะเทือน โดยดูรายละเอียดในหัวข้อ Typical installation ของคู่มือการติดตั้ง (Installation Manual) ซึ่งเป็นเอกสารคนละฉบับกับคู่มือการใช้งาน",
+          "safety_critical": false,
+          "author_note": "อ้างอิงข้ามเอกสาร — คู่มือต้นฉบับชี้ไปที่ Installation Manual ซึ่งยังไม่มีใน knowledge base",
+          "next": "n_escalate_installation",
+          "external_reference": {
+            "document": "Air conditioner Installation manual AR70H**C1*** / AR70H**CA***",
+            "section": "Typical installation",
+            "in_knowledge_base": false
+          }
+        },
+        {
+          "node_id": "n_normal",
+          "type": "resolution",
+          "content": "เสียงที่ได้ยินอยู่ในระดับปกติของการทำงาน ไม่ใช่ความเสียหาย ไม่ต้องดำเนินการใดๆ",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "node_id": "n_escalate_installation",
+          "type": "escalation",
+          "content": "การขดท่อเพื่อลดเสียงต้องทำโดยช่างติดตั้งที่มีความชำนาญ เพราะเกี่ยวข้องกับระบบสารทำความเย็นแรงดันสูง ติดต่อช่างติดตั้งหรือศูนย์บริการ Samsung พร้อมแจ้งว่าต้องการปรับการเดินท่อตามหัวข้อ Typical installation",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "เสียงผิดปกติที่ไม่เข้าข่ายสาเหตุในคู่มือ อาจเกิดจากพัดลม คอมเพรสเซอร์ หรือชิ้นส่วนหลวม แนะนำให้ติดต่อศูนย์บริการ Samsung พร้อมอธิบายลักษณะเสียง (ดังจากเครื่องในหรือเครื่องนอก เป็นเสียงแบบใด ดังตอนไหน)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_ac_ar70h_water_drips_outdoor",
+      "device_category": "Air Conditioner",
+      "brand": "Samsung",
+      "model_pattern": "AR70H**D1***",
+      "entry_symptom": "Water drips from the pipe connections on the outdoor unit",
+      "entry_symptom_th": "น้ำหยดจากคอมเพรสเซอร์ เครื่องนอกมีน้ำหยด",
+      "source": "RAC255-00_IB_26Y_AR80H_WindFree_GEO_CB_EN-WEB_251229-D04",
+      "page_range": [
+        44,
+        44
+      ],
+      "source_chunk_id": "manual_Samsung_AirConditioner_AR70HD1_p44_water_drips_outdoor",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "น้ำที่พบหยดมาจากจุดเชื่อมต่อท่อบริเวณเครื่องภายนอก (outdoor unit) ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_normal",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_normal",
+          "type": "resolution",
+          "content": "นี่เป็นอาการปกติ ไม่ใช่ความเสียหาย — เกิดจากไอน้ำในอากาศควบแน่นเป็นหยดน้ำที่ผิวท่อ เมื่ออุณหภูมิหรือความชื้นภายนอกเปลี่ยนแปลงมาก ไม่ต้องดำเนินการใดๆ",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "หากน้ำรั่วจากจุดอื่นที่ไม่ใช่จุดเชื่อมต่อท่อ อาจเป็นปัญหาการติดตั้งหรือท่อน้ำทิ้งอุดตัน แนะนำให้ติดต่อศูนย์บริการ Samsung เพื่อตรวจสอบ",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    }
+  ]
+}
