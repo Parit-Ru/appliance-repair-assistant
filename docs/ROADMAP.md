@@ -4,6 +4,7 @@
 > **โปรเจกต์ใหม่:** `appliance-repair-assistant` ยังว่างเปล่า และไม่ใช่ git repository → **ยังไม่มี commit hash ของโปรเจกต์ใหม่** (ผมไม่ได้ `git init` ตามกฎ) ให้ใส่ hash ตอนคุณ commit ไฟล์แรก
 > **ต้นแบบ:** `troubleshoot-assistantv2` (FixStep) สาขา `main` commit `23a0d7f` · `git status` ของต้นแบบมีเฉพาะ `ROADMAP.md` (ไฟล์เอกสารของ FixStep ที่แก้ค้างอยู่ก่อนผมเริ่ม) ไม่มีการแก้ไฟล์ใน `backend/src` หรือ `frontend/src`
 > **เทสของต้นแบบ (รันวันนี้):** backend **183/183** ผ่าน (10 ไฟล์) · frontend **84/84** ผ่าน (8 ไฟล์) · ผมรันโดยตั้ง cache ของ jest ไว้นอก repo และตรวจ `git status` หลังรัน ไม่พบไฟล์ใหม่ที่ git มองเห็น
+> **ขอบเขตปัจจุบัน (ตัดสินใจ 8 ต.ค. 2569):** พอร์ต FixStep ให้ครบก่อน (เฟส 0–4, 7 ส่วนที่ใช้ซ้ำ, เฟส T ส่วนเทสเดิม) · **ส่วน RAG ใหม่ (เฟส 5 knowledge, เฟส 6 answer, ไฟล์ frontend ใหม่ของหน้า `/ask`) เลื่อนเป็นงานอนาคต** ดู §G ท้ายเอกสาร · ตัวเลขเวลาใน §C.2 แยกสองกลุ่มให้แล้ว
 > ถ้าเอกสารเก่าของ FixStep ขัดกับโค้ด **ยึดโค้ด** · ถ้าคำตอบของคุณ (ข้อ A.1) ขัดกับโค้ด ให้บอกผม
 
 **เป้าหมาย:** บอกว่าควรพิมพ์ไฟล์ไหนก่อน เรียงอย่างไร และแต่ละไฟล์ใช้อะไรจากของเก่า · ต้นแบบห้ามแก้ ห้ามลบ ห้าม commit/push จากโฟลเดอร์นี้
@@ -83,7 +84,7 @@
 
 ## B. จัดประเภทไฟล์เก่าทุกไฟล์
 
-ไฟล์ทั้งหมดใน `backend/src` + `frontend/src` = **86** (backend 34, frontend 52; นับจาก `git ls-files`) · ใช้ซ้ำตรงๆ **66** · ดัดแปลง **18** · เขียนใหม่ (ไฟล์เก่าที่ต้องทิ้งแล้วเขียนใหม่) **0** · ตัด **2** (รวมบรรทัดโค้ด: ซ้ำ 4755 · ดัดแปลง 1372 · ตัด 427) · ส่วนที่เขียนใหม่จริงคือ **ไฟล์ใหม่ใน §C เฟส 5–7** (ไม่มีตัวเลขบรรทัด)
+ไฟล์ทั้งหมดใน `backend/src` + `frontend/src` = **86** (backend 34, frontend 52; นับจาก `git ls-files`) · ใช้ซ้ำตรงๆ **66** · ดัดแปลง **18** · เขียนใหม่ (ไฟล์เก่าที่ต้องทิ้งแล้วเขียนใหม่) **0** · ตัด **2** (รวมบรรทัดโค้ด: ซ้ำ 4721 · ดัดแปลง 1369 · ตัด 417) · ส่วนที่เขียนใหม่จริงคือ **ไฟล์ใหม่ใน §C เฟส 5–7** (ไม่มีตัวเลขบรรทัด)
 
 คอลัมน์ "บรรทัดโค้ด/รวม" และ "เทส" มาจากไฟล์จริง · ป้าย: **ซ้ำ** = ใช้ซ้ำได้ตรงๆ (พิมพ์ตามเดิม หรือคัดลอกถ้าเป็นเทส/ UI) · **ดัดแปลง** = ใช้ได้แต่ต้องแก้ตามที่ระบุ · **ใหม่** = ไม่เหมาะกับโปรเจกต์ใหม่ ต้องเขียนใหม่ (ไม่มีไฟล์เก่าที่เข้าข่าย — ส่วนที่เขียนใหม่คือไฟล์ใหม่ใน §C เฟส 5–7) · **ตัด** = ตัดทิ้ง (พร้อมเหตุผล)
 
@@ -91,13 +92,13 @@
 |---|--:|--:|---|---|
 | `backend/app.module.ts` | 14 / 16 |  | **ดัดแปลง** | รอบแรกเหมือนเดิม · รอบสอง (#47) เพิ่ม `KnowledgeModule`, `AnswerModule` |
 | `backend/database/database.constants.ts` | 1 / 17 |  | **ซ้ำ** |  |
-| `backend/database/database.module.ts` | 60 / 77 |  | **ซ้ำ** | ค่า `DB_*` มาจาก `.env` |
+| `backend/database/database.module.ts` | 64 / 82 |  | **ซ้ำ** | ค่า `DB_*` มาจาก `.env` |
 | `backend/health/health.controller.ts` | 26 / 39 |  | **ดัดแปลง** | บรรทัด 32 `service: 'fixbot-backend'` เป็นชื่อเก่า |
 | `backend/health/health.module.ts` | 6 / 7 |  | **ซ้ำ** |  |
 | `backend/main.ts` | 14 / 18 |  | **ดัดแปลง** | บรรทัด 15 ข้อความ log "FixBot backend running" |
-| `backend/symptom-search/embedding.service.ts` | 49 / 91 |  | **ดัดแปลง** | ย้ายไป `embedding/` (ลึกเท่าเดิม เพราะบรรทัด 30 อ้าง `../../model-slim`); ตรรกะไม่เปลี่ยน |
+| `backend/symptom-search/embedding.service.ts` | 46 / 87 |  | **ดัดแปลง** | ย้ายไป `embedding/` (ลึกเท่าเดิม เพราะบรรทัด 30 อ้าง `../../model-slim`); ตรรกะไม่เปลี่ยน |
 | `backend/symptom-search/symptom-matcher.spec.ts` | 150 / 186 | 19 | **ซ้ำ** | คัดลอก · อ่านข้อมูลแอร์ที่บรรทัด 112 |
-| `backend/symptom-search/symptom-matcher.ts` | 82 / 139 |  | **ซ้ำ** | `cosineSimilarity` ถูกใช้ซ้ำโดย `chunk-matcher.ts` |
+| `backend/symptom-search/symptom-matcher.ts` | 84 / 141 |  | **ซ้ำ** | `cosineSimilarity` ถูกใช้ซ้ำโดย `chunk-matcher.ts` |
 | `backend/symptom-search/symptom-search.controller.ts` | 23 / 42 |  | **ซ้ำ** |  |
 | `backend/symptom-search/symptom-search.dto.spec.ts` | 58 / 76 | 10 | **ซ้ำ** | คัดลอก |
 | `backend/symptom-search/symptom-search.dto.ts` | 56 / 138 |  | **ซ้ำ** |  |
@@ -109,7 +110,7 @@
 | `backend/traversal-engine/path-coverage.spec.ts` | 210 / 328 | 45 | **ซ้ำ** | คัดลอก · ถ้าข้อมูลผังเปลี่ยน ค่าคงที่บรรทัด 54–56 (13 / 95 / 106) ต้องแก้ตาม |
 | `backend/traversal-engine/traversal-engine.confidence.spec.ts` | 28 / 41 | 4 | **ซ้ำ** | คัดลอก |
 | `backend/traversal-engine/traversal-engine.spec.ts` | 505 / 676 | 37 | **ซ้ำ** | คัดลอก |
-| `backend/traversal-engine/traversal-engine.ts` | 181 / 261 |  | **ซ้ำ** | ตรรกะไม่ผูกกับชนิดเครื่อง |
+| `backend/traversal-engine/traversal-engine.ts` | 166 / 247 |  | **ซ้ำ** | ตรรกะไม่ผูกกับชนิดเครื่อง |
 | `backend/traversal-engine/types.ts` | 156 / 266 |  | **ดัดแปลง** | `DeviceCategory` บรรทัด 104–109 (มี `Microwave`); คอมเมนต์บรรทัด 141 "Phase 8" |
 | `backend/traversal/equipment.repository.ts` | 50 / 113 |  | **ซ้ำ** | OPT |
 | `backend/traversal/graph.module.ts` | 7 / 24 |  | **ซ้ำ** |  |
@@ -149,7 +150,7 @@
 | `frontend/components/step/StepCard.tsx` | 45 / 73 |  | **ซ้ำ** | OPT |
 | `frontend/components/step/StepView.tsx` | 34 / 64 |  | **ซ้ำ** |  |
 | `frontend/components/step/stepProps.ts` | 7 / 24 |  | **ซ้ำ** |  |
-| `frontend/components/ui/Button.tsx` | 41 / 47 |  | **ซ้ำ** | คัดลอก |
+| `frontend/components/ui/Button.tsx` | 41 / 49 |  | **ซ้ำ** | คัดลอก |
 | `frontend/components/ui/Icon.tsx` | 145 / 172 |  | **ซ้ำ** | คัดลอก |
 | `frontend/components/ui/Notice.tsx` | 31 / 54 |  | **ซ้ำ** | คัดลอก |
 | `frontend/env.d.ts` | 7 / 25 |  | **ดัดแปลง** | ตัด `VITE_USE_MOCK` ถ้าตัด mock |
@@ -170,11 +171,11 @@
 | `frontend/main.tsx` | 9 / 10 |  | **ซ้ำ** |  |
 | `frontend/mocks/fixtures.ts` | 48 / 72 |  | **ซ้ำ** | คัดลอก (HomePage กับ trail.test ใช้) |
 | `frontend/mocks/mockServer.test.ts` | 211 / 300 | 28 | **ตัด** | ตัดพร้อม mockServer (เทส 28 ข้อ) |
-| `frontend/mocks/mockServer.ts` | 216 / 350 |  | **ตัด** | โหมดจำลองต้องปลอมคำตอบ LLM เพิ่ม และ import ข้อมูลจาก `data/` ของ backend ตรงๆ (บรรทัด 45–46 import JSON จาก data/) — §F.10 ยืนยันได้ |
+| `frontend/mocks/mockServer.ts` | 206 / 344 |  | **ตัด** | โหมดจำลองต้องปลอมคำตอบ LLM เพิ่ม และ import ข้อมูลจาก `data/` ของ backend ตรงๆ (บรรทัด 45–46 import JSON จาก data/) — §F.10 ยืนยันได้ |
 | `frontend/pages/HomePage.tsx` | 102 / 165 |  | **ดัดแปลง** | บรรทัด 96 "ไม่ได้ให้ AI เดาเอาเอง" ไม่จริงแล้ว · ตัวอย่าง Samsung AR70H บรรทัด 59–60 |
 | `frontend/pages/NotFoundPage.tsx` | 23 / 35 |  | **ซ้ำ** | คัดลอก |
-| `frontend/pages/SessionPage.tsx` | 160 / 236 |  | **ซ้ำ** |  |
-| `frontend/pages/SymptomsPage.tsx` | 160 / 235 |  | **ซ้ำ** | OPT |
+| `frontend/pages/SessionPage.tsx` | 147 / 219 |  | **ซ้ำ** |  |
+| `frontend/pages/SymptomsPage.tsx` | 148 / 218 |  | **ซ้ำ** | OPT |
 
 ---
 
@@ -204,7 +205,7 @@
 #### เฟส 1 — Engine · ด่านตรวจ 1: `npx tsc --noEmit` ผ่าน (เทส Jest 86 ข้อ **เลื่อนไปเฟส T**)
 
 - [ ] **01** · MUST · `backend/src/traversal-engine/types.ts` · **ดัดแปลง** · อ้างอิง `types.ts` (156 บรรทัดโค้ด / 266 รวม) · เปลี่ยน: `DeviceCategory` (บรรทัด 104–109 มี `Microwave`; ปรับตามข้อ §F.2) และคอมเมนต์ที่อ้าง "retrieval (Phase 8)" (บรรทัด 141) · ตรวจ: `npx tsc --noEmit` · เวลา ≈ 1.5–2.4 ชม. (ค่าประมาณ)
-- [ ] **02** · MUST · `backend/src/traversal-engine/traversal-engine.ts` · **ซ้ำ** · อ้างอิง (181 บรรทัดโค้ด / 261 รวม) · เปลี่ยน: ไม่มี · ตรวจ: `tsc` (เลื่อนเทสไปเฟส T: ภายหลังคัดลอก `traversal-engine.spec.ts` (37 เทส) + `traversal-engine.confidence.spec.ts` (4 เทส) + `path-coverage.spec.ts` (45 เทส) และต้องมี `data/manuals/samsung_ac_ar70h.json` (path-coverage อ่านไฟล์นี้) — ไฟล์นี้คัดลอกมาแล้ว) · เวลา ≈ 2.6–4.3 ชม. (ค่าประมาณ)
+- [ ] **02** · MUST · `backend/src/traversal-engine/traversal-engine.ts` · **ซ้ำ** · อ้างอิง (166 บรรทัดโค้ด / 247 รวม) · เปลี่ยน: ไม่มี · ตรวจ: `tsc` (เลื่อนเทสไปเฟส T: ภายหลังคัดลอก `traversal-engine.spec.ts` (37 เทส) + `traversal-engine.confidence.spec.ts` (4 เทส) + `path-coverage.spec.ts` (45 เทส) และต้องมี `data/manuals/samsung_ac_ar70h.json` (path-coverage อ่านไฟล์นี้) — ไฟล์นี้คัดลอกมาแล้ว) · เวลา ≈ 2.4–4.0 ชม. (ค่าประมาณ)
 
 #### เฟส 2 — ฐานข้อมูลและชั้นเก็บข้อมูล · ด่านตรวจ 2: `npm run migrate` ครบ 001–005 + `npm run seed` ได้ "13 กราฟ · 95 โหนด" (ตัวเลขนี้คือของ FixStep ตามข้อมูลแอร์ที่คัดลอกมา)
 
@@ -214,7 +215,7 @@
 - [ ] **06** · MUST · `backend/migrations/004_add_session_confidence.sql` · **ซ้ำ** · อ้างอิง (21 บรรทัดโค้ด / 22 รวม) · เปลี่ยน: ไม่มี (คอมเมนต์บรรทัด 3 อ้าง "ขั้น 1.8" ของ FixStep) · เวลา ≈ 0.6–0.8 ชม. (ค่าประมาณ)
 - [ ] **07** · MUST · `backend/migrations/005_add_session_outcome.sql` · **ซ้ำ** · อ้างอิง (49 บรรทัดโค้ด / 50 รวม) · ตรวจ: `npm run migrate` ครบ 001–005 · เวลา ≈ 0.9–1.2 ชม. (ค่าประมาณ)
 - [ ] **08** · MUST · `backend/src/database/database.constants.ts` · **ซ้ำ** · (1 บรรทัดโค้ด / 17 รวม) · เวลา ≈ 0.4–0.4 ชม. (ค่าประมาณ)
-- [ ] **09** · MUST · `backend/src/database/database.module.ts` · **ซ้ำ** · (60 บรรทัดโค้ด / 77 รวม) · ตรวจ: `tsc` (บูตจริงตอนจบเฟส 4) · เวลา ≈ 0.9–1.2 ชม. (ค่าประมาณ)
+- [ ] **09** · MUST · `backend/src/database/database.module.ts` · **ซ้ำ** · (64 บรรทัดโค้ด / 82 รวม) · ตรวจ: `tsc` (บูตจริงตอนจบเฟส 4) · เวลา ≈ 0.9–1.3 ชม. (ค่าประมาณ)
 - [ ] **10** · MUST · `backend/src/traversal/graph.repository.ts` · **ซ้ำ** · (239 บรรทัดโค้ด / 337 รวม) · ไม่มีเทสของไฟล์นี้ (เหมือนต้นแบบ) พิสูจน์ด้วยการบูต · เวลา ≈ 3.3–5.5 ชม. (ค่าประมาณ)
 - [ ] **11** · MUST · `backend/src/traversal/session.store.ts` · **ซ้ำ** · (178 บรรทัดโค้ด / 297 รวม) · ไม่มีเทสของไฟล์นี้ · เวลา ≈ 2.6–4.2 ชม. (ค่าประมาณ)
 
@@ -225,8 +226,8 @@
 #### เฟส 3 — ค้นหาอาการเพื่อเลือกผัง · ด่านตรวจ 3: `npx tsc --noEmit` ผ่าน (Jest **เลื่อนไปเฟส T** เทสเดิมที่จะรันตอนนั้น: dto 10 เทส + matcher 19 เทส + service 13 เทส = 42 ข้อ)
 
 - [ ] **12** · MUST · `backend/src/symptom-search/symptom-search.dto.ts` · **ซ้ำ** · (56 บรรทัดโค้ด / 138 รวม) · ตรวจ: `symptom-search.dto.spec.ts` · เวลา ≈ 1.1–1.6 ชม. (ค่าประมาณ)
-- [ ] **13** · MUST · `backend/src/symptom-search/symptom-matcher.ts` · **ซ้ำ** · (82 บรรทัดโค้ด / 139 รวม) · ตรวจ: `symptom-matcher.spec.ts` (เทสนี้อ่านไฟล์ข้อมูลแอร์ที่บรรทัด 112) · **ฟังก์ชัน `cosineSimilarity` จะถูกใช้ซ้ำโดย `chunk-matcher.ts` (#36)** · เวลา ≈ 1.4–2.2 ชม. (ค่าประมาณ)
-- [ ] **14** · MUST · `backend/src/embedding/embedding.service.ts` · **ดัดแปลง** (ย้ายจาก `symptom-search/`) · อ้างอิง `embedding.service.ts` (49 บรรทัดโค้ด / 91 รวม) · เปลี่ยน: ย้ายโฟลเดอร์ (ลึกเท่าเดิม `src/<โฟลเดอร์>/` เพื่อให้ `path.resolve(__dirname, '../../model-slim')` ที่บรรทัด 30 ยังถูก) ตรรกะไม่เปลี่ยน · ตรวจ: `tsc` (ไม่มีเทส ต้องโหลดโมเดลจริง) · เวลา ≈ 1.0–1.4 ชม. (ค่าประมาณ)
+- [ ] **13** · MUST · `backend/src/symptom-search/symptom-matcher.ts` · **ซ้ำ** · (84 บรรทัดโค้ด / 141 รวม) · ตรวจ: `symptom-matcher.spec.ts` (เทสนี้อ่านไฟล์ข้อมูลแอร์ที่บรรทัด 112) · **ฟังก์ชัน `cosineSimilarity` จะถูกใช้ซ้ำโดย `chunk-matcher.ts` (#36)** · เวลา ≈ 1.4–2.2 ชม. (ค่าประมาณ)
+- [ ] **14** · MUST · `backend/src/embedding/embedding.service.ts` · **ดัดแปลง** (ย้ายจาก `symptom-search/`) · อ้างอิง `embedding.service.ts` (46 บรรทัดโค้ด / 87 รวม) · เปลี่ยน: ย้ายโฟลเดอร์ (ลึกเท่าเดิม `src/<โฟลเดอร์>/` เพื่อให้ `path.resolve(__dirname, '../../model-slim')` ที่บรรทัด 30 ยังถูก) ตรรกะไม่เปลี่ยน · ตรวจ: `tsc` (ไม่มีเทส ต้องโหลดโมเดลจริง) · เวลา ≈ 1.0–1.4 ชม. (ค่าประมาณ)
 - [ ] **15** · MUST · `backend/src/embedding/embedding.module.ts` · **ใหม่ (เล็ก)** · ขนาดอ้างอิง `graph.module.ts` (7 บรรทัดโค้ด / 24 รวม) · หน้าที่: provide + export `EmbeddingService` ให้ `symptom-search` และ `knowledge` ใช้ตัวเดียวกัน (โหลดโมเดลครั้งเดียว) · เวลา ≈ 0.5–0.5 ชม. (ค่าประมาณ)
 - [ ] **16** · MUST · `backend/src/symptom-search/symptom-search.service.ts` · **ดัดแปลง** · อ้างอิง (146 บรรทัดโค้ด / 242 รวม) · เปลี่ยน: path ของ import `embedding.service` (บรรทัด 24–28 ของเก่า) · ตรวจ: `symptom-search.service.spec.ts` (ต้องแก้ import ของเทสด้วย ดู §B) · เวลา ≈ 2.2–3.5 ชม. (ค่าประมาณ)
 
@@ -249,26 +250,26 @@
 
 > **จุดเห็นผลที่ 1:** ตอนนี้ backend เท่ากับ FixStep (เฉพาะส่วนผังขั้นตอน) ที่คุณพิมพ์เอง เปิด `frontend` ต้นแบบของ FixStep (ไม่แก้) ชี้ `VITE_API_URL` มาที่ backend ใหม่ได้ (ต้องปิด backend ต้นฉบับก่อน เพราะพอร์ตชน และ `.env` ของต้นฉบับชี้ฐานจริง) เพื่อยืนยันก่อนเริ่มส่วนเสี่ยง · **จุดตัดสินใจที่ 2:** จบเฟส 4 → ตัดสินใจ §F.1–F.4 ให้เรียบร้อยก่อนเริ่มเฟส 5
 
-#### เฟส 5 — Knowledge: ingest PDF → chunk → ดัชนีในหน่วยความจำ (**ใหม่ทั้งหมด**)
+#### เฟส 5 — Knowledge: ingest PDF → chunk → ดัชนีในหน่วยความจำ (**ใหม่ทั้งหมด**) · ⏸ **เลื่อนเป็นงานอนาคต** (8 ต.ค. 2569 — ดู §G)
 
 > ไม่มีไฟล์เก่าให้เทียบตรงๆ ชุดหลักการอ้างอิงจากของเก่า: `graph.repository.ts` (โหลดทั้งหมดตอนบูต), `symptom-search.service.ts` (สร้างดัชนี + สถานะ), `symptom-matcher.ts` (ฟังก์ชันล้วน + cosine), `seed-graphs.js` (นำเข้าแบบ upsert) · ตัวอย่างรูปร่างข้อมูล chunk ที่มีอยู่แล้วในต้นแบบ: `data/chunks/manual_samsung_Air_conditioner_AR70H_troubleshooting.json` (13 chunk) และ `manual_Samsung_WashingMachine_OID84209.json` (29 chunk) ฟิลด์: `chunk_id, device_category, brand, model, source, page, content, metadata{symptom, possible_cause, solution, severity, difficulty, safety_warning}` (ไฟล์เครื่องซักผ้ามี `embedding` และ `created_at` เพิ่มด้วย) — เป็น chunk **ระดับ "อาการ"** ไม่ใช่ข้อความดิบรายหน้า (ดู D.1)
 
 - [ ] **31** · MUST · `backend/migrations/006_create_manual_chunks.sql` · **ใหม่** · ขนาดอ้างอิง `002_create_session_tables.sql` (63 บรรทัดโค้ด / 82 รวม) · หน้าที่: ตารางเก็บ chunk (id, manual_id → FK `manuals`, เลขหน้า, ลำดับใน หน้า, ข้อความ, metadata ที่ต้องแสดง เช่น คำเตือนความปลอดภัย) **ไม่เก็บเวกเตอร์** ตามที่คุณเลือก (embed ตอนบูต) · ตรวจ: `npm run migrate` + `SHOW CREATE TABLE` · เวลา ≈ 1.2–1.9 ชม. (ค่าประมาณ)
-- [ ] **32** · MUST · `backend/src/ingest/chunker.ts` (+ `chunker.spec.ts`) · **ใหม่** · ขนาดอ้างอิง `symptom-matcher.ts` (82 บรรทัดโค้ด / 139 รวม) · ฟังก์ชันล้วน: ข้อความราย "หน้า" เข้า → chunk ออก (ขนาดและการซ้อนทับ ดู D.1, §F.4) · เวลา ≈ 2.3–3.4 ชม. (ค่าประมาณ)
-- [ ] **33** · MUST · `backend/src/ingest/pdf-text.ts` · **ใหม่** · ขนาดอ้างอิง `embedding.service.ts` (49 บรรทัดโค้ด / 91 รวม) · ดึงข้อความจาก PDF แยกตามเลขหน้า (ไลบรารีที่ใช้ **ยังไม่ตัดสินใจ** §F.3) · เวลา ≈ 1.2–1.9 ชม. (ค่าประมาณ)
+- [ ] **32** · MUST · `backend/src/ingest/chunker.ts` (+ `chunker.spec.ts`) · **ใหม่** · ขนาดอ้างอิง `symptom-matcher.ts` (84 บรรทัดโค้ด / 141 รวม) · ฟังก์ชันล้วน: ข้อความราย "หน้า" เข้า → chunk ออก (ขนาดและการซ้อนทับ ดู D.1, §F.4) · เวลา ≈ 2.3–3.5 ชม. (ค่าประมาณ)
+- [ ] **33** · MUST · `backend/src/ingest/pdf-text.ts` · **ใหม่** · ขนาดอ้างอิง `embedding.service.ts` (46 บรรทัดโค้ด / 87 รวม) · ดึงข้อความจาก PDF แยกตามเลขหน้า (ไลบรารีที่ใช้ **ยังไม่ตัดสินใจ** §F.3) · เวลา ≈ 1.2–1.8 ชม. (ค่าประมาณ)
 - [ ] **34** · MUST · `backend/src/knowledge/chunk.repository.ts` · **ใหม่** · ขนาดอ้างอิง `graph.repository.ts` (239 บรรทัดโค้ด / 337 รวม) · โหลด chunk ทั้งหมดจาก MySQL ตอนบูต · เวลา ≈ 4.5–7.9 ชม. (ค่าประมาณ)
 - [ ] **35** · MUST · `backend/scripts/ingest-manuals.js` (หรือ `.ts` ตาม §F.3) · **ใหม่** · ขนาดอ้างอิง `seed-graphs.js` (222 บรรทัดโค้ด / 314 รวม) · รัน: PDF → chunker → upsert ลง MySQL (upsert ด้วยเหตุผลเดียวกับ seed-graphs: ไม่ลบข้อมูลที่ถูกอ้างอยู่) · เวลา ≈ 4.2–7.4 ชม. (ค่าประมาณ)
-- [ ] **36** · MUST · `backend/src/knowledge/chunk-matcher.ts` (+ spec) · **ใหม่** · ขนาดอ้างอิง `symptom-matcher.ts` (82 บรรทัดโค้ด / 139 รวม) · ฟังก์ชันล้วน: จัดอันดับ chunk ด้วย cosine (import `cosineSimilarity` จาก #13) + กรองตามประเภท/รุ่น + เลือก top-k ที่ผ่านเกณฑ์ · เวลา ≈ 2.3–3.4 ชม. (ค่าประมาณ)
+- [ ] **36** · MUST · `backend/src/knowledge/chunk-matcher.ts` (+ spec) · **ใหม่** · ขนาดอ้างอิง `symptom-matcher.ts` (84 บรรทัดโค้ด / 141 รวม) · ฟังก์ชันล้วน: จัดอันดับ chunk ด้วย cosine (import `cosineSimilarity` จาก #13) + กรองตามประเภท/รุ่น + เลือก top-k ที่ผ่านเกณฑ์ · เวลา ≈ 2.3–3.5 ชม. (ค่าประมาณ)
 - [ ] **37** · MUST · `backend/src/knowledge/knowledge-index.service.ts` (+ spec แบบตัวแปลงข้อความปลอม) · **ใหม่** · ขนาดอ้างอิง `symptom-search.service.ts` (146 บรรทัดโค้ด / 242 รวม) · สร้างดัชนี chunk ตอนบูต (ไม่รอ: ใช้ pattern `onApplicationBootstrap(): void` เดียวกับของเก่า) · สถานะ `disabled/loading/ready/failed` · เวลา ≈ 3.7–5.8 ชม. (ค่าประมาณ)
 - [ ] **38** · MUST · `backend/src/knowledge/knowledge.module.ts` · **ใหม่** · ขนาดอ้างอิง `symptom-search.module.ts` (12 บรรทัดโค้ด / 24 รวม) · เวลา ≈ 0.5–0.6 ชม. (ค่าประมาณ)
 
 > **จุดเห็นผลที่ 2:** รัน `ingest` กับ PDF จริง 1 เล่ม → ดูแถวใน `manual_chunks` → บูต → `GET .../status` ว่าดัชนีพร้อมและจำนวน chunk ตรงกับตาราง **วัดเวลาโหลดดัชนีบนเครื่องคุณจริง** (โค้ด embed ทีละข้อความ ที่ `symptom-search.service.ts:160–162` จึงเวลาโตตามจำนวน chunk)
 
-#### เฟส 6 — Answer: RAG + ด่านกันแต่งคำตอบ (**ใหม่ทั้งหมด**)
+#### เฟส 6 — Answer: RAG + ด่านกันแต่งคำตอบ (**ใหม่ทั้งหมด**) · ⏸ **เลื่อนเป็นงานอนาคต** (8 ต.ค. 2569 — ดู §G)
 
 - [ ] **39** · MUST · `backend/src/answer/prompt-builder.ts` (+ spec) · **ใหม่** · ขนาดอ้างอิง `symptom-search.dto.ts` (56 บรรทัดโค้ด / 138 รวม) · ฟังก์ชันล้วน: คำถาม + chunk → ข้อความที่ส่ง LLM (D.4) · เวลา ≈ 1.7–2.5 ชม. (ค่าประมาณ)
-- [ ] **40** · MUST · `backend/src/answer/grounding-guard.ts` (+ spec) · **ใหม่** · ขนาดอ้างอิง `symptom-matcher.ts` (82 บรรทัดโค้ด / 139 รวม) · ฟังก์ชันล้วน: ตัดสินว่า "ตอบ / ปฏิเสธ" จากคะแนน และประกอบแหล่งอ้างอิงจาก metadata (D.5–D.7) · เวลา ≈ 2.3–3.4 ชม. (ค่าประมาณ)
-- [ ] **41** · MUST · `backend/src/answer/llm.client.ts` · **ใหม่** · ขนาดอ้างอิง `embedding.service.ts` (49 บรรทัดโค้ด / 91 รวม) (ตัวห่อไลบรารีภายนอก) · ห่อไคลเอนต์เรียก Groq (ไลบรารี/วิธีเรียกยังไม่ตัดสินใจ §F.9) ให้ service ฉีดตัวปลอมในเทสได้ (D.8) · เวลา ≈ 1.2–1.9 ชม. (ค่าประมาณ)
+- [ ] **40** · MUST · `backend/src/answer/grounding-guard.ts` (+ spec) · **ใหม่** · ขนาดอ้างอิง `symptom-matcher.ts` (84 บรรทัดโค้ด / 141 รวม) · ฟังก์ชันล้วน: ตัดสินว่า "ตอบ / ปฏิเสธ" จากคะแนน และประกอบแหล่งอ้างอิงจาก metadata (D.5–D.7) · เวลา ≈ 2.3–3.5 ชม. (ค่าประมาณ)
+- [ ] **41** · MUST · `backend/src/answer/llm.client.ts` · **ใหม่** · ขนาดอ้างอิง `embedding.service.ts` (46 บรรทัดโค้ด / 87 รวม) (ตัวห่อไลบรารีภายนอก) · ห่อไคลเอนต์เรียก Groq (ไลบรารี/วิธีเรียกยังไม่ตัดสินใจ §F.9) ให้ service ฉีดตัวปลอมในเทสได้ (D.8) · เวลา ≈ 1.2–1.8 ชม. (ค่าประมาณ)
 - [ ] **42** · MUST · `backend/src/answer/answer.dto.ts` (+ spec) · **ใหม่** · ขนาดอ้างอิง `symptom-search.dto.ts` (56 บรรทัดโค้ด / 138 รวม) (ตัวตรวจ body + ชนิด response) · เวลา ≈ 1.7–2.5 ชม. (ค่าประมาณ)
 - [ ] **43** · MUST · `backend/src/answer/answer.service.ts` (+ spec ด้วย llm ปลอม) · **ใหม่** · ขนาดอ้างอิง `traversal.service.ts` (130 บรรทัดโค้ด / 252 รวม) (ต่อชิ้นส่วน ไม่มีตรรกะของตัวเอง) · เวลา ≈ 3.4–5.2 ชม. (ค่าประมาณ)
 - [ ] **44** · MUST · `backend/src/answer/answer.exception.filter.ts` (+ spec) · **ใหม่** · ขนาดอ้างอิง `symptom-search.exception.filter.ts` (34 บรรทัดโค้ด / 62 รวม) · เวลา ≈ 1.2–1.7 ชม. (ค่าประมาณ)
@@ -282,21 +283,21 @@
 
 **0B — ตั้งต้น frontend** ดู §E.3 (ทำก่อน #48)
 
-- [ ] **48** · MUST · `frontend/src/api/types.ts` · **ดัดแปลง** · (64 บรรทัดโค้ด / 167 รวม) · เปลี่ยน: เพิ่มชนิดของคำตอบ RAG (answer, citation, confidence) · ไฟล์เก่า import ตรงจาก `../../../backend/src/traversal-engine/types` (จุดเดียวของ frontend ปกติ) · ตรวจ: `npx tsc -b` · เวลา ≈ 0.9–1.2 ชม. (ค่าประมาณ)
+- [ ] **48** · MUST · `frontend/src/api/types.ts` · **ดัดแปลง** · (64 บรรทัดโค้ด / 167 รวม) · เปลี่ยน: **ตอนนี้ไม่เปลี่ยน พิมพ์ตามเดิม** (ส่วนเพิ่มชนิดคำตอบ RAG เลื่อนเป็นงานอนาคต §G) · ไฟล์เก่า import ตรงจาก `../../../backend/src/traversal-engine/types` (จุดเดียวของ frontend ปกติ) · ตรวจ: `npx tsc -b` · เวลา ≈ 0.9–1.2 ชม. (ค่าประมาณ)
 - [ ] **49** · MUST · `frontend/src/api/http.ts` · **ซ้ำ** · (53 บรรทัดโค้ด / 90 รวม) · ตรวจ: `http.test.ts` (5 เทส) · เวลา ≈ 1.0–1.4 ชม. (ค่าประมาณ)
 - [ ] **50** · MUST · `frontend/src/lib/outcome.ts` · **ซ้ำ** · (14 บรรทัดโค้ด / 47 รวม) · `outcome.test.ts` (9 เทส) · เวลา ≈ 0.5–0.7 ชม. (ค่าประมาณ)
-- [ ] **51** · MUST · `frontend/src/lib/errors.ts` · **ดัดแปลง** · (112 บรรทัดโค้ด / 168 รวม) · เปลี่ยน: เพิ่ม `case` ของรหัส error ใหม่ของ endpoint ถามตอบ (เช่น ปฏิเสธเพราะคะแนนต่ำ, LLM ไม่พร้อม — รหัสจริงกำหนดตอน #44) · `errors.test.ts` (21 เทส) ต้องเพิ่มเคส · เวลา ≈ 1.6–2.5 ชม. (ค่าประมาณ)
+- [ ] **51** · MUST · `frontend/src/lib/errors.ts` · **ดัดแปลง** · (112 บรรทัดโค้ด / 168 รวม) · เปลี่ยน: **ตอนนี้ไม่เปลี่ยน พิมพ์ตามเดิม** (ส่วนเพิ่ม `case` ของรหัส error ถามตอบ เลื่อนเป็นงานอนาคต §G) · `errors.test.ts` (21 เทส) ต้องเพิ่มเคส · เวลา ≈ 1.6–2.5 ชม. (ค่าประมาณ)
 - [ ] (คัดลอก `frontend/src/mocks/fixtures.ts` (48 บรรทัดโค้ด / 72 รวม) — `trail.test.ts` และ HomePage ใช้)
 - [ ] **52** · MUST · `frontend/src/lib/trail.ts` · **ซ้ำ** · (25 บรรทัดโค้ด / 59 รวม) · `trail.test.ts` (6 เทส) · เวลา ≈ 0.7–0.9 ชม. (ค่าประมาณ)
 - [ ] **53** · OPT · `frontend/src/lib/reference.ts` · **ซ้ำ** · (11 บรรทัดโค้ด / 38 รวม) · `reference.test.ts` (4 เทส) · เวลา ≈ 0.4–0.5 ชม. (ค่าประมาณ)
 - [ ] **54** · OPT · `frontend/src/lib/symptoms.ts` · **ซ้ำ** · (33 บรรทัดโค้ด / 80 รวม) · `symptoms.test.ts` (5 เทส) · เวลา ≈ 0.6–0.9 ชม. (ค่าประมาณ)
 - [ ] **55** · OPT · `frontend/src/lib/search.ts` · **ซ้ำ** · (14 บรรทัดโค้ด / 43 รวม) · `search.test.ts` (6 เทส) · เวลา ≈ 0.4–0.5 ชม. (ค่าประมาณ)
 - [ ] **56** · OPT · `frontend/src/lib/labels.ts` · **ดัดแปลง** · (27 บรรทัดโค้ด / 72 รวม) · เปลี่ยน: ป้ายประเภทเครื่อง (บรรทัด 24 มี `Microwave`) ตาม §F.2 · เวลา ≈ 0.5–0.8 ชม. (ค่าประมาณ)
-- [ ] **57** · MUST · `frontend/src/lib/citation.ts` (+ test) · **ใหม่** · ขนาดอ้างอิง `lib/reference.ts` (11 บรรทัดโค้ด / 38 รวม) · ฟังก์ชันล้วนจัดข้อความอ้างอิง (ชื่อคู่มือ + หน้า) จากรายการ citation ของ backend · เวลา ≈ 0.6–0.8 ชม. (ค่าประมาณ)
-- [ ] **58** · MUST · `frontend/src/api/traversal.ts` · **ดัดแปลง** · (78 บรรทัดโค้ด / 134 รวม) · เปลี่ยน: **ลบสาขา mock** (`VITE_USE_MOCK` ที่บรรทัด 40, 56, 68, 85, 97, 115, 127 และ `import('../mocks/mockServer')`) + เพิ่มฟังก์ชันเรียก endpoint ถามตอบ · เวลา ≈ 1.2–1.9 ชม. (ค่าประมาณ)
-- [ ] **59** · MUST · `frontend/src/api/queries.ts` · **ดัดแปลง** · (83 บรรทัดโค้ด / 162 รวม) · เปลี่ยน: ตัด `enabled: VITE_USE_MOCK !== 'true'` (บรรทัด 45) + เพิ่ม mutation ถามตอบ (ใช้ `useMutation` ด้วยเหตุผลเดียวกับการค้นหาของเก่า: ทำเมื่อผู้ใช้กด และไม่ควรจำผลเก่า) · เวลา ≈ 1.3–2.0 ชม. (ค่าประมาณ)
+- [ ] **57** · MUST · `frontend/src/lib/citation.ts` (+ test) · **ใหม่** · ขนาดอ้างอิง `lib/reference.ts` (11 บรรทัดโค้ด / 38 รวม) · ฟังก์ชันล้วนจัดข้อความอ้างอิง (ชื่อคู่มือ + หน้า) จากรายการ citation ของ backend · ⏸ **เลื่อนเป็นงานอนาคต (RAG)** · เวลา ≈ 0.6–0.8 ชม. (ค่าประมาณ)
+- [ ] **58** · MUST · `frontend/src/api/traversal.ts` · **ดัดแปลง** · (78 บรรทัดโค้ด / 134 รวม) · เปลี่ยน: **ลบสาขา mock** (ตำแหน่งบรรทัดอ้างจากต้นแบบเก่า ต้นแบบปัจจุบันถูก clean up อาจเลื่อน ให้ค้นคำว่า `VITE_USE_MOCK` และ `import('../mocks/mockServer')`) · ส่วนเพิ่มฟังก์ชันเรียก endpoint ถามตอบ เลื่อนเป็นงานอนาคต §G · เวลา ≈ 1.2–1.9 ชม. (ค่าประมาณ)
+- [ ] **59** · MUST · `frontend/src/api/queries.ts` · **ดัดแปลง** · (83 บรรทัดโค้ด / 162 รวม) · เปลี่ยน: ตัด `enabled: VITE_USE_MOCK !== 'true'` (บรรทัด 45) · ส่วนเพิ่ม mutation ถามตอบ เลื่อนเป็นงานอนาคต §G · เวลา ≈ 1.3–2.0 ชม. (ค่าประมาณ)
 
-คัดลอกก่อนเฟส 7 ส่วนกล่อง: `components/ui/Icon.tsx` (145 บรรทัดโค้ด / 172 รวม), `Button.tsx` (41 บรรทัดโค้ด / 47 รวม), `Notice.tsx` (31 บรรทัดโค้ด / 54 รวม)
+คัดลอกก่อนเฟส 7 ส่วนกล่อง: `components/ui/Icon.tsx` (145 บรรทัดโค้ด / 172 รวม), `Button.tsx` (41 บรรทัดโค้ด / 49 รวม), `Notice.tsx` (31 บรรทัดโค้ด / 54 รวม)
 
 - [ ] **60** · MUST · `frontend/src/components/step/stepProps.ts` · **ซ้ำ** · (7 บรรทัดโค้ด / 24 รวม) · เวลา ≈ 0.5–0.5 ชม. (ค่าประมาณ)
 - [ ] **61** · OPT · `.../step/ReferenceLine.tsx` · **ซ้ำ** · (26 บรรทัดโค้ด / 42 รวม) · เวลา ≈ 0.5–0.7 ชม. (ค่าประมาณ)
@@ -309,21 +310,21 @@
 - [ ] **68** · MUST · `.../step/StepView.tsx` · **ซ้ำ** · (34 บรรทัดโค้ด / 64 รวม) · เวลา ≈ 0.7–1.0 ชม. (ค่าประมาณ)
 - [ ] **69** · MUST · `frontend/src/components/OutcomeForm.tsx` · **ซ้ำ** · (102 บรรทัดโค้ด / 143 รวม) · เวลา ≈ 1.4–2.1 ชม. (ค่าประมาณ)
 - [ ] **70** · OPT · `SessionHeader.tsx` (46 บรรทัดโค้ด / 54 รวม) + `TerminalActions.tsx` (23 บรรทัดโค้ด / 31 รวม) + `SessionErrorNotice.tsx` (35 บรรทัดโค้ด / 48 รวม) · **ซ้ำ** · เวลา ≈ 1.2–2.0 ชม. (ค่าประมาณ)
-- [ ] **71** · MUST · `frontend/src/components/CitationList.tsx` · **ใหม่** · ขนาดอ้างอิง `ReferenceLine.tsx` (26 บรรทัดโค้ด / 42 รวม) · แสดงรายการอ้างอิง (ชื่อคู่มือ + หน้า) · เวลา ≈ 0.7–1.0 ชม. (ค่าประมาณ)
-- [ ] **72** · MUST · `frontend/src/components/AnswerPanel.tsx` · **ใหม่** · ขนาดอ้างอิง `OutcomeForm.tsx` (102 บรรทัดโค้ด / 143 รวม) (ฟอร์ม + สถานะ + error) · แสดงคำตอบ + คะแนน + รายการอ้างอิง หรือข้อความปฏิเสธ · เวลา ≈ 1.8–2.9 ชม. (ค่าประมาณ)
+- [ ] **71** · MUST · `frontend/src/components/CitationList.tsx` · **ใหม่** · ขนาดอ้างอิง `ReferenceLine.tsx` (26 บรรทัดโค้ด / 42 รวม) · แสดงรายการอ้างอิง (ชื่อคู่มือ + หน้า) · ⏸ **เลื่อนเป็นงานอนาคต (RAG)** · เวลา ≈ 0.7–1.0 ชม. (ค่าประมาณ)
+- [ ] **72** · MUST · `frontend/src/components/AnswerPanel.tsx` · **ใหม่** · ขนาดอ้างอิง `OutcomeForm.tsx` (102 บรรทัดโค้ด / 143 รวม) (ฟอร์ม + สถานะ + error) · แสดงคำตอบ + คะแนน + รายการอ้างอิง หรือข้อความปฏิเสธ · ⏸ **เลื่อนเป็นงานอนาคต (RAG)** · เวลา ≈ 1.8–2.9 ชม. (ค่าประมาณ)
 
 คัดลอกก่อน #73: `components/EquipmentPanel.tsx` (76 บรรทัดโค้ด / 107 รวม), `components/step/PathRail.tsx` (68 บรรทัดโค้ด / 113 รวม)
 
-- [ ] **73** · MUST · `frontend/src/pages/SessionPage.tsx` · **ซ้ำ** · (160 บรรทัดโค้ด / 236 รวม) · เวลา ≈ 1.9–3.1 ชม. (ค่าประมาณ)
+- [ ] **73** · MUST · `frontend/src/pages/SessionPage.tsx` · **ซ้ำ** · (147 บรรทัดโค้ด / 219 รวม) · เวลา ≈ 1.8–2.9 ชม. (ค่าประมาณ)
 
 คัดลอกก่อน #74: `SymptomRow.tsx` (61 บรรทัดโค้ด / 87 รวม), `SymptomSearchForm.tsx` (53 บรรทัดโค้ด / 69 รวม), `SymptomSearchResults.tsx` (46 บรรทัดโค้ด / 61 รวม)
 
-- [ ] **74** · OPT · `frontend/src/pages/SymptomsPage.tsx` · **ซ้ำ** · (160 บรรทัดโค้ด / 235 รวม) · เวลา ≈ 1.8–2.9 ชม. (ค่าประมาณ)
-- [ ] **75** · MUST · `frontend/src/pages/AskPage.tsx` · **ใหม่** · ขนาดอ้างอิง `SymptomsPage.tsx` (160 บรรทัดโค้ด / 235 รวม) (หน้าที่มีช่องพิมพ์ + เรียก mutation + แสดงผล) · เวลา ≈ 2.5–4.3 ชม. (ค่าประมาณ)
+- [ ] **74** · OPT · `frontend/src/pages/SymptomsPage.tsx` · **ซ้ำ** · (148 บรรทัดโค้ด / 218 รวม) · เวลา ≈ 1.6–2.7 ชม. (ค่าประมาณ)
+- [ ] **75** · MUST · `frontend/src/pages/AskPage.tsx` · **ใหม่** · ขนาดอ้างอิง `SymptomsPage.tsx` (148 บรรทัดโค้ด / 218 รวม) (หน้าที่มีช่องพิมพ์ + เรียก mutation + แสดงผล) · ⏸ **เลื่อนเป็นงานอนาคต (RAG)** · เวลา ≈ 2.4–4.0 ชม. (ค่าประมาณ)
 
 คัดลอก/ดัดแปลงก่อน #76: `components/layout/AppShell.tsx` (63 บรรทัดโค้ด / 95 รวม; **แก้** `APP_NAME = 'FixStep'` บรรทัด 21 และคอมเมนต์บรรทัด 17–18), `ServerStatus.tsx` (37 บรรทัดโค้ด / 60 รวม), `pages/HomePage.tsx` (102 บรรทัดโค้ด / 165 รวม; **แก้** ข้อความบรรทัด 96 "ไม่ได้ให้ AI เดาเอาเอง" ซึ่งไม่จริงแล้วสำหรับโปรเจกต์ใหม่ + ตัวอย่าง Samsung AR70H บรรทัด 59–60 ถ้าเปลี่ยนข้อมูล), `pages/NotFoundPage.tsx` (23 บรรทัดโค้ด / 35 รวม)
 
-- [ ] **76** · MUST · `frontend/src/App.tsx` · **ดัดแปลง** · (32 บรรทัดโค้ด / 48 รวม) · เปลี่ยน: เพิ่ม route `/ask` · เวลา ≈ 0.7–1.0 ชม. (ค่าประมาณ)
+- [ ] **76** · MUST · `frontend/src/App.tsx` · **ดัดแปลง** · (32 บรรทัดโค้ด / 48 รวม) · เปลี่ยน: **ตอนนี้ไม่เปลี่ยน พิมพ์ตามเดิม** (ส่วนเพิ่ม route `/ask` เลื่อนเป็นงานอนาคต §G) · เวลา ≈ 0.7–1.0 ชม. (ค่าประมาณ)
 - [ ] **77** · MUST · `frontend/src/main.tsx` · **ซ้ำ** · (9 บรรทัดโค้ด / 10 รวม) · ตรวจ: `npm run build` + `npm test` + ลองจริงกับ backend (ผัง → ด่านคำเตือน → จบ → บันทึกผล และหน้าถามตอบ) · เวลา ≈ 0.5–0.6 ชม. (ค่าประมาณ)
 
 #### เฟส 8 — Deploy · **ยังไม่ตัดสินใจ** (ผู้ให้บริการ/โฮสต์ยังไม่ได้คุย) §F.11 — เอกสารนี้ไม่ใส่ขั้นตอน deploy เพราะ stack ส่วนนี้ผมไม่ได้รับคำตอบ
@@ -334,23 +335,32 @@
 
 - [ ] **T1** · คัดลอกเทส backend เดิม 10 ไฟล์ (183 ข้อ) ไปไว้โฟลเดอร์เดียวกับไฟล์ที่ทดสอบ แก้ path import ของ `symptom-search.service.spec.ts` (ย้าย `embedding.service`) แล้ว `npx jest` · ถ้ามีข้อพัง ให้ไล่ดูทีละข้อ เพราะอาจเป็นบั๊กที่พิมพ์ผิดตอนเฟส 1–4 (ผลที่ต้องการ: 183 ผ่าน เท่ากับต้นแบบ ยกเว้นข้อที่เกี่ยวกับค่าที่คุณเปลี่ยนเอง เช่น ตัด `Microwave`)
 - [ ] **T2** · คัดลอกเทส frontend เดิม 7 ไฟล์ (ไม่รวม `mockServer.test.ts`) แล้ว `npm test` (ผลที่ต้องการ 56 ผ่าน หลังแก้ `errors.test.ts` ให้ตรงรหัส error ใหม่)
-- [ ] **T3** · เขียนเทสของไฟล์ใหม่: `chunker`, `chunk-matcher`, `knowledge-index.service`, `prompt-builder`, `grounding-guard`, `answer.dto`, `answer.service` (ใช้ llm ปลอม), `answer.exception.filter`, `lib/citation` · ทุกเคสต้องอธิบายได้
+- [ ] **T3** · ⏸ **เลื่อนเป็นงานอนาคตพร้อม RAG (§G)** · เขียนเทสของไฟล์ใหม่: `chunker`, `chunk-matcher`, `knowledge-index.service`, `prompt-builder`, `grounding-guard`, `answer.dto`, `answer.service` (ใช้ llm ปลอม), `answer.exception.filter`, `lib/citation` · ทุกเคสต้องอธิบายได้
 - เวลา: T1–T2 ≈ 1–2 ชม. (คัดลอก + แก้ path + ไล่ข้อที่พัง · ค่าประมาณ ไม่ได้วัด) · T3 ≈ **3.9 ชม.** (ค่าประมาณ: ส่วนของเวลาเขียนเทสที่ถูกนับรวมอยู่ในช่วงเวลาของไฟล์ใหม่ใน §C.1 ตามตัวคูณ 1.6–2.6 เทียบกับ 1.2–2.2 ของไฟล์ใหม่ที่ไม่มีเทส · ตัวเลขนี้ **ย้ายมาทีหลัง ไม่ได้หายไป**)
 
 ### C.2 สรุปเวลา (ค่าประมาณ ตามสูตร §0)
 
+**ขอบเขตปัจจุบัน: พอร์ต FixStep**
+
 | ส่วน | MUST (ไฟล์) | ชม. MUST (ช่วง) | OPT (ไฟล์) | ชม. OPT (ช่วง) |
 |---|--:|--:|--:|--:|
-| เฟส 0 ตั้งต้น (§E) | — | ≈ 4–7 (ประมาณจาก FixStep 4.7) | — | — |
-| เฟส 1 Engine | 2 | 4.1–6.6 | 0 | 0.0–0.0 |
-| เฟส 2 ฐานข้อมูล/ชั้นเก็บข้อมูล | 8 | 10.9–16.8 | 1 | 0.6–0.8 |
+| เฟส 0 ตั้งต้น (§E) | — | ≈ 4–7 (ประมาณจาก FixStep 4.7; ไม่ต้องติดตั้ง Groq/PDF ตอนนี้ จึงน่าจะใกล้ขอบล่าง) | — | — |
+| เฟส 1 Engine | 2 | 3.9–6.3 | 0 | 0.0–0.0 |
+| เฟส 2 ฐานข้อมูล/ชั้นเก็บข้อมูล | 8 | 10.9–16.9 | 1 | 0.6–0.8 |
 | เฟส 3 ค้นหาอาการ→ผัง | 5 | 6.1–9.3 | 0 | 0.0–0.0 |
 | เฟส 4 REST ของผัง (backend เท่า FixStep) | 9 | 8.4–12.0 | 5 | 2.7–3.8 |
-| เฟส 5 Knowledge (ingest/chunk/ดัชนี) | 8 | 20.0–32.5 | 0 | 0.0–0.0 |
+| เฟส 7 Frontend (ส่วนพอร์ตจาก FixStep) | 14 | 13.6–19.7 | 12 | 8.4–12.5 |
+| **รวมขอบเขตปัจจุบัน (เฟส 1–4, 7)** | | **42.9–64.1** | | 11.6–17.1 |
+| **MUST + เฟส 0 + เทสเดิม T1–T2 (≈1–2) + อ่านเทส/เอกสาร 4 + ซ้อมตอบ 6** | | **≈ 57.9–83.1** | | (OPT ถ้าพิมพ์ครบ บวกอีก 11.6–17.1) |
+
+**เลื่อนเป็นงานอนาคต: RAG (§G) — ยังไม่นับในความคืบหน้า**
+
+| ส่วน | MUST (ไฟล์) | ชม. MUST (ช่วง) | OPT (ไฟล์) | ชม. OPT (ช่วง) |
+|---|--:|--:|--:|--:|
+| เฟส 5 Knowledge (ingest/chunk/ดัชนี) | 8 | 20.0–32.6 | 0 | 0.0–0.0 |
 | เฟส 6 Answer (RAG + ด่านกันแต่ง) | 7 | 11.6–17.7 | 2 | 0.9–1.2 |
-| เฟส 7 Frontend | 18 | 19.4–28.9 | 12 | 8.5–12.7 |
-| **รวมเฟส 1–7** | | **80.5–123.8** | | 12.6–18.5 |
-| **MUST + เฟส 0 + อ่านเทส/เอกสาร 4 + ซ้อมตอบ 6** | | **≈ 94.5–140.8** | | (OPT ถ้าพิมพ์ครบ บวกอีก 12.6–18.5) |
+| เฟส 7 Frontend (ไฟล์ใหม่ของหน้า /ask) | 4 | 5.5–8.7 | 0 | 0.0–0.0 |
+| **รวมงานอนาคต (ยังไม่รวมเทสใหม่ T3 ≈ 3.9 ชม. ที่นับอยู่ในช่วงของไฟล์ใหม่ข้างบนแล้ว)** | | **37.2–59.0** | | 0.9–1.2 |
 
 - รวมงานที่ไม่ใช่การพิมพ์ (ประเมินคร่าวๆ จากของเก่า ไม่ใช่ค่าที่วัด): อ่านเทส/เอกสาร ≈ 4 ชม. · ซ้อมตอบปากเปล่า ≈ 6 ชม. (สองตัวเลขนี้คือที่ ROADMAP เก่าของ FixStep ตั้งไว้ ผมไม่มีข้อมูลใหม่ที่ดีกว่า) · เขียนเทสของไฟล์ใหม่รวมอยู่ในช่วงเวลาของไฟล์ (ตัวคูณ 1.6–2.6) ซึ่งตอนนี้ **เลื่อนไปทำที่เฟส T** (ประมาณ 3.9 ชม. ของช่วงเวลา MUST ข้างบนคือเวลาเขียนเทส ไม่ใช่เวลาพิมพ์ไฟล์) · ตั้งต้นโปรเจกต์ (เฟส 0) ดู §E · **ไม่รวม** การหา/เตรียม PDF, การตั้งชุดคำถามวัดผล (D.9), เฟส 8
 - ถ้าเวลาไม่พอ ลำดับตัดตามแบบ FixStep: ตัดไฟล์ OPT ก่อน (คัดลอกแทน) แล้วตัดเฟส 7 ส่วน UI ของกล่องขั้นตอนที่ไม่ใช่ SafetyGate · **เฟส 5–6 (ส่วนใหม่) ไม่ควรตัด** เพราะเป็นหัวใจที่อาจารย์ถาม
@@ -487,6 +497,26 @@
 ---
 
 **F.18 — ผลของการเลื่อนเทส (ตัดสินใจ 7 ต.ค.):** ความเสี่ยงที่ผมเห็นจากโค้ดต้นแบบ (ไม่ใช่ข้อห้าม ตัดสินใจเป็นของคุณ): (1) เทสเดิมคือ "เฉลย" ของ engine และ session ที่ใช้ซ้ำ ถ้าพิมพ์ผิดเล็กน้อย (เช่น สลับ `on_yes`/`on_no`) `tsc` ไม่จับ จะรู้ตอนเฟส T เท่านั้น และต้องย้อนหาว่าผิดไฟล์ไหน (2) ด่านความปลอดภัยอยู่ใน `traversal-engine.ts` #02 ซึ่งเทสเดิมครอบอยู่ ระหว่างเลื่อนเทส ไม่มีอะไรยืนยันว่าด่านทำงานจนกว่าจะถึง smoke test ที่ #30 (ส่ง `continue` ให้โหนดต้องยืนยันคำเตือนต้องได้ 400) จึง **ห้ามข้ามขั้น smoke test นั้น** (3) การรันเทสเดิมไม่ต้องพิมพ์โค้ด ถ้าอยากได้ความมั่นใจเร็วขึ้นโดยไม่เขียนเทส ให้เรียกใช้ T1 เฉพาะ `traversal-engine/` ครั้งเดียวหลัง #02 ก็ได้ (ใช้เวลาไม่กี่นาที) · `jest.config.js` และ jest ที่ติดตั้งแล้วยังอยู่ `npm test` จะผ่านโดยไม่พบเทส ไม่ต้องแก้อะไร
+
+## G. งานในอนาคต: RAG (เลื่อนตามที่ตัดสินใจ 8 ต.ค. 2569)
+
+**ขอบเขตที่เลื่อน** (ยังไม่เริ่ม ไม่นับในความคืบหน้า "ขอบเขตปัจจุบัน"):
+
+| กลุ่ม | ไฟล์ | หมายเหตุ |
+|---|---|---|
+| เฟส 5 knowledge | #31–#38 (8 ไฟล์ MUST) | migration `006_create_manual_chunks`, `chunker`, `pdf-text`, `chunk.repository`, ingest script, `chunk-matcher`, `knowledge-index.service`, `knowledge.module` |
+| เฟส 6 answer | #39–#47 (7 MUST + 2 OPT) | `prompt-builder`, `grounding-guard`, `llm.client` (Groq), `answer.dto/service/exception.filter/controller/module`, `app.module` รอบสอง |
+| frontend ใหม่ | #57 `lib/citation.ts`, #71 `CitationList`, #72 `AnswerPanel`, #75 `AskPage` | หน้า `/ask` |
+| ส่วนเพิ่มในไฟล์ที่พอร์ต | #48 `api/types.ts` (ชนิดคำตอบ), #51 `lib/errors.ts` (รหัส error ถามตอบ), #58 `api/traversal.ts` (ฟังก์ชันถามตอบ), #59 `api/queries.ts` (mutation), #76 `App.tsx` (route `/ask`) | ตอนนี้พิมพ์ตามต้นแบบเดิม ไม่ใส่ส่วนที่เกี่ยวกับ RAG |
+| เทสใหม่ | T3 | เทสของโมดูลใหม่ทั้งหมด |
+
+**สิ่งที่ไม่ต้องทำตอนนี้ (ประหยัดไว้):** ติดตั้งไลบรารี Groq, ไลบรารีอ่าน PDF, หา PDF คู่มือ, ตั้งชุดคำถามวัดผล, คัดลอก `model-slim/` (ยกเว้นต้องการทดลองค้นหาอาการจริง), ตั้ง `GROQ_API_KEY`
+
+**สิ่งที่ยังต้องตัดสินใจก่อนกลับมาทำ (จาก §F):** F.1 (ยืนยันแล้ว: หน้า `/ask` แยก) · F.3 ไลบรารีและไฟล์ PDF · F.4 ขนาด chunk · F.5 วัดเวลาบูต/คุณภาพ embedding กับ chunk ยาว · F.7 เกณฑ์ปฏิเสธใหม่ · F.8 · F.9 Groq (ต้องอ่านเอกสาร) · **F.12 ช่องโหว่ข้ามด่านความปลอดภัยผ่านหน้า `/ask` (ต้องออกแบบก่อนเริ่มเฟส 6)**
+
+**สิ่งที่ทำไว้แล้วซึ่งรองรับงานอนาคต (ไม่ต้องทำซ้ำ):** `EmbeddingService` ย้ายเป็นโมดูลกลาง `src/embedding/` (#14, #15) พร้อมให้ `knowledge` ยืมตัวเดียวกัน · `cosineSimilarity` ที่ export ไว้ใน `symptom-matcher.ts` (#13) ให้ `chunk-matcher` ใช้ซ้ำ
+
+**ข้อควรระวังเมื่อกลับมา:** ตัวเลข/ข้อสันนิษฐานในเฟส 5–6 และ §D ทำจากต้นแบบ ณ 6–8 ต.ค. 2569 ต้องตรวจซ้ำกับสถานะจริงตอนนั้น
 
 ## ภาคผนวก ก: ตารางบันทึกเวลาจริง
 
