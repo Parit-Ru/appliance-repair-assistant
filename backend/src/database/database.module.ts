@@ -1,10 +1,32 @@
+import { X509Certificate } from 'crypto';
 import { Global, Module, Logger, OnApplicationShutdown, Inject } from '@nestjs/common';
 import * as mysql from 'mysql2/promise';
 
 import { MYSQL_POOL } from './database.constants';
 
+/**
+ * แปลงค่า DB_SSL_CA ให้เป็น PEM ที่ Node อ่านได้
+ * ค่าที่วางใน Render ไม่ผ่าน dotenv จึงไม่มีใครตัดให้ ต้องตัดเองสองอย่างที่พลาดบ่อย:
+ *   - ทั้งบรรทัดของ .env ติดมา (DB_SSL_CA="...")  - เครื่องหมายคำพูดที่ห่อค่าไว้
+ * และแปลง \n ที่เป็นตัวอักษรให้เป็นขึ้นบรรทัดใหม่จริง
+ */
 function normalizePem(value: string): string {
-  return value.replace(/\\n/g, '\n').trim();
+  return value
+    .trim()
+    .replace(/^DB_SSL_CA\s*=\s*/, '')
+    .replace(/^["']|["']$/g, '')
+    .replace(/\\n/g, '\n')
+    .trim();
+}
+
+/** อ่านใบรับรองเพื่อรายงานใน log (ไม่พิมพ์เนื้อใบรับรอง) — ถ้าอ่านไม่ได้ Node จะไม่ฟ้องทันที แต่ไปฟ้องตอนต่อ MySQL ว่า self-signed certificate */
+function describeCa(pem: string): string {
+  try {
+    const cert = new X509Certificate(pem);
+    return `อ่านใบรับรอง CA ได้ (CA=${cert.ca}, หมดอายุ ${cert.validTo})`;
+  } catch {
+    return 'อ่านเป็นใบรับรองไม่ได้ — ตรวจค่า DB_SSL_CA ต้องขึ้นต้น -----BEGIN CERTIFICATE----- และลงท้าย -----END CERTIFICATE-----';
+  }
 }
 
 function buildPoolOptions(): mysql.PoolOptions {
@@ -45,6 +67,11 @@ function buildPoolOptions(): mysql.PoolOptions {
       useFactory: async (): Promise<mysql.Pool> => {
         const logger = new Logger('DatabaseModule');
         const options = buildPoolOptions();
+        logger.log(
+          process.env.DB_SSL_CA
+            ? `DB_SSL_CA: ${describeCa(normalizePem(process.env.DB_SSL_CA))}`
+            : 'DB_SSL_CA: ไม่ได้ตั้งค่า (เชื่อมต่อแบบไม่ใช้ SSL)',
+        );
         const pool = mysql.createPool(options);
         try {
           const conn = await pool.getConnection();
