@@ -34,15 +34,11 @@ export const queryKeys = {
 // อ่านข้อมูล
 // ============================================================
 
-/**
- * สถานะเซิร์ฟเวอร์จริง
- * ในโหมดจำลองไม่เรียกเลย (enabled: false) เพราะไม่มีเซิร์ฟเวอร์ให้เช็ค
- */
+/** สถานะเซิร์ฟเวอร์จริง */
 export function useHealth() {
   return useQuery({
     queryKey: queryKeys.health,
     queryFn: getHealth,
-    enabled: import.meta.env.VITE_USE_MOCK !== 'true',
     staleTime: 30_000,
   })
 }
