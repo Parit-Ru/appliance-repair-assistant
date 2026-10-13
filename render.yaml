@@ -1,0 +1,37 @@
+# Render Blueprint ของ backend (NestJS) — frontend ไม่ได้อยู่ที่นี่ (อยู่บน GitHub Pages ดู docs/DEPLOY.md)
+# ค่าที่เป็นความลับ (sync: false) Render จะถามตอนสร้าง ไม่เก็บในไฟล์นี้
+services:
+  - type: web
+    name: appliance-repair-backend
+    runtime: node
+    plan: free
+    rootDir: backend
+    # --include=dev: typescript อยู่ใน devDependencies แต่ nest build ต้องใช้ (Render ตั้ง NODE_ENV=production ซึ่งจะข้าม dev)
+    buildCommand: npm ci --include=dev && npm run build
+    startCommand: npm run start:prod
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      # ข้ามการดาวน์โหลดไฟล์ CUDA ของ onnxruntime-node บน Linux (ใหญ่มาก เราใช้ CPU) ไฟล์ CPU มากับแพ็กเกจอยู่แล้ว
+      - key: ONNXRUNTIME_NODE_INSTALL
+        value: skip
+      # ต้องเป็น origin ของ frontend เป๊ะๆ (ตัวพิมพ์เล็ก ไม่มี / ท้าย ไม่มี path)
+      - key: CORS_ORIGIN
+        value: https://parit-ru.github.io
+      # ปิดระบบค้นหาอาการ: ยังไม่ได้คัดลอก model-slim/ และ Render free แรมน้อย
+      - key: SYMPTOM_SEARCH_ENABLED
+        value: "false"
+      - key: DB_HOST
+        sync: false
+      - key: DB_PORT
+        sync: false
+      - key: DB_USER
+        sync: false
+      - key: DB_PASSWORD
+        sync: false
+      - key: DB_NAME
+        sync: false
+      # ใบรับรอง CA ของ Aiven (วางทั้งก้อน หรือเขียน \n แทนขึ้นบรรทัดใหม่ก็ได้ — โค้ดแปลงให้)
+      - key: DB_SSL_CA
+        sync: false
