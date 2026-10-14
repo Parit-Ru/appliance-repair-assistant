@@ -1,6 +1,7 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { HashRouter, Route, Routes } from 'react-router-dom'
 import { AppShell } from './components/layout/AppShell'
+import { AllSymptomsPage } from './pages/AllSymptomsPage'
 import { HomePage } from './pages/HomePage'
 import { NotFoundPage } from './pages/NotFoundPage'
 import { SessionPage } from './pages/SessionPage'
@@ -23,6 +24,7 @@ export default function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/symptoms" element={<SymptomsPage />} />
+            <Route path="/symptoms/all" element={<AllSymptomsPage />} />
             <Route path="/session/:sessionId" element={<SessionPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>

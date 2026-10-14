@@ -12,7 +12,7 @@
  * ไม่มี exports เพราะยังไม่มีโมดูลอื่นต้องการของจากที่นี่
  */
 
-import { Module } from '@nestjs/common';
+import { Logger, Module } from '@nestjs/common';
 
 import { GraphModule } from './graph.module';
 import { EquipmentRepository } from './equipment.repository';
@@ -20,10 +20,29 @@ import { SessionStore } from './session.store';
 import { TraversalService } from './traversal.service';
 import { TraversalController } from './traversal.controller';
 import { SymptomSearchModule } from '../symptom-search/symptom-search.module';
+import { createGroqClientFromEnv } from '../rephrase/groq-llm.client';
+import { RephraseService } from '../rephrase/rephrase.service';
 
 @Module({
   imports: [GraphModule, SymptomSearchModule],
   controllers: [TraversalController],
-  providers: [EquipmentRepository, SessionStore, TraversalService],
+  providers: [
+    EquipmentRepository,
+    SessionStore,
+    TraversalService,
+    {
+      provide: RephraseService,
+      useFactory: () => {
+        const client = createGroqClientFromEnv();
+        if (!client && process.env.REPHRASE_ENABLED === 'true') {
+          new Logger('RephraseService').warn('REPHRASE_ENABLED=true แต่ตั้ง GROQ_API_KEY/GROQ_MODEL ไม่ครบ — ใช้ข้อความต้นฉบับ');
+        }
+        return new RephraseService(client, {
+          enabled: client !== null,
+          timeoutMs: Number(process.env.REPHRASE_TIMEOUT_MS) || 3000,
+        });
+      },
+    },
+  ],
 })
 export class TraversalModule {}

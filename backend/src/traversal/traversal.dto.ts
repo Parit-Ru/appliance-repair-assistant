@@ -1,8 +1,4 @@
-import type {
-  RenderedNode,
-  SessionStatus,
-  TraversalAction,
-} from '../traversal-engine/types';
+import type {RenderedNode,SessionStatus,TraversalAction,} from '../traversal-engine/types';
 import { MAX_QUERY_LENGTH } from '../symptom-search/symptom-search.dto';
 const MAX_INPUT_LENGTH = 255;
 export const MAX_OUTCOME_LENGTH = 1000;
@@ -142,4 +138,5 @@ export interface SessionResponseDto {
   equipment: EquipmentItemDto[];
   confidence: number | null;
   outcome: string | null;
+  displayText: string | null;
 }

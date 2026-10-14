@@ -1,11 +1,7 @@
 export type {
-  NodeType,
   InputType,
   OutcomeKind,
   DeviceCategory,
-  Severity,
-  Difficulty,
-  SessionStatus,
   TraversalAction,
   NodeReference,
   RenderedNode,
@@ -62,6 +58,7 @@ export interface SessionResponse {
   equipment?: EquipmentItem[]
   confidence?: number | null
   outcome?: string | null
+  displayText?: string | null
 }
 
 export interface EquipmentItem {

@@ -1,0 +1,165 @@
+diff --git a/backend/src/traversal/traversal.dto.ts b/backend/src/traversal/traversal.dto.ts
+--- a/backend/src/traversal/traversal.dto.ts
++++ b/backend/src/traversal/traversal.dto.ts
+@@ -142,4 +142,10 @@ export interface SessionResponseDto {
+   equipment: EquipmentItemDto[];
+   confidence: number | null;
+   outcome: string | null;
++  /**
++   * ข้อความของโหนดปัจจุบันที่ LLM เรียบเรียงถ้อยคำแล้ว (ผ่านด่านตรวจแล้วเท่านั้น)
++   * null = ใช้ node.text ตามเดิม (ปิดอยู่ / โหนดความปลอดภัยหรือสิ้นสุด / LLM ล้ม-ช้า / ไม่ผ่านด่าน)
++   * node.text ยังเป็นข้อความต้นฉบับจากคู่มือเสมอ
++   */
++  displayText: string | null;
+ }
+\ No newline at end of file
+diff --git a/backend/src/traversal/traversal.service.ts b/backend/src/traversal/traversal.service.ts
+--- a/backend/src/traversal/traversal.service.ts
++++ b/backend/src/traversal/traversal.service.ts
+@@ -12,13 +12,14 @@
+  * จึงไม่ต้องมีโค้ด "ย้อนสถานะ"
+  */
+ 
+-import { Injectable } from '@nestjs/common';
++import { Inject, Injectable, Optional } from '@nestjs/common';
+ 
+ import { GraphRepository } from './graph.repository';
+ import type { GraphSummary } from './graph.repository';
+ import { EquipmentRepository } from './equipment.repository';
+ import { SessionStore } from './session.store';
+ import { SymptomSearchService } from '../symptom-search/symptom-search.service';
++import { RephraseService } from '../rephrase/rephrase.service';
+ import type { SessionResponseDto } from './traversal.dto';
+ import {
+   getCurrentNode,
+@@ -82,6 +83,8 @@ export class TraversalService {
+     private readonly equipmentRepository: EquipmentRepository,
+     private readonly sessionStore: SessionStore,
+     private readonly symptomSearch: SymptomSearchService,
++    // ทางเลือก: เรียบเรียงถ้อยคำด้วย LLM (ไม่มี/ปิดอยู่ = ใช้ข้อความต้นฉบับ) ไม่มีผลต่อการเปลี่ยนสถานะ
++    @Optional() @Inject(RephraseService) private readonly rephrase?: RephraseService,
+   ) {}
+ 
+   // ============================================================
+@@ -212,12 +215,12 @@ export class TraversalService {
+    * ประกอบ SessionResponseDto จาก session, node (ผล render จาก engine ตรงๆ ห้ามดัดแปลง)
+    * และ equipment (ผูกกับประเภทเครื่องของผัง ไม่ใช่ผูกกับอาการ)
+    */
+-  private toResponse(
++  private async toResponse(
+     session: SessionState,
+     node: RenderedNode,
+     graph: TroubleshootingGraph,
+     outcome: string | null = null,
+-  ): SessionResponseDto {
++  ): Promise<SessionResponseDto> {
+     return {
+       sessionId: session.sessionId,
+       graphId: session.graphId,
+@@ -229,9 +232,30 @@ export class TraversalService {
+       // ที่เหลือ (start, action) เป็น null ซึ่งถูกต้อง: session ที่เพิ่งเริ่มหรือเพิ่งเดินต่อ
+       // (แม้เพิ่งถึงสถานะสิ้นสุด) ยังไม่เคยมีผลลัพธ์ เพราะ saveOutcome รับเฉพาะ session ที่จบแล้ว
+       outcome,
++      displayText: await this.displayTextOf(node),
+     };
+   }
+ 
++  /**
++   * ข้อความที่ LLM เรียบเรียงของโหนดนี้ (null = ใช้ node.text ตามเดิม)
++   *
++   * ทำ "หลัง" engine ตัดสินใจและหลังบันทึกสถานะเสร็จแล้วเท่านั้น จึงไม่มีทางกระทบการเปลี่ยนสถานะ
++   * RephraseService เองไม่แตะโหนดความปลอดภัย/สิ้นสุด และตรวจข้อความก่อนส่งคืน
++   * ความผิดพลาดทุกกรณี → null (fallback = ข้อความต้นฉบับจากคู่มือ) ไม่ทำให้การตอบล้ม
++   */
++  private async displayTextOf(node: RenderedNode): Promise<string | null> {
++    if (!this.rephrase) return null;
++    try {
++      const result = await this.rephrase.rephrase(node.text, {
++        nodeType: node.type,
++        safetyCritical: node.safetyCritical || node.requiresSafetyConfirmation,
++      });
++      return result.rephrased && result.text !== node.text ? result.text : null;
++    } catch {
++      return null;
++    }
++  }
++
+   /**
+    * คะแนนความมั่นใจของ session
+    *
+diff --git a/backend/src/traversal/traversal.module.ts b/backend/src/traversal/traversal.module.ts
+--- a/backend/src/traversal/traversal.module.ts
++++ b/backend/src/traversal/traversal.module.ts
+@@ -12,7 +12,7 @@
+  * ไม่มี exports เพราะยังไม่มีโมดูลอื่นต้องการของจากที่นี่
+  */
+ 
+-import { Module } from '@nestjs/common';
++import { Logger, Module } from '@nestjs/common';
+ 
+ import { GraphModule } from './graph.module';
+ import { EquipmentRepository } from './equipment.repository';
+@@ -20,10 +20,29 @@ import { SessionStore } from './session.store';
+ import { TraversalService } from './traversal.service';
+ import { TraversalController } from './traversal.controller';
+ import { SymptomSearchModule } from '../symptom-search/symptom-search.module';
++import { createGroqClientFromEnv } from '../rephrase/groq-llm.client';
++import { RephraseService } from '../rephrase/rephrase.service';
+ 
+ @Module({
+   imports: [GraphModule, SymptomSearchModule],
+   controllers: [TraversalController],
+-  providers: [EquipmentRepository, SessionStore, TraversalService],
++  providers: [
++    EquipmentRepository,
++    SessionStore,
++    TraversalService,
++    {
++      // เรียบเรียงถ้อยคำด้วย LLM: ปิดเป็นค่าเริ่มต้น เปิดด้วย REPHRASE_ENABLED=true + GROQ_API_KEY + GROQ_MODEL
++      // ตั้งค่าไม่ครบ = ใช้ข้อความต้นฉบับ (fallback) แอปทำงานปกติ
++      provide: RephraseService,
++      useFactory: () => {
++        const enabled = process.env.REPHRASE_ENABLED === 'true';
++        const client = createGroqClientFromEnv();
++        if (enabled && !client) {
++          new Logger('RephraseService').warn('REPHRASE_ENABLED=true แต่ตั้ง GROQ_API_KEY/GROQ_MODEL ไม่ครบ — ใช้ข้อความต้นฉบับ');
++        }
++        return new RephraseService(client, { enabled, timeoutMs: Number(process.env.REPHRASE_TIMEOUT_MS) || 3000, logFailures: true });
++      },
++    },
++  ],
+ })
+ export class TraversalModule {}
+\ No newline at end of file
+diff --git a/backend/.env.example b/backend/.env.example
+--- a/backend/.env.example
++++ b/backend/.env.example
+@@ -29,6 +29,14 @@ CORS_ORIGIN=http://localhost:5173
+ SYMPTOM_SEARCH_ENABLED=false
+ 
+ # ------------------------------------------------------------
+-# LLM — ยังไม่ได้ใช้ (RAG เลื่อนเป็นงานอนาคต)
++# LLM เรียบเรียงถ้อยคำของขั้นตอน (ทางเลือก ปิดเป็นค่าเริ่มต้น) — RAG ถามตอบยังเลื่อนเป็นงานอนาคต
+ # ------------------------------------------------------------
++# ต้องเป็น true เป๊ะๆ จึงเปิด · ตั้งค่าไม่ครบ / เรียก LLM ไม่สำเร็จ / ข้อความไม่ผ่านด่านตรวจ = ใช้ข้อความต้นฉบับจากคู่มือ (fallback)
++REPHRASE_ENABLED=false
+ GROQ_API_KEY=
++# ชื่อโมเดลของ Groq ที่ใช้ (ไม่มีค่าเริ่มต้น เพราะชื่อโมเดลเปลี่ยนได้)
++GROQ_MODEL=
++# (ไม่บังคับ) URL ของ API แบบ chat completions ที่เข้ากันได้กับ OpenAI ถ้าไม่ระบุใช้ของ Groq
++GROQ_ENDPOINT=
++# เวลารอ LLM สูงสุด (มิลลิวินาที) เกินแล้วใช้ข้อความต้นฉบับ
++REPHRASE_TIMEOUT_MS=3000
+diff --git a/render.yaml b/render.yaml
+--- a/render.yaml
++++ b/render.yaml
+@@ -22,6 +22,9 @@ services:
+       # ปิดระบบค้นหาอาการ: ยังไม่ได้คัดลอก model-slim/ และ Render free แรมน้อย
+       - key: SYMPTOM_SEARCH_ENABLED
+         value: "false"
++      # เรียบเรียงถ้อยคำด้วย LLM (ทางเลือก): ปิดไว้ · เปิดเมื่อตั้ง GROQ_API_KEY (ความลับ) และ GROQ_MODEL ใน Render
++      - key: REPHRASE_ENABLED
++        value: "false"
+       - key: DB_HOST
+         sync: false
+       - key: DB_PORT

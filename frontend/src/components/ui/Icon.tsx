@@ -7,8 +7,7 @@ import type { ReactNode } from 'react'
  *
  * - สีมาจาก currentColor คือสีตัวอักษรของตัวที่ครอบอยู่ เปลี่ยนด้วยคลาส text-*
  * - ขนาดกำหนดผ่าน className เช่น h-4 w-4
- * - ปกติไอคอนอยู่คู่กับข้อความ จึงซ่อนจากโปรแกรมอ่านหน้าจอ (aria-hidden)
- *   ถ้าไอคอนอยู่ลำพังโดยไม่มีข้อความ ให้ส่ง label มา โปรแกรมอ่านหน้าจอจะอ่านคำนั้น
+ * - ไอคอนอยู่คู่กับข้อความเสมอ จึงซ่อนจากโปรแกรมอ่านหน้าจอ (aria-hidden)
  * - spinner ไม่หมุนเอง ผู้เรียกต้องใส่คลาส animate-spin
  */
 
@@ -144,15 +143,13 @@ interface IconProps {
   name: IconName
   /** คลาส Tailwind สำหรับขนาดและสี ถ้าไม่ส่งมาจะได้ขนาด 20px */
   className?: string
-  /** ใส่เมื่อไอคอนอยู่ลำพังโดยไม่มีข้อความประกอบ */
-  label?: string
 }
 
-export function Icon({ name, className = 'h-5 w-5', label }: IconProps) {
+export function Icon({ name, className = 'h-5 w-5' }: IconProps) {
   const icon = ICONS[name]
 
   return (
-    <svg viewBox={icon.viewBox} className={className} fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" role={label ? 'img' : undefined} aria-label={label} aria-hidden={label ? undefined : true}>
+    <svg viewBox={icon.viewBox} className={className} fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
       {icon.body}
     </svg>
   )

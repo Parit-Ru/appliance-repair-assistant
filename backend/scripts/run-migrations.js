@@ -1,16 +1,3 @@
-// backend/scripts/run-migrations.js
-//
-// รันไฟล์ .sql ในโฟลเดอร์ migrations/ ตามลำดับชื่อไฟล์
-// และจำไว้ว่าไฟล์ไหนรันไปแล้ว เพื่อไม่ให้รันซ้ำ
-//
-//   npm run migrate           รัน migration ที่ยังไม่เคยรัน
-//   node scripts/run-migrations.js --status   ดูสถานะเฉยๆ ไม่รันอะไร
-//   ⚠️ ห้ามใช้ npm run migrate -- --status บน PowerShell 5.1: มันตัด "--" ทิ้ง
-//      แล้วรัน migration จริงโดยไม่ตั้งใจ (เคยเกิดกับ migration 005)
-//
-// เขียนเป็น JavaScript ธรรมดา (ไม่ใช่ TypeScript) เพราะเป็นเครื่องมือของนักพัฒนา
-// ไม่ใช่ส่วนหนึ่งของแอป จึงไม่ต้องผ่านขั้นตอน compile
-
 require('dotenv/config');
 
 const fs = require('node:fs');
@@ -18,10 +5,6 @@ const path = require('node:path');
 const mysql = require('mysql2/promise');
 
 const MIGRATIONS_DIR = path.resolve(__dirname, '../migrations');
-
-// ------------------------------------------------------------
-// การเชื่อมต่อ
-// ------------------------------------------------------------
 
 function connectionConfig() {
   const required = ['DB_HOST', 'DB_PORT', 'DB_USER', 'DB_NAME'];
@@ -40,22 +23,12 @@ function connectionConfig() {
     user: process.env.DB_USER,
     password: process.env.DB_PASSWORD ?? '',
     database: process.env.DB_NAME,
-
-    // ต้องตั้ง utf8mb4 ไม่งั้นภาษาไทยที่เขียนลงไปจะกลายเป็น ????
     charset: 'utf8mb4',
-
-    // จำเป็นสำหรับ migration เพราะ 1 ไฟล์มีหลายคำสั่ง
-    // ตัวแอปจริงจะไม่เปิดตัวเลือกนี้ เพราะเพิ่มความเสี่ยง SQL injection
     multipleStatements: true,
 
-    // Aiven และผู้ให้บริการ cloud ส่วนใหญ่บังคับ TLS
     ssl: process.env.DB_SSL_CA ? { ca: process.env.DB_SSL_CA } : undefined,
   };
 }
-
-// ------------------------------------------------------------
-// ตารางที่ใช้จำว่ารัน migration ไหนไปแล้ว
-// ------------------------------------------------------------
 
 async function ensureMigrationsTable(conn) {
   await conn.query(`
@@ -77,16 +50,11 @@ function migrationFiles() {
     throw new Error(`ไม่พบโฟลเดอร์ ${MIGRATIONS_DIR}`);
   }
 
-  // เรียงตามชื่อไฟล์ จึงต้องตั้งชื่อขึ้นต้นด้วยเลข 001_ 002_ ...
   return fs
     .readdirSync(MIGRATIONS_DIR)
     .filter((f) => f.endsWith('.sql'))
     .sort();
 }
-
-// ------------------------------------------------------------
-// การทำงานหลัก
-// ------------------------------------------------------------
 
 async function main() {
   const statusOnly = process.argv.includes('--status');
@@ -118,10 +86,6 @@ async function main() {
       const sql = fs.readFileSync(path.join(MIGRATIONS_DIR, filename), 'utf-8');
 
       process.stdout.write(`  กำลังรัน ${filename} ... `);
-
-      // ไม่ครอบด้วย transaction เพราะ MySQL ทำ DDL (CREATE TABLE) แบบ
-      // implicit commit อยู่แล้ว ครอบไปก็ rollback ไม่ได้จริง
-      // ถ้าไฟล์ไหนพังกลางคัน ต้องแก้ด้วยมือ — จึงควรเขียน migration ให้เล็ก
       await conn.query(sql);
       await conn.query('INSERT INTO schema_migrations (filename) VALUES (?)', [filename]);
 

@@ -4,6 +4,7 @@ import type { TraversalAction } from '../api/types'
 import { useAbandonSession, useGraphs, useSession, useStartSession, useSubmitAction, useSubmitOutcome } from '../api/queries'
 import { EquipmentPanel } from '../components/EquipmentPanel'
 import { OutcomeForm } from '../components/OutcomeForm'
+import { RephraseNote } from '../components/RephraseNote'
 import { SessionErrorNotice } from '../components/SessionErrorNotice'
 import { SessionHeader } from '../components/SessionHeader'
 import { SlowServerNotice } from '../components/SlowServerNotice'
@@ -108,7 +109,10 @@ function SessionView({ sessionId }: { sessionId: string }) {
     )
   }
 
-  const { node, graphId, equipment, confidence, outcome: savedOutcome } = session.data
+  const { node, graphId, equipment, confidence, outcome: savedOutcome, displayText } = session.data
+  const canRephrase = !node.safetyCritical && !node.requiresSafetyConfirmation && !node.isTerminal
+  const rephrased = canRephrase && displayText ? displayText : null
+  const shownNode = rephrased === null ? node : { ...node, text: rephrased }
   const summary = graphs.data?.find((graph) => graph.graphId === graphId)
   const manualLabel = summary && `${summary.brand} ${summary.modelPattern}`
   const actionError = submit.error ?? restart.error
@@ -124,7 +128,8 @@ function SessionView({ sessionId }: { sessionId: string }) {
 
       <PathRail entries={trail} current={node}>
         <div ref={stepRef}>
-          <StepView key={node.nodeId} node={node} onAction={handleAction} isPending={submit.isPending} manualLabel={manualLabel} outcomeForm={<OutcomeForm savedText={savedOutcome} onSubmit={handleOutcome} isSending={saveOutcome.isPending} error={saveOutcome.error} onRefresh={handleRefresh} />} outcomeActions={<TerminalActions onOtherSymptom={() => navigate('/symptoms')} onRestart={() => handleRestart(graphId)} isRestarting={restart.isPending} />} />
+          <StepView key={node.nodeId} node={shownNode} onAction={handleAction} isPending={submit.isPending} manualLabel={manualLabel} outcomeForm={<OutcomeForm savedText={savedOutcome} onSubmit={handleOutcome} isSending={saveOutcome.isPending} error={saveOutcome.error} onRefresh={handleRefresh} />} outcomeActions={<TerminalActions onOtherSymptom={() => navigate('/symptoms')} onRestart={() => handleRestart(graphId)} isRestarting={restart.isPending} />} />
+          {rephrased !== null && <RephraseNote original={node.text} />}
         </div>
       </PathRail>
     </div>

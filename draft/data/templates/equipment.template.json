@@ -1,0 +1,14 @@
+{
+  "_comment": "แม่แบบรายการอุปกรณ์ — ทุกรายการใน usage ต้องมี source_page (หน้าในคู่มือ) หรือ author_note (ผู้พัฒนาเพิ่มเอง) อย่างใดอย่างหนึ่ง (TOR ข้อ 6)",
+  "equipment": [
+    { "equipment_id": "TODO_example_tool", "name_th": "TODO ชื่ออุปกรณ์ภาษาไทย" }
+  ],
+  "usage": [
+    {
+      "device_category": "Microwave",
+      "items": [
+        { "equipment_id": "TODO_example_tool", "purpose_th": "TODO ใช้ทำอะไรก่อน/ระหว่างตรวจ", "source_page": 1 }
+      ]
+    }
+  ]
+}

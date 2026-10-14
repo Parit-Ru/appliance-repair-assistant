@@ -1,0 +1,64 @@
+{
+  "schema_version": 2,
+  "manual_id": "samsung_todo_model",
+  "device_category": "Microwave",
+  "brand": "Samsung",
+  "model_pattern": "TODO_MODEL_PATTERN",
+  "source_manual": "TODO ชื่อไฟล์/ชื่อคู่มือต้นทาง เช่น Samsung SelfRepair <รุ่น> User Manual",
+  "count": 1,
+  "graphs": [
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_todo_model_example_symptom",
+      "device_category": "Microwave",
+      "brand": "Samsung",
+      "model_pattern": "TODO_MODEL_PATTERN",
+      "entry_symptom": "TODO อาการเป็นภาษาอังกฤษตามหัวข้อในคู่มือ (ไว้ค้นหา/อ้างอิง)",
+      "entry_symptom_th": "TODO อาการเป็นภาษาไทยที่ผู้ใช้คุ้นเคย",
+      "entry_symptom_aliases": ["TODO คำพ้อง/สำนวนพูดที่คนทั่วไปใช้ 2–4 คำ"],
+      "source": "TODO ชื่อคู่มือที่แสดงบนหน้าจอ",
+      "page_range": [1, 1],
+      "source_chunk_id": "todo_manual_p1",
+      "severity": "medium",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "TODO คำถามที่ตอบได้ด้วย ใช่/ไม่ใช่ หนึ่งเรื่องต่อหนึ่งคำถาม",
+          "safety_critical": false,
+          "on_yes": "n_fix",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_fix",
+          "type": "instruction",
+          "content": "TODO ขั้นตอนที่ผู้ใช้ทำได้เองตามคู่มือ (ห้ามเพิ่มขั้นตอนที่คู่มือไม่ได้บอก)",
+          "safety_critical": false,
+          "next": "n_check_after_fix"
+        },
+        {
+          "node_id": "n_check_after_fix",
+          "type": "checkpoint",
+          "question": "TODO หลังทำแล้ว อาการหายไหม",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "TODO สรุปว่าแก้ได้เพราะอะไร (ตามที่คู่มือบอก)",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "TODO คู่มือบอกอะไรเมื่อแก้เองไม่ได้ + แนะนำให้ติดต่อศูนย์บริการ Samsung",
+          "outcome_kind": "handoff_informed"
+        }
+      ]
+    }
+  ]
+}

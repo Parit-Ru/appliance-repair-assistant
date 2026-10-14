@@ -19,6 +19,7 @@ import type { GraphSummary } from './graph.repository';
 import { EquipmentRepository } from './equipment.repository';
 import { SessionStore } from './session.store';
 import { SymptomSearchService } from '../symptom-search/symptom-search.service';
+import { RephraseService } from '../rephrase/rephrase.service';
 import type { SessionResponseDto } from './traversal.dto';
 import {
   getCurrentNode,
@@ -82,6 +83,7 @@ export class TraversalService {
     private readonly equipmentRepository: EquipmentRepository,
     private readonly sessionStore: SessionStore,
     private readonly symptomSearch: SymptomSearchService,
+    private readonly rephrase: RephraseService,
   ) {}
 
   // ============================================================
@@ -212,12 +214,12 @@ export class TraversalService {
    * ประกอบ SessionResponseDto จาก session, node (ผล render จาก engine ตรงๆ ห้ามดัดแปลง)
    * และ equipment (ผูกกับประเภทเครื่องของผัง ไม่ใช่ผูกกับอาการ)
    */
-  private toResponse(
+  private async toResponse(
     session: SessionState,
     node: RenderedNode,
     graph: TroubleshootingGraph,
     outcome: string | null = null,
-  ): SessionResponseDto {
+  ): Promise<SessionResponseDto> {
     return {
       sessionId: session.sessionId,
       graphId: session.graphId,
@@ -229,7 +231,20 @@ export class TraversalService {
       // ที่เหลือ (start, action) เป็น null ซึ่งถูกต้อง: session ที่เพิ่งเริ่มหรือเพิ่งเดินต่อ
       // (แม้เพิ่งถึงสถานะสิ้นสุด) ยังไม่เคยมีผลลัพธ์ เพราะ saveOutcome รับเฉพาะ session ที่จบแล้ว
       outcome,
+      displayText: await this.displayTextOf(node),
     };
+  }
+
+  private async displayTextOf(node: RenderedNode): Promise<string | null> {
+    try {
+      const result = await this.rephrase.rephrase(node.text, {
+        nodeType: node.type,
+        safetyCritical: node.safetyCritical || node.requiresSafetyConfirmation,
+      });
+      return result.rephrased && result.text !== node.text ? result.text : null;
+    } catch {
+      return null;
+    }
   }
 
   /**

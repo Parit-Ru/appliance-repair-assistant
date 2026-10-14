@@ -64,6 +64,7 @@ export type TroubleshootingNode =
 
 export type DeviceCategory =
   | 'Air Conditioner'
+  | 'Microwave'
   | 'Refrigerator'
   | 'Washing Machine'
   | 'Television';
@@ -88,17 +89,6 @@ export interface TroubleshootingGraph {
   config?: Record<string, unknown>;
   entry_node: string;
   nodes: TroubleshootingNode[];
-}
-
-export interface ManualFile {
-  schema_version: 2;
-  manual_id: string;
-  device_category: DeviceCategory;
-  brand: string;
-  model_pattern: string;
-  source_manual: string;
-  count: number;
-  graphs: TroubleshootingGraph[];
 }
 
 export type SessionStatus = 'in_progress' | 'completed';

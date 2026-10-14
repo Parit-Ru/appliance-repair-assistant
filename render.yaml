@@ -22,6 +22,9 @@ services:
       # ปิดระบบค้นหาอาการ: ยังไม่ได้คัดลอก model-slim/ และ Render free แรมน้อย
       - key: SYMPTOM_SEARCH_ENABLED
         value: "false"
+      # เรียบเรียงถ้อยคำด้วย LLM (ทางเลือก): ปิดไว้ · จะเปิดต้องตั้ง REPHRASE_ENABLED=true, GROQ_API_KEY (ความลับ), GROQ_MODEL ใน Render
+      - key: REPHRASE_ENABLED
+        value: "false"
       - key: DB_HOST
         sync: false
       - key: DB_PORT

@@ -1,0 +1,399 @@
+{
+  "set": "tuning",
+  "author": "ร่างโดย Claude (ผู้ช่วย AI) รอผู้พัฒนาตรวจแก้ — ยังไม่ใช่ชุดที่ผู้พัฒนาเขียนเอง",
+  "status": "draft",
+  "queries": [
+    {
+      "id": "T001",
+      "query": "เสียบปลั๊กแล้วแต่แอร์ไม่ติดเลย",
+      "category": "in_scope",
+      "expected_graph_id": "samsung_ac_ar70h_stops_working",
+      "style": "colloquial"
+    },
+    {
+      "id": "T002",
+      "query": "แอร์ดับไปเองกลางดึก เปิดใหม่ก็ไม่ติด",
+      "category": "in_scope",
+      "expected_graph_id": "samsung_ac_ar70h_stops_working",
+      "style": "colloquial"
+    },
+    {
+      "id": "T003",
+      "query": "The AC won't turn on at all",
+      "category": "in_scope",
+      "expected_graph_id": "samsung_ac_ar70h_stops_working",
+      "style": "english"
+    },
+    {
+      "id": "T004",
+      "query": "ตั้งอุณหภูมิ 24 แต่กดเท่าไหร่ก็เปลี่ยนไม่ได้",
+      "category": "in_scope",
+      "expected_graph_id": "samsung_ac_ar70h_cannot_change_temperature",
+      "style": "colloquial"
+    },
+    {
+      "id": "T005",
+      "query": "ไม่สามารถปรับองศาของเครื่องปรับอากาศได้",
+      "category": "in_scope",
+      "expected_graph_id": "samsung_ac_ar70h_cannot_change_temperature",
+      "style": "formal"
+    },
+    {
+      "id": "T006",
+      "query": "cant set temp on my aircon",
+      "category": "in_scope",
+      "expected_graph_id": "samsung_ac_ar70h_cannot_change_temperature",
+      "style": "typo_or_abbrev"
+    },
+    {
+      "id": "T007",
+      "query": "เปิดแอร์มาสองชั่วโมงแล้วห้องยังร้อนอยู่",
+      "category": "in_scope",
+      "expected_graph_id": "samsung_ac_ar70h_improper_airflow_temperature",
+      "style": "colloquial"
+    },
+    {
+      "id": "T008",
+      "query": "ลมจากแอร์ไม่เย็นเหมือนเดิม",
+      "category": "in_scope",
+      "expected_graph_id": "samsung_ac_ar70h_improper_airflow_temperature",
+      "style": "vague"
+    },
+    {
+      "id": "T009",
+      "query": "air conditioner blowing warm air",
+      "category": "in_scope",
+      "expected_graph_id": "samsung_ac_ar70h_improper_airflow_temperature",
+      "style": "english"
+    },
+    {
+      "id": "T010",
+      "query": "สั่งให้ลมส่ายขึ้นลงแต่แผ่นบังลมไม่ขยับ",
+      "category": "in_scope",
+      "expected_graph_id": "samsung_ac_ar70h_cannot_change_airflow_direction",
+      "style": "colloquial"
+    },
+    {
+      "id": "T011",
+      "query": "ปรับให้ลมไม่เป่าโดนตัวไม่ได้",
+      "category": "in_scope",
+      "expected_graph_id": "samsung_ac_ar70h_cannot_change_airflow_direction",
+      "style": "vague"
+    },
+    {
+      "id": "T012",
+      "query": "louver stuck can't adjust air direction",
+      "category": "in_scope",
+      "expected_graph_id": "samsung_ac_ar70h_cannot_change_airflow_direction",
+      "style": "english"
+    },
+    {
+      "id": "T013",
+      "query": "กดปุ่มเพิ่มลมแล้วความแรงไม่เปลี่ยน",
+      "category": "in_scope",
+      "expected_graph_id": "samsung_ac_ar70h_cannot_change_fan_speed",
+      "style": "colloquial"
+    },
+    {
+      "id": "T014",
+      "query": "ไม่สามารถเลือกระดับความเร็วพัดลมได้",
+      "category": "in_scope",
+      "expected_graph_id": "samsung_ac_ar70h_cannot_change_fan_speed",
+      "style": "formal"
+    },
+    {
+      "id": "T015",
+      "query": "fan speed stuck on auto",
+      "category": "in_scope",
+      "expected_graph_id": "samsung_ac_ar70h_cannot_change_fan_speed",
+      "style": "english"
+    },
+    {
+      "id": "T016",
+      "query": "รีโมทแอร์กดแล้วไม่มีปฏิกิริยา",
+      "category": "in_scope",
+      "expected_graph_id": "samsung_ac_ar70h_remote_not_working",
+      "style": "colloquial"
+    },
+    {
+      "id": "T017",
+      "query": "รีโมทหน้าจอไม่ติด สงสัยแบตหมด",
+      "category": "in_scope",
+      "expected_graph_id": "samsung_ac_ar70h_remote_not_working",
+      "style": "colloquial"
+    },
+    {
+      "id": "T018",
+      "query": "remote not responding to the air con",
+      "category": "in_scope",
+      "expected_graph_id": "samsung_ac_ar70h_remote_not_working",
+      "style": "english"
+    },
+    {
+      "id": "T019",
+      "query": "ตั้งเวลาปิดตอนนอนแต่แอร์ไม่ปิดตามเวลา",
+      "category": "in_scope",
+      "expected_graph_id": "samsung_ac_ar70h_timer_not_working",
+      "style": "colloquial"
+    },
+    {
+      "id": "T020",
+      "query": "ฟังก์ชันตั้งเวลาเปิดอัตโนมัติไม่ทำงาน",
+      "category": "in_scope",
+      "expected_graph_id": "samsung_ac_ar70h_timer_not_working",
+      "style": "formal"
+    },
+    {
+      "id": "T021",
+      "query": "timer doesnt work on my aircon",
+      "category": "in_scope",
+      "expected_graph_id": "samsung_ac_ar70h_timer_not_working",
+      "style": "typo_or_abbrev"
+    },
+    {
+      "id": "T022",
+      "query": "มีไฟกะพริบรัวๆ ที่ตัวแอร์",
+      "category": "in_scope",
+      "expected_graph_id": "samsung_ac_ar70h_indicator_blinking",
+      "style": "colloquial"
+    },
+    {
+      "id": "T023",
+      "query": "ไฟสถานะที่เครื่องด้านในกระพริบตลอดเวลา",
+      "category": "in_scope",
+      "expected_graph_id": "samsung_ac_ar70h_indicator_blinking",
+      "style": "formal"
+    },
+    {
+      "id": "T024",
+      "query": "ไฟกระพริบๆที่แอร์อะ",
+      "category": "in_scope",
+      "expected_graph_id": "samsung_ac_ar70h_indicator_blinking",
+      "style": "typo_or_abbrev"
+    },
+    {
+      "id": "T025",
+      "query": "เปิดแอร์แล้วมีกลิ่นอับๆ ออกมา",
+      "category": "in_scope",
+      "expected_graph_id": "samsung_ac_ar70h_odors_from_unit",
+      "style": "colloquial"
+    },
+    {
+      "id": "T026",
+      "query": "ห้องมีกลิ่นบุหรี่ติดอยู่ที่แอร์",
+      "category": "in_scope",
+      "expected_graph_id": "samsung_ac_ar70h_odors_from_unit",
+      "style": "colloquial"
+    },
+    {
+      "id": "T027",
+      "query": "bad smell coming from ac vent",
+      "category": "in_scope",
+      "expected_graph_id": "samsung_ac_ar70h_odors_from_unit",
+      "style": "english"
+    },
+    {
+      "id": "T028",
+      "query": "จอที่ตัวแอร์โชว์รหัสแปลกๆ",
+      "category": "in_scope",
+      "expected_graph_id": "samsung_ac_ar70h_error_message",
+      "style": "colloquial"
+    },
+    {
+      "id": "T029",
+      "query": "แอร์ขึ้นรหัสตัวเลข ต้องทำยังไง",
+      "category": "in_scope",
+      "expected_graph_id": "samsung_ac_ar70h_error_message",
+      "style": "vague"
+    },
+    {
+      "id": "T030",
+      "query": "error code shown on air conditioner display",
+      "category": "in_scope",
+      "expected_graph_id": "samsung_ac_ar70h_error_message",
+      "style": "english"
+    },
+    {
+      "id": "T031",
+      "query": "แอร์ทำงานแล้วมีเสียงดังรบกวน",
+      "category": "in_scope",
+      "expected_graph_id": "samsung_ac_ar70h_unit_generating_noise",
+      "style": "colloquial"
+    },
+    {
+      "id": "T032",
+      "query": "เสียงดังจากตัวเครื่องตอนแอร์ทำงาน",
+      "category": "in_scope",
+      "expected_graph_id": "samsung_ac_ar70h_unit_generating_noise",
+      "style": "formal"
+    },
+    {
+      "id": "T033",
+      "query": "แอร์เสียงดังมากกกกก",
+      "category": "in_scope",
+      "expected_graph_id": "samsung_ac_ar70h_unit_generating_noise",
+      "style": "typo_or_abbrev"
+    },
+    {
+      "id": "T034",
+      "query": "มีน้ำหยดจากท่อของเครื่องนอกบ้านตอนแอร์ทำงาน",
+      "category": "in_scope",
+      "expected_graph_id": "samsung_ac_ar70h_water_drips_outdoor",
+      "style": "formal"
+    },
+    {
+      "id": "T035",
+      "query": "ตรงข้อต่อท่อแอร์ด้านนอกมีน้ำหยด",
+      "category": "in_scope",
+      "expected_graph_id": "samsung_ac_ar70h_water_drips_outdoor",
+      "style": "colloquial"
+    },
+    {
+      "id": "T036",
+      "query": "water dripping from outdoor unit pipe",
+      "category": "in_scope",
+      "expected_graph_id": "samsung_ac_ar70h_water_drips_outdoor",
+      "style": "english"
+    },
+    {
+      "id": "T037",
+      "query": "ตัวเครื่องด้านในมีเม็ดน้ำเกาะเต็มไปหมด",
+      "category": "in_scope",
+      "expected_graph_id": "samsung_ac_ar70h_condensation_indoor",
+      "style": "colloquial"
+    },
+    {
+      "id": "T038",
+      "query": "มีไอน้ำเกาะที่พื้นผิวแอร์ในห้อง",
+      "category": "in_scope",
+      "expected_graph_id": "samsung_ac_ar70h_condensation_indoor",
+      "style": "formal"
+    },
+    {
+      "id": "T039",
+      "query": "ac indoor unit sweating",
+      "category": "in_scope",
+      "expected_graph_id": "samsung_ac_ar70h_condensation_indoor",
+      "style": "english"
+    },
+    {
+      "id": "T040",
+      "query": "ตู้เย็นไม่เย็นเลย",
+      "category": "out_of_scope",
+      "expected_graph_id": null,
+      "kind": "other_appliance"
+    },
+    {
+      "id": "T041",
+      "query": "ทีวีมีเสียงแต่ไม่มีภาพ",
+      "category": "out_of_scope",
+      "expected_graph_id": null,
+      "kind": "other_appliance"
+    },
+    {
+      "id": "T042",
+      "query": "เครื่องซักผ้าไม่ปั่นแห้ง",
+      "category": "out_of_scope",
+      "expected_graph_id": null,
+      "kind": "other_appliance"
+    },
+    {
+      "id": "T043",
+      "query": "เตาไมโครเวฟไม่ร้อน",
+      "category": "out_of_scope",
+      "expected_graph_id": null,
+      "kind": "other_appliance"
+    },
+    {
+      "id": "T044",
+      "query": "พัดลมตั้งพื้นส่ายไม่ได้",
+      "category": "out_of_scope",
+      "expected_graph_id": null,
+      "kind": "other_appliance"
+    },
+    {
+      "id": "T045",
+      "query": "หม้อหุงข้าวไฟไม่ขึ้น",
+      "category": "out_of_scope",
+      "expected_graph_id": null,
+      "kind": "other_appliance"
+    },
+    {
+      "id": "T046",
+      "query": "my refrigerator is making a strange noise",
+      "category": "out_of_scope",
+      "expected_graph_id": null,
+      "kind": "other_appliance"
+    },
+    {
+      "id": "T047",
+      "query": "ทีวีเปิดไม่ติด",
+      "category": "out_of_scope",
+      "expected_graph_id": null,
+      "kind": "other_appliance"
+    },
+    {
+      "id": "T048",
+      "query": "น้ำยาแอร์หมดต้องเติมเมื่อไหร่",
+      "category": "out_of_scope",
+      "expected_graph_id": null,
+      "kind": "ac_outside_manual"
+    },
+    {
+      "id": "T049",
+      "query": "อยากล้างแอร์เองต้องถอดอะไรบ้าง",
+      "category": "out_of_scope",
+      "expected_graph_id": null,
+      "kind": "ac_outside_manual"
+    },
+    {
+      "id": "T050",
+      "query": "คอมเพรสเซอร์ไม่ทำงานต้องเปลี่ยนอะไหล่ไหม",
+      "category": "out_of_scope",
+      "expected_graph_id": null,
+      "kind": "ac_outside_manual"
+    },
+    {
+      "id": "T051",
+      "query": "อยากย้ายแอร์ไปติดอีกห้อง",
+      "category": "out_of_scope",
+      "expected_graph_id": null,
+      "kind": "ac_outside_manual"
+    },
+    {
+      "id": "T052",
+      "query": "แอร์กินไฟมากผิดปกติ",
+      "category": "out_of_scope",
+      "expected_graph_id": null,
+      "kind": "ac_outside_manual"
+    },
+    {
+      "id": "T053",
+      "query": "ขอราคาค่าบริการล้างแอร์",
+      "category": "out_of_scope",
+      "expected_graph_id": null,
+      "kind": "ac_outside_manual"
+    },
+    {
+      "id": "T054",
+      "query": "วันนี้ฝนจะตกไหม",
+      "category": "out_of_scope",
+      "expected_graph_id": null,
+      "kind": "unrelated"
+    },
+    {
+      "id": "T055",
+      "query": "แนะนำร้านอาหารแถวกำแพงแสน",
+      "category": "out_of_scope",
+      "expected_graph_id": null,
+      "kind": "unrelated"
+    },
+    {
+      "id": "T056",
+      "query": "ช่วยแก้การบ้านคณิตศาสตร์หน่อย",
+      "category": "out_of_scope",
+      "expected_graph_id": null,
+      "kind": "unrelated"
+    }
+  ]
+}
