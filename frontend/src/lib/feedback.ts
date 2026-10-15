@@ -1,0 +1,44 @@
+import type { HistoryFeedback } from '../api/types'
+
+/**
+ * ตรรกะเล็กๆ ของการให้คะแนนผลการตรวจ (ฟังก์ชันล้วน ไม่แตะ React และไม่เรียก API)
+ * รูปแบบเดียวกับ lib/outcome.ts: เซิร์ฟเวอร์ตรวจซ้ำเสมอและเป็นผู้ตัดสิน (INVALID_FEEDBACK)
+ */
+
+/**
+ * ความยาวสูงสุดของข้อความความเห็น ต้องตรงกับ MAX_FEEDBACK_COMMENT_LENGTH ใน
+ * backend/src/history/history.dto.ts (ลอกมา ถ้าฝั่งนั้นเปลี่ยนต้องแก้ที่นี่ด้วย)
+ */
+export const MAX_FEEDBACK_COMMENT_LENGTH = 500
+
+/** ตัดช่องว่างหน้าหลัง เหมือนที่เซิร์ฟเวอร์ทำก่อนนับความยาว */
+export function normalizeComment(raw: string): string {
+  return raw.trim()
+}
+
+/** ผลตรวจข้อความ: ok = ส่งได้ (ว่างก็ส่งได้ เพราะไม่บังคับ) · too-long = ยาวเกินที่เซิร์ฟเวอร์รับ */
+export type CommentCheck = 'ok' | 'too-long'
+
+export function checkComment(raw: string): CommentCheck {
+  return normalizeComment(raw).length > MAX_FEEDBACK_COMMENT_LENGTH ? 'too-long' : 'ok'
+}
+
+export function formatCommentCounter(raw: string): string {
+  return `${raw.length}/${MAX_FEEDBACK_COMMENT_LENGTH}`
+}
+
+/**
+ * สิ่งที่ส่งไปเซิร์ฟเวอร์: comment ที่ว่าง (หรือมีแต่ช่องว่าง) ส่งเป็น null
+ * ให้ตรงกับที่ฐานข้อมูลเก็บ (NULL ไม่ใช่สตริงว่าง)
+ */
+export function toFeedback(helpful: boolean, rawComment: string): HistoryFeedback {
+  const comment = normalizeComment(rawComment)
+  return { helpful, comment: comment === '' ? null : comment }
+}
+
+/** ค่าที่หน้าจอถืออยู่ตรงกับที่บันทึกไว้แล้วหรือไม่ (ไว้ขึ้น "บันทึกแล้ว" และปิดปุ่มบันทึกเมื่อไม่มีอะไรเปลี่ยน) */
+export function isSameFeedback(saved: HistoryFeedback | null, helpful: boolean | null, rawComment: string): boolean {
+  if (saved === null || helpful === null) return false
+  const current = toFeedback(helpful, rawComment)
+  return saved.helpful === current.helpful && (saved.comment ?? null) === current.comment
+}

@@ -18,6 +18,42 @@ export class InvalidOutcomeError extends Error {
   }
 }
 
+/** หัวข้อ X-Client-Id ไม่ใช่ UUID หรือไม่ได้ส่งมาในที่ที่บังคับ (หน้า "ประวัติการซ่อม") → 400 INVALID_CLIENT_ID */
+export class InvalidClientIdError extends Error {
+  constructor(message: string) {
+    super(message);
+    this.name = this.constructor.name;
+  }
+}
+
+const CLIENT_ID_PATTERN = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+
+/**
+ * client id จากหัวข้อ X-Client-Id (UUID ที่เบราว์เซอร์สุ่มสร้างเอง ดู migration 008)
+ * ไม่ส่ง = undefined · ส่งมาแล้วต้องเป็นรูป UUID ไม่งั้น 400 (เก็บเป็นตัวพิมพ์เล็กเสมอ)
+ * ใช้ตอนเริ่ม session: ไม่ส่ง = ใช้งานได้ตามปกติ แค่ไม่ปรากฏในประวัติของใคร
+ *
+ * ไม่ใช่การยืนยันตัวตน — ใครรู้ id ก็เห็นประวัติของ id นั้นได้ (ระบบไม่มีล็อกอิน)
+ */
+export function parseOptionalClientId(raw: unknown): string | undefined {
+  if (raw === undefined) {
+    return undefined;
+  }
+  if (typeof raw !== 'string' || !CLIENT_ID_PATTERN.test(raw.trim())) {
+    throw new InvalidClientIdError('X-Client-Id ต้องเป็น UUID');
+  }
+  return raw.trim().toLowerCase();
+}
+
+/** เหมือน parseOptionalClientId แต่บังคับ — ใช้กับ endpoint ของหน้า "ประวัติการซ่อม" ทุกตัว */
+export function parseRequiredClientId(raw: unknown): string {
+  const clientId = parseOptionalClientId(raw);
+  if (clientId === undefined) {
+    throw new InvalidClientIdError('ต้องส่งหัวข้อ X-Client-Id');
+  }
+  return clientId;
+}
+
 /** ผู้ใช้ระบุรุ่นเอง (selected) หรือบอกว่าไม่ทราบรุ่นแล้วเลือกรุ่นใกล้เคียงเอง (unknown) — ดู migration 007 */
 export type ModelSelection = 'selected' | 'unknown';
 

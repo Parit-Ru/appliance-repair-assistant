@@ -23,6 +23,8 @@ function getBaseUrl(): string {
 export interface RequestOptions {
   method?: 'GET' | 'POST' | 'DELETE'
   body?: unknown
+  /** หัวข้อเพิ่มเติม เช่น X-Client-Id ของหน้าประวัติ (Content-Type ใส่ให้เองเมื่อมี body) */
+  headers?: Record<string, string>
 }
 
 /**
@@ -32,14 +34,14 @@ export interface RequestOptions {
  *             ส่วน VITE_API_URL ต้องไม่มี / ท้าย จะได้ไม่กลายเป็น //
  */
 export async function request<T>(path: string, options: RequestOptions = {}): Promise<T> {
-  const { method = 'GET', body } = options
+  const { method = 'GET', body, headers } = options
   const url = `${getBaseUrl()}${path}`
 
   let response: Response
   try {
     response = await fetch(url, {
       method,
-      headers: body === undefined ? undefined : { 'Content-Type': 'application/json' },
+      headers: body === undefined && headers === undefined ? undefined : { ...(body === undefined ? {} : { 'Content-Type': 'application/json' }), ...headers },
       body: body === undefined ? undefined : JSON.stringify(body),
     })
   } catch {

@@ -1,3 +1,4 @@
+import { getClientId } from '../lib/clientId'
 import { request } from './http'
 import type {
   GraphSummary,
@@ -44,6 +45,8 @@ export async function startSession(graphId: string, options: StartSessionOptions
   return request<SessionResponse>('/traversal/sessions', {
     method: 'POST',
     body: { graphId, ...options },
+    // ผูก session กับเบราว์เซอร์นี้ ให้ไปปรากฏในหน้า "ประวัติการซ่อม" (ไม่มีผลต่อขั้นตอน)
+    headers: { 'X-Client-Id': getClientId() },
   })
 }
 

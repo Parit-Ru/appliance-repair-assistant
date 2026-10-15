@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { DatabaseModule } from './database/database.module';
 import { HealthModule } from './health/health.module';
+import { HistoryModule } from './history/history.module';
 import { TraversalModule } from './traversal/traversal.module';
 import { SymptomSearchModule } from './symptom-search/symptom-search.module';
 
@@ -11,6 +12,7 @@ import { SymptomSearchModule } from './symptom-search/symptom-search.module';
     HealthModule,
     TraversalModule,
     SymptomSearchModule,
+    HistoryModule,
   ],
 })
 export class AppModule {}

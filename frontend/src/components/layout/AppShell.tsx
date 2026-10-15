@@ -20,11 +20,12 @@ import { ServerStatus } from './ServerStatus'
  */
 const APP_NAME = 'FixStep'
 
-/** เมนู 3 รายการ หน้าตรวจอาการไม่อยู่ในเมนู เพราะเข้าจากลิงก์ในหน้าอื่น */
+/** เมนู 4 รายการ หน้าตรวจอาการไม่อยู่ในเมนู เพราะเข้าจากลิงก์ในหน้าอื่น */
 const NAV_ITEMS = [
   { to: '/', label: 'หน้าแรก' },
   { to: '/devices', label: 'เลือกเครื่อง' },
   { to: '/symptoms/all', label: 'อาการทั้งหมด' },
+  { to: '/history', label: 'ประวัติการซ่อม' },
 ]
 
 /** ชื่อคลาสของเมนูตอนเลือกอยู่และตอนไม่ได้เลือก เขียนเต็มด้วยเหตุผลเดียวกับ Button.tsx */
@@ -47,8 +48,9 @@ export function AppShell({ children }: AppShellProps) {
 
         <nav aria-label="เมนูหลัก" className="flex gap-1 md:flex-col">
           {NAV_ITEMS.map((item) => (
-            // end = ต้องตรงทั้งหมด ไม่งั้น "/" จะถูกนับว่าเลือกอยู่ในทุกหน้า เพราะทุก path ขึ้นต้นด้วย /
-            <NavLink key={item.to} to={item.to} end className={({ isActive }) => (isActive ? NAV_ACTIVE : NAV_IDLE)}>
+            // end เฉพาะ "/" ไม่งั้นจะถูกนับว่าเลือกอยู่ในทุกหน้า เพราะทุก path ขึ้นต้นด้วย /
+            // รายการอื่นไม่ใส่ end เพื่อให้ /history/:id ยังไฮไลต์เมนู "ประวัติการซ่อม"
+            <NavLink key={item.to} to={item.to} end={item.to === '/'} className={({ isActive }) => (isActive ? NAV_ACTIVE : NAV_IDLE)}>
               {item.label}
             </NavLink>
           ))}

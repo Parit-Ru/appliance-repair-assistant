@@ -11,8 +11,11 @@ import type {
   DeviceCategory,
   Severity,
   Difficulty,
+  NodeReference,
+  OutcomeKind,
   SessionStatus,
   RenderedNode,
+  TraversalAction,
 } from '../../../backend/src/traversal-engine/types'
 
 
@@ -89,4 +92,88 @@ export interface ApiErrorBody {
   statusCode: number
   code?: string
   message?: string
+}
+
+// ============================================================
+// ประวัติการซ่อม (GET/DELETE/POST /history…) — รูปร่างตรงกับ backend/src/history/history.dto.ts
+// ============================================================
+
+export type HistorySort = 'newest' | 'oldest'
+
+/** ตัวกรอง/การเรียง/หน้า ของรายการประวัติ (ที่ URL เก็บไว้ ดู lib/historyParams.ts) */
+export interface HistoryParams {
+  /** ข้อความค้นหา ว่าง = ไม่ค้นหา */
+  q: string
+  category: DeviceCategory | undefined
+  brand: string | undefined
+  /** = outcome_kind ของโหนดสุดท้าย */
+  status: OutcomeKind | undefined
+  sort: HistorySort
+  page: number
+}
+
+// ข้อมูลผังของแถวประวัติ ใช้ symptomName() และ manualTitle() ตัวเดิมได้ (displayName ไม่มี = แสดง modelPattern)
+export interface HistoryGraphInfo {
+  manualId: string
+  entrySymptom: string
+  entrySymptomTh?: string
+  deviceCategory: DeviceCategory
+  brand: string
+  modelPattern: string
+  displayName?: string
+}
+
+export interface HistoryListItem {
+  sessionId: string
+  graphId: string
+  /** เวลาเริ่มตรวจ (ISO 8601) */
+  startedAt: string
+  /** null = หาโหนดสุดท้ายในผังปัจจุบันไม่ได้ (ผังถูกเปลี่ยนหลัง seed ใหม่) */
+  outcomeKind: OutcomeKind | null
+  /** null = ผังนี้ไม่มีในระบบแล้ว */
+  graph: HistoryGraphInfo | null
+}
+
+export interface HistoryListResponse {
+  items: HistoryListItem[]
+  total: number
+  /** หน้าที่เซิร์ฟเวอร์ส่งจริง (ถ้าขอเกินหน้าสุดท้ายจะถูกดึงกลับมาหน้าสุดท้าย) */
+  page: number
+  pageSize: number
+  totalPages: number
+  facets: {
+    categories: DeviceCategory[]
+    brands: string[]
+  }
+}
+
+export interface HistoryStep {
+  node: RenderedNode
+  action: TraversalAction
+}
+
+export interface HistoryFeedback {
+  helpful: boolean
+  comment: string | null
+}
+
+export interface HistoryDetail {
+  sessionId: string
+  graphId: string
+  startedAt: string
+  /** null = session นี้ไม่ได้ผ่านหน้าเลือกรุ่น (ห้ามเติมเป็น 'selected') */
+  modelSelection: ModelSelection | null
+  /** null = ไม่มีคะแนน (ไม่ใช่ 0 ไม่ใช่ "ต่ำ") */
+  confidence: number | null
+  graph: HistoryGraphInfo | null
+  outcomeKind: OutcomeKind | null
+  /** false = ผัง/โหนดที่เคยผ่านเปลี่ยนไปแล้ว อ่านขั้นตอนย้อนหลังไม่ได้ */
+  available: boolean
+  steps: HistoryStep[]
+  finalNode: RenderedNode | null
+  safetyWarnings: string[]
+  reference: NodeReference | null
+  /** ข้อความผลลัพธ์ที่ผู้ใช้บันทึกเอง */
+  outcome: string | null
+  feedback: HistoryFeedback | null
 }

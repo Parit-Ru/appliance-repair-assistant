@@ -1,4 +1,5 @@
-import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
+import { keepPreviousData, useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
+import { deleteHistory, getHistory, listHistory, submitFeedback } from './history'
 import {
   abandonSession,
   getHealth,
@@ -10,7 +11,15 @@ import {
   submitAction,
   submitOutcome,
 } from './traversal'
-import type { ModelSelection, SessionResponse, SymptomSearchResponse, TraversalAction } from './types'
+import type {
+  HistoryDetail,
+  HistoryFeedback,
+  HistoryParams,
+  ModelSelection,
+  SessionResponse,
+  SymptomSearchResponse,
+  TraversalAction,
+} from './types'
 
 /**
  * hook ของ React Query ที่หน้าจอเรียกใช้
@@ -31,6 +40,10 @@ export const queryKeys = {
   graphsOf: (manualId: string) => ['graphs', manualId] as const,
   manuals: ['manuals'] as const,
   session: (sessionId: string) => ['session', sessionId] as const,
+  // ประวัติการซ่อม: ทุก key ขึ้นต้นด้วย 'history' ไว้ invalidate ทีเดียว
+  history: ['history'] as const,
+  historyList: (params: HistoryParams) => ['history', 'list', params] as const,
+  historyDetail: (sessionId: string) => ['history', 'detail', sessionId] as const,
 }
 
 // ============================================================
@@ -77,6 +90,28 @@ export function useSession(sessionId: string) {
   return useQuery({
     queryKey: queryKeys.session(sessionId),
     queryFn: () => getSession(sessionId),
+  })
+}
+
+/**
+ * รายการประวัติการซ่อมของเบราว์เซอร์นี้ (ตัวกรอง/เรียง/หน้า ตามที่ URL เก็บไว้)
+ *
+ * ไม่ตั้ง staleTime: ผู้ใช้เพิ่งตรวจเสร็จแล้วเปิดหน้านี้ต้องเห็นรายการล่าสุดเสมอ
+ * keepPreviousData: ตอนเปลี่ยนหน้า/ตัวกรอง รายการเดิมยังค้างอยู่จนผลใหม่มา (ไม่กะพริบเป็นหน้าว่าง)
+ */
+export function useHistory(params: HistoryParams) {
+  return useQuery({
+    queryKey: queryKeys.historyList(params),
+    queryFn: () => listHistory(params),
+    placeholderData: keepPreviousData,
+  })
+}
+
+/** รายละเอียดการตรวจย้อนหลัง 1 รายการ */
+export function useHistoryDetail(sessionId: string) {
+  return useQuery({
+    queryKey: queryKeys.historyDetail(sessionId),
+    queryFn: () => getHistory(sessionId),
   })
 }
 
@@ -167,6 +202,41 @@ export function useAbandonSession() {
     mutationFn: (sessionId: string) => abandonSession(sessionId),
     onSuccess: (_result: void, sessionId: string) => {
       queryClient.removeQueries({ queryKey: queryKeys.session(sessionId) })
+    },
+  })
+}
+
+/**
+ * ลบรายการออกจากประวัติ (ลบทั้ง session ที่เซิร์ฟเวอร์ ลบแล้วกู้คืนไม่ได้)
+ * เอาแคชของรายการนั้นออก และทำให้ทุกรายการ (ทุกตัวกรอง/ทุกหน้า) โหลดใหม่ เพราะจำนวนรวมและการแบ่งหน้าเปลี่ยน
+ */
+export function useDeleteHistory() {
+  const queryClient = useQueryClient()
+  return useMutation({
+    mutationFn: (sessionId: string) => deleteHistory(sessionId),
+    onSuccess: (_result: void, sessionId: string) => {
+      queryClient.removeQueries({ queryKey: queryKeys.historyDetail(sessionId) })
+      queryClient.removeQueries({ queryKey: queryKeys.session(sessionId) })
+    },
+    // สำเร็จหรือไม่ก็โหลดรายการใหม่: ถ้า 404 แปลว่ารายการนั้นหายไปแล้ว (ลบจากแท็บอื่น) รายการบนหน้าจอต้องตรงกับเซิร์ฟเวอร์
+    onSettled: () => {
+      void queryClient.invalidateQueries({ queryKey: [...queryKeys.history, 'list'] })
+    },
+  })
+}
+
+/**
+ * ให้คะแนน 👍/👎 + ข้อความสั้น (ส่งซ้ำ = แก้ค่าเดิม)
+ * เซิร์ฟเวอร์ตอบค่าที่บันทึกแล้ว เอาใส่ในแคชรายละเอียดเลย ฟอร์มจึงขึ้น "บันทึกแล้ว" ทันที
+ */
+export function useSubmitFeedback(sessionId: string) {
+  const queryClient = useQueryClient()
+  return useMutation({
+    mutationFn: (feedback: HistoryFeedback) => submitFeedback(sessionId, feedback),
+    onSuccess: (saved: HistoryFeedback) => {
+      queryClient.setQueryData<HistoryDetail>(queryKeys.historyDetail(sessionId), (previous) =>
+        previous === undefined ? previous : { ...previous, feedback: saved },
+      )
     },
   })
 }

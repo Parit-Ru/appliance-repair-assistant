@@ -21,7 +21,7 @@
 import { ArgumentsHost, Catch, ExceptionFilter, Logger } from '@nestjs/common';
 import type { Response } from 'express';
 
-import { InvalidOutcomeError, InvalidRequestBodyError } from './traversal.dto';
+import { InvalidClientIdError, InvalidOutcomeError, InvalidRequestBodyError } from './traversal.dto';
 import {
   GraphManualMismatchError,
   GraphNotFoundError,
@@ -71,6 +71,10 @@ export function toErrorBody(exception: unknown): ApiErrorBody {
   if (exception instanceof InvalidOutcomeError) {
     // ข้อความผลลัพธ์ผิดรูปแบบ (ว่าง/ยาวเกิน/ไม่ใช่ข้อความ) ใช้รหัสของตัวเอง ไม่ปนกับ INVALID_ACTION
     return { statusCode: 400, code: 'INVALID_OUTCOME', message };
+  }
+  if (exception instanceof InvalidClientIdError) {
+    // รหัสของตัวเอง (ไม่ปนกับ INVALID_ACTION) เพราะหน้าประวัติใช้ร่วมด้วย — ดู history.exception.filter.ts
+    return { statusCode: 400, code: 'INVALID_CLIENT_ID', message };
   }
   if (exception instanceof SessionAlreadyCompletedError) {
     return { statusCode: 409, code: 'SESSION_COMPLETED', message };

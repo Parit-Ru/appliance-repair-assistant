@@ -10,7 +10,15 @@ import type {
   TraversalAction,
 } from '../traversal-engine/types';
 
+/** session ที่ยังเดินอยู่: ไม่มีการใช้งาน 24 ชั่วโมงแล้วหมดอายุ (ต่ออายุทุกครั้งที่ขยับ) */
 const SESSION_TTL_HOURS = 24;
+
+/**
+ * session ที่จบแล้วเก็บไว้ให้ดูในหน้า "ประวัติการซ่อม" 90 วัน (docs/history-page.md, D2)
+ * ตั้งตอน update() ที่ทำให้ status เป็น completed เท่านั้น — ไม่ได้ต่ออายุซ้ำเมื่อบันทึกผลลัพธ์/ให้คะแนน
+ */
+export const COMPLETED_SESSION_TTL_DAYS = 90;
+const COMPLETED_SESSION_TTL_HOURS = COMPLETED_SESSION_TTL_DAYS * 24;
 
 interface SessionRow extends RowDataPacket {
   session_id: string;
@@ -21,7 +29,7 @@ interface SessionRow extends RowDataPacket {
   confidence: string | number | null;
 }
 
-interface HistoryRow extends RowDataPacket {
+export interface HistoryRow extends RowDataPacket {
   node_id: string;
   action_type: TraversalAction['type'];
   action_value: string | null;
@@ -35,11 +43,15 @@ interface OutcomeRow extends RowDataPacket {
 export class SessionStore {
   constructor(@Inject(MYSQL_POOL) private readonly pool: Pool) {}
 
-  async create(session: SessionState, modelSelection?: ModelSelection): Promise<void> {
+  /**
+   * clientId (migration 008): เจ้าของ session สำหรับหน้า "ประวัติการซ่อม" ไม่ส่ง = NULL (ไม่ปรากฏในประวัติของใคร)
+   * ไม่เกี่ยวกับการเดินขั้นตอน engine ไม่เห็นค่านี้
+   */
+  async create(session: SessionState, modelSelection?: ModelSelection, clientId?: string): Promise<void> {
     await this.pool.query(
       `INSERT INTO sessions
-         (session_id, graph_id, current_node_id, status, variables, confidence, model_selection, expires_at)
-       VALUES (?, ?, ?, ?, ?, ?, ?, NOW() + INTERVAL ? HOUR)`,
+         (session_id, graph_id, current_node_id, status, variables, confidence, model_selection, client_id, expires_at)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, NOW() + INTERVAL ? HOUR)`,
       [
         session.sessionId,
         session.graphId,
@@ -48,6 +60,7 @@ export class SessionStore {
         JSON.stringify(session.variables),
         session.confidence ?? null,
         modelSelection ?? null,
+        clientId ?? null,
         SESSION_TTL_HOURS,
       ],
     );
@@ -93,6 +106,9 @@ export class SessionStore {
       );
     }
     const stepOrder = session.history.length - 1;
+    // ขั้นที่ทำให้จบ → เก็บ 90 วันให้ดูย้อนหลังได้ · ขั้นอื่นยัง 24 ชั่วโมงเหมือนเดิม
+    const ttlHours =
+      session.status === 'completed' ? COMPLETED_SESSION_TTL_HOURS : SESSION_TTL_HOURS;
 
     const conn = await this.pool.getConnection();
     try {
@@ -109,7 +125,7 @@ export class SessionStore {
           session.currentNodeId,
           session.status,
           JSON.stringify(session.variables),
-          SESSION_TTL_HOURS,
+          ttlHours,
           session.sessionId,
         ],
       );
@@ -168,7 +184,8 @@ function actionValueOf(action: TraversalAction): string | null {
   return action.type === 'answer' || action.type === 'input' ? action.value : null;
 }
 
-function rowToHistoryEntry(row: HistoryRow): SessionHistoryEntry {
+/** ใช้ร่วมกับ HistoryStore (หน้าประวัติ) เพื่อให้แปลงแถว session_history เหมือนตอนเดินขั้นตอนทุกประการ */
+export function rowToHistoryEntry(row: HistoryRow): SessionHistoryEntry {
   return { nodeId: row.node_id, action: rowToAction(row) };
 }
 
@@ -199,7 +216,7 @@ function rowToAction(row: HistoryRow): TraversalAction {
   }
 }
 
-function parseVariables(value: unknown): Record<string, string> {
+export function parseVariables(value: unknown): Record<string, string> {
   if (typeof value === 'string') {
     return JSON.parse(value) as Record<string, string>;
   }

@@ -115,12 +115,17 @@ export class TraversalService {
     return this.graphRepository.listManuals();
   }
 
-  /** POST /traversal/sessions */
+  /**
+   * POST /traversal/sessions
+   * clientId: เจ้าของ session สำหรับหน้า "ประวัติการซ่อม" (ไม่ส่ง = ไม่ปรากฏในประวัติของใคร)
+   * บันทึกอย่างเดียว ไม่มีผลต่อการตัดสินขั้นตอน
+   */
   async startSession(
     graphId: string,
     query?: string,
     manualId?: string,
     modelSelection?: ModelSelection,
+    clientId?: string,
   ): Promise<SessionResponseDto> {
     const graph = this.requireGraph(graphId);
     if (manualId !== undefined && graph.manual_id !== manualId) {
@@ -131,7 +136,7 @@ export class TraversalService {
     // ถ้า engine โยน error (เช่น entry_node หาไม่เจอ) create() จะไม่ถูกเรียก
     // จึงไม่มี session ค้างอยู่ครึ่งๆ กลางๆ
     const { session, node } = engineStartSession(graph, confidence);
-    await this.sessionStore.create(session, modelSelection);
+    await this.sessionStore.create(session, modelSelection, clientId);
 
     return this.toResponse(session, node, graph);
   }

@@ -1,4 +1,6 @@
 import { ApiError } from '../api/http'
+import { MAX_FEEDBACK_COMMENT_LENGTH } from './feedback'
+import { HISTORY_RETENTION_DAYS } from './historyView'
 import { MAX_OUTCOME_LENGTH } from './outcome'
 
 /**
@@ -16,9 +18,10 @@ import { MAX_OUTCOME_LENGTH } from './outcome'
  * - retry            ลองส่งคำขอเดิมอีกครั้ง
  * - reload-session   ดึงสถานะล่าสุดของการตรวจจากเซิร์ฟเวอร์มาแสดงใหม่
  * - back-to-symptoms กลับไปหน้าเลือกอาการ
+ * - back-to-history  กลับไปหน้าประวัติการซ่อม
  * - stay             อยู่ขั้นเดิม ไม่ต้องทำอะไรเพิ่ม
  */
-export type ErrorRecovery = 'retry' | 'reload-session' | 'back-to-symptoms' | 'stay'
+export type ErrorRecovery = 'retry' | 'reload-session' | 'back-to-symptoms' | 'back-to-history' | 'stay'
 
 export interface ErrorDescription {
   title: string
@@ -142,6 +145,36 @@ export function describeError(error: unknown): ErrorDescription {
         title: 'การตรวจนี้บันทึกผลไปแล้ว',
         detail: 'บันทึกผลได้ครั้งเดียวต่อการตรวจ ดึงข้อมูลล่าสุดมาแสดงเพื่อดูข้อความที่บันทึกไว้',
         recovery: 'reload-session',
+      }
+
+    //หน้าประวัติการซ่อม (GET/DELETE/POST /history…)
+
+    case 'INVALID_CLIENT_ID':
+      return {
+        title: 'ระบบระบุเบราว์เซอร์นี้ไม่ได้',
+        detail: 'รีเฟรชหน้าแล้วลองอีกครั้ง ถ้ายังเกิดซ้ำ ให้ล้างข้อมูลเว็บไซต์นี้ในเบราว์เซอร์',
+        recovery: 'retry',
+      }
+
+    case 'INVALID_HISTORY_QUERY':
+      return {
+        title: 'ตัวกรองประวัติไม่ถูกต้อง',
+        detail: 'ล้างตัวกรองแล้วลองอีกครั้ง',
+        recovery: 'retry',
+      }
+
+    case 'INVALID_FEEDBACK':
+      return {
+        title: 'บันทึกความเห็นไม่ได้',
+        detail: `ข้อความต้องไม่ยาวเกิน ${MAX_FEEDBACK_COMMENT_LENGTH} ตัวอักษร แล้วกดบันทึกอีกครั้ง`,
+        recovery: 'stay',
+      }
+
+    case 'HISTORY_NOT_FOUND':
+      return {
+        title: 'ไม่พบรายการนี้ในประวัติ',
+        detail: `รายการอาจถูกลบแล้ว หมดอายุ (เก็บไว้ ${HISTORY_RETENTION_DAYS} วัน) หรือไม่ใช่ของเบราว์เซอร์นี้`,
+        recovery: 'back-to-history',
       }
 
     case 'GRAPH_NODE_MISSING':

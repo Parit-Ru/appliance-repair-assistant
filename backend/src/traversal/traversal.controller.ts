@@ -17,9 +17,10 @@
  * parseTraversalAction / parseOutcomeBody เท่านั้น
  */
 
-import { Body, Controller, Delete, Get, HttpCode, Param, Post, Query, UseFilters } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Headers, HttpCode, Param, Post, Query, UseFilters } from '@nestjs/common';
 
 import {
+  parseOptionalClientId,
   parseOptionalManualId,
   parseOutcomeBody,
   parseStartSessionBody,
@@ -52,13 +53,18 @@ export class TraversalController {
    * POST /traversal/sessions — body: { graphId, query?, manualId?, modelSelection? }
    * modelSelection ไม่บังคับ: 'selected' (เลือกรุ่นเอง) | 'unknown' (ไม่ทราบรุ่น) บันทึกไว้แยกเคสตอนวัดผล ไม่กระทบขั้นตอน
    * query ไม่บังคับ ไว้คิดคะแนนความมั่นใจ · manualId ไม่บังคับ: ถ้าส่งมา ผังต้องเป็นของรุ่นนั้น (ไม่ใช่ → 400 GRAPH_MANUAL_MISMATCH)
+   * หัวข้อ X-Client-Id ไม่บังคับ: UUID ของเบราว์เซอร์ ไว้ให้ session ไปปรากฏในหน้า "ประวัติการซ่อม" (ผิดรูป → 400 INVALID_CLIENT_ID)
    */
   @Post('sessions')
-  async startSession(@Body() body: unknown): Promise<SessionResponseDto> {
+  async startSession(
+    @Body() body: unknown,
+    @Headers('x-client-id') clientIdHeader?: unknown,
+  ): Promise<SessionResponseDto> {
     // parseStartSessionBody โยน InvalidRequestBodyError ทันทีถ้า body ผิดรูปแบบ
     // โค้ดจะไม่เดินไปถึง service เลยในกรณีนั้น (filter จับ error แล้วแปลงเป็น 400 แทน)
     const { graphId, query, manualId, modelSelection } = parseStartSessionBody(body);
-    return this.traversalService.startSession(graphId, query, manualId, modelSelection);
+    const clientId = parseOptionalClientId(clientIdHeader);
+    return this.traversalService.startSession(graphId, query, manualId, modelSelection, clientId);
   }
 
   /** GET /traversal/sessions/:id */
