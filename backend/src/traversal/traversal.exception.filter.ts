@@ -23,6 +23,7 @@ import type { Response } from 'express';
 
 import { InvalidOutcomeError, InvalidRequestBodyError } from './traversal.dto';
 import {
+  GraphManualMismatchError,
   GraphNotFoundError,
   OutcomeAlreadySubmittedError,
   SessionNotCompletedError,
@@ -83,6 +84,10 @@ export function toErrorBody(exception: unknown): ApiErrorBody {
   }
   if (exception instanceof SessionNotFoundError) {
     return { statusCode: 404, code: 'SESSION_NOT_FOUND', message };
+  }
+  if (exception instanceof GraphManualMismatchError) {
+    // ผังมีอยู่จริงแต่ไม่ใช่ของรุ่นที่ผู้ใช้เลือก → คำขอขัดแย้งกันเอง (ต่างจาก 404 ที่ไม่มีผังนี้เลย)
+    return { statusCode: 400, code: 'GRAPH_MANUAL_MISMATCH', message };
   }
   if (exception instanceof GraphNotFoundError) {
     return { statusCode: 404, code: 'GRAPH_NOT_FOUND', message };

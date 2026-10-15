@@ -57,7 +57,10 @@ function migrationFiles() {
 }
 
 async function main() {
-  const statusOnly = process.argv.includes('--status');
+  // PowerShell 5.1 ตัด "--" ใน `npm run migrate -- --status` แล้ว npm ส่ง --status มาเป็นตัวแปร npm_config_status แทน
+  // ถ้าตรวจแค่ argv จะกลายเป็นรัน migration จริง
+  const statusOnly =
+    process.argv.includes('--status') || process.env.npm_config_status === 'true';
   const conn = await mysql.createConnection(connectionConfig());
 
   try {

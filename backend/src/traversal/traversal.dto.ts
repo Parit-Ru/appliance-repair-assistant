@@ -1,5 +1,5 @@
 import type {RenderedNode,SessionStatus,TraversalAction,} from '../traversal-engine/types';
-import { MAX_QUERY_LENGTH } from '../symptom-search/symptom-search.dto';
+import { MAX_MANUAL_ID_LENGTH, MAX_QUERY_LENGTH } from '../symptom-search/symptom-search.dto';
 const MAX_INPUT_LENGTH = 255;
 export const MAX_OUTCOME_LENGTH = 1000;
 
@@ -18,9 +18,14 @@ export class InvalidOutcomeError extends Error {
   }
 }
 
+/** ผู้ใช้ระบุรุ่นเอง (selected) หรือบอกว่าไม่ทราบรุ่นแล้วเลือกรุ่นใกล้เคียงเอง (unknown) — ดู migration 007 */
+export type ModelSelection = 'selected' | 'unknown';
+
 export interface StartSessionBody {
   graphId: string;
   query?: string;
+  manualId?: string;
+  modelSelection?: ModelSelection;
 }
 
 function asObject(body: unknown): Record<string, unknown> {
@@ -28,6 +33,37 @@ function asObject(body: unknown): Record<string, unknown> {
     throw new InvalidRequestBodyError('body ต้องเป็น JSON object');
   }
   return body as Record<string, unknown>;
+}
+
+/**
+ * manualId ที่ไม่บังคับ ใช้ทั้ง query string (GET /traversal/graphs?manualId=) และ body (POST /traversal/sessions)
+ * ไม่ส่ง = undefined · ส่งแล้วต้องเป็นข้อความที่ไม่ว่างและไม่ยาวเกิน (ตัดช่องว่างหน้าหลังให้)
+ * ?manualId=a&manualId=b (อาร์เรย์) ถือว่าผิดรูปแบบ
+ */
+export function parseOptionalManualId(raw: unknown): string | undefined {
+  if (raw === undefined) {
+    return undefined;
+  }
+  if (typeof raw !== 'string') {
+    throw new InvalidRequestBodyError('manualId ต้องเป็นข้อความ');
+  }
+  const manualId = raw.trim();
+  if (manualId === '' || manualId.length > MAX_MANUAL_ID_LENGTH) {
+    throw new InvalidRequestBodyError(
+      `manualId ต้องไม่ว่างและยาวไม่เกิน ${MAX_MANUAL_ID_LENGTH} ตัวอักษร`,
+    );
+  }
+  return manualId;
+}
+
+function parseModelSelection(raw: unknown): ModelSelection | undefined {
+  if (raw === undefined) {
+    return undefined;
+  }
+  if (raw !== 'selected' && raw !== 'unknown') {
+    throw new InvalidRequestBodyError("modelSelection ต้องเป็น 'selected' หรือ 'unknown'");
+  }
+  return raw;
 }
 
 export function parseStartSessionBody(body: unknown): StartSessionBody {
@@ -38,8 +74,11 @@ export function parseStartSessionBody(body: unknown): StartSessionBody {
     throw new InvalidRequestBodyError('graphId ต้องเป็นข้อความที่ไม่ว่าง');
   }
 
+  const manualId = parseOptionalManualId(obj.manualId);
+  const modelSelection = parseModelSelection(obj.modelSelection);
+
   if (obj.query === undefined) {
-    return { graphId };
+    return { graphId, manualId, modelSelection };
   }
   if (typeof obj.query !== 'string') {
     throw new InvalidRequestBodyError('query ต้องเป็นข้อความ');
@@ -51,7 +90,7 @@ export function parseStartSessionBody(body: unknown): StartSessionBody {
   if (query.length > MAX_QUERY_LENGTH) {
     throw new InvalidRequestBodyError(`query ยาวเกิน ${MAX_QUERY_LENGTH} ตัวอักษร`);
   }
-  return { graphId, query };
+  return { graphId, query, manualId, modelSelection };
 }
 
 export function parseTraversalAction(body: unknown): TraversalAction {

@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "manual_id": "samsung_mg28h5125_um_de68_04246j",
-  "device_category": "Microwave Oven",
+  "device_category": "Microwave",
   "brand": "Samsung",
   "model_pattern": "MG28H5125**",
   "source_manual": "Samsung Microwave Oven User Manual MG28H5125** (MG28H5125NK_ST_DE68-04246J-05_TH_EN)",
@@ -10,7 +10,7 @@
     {
       "schema_version": 2,
       "graph_id": "samsung_mg28h5125_um_normal_conditions",
-      "device_category": "Microwave Oven",
+      "device_category": "Microwave",
       "brand": "Samsung",
       "model_pattern": "MG28H5125**",
       "entry_symptom": "Condensation inside the oven. Air flow around the door and outer casing. Light reflection around the door and outer casing. Steam escaping from around the door or vents.",
@@ -57,7 +57,7 @@
     {
       "schema_version": 2,
       "graph_id": "samsung_mg28h5125_um_not_start",
-      "device_category": "Microwave Oven",
+      "device_category": "Microwave",
       "brand": "Samsung",
       "model_pattern": "MG28H5125**",
       "entry_symptom": "The oven does not start when you press the START/+30s button.",
@@ -146,7 +146,7 @@
     {
       "schema_version": 2,
       "graph_id": "samsung_mg28h5125_um_not_cooked_at_all",
-      "device_category": "Microwave Oven",
+      "device_category": "Microwave",
       "brand": "Samsung",
       "model_pattern": "MG28H5125**",
       "entry_symptom": "The food is not cooked at all.",
@@ -250,7 +250,7 @@
     {
       "schema_version": 2,
       "graph_id": "samsung_mg28h5125_um_over_under_cooked",
-      "device_category": "Microwave Oven",
+      "device_category": "Microwave",
       "brand": "Samsung",
       "model_pattern": "MG28H5125**",
       "entry_symptom": "The food is either overcooked or undercooked.",
@@ -340,7 +340,7 @@
     {
       "schema_version": 2,
       "graph_id": "samsung_mg28h5125_um_light_not_working",
-      "device_category": "Microwave Oven",
+      "device_category": "Microwave",
       "brand": "Samsung",
       "model_pattern": "MG28H5125**",
       "entry_symptom": "The light bulb is not working.",
@@ -417,7 +417,7 @@
     {
       "schema_version": 2,
       "graph_id": "samsung_mg28h5125_um_radio_tv_interference",
-      "device_category": "Microwave Oven",
+      "device_category": "Microwave",
       "brand": "Samsung",
       "model_pattern": "MG28H5125**",
       "entry_symptom": "The oven causes interference with radios or televisions.",
@@ -507,7 +507,7 @@
     {
       "schema_version": 2,
       "graph_id": "samsung_mg28h5125_um_arcing",
-      "device_category": "Microwave Oven",
+      "device_category": "Microwave",
       "brand": "Samsung",
       "model_pattern": "MG28H5125**",
       "entry_symptom": "Sparking and cracking occur inside the oven (arcing).",
@@ -624,7 +624,7 @@
     {
       "schema_version": 2,
       "graph_id": "samsung_mg28h5125_um_smoke_smell_initial",
-      "device_category": "Microwave Oven",
+      "device_category": "Microwave",
       "brand": "Samsung",
       "model_pattern": "MG28H5125**",
       "entry_symptom": "Smoke and bad smell when initial operating.",
@@ -670,7 +670,7 @@
     {
       "schema_version": 2,
       "graph_id": "samsung_mg28h5125_um_code_se",
-      "device_category": "Microwave Oven",
+      "device_category": "Microwave",
       "brand": "Samsung",
       "model_pattern": "MG28H5125**",
       "entry_symptom": "“SE” message indicates.",
@@ -760,7 +760,7 @@
     {
       "schema_version": 2,
       "graph_id": "samsung_mg28h5125_um_code_e12",
-      "device_category": "Microwave Oven",
+      "device_category": "Microwave",
       "brand": "Samsung",
       "model_pattern": "MG28H5125**",
       "entry_symptom": "“E-12” message indicates.",

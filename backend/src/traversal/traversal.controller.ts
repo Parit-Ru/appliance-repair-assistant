@@ -1,5 +1,5 @@
 /**
- * traversal.controller.ts — 6 endpoint ของ API เดินขั้นตอนการตรวจอาการ
+ * traversal.controller.ts — 7 endpoint ของ API เดินขั้นตอนการตรวจอาการ
  *
  * ไฟล์นี้ตั้งใจให้ "โง่" ที่สุดเท่าที่เป็นไปได้ ไม่มีการตัดสินใจอะไรเองเลย:
  *   - รับ request
@@ -17,33 +17,48 @@
  * parseTraversalAction / parseOutcomeBody เท่านั้น
  */
 
-import { Body, Controller, Delete, Get, HttpCode, Param, Post, UseFilters } from '@nestjs/common';
+import { Body, Controller, Delete, Get, HttpCode, Param, Post, Query, UseFilters } from '@nestjs/common';
 
-import { parseOutcomeBody, parseStartSessionBody, parseTraversalAction } from './traversal.dto';
+import {
+  parseOptionalManualId,
+  parseOutcomeBody,
+  parseStartSessionBody,
+  parseTraversalAction,
+} from './traversal.dto';
 import type { SessionResponseDto } from './traversal.dto';
 import { TraversalExceptionFilter } from './traversal.exception.filter';
 import { TraversalService } from './traversal.service';
-import type { GraphSummary } from './graph.repository';
+import type { GraphSummary, ManualSummary } from './graph.repository';
 
 @Controller('traversal')
 @UseFilters(TraversalExceptionFilter)
 export class TraversalController {
   constructor(private readonly traversalService: TraversalService) {}
 
-  /** GET /traversal/graphs */
+  /** GET /traversal/graphs — ?manualId=… (ไม่บังคับ) เฉพาะผังของรุ่นนั้น */
   @Get('graphs')
-  listGraphs(): GraphSummary[] {
+  listGraphs(@Query('manualId') manualId?: unknown): GraphSummary[] {
     // ไม่ async เพราะ service.listGraphs() เองก็ไม่ async (อ่านจากหน่วยความจำล้วน)
-    return this.traversalService.listGraphs();
+    return this.traversalService.listGraphs(parseOptionalManualId(manualId));
   }
 
-  /** POST /traversal/sessions — body: { graphId, query? } (query ไม่บังคับ ไว้คิดคะแนนความมั่นใจ) */
+  /** GET /traversal/manuals */
+  @Get('manuals')
+  listManuals(): ManualSummary[] {
+    return this.traversalService.listManuals();
+  }
+
+  /**
+   * POST /traversal/sessions — body: { graphId, query?, manualId?, modelSelection? }
+   * modelSelection ไม่บังคับ: 'selected' (เลือกรุ่นเอง) | 'unknown' (ไม่ทราบรุ่น) บันทึกไว้แยกเคสตอนวัดผล ไม่กระทบขั้นตอน
+   * query ไม่บังคับ ไว้คิดคะแนนความมั่นใจ · manualId ไม่บังคับ: ถ้าส่งมา ผังต้องเป็นของรุ่นนั้น (ไม่ใช่ → 400 GRAPH_MANUAL_MISMATCH)
+   */
   @Post('sessions')
   async startSession(@Body() body: unknown): Promise<SessionResponseDto> {
     // parseStartSessionBody โยน InvalidRequestBodyError ทันทีถ้า body ผิดรูปแบบ
     // โค้ดจะไม่เดินไปถึง service เลยในกรณีนั้น (filter จับ error แล้วแปลงเป็น 400 แทน)
-    const { graphId, query } = parseStartSessionBody(body);
-    return this.traversalService.startSession(graphId, query);
+    const { graphId, query, manualId, modelSelection } = parseStartSessionBody(body);
+    return this.traversalService.startSession(graphId, query, manualId, modelSelection);
   }
 
   /** GET /traversal/sessions/:id */

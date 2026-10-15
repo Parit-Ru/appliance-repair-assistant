@@ -1,7 +1,7 @@
 /**
  * symptom-search.controller.ts — 2 endpoint ของงานค้นหาอาการ
  *
- *   POST /symptom-search         body: { query }  → SymptomSearchResponseDto
+ *   POST /symptom-search         body: { query, manualId? }  → SymptomSearchResponseDto
  *   GET  /symptom-search/status                   → SearchStatusDto
  *
  * ตั้งใจให้ "โง่" เหมือน TraversalController: ตรวจรูปร่าง body ด้วย parseSearchBody
@@ -26,12 +26,12 @@ import { SymptomSearchService } from './symptom-search.service';
 export class SymptomSearchController {
   constructor(private readonly searchService: SymptomSearchService) {}
 
-  /** POST /symptom-search — body: { query } */
+  /** POST /symptom-search — body: { query, manualId? } (manualId ไม่บังคับ: ค้นเฉพาะรุ่นนั้น) */
   @Post()
   @HttpCode(200)
   async search(@Body() body: unknown): Promise<SymptomSearchResponseDto> {
-    const { query } = parseSearchBody(body);
-    return this.searchService.search(query);
+    const { query, manualId } = parseSearchBody(body);
+    return this.searchService.search(query, manualId);
   }
 
   /** GET /symptom-search/status — ไว้ดูความคืบหน้าการโหลดโมเดลและหน่วยความจำ */

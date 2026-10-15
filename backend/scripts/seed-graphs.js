@@ -24,6 +24,22 @@ function validateManual(manual) {
     problems.push(`schema_version เป็น ${manual.schema_version} ไม่ใช่ 2`);
   }
 
+  // ชื่อรุ่นที่ผู้ใช้รู้จัก (migration 006) ไม่บังคับ ไม่มี = หน้าเว็บแสดง model_pattern แทน
+  if (
+    manual.display_name !== undefined &&
+    (typeof manual.display_name !== 'string' ||
+      manual.display_name.trim() === '' ||
+      manual.display_name.length > 120)
+  ) {
+    problems.push('display_name ต้องเป็นข้อความที่ไม่ว่างและไม่เกิน 120 ตัวอักษร');
+  }
+  if (
+    manual.model_aliases !== undefined &&
+    !(Array.isArray(manual.model_aliases) && manual.model_aliases.every((a) => typeof a === 'string'))
+  ) {
+    problems.push('model_aliases ต้องเป็นอาร์เรย์ของข้อความ');
+  }
+
   for (const graph of manual.graphs) {
     const ids = new Set(graph.nodes.map((n) => n.node_id));
 
@@ -106,14 +122,17 @@ function nodeToRow(graphId, node, order) {
 async function seedManual(conn, manual) {
   await conn.execute(
     `INSERT INTO manuals
-       (manual_id, device_category, brand, model_pattern, source_manual, graph_count)
-     VALUES (?, ?, ?, ?, ?, ?)
+       (manual_id, device_category, brand, model_pattern, source_manual, graph_count,
+        display_name, model_aliases)
+     VALUES (?, ?, ?, ?, ?, ?, ?, ?)
      ON DUPLICATE KEY UPDATE
        device_category = VALUES(device_category),
        brand           = VALUES(brand),
        model_pattern   = VALUES(model_pattern),
        source_manual   = VALUES(source_manual),
-       graph_count     = VALUES(graph_count)`,
+       graph_count     = VALUES(graph_count),
+       display_name    = VALUES(display_name),
+       model_aliases   = VALUES(model_aliases)`,
     [
       manual.manual_id,
       manual.device_category,
@@ -121,6 +140,8 @@ async function seedManual(conn, manual) {
       manual.model_pattern,
       manual.source_manual,
       manual.graphs.length,
+      manual.display_name ?? null,
+      manual.model_aliases ? JSON.stringify(manual.model_aliases) : null,
     ],
   );
 
@@ -232,6 +253,9 @@ async function main() {
     process.exit(1);
   }
   console.log('ตรวจโครงสร้างผ่าน');
+  if (!manual.display_name) {
+    console.log('หมายเหตุ: ไม่มี display_name (หน้าเว็บจะแสดง model_pattern แทน ไม่เดาชื่อ)');
+  }
 
   if (verifyOnly) {
     console.log('(โหมด --verify ไม่เขียนอะไรลงฐานข้อมูล)');

@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "manual_id": "samsung_me73md_um_de68_04091q",
-  "device_category": "Microwave Oven",
+  "device_category": "Microwave",
   "brand": "Samsung",
   "model_pattern": "ME73MD",
   "source_manual": "Samsung Microwave Oven User Manual ME73MD (ME73MD_XST-DE68-04091Q-01_TH_EN)",
@@ -10,7 +10,7 @@
     {
       "schema_version": 2,
       "graph_id": "samsung_me73md_um_normal_conditions",
-      "device_category": "Microwave Oven",
+      "device_category": "Microwave",
       "brand": "Samsung",
       "model_pattern": "ME73MD",
       "entry_symptom": "Condensation inside the oven. Air flow around the door and outer casing. Light reflection around the door and outer casing. Steam escaping from around the door or vents.",
@@ -57,7 +57,7 @@
     {
       "schema_version": 2,
       "graph_id": "samsung_me73md_um_not_start",
-      "device_category": "Microwave Oven",
+      "device_category": "Microwave",
       "brand": "Samsung",
       "model_pattern": "ME73MD",
       "entry_symptom": "The oven does not start when you press the Start button.",
@@ -121,7 +121,7 @@
     {
       "schema_version": 2,
       "graph_id": "samsung_me73md_um_not_cooked_at_all",
-      "device_category": "Microwave Oven",
+      "device_category": "Microwave",
       "brand": "Samsung",
       "model_pattern": "ME73MD",
       "entry_symptom": "The food is not cooked at all.",
@@ -225,7 +225,7 @@
     {
       "schema_version": 2,
       "graph_id": "samsung_me73md_um_over_under_cooked",
-      "device_category": "Microwave Oven",
+      "device_category": "Microwave",
       "brand": "Samsung",
       "model_pattern": "ME73MD",
       "entry_symptom": "The food is either overcooked or undercooked.",
@@ -315,7 +315,7 @@
     {
       "schema_version": 2,
       "graph_id": "samsung_me73md_um_arcing",
-      "device_category": "Microwave Oven",
+      "device_category": "Microwave",
       "brand": "Samsung",
       "model_pattern": "ME73MD",
       "entry_symptom": "Sparking and cracking occur inside the oven (arcing).",
@@ -432,7 +432,7 @@
     {
       "schema_version": 2,
       "graph_id": "samsung_me73md_um_radio_tv_interference",
-      "device_category": "Microwave Oven",
+      "device_category": "Microwave",
       "brand": "Samsung",
       "model_pattern": "ME73MD",
       "entry_symptom": "The oven causes interference with radios or televisions.",

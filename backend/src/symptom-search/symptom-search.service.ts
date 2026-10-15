@@ -29,6 +29,7 @@ interface GraphInfo {
   entrySymptom: string;
   entrySymptomTh?: string;
   deviceCategory: DeviceCategory;
+  manualId: string;
 }
 
 const round3 = (n: number): number => Math.round(n * 1000) / 1000;
@@ -95,13 +96,21 @@ export class SymptomSearchService implements OnApplicationBootstrap {
           entrySymptom: graph.entry_symptom,
           entrySymptomTh: graph.entry_symptom_th,
           deviceCategory: graph.device_category,
+          manualId: graph.manual_id,
         });
       }
 
       // ทีละข้อความ (ไม่ขนาน) เพราะ CPU มีน้อยและอยากให้ใช้หน่วยความจำคงที่
+      // ข้อความเดียวกันจากหลายคู่มือ (เช่น "ทีวีปิดเอง") ทำเวกเตอร์ครั้งเดียวแล้วใช้ร่วมกัน
+      const vectors = new Map<string, Float32Array>();
       const index: IndexedSymptom[] = [];
       for (const item of buildSymptomTexts(fullGraphs)) {
-        index.push({ ...item, vector: await this.embedding.embed(item.text) });
+        let vector = vectors.get(item.text);
+        if (vector === undefined) {
+          vector = await this.embedding.embed(item.text);
+          vectors.set(item.text, vector);
+        }
+        index.push({ ...item, vector });
       }
 
       this.index = index;
@@ -121,13 +130,19 @@ export class SymptomSearchService implements OnApplicationBootstrap {
   /**
    * ค้นหาผังขั้นตอนที่ตรงกับคำค้น
    * รับข้อความที่ผ่าน parseSearchBody แล้ว (ตัดช่องว่าง ตรวจความยาวแล้ว)
+   * manualId (ไม่บังคับ): ค้นเฉพาะผังของคู่มือ/รุ่นนั้น โดยกรองดัชนีก่อนจัดอันดับ
+   * (กรองหลังเลือก top-3 อาจเหลือ 0 ผัง) ไม่ส่ง = ค้นทุกรุ่นเหมือนเดิม · ไม่พบรุ่นนั้น = ไม่มีผลลัพธ์
    */
-  async search(query: string): Promise<SymptomSearchResponseDto> {
+  async search(query: string, manualId?: string): Promise<SymptomSearchResponseDto> {
     if (this.state === 'loading') throw new SearchNotReadyError();
     if (this.state !== 'ready') throw new SearchUnavailableError();
 
     const queryVector = await this.embedding.embed(query);
-    const ranked = rankGraphs(queryVector, this.index);
+    const candidates =
+      manualId === undefined
+        ? this.index
+        : this.index.filter((item) => this.graphInfo.get(item.graphId)?.manualId === manualId);
+    const ranked = rankGraphs(queryVector, candidates);
 
     // เทียบเกณฑ์ด้วยค่าเต็ม แล้วค่อยปัดเศษตอนส่งออก
     const matches = selectMatches(ranked, MATCH_THRESHOLD, MAX_RESULTS).map(

@@ -2,6 +2,7 @@ import { Inject, Injectable } from '@nestjs/common';
 import type { Pool, ResultSetHeader, RowDataPacket } from 'mysql2/promise';
 
 import { MYSQL_POOL } from '../database/database.constants';
+import type { ModelSelection } from './traversal.dto';
 import type {
   SessionHistoryEntry,
   SessionState,
@@ -34,11 +35,11 @@ interface OutcomeRow extends RowDataPacket {
 export class SessionStore {
   constructor(@Inject(MYSQL_POOL) private readonly pool: Pool) {}
 
-  async create(session: SessionState): Promise<void> {
+  async create(session: SessionState, modelSelection?: ModelSelection): Promise<void> {
     await this.pool.query(
       `INSERT INTO sessions
-         (session_id, graph_id, current_node_id, status, variables, confidence, expires_at)
-       VALUES (?, ?, ?, ?, ?, ?, NOW() + INTERVAL ? HOUR)`,
+         (session_id, graph_id, current_node_id, status, variables, confidence, model_selection, expires_at)
+       VALUES (?, ?, ?, ?, ?, ?, ?, NOW() + INTERVAL ? HOUR)`,
       [
         session.sessionId,
         session.graphId,
@@ -46,6 +47,7 @@ export class SessionStore {
         session.status,
         JSON.stringify(session.variables),
         session.confidence ?? null,
+        modelSelection ?? null,
         SESSION_TTL_HOURS,
       ],
     );

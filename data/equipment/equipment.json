@@ -2,7 +2,7 @@
   "schema_version": 1,
   "_readme": "รายการอุปกรณ์ที่ควรเตรียมก่อนซ่อม แยกตามประเภทเครื่อง",
   "reviewed_by_author": false,
-  "_reviewed_by_author_note": "เครื่องปรับอากาศ: ผู้พัฒนาตรวจและรับรองแล้วเมื่อ 8 กันยายน 2569 (ครบ 7 รายการ). ไมโครเวฟ ตู้เย็น เครื่องซักผ้า เครื่องอบผ้า ทีวี (ทั้งสองคู่มือ): AI ร่างเมื่อ 14 ตุลาคม 2569 จากข้อความในคู่มือ ยังไม่ผ่านการตรวจโดยผู้พัฒนา. รายการที่มี source_page ตรวจกับหน้าในคู่มือแล้ว รายการที่มี author_note ไม่ได้อยู่ในคู่มือ.",
+  "_reviewed_by_author_note": "เครื่องปรับอากาศ: ผู้พัฒนาตรวจและรับรองแล้วเมื่อ 8 กันยายน 2569 (ครบ 7 รายการ). ไมโครเวฟ ตู้เย็น เครื่องซักผ้า ทีวี (ทั้งสองคู่มือ): AI ร่างเมื่อ 14 ตุลาคม 2569 จากข้อความในคู่มือ ยังไม่ผ่านการตรวจโดยผู้พัฒนา. รายการที่มี source_page ตรวจกับหน้าในคู่มือแล้ว รายการที่มี author_note ไม่ได้อยู่ในคู่มือ.",
   "equipment": [
     {
       "equipment_id": "usb_c_cable",
@@ -105,21 +105,6 @@
       "name_en": "Chlorine bleach"
     },
     {
-      "equipment_id": "cleaning_brush",
-      "name_th": "แปรงทำความสะอาด (ที่ให้มากับเครื่อง)",
-      "name_en": "Cleaning brush (supplied)"
-    },
-    {
-      "equipment_id": "spirit_level",
-      "name_th": "ระดับน้ำ (level)",
-      "name_en": "Spirit level"
-    },
-    {
-      "equipment_id": "warm_water_towel",
-      "name_th": "ผ้าชุบน้ำอุ่น",
-      "name_en": "Towel soaked in warm water"
-    },
-    {
       "equipment_id": "hdmi_cable",
       "name_th": "สาย HDMI",
       "name_en": "HDMI cable"
@@ -195,7 +180,7 @@
       ]
     },
     {
-      "device_category": "Microwave Oven",
+      "device_category": "Microwave",
       "reviewed_by_author": false,
       "items": [
         {
@@ -321,41 +306,6 @@
           "purpose_th": "รองน้ำที่ระบายออกจากถังซักตอนทำความสะอาดตัวกรอง เพราะน้ำอาจมีมากกว่าที่คาด",
           "source_page": 52,
           "_evidence": "สเตตแมชชีนของคู่มือ DC68-04382A หน้า 52 ระบุให้ใช้ภาชนะใหญ่รองน้ำ"
-        },
-        {
-          "equipment_id": "notepad_or_phone",
-          "purpose_th": "จดรหัสข้อผิดพลาดที่หน้าจอแสดง และรุ่นเครื่อง ไว้แจ้งศูนย์บริการ",
-          "author_note": "คู่มือให้แจ้งรุ่นเครื่องและอาการเมื่อติดต่อศูนย์บริการ แต่ไม่ได้ระบุอุปกรณ์ที่ใช้จด ผู้พัฒนาเป็นผู้เพิ่มรายการนี้"
-        }
-      ]
-    },
-    {
-      "device_category": "Dryer",
-      "reviewed_by_author": false,
-      "items": [
-        {
-          "equipment_id": "cleaning_brush",
-          "purpose_th": "ปัดเศษผ้าออกจากตัวกรองเศษผ้า (lint filter) และปัดฝุ่นบน heat exchanger ใช้แปรงที่ให้มากับเครื่อง",
-          "source_page": 40,
-          "_evidence": "คู่มือ DV5000C หน้า 40 ระบุให้ปัดฝุ่นบน heat exchanger ด้วยแปรงที่ให้มา (provided brush) และหน้า 38 ให้ทำความสะอาดตัวกรองด้วยแปรงทำความสะอาด"
-        },
-        {
-          "equipment_id": "soft_cloth",
-          "purpose_th": "เช็ดฝุ่นที่เหลือบน heat exchanger และฝาครอบชั้นในด้วยผ้านุ่มหมาดๆ",
-          "source_page": 40,
-          "_evidence": "คู่มือ DV5000C หน้า 40 ระบุให้เช็ดฝุ่นที่เหลือด้วยผ้านุ่มหมาด (smooth, damp cloth)"
-        },
-        {
-          "equipment_id": "spirit_level",
-          "purpose_th": "ตรวจความได้ระดับของเครื่องซ้าย–ขวา และหน้า–หลัง เมื่อเครื่องสั่นหรือมีเสียงดัง",
-          "source_page": 16,
-          "_evidence": "คู่มือ DV5000C หน้า 16 หัวข้อ Adjust the levelling feet ระบุให้ใช้ level ตรวจความได้ระดับ"
-        },
-        {
-          "equipment_id": "warm_water_towel",
-          "purpose_th": "พันสายระบายน้ำที่แข็งตัวประมาณสิบนาทีเพื่อละลายน้ำแข็ง",
-          "source_page": 44,
-          "_evidence": "คู่มือ DV5000C หน้า 44 ระบุให้พันสายด้วยผ้าขนหนูชุบน้ำอุ่นประมาณสิบนาทีเมื่อสายระบายน้ำแข็งตัว"
         },
         {
           "equipment_id": "notepad_or_phone",

@@ -34,13 +34,14 @@
 | Method + Path | Controller | ทำอะไร | ตอบ |
 |---|---|---|---|
 | `GET /health` | `health.controller.ts` | เช็กว่าเซิร์ฟเวอร์และ MySQL ตอบอยู่ | 200 |
-| `GET /traversal/graphs` | `traversal.controller.ts` | รายการอาการทั้งหมด (อ่านจากหน่วยความจำ) | 200 |
-| `POST /traversal/sessions` | `traversal.controller.ts` | เริ่มการตรวจ body `{ graphId, query? }` | 201 |
+| `GET /traversal/graphs` | `traversal.controller.ts` | รายการอาการทั้งหมด (อ่านจากหน่วยความจำ) แต่ละผังมี `manualId` · `?manualId=…` (ไม่บังคับ) เฉพาะผังของรุ่นนั้น | 200 |
+| `GET /traversal/manuals` | `traversal.controller.ts` | รายการคู่มือ/รุ่น: `manualId`, `deviceCategory`, `brand`, `modelPattern`, `graphCount` + `displayName`, `modelAliases` (ถ้าผู้พัฒนาเติมแล้ว ไม่งั้นไม่ส่งฟิลด์ ไม่เดาชื่อ · **ต้องรัน migration 006 ก่อน**) | 200 |
+| `POST /traversal/sessions` | `traversal.controller.ts` | เริ่มการตรวจ body `{ graphId, query?, manualId?, modelSelection? }` (`manualId` ไม่บังคับ: ถ้าส่งมา ผังต้องเป็นของรุ่นนั้น ไม่ใช่ → 400 `GRAPH_MANUAL_MISMATCH` · `modelSelection` ไม่บังคับ `selected`/`unknown` บันทึกลง `sessions.model_selection` **ต้องรัน migration 007 ก่อน**) | 201 |
 | `GET /traversal/sessions/:id` | `traversal.controller.ts` | ดึงสถานะปัจจุบัน | 200 |
 | `POST /traversal/sessions/:id/actions` | `traversal.controller.ts` | ส่งคำตอบ/คำสั่ง 1 ครั้ง | 201 |
 | `POST /traversal/sessions/:id/outcome` | `traversal.controller.ts` | บันทึกข้อความผลลัพธ์ (ได้ครั้งเดียว ต้องจบแล้ว) | 200 |
 | `DELETE /traversal/sessions/:id` | `traversal.controller.ts` | ยกเลิกการตรวจ | 204 |
-| `POST /symptom-search` | `symptom-search.controller.ts` | ค้นหาอาการจากข้อความ body `{ query }` | 200 |
+| `POST /symptom-search` | `symptom-search.controller.ts` | ค้นหาอาการจากข้อความ body `{ query, manualId? }` (`manualId` ไม่บังคับ: ค้นเฉพาะผังของรุ่นนั้น) | 200 |
 | `GET /symptom-search/status` | `symptom-search.controller.ts` | สถานะโมเดล/หน่วยความจำ | 200 |
 
 ### ใครพึ่งใคร (ผังโมดูล)
@@ -161,7 +162,7 @@ data/                  ข้อมูลที่ seed เข้าฐานข
 
 ### 3.4 `traversal-engine/` (ตรรกะล้วน ไม่แตะฐานข้อมูล ไม่พึ่ง Nest)
 
-#### `types.ts` (169 บรรทัด)
+#### `types.ts` (170 บรรทัด)
 - **ทำอะไร:** นิยามชนิดข้อมูลทั้งหมดของระบบ และคลาส error ของ engine
 - **เนื้อหาหลัก:**
   - ชนิดโหนด 5 แบบ (`CheckpointNode`, `InstructionNode`, `InputNode`, `ResolutionNode`, `EscalationNode`) รวมเป็น `TroubleshootingNode` (union ที่แยกด้วย `type`)
@@ -186,23 +187,24 @@ data/                  ข้อมูลที่ seed เข้าฐานข
 
 ### 3.5 `traversal/` (ต่อ engine เข้ากับ HTTP และฐานข้อมูล)
 
-#### `traversal.controller.ts` (94 บรรทัด)
-- **ทำอะไร:** 6 endpoint ของ `/traversal/*` ออกแบบให้ "โง่" ที่สุด
+#### `traversal.controller.ts` (109 บรรทัด)
+- **ทำอะไร:** 7 endpoint ของ `/traversal/*` ออกแบบให้ "โง่" ที่สุด
 - **ทำงานยังไง:** รับ `@Body()` เป็น `unknown` → ตรวจด้วย `parse*` ใน dto → ส่งต่อ service → คืนผลตรงๆ ไม่จับ error เอง (ปล่อยให้ `TraversalExceptionFilter` ที่ติดระดับ controller จัดการ)
 - **ข้อควรรู้:** รหัสตอบต่างกัน: `/sessions` และ `/actions` ตอบ 201 (ค่าเริ่มต้นของ POST ใน Nest), `/outcome` ตอบ 200 เพราะไม่ได้สร้างทรัพยากรใหม่, DELETE ตอบ 204 ไม่มี body
 
-#### `traversal.dto.ts` (141 บรรทัด)
+#### `traversal.dto.ts` (180 บรรทัด)
 - **ทำอะไร:** ตรวจรูปร่าง request body ด้วยมือ (ไม่ใช้ class-validator)
 - **ฟังก์ชัน:**
-  - `parseStartSessionBody` — `graphId` ต้องไม่ว่าง; `query` (ถ้ามี) ถูก trim ต้องไม่ว่างและไม่เกิน 200 ตัวอักษร
+  - `parseStartSessionBody` — `graphId` ต้องไม่ว่าง; `query` (ถ้ามี) ถูก trim ต้องไม่ว่างและไม่เกิน 200 ตัวอักษร; `manualId` (ถ้ามี) ผ่าน `parseOptionalManualId`; `modelSelection` (ถ้ามี) ต้องเป็น `'selected'` หรือ `'unknown'` ไม่งั้น `InvalidRequestBodyError` (ชนิด `ModelSelection` ส่งออกจากไฟล์นี้)
+  - `parseOptionalManualId` — ใช้ทั้ง query string ของ `GET /traversal/graphs` และ body ของ `POST /traversal/sessions`: ไม่ส่ง = `undefined`; ส่งแล้วต้องเป็นข้อความ (trim) ไม่ว่างและไม่เกิน 80 ตัวอักษร ไม่งั้นโยน `InvalidRequestBodyError` (→ 400 `INVALID_ACTION`); `?manualId=a&manualId=b` ผิดรูปแบบ
   - `parseTraversalAction` — แยกตาม `type`; `answer` ต้อง `yes`/`no`; `input` ต้องเป็นข้อความไม่เกิน 255 ตัวอักษร
   - `parseOutcomeBody` — `text` ต้องไม่ว่าง ไม่เกิน 1000 ตัวอักษร (โยน `InvalidOutcomeError`)
   - นิยาม `SessionResponseDto` (มี `displayText: string | null` ฟิลด์ที่ LLM เรียบเรียง), `EquipmentItemDto`
 - **ข้อควรรู้:** ค่าความยาวสูงสุด (200, 1000) ถูก "ลอก" ไปไว้ฝั่ง frontend ด้วย (`lib/search.ts`, `lib/outcome.ts`) ถ้าแก้ที่นี่ต้องแก้ที่นั่น
 
-#### `traversal.service.ts` (266 บรรทัด)
+#### `traversal.service.ts` (294 บรรทัด)
 - **ทำอะไร:** ประสานงาน: ดึงข้อมูลให้ engine → เรียก engine → บันทึกผล → ประกอบ response
-- **เมธอด 6 ตัวตรงกับ endpoint:** `listGraphs`, `startSession`, `getSession`, `submitAction`, `abandonSession`, `submitOutcome`
+- **เมธอด 7 ตัวตรงกับ endpoint:** `listGraphs(manualId?)` (กรองตามรุ่น), `listManuals`, `startSession(graphId, query?, manualId?, modelSelection?)` (ส่ง `modelSelection` ต่อให้ `sessionStore.create` · ถ้าส่ง `manualId` และผังไม่ใช่ของรุ่นนั้น โยน `GraphManualMismatchError` **ก่อน** คิดคะแนนและสร้าง session), `getSession`, `submitAction`, `abandonSession`, `submitOutcome`
 - **จุดสำคัญ:**
   - `submitAction`: เรียก `engineSubmitAction` **ก่อน** `sessionStore.update` ถ้า engine โยน error บรรทัดบันทึกไม่ถูกรัน → ไม่ต้องมีโค้ด "ย้อนสถานะ"
   - `submitOutcome`: ตรวจ 3 ข้อตามลำดับ (ไม่พบ session → 404, ยังไม่จบ → 409, เคยบันทึกแล้ว → 409) ข้อสุดท้ายให้ `saveOutcome()` ตัดสินใน UPDATE คำสั่งเดียว
@@ -212,7 +214,7 @@ data/                  ข้อมูลที่ seed เข้าฐานข
 - **error ของไฟล์นี้เอง:** `GraphNotFoundError`, `SessionNotFoundError`, `SessionNotCompletedError`, `OutcomeAlreadySubmittedError`
 - **ข้อควรรู้:** `RephraseService` ถูก inject เข้ามาเป็นพารามิเตอร์ตัวที่ 4 (หน่วย 6) แต่ไม่มีผลต่อการเปลี่ยนสถานะ รายละเอียดตำแหน่งที่แก้อยู่ใน [LLM-INTEGRATION.md](LLM-INTEGRATION.md)
 
-#### `traversal.exception.filter.ts` (118 บรรทัด)
+#### `traversal.exception.filter.ts` (123 บรรทัด)
 - **ทำอะไร:** แปลง error → HTTP response รูปแบบเดียวกันทุกกรณี `{ statusCode, code, message }`
 - **ตารางแปลง (`toErrorBody`):**
 
@@ -225,6 +227,7 @@ data/                  ข้อมูลที่ seed เข้าฐานข
 | `SessionNotCompletedError` | 409 | `SESSION_NOT_COMPLETED` |
 | `OutcomeAlreadySubmittedError` | 409 | `OUTCOME_ALREADY_SUBMITTED` |
 | `SessionNotFoundError` | 404 | `SESSION_NOT_FOUND` |
+| `GraphManualMismatchError` | 400 | `GRAPH_MANUAL_MISMATCH` |
 | `GraphNotFoundError` | 404 | `GRAPH_NOT_FOUND` |
 | `NodeNotFoundError` | 500 | `GRAPH_NODE_MISSING` |
 | `UnsupportedSchemaVersionError` | 500 | `GRAPH_SCHEMA_UNSUPPORTED` |
@@ -237,11 +240,11 @@ data/                  ข้อมูลที่ seed เข้าฐานข
 - `TraversalModule`: ประกอบ controller + providers (`EquipmentRepository`, `SessionStore`, `TraversalService`) และ import `GraphModule`, `SymptomSearchModule` · มี provider สร้าง `RephraseService` ด้วย `useFactory` (อ่าน `REPHRASE_ENABLED`, `GROQ_*`, `REPHRASE_TIMEOUT_MS` ผ่าน `createGroqClientFromEnv()`) ตั้งค่าไม่ครบ = `enabled: false`
 - `GraphModule`: ที่อยู่ของ `GraphRepository` ตัวเดียว (ตัดวงกลมระหว่างสองโมดูลข้างบน)
 
-#### `graph.repository.ts` (268 บรรทัด)
+#### `graph.repository.ts` (318 บรรทัด)
 - **ทำอะไร:** โหลดผังทั้งหมดจาก MySQL เก็บใน `Map` ในหน่วยความจำตอนเริ่มเซิร์ฟเวอร์
 - **ทำงานยังไง:** `onModuleInit` → `loadAll()` ยิง 2 query (`graphs JOIN manuals`, `nodes`) → จัดกลุ่มโหนดตามผัง → `buildGraph` / `buildNode` แปลงแถว SQL เป็นชนิดของ engine
 - **ตรวจความถูกต้องตอนโหลด:** `schema_version` ต้องเป็น 2, ผังต้องมีโหนด, `entry_node` ต้องมีอยู่จริง, โหนดแต่ละชนิดต้องมีคอลัมน์ที่จำเป็น (เช่น checkpoint ต้องมี `on_yes`/`on_no`) ผิดข้อไหน → โยน error แอปไม่ขึ้น
-- **เมธอด:** `findById(graphId)`, `listAll()` (สรุปสำหรับหน้ารายการ)
+- **เมธอด:** `findById(graphId)`, `listAll()` (สรุปสำหรับหน้ารายการ มี `manualId`), `listManuals()` (จัดกลุ่มผังตาม `manual_id` ได้ `ManualSummary` พร้อม `graphCount` และ `displayName`/`modelAliases` ที่อ่านจาก `manuals.display_name`/`model_aliases` ตอนโหลด เก็บแยกใน `manualExtras` ไม่ปนกับผังของ engine · `aliases` ที่ไม่ใช่ข้อความถูกกรองทิ้ง)
 - **ข้อควรรู้:** เพิ่ม/แก้ผังใน DB ต้อง **รีสตาร์ทเซิร์ฟเวอร์** ถึงจะเห็น (โหลดครั้งเดียวตอนบูต)
 
 #### `equipment.repository.ts`
@@ -249,10 +252,10 @@ data/                  ข้อมูลที่ seed เข้าฐานข
 - **เมธอด:** `findByCategory(category)` คืนสำเนา
 - **ข้อควรรู้:** ผูกกับ "ประเภทเครื่อง" ไม่ใช่กับอาการ (ทุกอาการของแอร์เห็นรายการเดียวกัน ตอนนี้มีเฉพาะแอร์ 7 รายการ)
 
-#### `session.store.ts` (206 บรรทัด)
+#### `session.store.ts` (208 บรรทัด)
 - **ทำอะไร:** อ่าน/เขียน session ใน MySQL (`sessions`, `session_history`)
 - **เมธอด:**
-  - `create` — เพิ่ม session ตั้ง `expires_at` = ตอนนี้ + 24 ชม.
+  - `create(session, modelSelection?)` — เพิ่ม session ตั้ง `expires_at` = ตอนนี้ + 24 ชม. และบันทึก `model_selection` (ไม่ส่ง = NULL)
   - `find` — คืน session + ประวัติ เฉพาะที่ยังไม่หมดอายุ
   - `update` — **transaction**: อัปเดต session (และต่ออายุ 24 ชม.) + เพิ่มแถวประวัติ ถ้าพลาดกลางทาง rollback
   - `delete`, `saveOutcome` (UPDATE ครั้งเดียว มีเงื่อนไข `status='completed'` และ `outcome_text IS NULL` → บันทึกได้ครั้งเดียว), `findOutcome`
@@ -264,22 +267,22 @@ data/                  ข้อมูลที่ seed เข้าฐานข
 - **ทำอะไร:** ฟังก์ชันล้วนสำหรับคิดความคล้าย ไม่พึ่งโมเดล ทดสอบง่าย
 - **ฟังก์ชัน:** `cosineSimilarity(a, b)` (ความยาวเวกเตอร์ไม่เท่า → error), `buildSymptomTexts` (รวมชื่อไทย + ชื่ออังกฤษ + คำพ้อง ของแต่ละผัง เป็นข้อความที่ใช้ค้น), `rankGraphs` (ให้คะแนนดีที่สุดต่อผัง เรียงมากไปน้อย เสมอกันเรียงตาม id), `selectMatches` (กรองตามเกณฑ์ + จำกัดจำนวน)
 
-#### `symptom-search.service.ts` (184 บรรทัด)
+#### `symptom-search.service.ts` (199 บรรทัด)
 - **ทำอะไร:** ตัวค้นหา เก็บดัชนีเวกเตอร์ของข้อความอาการในหน่วยความจำ
 - **สถานะ (`SearchState`):** `disabled` → `loading` → `ready` หรือ `failed`
 - **ทำงานยังไง:**
   - `onApplicationBootstrap` คืน `void` โดยตั้งใจ (ถ้าคืน Promise Nest จะรอโหลดโมเดลก่อนเปิดรับ request ซึ่งช้ามากบน Render free) → สั่งโหลดแบบไม่รอ
-  - `prepareIndex` โหลดโมเดล แล้ว embed ข้อความอาการ **ทีละข้อความ** (ไม่ขนาน เพื่อคุมหน่วยความจำ)
-  - `search(query)` — loading → `SearchNotReadyError`; ไม่ ready → `SearchUnavailableError`; ปกติ embed คำค้น → จัดอันดับ → กรองด้วยเกณฑ์ **0.55** เอาไม่เกิน **3** ผัง
+  - `prepareIndex` โหลดโมเดล แล้ว embed ข้อความอาการ **ทีละข้อความ** (ไม่ขนาน เพื่อคุมหน่วยความจำ) · **ข้อความเดียวกันจากหลายคู่มือทำเวกเตอร์ครั้งเดียวแล้วใช้ร่วมกัน** (`Map` ข้อความ→เวกเตอร์ ผลลัพธ์เหมือนเดิมทุกค่า เร็วขึ้นราว 1.8 เท่ากับข้อมูล 644 ผัง: 3,850 ข้อความ ไม่ซ้ำ 1,972)
+  - `search(query, manualId?)` — loading → `SearchNotReadyError`; ไม่ ready → `SearchUnavailableError`; ปกติ embed คำค้น → **(ถ้าส่ง `manualId` กรองดัชนีให้เหลือเฉพาะผังของรุ่นนั้นก่อน)** → จัดอันดับ → กรองด้วยเกณฑ์ **0.55** เอาไม่เกิน **3** ผัง · ไม่พบรุ่นนั้น → `matches: []`, `bestScore: null`
   - `scoreGraph(query, graphId)` — คะแนนของผังที่ระบุ ไว้เป็น confidence ของ session (ไม่พร้อม → `null`)
   - `getStatus()` — state, โมเดล, จำนวนที่ index, เวลาโหลด, `memoryRssMb`
 - **ข้อควรรู้:** เกณฑ์ 0.55 ฝังเป็นค่าคงที่ ไม่ใช่ env; ผลวัดจากชุดคำค้นที่ AI ร่างเองไว้ (ใน `draft/`) บอกว่าไม่มีเกณฑ์เดียวที่แยก "นอกขอบเขต" ออกได้ดี (ปฏิเสธถูกแค่ราว 53%) เลยแสดงผลเป็น "ข้อเสนอให้เลือก" ไม่ใช่คำตอบ
 
 #### `symptom-search.dto.ts`
-- `MAX_QUERY_LENGTH = 200`, `parseSearchBody` (ตรวจเหมือน dto ของ traversal), ชนิด `SymptomSearchResponseDto`, `SearchStatusDto`, `SearchState`
+- `MAX_QUERY_LENGTH = 200`, `MAX_MANUAL_ID_LENGTH = 80`, `parseSearchBody` (ตรวจ `query` และ `manualId` ที่ไม่บังคับ: ไม่ใช่ข้อความ/ว่าง/ยาวเกิน → `InvalidSearchQueryError`), ชนิด `SymptomSearchResponseDto`, `SearchStatusDto`, `SearchState`
 
 #### `symptom-search.controller.ts` · `symptom-search.exception.filter.ts` · `symptom-search.module.ts`
-- controller: `POST /symptom-search` (ตอบ 200) กับ `GET /symptom-search/status`
+- controller: `POST /symptom-search` body `{ query, manualId? }` (ตอบ 200) กับ `GET /symptom-search/status`
 - filter: `InvalidSearchQueryError`→400 `INVALID_QUERY`, `SearchNotReadyError`→503 `SEARCH_NOT_READY`, `SearchUnavailableError`→503 `SEARCH_UNAVAILABLE`, อื่นๆ→500 `INTERNAL_ERROR` (log เฉพาะ 500)
 - module: import `GraphModule` + `EmbeddingModule`, export `SymptomSearchService` ให้ `TraversalModule`
 
@@ -322,12 +325,12 @@ data/                  ข้อมูลที่ seed เข้าฐานข
 
 | ไฟล์ | คำสั่ง | ทำอะไร |
 |---|---|---|
-| `run-migrations.js` | `npm run migrate` | รันไฟล์ `migrations/*.sql` เรียงตามชื่อ จำใน `schema_migrations` ว่ารันแล้ว ไม่รันซ้ำ; `--status` ดูสถานะเฉยๆ |
-| `seed-graphs.js` | `npm run seed [ไฟล์]` | อ่าน `data/manuals/*.json` → ตรวจ (เป้าหมาย `on_yes`/`next` ฯลฯ ต้องมีจริง, `safety_critical` ต้องอยู่บน `instruction` และมี `safety_warning`) → upsert `manuals`/`graphs` + **ลบโหนดเก่าแล้วใส่ใหม่** ใน transaction; `--verify` ตรวจอย่างเดียว |
+| `run-migrations.js` | `npm run migrate` | รันไฟล์ `migrations/*.sql` เรียงตามชื่อ จำใน `schema_migrations` ว่ารันแล้ว ไม่รันซ้ำ; `--status` ดูสถานะเฉยๆ (ตรวจ `npm_config_status` ด้วย จึงปลอดภัยแม้ PowerShell 5.1 ตัด `--`) |
+| `seed-graphs.js` | `npm run seed [ไฟล์]` | อ่าน `data/manuals/*.json` → ตรวจ (เป้าหมาย `on_yes`/`next` ฯลฯ ต้องมีจริง, `safety_critical` ต้องอยู่บน `instruction` และมี `safety_warning`) → upsert `manuals`/`graphs` + **ลบโหนดเก่าแล้วใส่ใหม่** ใน transaction; `--verify` ตรวจอย่างเดียว · เขียน `display_name`/`model_aliases` ถ้าไฟล์คู่มือมี (ไม่มี = NULL) และเตือนเมื่อไม่มี `display_name` · **ต้องรัน migration 006 ก่อน** |
 | `try-rephrase.js` | `npm run build` แล้ว `node scripts/try-rephrase.js [จำนวน]` · `node scripts/try-rephrase.js --models` (ดูรายชื่อโมเดลที่ key เรียกได้ ไม่ต้อง build) · `node scripts/try-rephrase.js 6 --model=openai/gpt-oss-20b` (ลองโมเดลอื่นชั่วคราวโดยไม่แก้ `.env`) · `--raw` (พิมพ์สรุปคำตอบดิบ: `finish_reason`, จำนวน token, ฟิลด์ใน message) · `--effort=low` (ตั้ง `GROQ_REASONING_EFFORT` ชั่วคราว) | **ลองเรียก Groq จริง** กับข้อความโหนดที่ไม่ใช่ด่านความปลอดภัย (ค่าเริ่มต้น 6 ข้อความ เลือกกระจายทั่วผัง ไม่สุ่ม) ผ่าน `RephraseService` + `GroqLlmClient` + ด่านตรวจตัวจริงใน `dist/` · อ่านค่าจาก `backend/.env` (ไม่พิมพ์ค่า key) · แสดงต้นฉบับ/ผลเรียบเรียง/เวลา และสรุปว่ากี่ข้อความที่เรียบเรียงสำเร็จ · **นับโควตา Groq ข้อความละ 1 คำขอ** |
 | `seed-equipment.js` | `npm run seed:equipment [ไฟล์]` | อ่าน `data/equipment/equipment.json` → ตรวจ → **ปฏิเสธถ้า `reviewed_by_author` ไม่เป็น `true`** (กฎ: ข้อมูลอุปกรณ์ต้องให้ผู้พัฒนากำกับเอง) → upsert อุปกรณ์ + แทนที่รายการใช้งานของแต่ละประเภท; `--verify` |
 
-- ⚠️ `npm run migrate -- --status` บน **PowerShell 5.1 จะตัด `--` ทิ้งแล้วรัน migration จริง** (เคยเกิดกับ migration 005) ให้ใช้ `node scripts/run-migrations.js --status` แทน
+- ⚠️ `npm run migrate -- --status` บน **PowerShell 5.1 จะตัด `--` ทิ้ง** (เคยเกิดกับ migration 005 จนรันจริง) ตั้งแต่ 15 ต.ค. สคริปต์ตรวจ `npm_config_status` ที่ npm ตั้งให้แทนด้วย จึงไม่รันจริงแล้ว (ทดสอบด้วย mysql ปลอม) · ถ้าเป็นเวอร์ชันเก่าของสคริปต์ ให้ใช้ `node scripts/run-migrations.js --status` แทน
 - สคริปต์ทั้งสามอ่าน `DB_SSL_CA` ตรงๆ **ไม่ผ่าน `normalizePem`** ใช้ได้กับ `.env` ในเครื่อง แต่ถ้าค่ามีเครื่องหมายคำพูดห่ออยู่จริงจะต่อไม่ได้
 
 ### Migrations (`backend/migrations/`)
@@ -339,6 +342,8 @@ data/                  ข้อมูลที่ seed เข้าฐานข
 | `003_create_equipment_tables.sql` | ขยาย ENUM `device_category` ของ `manuals` เป็น 5 ประเภท + ตาราง `equipment`, `equipment_usage` (มี `CHECK` ว่าต้องมี `source_page` หรือ `author_note` อย่างน้อยหนึ่ง) |
 | `004_add_session_confidence.sql` | เพิ่ม `sessions.confidence DECIMAL(4,3)` |
 | `005_add_session_outcome.sql` | เพิ่ม `sessions.outcome_text`, `outcome_at` |
+| `006_add_manual_display_name.sql` | เพิ่ม `manuals.display_name`, `model_aliases` (NULL ได้) · **เพิ่มไฟล์แล้ว ยังไม่ได้รันกับ DB** |
+| `007_add_session_model_selection.sql` | เพิ่ม `sessions.model_selection ENUM('selected','unknown') NULL` · **เพิ่มไฟล์แล้ว ยังไม่ได้รันกับ DB** |
 
 ### Data (`data/`)
 
@@ -374,7 +379,7 @@ data/                  ข้อมูลที่ seed เข้าฐานข
 | `PORT` | `main.ts` | ค่าเริ่มต้น 3000 |
 | `CORS_ORIGIN` | `main.ts` | ค่าเริ่มต้น `http://localhost:5173` |
 | `NODE_ENV` | `health.controller.ts` (แสดงผล) | |
-| `SYMPTOM_SEARCH_ENABLED` | `symptom-search.service.ts` | ต้องเป็น `true` เป๊ะ จึงโหลดโมเดล (ใช้ RAM ~250–300 MB) |
+| `SYMPTOM_SEARCH_ENABLED` | `symptom-search.service.ts` | ต้องเป็น `true` เป๊ะ จึงโหลดโมเดล (RAM: วัดจริงบน Render 257 MB กับแอร์ 13 ผัง · ข้อมูล 644 ผังคาดว่า ~330–350 MB ยังไม่ได้วัดบน Render) |
 | `REPHRASE_ENABLED` | `groq-llm.client.ts`, `traversal.module.ts` | ต้องเป็น `true` เป๊ะ จึงเรียก LLM ไม่ตั้ง = ปิด |
 | `GROQ_API_KEY` | `groq-llm.client.ts` | **ความลับ** ต้องมีเมื่อเปิด `REPHRASE_ENABLED` |
 | `GROQ_MODEL` | `groq-llm.client.ts` | ชื่อโมเดลของ Groq ไม่มีค่าเริ่มต้น ขาด = ถือว่าไม่เปิด |

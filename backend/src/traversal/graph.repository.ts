@@ -32,6 +32,8 @@ interface GraphRow extends RowDataPacket {
   device_category: DeviceCategory;
   brand: string;
   model_pattern: string;
+  display_name: string | null;
+  model_aliases: unknown;
 }
 
 interface NodeRow extends RowDataPacket {
@@ -58,6 +60,7 @@ interface NodeRow extends RowDataPacket {
 // GET /traversal/graphs
 export interface GraphSummary {
   graphId: string;
+  manualId: string;
   entrySymptom: string;
   entrySymptomTh?: string;
   deviceCategory: DeviceCategory;
@@ -65,6 +68,17 @@ export interface GraphSummary {
   modelPattern: string;
   severity?: Severity;
   difficulty?: Difficulty;
+}
+
+// GET /traversal/manuals
+export interface ManualSummary {
+  manualId: string;
+  deviceCategory: DeviceCategory;
+  brand: string;
+  modelPattern: string;
+  displayName?: string;
+  modelAliases?: string[];
+  graphCount: number;
 }
 
 class GraphDataIntegrityError extends Error {
@@ -80,6 +94,9 @@ export class GraphRepository implements OnModuleInit {
 
   private readonly graphs = new Map<string, TroubleshootingGraph>();
 
+  // ชื่อรุ่นที่ผู้ใช้รู้จักของแต่ละคู่มือ (migration 006) ใช้ใน listManuals เท่านั้น ไม่ปนกับผังของ engine
+  private readonly manualExtras = new Map<string, { displayName?: string; modelAliases?: string[] }>();
+
   constructor(@Inject(MYSQL_POOL) private readonly pool: Pool) {}
   async onModuleInit(): Promise<void> {
     await this.loadAll();
@@ -92,6 +109,7 @@ export class GraphRepository implements OnModuleInit {
   listAll(): GraphSummary[] {
     return [...this.graphs.values()].map((g) => ({
       graphId: g.graph_id,
+      manualId: g.manual_id,
       entrySymptom: g.entry_symptom,
       entrySymptomTh: g.entry_symptom_th,
       deviceCategory: g.device_category,
@@ -102,13 +120,35 @@ export class GraphRepository implements OnModuleInit {
     }));
   }
 
+  listManuals(): ManualSummary[] {
+    const manuals = new Map<string, ManualSummary>();
+    for (const g of this.graphs.values()) {
+      const found = manuals.get(g.manual_id);
+      if (found) {
+        found.graphCount += 1;
+      } else {
+        manuals.set(g.manual_id, {
+          manualId: g.manual_id,
+          deviceCategory: g.device_category,
+          brand: g.brand,
+          modelPattern: g.model_pattern,
+          displayName: this.manualExtras.get(g.manual_id)?.displayName,
+          modelAliases: this.manualExtras.get(g.manual_id)?.modelAliases,
+          graphCount: 1,
+        });
+      }
+    }
+    return [...manuals.values()];
+  }
+
   private async loadAll(): Promise<void> {
     const [graphRows] = await this.pool.query<GraphRow[]>(
       `SELECT g.graph_id, g.manual_id, g.entry_symptom, g.entry_symptom_th,
               g.entry_symptom_aliases, g.source, g.page_start, g.page_end,
               g.source_chunk_id, g.severity, g.difficulty, g.config,
               g.entry_node, g.schema_version,
-              m.device_category, m.brand, m.model_pattern
+              m.device_category, m.brand, m.model_pattern,
+              m.display_name, m.model_aliases
          FROM graphs g
          JOIN manuals m ON m.manual_id = g.manual_id
         ORDER BY g.graph_id`,
@@ -132,9 +172,18 @@ export class GraphRepository implements OnModuleInit {
     }
 
     this.graphs.clear();
+    this.manualExtras.clear();
     for (const graphRow of graphRows) {
       const rows = nodesByGraph.get(graphRow.graph_id) ?? [];
       this.graphs.set(graphRow.graph_id, this.buildGraph(graphRow, rows));
+
+      const aliases = parseJsonColumn<unknown>(graphRow.model_aliases);
+      this.manualExtras.set(graphRow.manual_id, {
+        displayName: graphRow.display_name ?? undefined,
+        modelAliases: Array.isArray(aliases)
+          ? aliases.filter((a): a is string => typeof a === 'string')
+          : undefined,
+      });
     }
 
     this.logger.log(`โหลดกราฟสำเร็จ ${this.graphs.size} กราฟ ${nodeRows.length} โหนด`);
@@ -163,6 +212,7 @@ export class GraphRepository implements OnModuleInit {
     return {
       schema_version: 2,
       graph_id: row.graph_id,
+      manual_id: row.manual_id,
       device_category: row.device_category,
       brand: row.brand,
       model_pattern: row.model_pattern,

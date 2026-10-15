@@ -15,12 +15,12 @@
 import { Injectable } from '@nestjs/common';
 
 import { GraphRepository } from './graph.repository';
-import type { GraphSummary } from './graph.repository';
+import type { GraphSummary, ManualSummary } from './graph.repository';
 import { EquipmentRepository } from './equipment.repository';
 import { SessionStore } from './session.store';
 import { SymptomSearchService } from '../symptom-search/symptom-search.service';
 import { RephraseService } from '../rephrase/rephrase.service';
-import type { SessionResponseDto } from './traversal.dto';
+import type { ModelSelection, SessionResponseDto } from './traversal.dto';
 import {
   getCurrentNode,
   startSession as engineStartSession,
@@ -46,6 +46,17 @@ import type {
 export class GraphNotFoundError extends Error {
   constructor(graphId: string) {
     super(`ไม่พบผังขั้นตอน '${graphId}'`);
+    this.name = this.constructor.name;
+  }
+}
+
+/**
+ * ผังที่ขอเริ่มตรวจไม่ใช่ของรุ่น/คู่มือที่ผู้ใช้เลือก → 400 GRAPH_MANUAL_MISMATCH
+ * กันเริ่มตรวจด้วยขั้นตอนของรุ่นอื่นโดยไม่รู้ตัว (เช็กก่อนสร้าง session จึงไม่มีอะไรค้างในฐานข้อมูล)
+ */
+export class GraphManualMismatchError extends Error {
+  constructor(graphId: string, manualId: string) {
+    super(`ผังขั้นตอน '${graphId}' ไม่ใช่ของคู่มือ '${manualId}'`);
     this.name = this.constructor.name;
   }
 }
@@ -87,23 +98,40 @@ export class TraversalService {
   ) {}
 
   // ============================================================
-  // 6 เมธอด ตรงกับ 6 endpoint ของ TraversalController
+  // 7 เมธอด ตรงกับ 7 endpoint ของ TraversalController
   // ============================================================
 
-  /** GET /traversal/graphs — ไม่ async เพราะผังโหลดเข้าหน่วยความจำไว้แล้วตอนบูต */
-  listGraphs(): GraphSummary[] {
-    return this.graphRepository.listAll();
+  /**
+   * GET /traversal/graphs — ไม่ async เพราะผังโหลดเข้าหน่วยความจำไว้แล้วตอนบูต
+   * manualId (ไม่บังคับ): เฉพาะผังของรุ่นนั้น · ไม่พบรุ่น = รายการว่าง
+   */
+  listGraphs(manualId?: string): GraphSummary[] {
+    const all = this.graphRepository.listAll();
+    return manualId === undefined ? all : all.filter((g) => g.manualId === manualId);
+  }
+
+  /** GET /traversal/manuals — รายการคู่มือ (รุ่น) ให้ผู้ใช้เลือกรุ่นก่อนเลือกอาการ */
+  listManuals(): ManualSummary[] {
+    return this.graphRepository.listManuals();
   }
 
   /** POST /traversal/sessions */
-  async startSession(graphId: string, query?: string): Promise<SessionResponseDto> {
+  async startSession(
+    graphId: string,
+    query?: string,
+    manualId?: string,
+    modelSelection?: ModelSelection,
+  ): Promise<SessionResponseDto> {
     const graph = this.requireGraph(graphId);
+    if (manualId !== undefined && graph.manual_id !== manualId) {
+      throw new GraphManualMismatchError(graphId, manualId);
+    }
     const confidence = await this.computeConfidence(graphId, query);
 
     // ถ้า engine โยน error (เช่น entry_node หาไม่เจอ) create() จะไม่ถูกเรียก
     // จึงไม่มี session ค้างอยู่ครึ่งๆ กลางๆ
     const { session, node } = engineStartSession(graph, confidence);
-    await this.sessionStore.create(session);
+    await this.sessionStore.create(session, modelSelection);
 
     return this.toResponse(session, node, graph);
   }

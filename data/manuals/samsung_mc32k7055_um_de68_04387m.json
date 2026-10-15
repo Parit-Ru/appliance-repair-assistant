@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "manual_id": "samsung_mc32k7055_um_de68_04387m",
-  "device_category": "Microwave Oven",
+  "device_category": "Microwave",
   "brand": "Samsung",
   "model_pattern": "MC32K7055**",
   "source_manual": "Samsung Microwave Oven User Manual MC32K7055** (MC32K7055CT_ST_DE68-04387M-03_TH_EN)",
@@ -10,7 +10,7 @@
     {
       "schema_version": 2,
       "graph_id": "samsung_mc32k7055_um_buttons_cannot_press",
-      "device_category": "Microwave Oven",
+      "device_category": "Microwave",
       "brand": "Samsung",
       "model_pattern": "MC32K7055**",
       "entry_symptom": "The buttons cannot be pressed properly.",
@@ -124,7 +124,7 @@
     {
       "schema_version": 2,
       "graph_id": "samsung_mc32k7055_um_time_not_displayed",
-      "device_category": "Microwave Oven",
+      "device_category": "Microwave",
       "brand": "Samsung",
       "model_pattern": "MC32K7055**",
       "entry_symptom": "The time is not displayed.",
@@ -187,7 +187,7 @@
     {
       "schema_version": 2,
       "graph_id": "samsung_mc32k7055_um_does_not_work",
-      "device_category": "Microwave Oven",
+      "device_category": "Microwave",
       "brand": "Samsung",
       "model_pattern": "MC32K7055**",
       "entry_symptom": "The oven does not work.",
@@ -303,7 +303,7 @@
     {
       "schema_version": 2,
       "graph_id": "samsung_mc32k7055_um_stops_in_operation",
-      "device_category": "Microwave Oven",
+      "device_category": "Microwave",
       "brand": "Samsung",
       "model_pattern": "MC32K7055**",
       "entry_symptom": "The oven stops while in operation.",
@@ -367,7 +367,7 @@
     {
       "schema_version": 2,
       "graph_id": "samsung_mc32k7055_um_power_off",
-      "device_category": "Microwave Oven",
+      "device_category": "Microwave",
       "brand": "Samsung",
       "model_pattern": "MC32K7055**",
       "entry_symptom": "The power turns off during operation.",
@@ -523,7 +523,7 @@
     {
       "schema_version": 2,
       "graph_id": "samsung_mc32k7055_um_popping",
-      "device_category": "Microwave Oven",
+      "device_category": "Microwave",
       "brand": "Samsung",
       "model_pattern": "MC32K7055**",
       "entry_symptom": "There is a popping sound during operation, and the oven doesn't work.",
@@ -587,7 +587,7 @@
     {
       "schema_version": 2,
       "graph_id": "samsung_mc32k7055_um_exterior_hot",
-      "device_category": "Microwave Oven",
+      "device_category": "Microwave",
       "brand": "Samsung",
       "model_pattern": "MC32K7055**",
       "entry_symptom": "The oven exterior is too hot during operation.",
@@ -691,7 +691,7 @@
     {
       "schema_version": 2,
       "graph_id": "samsung_mc32k7055_um_door_cannot_open",
-      "device_category": "Microwave Oven",
+      "device_category": "Microwave",
       "brand": "Samsung",
       "model_pattern": "MC32K7055**",
       "entry_symptom": "The door cannot be opened properly.",
@@ -755,7 +755,7 @@
     {
       "schema_version": 2,
       "graph_id": "samsung_mc32k7055_um_heating_not_working",
-      "device_category": "Microwave Oven",
+      "device_category": "Microwave",
       "brand": "Samsung",
       "model_pattern": "MC32K7055**",
       "entry_symptom": "Heating including the Warm function does not work properly.",
@@ -865,7 +865,7 @@
     {
       "schema_version": 2,
       "graph_id": "samsung_mc32k7055_um_thaw",
-      "device_category": "Microwave Oven",
+      "device_category": "Microwave",
       "brand": "Samsung",
       "model_pattern": "MC32K7055**",
       "entry_symptom": "The thaw function does not work.",
@@ -929,7 +929,7 @@
     {
       "schema_version": 2,
       "graph_id": "samsung_mc32k7055_um_light_dim",
-      "device_category": "Microwave Oven",
+      "device_category": "Microwave",
       "brand": "Samsung",
       "model_pattern": "MC32K7055**",
       "entry_symptom": "The interior light is dim or does not turn on.",
@@ -1018,7 +1018,7 @@
     {
       "schema_version": 2,
       "graph_id": "samsung_mc32k7055_um_beeping",
-      "device_category": "Microwave Oven",
+      "device_category": "Microwave",
       "brand": "Samsung",
       "model_pattern": "MC32K7055**",
       "entry_symptom": "A beeping sound occurs during cooking.",
@@ -1096,7 +1096,7 @@
     {
       "schema_version": 2,
       "graph_id": "samsung_mc32k7055_um_not_level",
-      "device_category": "Microwave Oven",
+      "device_category": "Microwave",
       "brand": "Samsung",
       "model_pattern": "MC32K7055**",
       "entry_symptom": "The oven is not level.",
@@ -1160,7 +1160,7 @@
     {
       "schema_version": 2,
       "graph_id": "samsung_mc32k7055_um_sparks",
-      "device_category": "Microwave Oven",
+      "device_category": "Microwave",
       "brand": "Samsung",
       "model_pattern": "MC32K7055**",
       "entry_symptom": "There are sparks during cooking.",
@@ -1224,7 +1224,7 @@
     {
       "schema_version": 2,
       "graph_id": "samsung_mc32k7055_um_starts_immediately",
-      "device_category": "Microwave Oven",
+      "device_category": "Microwave",
       "brand": "Samsung",
       "model_pattern": "MC32K7055**",
       "entry_symptom": "When power is connected, the oven immediately starts to work.",
@@ -1287,7 +1287,7 @@
     {
       "schema_version": 2,
       "graph_id": "samsung_mc32k7055_um_electricity",
-      "device_category": "Microwave Oven",
+      "device_category": "Microwave",
       "brand": "Samsung",
       "model_pattern": "MC32K7055**",
       "entry_symptom": "There is electricity coming from the oven.",
@@ -1350,7 +1350,7 @@
     {
       "schema_version": 2,
       "graph_id": "samsung_mc32k7055_um_water_steam",
-      "device_category": "Microwave Oven",
+      "device_category": "Microwave",
       "brand": "Samsung",
       "model_pattern": "MC32K7055**",
       "entry_symptom": "Water drips. Steam emits through a door crack. Water remains in the oven.",
@@ -1396,7 +1396,7 @@
     {
       "schema_version": 2,
       "graph_id": "samsung_mc32k7055_um_brightness_varies",
-      "device_category": "Microwave Oven",
+      "device_category": "Microwave",
       "brand": "Samsung",
       "model_pattern": "MC32K7055**",
       "entry_symptom": "The brightness inside the oven varies.",
@@ -1442,7 +1442,7 @@
     {
       "schema_version": 2,
       "graph_id": "samsung_mc32k7055_um_fan_still_running",
-      "device_category": "Microwave Oven",
+      "device_category": "Microwave",
       "brand": "Samsung",
       "model_pattern": "MC32K7055**",
       "entry_symptom": "Cooking is finished, but the cooling fan is still running.",
@@ -1488,7 +1488,7 @@
     {
       "schema_version": 2,
       "graph_id": "samsung_mc32k7055_um_turntable_out",
-      "device_category": "Microwave Oven",
+      "device_category": "Microwave",
       "brand": "Samsung",
       "model_pattern": "MC32K7055**",
       "entry_symptom": "While turning, the turntable comes out of place or stops turning.",
@@ -1552,7 +1552,7 @@
     {
       "schema_version": 2,
       "graph_id": "samsung_mc32k7055_um_turntable_drags",
-      "device_category": "Microwave Oven",
+      "device_category": "Microwave",
       "brand": "Samsung",
       "model_pattern": "MC32K7055**",
       "entry_symptom": "The turn table drags while turning.",
@@ -1642,7 +1642,7 @@
     {
       "schema_version": 2,
       "graph_id": "samsung_mc32k7055_um_turntable_noisy",
-      "device_category": "Microwave Oven",
+      "device_category": "Microwave",
       "brand": "Samsung",
       "model_pattern": "MC32K7055**",
       "entry_symptom": "The turn table rattles while turning and is noisy.",
@@ -1706,7 +1706,7 @@
     {
       "schema_version": 2,
       "graph_id": "samsung_mc32k7055_um_grill_smoke",
-      "device_category": "Microwave Oven",
+      "device_category": "Microwave",
       "brand": "Samsung",
       "model_pattern": "MC32K7055**",
       "entry_symptom": "Grill: Smoke comes out during operation.",
@@ -1841,7 +1841,7 @@
     {
       "schema_version": 2,
       "graph_id": "samsung_mc32k7055_um_oven_not_heat",
-      "device_category": "Microwave Oven",
+      "device_category": "Microwave",
       "brand": "Samsung",
       "model_pattern": "MC32K7055**",
       "entry_symptom": "Oven: The oven does not heat.",
@@ -1905,7 +1905,7 @@
     {
       "schema_version": 2,
       "graph_id": "samsung_mc32k7055_um_smoke_preheat",
-      "device_category": "Microwave Oven",
+      "device_category": "Microwave",
       "brand": "Samsung",
       "model_pattern": "MC32K7055**",
       "entry_symptom": "Oven: Smoke comes out during preheating.",
@@ -1990,7 +1990,7 @@
     {
       "schema_version": 2,
       "graph_id": "samsung_mc32k7055_um_burning_smell",
-      "device_category": "Microwave Oven",
+      "device_category": "Microwave",
       "brand": "Samsung",
       "model_pattern": "MC32K7055**",
       "entry_symptom": "There is a burning or plastic smell when using the oven.",
@@ -2054,7 +2054,7 @@
     {
       "schema_version": 2,
       "graph_id": "samsung_mc32k7055_um_bad_smell",
-      "device_category": "Microwave Oven",
+      "device_category": "Microwave",
       "brand": "Samsung",
       "model_pattern": "MC32K7055**",
       "entry_symptom": "There is a bad smell coming from inside the oven.",
@@ -2110,7 +2110,7 @@
     {
       "schema_version": 2,
       "graph_id": "samsung_mc32k7055_um_not_cook_properly",
-      "device_category": "Microwave Oven",
+      "device_category": "Microwave",
       "brand": "Samsung",
       "model_pattern": "MC32K7055**",
       "entry_symptom": "The oven does not cook properly.",
@@ -2250,7 +2250,7 @@
     {
       "schema_version": 2,
       "graph_id": "samsung_mc32k7055_um_code_c20",
-      "device_category": "Microwave Oven",
+      "device_category": "Microwave",
       "brand": "Samsung",
       "model_pattern": "MC32K7055**",
       "entry_symptom": "Information code C-20: Temperature sensor is needed to check.",
@@ -2338,7 +2338,7 @@
     {
       "schema_version": 2,
       "graph_id": "samsung_mc32k7055_um_code_c21",
-      "device_category": "Microwave Oven",
+      "device_category": "Microwave",
       "brand": "Samsung",
       "model_pattern": "MC32K7055**",
       "entry_symptom": "Information code C-21: Temperature sensor detect higher temperature than setting temperature.",
@@ -2411,7 +2411,7 @@
     {
       "schema_version": 2,
       "graph_id": "samsung_mc32k7055_um_code_cd0",
-      "device_category": "Microwave Oven",
+      "device_category": "Microwave",
       "brand": "Samsung",
       "model_pattern": "MC32K7055**",
       "entry_symptom": "Information code C-d0: Control buttons are pressed over 10 seconds.",

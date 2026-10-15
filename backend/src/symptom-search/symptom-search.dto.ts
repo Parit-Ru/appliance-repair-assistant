@@ -1,5 +1,6 @@
 import type { DeviceCategory } from '../traversal-engine/types';
 export const MAX_QUERY_LENGTH = 200;
+export const MAX_MANUAL_ID_LENGTH = 80;
 
 export class InvalidSearchQueryError extends Error {
   constructor(message: string) {
@@ -10,6 +11,7 @@ export class InvalidSearchQueryError extends Error {
 
 export interface SearchBody {
   query: string;
+  manualId?: string;
 }
 
 export function parseSearchBody(body: unknown): SearchBody {
@@ -32,7 +34,22 @@ export function parseSearchBody(body: unknown): SearchBody {
     );
   }
 
-  return { query };
+  const rawManual = (body as Record<string, unknown>).manualId;
+  if (rawManual === undefined) {
+    return { query };
+  }
+  if (typeof rawManual !== 'string') {
+    throw new InvalidSearchQueryError('manualId ต้องเป็นข้อความ');
+  }
+
+  const manualId = rawManual.trim();
+  if (manualId === '' || manualId.length > MAX_MANUAL_ID_LENGTH) {
+    throw new InvalidSearchQueryError(
+      `manualId ต้องไม่ว่างและยาวไม่เกิน ${MAX_MANUAL_ID_LENGTH} ตัวอักษร`,
+    );
+  }
+
+  return { query, manualId };
 }
 
 export interface SymptomMatchDto {

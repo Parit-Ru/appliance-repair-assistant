@@ -75,6 +75,7 @@ export type Difficulty = 'easy' | 'medium' | 'hard';
 export interface TroubleshootingGraph {
   schema_version: 2;
   graph_id: string;
+  manual_id: string;
   device_category: DeviceCategory;
   brand: string;
   model_pattern: string;
