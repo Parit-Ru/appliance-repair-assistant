@@ -23,6 +23,7 @@ import {
   parseOptionalClientId,
   parseOptionalManualId,
   parseOutcomeBody,
+  parseRequiredClientId,
   parseStartSessionBody,
   parseTraversalAction,
 } from './traversal.dto';
@@ -107,10 +108,17 @@ export class TraversalController {
    *
    * ต้องตอบ 204 ไม่มี body — @HttpCode(204) บังคับ status code เอง
    * ฟังก์ชันคืน Promise<void> พอ ไม่ต้อง return อะไร NestJS จะไม่แนบ body ให้
+   *
+   * หัวข้อ X-Client-Id บังคับ (ไม่ส่ง/ผิดรูป → 400 INVALID_CLIENT_ID เหมือน /history)
+   * ลบได้เฉพาะ session ของ id นั้น ไม่ใช่เจ้าของ → 404 SESSION_NOT_FOUND (เหมือน session ไม่มีอยู่)
    */
   @Delete('sessions/:id')
   @HttpCode(204)
-  async abandonSession(@Param('id') sessionId: string): Promise<void> {
-    await this.traversalService.abandonSession(sessionId);
+  async abandonSession(
+    @Param('id') sessionId: string,
+    @Headers('x-client-id') clientIdHeader?: unknown,
+  ): Promise<void> {
+    const clientId = parseRequiredClientId(clientIdHeader);
+    await this.traversalService.abandonSession(sessionId, clientId);
   }
 }

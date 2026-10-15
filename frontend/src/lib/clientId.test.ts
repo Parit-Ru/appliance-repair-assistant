@@ -173,4 +173,20 @@ describe('คำขอที่แนบ X-Client-Id', () => {
     expect(feedbackInit.headers).toEqual({ 'Content-Type': 'application/json', 'X-Client-Id': getClientId() })
     expect(JSON.parse(feedbackInit.body as string)).toEqual({ helpful: true, comment: null })
   })
+
+  it('ยกเลิกการตรวจ (DELETE /traversal/sessions/:id): แนบ X-Client-Id เพื่อให้เซิร์ฟเวอร์ตรวจเจ้าของได้', async () => {
+    stubStorage()
+    vi.resetModules()
+    const { getClientId } = await import('./clientId')
+    const { abandonSession } = await import('../api/traversal')
+
+    await abandonSession('s 1')
+
+    const { url, init } = sent()
+    expect(url).toBe('http://api.test/traversal/sessions/s%201')
+    expect(init.method).toBe('DELETE')
+    // ไม่มี body จึงไม่มี Content-Type เกินมา
+    expect(init.headers).toEqual({ 'X-Client-Id': getClientId() })
+    expect(init.body).toBeUndefined()
+  })
 })

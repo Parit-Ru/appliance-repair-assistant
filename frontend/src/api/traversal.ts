@@ -82,5 +82,7 @@ export async function submitOutcome(sessionId: string, text: string): Promise<Se
 export async function abandonSession(sessionId: string): Promise<void> {
   return request<void>(`/traversal/sessions/${encodeURIComponent(sessionId)}`, {
     method: 'DELETE',
+    // เซิร์ฟเวอร์ลบเฉพาะ session ของเบราว์เซอร์นี้ (เจ้าของ = client_id ที่ส่งตอนเริ่ม) ไม่ตรง = 404 SESSION_NOT_FOUND
+    headers: { 'X-Client-Id': getClientId() },
   })
 }

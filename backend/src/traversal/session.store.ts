@@ -152,8 +152,21 @@ export class SessionStore {
     }
   }
 
-  async delete(sessionId: string): Promise<void> {
-    await this.pool.query('DELETE FROM sessions WHERE session_id = ?', [sessionId]);
+  /**
+   * ลบ session ของ clientId นี้ (ทุกสถานะ — ยกเลิกระหว่างเดินคือ use case หลัก) คืน true เมื่อลบได้
+   * ไม่ใช่เจ้าของ / client_id เป็น NULL / ไม่มี / หมดอายุแล้ว → ไม่ลบอะไรและคืน false ทุกกรณี
+   * (ผู้เรียกแปลงเป็น 404 เหมือนกันหมด จึงไม่เปิดเผยว่า session นั้นมีอยู่จริง)
+   *
+   * คำสั่งเดียวตัดสินและลบพร้อมกัน ไม่ "find แล้วค่อย delete" เพื่อไม่ให้มีช่องว่างระหว่างตรวจกับลบ
+   * session_history และ session_feedback ถูกลบตามด้วย ON DELETE CASCADE
+   */
+  async delete(sessionId: string, clientId: string): Promise<boolean> {
+    const [result] = await this.pool.query<ResultSetHeader>(
+      `DELETE FROM sessions
+        WHERE session_id = ? AND client_id = ? AND expires_at > NOW()`,
+      [sessionId, clientId],
+    );
+    return result.affectedRows === 1;
   }
 
   async saveOutcome(sessionId: string, text: string): Promise<boolean> {

@@ -182,12 +182,17 @@ export class TraversalService {
   /**
    * DELETE /traversal/sessions/:id
    *
-   * ตรวจว่ามี session อยู่จริงก่อนลบ ยกเลิกซ้ำครั้งที่สองจึงได้ 404 ไม่ใช่ 204 เงียบๆ
-   * (ตรงกับพฤติกรรมของ mockServer ฝั่งหน้าจอ)
+   * ลบได้เฉพาะเจ้าของ: clientId ต้องตรงกับ client_id ที่บันทึกไว้ตอนเริ่ม session
+   * ไม่มี session / ไม่ใช่เจ้าของ / session ไม่มีเจ้าของ (client_id เป็น NULL) / หมดอายุแล้ว
+   * ล้วนได้ SessionNotFoundError (404) เหมือนกันหมด ไม่เปิดเผยว่า session นั้นมีอยู่จริง
+   * ยกเลิกซ้ำครั้งที่สองจึงได้ 404 ไม่ใช่ 204 เงียบๆ
+   *
+   * ตรวจและลบในคำสั่ง SQL เดียว (sessionStore.delete) ไม่ find ก่อนแล้วค่อยลบ
+   * clientId ต้องผ่าน parseRequiredClientId() มาแล้ว (เหมือน /history)
    */
-  async abandonSession(sessionId: string): Promise<void> {
-    await this.requireSession(sessionId);
-    await this.sessionStore.delete(sessionId);
+  async abandonSession(sessionId: string, clientId: string): Promise<void> {
+    const deleted = await this.sessionStore.delete(sessionId, clientId);
+    if (!deleted) throw new SessionNotFoundError(sessionId);
   }
 
   /**
