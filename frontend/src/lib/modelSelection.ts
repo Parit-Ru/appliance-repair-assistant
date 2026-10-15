@@ -19,3 +19,50 @@ export function symptomsPath(manualId: string, modelSelection: ModelSelection, p
   if (modelSelection === 'unknown') params.set('unknown', '1')
   return `${page === 'all' ? '/symptoms/all' : '/symptoms'}?${params.toString()}`
 }
+
+/** ประโยคอธิบายว่าขั้นตอนต่างกันตามรุ่น ใช้ซ้ำทุกหน้าที่ให้เลือกรุ่น/อาการ (แหล่งเดียว จะได้ไม่เพี้ยนกัน) */
+export const MODEL_MATCH_HINT = 'ขั้นตอนซ่อมต่างกันตามรุ่น เลือกรุ่นให้ตรงกับเครื่องของคุณ (ดูเลขรุ่นได้ที่สติกเกอร์บนตัวเครื่อง)'
+
+/**
+ * modelSelection ที่มากับ navigate state ตอนเริ่ม session (ดู useStartSymptom)
+ * undefined = ไม่ได้ผ่านหน้าเลือกรุ่น (เริ่มจากหน้ารายการอาการทุกรุ่น) หรือเปิดลิงก์ session ในแท็บใหม่ state เลยหาย
+ * ห้ามเติมเป็น 'selected' เอง เพราะจะบันทึกว่าผู้ใช้ระบุรุ่นไว้แล้วทั้งที่ไม่ใช่
+ */
+export function modelSelectionFromState(state: unknown): ModelSelection | undefined {
+  const value = (state as { modelSelection?: unknown } | null | undefined)?.modelSelection
+  return value === 'selected' || value === 'unknown' ? value : undefined
+}
+
+/**
+ * ตัวเลือกตอนเริ่มตรวจจากหน้ารายการอาการ
+ * - มีรุ่นที่เลือกไว้ (?manual=): ส่งรุ่นนั้นและ modelSelection ตามที่เลือก
+ * - ดูรายการทุกรุ่น (ไม่มี ?manual=): ส่งเฉพาะ manualId ของอาการที่กด ไม่ส่ง modelSelection
+ *   (ไม่ได้ผ่านหน้าเลือกรุ่น เซิร์ฟเวอร์บันทึกเป็น NULL)
+ */
+export function startOptions(
+  chosen: { manualId: string | undefined; modelSelection: ModelSelection },
+  symptomManualId: string,
+): { manualId: string; modelSelection?: ModelSelection } {
+  if (chosen.manualId === undefined) return { manualId: symptomManualId }
+  return { manualId: chosen.manualId, modelSelection: chosen.modelSelection }
+}
+
+/** ตัวแปรตอน "เริ่มอาการนี้ใหม่": พาค่า modelSelection เดิมไปตามเดิม (undefined ก็ยังเป็น undefined ไม่เปลี่ยนเป็น 'selected') */
+export function restartVariables(
+  graphId: string,
+  manualId: string | undefined,
+  modelSelection: ModelSelection | undefined,
+): { graphId: string; manualId: string | undefined; modelSelection: ModelSelection | undefined } {
+  return { graphId, manualId, modelSelection }
+}
+
+/**
+ * ลิงก์ "ตรวจอาการอื่น"/หลังยกเลิก
+ * - เริ่มจากรายการทุกรุ่น (ไม่มี modelSelection): กลับรายการทุกรุ่น ไม่พาไปหน้าของรุ่นที่จะกลายเป็น 'selected'
+ * - มี modelSelection: กลับหน้าเลือกอาการของรุ่นเดิม (ยังไม่รู้รุ่น → หน้าเลือกเครื่อง)
+ */
+export function otherSymptomsPath(manualId: string | undefined, modelSelection: ModelSelection | undefined): string {
+  if (modelSelection === undefined) return '/symptoms/all'
+  if (manualId === undefined) return '/devices'
+  return symptomsPath(manualId, modelSelection)
+}

@@ -8,7 +8,7 @@ import { Button } from '../components/ui/Button'
 import { Icon } from '../components/ui/Icon'
 import { Notice } from '../components/ui/Notice'
 import { DEVICE_CATEGORY_LABELS } from '../lib/labels'
-import { symptomsPath } from '../lib/modelSelection'
+import { MODEL_MATCH_HINT, symptomsPath } from '../lib/modelSelection'
 import { manualMatches, manualTitle } from '../lib/models'
 import { useSlowWait } from '../lib/useSlowWait'
 
@@ -42,7 +42,7 @@ export function DevicesPage() {
         <h1 className="text-2xl font-semibold">{category ? `เลือกรุ่น${DEVICE_CATEGORY_LABELS[category] ?? ''}` : 'เลือกเครื่องที่มีปัญหา'}</h1>
         <p className="text-ink-soft">
           {category
-            ? 'ขั้นตอนซ่อมต่างกันตามรุ่น เลือกรุ่นให้ตรงกับเครื่องของคุณ (ดูเลขรุ่นได้ที่สติกเกอร์บนตัวเครื่อง)'
+            ? MODEL_MATCH_HINT
             : 'เลือกประเภทเครื่องใช้ไฟฟ้า แล้วเลือกรุ่น จากนั้นจึงเลือกอาการ'}
         </p>
       </div>

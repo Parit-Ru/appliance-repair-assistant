@@ -22,6 +22,7 @@ export function symptomName(summary: SymptomLabel): string {
 }
 
 export interface SymptomGroup {
+  manualId: string
   deviceCategory: DeviceCategory
   brand: string
   modelPattern: string
@@ -32,11 +33,12 @@ export function groupSymptoms(graphs: GraphSummary[]): SymptomGroup[] {
   const groups = new Map<string, SymptomGroup>()
 
   for (const graph of graphs) {
-    const key = `${graph.deviceCategory}|${graph.brand}|${graph.modelPattern}`
+    const key = graph.manualId
 
     let group = groups.get(key)
     if (group === undefined) {
       group = {
+        manualId: graph.manualId,
         deviceCategory: graph.deviceCategory,
         brand: graph.brand,
         modelPattern: graph.modelPattern,

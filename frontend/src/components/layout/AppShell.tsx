@@ -24,6 +24,7 @@ const APP_NAME = 'FixStep'
 const NAV_ITEMS = [
   { to: '/', label: 'หน้าแรก' },
   { to: '/devices', label: 'เลือกเครื่อง' },
+  { to: '/symptoms/all', label: 'อาการทั้งหมด' },
 ]
 
 /** ชื่อคลาสของเมนูตอนเลือกอยู่และตอนไม่ได้เลือก เขียนเต็มด้วยเหตุผลเดียวกับ Button.tsx */

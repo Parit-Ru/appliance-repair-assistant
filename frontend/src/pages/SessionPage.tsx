@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { useLocation, useNavigate, useParams } from 'react-router-dom'
-import type { ModelSelection, TraversalAction } from '../api/types'
+import type { TraversalAction } from '../api/types'
 import { useAbandonSession, useGraphs, useManuals, useSession, useStartSession, useSubmitAction, useSubmitOutcome } from '../api/queries'
 import { EquipmentPanel } from '../components/EquipmentPanel'
 import { OutcomeForm } from '../components/OutcomeForm'
@@ -13,7 +13,7 @@ import { StepView } from '../components/step/StepView'
 import { TerminalActions } from '../components/TerminalActions'
 import { Icon } from '../components/ui/Icon'
 import { Notice } from '../components/ui/Notice'
-import { symptomsPath } from '../lib/modelSelection'
+import { modelSelectionFromState, otherSymptomsPath, restartVariables } from '../lib/modelSelection'
 import { manualTitle } from '../lib/models'
 import { toTrailEntry } from '../lib/trail'
 import type { TrailEntry } from '../lib/trail'
@@ -35,11 +35,12 @@ function SessionView({ sessionId }: { sessionId: string }) {
   const manuals = useManuals()
 
   // รุ่นที่ผู้ใช้ระบุไว้ตอนเริ่ม มากับ navigate state จาก useStartSymptom (ไม่ได้อ่านจากเซิร์ฟเวอร์)
-  // รีเฟรชหน้าแล้วยังอยู่ แต่เปิดลิงก์ session ในแท็บใหม่จะกลับเป็น 'selected'
+  // รีเฟรชหน้าแล้วยังอยู่ แต่เปิดลิงก์ session ในแท็บใหม่ state จะหาย
+  // undefined = ไม่ได้ผ่านหน้าเลือกรุ่น (เริ่มจากรายการทุกรุ่น) หรือไม่ทราบ — ห้ามเติมเป็น 'selected' เพราะจะบันทึกผิด
   const location = useLocation()
-  const modelSelection: ModelSelection = (location.state as { modelSelection?: ModelSelection } | null)?.modelSelection ?? 'selected'
+  const modelSelection = modelSelectionFromState(location.state)
   const currentSummary = graphs.data?.find((graph) => graph.graphId === session.data?.graphId)
-  const otherSymptomPath = currentSummary ? symptomsPath(currentSummary.manualId, modelSelection) : '/devices'
+  const otherSymptomPath = otherSymptomsPath(currentSummary?.manualId, modelSelection)
 
   const [trail, setTrail] = useState<TrailEntry[]>([])
   const isSendingRef = useRef(false)
@@ -76,7 +77,7 @@ function SessionView({ sessionId }: { sessionId: string }) {
 
   function handleRestart(graphId: string) {
     restart.mutate(
-      { graphId, manualId: currentSummary?.manualId, modelSelection },
+      restartVariables(graphId, currentSummary?.manualId, modelSelection),
       {
         onSuccess: (next) => navigate(`/session/${next.sessionId}`, { replace: true, state: { modelSelection } }),
       },

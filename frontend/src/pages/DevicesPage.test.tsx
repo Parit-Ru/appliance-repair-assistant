@@ -4,6 +4,7 @@ import { StaticRouter } from 'react-router-dom'
 import { describe, expect, it } from 'vitest'
 import { queryKeys } from '../api/queries'
 import type { ManualSummary } from '../api/types'
+import { MODEL_MATCH_HINT } from '../lib/modelSelection'
 import { DevicesPage } from './DevicesPage'
 
 const MANUALS: ManualSummary[] = [
@@ -40,6 +41,7 @@ describe('DevicesPage', () => {
     expect(html).toContain('WA21A8376G*') // modelPattern แสดงกำกับเมื่อมี displayName
     expect(html).toContain('WT10J7') // ไม่มี displayName → แสดง modelPattern
     expect(html).not.toContain('AR70H')
+    expect(html).toContain(MODEL_MATCH_HINT)
     expect(html).toContain('ฉันไม่ทราบรุ่น')
     expect(html).not.toContain('ขั้นตอนอาจไม่ตรงกับเครื่องของคุณ') // คำเตือนโผล่เฉพาะเมื่อกด "ไม่ทราบรุ่น"
   })
