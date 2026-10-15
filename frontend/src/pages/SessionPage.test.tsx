@@ -78,4 +78,10 @@ describe('SessionPage: แสดงชื่อรุ่นไม่ว่า mo
     expect(html).toContain('WA21A ฝาบน 21 กก.')
     expect(html).toContain('คุณเลือกรุ่นที่ใกล้เคียง')
   })
+
+  it('ไม่มีประโยค "ให้หยุดและติดต่อศูนย์บริการ" ที่เอาออกตามผู้พัฒนาสั่ง (15 ต.ค.) ในทุกกรณี', () => {
+    for (const state of [undefined, { modelSelection: 'selected' }, { modelSelection: 'unknown' }]) {
+      expect(render(state)).not.toContain('ให้หยุดและติดต่อศูนย์บริการ')
+    }
+  })
 })

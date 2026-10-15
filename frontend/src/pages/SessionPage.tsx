@@ -138,9 +138,7 @@ function SessionView({ sessionId }: { sessionId: string }) {
       <EquipmentPanel items={equipment} deviceCategory={summary?.deviceCategory} />
 
       {modelSelection === 'unknown' && (
-        <Notice tone="info" title="คุณเลือกรุ่นที่ใกล้เคียง ขั้นตอนอาจไม่ตรงกับเครื่อง">
-          ถ้าหน้าตาเครื่องหรือปุ่มต่างจากที่คำถามบอก ให้หยุดและติดต่อศูนย์บริการ
-        </Notice>
+        <Notice tone="info" title="คุณเลือกรุ่นที่ใกล้เคียง ขั้นตอนอาจไม่ตรงกับเครื่อง" />
       )}
 
       {slowNotice}
