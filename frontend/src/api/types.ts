@@ -20,6 +20,7 @@ import type {
 
 export interface GraphSummary {
   graphId: string
+  manualId: string
   entrySymptom: string
   entrySymptomTh?: string
   deviceCategory: DeviceCategory
@@ -28,6 +29,21 @@ export interface GraphSummary {
   severity?: Severity
   difficulty?: Difficulty
 }
+
+// คู่มือ/รุ่น 1 รายการ ที่ GET /traversal/manuals ส่งกลับมาเป็น array
+// displayName/modelAliases ไม่มี = ผู้พัฒนายังไม่เติม ให้แสดง modelPattern แทน (ห้ามเดาชื่อ)
+export interface ManualSummary {
+  manualId: string
+  deviceCategory: DeviceCategory
+  brand: string
+  modelPattern: string
+  displayName?: string
+  modelAliases?: string[]
+  graphCount: number
+}
+
+// ผู้ใช้ระบุรุ่นเอง (selected) หรือบอกว่าไม่ทราบรุ่นแล้วเลือกรุ่นที่ใกล้เคียงเอง (unknown)
+export type ModelSelection = 'selected' | 'unknown'
 
 // ผังขั้นตอน 1 รายการที่ POST /symptom-search ส่งกลับมาในฟิลด์ matches
 export interface SymptomMatch {

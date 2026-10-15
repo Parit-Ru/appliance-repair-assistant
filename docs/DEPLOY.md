@@ -33,8 +33,8 @@
 
 - **ระบบค้นหาอาการปิดอยู่** (`SYMPTOM_SEARCH_ENABLED=false`, ยังไม่ได้คัดลอก `backend/model-slim/`) ปุ่มค้นหาจะขึ้น "ระบบค้นหาไม่พร้อมใช้งาน" แต่เลือกจากรายการได้ปกติ
 - **Render free หลับหลังไม่มีคนใช้ ~15 นาที** คำขอแรกตอนตื่นช้า (frontend ขึ้นกล่อง "เซิร์ฟเวอร์กำลังเริ่มทำงาน" หลังรอ 4 วินาที)
-- **ฐานข้อมูลใช้ร่วมกับ FixStep** ห้ามรัน `npm run migrate`/`seed` กับฐานนี้โดยไม่ตั้งใจ (migration 001–005 ทำไว้แล้ว) และ session ของสองระบบอยู่ตารางเดียวกัน
-- **migration 006/007 (15 ต.ค.) ยังไม่ได้รัน แต่โค้ดใหม่ต้องใช้คอลัมน์ของมัน** ลำดับที่ถูก: `node scripts/run-migrations.js --status` → `npm run migrate` → จึง push/deploy โค้ด (ถ้า deploy ก่อน `GraphRepository` โหลดไม่ได้และ backend ไม่ขึ้น) · แผน/รายละเอียด: `docs/PLAN-MODEL-SELECTION.md` §9
+- **ฐานข้อมูลใช้ร่วมกับ FixStep** ห้ามรัน `npm run migrate`/`seed` กับฐานนี้โดยไม่ตั้งใจ (migration 001–007 รันแล้ว) และ session ของสองระบบอยู่ตารางเดียวกัน
+- **migration 006/007 รันกับ DB แล้ว (15 ต.ค.) และโค้ดใหม่ต้องใช้คอลัมน์ของมัน** (ถ้าตั้งฐานข้อมูลใหม่/ตัวอื่น ต้องรันก่อนบูต) ลำดับที่ถูก: `node scripts/run-migrations.js --status` → `npm run migrate` → จึง push/deploy โค้ด (ถ้า deploy ก่อน `GraphRepository` โหลดไม่ได้และ backend ไม่ขึ้น) · แผน/รายละเอียด: `docs/PLAN-MODEL-SELECTION.md` §9
 - `/health` ส่งข้อความ error ของ MySQL ออกสาธารณะตอนฐานล่ม (อาจเผยชื่อโฮสต์) ถ้าห่วง แก้ได้ที่ `health.controller.ts`
 - ยังไม่มีเทสอัตโนมัติ (เฟส T) และยังไม่เคยรัน backend ใหม่กับ MySQL จริง — การ deploy ขั้นที่ 1 ข้อ 5 คือครั้งแรกที่ได้ทดสอบจริง
 

@@ -1,13 +1,15 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
 import { ApiError } from '../api/http'
-import { useSymptomSearch } from '../api/queries'
+import { useManuals, useSymptomSearch } from '../api/queries'
 import { SlowServerNotice } from '../components/SlowServerNotice'
 import { SymptomSearchForm } from '../components/SymptomSearchForm'
 import { SymptomSearchResults } from '../components/SymptomSearchResults'
 import { SymptomsErrorNotice } from '../components/SymptomsErrorNotice'
 import { Notice } from '../components/ui/Notice'
 import { describeError } from '../lib/errors'
+import { useChosenModel, symptomsPath } from '../lib/modelSelection'
+import { manualTitle } from '../lib/models'
 import { checkQuery, normalizeQuery } from '../lib/search'
 import { useSlowWait } from '../lib/useSlowWait'
 import { useStartSymptom } from '../lib/useStartSymptom'
@@ -31,6 +33,8 @@ const SEARCH_INFO_CODES = new Set(['INVALID_QUERY', 'SEARCH_NOT_READY', 'SEARCH_
 const LINK_CLASSES = 'text-accent underline-offset-4 hover:underline'
 
 export function SymptomsPage() {
+  const { manualId, modelSelection } = useChosenModel()
+  const manuals = useManuals()
   const search = useSymptomSearch()
   const { start, startingId, isStarting, error: startError } = useStartSymptom()
 
@@ -38,19 +42,31 @@ export function SymptomsPage() {
 
   function handleSearch() {
     if (checkQuery(query) !== 'ok') return
-    search.mutate(normalizeQuery(query))
+    search.mutate({ query: normalizeQuery(query), manualId })
   }
 
   // ---------- รอนาน: เซิร์ฟเวอร์บน Render หลับเมื่อไม่มีคนใช้ ตื่นช้า ----------
   const isSlow = useSlowWait(isStarting || search.isPending)
 
+  // ยังไม่ได้เลือกรุ่น → กลับไปหน้าเลือกเครื่อง (ไม่เดารุ่นให้) ต้องอยู่หลัง hook ทุกตัว
+  if (manualId === undefined) return <Navigate to="/devices" replace />
+
+  const manual = manuals.data?.find((m) => m.manualId === manualId)
+
   return (
     <div className="space-y-6">
       <div className="space-y-1">
         <h1 className="text-2xl font-semibold">เลือกอาการที่พบ</h1>
+        <p className="text-sm text-ink-soft">
+          รุ่น: {manual ? `${manual.brand} ${manualTitle(manual)}` : manualId}
+          {modelSelection === 'unknown' && ' (ไม่ทราบรุ่น เลือกรุ่นใกล้เคียง)'} ·{' '}
+          <Link to={manual ? `/devices?category=${encodeURIComponent(manual.deviceCategory)}` : '/devices'} className={LINK_CLASSES}>
+            เปลี่ยนรุ่น
+          </Link>
+        </p>
         <p className="text-ink-soft">
           พิมพ์อาการที่พบให้ระบบช่วยหา ระบบจะถามทีละข้อตามคู่มือของเครื่องนั้น หรือ{' '}
-          <Link to="/symptoms/all" className={LINK_CLASSES}>
+          <Link to={symptomsPath(manualId, modelSelection, 'all')} className={LINK_CLASSES}>
             ดูอาการทั้งหมด
           </Link>
         </p>
@@ -64,14 +80,14 @@ export function SymptomsPage() {
       <div aria-live="polite" className="space-y-4">
         {search.isError && <SearchErrorNotice error={search.error} />}
 
-        {search.isSuccess && <SymptomSearchResults result={search.data} startingId={startingId} isStarting={isStarting} onSelect={(graphId) => start(graphId, search.data.query)} />}
+        {search.isSuccess && <SymptomSearchResults result={search.data} startingId={startingId} isStarting={isStarting} onSelect={(graphId) => start(graphId, { query: search.data.query, manualId, modelSelection })} />}
       </div>
 
       {startError && <SymptomsErrorNotice error={startError} />}
 
       <p className="text-sm text-ink-soft">
         ไม่เจออาการที่ตรง?{' '}
-        <Link to="/symptoms/all" className={LINK_CLASSES}>
+        <Link to={symptomsPath(manualId, modelSelection, 'all')} className={LINK_CLASSES}>
           ดูอาการทั้งหมด
         </Link>
       </p>

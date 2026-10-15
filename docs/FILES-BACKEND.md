@@ -342,8 +342,8 @@ data/                  ข้อมูลที่ seed เข้าฐานข
 | `003_create_equipment_tables.sql` | ขยาย ENUM `device_category` ของ `manuals` เป็น 5 ประเภท + ตาราง `equipment`, `equipment_usage` (มี `CHECK` ว่าต้องมี `source_page` หรือ `author_note` อย่างน้อยหนึ่ง) |
 | `004_add_session_confidence.sql` | เพิ่ม `sessions.confidence DECIMAL(4,3)` |
 | `005_add_session_outcome.sql` | เพิ่ม `sessions.outcome_text`, `outcome_at` |
-| `006_add_manual_display_name.sql` | เพิ่ม `manuals.display_name`, `model_aliases` (NULL ได้) · **เพิ่มไฟล์แล้ว ยังไม่ได้รันกับ DB** |
-| `007_add_session_model_selection.sql` | เพิ่ม `sessions.model_selection ENUM('selected','unknown') NULL` · **เพิ่มไฟล์แล้ว ยังไม่ได้รันกับ DB** |
+| `006_add_manual_display_name.sql` | เพิ่ม `manuals.display_name`, `model_aliases` (NULL ได้) · **รันกับ DB แล้ว 15 ต.ค.** |
+| `007_add_session_model_selection.sql` | เพิ่ม `sessions.model_selection ENUM('selected','unknown') NULL` · **รันกับ DB แล้ว 15 ต.ค.** |
 
 ### Data (`data/`)
 

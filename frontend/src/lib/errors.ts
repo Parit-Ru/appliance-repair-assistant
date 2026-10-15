@@ -84,6 +84,13 @@ export function describeError(error: unknown): ErrorDescription {
         recovery: 'back-to-symptoms',
       }
 
+    case 'GRAPH_MANUAL_MISMATCH':
+      return {
+        title: 'อาการนี้ไม่ใช่ของรุ่นที่เลือก',
+        detail: 'ระบบไม่เริ่มตรวจให้ เพราะขั้นตอนของอาการนี้เป็นของคนละรุ่นกับที่เลือกไว้ กลับไปเลือกรุ่นและอาการใหม่',
+        recovery: 'back-to-symptoms',
+      }
+
     case 'GRAPH_NOT_FOUND':
       return {
         title: 'ไม่พบอาการนี้',

@@ -4,12 +4,13 @@ import {
   getHealth,
   getSession,
   listGraphs,
+  listManuals,
   searchSymptoms,
   startSession,
   submitAction,
   submitOutcome,
 } from './traversal'
-import type { SessionResponse, SymptomSearchResponse, TraversalAction } from './types'
+import type { ModelSelection, SessionResponse, SymptomSearchResponse, TraversalAction } from './types'
 
 /**
  * hook ของ React Query ที่หน้าจอเรียกใช้
@@ -27,6 +28,8 @@ import type { SessionResponse, SymptomSearchResponse, TraversalAction } from './
 export const queryKeys = {
   health: ['health'] as const,
   graphs: ['graphs'] as const,
+  graphsOf: (manualId: string) => ['graphs', manualId] as const,
+  manuals: ['manuals'] as const,
   session: (sessionId: string) => ['session', sessionId] as const,
 }
 
@@ -44,13 +47,22 @@ export function useHealth() {
 }
 
 /**
- * รายการอาการทั้งหมด
+ * รายการอาการ: ไม่ส่ง manualId = ทุกรุ่น · ส่ง = เฉพาะผังของรุ่นนั้น (แคชแยกตามรุ่น)
  * staleTime ไม่มีวันเก่า เพราะเปลี่ยนเฉพาะตอน seed ข้อมูลใหม่ ไม่เปลี่ยนระหว่างใช้งาน
  */
-export function useGraphs() {
+export function useGraphs(manualId?: string) {
   return useQuery({
-    queryKey: queryKeys.graphs,
-    queryFn: listGraphs,
+    queryKey: manualId === undefined ? queryKeys.graphs : queryKeys.graphsOf(manualId),
+    queryFn: () => listGraphs(manualId),
+    staleTime: Infinity,
+  })
+}
+
+/** รายการคู่มือ/รุ่น (ให้ผู้ใช้เลือกรุ่นก่อนเลือกอาการ) เปลี่ยนเฉพาะตอน seed เหมือน useGraphs */
+export function useManuals() {
+  return useQuery({
+    queryKey: queryKeys.manuals,
+    queryFn: listManuals,
     staleTime: Infinity,
   })
 }
@@ -80,8 +92,8 @@ export function useSession(sessionId: string) {
  * (เช่น ตอนแรกยังโหลดโมเดลอยู่ ตอบ SEARCH_NOT_READY) จึงไม่ควรจำผลเก่า
  */
 export function useSymptomSearch() {
-  return useMutation<SymptomSearchResponse, Error, string>({
-    mutationFn: (query: string) => searchSymptoms(query),
+  return useMutation<SymptomSearchResponse, Error, { query: string; manualId?: string }>({
+    mutationFn: ({ query, manualId }) => searchSymptoms(query, manualId),
   })
 }
 
@@ -89,6 +101,8 @@ export function useSymptomSearch() {
 interface StartSessionVariables {
   graphId: string
   query?: string
+  manualId?: string
+  modelSelection?: ModelSelection
 }
 
 /**
@@ -98,7 +112,7 @@ interface StartSessionVariables {
 export function useStartSession() {
   const queryClient = useQueryClient()
   return useMutation({
-    mutationFn: ({ graphId, query }: StartSessionVariables) => startSession(graphId, query),
+    mutationFn: ({ graphId, ...options }: StartSessionVariables) => startSession(graphId, options),
     onSuccess: (session: SessionResponse) => {
       queryClient.setQueryData(queryKeys.session(session.sessionId), session)
     },

@@ -1,16 +1,17 @@
-import { useNavigate } from 'react-router-dom'
-import { useGraphs } from '../api/queries'
+import { Link, useNavigate } from 'react-router-dom'
+import { useManuals } from '../api/queries'
 import { Button } from '../components/ui/Button'
 import { Icon } from '../components/ui/Icon'
 import { DEVICE_CATEGORY_LABELS } from '../lib/labels'
-import { groupSymptoms } from '../lib/symptoms'
+import { symptomsPath } from '../lib/modelSelection'
+import { manualTitle } from '../lib/models'
 
 export function HomePage() {
-  const graphs = useGraphs()
+  const manuals = useManuals()
   const navigate = useNavigate()
 
-  const groups = graphs.isSuccess ? groupSymptoms(graphs.data) : []
-  const showSupported = graphs.isPending || groups.length > 0
+  const items = manuals.isSuccess ? manuals.data : []
+  const showSupported = manuals.isPending || items.length > 0
 
   return (
     <div className="space-y-10">
@@ -20,16 +21,16 @@ export function HomePage() {
           <span className="block text-accent">ตามคู่มือของผู้ผลิต</span>
         </h1>
 
-        <p className="text-ink-soft">เลือกอาการของเครื่องใช้ไฟฟ้าที่พบ แล้วตอบคำถามทีละข้อ ลำดับขั้นตอนมาจากคู่มือ ไม่ได้ให้ AI เดาเอาเอง ขั้นตอนที่เกี่ยวกับไฟฟ้าต้องยืนยันคำเตือนก่อนทุกครั้ง และทุกขั้นบอกหน้าคู่มือที่มา</p>
+        <p className="text-ink-soft">เลือกอาการของเครื่องใช้ไฟฟ้าที่พบ แล้วตอบคำถามทีละข้อ ลำดับขั้นตอนมาจากคู่มือ ไม่ได้ให้ AI เดาเอาเอง ขั้นตอนที่มีข้อควรระวังด้านความปลอดภัย ต้องอ่านและกดยืนยันก่อนทุกครั้ง และทุกขั้นบอกหน้าคู่มือที่มา</p>
 
-        <Button onClick={() => navigate('/symptoms')}>เลือกอาการที่พบ</Button>
+        <Button onClick={() => navigate('/devices')}>เลือกเครื่องที่มีปัญหา</Button>
       </section>
 
       {showSupported && (
         <section className="space-y-3">
           <h2 className="font-semibold">รองรับตอนนี้</h2>
 
-          {graphs.isPending && (
+          {manuals.isPending && (
             <p className="flex items-center gap-2 text-ink-soft">
               <Icon name="spinner" className="h-5 w-5 animate-spin" />
               กำลังโหลด
@@ -37,12 +38,12 @@ export function HomePage() {
           )}
 
           <ul className="space-y-3">
-            {groups.map((group) => (
-              <li key={`${group.deviceCategory}|${group.brand}|${group.modelPattern}`}>
-                <p>
-                  {DEVICE_CATEGORY_LABELS[group.deviceCategory]} {group.brand} <code className="font-mono">{group.modelPattern}</code>
-                </p>
-                <p className="text-sm text-ink-soft">{group.symptoms.length} อาการ</p>
+            {items.map((manual) => (
+              <li key={manual.manualId}>
+                <Link to={symptomsPath(manual.manualId, 'selected')} className="block hover:text-accent">
+                  {DEVICE_CATEGORY_LABELS[manual.deviceCategory]} {manual.brand} <code className="font-mono">{manualTitle(manual)}</code>
+                </Link>
+                <p className="text-sm text-ink-soft">{manual.graphCount} อาการ</p>
               </li>
             ))}
           </ul>

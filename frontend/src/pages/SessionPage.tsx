@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
-import type { TraversalAction } from '../api/types'
-import { useAbandonSession, useGraphs, useSession, useStartSession, useSubmitAction, useSubmitOutcome } from '../api/queries'
+import { useLocation, useNavigate, useParams } from 'react-router-dom'
+import type { ModelSelection, TraversalAction } from '../api/types'
+import { useAbandonSession, useGraphs, useManuals, useSession, useStartSession, useSubmitAction, useSubmitOutcome } from '../api/queries'
 import { EquipmentPanel } from '../components/EquipmentPanel'
 import { OutcomeForm } from '../components/OutcomeForm'
 import { RephraseNote } from '../components/RephraseNote'
@@ -12,6 +12,9 @@ import { PathRail } from '../components/step/PathRail'
 import { StepView } from '../components/step/StepView'
 import { TerminalActions } from '../components/TerminalActions'
 import { Icon } from '../components/ui/Icon'
+import { Notice } from '../components/ui/Notice'
+import { symptomsPath } from '../lib/modelSelection'
+import { manualTitle } from '../lib/models'
 import { toTrailEntry } from '../lib/trail'
 import type { TrailEntry } from '../lib/trail'
 import { useSlowWait } from '../lib/useSlowWait'
@@ -29,6 +32,14 @@ function SessionView({ sessionId }: { sessionId: string }) {
   const saveOutcome = useSubmitOutcome(sessionId)
   const abandon = useAbandonSession()
   const restart = useStartSession()
+  const manuals = useManuals()
+
+  // รุ่นที่ผู้ใช้ระบุไว้ตอนเริ่ม มากับ navigate state จาก useStartSymptom (ไม่ได้อ่านจากเซิร์ฟเวอร์)
+  // รีเฟรชหน้าแล้วยังอยู่ แต่เปิดลิงก์ session ในแท็บใหม่จะกลับเป็น 'selected'
+  const location = useLocation()
+  const modelSelection: ModelSelection = (location.state as { modelSelection?: ModelSelection } | null)?.modelSelection ?? 'selected'
+  const currentSummary = graphs.data?.find((graph) => graph.graphId === session.data?.graphId)
+  const otherSymptomPath = currentSummary ? symptomsPath(currentSummary.manualId, modelSelection) : '/devices'
 
   const [trail, setTrail] = useState<TrailEntry[]>([])
   const isSendingRef = useRef(false)
@@ -60,14 +71,14 @@ function SessionView({ sessionId }: { sessionId: string }) {
   }
 
   function handleAbandon() {
-    abandon.mutate(sessionId, { onSettled: () => navigate('/symptoms') })
+    abandon.mutate(sessionId, { onSettled: () => navigate(otherSymptomPath) })
   }
 
   function handleRestart(graphId: string) {
     restart.mutate(
-      { graphId },
+      { graphId, manualId: currentSummary?.manualId, modelSelection },
       {
-        onSuccess: (next) => navigate(`/session/${next.sessionId}`, { replace: true }),
+        onSuccess: (next) => navigate(`/session/${next.sessionId}`, { replace: true, state: { modelSelection } }),
       },
     )
   }
@@ -114,21 +125,29 @@ function SessionView({ sessionId }: { sessionId: string }) {
   const rephrased = canRephrase && displayText ? displayText : null
   const shownNode = rephrased === null ? node : { ...node, text: rephrased }
   const summary = graphs.data?.find((graph) => graph.graphId === graphId)
-  const manualLabel = summary && `${summary.brand} ${summary.modelPattern}`
+  const manual = manuals.data?.find((m) => m.manualId === summary?.manualId)
+  const modelName = manual && manualTitle(manual)
+  const manualLabel = summary && `${summary.brand} ${modelName ?? summary.modelPattern}`
   const actionError = submit.error ?? restart.error
 
   return (
     <div className="space-y-6">
-      <SessionHeader summary={summary} confidence={confidence} canAbandon={!node.isTerminal} isAbandoning={abandon.isPending} onAbandon={handleAbandon} />
+      <SessionHeader summary={summary} modelName={modelName} confidence={confidence} canAbandon={!node.isTerminal} isAbandoning={abandon.isPending} onAbandon={handleAbandon} />
 
       <EquipmentPanel items={equipment} deviceCategory={summary?.deviceCategory} />
+
+      {modelSelection === 'unknown' && (
+        <Notice tone="info" title="คุณเลือกรุ่นที่ใกล้เคียง ขั้นตอนอาจไม่ตรงกับเครื่อง">
+          ถ้าหน้าตาเครื่องหรือปุ่มต่างจากที่คำถามบอก ให้หยุดและติดต่อศูนย์บริการ
+        </Notice>
+      )}
 
       {slowNotice}
       {actionError && <SessionErrorNotice error={actionError} onRefresh={handleRefresh} />}
 
       <PathRail entries={trail} current={node}>
         <div ref={stepRef}>
-          <StepView key={node.nodeId} node={shownNode} onAction={handleAction} isPending={submit.isPending} manualLabel={manualLabel} outcomeForm={<OutcomeForm savedText={savedOutcome} onSubmit={handleOutcome} isSending={saveOutcome.isPending} error={saveOutcome.error} onRefresh={handleRefresh} />} outcomeActions={<TerminalActions onOtherSymptom={() => navigate('/symptoms')} onRestart={() => handleRestart(graphId)} isRestarting={restart.isPending} />} />
+          <StepView key={node.nodeId} node={shownNode} onAction={handleAction} isPending={submit.isPending} manualLabel={manualLabel} outcomeForm={<OutcomeForm savedText={savedOutcome} onSubmit={handleOutcome} isSending={saveOutcome.isPending} error={saveOutcome.error} onRefresh={handleRefresh} />} outcomeActions={<TerminalActions onOtherSymptom={() => navigate(otherSymptomPath)} onRestart={() => handleRestart(graphId)} isRestarting={restart.isPending} />} />
           {rephrased !== null && <RephraseNote original={node.text} />}
         </div>
       </PathRail>

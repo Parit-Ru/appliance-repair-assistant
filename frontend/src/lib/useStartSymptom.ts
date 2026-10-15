@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useStartSession } from '../api/queries'
+import type { ModelSelection } from '../api/types'
 
 /**
  * เริ่มการตรวจจากอาการที่ผู้ใช้เลือก ใช้ร่วมกันทั้งหน้าค้นหาอาการและหน้าอาการทั้งหมด
@@ -19,10 +20,16 @@ export function useStartSymptom() {
   const navigate = useNavigate()
   const [startingId, setStartingId] = useState<string | null>(null)
 
-  /** query ส่งเฉพาะตอนเริ่มจากผลค้นหา (ไว้คิดคะแนน) เริ่มจากรายการไม่ส่ง → ไม่มีคะแนน */
-  function start(graphId: string, query?: string) {
+  /**
+   * query ส่งเฉพาะตอนเริ่มจากผลค้นหา (ไว้คิดคะแนน) เริ่มจากรายการไม่ส่ง → ไม่มีคะแนน
+   * manualId/modelSelection คือรุ่นที่ผู้ใช้เลือกไว้ก่อนหน้า (เซิร์ฟเวอร์ตรวจว่าผังอยู่ในรุ่นนั้น)
+   */
+  function start(graphId: string, options: { query?: string; manualId?: string; modelSelection?: ModelSelection } = {}) {
     setStartingId(graphId)
-    startSession.mutate({ graphId, query }, { onSuccess: (session) => navigate(`/session/${session.sessionId}`) })
+    startSession.mutate(
+      { graphId, ...options },
+      { onSuccess: (session) => navigate(`/session/${session.sessionId}`, { state: { modelSelection: options.modelSelection } }) },
+    )
   }
 
   return { start, startingId, isStarting: startSession.isPending, error: startSession.error }

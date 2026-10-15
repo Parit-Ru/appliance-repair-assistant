@@ -5,13 +5,15 @@ import { Button } from './ui/Button'
 
 interface SessionHeaderProps {
   summary: GraphSummary | undefined
+  /** ชื่อรุ่นที่ผู้ใช้รู้จัก (displayName) ไม่ส่ง = แสดง modelPattern */
+  modelName?: string
   confidence: number | null | undefined
   canAbandon: boolean
   isAbandoning: boolean
   onAbandon: () => void
 }
 
-export function SessionHeader({ summary, confidence, canAbandon, isAbandoning, onAbandon }: SessionHeaderProps) {
+export function SessionHeader({ summary, modelName, confidence, canAbandon, isAbandoning, onAbandon }: SessionHeaderProps) {
   return (
     <div className="space-y-1">
       <h1 className="text-2xl font-semibold">{summary ? symptomName(summary) : 'ตรวจอาการ'}</h1>
@@ -19,7 +21,7 @@ export function SessionHeader({ summary, confidence, canAbandon, isAbandoning, o
         <p className="text-sm text-ink-soft">
           {summary && (
             <>
-              {summary.brand} <code className="font-mono">{summary.modelPattern}</code>
+              {summary.brand} <code className="font-mono">{modelName ?? summary.modelPattern}</code>
             </>
           )}
         </p>
