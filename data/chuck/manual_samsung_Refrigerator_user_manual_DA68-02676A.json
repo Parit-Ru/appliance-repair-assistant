@@ -1,0 +1,155 @@
+[
+  {
+    "chunk_id": "manual_Samsung_Refrigerator_RFUM_p21_not_operating_or_warm",
+    "device_category": "Refrigerator",
+    "brand": "Samsung",
+    "model": "DA68-02676A",
+    "source": "Samsung Refrigerator User Manual (Code No. DA68-02676A REV 1.4)",
+    "page": 21,
+    "content": "The appliance is not operating at all or the temperature is too high. Power plug not correctly connected; temperature control on the front panel not correctly set; sun shining on the appliance or heat sources nearby; back of the appliance too close to the wall. 1. Check if the power plug is correctly connected. 2. Check that the temperature control on the front panel is correctly set. 3. Check whether sun shines on the appliance or there are heat sources nearby. 4. Check whether the back of the appliance is too close to the wall.",
+    "metadata": {
+      "symptom": "The appliance is not operating at all or the temperature is too high.",
+      "possible_cause": "Power plug not correctly connected; temperature control on the front panel not correctly set; sun shining on the appliance or heat sources nearby; back of the appliance too close to the wall.",
+      "solution": "1. Check if the power plug is correctly connected.\n2. Check that the temperature control on the front panel is correctly set.\n3. Check whether sun shines on the appliance or there are heat sources nearby.\n4. Check whether the back of the appliance is too close to the wall.",
+      "severity": "medium",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Refrigerator_RFUM_p21_food_frozen",
+    "device_category": "Refrigerator",
+    "brand": "Samsung",
+    "model": "DA68-02676A",
+    "source": "Samsung Refrigerator User Manual (Code No. DA68-02676A REV 1.4)",
+    "page": 21,
+    "content": "The food in the refrigerator is frozen. Temperature control on the front panel set to the coldest temperature; surrounding temperature too low. 1. Check whether the temperature control on the front panel is set to the coldest temperature. 2. Check whether the surrounding temperature is too low.",
+    "metadata": {
+      "symptom": "The food in the refrigerator is frozen.",
+      "possible_cause": "Temperature control on the front panel set to the coldest temperature; surrounding temperature too low.",
+      "solution": "1. Check whether the temperature control on the front panel is set to the coldest temperature.\n2. Check whether the surrounding temperature is too low.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Refrigerator_RFUM_p21_unusual_noises",
+    "device_category": "Refrigerator",
+    "brand": "Samsung",
+    "model": "DA68-02676A",
+    "source": "Samsung Refrigerator User Manual (Code No. DA68-02676A REV 1.4)",
+    "page": 21,
+    "content": "There are unusual noises. Unstable or uneven floor; back of the appliance too close to the wall; foreign objects fallen behind or under the appliance; noise from the compressor; a ticking sound occurs when the various accessories contract or expand. 1. Check if the appliance is installed on a stable and even floor. 2. Check whether the back of the appliance is too close to the wall. 3. Check whether any foreign objects have fallen behind or under the appliance. 4. Check whether the noise is coming from the compressor in the appliance. 5. A ticking sound occurs when the various accessories contract or expand.",
+    "metadata": {
+      "symptom": "There are unusual noises.",
+      "possible_cause": "Unstable or uneven floor; back of the appliance too close to the wall; foreign objects fallen behind or under the appliance; noise from the compressor; a ticking sound occurs when the various accessories contract or expand.",
+      "solution": "1. Check if the appliance is installed on a stable and even floor.\n2. Check whether the back of the appliance is too close to the wall.\n3. Check whether any foreign objects have fallen behind or under the appliance.\n4. Check whether the noise is coming from the compressor in the appliance.\n5. A ticking sound occurs when the various accessories contract or expand.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Refrigerator_RFUM_p21_front_warm_condensation",
+    "device_category": "Refrigerator",
+    "brand": "Samsung",
+    "model": "DA68-02676A",
+    "source": "Samsung Refrigerator User Manual (Code No. DA68-02676A REV 1.4)",
+    "page": 21,
+    "content": "The front corners and sides of the appliance are warm and condensation starts to form. Heat-proof pipes are installed in the front corners of the appliance to prevent condensation from forming; when the surrounding temperature rises this may not always be effective. In very humid weather, condensation may form on the outer surface when the moisture in the air comes into contact with the cool surface of the appliance. This is not abnormal.",
+    "metadata": {
+      "symptom": "The front corners and sides of the appliance are warm and condensation starts to form.",
+      "possible_cause": "Heat-proof pipes are installed in the front corners of the appliance to prevent condensation from forming; when the surrounding temperature rises this may not always be effective. In very humid weather, condensation may form on the outer surface when the moisture in the air comes into contact with the cool surface of the appliance.",
+      "solution": "This is not abnormal.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Refrigerator_RFUM_p21_liquid_bubbling",
+    "device_category": "Refrigerator",
+    "brand": "Samsung",
+    "model": "DA68-02676A",
+    "source": "Samsung Refrigerator User Manual (Code No. DA68-02676A REV 1.4)",
+    "page": 21,
+    "content": "You can hear a liquid bubbling in the appliance. This is the refrigerant, which cools the inside of the appliance. This is the refrigerant, which cools the inside of the appliance. No action is needed.",
+    "metadata": {
+      "symptom": "You can hear a liquid bubbling in the appliance.",
+      "possible_cause": "This is the refrigerant, which cools the inside of the appliance.",
+      "solution": "This is the refrigerant, which cools the inside of the appliance. No action is needed.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Refrigerator_RFUM_p21_bad_smell",
+    "device_category": "Refrigerator",
+    "brand": "Samsung",
+    "model": "DA68-02676A",
+    "source": "Samsung Refrigerator User Manual (Code No. DA68-02676A REV 1.4)",
+    "page": 21,
+    "content": "There is a bad smell inside the appliance. Spoiled food inside the refrigerator; strong smelling food (for example, fish) not wrapped airtight; refrigerator not cleaned periodically. 1. Check if there is any spoiled food inside of the refrigerator. 2. Make sure that strong smelling food (for example, fish) is wrapped so that it is airtight. 3. Clean out your refrigerator periodically and throw away any spoiled or suspect food.",
+    "metadata": {
+      "symptom": "There is a bad smell inside the appliance.",
+      "possible_cause": "Spoiled food inside the refrigerator; strong smelling food (for example, fish) not wrapped airtight; refrigerator not cleaned periodically.",
+      "solution": "1. Check if there is any spoiled food inside of the refrigerator.\n2. Make sure that strong smelling food (for example, fish) is wrapped so that it is airtight.\n3. Clean out your refrigerator periodically and throw away any spoiled or suspect food.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": "Do not spray the refrigerator with water while it is plugged in, as it may cause an electric shock. Do not clean with benzene, thinner or car detergent, due to risk of fire (page 20)."
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Refrigerator_RFUM_p21_frost_on_walls",
+    "device_category": "Refrigerator",
+    "brand": "Samsung",
+    "model": "DA68-02676A",
+    "source": "Samsung Refrigerator User Manual (Code No. DA68-02676A REV 1.4)",
+    "page": 21,
+    "content": "There is a layer of frost on the appliance's walls. Air outlet vents blocked by food stored inside the refrigerator; food packed too closely; door not fully closed. 1. Check whether the air outlet vents are blocked by food stored inside the refrigerator. 2. Space the food out as much as possible to improve ventilation. 3. Check whether the door is fully closed.",
+    "metadata": {
+      "symptom": "There is a layer of frost on the appliance's walls.",
+      "possible_cause": "Air outlet vents blocked by food stored inside the refrigerator; food packed too closely; door not fully closed.",
+      "solution": "1. Check whether the air outlet vents are blocked by food stored inside the refrigerator.\n2. Space the food out as much as possible to improve ventilation.\n3. Check whether the door is fully closed.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Refrigerator_RFUM_p21_condensation_inside",
+    "device_category": "Refrigerator",
+    "brand": "Samsung",
+    "model": "DA68-02676A",
+    "source": "Samsung Refrigerator User Manual (Code No. DA68-02676A REV 1.4)",
+    "page": 21,
+    "content": "Condensation forms on the inside wall of the appliance and around vegetables. Food with a high water content is stored uncovered with a high humidity level, or the door has been left open for a long time. Store the food with a cover or in sealed containers.",
+    "metadata": {
+      "symptom": "Condensation forms on the inside wall of the appliance and around vegetables.",
+      "possible_cause": "Food with a high water content is stored uncovered with a high humidity level, or the door has been left open for a long time.",
+      "solution": "Store the food with a cover or in sealed containers.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Refrigerator_RFUM_p20_led_lamp_out",
+    "device_category": "Refrigerator",
+    "brand": "Samsung",
+    "model": "DA68-02676A",
+    "source": "Samsung Refrigerator User Manual (Code No. DA68-02676A REV 1.4)",
+    "page": 20,
+    "content": "The interior or exterior LED lamp has gone out. Do not disassemble the lamp cover and LED lamp by yourself. Please contact your service agents.",
+    "metadata": {
+      "symptom": "The interior or exterior LED lamp has gone out.",
+      "possible_cause": null,
+      "solution": "Do not disassemble the lamp cover and LED lamp by yourself. Please contact your service agents.",
+      "severity": "low",
+      "difficulty": "hard",
+      "safety_warning": "Do not disassemble the lamp cover and LED lamp by yourself (page 20)."
+    }
+  }
+]

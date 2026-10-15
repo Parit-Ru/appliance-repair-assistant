@@ -1,0 +1,444 @@
+[
+  {
+    "chunk_id": "manual_Samsung_Refrigerator_RB5300D_p41_not_cooling",
+    "device_category": "Refrigerator",
+    "brand": "Samsung",
+    "model": "RB5300D",
+    "source": "Samsung Refrigerator User Manual RB5300D (DA68-04817A_BMF_RB5300D_EN_MES_CFR_251017)",
+    "page": 41,
+    "content": "Fridge/freezer does not operate. Fridge/freezer temperature is warm. Power cord is not plugged in properly; Temperature control is not set correctly; Refrigerator is located near a heat source or direct sunlight; Not enough clearance between refrigerator and sides/rear; The Vacation function is activated; The refrigerator is overloaded. Food is blocking the refrigerator vents. 1. Properly plug in the power cord. 2. Set the temperature lower. 3. Keep the refrigerator away from direct sunlight or a heat source. 4. Make sure there are at least 2\" (50 mm) from the rear and 1\" (25 mm) from the side. 5. Deactivate the Vacation function. 6. Do not overload the refrigerator. Do not allow food to block ventilation.",
+    "metadata": {
+      "symptom": "Fridge/freezer does not operate. Fridge/freezer temperature is warm.",
+      "possible_cause": "Power cord is not plugged in properly; Temperature control is not set correctly; Refrigerator is located near a heat source or direct sunlight; Not enough clearance between refrigerator and sides/rear; The Vacation function is activated; The refrigerator is overloaded. Food is blocking the refrigerator vents.",
+      "solution": "1. Properly plug in the power cord.\n2. Set the temperature lower.\n3. Keep the refrigerator away from direct sunlight or a heat source.\n4. Make sure there are at least 2\" (50 mm) from the rear and 1\" (25 mm) from the side.\n5. Deactivate the Vacation function.\n6. Do not overload the refrigerator. Do not allow food to block ventilation.",
+      "severity": "medium",
+      "difficulty": "easy",
+      "safety_warning": "ห้ามเสียบปลั๊กเข้ากับเต้ารับที่หลวม ห้ามใช้ปลั๊ก สายไฟ หรือเต้ารับที่ชำรุด ห้ามเสียบปลั๊กด้วยมือเปียก เสียบปลั๊กให้แน่นโดยให้สายห้อยลงด้านล่าง ห้ามต่อตู้เย็นรวมกับเครื่องใช้ไฟฟ้าอื่นในปลั๊กพ่วงเดียวกัน และเมื่อถอดปลั๊กให้จับที่ตัวปลั๊กดึงตรงออก ไม่ดึงที่สายไฟ เพราะอาจเกิดไฟฟ้าช็อกหรือไฟไหม้ (คู่มือหน้า 7, 8 และ 9) | เมื่อเคลื่อนย้ายตู้เย็น ระวังอย่าให้ล้มหรือทับสายไฟ และอย่าให้ปลั๊กถูกบีบหรือเสียหายจากด้านหลังตู้เย็น (คู่มือหน้า 7 และ 8) ห้ามยื่นมือ เท้า หรือวัตถุโลหะเข้าไปใต้หรือด้านหลังตู้เย็น (คู่มือหน้า 9) | เมื่อเคลื่อนย้ายตู้เย็น ระวังอย่าให้ล้มหรือทับสายไฟ และอย่าให้ปลั๊กถูกบีบหรือเสียหายจากด้านหลังตู้เย็น (คู่มือหน้า 7 และ 8) ห้ามยื่นมือ เท้า หรือวัตถุโลหะเข้าไปใต้หรือด้านหลังตู้เย็น (คู่มือหน้า 9) ห้ามปิดกั้นช่องระบายอากาศของตู้เย็นหรือโครงสร้างที่ติดตั้ง (คู่มือหน้า 6 และ 9) และห้ามใช้ไดร์เป่าผมเป่าภายในตู้เย็น (คู่มือหน้า 10) | ห้ามปิดกั้นช่องระบายอากาศของตู้เย็นหรือโครงสร้างที่ติดตั้ง (คู่มือหน้า 6 และ 9) และห้ามใช้ไดร์เป่าผมเป่าภายในตู้เย็น (คู่มือหน้า 10)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Refrigerator_RB5300D_p41_over_cooling",
+    "device_category": "Refrigerator",
+    "brand": "Samsung",
+    "model": "RB5300D",
+    "source": "Samsung Refrigerator User Manual RB5300D (DA68-04817A_BMF_RB5300D_EN_MES_CFR_251017)",
+    "page": 41,
+    "content": "Fridge/freezer is over-cooling. Temperature control is not set correctly. Set the temperature higher.",
+    "metadata": {
+      "symptom": "Fridge/freezer is over-cooling.",
+      "possible_cause": "Temperature control is not set correctly.",
+      "solution": "Set the temperature higher.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Refrigerator_RB5300D_p41_interior_wall_hot",
+    "device_category": "Refrigerator",
+    "brand": "Samsung",
+    "model": "RB5300D",
+    "source": "Samsung Refrigerator User Manual RB5300D (DA68-04817A_BMF_RB5300D_EN_MES_CFR_251017)",
+    "page": 41,
+    "content": "Interior wall is hot. Refrigerator has heat-proof piping in the interior wall. To prevent condensation from forming, the refrigerator has heat-proof piping in the front corners. If the ambient temperature rises, this equipment may not work effectively. This is not a system failure.",
+    "metadata": {
+      "symptom": "Interior wall is hot.",
+      "possible_cause": "Refrigerator has heat-proof piping in the interior wall.",
+      "solution": "To prevent condensation from forming, the refrigerator has heat-proof piping in the front corners. If the ambient temperature rises, this equipment may not work effectively. This is not a system failure.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Refrigerator_RB5300D_p42_odours",
+    "device_category": "Refrigerator",
+    "brand": "Samsung",
+    "model": "RB5300D",
+    "source": "Samsung Refrigerator User Manual RB5300D (DA68-04817A_BMF_RB5300D_EN_MES_CFR_251017)",
+    "page": 42,
+    "content": "Refrigerator has odours. Spoiled food; Food with strong odours. 1. Clean the refrigerator and remove any spoiled food. 2. Make sure strong smelling food is wrapped airtight.",
+    "metadata": {
+      "symptom": "Refrigerator has odours.",
+      "possible_cause": "Spoiled food; Food with strong odours.",
+      "solution": "1. Clean the refrigerator and remove any spoiled food.\n2. Make sure strong smelling food is wrapped airtight.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": "ถอดปลั๊กก่อนทำความสะอาดหรือบำรุงรักษา ห้ามฉีดน้ำใส่ตู้เย็นโดยตรง ห้ามใช้เบนซีน ทินเนอร์ หรือน้ำยาฟอกขาว (Clorox) ทำความสะอาด ห้ามจุดเทียนในตู้เย็นเพื่อดับกลิ่น และห้ามใช้ไดร์เป่าผมเป่าภายใน เพราะอาจเกิดไฟฟ้าช็อกหรือไฟไหม้ (คู่มือหน้า 13 และ 40) ถ้าถอดปลั๊กตู้เย็น ต้องรออย่างน้อยห้านาทีก่อนเสียบกลับ (คู่มือหน้า 12)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Refrigerator_RB5300D_p42_frost_vents",
+    "device_category": "Refrigerator",
+    "brand": "Samsung",
+    "model": "RB5300D",
+    "source": "Samsung Refrigerator User Manual RB5300D (DA68-04817A_BMF_RB5300D_EN_MES_CFR_251017)",
+    "page": 42,
+    "content": "Frost around the vents. Food is blocking the vents. Make sure no food blocks the refrigerator vents.",
+    "metadata": {
+      "symptom": "Frost around the vents.",
+      "possible_cause": "Food is blocking the vents.",
+      "solution": "Make sure no food blocks the refrigerator vents.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": "ห้ามแตะผนังช่องแช่แข็งหรืออาหารในช่องแช่แข็งด้วยมือเปียก เพราะอาจเกิดแผลจากความเย็นจัด (frostbite) (คู่มือหน้า 9) และถอดปลั๊กก่อนทำความสะอาดหรือบำรุงรักษา (คู่มือหน้า 13)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Refrigerator_RB5300D_p42_frost_walls",
+    "device_category": "Refrigerator",
+    "brand": "Samsung",
+    "model": "RB5300D",
+    "source": "Samsung Refrigerator User Manual RB5300D (DA68-04817A_BMF_RB5300D_EN_MES_CFR_251017)",
+    "page": 42,
+    "content": "Frost on interior walls. Door is not closed properly. 1. Make sure food does not block the door. 2. Clean the door gasket.",
+    "metadata": {
+      "symptom": "Frost on interior walls.",
+      "possible_cause": "Door is not closed properly.",
+      "solution": "1. Make sure food does not block the door.\n2. Clean the door gasket.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": "ถอดปลั๊กก่อนทำความสะอาดหรือบำรุงรักษา (คู่มือหน้า 13) ระวังนิ้วมือในช่องว่างระหว่างประตูกับตัวตู้ (คู่มือหน้า 9 และ 10) ห้ามใช้สารขัดถูหรือสารทำความสะอาดรุนแรงกับซีลประตู เพราะอาจทำให้วัสดุเป็นรอยหรือเสียหาย (คู่มือหน้า 13)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Refrigerator_RB5300D_p42_fruit_frozen",
+    "device_category": "Refrigerator",
+    "brand": "Samsung",
+    "model": "RB5300D",
+    "source": "Samsung Refrigerator User Manual RB5300D (DA68-04817A_BMF_RB5300D_EN_MES_CFR_251017)",
+    "page": 42,
+    "content": "Fruits or vegetables are frozen. Fruits or vegetables are stored in the Fresh/Chef Zone. The Fresh/Chef Zone is only for meat/fish.",
+    "metadata": {
+      "symptom": "Fruits or vegetables are frozen.",
+      "possible_cause": "Fruits or vegetables are stored in the Fresh/Chef Zone.",
+      "solution": "The Fresh/Chef Zone is only for meat/fish.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Refrigerator_RB5300D_p42_condensation",
+    "device_category": "Refrigerator",
+    "brand": "Samsung",
+    "model": "RB5300D",
+    "source": "Samsung Refrigerator User Manual RB5300D (DA68-04817A_BMF_RB5300D_EN_MES_CFR_251017)",
+    "page": 42,
+    "content": "Condensation forms on the interior walls. If door is left open, moisture enters the refrigerator; Food with high moisture content. 1. Remove the moisture and do not open the door for a long time. 2. Make sure food is wrapped airtight.",
+    "metadata": {
+      "symptom": "Condensation forms on the interior walls.",
+      "possible_cause": "If door is left open, moisture enters the refrigerator; Food with high moisture content.",
+      "solution": "1. Remove the moisture and do not open the door for a long time.\n2. Make sure food is wrapped airtight.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Refrigerator_RB5300D_p43_alarm",
+    "device_category": "Refrigerator",
+    "brand": "Samsung",
+    "model": "RB5300D",
+    "source": "Samsung Refrigerator User Manual RB5300D (DA68-04817A_BMF_RB5300D_EN_MES_CFR_251017)",
+    "page": 43,
+    "content": "An alarm sounds. If the temperature inside the fridge or freezer rises and stays high for a long time, the display will blink and an alarm will sound until the fridge or freezer cools down to a normal temperature; If the door is left open for more than two minutes, the alarm sounds until the door is closed. 1. Press any button to turn off the alarm. 2. Contact a local Samsung service centre if the alarm sounds again after 12 hours.",
+    "metadata": {
+      "symptom": "An alarm sounds.",
+      "possible_cause": "If the temperature inside the fridge or freezer rises and stays high for a long time, the display will blink and an alarm will sound until the fridge or freezer cools down to a normal temperature; If the door is left open for more than two minutes, the alarm sounds until the door is closed.",
+      "solution": "1. Press any button to turn off the alarm.\n2. Contact a local Samsung service centre if the alarm sounds again after 12 hours.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Refrigerator_RB5300D_p44_sound_start_stop",
+    "device_category": "Refrigerator",
+    "brand": "Samsung",
+    "model": "RB5300D",
+    "source": "Samsung Refrigerator User Manual RB5300D (DA68-04817A_BMF_RB5300D_EN_MES_CFR_251017)",
+    "page": 44,
+    "content": "Clicking! or Chirping! Buzzing! When starting or ending an operation, the refrigerator may make sounds similar to a car engine igniting. As the operation stabilizes, the sounds will decrease.",
+    "metadata": {
+      "symptom": "Clicking! or Chirping! Buzzing!",
+      "possible_cause": null,
+      "solution": "When starting or ending an operation, the refrigerator may make sounds similar to a car engine igniting. As the operation stabilizes, the sounds will decrease.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Refrigerator_RB5300D_p44_sound_fan",
+    "device_category": "Refrigerator",
+    "brand": "Samsung",
+    "model": "RB5300D",
+    "source": "Samsung Refrigerator User Manual RB5300D (DA68-04817A_BMF_RB5300D_EN_MES_CFR_251017)",
+    "page": 44,
+    "content": "SSSRRR! Whir! While the fan is operating, these sounds may occur. When the refrigerator reaches the set temperature, no fan sound will occur.",
+    "metadata": {
+      "symptom": "SSSRRR! Whir!",
+      "possible_cause": null,
+      "solution": "While the fan is operating, these sounds may occur. When the refrigerator reaches the set temperature, no fan sound will occur.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Refrigerator_RB5300D_p44_sound_defrost",
+    "device_category": "Refrigerator",
+    "brand": "Samsung",
+    "model": "RB5300D",
+    "source": "Samsung Refrigerator User Manual RB5300D (DA68-04817A_BMF_RB5300D_EN_MES_CFR_251017)",
+    "page": 44,
+    "content": "HiSS! During a defrost cycle, water may drip on the defrost heater, causing sizzling sounds.",
+    "metadata": {
+      "symptom": "HiSS!",
+      "possible_cause": null,
+      "solution": "During a defrost cycle, water may drip on the defrost heater, causing sizzling sounds.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Refrigerator_RB5300D_p45_sound_bubbling",
+    "device_category": "Refrigerator",
+    "brand": "Samsung",
+    "model": "RB5300D",
+    "source": "Samsung Refrigerator User Manual RB5300D (DA68-04817A_BMF_RB5300D_EN_MES_CFR_251017)",
+    "page": 45,
+    "content": "Bubbling! As the refrigerator cools or freezes, refrigerant gas moves through sealed pipes, causing bubbling sounds.",
+    "metadata": {
+      "symptom": "Bubbling!",
+      "possible_cause": null,
+      "solution": "As the refrigerator cools or freezes, refrigerant gas moves through sealed pipes, causing bubbling sounds.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Refrigerator_RB5300D_p45_sound_cracking",
+    "device_category": "Refrigerator",
+    "brand": "Samsung",
+    "model": "RB5300D",
+    "source": "Samsung Refrigerator User Manual RB5300D (DA68-04817A_BMF_RB5300D_EN_MES_CFR_251017)",
+    "page": 45,
+    "content": "Cracking! As the refrigerator temperature increases or decreases, plastic parts contract and expand, creating knocking noises. These noises occur during the defrosting cycle or when electronic parts are working.",
+    "metadata": {
+      "symptom": "Cracking!",
+      "possible_cause": null,
+      "solution": "As the refrigerator temperature increases or decreases, plastic parts contract and expand, creating knocking noises. These noises occur during the defrosting cycle or when electronic parts are working.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Refrigerator_RB5300D_p45_sound_ice_maker",
+    "device_category": "Refrigerator",
+    "brand": "Samsung",
+    "model": "RB5300D",
+    "source": "Samsung Refrigerator User Manual RB5300D (DA68-04817A_BMF_RB5300D_EN_MES_CFR_251017)",
+    "page": 45,
+    "content": "Buzzing sounds from the ice maker when the water valve opens (ice maker models) For ice maker models: When the water valve opens to fill the ice maker, buzzing sounds may occur.",
+    "metadata": {
+      "symptom": "Buzzing sounds from the ice maker when the water valve opens (ice maker models)",
+      "possible_cause": null,
+      "solution": "For ice maker models: When the water valve opens to fill the ice maker, buzzing sounds may occur.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Refrigerator_RB5300D_p45_sound_whoosh",
+    "device_category": "Refrigerator",
+    "brand": "Samsung",
+    "model": "RB5300D",
+    "source": "Samsung Refrigerator User Manual RB5300D (DA68-04817A_BMF_RB5300D_EN_MES_CFR_251017)",
+    "page": 45,
+    "content": "Whooshing sounds when opening and closing the refrigerator door Due to pressure equalizing when opening and closing the refrigerator door, whooshing sounds may occur.",
+    "metadata": {
+      "symptom": "Whooshing sounds when opening and closing the refrigerator door",
+      "possible_cause": null,
+      "solution": "Due to pressure equalizing when opening and closing the refrigerator door, whooshing sounds may occur.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Refrigerator_RB5300D_p46_st_app_not_found",
+    "device_category": "Refrigerator",
+    "brand": "Samsung",
+    "model": "RB5300D",
+    "source": "Samsung Refrigerator User Manual RB5300D (DA68-04817A_BMF_RB5300D_EN_MES_CFR_251017)",
+    "page": 46,
+    "content": "Could not find “SmartThings” in the app market. The supporting software version of the SmartThings app is subject to change according to the OS supporting policy the manufacturer provides. In addition, as for the SmartThings app or the functions that the app supports, the new application update policy on the existing OS version can be suspended due to usability or security reasons.",
+    "metadata": {
+      "symptom": "Could not find “SmartThings” in the app market.",
+      "possible_cause": null,
+      "solution": "The supporting software version of the SmartThings app is subject to change according to the OS supporting policy the manufacturer provides. In addition, as for the SmartThings app or the functions that the app supports, the new application update policy on the existing OS version can be suspended due to usability or security reasons.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Refrigerator_RB5300D_p46_st_fails_to_operate",
+    "device_category": "Refrigerator",
+    "brand": "Samsung",
+    "model": "RB5300D",
+    "source": "Samsung Refrigerator User Manual RB5300D (DA68-04817A_BMF_RB5300D_EN_MES_CFR_251017)",
+    "page": 46,
+    "content": "The SmartThings app fails to operate. 1. The SmartThings app is available for applicable models only. 2. The old Samsung Smart Refrigerator app cannot connect with Samsung Smart Home models.",
+    "metadata": {
+      "symptom": "The SmartThings app fails to operate.",
+      "possible_cause": null,
+      "solution": "1. The SmartThings app is available for applicable models only.\n2. The old Samsung Smart Refrigerator app cannot connect with Samsung Smart Home models.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Refrigerator_RB5300D_p46_st_not_connected",
+    "device_category": "Refrigerator",
+    "brand": "Samsung",
+    "model": "RB5300D",
+    "source": "Samsung Refrigerator User Manual RB5300D (DA68-04817A_BMF_RB5300D_EN_MES_CFR_251017)",
+    "page": 46,
+    "content": "The SmartThings app is installed but is not connected to my refrigerator. 1. You must log into your Samsung account to use the app. 2. Make sure that your router is operating normally. 3. If the Wi-Fi icon on the refrigerator’s display is off, this indicates that no network connection has been established yet. In this case, use the SmartThings app to connect and register your refrigerator to the access point (AP) of your house.",
+    "metadata": {
+      "symptom": "The SmartThings app is installed but is not connected to my refrigerator.",
+      "possible_cause": null,
+      "solution": "1. You must log into your Samsung account to use the app.\n2. Make sure that your router is operating normally.\n3. If the Wi-Fi icon on the refrigerator’s display is off, this indicates that no network connection has been established yet. In this case, use the SmartThings app to connect and register your refrigerator to the access point (AP) of your house.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Refrigerator_RB5300D_p46_st_login",
+    "device_category": "Refrigerator",
+    "brand": "Samsung",
+    "model": "RB5300D",
+    "source": "Samsung Refrigerator User Manual RB5300D (DA68-04817A_BMF_RB5300D_EN_MES_CFR_251017)",
+    "page": 46,
+    "content": "Could not log into the app. 1. You must log into your Samsung account to use the app. 2. If you don’t have a Samsung account, follow the app’s onscreen instructions to create one.",
+    "metadata": {
+      "symptom": "Could not log into the app.",
+      "possible_cause": null,
+      "solution": "1. You must log into your Samsung account to use the app.\n2. If you don’t have a Samsung account, follow the app’s onscreen instructions to create one.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Refrigerator_RB5300D_p46_st_register_error",
+    "device_category": "Refrigerator",
+    "brand": "Samsung",
+    "model": "RB5300D",
+    "source": "Samsung Refrigerator User Manual RB5300D (DA68-04817A_BMF_RB5300D_EN_MES_CFR_251017)",
+    "page": 46,
+    "content": "An error message appears when I try to register my refrigerator. Easy Connection may fail due to the distance from your access point (AP) or electrical interference from the surrounding environment. Wait a moment and try again.",
+    "metadata": {
+      "symptom": "An error message appears when I try to register my refrigerator.",
+      "possible_cause": null,
+      "solution": "Easy Connection may fail due to the distance from your access point (AP) or electrical interference from the surrounding environment. Wait a moment and try again.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Refrigerator_RB5300D_p46_st_connected_not_run",
+    "device_category": "Refrigerator",
+    "brand": "Samsung",
+    "model": "RB5300D",
+    "source": "Samsung Refrigerator User Manual RB5300D (DA68-04817A_BMF_RB5300D_EN_MES_CFR_251017)",
+    "page": 46,
+    "content": "The SmartThings app is successfully connected to my refrigerator but does not run. 1. Exit and restart the SmartThings app, or disconnect and reconnect the router. 2. Power off the refrigerator, and then power it on again after 1 minute.",
+    "metadata": {
+      "symptom": "The SmartThings app is successfully connected to my refrigerator but does not run.",
+      "possible_cause": null,
+      "solution": "1. Exit and restart the SmartThings app, or disconnect and reconnect the router.\n2. Power off the refrigerator, and then power it on again after 1 minute.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": "ถ้าตู้เย็นถูกถอดปลั๊ก คู่มือหน้า 12 ระบุว่าต้องรออย่างน้อยห้านาทีก่อนเสียบปลั๊กกลับ และห้ามเสียบปลั๊กด้วยมือเปียก (คู่มือหน้า 9)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Refrigerator_RB5300D_p46_st_wifi_blinking",
+    "device_category": "Refrigerator",
+    "brand": "Samsung",
+    "model": "RB5300D",
+    "source": "Samsung Refrigerator User Manual RB5300D (DA68-04817A_BMF_RB5300D_EN_MES_CFR_251017)",
+    "page": 46,
+    "content": "The Wi-Fi icon is blinking. 1. Connect your refrigerator with the SmartThings app before use. When the connection is made successfully, the indicator stops blinking. 2. If you fail to make connection or don’t want to use the app, press and hold Fridge for 10 seconds. The indicator stops blinking with \"O FF\" shown on the temperature display.",
+    "metadata": {
+      "symptom": "The Wi-Fi icon is blinking.",
+      "possible_cause": null,
+      "solution": "1. Connect your refrigerator with the SmartThings app before use. When the connection is made successfully, the indicator stops blinking.\n2. If you fail to make connection or don’t want to use the app, press and hold Fridge for 10 seconds. The indicator stops blinking with \"O FF\" shown on the temperature display.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Refrigerator_RB5300D_p47_sg_requirements",
+    "device_category": "Refrigerator",
+    "brand": "Samsung",
+    "model": "RB5300D",
+    "source": "Samsung Refrigerator User Manual RB5300D (DA68-04817A_BMF_RB5300D_EN_MES_CFR_251017)",
+    "page": 47,
+    "content": "What Do I Need to use the Energy Management and Smart Grid functions? 1. To use the Smart Grid (Demand Response) and Energy Management functions on your refrigerator, you need the following: Devices: A wireless access point (router); A Samsung Energy Management-supported refrigerator; A smartphone. 2. Registration: Connect your refrigerator to your home Wi-Fi network; Register for the EMS service with your electric company. Your electric company must have an EMS (Energy Management System) supporting SEP (Smart Energy profile). 3. App: Download the SmartThings app from the Google Play Store, Apple App Store, or Samsung Galaxy Apps; Install and run the SmartThings app on your smartphone.",
+    "metadata": {
+      "symptom": "What Do I Need to use the Energy Management and Smart Grid functions?",
+      "possible_cause": null,
+      "solution": "1. To use the Smart Grid (Demand Response) and Energy Management functions on your refrigerator, you need the following: Devices: A wireless access point (router); A Samsung Energy Management-supported refrigerator; A smartphone.\n2. Registration: Connect your refrigerator to your home Wi-Fi network; Register for the EMS service with your electric company. Your electric company must have an EMS (Energy Management System) supporting SEP (Smart Energy profile).\n3. App: Download the SmartThings app from the Google Play Store, Apple App Store, or Samsung Galaxy Apps; Install and run the SmartThings app on your smartphone.",
+      "severity": "low",
+      "difficulty": "medium",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Refrigerator_RB5300D_p47_sg_em_not_working",
+    "device_category": "Refrigerator",
+    "brand": "Samsung",
+    "model": "RB5300D",
+    "source": "Samsung Refrigerator User Manual RB5300D (DA68-04817A_BMF_RB5300D_EN_MES_CFR_251017)",
+    "page": 47,
+    "content": "Why isn't the Energy Management function working normally? 1. Make sure that your home router is operating normally with proper Internet service and connection. 2. Make sure that the refrigerator is connected to the AP (router). 3. Checkpoints: Connect your smartphone to the router (AP, Access Point), and then check if you can browse the Internet on the smartphone.",
+    "metadata": {
+      "symptom": "Why isn't the Energy Management function working normally?",
+      "possible_cause": null,
+      "solution": "1. Make sure that your home router is operating normally with proper Internet service and connection.\n2. Make sure that the refrigerator is connected to the AP (router).\n3. Checkpoints: Connect your smartphone to the router (AP, Access Point), and then check if you can browse the Internet on the smartphone.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Refrigerator_RB5300D_p47_sg_delay_defrost",
+    "device_category": "Refrigerator",
+    "brand": "Samsung",
+    "model": "RB5300D",
+    "source": "Samsung Refrigerator User Manual RB5300D (DA68-04817A_BMF_RB5300D_EN_MES_CFR_251017)",
+    "page": 47,
+    "content": "Why isn't the Delay Defrost Capability working normally? Make sure that your home router is operating normally with proper Internet service and connection.",
+    "metadata": {
+      "symptom": "Why isn't the Delay Defrost Capability working normally?",
+      "possible_cause": null,
+      "solution": "Make sure that your home router is operating normally with proper Internet service and connection.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  }
+]

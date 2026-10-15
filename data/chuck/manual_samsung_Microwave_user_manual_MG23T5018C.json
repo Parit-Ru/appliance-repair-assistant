@@ -1,0 +1,495 @@
+[
+  {
+    "chunk_id": "manual_Samsung_Microwave_MG23T5018C_p39_buttons_cannot_press",
+    "device_category": "Microwave Oven",
+    "brand": "Samsung",
+    "model": "MG23T5018C*",
+    "source": "Samsung Microwave Oven User Manual MG23T5018C* (MG23T5018CC_ST_DE68_04594R_00_TH_EN_210624)",
+    "page": 39,
+    "content": "The buttons cannot be pressed properly. Foreign matter may be caught between the buttons; For touch models: Moisture is on the exterior; Child lock is activated. 1. Remove the foreign matter and try again. 2. Wipe the moisture from the exterior. 3. Deactivate Child lock.",
+    "metadata": {
+      "symptom": "The buttons cannot be pressed properly.",
+      "possible_cause": "Foreign matter may be caught between the buttons; For touch models: Moisture is on the exterior; Child lock is activated.",
+      "solution": "1. Remove the foreign matter and try again.\n2. Wipe the moisture from the exterior.\n3. Deactivate Child lock.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": "รอให้เตาเย็นลงก่อนทำความสะอาดห้องปรุงอาหารด้วยน้ำยาล้างจานอ่อนๆ ห้ามใช้สารขัดถูหรือสารเคมีทำความสะอาด (คู่มือหน้า 10) ห้ามใช้เบนซีน ทินเนอร์ แอลกอฮอล์ เครื่องฉีดไอน้ำ หรือเครื่องฉีดน้ำแรงดันสูง และห้ามฉีดหรือเทน้ำใส่เตาโดยตรง (คู่มือหน้า 6) ห้ามใช้สารขัดถูแรงหรือเครื่องขูดโลหะแหลมคมกับกระจกประตู เพราะกระจกอาจแตกได้ (คู่มือหน้า 5)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Microwave_MG23T5018C_p39_time_not_displayed",
+    "device_category": "Microwave Oven",
+    "brand": "Samsung",
+    "model": "MG23T5018C*",
+    "source": "Samsung Microwave Oven User Manual MG23T5018C* (MG23T5018CC_ST_DE68_04594R_00_TH_EN_210624)",
+    "page": 39,
+    "content": "The time is not displayed. The Eco (power-saving) function is set. Turn off the Eco function.",
+    "metadata": {
+      "symptom": "The time is not displayed.",
+      "possible_cause": "The Eco (power-saving) function is set.",
+      "solution": "Turn off the Eco function.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Microwave_MG23T5018C_p39_does_not_work",
+    "device_category": "Microwave Oven",
+    "brand": "Samsung",
+    "model": "MG23T5018C*",
+    "source": "Samsung Microwave Oven User Manual MG23T5018C* (MG23T5018CC_ST_DE68_04594R_00_TH_EN_210624)",
+    "page": 39,
+    "content": "The microwave oven does not work. Power is not supplied; The door is open; The door open safety mechanisms are covered in foreign matter. 1. Make sure power is supplied. 2. Close the door and try again. 3. Remove the foreign matter and try again.",
+    "metadata": {
+      "symptom": "The microwave oven does not work.",
+      "possible_cause": "Power is not supplied; The door is open; The door open safety mechanisms are covered in foreign matter.",
+      "solution": "1. Make sure power is supplied.\n2. Close the door and try again.\n3. Remove the foreign matter and try again.",
+      "severity": "medium",
+      "difficulty": "easy",
+      "safety_warning": "เสียบปลั๊กให้แน่นเข้ากับเต้ารับ ห้ามใช้ปลั๊กแปลงหลายทาง สายต่อพ่วง หรือหม้อแปลงไฟ ห้ามใช้ปลั๊ก สายไฟ หรือเต้ารับที่ชำรุดหรือหลวม ห้ามจับสายไฟด้วยมือเปียก ห้ามดึง งอมากเกินไป หรือวางของหนักทับสายไฟ (คู่มือหน้า 6) ถ้าสายไฟชำรุด ต้องให้ผู้ผลิต ตัวแทนบริการ หรือผู้มีคุณสมบัติเทียบเท่าเป็นผู้เปลี่ยน (คู่มือหน้า 5) | ห้ามใช้เตาถ้าประตูหรือซีลประตูชำรุด ต้องให้ผู้มีคุณสมบัติซ่อมก่อน (คู่มือหน้า 3) ห้ามผู้ไม่มีความสามารถถอดฝาครอบที่ป้องกันคลื่นไมโครเวฟ (คู่มือหน้า 3) ห้ามสอดนิ้วหรือสิ่งแปลกปลอมเข้าไปในเตา ถ้าสิ่งแปลกปลอมเข้าไปในเตาให้ถอดปลั๊กและติดต่อศูนย์บริการ (คู่มือหน้า 6)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Microwave_MG23T5018C_p39_stops_in_operation",
+    "device_category": "Microwave Oven",
+    "brand": "Samsung",
+    "model": "MG23T5018C*",
+    "source": "Samsung Microwave Oven User Manual MG23T5018C* (MG23T5018CC_ST_DE68_04594R_00_TH_EN_210624)",
+    "page": 39,
+    "content": "The microwave oven stops while in operation. The user has opened the door to turn food over. After turning over the food, press the START/+30s button again to start operation.",
+    "metadata": {
+      "symptom": "The microwave oven stops while in operation.",
+      "possible_cause": "The user has opened the door to turn food over.",
+      "solution": "After turning over the food, press the START/+30s button again to start operation.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": "ตัวเตา ประตู ภายในเตา ภาชนะ และอาหารอาจร้อนจัด ระวังอย่าสัมผัสชิ้นส่วนทำความร้อน (heating element) ภายในเตา เด็กเล็กต้องอยู่ห่าง (คู่มือหน้า 5) ใช้ถุงมือกันความร้อนเมื่อนำภาชนะออก และยืนห่างช่วงแขนเมื่อเปิดประตูเพื่อป้องกันไอร้อนหรือไอน้ำลวก ของเหลวที่อุ่นให้ตั้งทิ้งไว้อย่างน้อย 20 วินาทีก่อนหยิบ (คู่มือหน้า 7)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Microwave_MG23T5018C_p39_power_off",
+    "device_category": "Microwave Oven",
+    "brand": "Samsung",
+    "model": "MG23T5018C*",
+    "source": "Samsung Microwave Oven User Manual MG23T5018C* (MG23T5018CC_ST_DE68_04594R_00_TH_EN_210624)",
+    "page": 39,
+    "content": "The power turns off during operation. The microwave oven has been cooking for an extended period of time; The cooling fan is not working; Trying to operate the microwave oven without food inside; There is not sufficient ventilation space for the microwave oven; Several power plugs are being used in the same socket. 1. After cooking for an extended period of time, let the microwave oven cool. 2. Listen for the sound of the cooling fan. 3. Put food in the microwave oven. 4. There are intake/exhaust outlets on the front and rear of the microwave oven for ventilation. Keep the gaps specified in the product installation guide. 5. Designate only one socket to be used for the microwave oven.",
+    "metadata": {
+      "symptom": "The power turns off during operation.",
+      "possible_cause": "The microwave oven has been cooking for an extended period of time; The cooling fan is not working; Trying to operate the microwave oven without food inside; There is not sufficient ventilation space for the microwave oven; Several power plugs are being used in the same socket.",
+      "solution": "1. After cooking for an extended period of time, let the microwave oven cool.\n2. Listen for the sound of the cooling fan.\n3. Put food in the microwave oven.\n4. There are intake/exhaust outlets on the front and rear of the microwave oven for ventilation. Keep the gaps specified in the product installation guide.\n5. Designate only one socket to be used for the microwave oven.",
+      "severity": "medium",
+      "difficulty": "easy",
+      "safety_warning": "ตัวเตา ประตู ภายในเตา ภาชนะ และอาหารอาจร้อนจัด ระวังอย่าสัมผัสชิ้นส่วนทำความร้อน (heating element) ภายในเตา เด็กเล็กต้องอยู่ห่าง (คู่มือหน้า 5) ใช้ถุงมือกันความร้อนเมื่อนำภาชนะออก และยืนห่างช่วงแขนเมื่อเปิดประตูเพื่อป้องกันไอร้อนหรือไอน้ำลวก ของเหลวที่อุ่นให้ตั้งทิ้งไว้อย่างน้อย 20 วินาทีก่อนหยิบ (คู่มือหน้า 7) | ห้ามเปิดเตาขณะไม่มีอาหาร (คู่มือหน้า 13) ใช้เวลาสั้นลงสำหรับอาหารปริมาณน้อยเพื่อป้องกันความร้อนเกินหรืออาหารไหม้ (คู่มือหน้า 7) | ห้ามใช้ผ้าหรือกระดาษปิดช่องระบายอากาศ เพราะเสี่ยงต่อไฟไหม้ เตาอาจร้อนเกินและปิดเองจนกว่าจะเย็นลงพอ (คู่มือหน้า 7) ติดตั้งเตาตามระยะห่างที่คู่มือกำหนด (คู่มือหน้า 9) และระวังอย่าให้น้ำเข้าช่องระบายอากาศ (คู่มือหน้า 10) | เสียบปลั๊กให้แน่นเข้ากับเต้ารับ ห้ามใช้ปลั๊กแปลงหลายทาง สายต่อพ่วง หรือหม้อแปลงไฟ ห้ามใช้ปลั๊ก สายไฟ หรือเต้ารับที่ชำรุดหรือหลวม ห้ามจับสายไฟด้วยมือเปียก ห้ามดึง งอมากเกินไป หรือวางของหนักทับสายไฟ (คู่มือหน้า 6) ถ้าสายไฟชำรุด ต้องให้ผู้ผลิต ตัวแทนบริการ หรือผู้มีคุณสมบัติเทียบเท่าเป็นผู้เปลี่ยน (คู่มือหน้า 5)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Microwave_MG23T5018C_p39_popping",
+    "device_category": "Microwave Oven",
+    "brand": "Samsung",
+    "model": "MG23T5018C*",
+    "source": "Samsung Microwave Oven User Manual MG23T5018C* (MG23T5018CC_ST_DE68_04594R_00_TH_EN_210624)",
+    "page": 39,
+    "content": "There is a popping sound during operation, and the microwave oven doesn't work. Cooking sealed food or using a container with a lid may causes popping sounds. Do not use sealed containers as they may burst during cooking due to expansion of the contents.",
+    "metadata": {
+      "symptom": "There is a popping sound during operation, and the microwave oven doesn't work.",
+      "possible_cause": "Cooking sealed food or using a container with a lid may causes popping sounds.",
+      "solution": "Do not use sealed containers as they may burst during cooking due to expansion of the contents.",
+      "severity": "medium",
+      "difficulty": "easy",
+      "safety_warning": "ห้ามอุ่นอาหารหรือของเหลวในภาชนะที่ปิดสนิทหรือสุญญากาศ เพราะอาจระเบิด (คู่มือหน้า 3 และ 7) ห้ามอุ่นไข่ทั้งเปลือกหรือไข่ต้มสุกทั้งฟอง (คู่มือหน้า 7) ตัวเตา ประตู ภายในเตา ภาชนะ และอาหารอาจร้อนจัด ระวังอย่าสัมผัสชิ้นส่วนทำความร้อน (heating element) ภายในเตา เด็กเล็กต้องอยู่ห่าง (คู่มือหน้า 5) ใช้ถุงมือกันความร้อนเมื่อนำภาชนะออก และยืนห่างช่วงแขนเมื่อเปิดประตูเพื่อป้องกันไอร้อนหรือไอน้ำลวก ของเหลวที่อุ่นให้ตั้งทิ้งไว้อย่างน้อย 20 วินาทีก่อนหยิบ (คู่มือหน้า 7) ถ้ามีควันออกมา ให้ปิดเครื่องหรือถอดปลั๊กและปิดประตูเตาไว้เพื่อสกัดเปลวไฟ (คู่มือหน้า 4) ถ้าเตามีเสียงผิดปกติ กลิ่นไหม้ หรือควัน ให้ถอดปลั๊กทันทีและติดต่อศูนย์บริการที่ใกล้ที่สุด (คู่มือหน้า 5) ขณะเตากำลังทำงาน ไม่ควรปิดเตาด้วยการถอดปลั๊ก (คู่มือหน้า 6)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Microwave_MG23T5018C_p40_exterior_hot",
+    "device_category": "Microwave Oven",
+    "brand": "Samsung",
+    "model": "MG23T5018C*",
+    "source": "Samsung Microwave Oven User Manual MG23T5018C* (MG23T5018CC_ST_DE68_04594R_00_TH_EN_210624)",
+    "page": 40,
+    "content": "The microwave oven exterior is too hot during operation. There is not sufficient ventilation space for the microwave oven; Objects are on top of the microwave oven. 1. There are intake/exhaust outlets on the front and rear of the microwave oven for ventilation. Keep the gaps specified in the product installation guide. 2. Remove all objects on the top of the microwave oven.",
+    "metadata": {
+      "symptom": "The microwave oven exterior is too hot during operation.",
+      "possible_cause": "There is not sufficient ventilation space for the microwave oven; Objects are on top of the microwave oven.",
+      "solution": "1. There are intake/exhaust outlets on the front and rear of the microwave oven for ventilation. Keep the gaps specified in the product installation guide.\n2. Remove all objects on the top of the microwave oven.",
+      "severity": "medium",
+      "difficulty": "easy",
+      "safety_warning": "ห้ามใช้ผ้าหรือกระดาษปิดช่องระบายอากาศ เพราะเสี่ยงต่อไฟไหม้ เตาอาจร้อนเกินและปิดเองจนกว่าจะเย็นลงพอ (คู่มือหน้า 7) ติดตั้งเตาตามระยะห่างที่คู่มือกำหนด (คู่มือหน้า 9) และระวังอย่าให้น้ำเข้าช่องระบายอากาศ (คู่มือหน้า 10) | ตัวเตา ประตู ภายในเตา ภาชนะ และอาหารอาจร้อนจัด ระวังอย่าสัมผัสชิ้นส่วนทำความร้อน (heating element) ภายในเตา เด็กเล็กต้องอยู่ห่าง (คู่มือหน้า 5) ใช้ถุงมือกันความร้อนเมื่อนำภาชนะออก และยืนห่างช่วงแขนเมื่อเปิดประตูเพื่อป้องกันไอร้อนหรือไอน้ำลวก ของเหลวที่อุ่นให้ตั้งทิ้งไว้อย่างน้อย 20 วินาทีก่อนหยิบ (คู่มือหน้า 7)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Microwave_MG23T5018C_p40_door_cannot_open",
+    "device_category": "Microwave Oven",
+    "brand": "Samsung",
+    "model": "MG23T5018C*",
+    "source": "Samsung Microwave Oven User Manual MG23T5018C* (MG23T5018CC_ST_DE68_04594R_00_TH_EN_210624)",
+    "page": 40,
+    "content": "The door cannot be opened properly. Food residue is stuck between the door and microwave oven interior. Clean the microwave oven and then open the door.",
+    "metadata": {
+      "symptom": "The door cannot be opened properly.",
+      "possible_cause": "Food residue is stuck between the door and microwave oven interior.",
+      "solution": "Clean the microwave oven and then open the door.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": "รอให้เตาเย็นลงก่อนทำความสะอาดห้องปรุงอาหารด้วยน้ำยาล้างจานอ่อนๆ ห้ามใช้สารขัดถูหรือสารเคมีทำความสะอาด (คู่มือหน้า 10) ห้ามใช้เบนซีน ทินเนอร์ แอลกอฮอล์ เครื่องฉีดไอน้ำ หรือเครื่องฉีดน้ำแรงดันสูง และห้ามฉีดหรือเทน้ำใส่เตาโดยตรง (คู่มือหน้า 6) ห้ามใช้สารขัดถูแรงหรือเครื่องขูดโลหะแหลมคมกับกระจกประตู เพราะกระจกอาจแตกได้ (คู่มือหน้า 5) ห้ามใช้เตาถ้าประตูหรือซีลประตูชำรุด ต้องให้ผู้มีคุณสมบัติซ่อมก่อน (คู่มือหน้า 3) ห้ามผู้ไม่มีความสามารถถอดฝาครอบที่ป้องกันคลื่นไมโครเวฟ (คู่มือหน้า 3) ห้ามสอดนิ้วหรือสิ่งแปลกปลอมเข้าไปในเตา ถ้าสิ่งแปลกปลอมเข้าไปในเตาให้ถอดปลั๊กและติดต่อศูนย์บริการ (คู่มือหน้า 6)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Microwave_MG23T5018C_p40_heating_not_working",
+    "device_category": "Microwave Oven",
+    "brand": "Samsung",
+    "model": "MG23T5018C*",
+    "source": "Samsung Microwave Oven User Manual MG23T5018C* (MG23T5018CC_ST_DE68_04594R_00_TH_EN_210624)",
+    "page": 40,
+    "content": "Heating including the Warm function does not work properly. The microwave oven may not work, too much food is being cooked, or improper cookware is being used. 1. Put one cup of water in a microwave-safe container and run the microwave for 1-2 minutes to check whether the water is heated. 2. Reduce the amount of food and start the function again. 3. Use a cooking container with a flat bottom.",
+    "metadata": {
+      "symptom": "Heating including the Warm function does not work properly.",
+      "possible_cause": "The microwave oven may not work, too much food is being cooked, or improper cookware is being used.",
+      "solution": "1. Put one cup of water in a microwave-safe container and run the microwave for 1-2 minutes to check whether the water is heated.\n2. Reduce the amount of food and start the function again.\n3. Use a cooking container with a flat bottom.",
+      "severity": "medium",
+      "difficulty": "medium",
+      "safety_warning": "ตัวเตา ประตู ภายในเตา ภาชนะ และอาหารอาจร้อนจัด ระวังอย่าสัมผัสชิ้นส่วนทำความร้อน (heating element) ภายในเตา เด็กเล็กต้องอยู่ห่าง (คู่มือหน้า 5) ใช้ถุงมือกันความร้อนเมื่อนำภาชนะออก และยืนห่างช่วงแขนเมื่อเปิดประตูเพื่อป้องกันไอร้อนหรือไอน้ำลวก ของเหลวที่อุ่นให้ตั้งทิ้งไว้อย่างน้อย 20 วินาทีก่อนหยิบ (คู่มือหน้า 7) ใช้เฉพาะภาชนะที่ใช้กับไมโครเวฟได้ ห้ามใช้ภาชนะโลหะ จานชามที่ขอบเป็นทองหรือเงิน ไม้เสียบ และต้องถอดลวดมัดถุงออก เพราะอาจเกิดประกายไฟ (คู่มือหน้า 7) ยกเว้นตะแกรงย่าง (grill rack) และจานอบกรอบ (crusty plate) ซึ่งเป็นอุปกรณ์เสริมของเตา (คู่มือหน้า 9) | ตัวเตา ประตู ภายในเตา ภาชนะ และอาหารอาจร้อนจัด ระวังอย่าสัมผัสชิ้นส่วนทำความร้อน (heating element) ภายในเตา เด็กเล็กต้องอยู่ห่าง (คู่มือหน้า 5) ใช้ถุงมือกันความร้อนเมื่อนำภาชนะออก และยืนห่างช่วงแขนเมื่อเปิดประตูเพื่อป้องกันไอร้อนหรือไอน้ำลวก ของเหลวที่อุ่นให้ตั้งทิ้งไว้อย่างน้อย 20 วินาทีก่อนหยิบ (คู่มือหน้า 7) | ใช้เฉพาะภาชนะที่ใช้กับไมโครเวฟได้ ห้ามใช้ภาชนะโลหะ จานชามที่ขอบเป็นทองหรือเงิน ไม้เสียบ และต้องถอดลวดมัดถุงออก เพราะอาจเกิดประกายไฟ (คู่มือหน้า 7) ยกเว้นตะแกรงย่าง (grill rack) และจานอบกรอบ (crusty plate) ซึ่งเป็นอุปกรณ์เสริมของเตา (คู่มือหน้า 9) ตัวเตา ประตู ภายในเตา ภาชนะ และอาหารอาจร้อนจัด ระวังอย่าสัมผัสชิ้นส่วนทำความร้อน (heating element) ภายในเตา เด็กเล็กต้องอยู่ห่าง (คู่มือหน้า 5) ใช้ถุงมือกันความร้อนเมื่อนำภาชนะออก และยืนห่างช่วงแขนเมื่อเปิดประตูเพื่อป้องกันไอร้อนหรือไอน้ำลวก ของเหลวที่อุ่นให้ตั้งทิ้งไว้อย่างน้อย 20 วินาทีก่อนหยิบ (คู่มือหน้า 7)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Microwave_MG23T5018C_p40_thaw",
+    "device_category": "Microwave Oven",
+    "brand": "Samsung",
+    "model": "MG23T5018C*",
+    "source": "Samsung Microwave Oven User Manual MG23T5018C* (MG23T5018CC_ST_DE68_04594R_00_TH_EN_210624)",
+    "page": 40,
+    "content": "The thaw function does not work. Too much food is being cooked. Reduce the amount of food and start the function again.",
+    "metadata": {
+      "symptom": "The thaw function does not work.",
+      "possible_cause": "Too much food is being cooked.",
+      "solution": "Reduce the amount of food and start the function again.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": "ตัวเตา ประตู ภายในเตา ภาชนะ และอาหารอาจร้อนจัด ระวังอย่าสัมผัสชิ้นส่วนทำความร้อน (heating element) ภายในเตา เด็กเล็กต้องอยู่ห่าง (คู่มือหน้า 5) ใช้ถุงมือกันความร้อนเมื่อนำภาชนะออก และยืนห่างช่วงแขนเมื่อเปิดประตูเพื่อป้องกันไอร้อนหรือไอน้ำลวก ของเหลวที่อุ่นให้ตั้งทิ้งไว้อย่างน้อย 20 วินาทีก่อนหยิบ (คู่มือหน้า 7)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Microwave_MG23T5018C_p40_light_dim",
+    "device_category": "Microwave Oven",
+    "brand": "Samsung",
+    "model": "MG23T5018C*",
+    "source": "Samsung Microwave Oven User Manual MG23T5018C* (MG23T5018CC_ST_DE68_04594R_00_TH_EN_210624)",
+    "page": 40,
+    "content": "The interior light is dim or does not turn on. The door has been left open for a long time. The interior light may automatically turn off when the Eco function operates; The interior light is covered by foreign matter. 1. Close and reopen the door or press the STOP/Eco button. 2. Clean the inside of the microwave oven and check again.",
+    "metadata": {
+      "symptom": "The interior light is dim or does not turn on.",
+      "possible_cause": "The door has been left open for a long time. The interior light may automatically turn off when the Eco function operates; The interior light is covered by foreign matter.",
+      "solution": "1. Close and reopen the door or press the STOP/Eco button.\n2. Clean the inside of the microwave oven and check again.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": "รอให้เตาเย็นลงก่อนทำความสะอาดห้องปรุงอาหารด้วยน้ำยาล้างจานอ่อนๆ ห้ามใช้สารขัดถูหรือสารเคมีทำความสะอาด (คู่มือหน้า 10) ห้ามใช้เบนซีน ทินเนอร์ แอลกอฮอล์ เครื่องฉีดไอน้ำ หรือเครื่องฉีดน้ำแรงดันสูง และห้ามฉีดหรือเทน้ำใส่เตาโดยตรง (คู่มือหน้า 6) ห้ามใช้สารขัดถูแรงหรือเครื่องขูดโลหะแหลมคมกับกระจกประตู เพราะกระจกอาจแตกได้ (คู่มือหน้า 5)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Microwave_MG23T5018C_p40_beeping",
+    "device_category": "Microwave Oven",
+    "brand": "Samsung",
+    "model": "MG23T5018C*",
+    "source": "Samsung Microwave Oven User Manual MG23T5018C* (MG23T5018CC_ST_DE68_04594R_00_TH_EN_210624)",
+    "page": 40,
+    "content": "A beeping sound occurs during cooking. If the Auto Cook function is being used, this beeping sound means it's time to turn over the food during thawing. After turning over the food, press the START/+30s button again to restart operation.",
+    "metadata": {
+      "symptom": "A beeping sound occurs during cooking.",
+      "possible_cause": "If the Auto Cook function is being used, this beeping sound means it's time to turn over the food during thawing.",
+      "solution": "After turning over the food, press the START/+30s button again to restart operation.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": "ตัวเตา ประตู ภายในเตา ภาชนะ และอาหารอาจร้อนจัด ระวังอย่าสัมผัสชิ้นส่วนทำความร้อน (heating element) ภายในเตา เด็กเล็กต้องอยู่ห่าง (คู่มือหน้า 5) ใช้ถุงมือกันความร้อนเมื่อนำภาชนะออก และยืนห่างช่วงแขนเมื่อเปิดประตูเพื่อป้องกันไอร้อนหรือไอน้ำลวก ของเหลวที่อุ่นให้ตั้งทิ้งไว้อย่างน้อย 20 วินาทีก่อนหยิบ (คู่มือหน้า 7)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Microwave_MG23T5018C_p40_not_level",
+    "device_category": "Microwave Oven",
+    "brand": "Samsung",
+    "model": "MG23T5018C*",
+    "source": "Samsung Microwave Oven User Manual MG23T5018C* (MG23T5018CC_ST_DE68_04594R_00_TH_EN_210624)",
+    "page": 40,
+    "content": "The microwave oven is not level. The microwave oven is installed on an uneven surface. Make sure the microwave oven is installed on flat, stable surface.",
+    "metadata": {
+      "symptom": "The microwave oven is not level.",
+      "possible_cause": "The microwave oven is installed on an uneven surface.",
+      "solution": "Make sure the microwave oven is installed on flat, stable surface.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": "ห้ามวางเตาเหนือของเปราะบาง ห้ามวางเตาในตู้หรือหลังบานประตูตกแต่ง เตาออกแบบให้วางบนเคาน์เตอร์เท่านั้น (คู่มือหน้า 4, 5 และ 6) ระวังอย่าให้สายไฟถูกหนีบหรือเสียหาย (คู่มือหน้า 6)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Microwave_MG23T5018C_p40_sparks",
+    "device_category": "Microwave Oven",
+    "brand": "Samsung",
+    "model": "MG23T5018C*",
+    "source": "Samsung Microwave Oven User Manual MG23T5018C* (MG23T5018CC_ST_DE68_04594R_00_TH_EN_210624)",
+    "page": 40,
+    "content": "There are sparks during cooking. Metal containers are used during the microwave oven/thawing functions. Do not use metal containers.",
+    "metadata": {
+      "symptom": "There are sparks during cooking.",
+      "possible_cause": "Metal containers are used during the microwave oven/thawing functions.",
+      "solution": "Do not use metal containers.",
+      "severity": "medium",
+      "difficulty": "easy",
+      "safety_warning": "ถ้ามีควันออกมา ให้ปิดเครื่องหรือถอดปลั๊กและปิดประตูเตาไว้เพื่อสกัดเปลวไฟ (คู่มือหน้า 4) ถ้าเตามีเสียงผิดปกติ กลิ่นไหม้ หรือควัน ให้ถอดปลั๊กทันทีและติดต่อศูนย์บริการที่ใกล้ที่สุด (คู่มือหน้า 5) ขณะเตากำลังทำงาน ไม่ควรปิดเตาด้วยการถอดปลั๊ก (คู่มือหน้า 6) ใช้เฉพาะภาชนะที่ใช้กับไมโครเวฟได้ ห้ามใช้ภาชนะโลหะ จานชามที่ขอบเป็นทองหรือเงิน ไม้เสียบ และต้องถอดลวดมัดถุงออก เพราะอาจเกิดประกายไฟ (คู่มือหน้า 7) ยกเว้นตะแกรงย่าง (grill rack) และจานอบกรอบ (crusty plate) ซึ่งเป็นอุปกรณ์เสริมของเตา (คู่มือหน้า 9) ตัวเตา ประตู ภายในเตา ภาชนะ และอาหารอาจร้อนจัด ระวังอย่าสัมผัสชิ้นส่วนทำความร้อน (heating element) ภายในเตา เด็กเล็กต้องอยู่ห่าง (คู่มือหน้า 5) ใช้ถุงมือกันความร้อนเมื่อนำภาชนะออก และยืนห่างช่วงแขนเมื่อเปิดประตูเพื่อป้องกันไอร้อนหรือไอน้ำลวก ของเหลวที่อุ่นให้ตั้งทิ้งไว้อย่างน้อย 20 วินาทีก่อนหยิบ (คู่มือหน้า 7)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Microwave_MG23T5018C_p40_starts_immediately",
+    "device_category": "Microwave Oven",
+    "brand": "Samsung",
+    "model": "MG23T5018C*",
+    "source": "Samsung Microwave Oven User Manual MG23T5018C* (MG23T5018CC_ST_DE68_04594R_00_TH_EN_210624)",
+    "page": 40,
+    "content": "When power is connected, the microwave oven immediately starts to work. The door is not properly closed. Close the door and check again.",
+    "metadata": {
+      "symptom": "When power is connected, the microwave oven immediately starts to work.",
+      "possible_cause": "The door is not properly closed.",
+      "solution": "Close the door and check again.",
+      "severity": "medium",
+      "difficulty": "easy",
+      "safety_warning": "ห้ามใช้เตาถ้าประตูหรือซีลประตูชำรุด ต้องให้ผู้มีคุณสมบัติซ่อมก่อน (คู่มือหน้า 3) ห้ามผู้ไม่มีความสามารถถอดฝาครอบที่ป้องกันคลื่นไมโครเวฟ (คู่มือหน้า 3) ห้ามสอดนิ้วหรือสิ่งแปลกปลอมเข้าไปในเตา ถ้าสิ่งแปลกปลอมเข้าไปในเตาให้ถอดปลั๊กและติดต่อศูนย์บริการ (คู่มือหน้า 6)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Microwave_MG23T5018C_p40_electricity",
+    "device_category": "Microwave Oven",
+    "brand": "Samsung",
+    "model": "MG23T5018C*",
+    "source": "Samsung Microwave Oven User Manual MG23T5018C* (MG23T5018CC_ST_DE68_04594R_00_TH_EN_210624)",
+    "page": 40,
+    "content": "There is electricity coming from the microwave oven. The power or power socket is not properly grounded. Make sure the power and power socket are properly grounded.",
+    "metadata": {
+      "symptom": "There is electricity coming from the microwave oven.",
+      "possible_cause": "The power or power socket is not properly grounded.",
+      "solution": "Make sure the power and power socket are properly grounded.",
+      "severity": "medium",
+      "difficulty": "medium",
+      "safety_warning": "เตาต้องต่อสายดินอย่างถูกต้องตามกฎหมายท้องถิ่นและระดับประเทศ (คู่มือหน้า 6) ห้ามซ่อมหรือเปลี่ยนชิ้นส่วนเตาเอง (คู่มือหน้า 10) เสียบปลั๊กให้แน่นเข้ากับเต้ารับ ห้ามใช้ปลั๊กแปลงหลายทาง สายต่อพ่วง หรือหม้อแปลงไฟ ห้ามใช้ปลั๊ก สายไฟ หรือเต้ารับที่ชำรุดหรือหลวม ห้ามจับสายไฟด้วยมือเปียก ห้ามดึง งอมากเกินไป หรือวางของหนักทับสายไฟ (คู่มือหน้า 6) ถ้าสายไฟชำรุด ต้องให้ผู้ผลิต ตัวแทนบริการ หรือผู้มีคุณสมบัติเทียบเท่าเป็นผู้เปลี่ยน (คู่มือหน้า 5)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Microwave_MG23T5018C_p40_water_steam",
+    "device_category": "Microwave Oven",
+    "brand": "Samsung",
+    "model": "MG23T5018C*",
+    "source": "Samsung Microwave Oven User Manual MG23T5018C* (MG23T5018CC_ST_DE68_04594R_00_TH_EN_210624)",
+    "page": 40,
+    "content": "Water drips. Steam emits through a door crack. Water remains in the microwave oven. There may be water or steam in some cases depending on the food. This is not an microwave oven malfunction. Let the microwave oven cool and then wipe with a dry dish towel.",
+    "metadata": {
+      "symptom": "Water drips. Steam emits through a door crack. Water remains in the microwave oven.",
+      "possible_cause": "There may be water or steam in some cases depending on the food. This is not an microwave oven malfunction.",
+      "solution": "Let the microwave oven cool and then wipe with a dry dish towel.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Microwave_MG23T5018C_p41_brightness_varies",
+    "device_category": "Microwave Oven",
+    "brand": "Samsung",
+    "model": "MG23T5018C*",
+    "source": "Samsung Microwave Oven User Manual MG23T5018C* (MG23T5018CC_ST_DE68_04594R_00_TH_EN_210624)",
+    "page": 41,
+    "content": "The brightness inside the microwave oven varies. Brightness changes depending on power output changes according to function. Power output changes during cooking are not malfunctions. This is not an microwave oven malfunction.",
+    "metadata": {
+      "symptom": "The brightness inside the microwave oven varies.",
+      "possible_cause": "Brightness changes depending on power output changes according to function.",
+      "solution": "Power output changes during cooking are not malfunctions. This is not an microwave oven malfunction.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Microwave_MG23T5018C_p41_fan_still_running",
+    "device_category": "Microwave Oven",
+    "brand": "Samsung",
+    "model": "MG23T5018C*",
+    "source": "Samsung Microwave Oven User Manual MG23T5018C* (MG23T5018CC_ST_DE68_04594R_00_TH_EN_210624)",
+    "page": 41,
+    "content": "Cooking is finished, but the cooling fan is still running. To ventilate the microwave oven, the cooling fan continues to run for about 3 minutes after cooking is complete. This is not an microwave oven malfunction.",
+    "metadata": {
+      "symptom": "Cooking is finished, but the cooling fan is still running.",
+      "possible_cause": "To ventilate the microwave oven, the cooling fan continues to run for about 3 minutes after cooking is complete.",
+      "solution": "This is not an microwave oven malfunction.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Microwave_MG23T5018C_p41_turntable_out",
+    "device_category": "Microwave Oven",
+    "brand": "Samsung",
+    "model": "MG23T5018C*",
+    "source": "Samsung Microwave Oven User Manual MG23T5018C* (MG23T5018CC_ST_DE68_04594R_00_TH_EN_210624)",
+    "page": 41,
+    "content": "While turning, the turntable comes out of place or stops turning. There is no roller ring, or the roller ring is not properly in place. Install the roller ring and then try again.",
+    "metadata": {
+      "symptom": "While turning, the turntable comes out of place or stops turning.",
+      "possible_cause": "There is no roller ring, or the roller ring is not properly in place.",
+      "solution": "Install the roller ring and then try again.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": "ห้ามเปิดเตาโดยไม่มีโรลเลอร์ริงและจานหมุน (คู่มือหน้า 9) ระวังอย่าให้จานหมุนเคลื่อนที่เมื่อนำภาชนะออก (คู่มือหน้า 4) ใช้ถุงมือกันความร้อนเมื่อนำภาชนะออก (คู่มือหน้า 7)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Microwave_MG23T5018C_p41_turntable_drags",
+    "device_category": "Microwave Oven",
+    "brand": "Samsung",
+    "model": "MG23T5018C*",
+    "source": "Samsung Microwave Oven User Manual MG23T5018C* (MG23T5018CC_ST_DE68_04594R_00_TH_EN_210624)",
+    "page": 41,
+    "content": "The turntable drags while turning. The roller ring is not properly in place, there is too much food, or the container is too large and touches the inside of the microwave. Adjust the amount of food and do not use containers that are too large.",
+    "metadata": {
+      "symptom": "The turntable drags while turning.",
+      "possible_cause": "The roller ring is not properly in place, there is too much food, or the container is too large and touches the inside of the microwave.",
+      "solution": "Adjust the amount of food and do not use containers that are too large.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": "ห้ามเปิดเตาโดยไม่มีโรลเลอร์ริงและจานหมุน (คู่มือหน้า 9) ระวังอย่าให้จานหมุนเคลื่อนที่เมื่อนำภาชนะออก (คู่มือหน้า 4) ใช้ถุงมือกันความร้อนเมื่อนำภาชนะออก (คู่มือหน้า 7)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Microwave_MG23T5018C_p41_turntable_noisy",
+    "device_category": "Microwave Oven",
+    "brand": "Samsung",
+    "model": "MG23T5018C*",
+    "source": "Samsung Microwave Oven User Manual MG23T5018C* (MG23T5018CC_ST_DE68_04594R_00_TH_EN_210624)",
+    "page": 41,
+    "content": "The turntable rattles while turning and is noisy. Food residue is stuck to the bottom of the microwave oven. Remove any food residue stuck to the bottom of the microwave oven.",
+    "metadata": {
+      "symptom": "The turntable rattles while turning and is noisy.",
+      "possible_cause": "Food residue is stuck to the bottom of the microwave oven.",
+      "solution": "Remove any food residue stuck to the bottom of the microwave oven.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": "รอให้เตาเย็นลงก่อนทำความสะอาดห้องปรุงอาหารด้วยน้ำยาล้างจานอ่อนๆ ห้ามใช้สารขัดถูหรือสารเคมีทำความสะอาด (คู่มือหน้า 10) ห้ามใช้เบนซีน ทินเนอร์ แอลกอฮอล์ เครื่องฉีดไอน้ำ หรือเครื่องฉีดน้ำแรงดันสูง และห้ามฉีดหรือเทน้ำใส่เตาโดยตรง (คู่มือหน้า 6) ห้ามใช้สารขัดถูแรงหรือเครื่องขูดโลหะแหลมคมกับกระจกประตู เพราะกระจกอาจแตกได้ (คู่มือหน้า 5) ห้ามเปิดเตาโดยไม่มีโรลเลอร์ริงและจานหมุน (คู่มือหน้า 9) ระวังอย่าให้จานหมุนเคลื่อนที่เมื่อนำภาชนะออก (คู่มือหน้า 4) ใช้ถุงมือกันความร้อนเมื่อนำภาชนะออก (คู่มือหน้า 7)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Microwave_MG23T5018C_p41_grill_smoke",
+    "device_category": "Microwave Oven",
+    "brand": "Samsung",
+    "model": "MG23T5018C*",
+    "source": "Samsung Microwave Oven User Manual MG23T5018C* (MG23T5018CC_ST_DE68_04594R_00_TH_EN_210624)",
+    "page": 41,
+    "content": "Grill: Smoke comes out during operation. During initial operation, smoke may come from the heating elements when you first use the microwave oven; Food is on the heating elements; Food is too close to the grill; Food is not properly prepared and/or arranged. 1. This is not a malfunction, and if you run the microwave oven 2-3 times, it should stop. 2. Let the microwave oven cool and then remove the food from the heating elements. 3. Put the food a suitable distance away while cooking. 4. Make sure food is properly prepared and arranged.",
+    "metadata": {
+      "symptom": "Grill: Smoke comes out during operation.",
+      "possible_cause": "During initial operation, smoke may come from the heating elements when you first use the microwave oven; Food is on the heating elements; Food is too close to the grill; Food is not properly prepared and/or arranged.",
+      "solution": "1. This is not a malfunction, and if you run the microwave oven 2-3 times, it should stop.\n2. Let the microwave oven cool and then remove the food from the heating elements.\n3. Put the food a suitable distance away while cooking.\n4. Make sure food is properly prepared and arranged.",
+      "severity": "medium",
+      "difficulty": "medium",
+      "safety_warning": "ถ้ามีควันออกมา ให้ปิดเครื่องหรือถอดปลั๊กและปิดประตูเตาไว้เพื่อสกัดเปลวไฟ (คู่มือหน้า 4) ถ้าเตามีเสียงผิดปกติ กลิ่นไหม้ หรือควัน ให้ถอดปลั๊กทันทีและติดต่อศูนย์บริการที่ใกล้ที่สุด (คู่มือหน้า 5) ขณะเตากำลังทำงาน ไม่ควรปิดเตาด้วยการถอดปลั๊ก (คู่มือหน้า 6) | ตัวเตา ประตู ภายในเตา ภาชนะ และอาหารอาจร้อนจัด ระวังอย่าสัมผัสชิ้นส่วนทำความร้อน (heating element) ภายในเตา เด็กเล็กต้องอยู่ห่าง (คู่มือหน้า 5) ใช้ถุงมือกันความร้อนเมื่อนำภาชนะออก และยืนห่างช่วงแขนเมื่อเปิดประตูเพื่อป้องกันไอร้อนหรือไอน้ำลวก ของเหลวที่อุ่นให้ตั้งทิ้งไว้อย่างน้อย 20 วินาทีก่อนหยิบ (คู่มือหน้า 7) รอให้เตาเย็นลงก่อนทำความสะอาดห้องปรุงอาหารด้วยน้ำยาล้างจานอ่อนๆ ห้ามใช้สารขัดถูหรือสารเคมีทำความสะอาด (คู่มือหน้า 10) ห้ามใช้เบนซีน ทินเนอร์ แอลกอฮอล์ เครื่องฉีดไอน้ำ หรือเครื่องฉีดน้ำแรงดันสูง และห้ามฉีดหรือเทน้ำใส่เตาโดยตรง (คู่มือหน้า 6) ห้ามใช้สารขัดถูแรงหรือเครื่องขูดโลหะแหลมคมกับกระจกประตู เพราะกระจกอาจแตกได้ (คู่มือหน้า 5) | ตัวเตา ประตู ภายในเตา ภาชนะ และอาหารอาจร้อนจัด ระวังอย่าสัมผัสชิ้นส่วนทำความร้อน (heating element) ภายในเตา เด็กเล็กต้องอยู่ห่าง (คู่มือหน้า 5) ใช้ถุงมือกันความร้อนเมื่อนำภาชนะออก และยืนห่างช่วงแขนเมื่อเปิดประตูเพื่อป้องกันไอร้อนหรือไอน้ำลวก ของเหลวที่อุ่นให้ตั้งทิ้งไว้อย่างน้อย 20 วินาทีก่อนหยิบ (คู่มือหน้า 7)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Microwave_MG23T5018C_p41_not_heat",
+    "device_category": "Microwave Oven",
+    "brand": "Samsung",
+    "model": "MG23T5018C*",
+    "source": "Samsung Microwave Oven User Manual MG23T5018C* (MG23T5018CC_ST_DE68_04594R_00_TH_EN_210624)",
+    "page": 41,
+    "content": "The microwave oven does not heat. The door is open. Close the door and try again.",
+    "metadata": {
+      "symptom": "The microwave oven does not heat.",
+      "possible_cause": "The door is open.",
+      "solution": "Close the door and try again.",
+      "severity": "medium",
+      "difficulty": "easy",
+      "safety_warning": "ห้ามใช้เตาถ้าประตูหรือซีลประตูชำรุด ต้องให้ผู้มีคุณสมบัติซ่อมก่อน (คู่มือหน้า 3) ห้ามผู้ไม่มีความสามารถถอดฝาครอบที่ป้องกันคลื่นไมโครเวฟ (คู่มือหน้า 3) ห้ามสอดนิ้วหรือสิ่งแปลกปลอมเข้าไปในเตา ถ้าสิ่งแปลกปลอมเข้าไปในเตาให้ถอดปลั๊กและติดต่อศูนย์บริการ (คู่มือหน้า 6)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Microwave_MG23T5018C_p41_smoke_preheat",
+    "device_category": "Microwave Oven",
+    "brand": "Samsung",
+    "model": "MG23T5018C*",
+    "source": "Samsung Microwave Oven User Manual MG23T5018C* (MG23T5018CC_ST_DE68_04594R_00_TH_EN_210624)",
+    "page": 41,
+    "content": "Smoke comes out during preheating. During initial operation, smoke may come from the heating elements when you first use the microwave oven; Food is on the heating elements. 1. This is not a malfunction, and if you run the microwave oven 2-3 times, it should stop. 2. Let the microwave oven cool and then remove the food from the heating elements.",
+    "metadata": {
+      "symptom": "Smoke comes out during preheating.",
+      "possible_cause": "During initial operation, smoke may come from the heating elements when you first use the microwave oven; Food is on the heating elements.",
+      "solution": "1. This is not a malfunction, and if you run the microwave oven 2-3 times, it should stop.\n2. Let the microwave oven cool and then remove the food from the heating elements.",
+      "severity": "medium",
+      "difficulty": "medium",
+      "safety_warning": "ถ้ามีควันออกมา ให้ปิดเครื่องหรือถอดปลั๊กและปิดประตูเตาไว้เพื่อสกัดเปลวไฟ (คู่มือหน้า 4) ถ้าเตามีเสียงผิดปกติ กลิ่นไหม้ หรือควัน ให้ถอดปลั๊กทันทีและติดต่อศูนย์บริการที่ใกล้ที่สุด (คู่มือหน้า 5) ขณะเตากำลังทำงาน ไม่ควรปิดเตาด้วยการถอดปลั๊ก (คู่มือหน้า 6) | ตัวเตา ประตู ภายในเตา ภาชนะ และอาหารอาจร้อนจัด ระวังอย่าสัมผัสชิ้นส่วนทำความร้อน (heating element) ภายในเตา เด็กเล็กต้องอยู่ห่าง (คู่มือหน้า 5) ใช้ถุงมือกันความร้อนเมื่อนำภาชนะออก และยืนห่างช่วงแขนเมื่อเปิดประตูเพื่อป้องกันไอร้อนหรือไอน้ำลวก ของเหลวที่อุ่นให้ตั้งทิ้งไว้อย่างน้อย 20 วินาทีก่อนหยิบ (คู่มือหน้า 7) รอให้เตาเย็นลงก่อนทำความสะอาดห้องปรุงอาหารด้วยน้ำยาล้างจานอ่อนๆ ห้ามใช้สารขัดถูหรือสารเคมีทำความสะอาด (คู่มือหน้า 10) ห้ามใช้เบนซีน ทินเนอร์ แอลกอฮอล์ เครื่องฉีดไอน้ำ หรือเครื่องฉีดน้ำแรงดันสูง และห้ามฉีดหรือเทน้ำใส่เตาโดยตรง (คู่มือหน้า 6) ห้ามใช้สารขัดถูแรงหรือเครื่องขูดโลหะแหลมคมกับกระจกประตู เพราะกระจกอาจแตกได้ (คู่มือหน้า 5)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Microwave_MG23T5018C_p41_burning_smell",
+    "device_category": "Microwave Oven",
+    "brand": "Samsung",
+    "model": "MG23T5018C*",
+    "source": "Samsung Microwave Oven User Manual MG23T5018C* (MG23T5018CC_ST_DE68_04594R_00_TH_EN_210624)",
+    "page": 41,
+    "content": "There is a burning or plastic smell when using the microwave oven. Plastic or non heat-resistant cookware is used. Use glass cookware suitable for high temperatures.",
+    "metadata": {
+      "symptom": "There is a burning or plastic smell when using the microwave oven.",
+      "possible_cause": "Plastic or non heat-resistant cookware is used.",
+      "solution": "Use glass cookware suitable for high temperatures.",
+      "severity": "medium",
+      "difficulty": "easy",
+      "safety_warning": "ถ้ามีควันออกมา ให้ปิดเครื่องหรือถอดปลั๊กและปิดประตูเตาไว้เพื่อสกัดเปลวไฟ (คู่มือหน้า 4) ถ้าเตามีเสียงผิดปกติ กลิ่นไหม้ หรือควัน ให้ถอดปลั๊กทันทีและติดต่อศูนย์บริการที่ใกล้ที่สุด (คู่มือหน้า 5) ขณะเตากำลังทำงาน ไม่ควรปิดเตาด้วยการถอดปลั๊ก (คู่มือหน้า 6) ตัวเตา ประตู ภายในเตา ภาชนะ และอาหารอาจร้อนจัด ระวังอย่าสัมผัสชิ้นส่วนทำความร้อน (heating element) ภายในเตา เด็กเล็กต้องอยู่ห่าง (คู่มือหน้า 5) ใช้ถุงมือกันความร้อนเมื่อนำภาชนะออก และยืนห่างช่วงแขนเมื่อเปิดประตูเพื่อป้องกันไอร้อนหรือไอน้ำลวก ของเหลวที่อุ่นให้ตั้งทิ้งไว้อย่างน้อย 20 วินาทีก่อนหยิบ (คู่มือหน้า 7)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Microwave_MG23T5018C_p42_bad_smell",
+    "device_category": "Microwave Oven",
+    "brand": "Samsung",
+    "model": "MG23T5018C*",
+    "source": "Samsung Microwave Oven User Manual MG23T5018C* (MG23T5018CC_ST_DE68_04594R_00_TH_EN_210624)",
+    "page": 42,
+    "content": "There is a bad smell coming from inside the microwave oven. Food residue or plastic has melted and stuck to the interior. Use the steam function and then wipe with a dry cloth. You can put a lemon slice inside and run the microwave oven to remove the odour more quickly.",
+    "metadata": {
+      "symptom": "There is a bad smell coming from inside the microwave oven.",
+      "possible_cause": "Food residue or plastic has melted and stuck to the interior.",
+      "solution": "Use the steam function and then wipe with a dry cloth. You can put a lemon slice inside and run the microwave oven to remove the odour more quickly.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": "ตัวเตา ประตู ภายในเตา ภาชนะ และอาหารอาจร้อนจัด ระวังอย่าสัมผัสชิ้นส่วนทำความร้อน (heating element) ภายในเตา เด็กเล็กต้องอยู่ห่าง (คู่มือหน้า 5) ใช้ถุงมือกันความร้อนเมื่อนำภาชนะออก และยืนห่างช่วงแขนเมื่อเปิดประตูเพื่อป้องกันไอร้อนหรือไอน้ำลวก ของเหลวที่อุ่นให้ตั้งทิ้งไว้อย่างน้อย 20 วินาทีก่อนหยิบ (คู่มือหน้า 7) รอให้เตาเย็นลงก่อนทำความสะอาดห้องปรุงอาหารด้วยน้ำยาล้างจานอ่อนๆ ห้ามใช้สารขัดถูหรือสารเคมีทำความสะอาด (คู่มือหน้า 10) ห้ามใช้เบนซีน ทินเนอร์ แอลกอฮอล์ เครื่องฉีดไอน้ำ หรือเครื่องฉีดน้ำแรงดันสูง และห้ามฉีดหรือเทน้ำใส่เตาโดยตรง (คู่มือหน้า 6) ห้ามใช้สารขัดถูแรงหรือเครื่องขูดโลหะแหลมคมกับกระจกประตู เพราะกระจกอาจแตกได้ (คู่มือหน้า 5)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Microwave_MG23T5018C_p42_not_cook_properly",
+    "device_category": "Microwave Oven",
+    "brand": "Samsung",
+    "model": "MG23T5018C*",
+    "source": "Samsung Microwave Oven User Manual MG23T5018C* (MG23T5018CC_ST_DE68_04594R_00_TH_EN_210624)",
+    "page": 42,
+    "content": "The microwave oven does not cook properly. The microwave oven door is frequently opened during cooking; The microwave oven controls are not correctly set; The grill or other accessories are not correctly inserted; The wrong type or size of cookware is used. 1. If you open the door often, the interior temperature will be lowered and this may affect the results of your cooking. 2. Correctly set the microwave oven controls and try again. 3. Correctly insert the accessories. 4. Use suitable cookware with flat bottoms.",
+    "metadata": {
+      "symptom": "The microwave oven does not cook properly.",
+      "possible_cause": "The microwave oven door is frequently opened during cooking; The microwave oven controls are not correctly set; The grill or other accessories are not correctly inserted; The wrong type or size of cookware is used.",
+      "solution": "1. If you open the door often, the interior temperature will be lowered and this may affect the results of your cooking.\n2. Correctly set the microwave oven controls and try again.\n3. Correctly insert the accessories.\n4. Use suitable cookware with flat bottoms.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": "ห้ามเปิดเตาโดยไม่มีโรลเลอร์ริงและจานหมุน (คู่มือหน้า 9) ระวังอย่าให้จานหมุนเคลื่อนที่เมื่อนำภาชนะออก (คู่มือหน้า 4) ใช้ถุงมือกันความร้อนเมื่อนำภาชนะออก (คู่มือหน้า 7) | ใช้เฉพาะภาชนะที่ใช้กับไมโครเวฟได้ ห้ามใช้ภาชนะโลหะ จานชามที่ขอบเป็นทองหรือเงิน ไม้เสียบ และต้องถอดลวดมัดถุงออก เพราะอาจเกิดประกายไฟ (คู่มือหน้า 7) ยกเว้นตะแกรงย่าง (grill rack) และจานอบกรอบ (crusty plate) ซึ่งเป็นอุปกรณ์เสริมของเตา (คู่มือหน้า 9) ตัวเตา ประตู ภายในเตา ภาชนะ และอาหารอาจร้อนจัด ระวังอย่าสัมผัสชิ้นส่วนทำความร้อน (heating element) ภายในเตา เด็กเล็กต้องอยู่ห่าง (คู่มือหน้า 5) ใช้ถุงมือกันความร้อนเมื่อนำภาชนะออก และยืนห่างช่วงแขนเมื่อเปิดประตูเพื่อป้องกันไอร้อนหรือไอน้ำลวก ของเหลวที่อุ่นให้ตั้งทิ้งไว้อย่างน้อย 20 วินาทีก่อนหยิบ (คู่มือหน้า 7)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Microwave_MG23T5018C_p42_code_cd0",
+    "device_category": "Microwave Oven",
+    "brand": "Samsung",
+    "model": "MG23T5018C*",
+    "source": "Samsung Microwave Oven User Manual MG23T5018C* (MG23T5018CC_ST_DE68_04594R_00_TH_EN_210624)",
+    "page": 42,
+    "content": "Information code C-d0: Control buttons are pressed over 10 seconds. Control buttons are pressed over 10 seconds. 1. Clean the keys and check if there is water on the surface around key. 2. If it occurs again, turn off the microwave oven over 30 seconds and try setting again. 3. If it appears again, call your local SAMSUNG Customer Care Centre.",
+    "metadata": {
+      "symptom": "Information code C-d0: Control buttons are pressed over 10 seconds.",
+      "possible_cause": "Control buttons are pressed over 10 seconds.",
+      "solution": "1. Clean the keys and check if there is water on the surface around key.\n2. If it occurs again, turn off the microwave oven over 30 seconds and try setting again.\n3. If it appears again, call your local SAMSUNG Customer Care Centre.",
+      "severity": "medium",
+      "difficulty": "medium",
+      "safety_warning": "รอให้เตาเย็นลงก่อนทำความสะอาดห้องปรุงอาหารด้วยน้ำยาล้างจานอ่อนๆ ห้ามใช้สารขัดถูหรือสารเคมีทำความสะอาด (คู่มือหน้า 10) ห้ามใช้เบนซีน ทินเนอร์ แอลกอฮอล์ เครื่องฉีดไอน้ำ หรือเครื่องฉีดน้ำแรงดันสูง และห้ามฉีดหรือเทน้ำใส่เตาโดยตรง (คู่มือหน้า 6) ห้ามใช้สารขัดถูแรงหรือเครื่องขูดโลหะแหลมคมกับกระจกประตู เพราะกระจกอาจแตกได้ (คู่มือหน้า 5)"
+    }
+  }
+]

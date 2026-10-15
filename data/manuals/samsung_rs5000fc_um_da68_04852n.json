@@ -1,0 +1,2305 @@
+{
+  "schema_version": 2,
+  "manual_id": "samsung_rs5000fc_um_da68_04852n",
+  "device_category": "Refrigerator",
+  "brand": "Samsung",
+  "model_pattern": "RS70F65Q1BST/RS70F65K1BST/RS80F65G1FST",
+  "source_manual": "Samsung Refrigerator User Manual RS70*/RS80* (Code No. DA68-04852N-00, Thai)",
+  "count": 30,
+  "graphs": [
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_rs5000fc_um_not_cooling",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RS70F65Q1BST/RS70F65K1BST/RS80F65G1FST",
+      "entry_symptom": "ช่องแช่เย็น/ช่องแช่แข็งไม่ทำงาน อุณหภูมิช่องแช่เย็น/ช่องแช่แข็งต่ำ",
+      "entry_symptom_th": "ตู้เย็นไม่เย็น ช่องแช่เย็นหรือช่องแช่แข็งไม่ทำงาน",
+      "entry_symptom_aliases": [
+        "ตู้เย็นไม่เย็น",
+        "ตู้เย็นเย็นน้อย",
+        "ช่องแช่แข็งไม่เย็น",
+        "ช่องแช่เย็นไม่เย็น",
+        "refrigerator not cooling",
+        "fridge not cold"
+      ],
+      "source": "Samsung Refrigerator User Manual RS70*/RS80* (Code No. DA68-04852N-00, Thai)",
+      "page_range": [
+        63,
+        63
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RS5000FC_p63_not_cooling",
+      "severity": "medium",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "เสียบปลั๊กสายไฟเข้ากับเต้าเสียบที่ผนังถูกต้องแล้วใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2",
+          "on_no": "n1f"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "เสียบปลั๊กไฟให้ถูกต้อง (คู่มือหน้า 63): เสียบให้แน่นเข้ากับเต้าเสียบที่ผนังโดยให้สายไฟห้อยตัวลงไปด้านล่าง (คู่มือหน้า 9 และ 11)",
+          "safety_critical": true,
+          "safety_warning": "ห้ามเสียบปลั๊กไฟเข้ากับเต้าเสียบที่ผนังโดยที่มือเปียก และอย่าใช้ปลั๊กไฟ สายไฟ หรือเต้าเสียบที่ผนังที่ชำรุดหรือหลวมคลอน เพราะอาจเกิดไฟฟ้าดูดหรือเพลิงไหม้ เวลาถอดปลั๊กให้จับที่ตัวปลั๊กแล้วดึงออกมาแนวตรง ห้ามดึงที่สายไฟ (คู่มือหน้า 9 และ 11)",
+          "author_note": "หน้า 63 ระบุเพียง 'เสียบปลั๊กไฟให้ถูกต้อง' รายละเอียดการเสียบและคำเตือนมาจากหน้า 9 และ 11",
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "ตั้งค่าอุณหภูมิไว้เหมาะสมแล้วใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n3",
+          "on_no": "n2f"
+        },
+        {
+          "node_id": "n2f",
+          "type": "instruction",
+          "content": "ตั้งอุณหภูมิให้ต่ำลง (คู่มือหน้า 63) วิธีตั้งอุณหภูมิ: แตะปุ่มใดก็ได้ ( < , ○ หรือ > ) เพื่อปลุกจอแสดงผล (ขั้นตอนนี้อาจใช้ไม่ได้กับบางรุ่น) > แตะ ○ จนกระทั่งไฟแสดงสถานะช่องแช่เย็นหรือช่องแช่แข็งกะพริบ > แตะ < หรือ > เพื่อเลือกอุณหภูมิที่ต้องการ (ช่องแช่เย็น 1–7 °C ช่องแช่แข็ง -23 ถึง -15 °C) > รอ 5 วินาทีหรือแตะ ○ เพื่อยืนยันการเลือก เมื่อเปลี่ยนอุณหภูมิ ตู้เย็นต้องใช้เวลาสักพักเพื่อไปถึงอุณหภูมิใหม่ ซึ่งเป็นเรื่องปกติ (คู่มือหน้า 40)",
+          "safety_critical": false,
+          "author_note": "หน้า 63 อาการระบุว่า 'อุณหภูมิ...ต่ำ' แต่วิธีแก้คือ 'ตั้งอุณหภูมิให้ต่ำลง' ซึ่งอ่านแล้วขัดกันเอง ผู้พัฒนาคงถ้อยคำตามคู่มือ ควรตรวจกับฉบับภาษาอังกฤษ. หน้า 63 ระบุเพียงผลที่ต้องการ ส่วนวิธีกดปุ่มตั้งอุณหภูมิมาจากหน้า 40 คู่มือไม่ระบุว่ากด < หรือ > แล้วอุณหภูมิขึ้นหรือลง ให้ดูตัวเลขบนจอ",
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "node_id": "n3",
+          "type": "checkpoint",
+          "question": "ตู้เย็นไม่ได้ตั้งอยู่ใกล้แหล่งความร้อนหรือแสงแดดส่องถึงโดยตรงใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n4",
+          "on_no": "n3f"
+        },
+        {
+          "node_id": "n3f",
+          "type": "instruction",
+          "content": "ติดตั้งตู้เย็นห่างจากแหล่งความร้อนและแสงแดดส่องถึงโดยตรง (คู่มือหน้า 63)",
+          "safety_critical": true,
+          "safety_warning": "ในการเคลื่อนย้ายตู้เย็น ระวังอย่าให้ทับสายไฟหรือทำให้สายไฟเสียหาย อย่าติดตั้งตู้เย็นใกล้เครื่องทำความร้อนหรือวัสดุที่ก่อเปลวไฟ และอย่าติดตั้งในสถานที่ที่อาจเกิดการรั่วไหลของก๊าซ มิฉะนั้นอาจเกิดไฟฟ้าดูดหรือเพลิงไหม้ ถ้าถอดปลั๊กตู้เย็นแล้ว ควรรออย่างน้อยห้านาทีก่อนเสียบปลั๊กกลับ (คู่มือหน้า 9 และ 17)",
+          "author_note": "คำเตือนเรื่องการเคลื่อนย้ายและตำแหน่งติดตั้งมาจากหน้า 9 และ 17",
+          "next": "n3v"
+        },
+        {
+          "node_id": "n3v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n4"
+        },
+        {
+          "node_id": "n4",
+          "type": "checkpoint",
+          "question": "มีช่องว่างระหว่างตู้เย็นกับผนังหรือตู้ข้างเคียงมากกว่า 50 มม. ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n5",
+          "on_no": "n4f"
+        },
+        {
+          "node_id": "n4f",
+          "type": "instruction",
+          "content": "เว้นช่องว่างระหว่างตู้เย็นและผนังใกล้เคียง (หรือตู้เก็บของอื่นๆ) มากกว่า 50 มม. (คู่มือหน้า 63)",
+          "safety_critical": true,
+          "safety_warning": "ในการเคลื่อนย้ายตู้เย็น ระวังอย่าให้ทับสายไฟหรือทำให้สายไฟเสียหาย อย่าติดตั้งตู้เย็นใกล้เครื่องทำความร้อนหรือวัสดุที่ก่อเปลวไฟ และอย่าติดตั้งในสถานที่ที่อาจเกิดการรั่วไหลของก๊าซ มิฉะนั้นอาจเกิดไฟฟ้าดูดหรือเพลิงไหม้ ถ้าถอดปลั๊กตู้เย็นแล้ว ควรรออย่างน้อยห้านาทีก่อนเสียบปลั๊กกลับ (คู่มือหน้า 9 และ 17)",
+          "author_note": "คำเตือนเรื่องการเคลื่อนย้ายตู้เย็นมาจากหน้า 9 และ 17",
+          "next": "n4v"
+        },
+        {
+          "node_id": "n4v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n5"
+        },
+        {
+          "node_id": "n5",
+          "type": "checkpoint",
+          "question": "ไม่ได้ใส่อาหารมากเกินไป และอาหารไม่ขวางช่องระบายอากาศของตู้เย็นใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_escalate",
+          "on_no": "n5f"
+        },
+        {
+          "node_id": "n5f",
+          "type": "instruction",
+          "content": "ลดปริมาณอาหารในตู้เย็น และอย่าให้อาหารขัดขวางช่องระบายอากาศของตู้เย็น (คู่มือหน้า 63)",
+          "safety_critical": true,
+          "safety_warning": "อย่าใส่อาหารในตู้เย็นมากเกินไป เพราะเมื่อเปิดประตู สิ่งของที่ใส่ไว้อาจตกและทำให้ได้รับบาดเจ็บหรือสิ่งของชำรุดเสียหายได้ (คู่มือหน้า 13) อย่าปิดกั้นช่องระบายอากาศภายในตู้เย็น โดยเฉพาะด้วยถุงพลาสติก เพราะตู้เย็นจะระบายความร้อนไม่ได้ ถ้าเป็นเช่นนี้นานเกินไป ตัวกรองน้ำอาจแตกและมีการรั่วซึมได้ (คู่มือหน้า 17)",
+          "next": "n5v"
+        },
+        {
+          "node_id": "n5v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "ตู้เย็นกลับมาเย็นตามปกติแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung โทร 1282 (มีค่าโทร) หรือ 1800-29-3232 (โทรฟรีเฉพาะโทรศัพท์พื้นฐาน) หรือดูที่ www.samsung.com/th/support (คู่มือหน้า 74) พร้อมแจ้งรุ่นตู้เย็น อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_rs5000fc_um_too_cold",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RS70F65Q1BST/RS70F65K1BST/RS80F65G1FST",
+      "entry_symptom": "ช่องแช่เย็น/ช่องแช่แข็งเย็นเกินไป",
+      "entry_symptom_th": "ตู้เย็นเย็นเกินไป",
+      "entry_symptom_aliases": [
+        "ตู้เย็นเย็นจัด",
+        "ช่องแช่เย็นเย็นเกินไป",
+        "ช่องแช่แข็งเย็นเกินไป",
+        "fridge too cold"
+      ],
+      "source": "Samsung Refrigerator User Manual RS70*/RS80* (Code No. DA68-04852N-00, Thai)",
+      "page_range": [
+        63,
+        63
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RS5000FC_p63_too_cold",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "ตั้งค่าอุณหภูมิไว้เหมาะสมแล้วใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_escalate",
+          "on_no": "n1f"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "ตั้งอุณหภูมิให้สูงขึ้น (คู่มือหน้า 63) วิธีตั้งอุณหภูมิ: แตะปุ่มใดก็ได้ ( < , ○ หรือ > ) เพื่อปลุกจอแสดงผล (ขั้นตอนนี้อาจใช้ไม่ได้กับบางรุ่น) > แตะ ○ จนกระทั่งไฟแสดงสถานะช่องแช่เย็นหรือช่องแช่แข็งกะพริบ > แตะ < หรือ > เพื่อเลือกอุณหภูมิที่ต้องการ (ช่องแช่เย็น 1–7 °C ช่องแช่แข็ง -23 ถึง -15 °C) > รอ 5 วินาทีหรือแตะ ○ เพื่อยืนยันการเลือก เมื่อเปลี่ยนอุณหภูมิ ตู้เย็นต้องใช้เวลาสักพักเพื่อไปถึงอุณหภูมิใหม่ ซึ่งเป็นเรื่องปกติ (คู่มือหน้า 40) เพื่อให้ได้ประสิทธิภาพสูงสุด คู่มือแนะนำให้ตั้งที่ -19 °C สำหรับช่องแช่แข็ง และ 3 °C สำหรับช่องแช่เย็น (คู่มือหน้า 40)",
+          "safety_critical": false,
+          "author_note": "หน้า 63 ระบุเพียงผลที่ต้องการ ส่วนวิธีกดปุ่มตั้งอุณหภูมิมาจากหน้า 40 คู่มือไม่ระบุว่ากด < หรือ > แล้วอุณหภูมิขึ้นหรือลง ให้ดูตัวเลขบนจอ",
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "อุณหภูมิตู้เย็นเหมาะสมแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung โทร 1282 (มีค่าโทร) หรือ 1800-29-3232 (โทรฟรีเฉพาะโทรศัพท์พื้นฐาน) หรือดูที่ www.samsung.com/th/support (คู่มือหน้า 74) พร้อมแจ้งรุ่นตู้เย็น อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_rs5000fc_um_inner_wall_warm",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RS70F65Q1BST/RS70F65K1BST/RS80F65G1FST",
+      "entry_symptom": "ผนังภายในร้อน",
+      "entry_symptom_th": "ผนังภายในตู้เย็นร้อน",
+      "entry_symptom_aliases": [
+        "ผนังตู้เย็นร้อน",
+        "ตู้เย็นร้อน",
+        "ขอบตู้เย็นอุ่น",
+        "fridge wall hot"
+      ],
+      "source": "Samsung Refrigerator User Manual RS70*/RS80* (Code No. DA68-04852N-00, Thai)",
+      "page_range": [
+        63,
+        63
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RS5000FC_p63_inner_wall_warm",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "ผนังภายในที่รู้สึกร้อนอยู่บริเวณมุมด้านหน้าของตู้เย็นใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n1n",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n1n",
+          "type": "resolution",
+          "content": "เป็นการทำงานปกติ ตู้เย็นมีระบบท่อกันความร้อนในมุมด้านหน้าเพื่อป้องกันการควบแน่น ถ้าอุณหภูมิแวดล้อมสูงขึ้น ตู้เย็นอาจทำงานอย่างไม่มีประสิทธิภาพ ไม่ใช่ความผิดปกติของระบบ (คู่มือหน้า 63) คู่มือแจ้งว่าการเรียกบริการในกรณีที่เป็นสถานการณ์ปกติ (ไม่ใช่ผลิตภัณฑ์บกพร่อง) มีค่าบริการสำหรับผู้ใช้ทั่วไป (คู่มือหน้า 63 และ 68)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung โทร 1282 (มีค่าโทร) หรือ 1800-29-3232 (โทรฟรีเฉพาะโทรศัพท์พื้นฐาน) หรือดูที่ www.samsung.com/th/support (คู่มือหน้า 74) พร้อมแจ้งรุ่นตู้เย็น อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_rs5000fc_um_panel_not_together",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RS70F65Q1BST/RS70F65K1BST/RS80F65G1FST",
+      "entry_symptom": "ไฟส่องสว่าง แผงควบคุม เครื่องทำน้ำแข็ง เครื่องจ่ายน้ำและน้ำแข็งจะไม่ทำงานพร้อมกัน",
+      "entry_symptom_th": "ไฟ แผงควบคุม เครื่องทำน้ำแข็ง เครื่องจ่ายน้ำไม่ทำงานพร้อมกัน",
+      "entry_symptom_aliases": [
+        "แผงควบคุมไม่ทำงาน",
+        "ไฟตู้เย็นไม่ติดพร้อมเครื่องจ่ายน้ำ",
+        "fridge panel and dispenser not working together"
+      ],
+      "source": "Samsung Refrigerator User Manual RS70*/RS80* (Code No. DA68-04852N-00, Thai)",
+      "page_range": [
+        64,
+        64
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RS5000FC_p64_panel_not_together",
+      "severity": "medium",
+      "difficulty": "medium",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "ไฟส่องสว่าง แผงควบคุม เครื่องทำน้ำแข็ง และเครื่องจ่ายน้ำ/น้ำแข็งไม่ทำงานพร้อมกันใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2",
+          "on_no": "n_nomatch"
+        },
+        {
+          "node_id": "n2",
+          "type": "instruction",
+          "content": "ตั้งค่าโหมดการควบคุมใหม่: 1. แตะแล้วกด ○ และ > ค้างไว้พร้อมกันเป็นเวลา 6 วินาที 2. เมื่อหน้าจอกะพริบให้กด > 3. เลือกปุ่มถัดไป (คู่มือหน้า 64)",
+          "safety_critical": false,
+          "author_note": "ขั้นตอนที่ 3 'เลือกปุ่มถัดไป' คู่มือไม่อธิบายว่าคือปุ่มใดและทำอย่างไร ขั้นตอนที่ 1 'แตะแล้วกด' ก็ไม่ชัดว่าต่างจากการกดอย่างไร ผู้พัฒนาคงถ้อยคำตามคู่มือ ควรตรวจกับฉบับภาษาอังกฤษหรือเครื่องจริงก่อนใช้งานจริง",
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "ไฟส่องสว่าง แผงควบคุม เครื่องทำน้ำแข็ง และเครื่องจ่ายน้ำทำงานพร้อมกันตามปกติแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "อาการยังไม่หายหลังทำตามขั้นตอนในคู่มือ ให้ติดต่อศูนย์บริการ Samsung Electronics (คู่มือหน้า 64) ติดต่อศูนย์บริการ Samsung โทร 1282 (มีค่าโทร) หรือ 1800-29-3232 (โทรฟรีเฉพาะโทรศัพท์พื้นฐาน) หรือดูที่ www.samsung.com/th/support (คู่มือหน้า 74)",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "node_id": "n_nomatch",
+          "type": "escalation",
+          "content": "อาการไม่ตรงกับรายการนี้ในคู่มือ ลองเลือกอาการอื่นที่ตรงกว่า หรือติดต่อศูนย์บริการ Samsung โทร 1282 (มีค่าโทร) หรือ 1800-29-3232 (โทรฟรีเฉพาะโทรศัพท์พื้นฐาน) หรือดูที่ www.samsung.com/th/support (คู่มือหน้า 74)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_rs5000fc_um_odor",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RS70F65Q1BST/RS70F65K1BST/RS80F65G1FST",
+      "entry_symptom": "ตู้เย็นมีกลิ่นไม่พึงประสงค์",
+      "entry_symptom_th": "ตู้เย็นมีกลิ่นเหม็น",
+      "entry_symptom_aliases": [
+        "ตู้เย็นเหม็น",
+        "ตู้เย็นมีกลิ่น",
+        "กลิ่นอาหารในตู้เย็น",
+        "fridge smells"
+      ],
+      "source": "Samsung Refrigerator User Manual RS70*/RS80* (Code No. DA68-04852N-00, Thai)",
+      "page_range": [
+        64,
+        64
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RS5000FC_p64_odor",
+      "severity": "medium",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "ได้กลิ่นยาหรือกลิ่นควันจากตู้เย็นใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n1e",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n1e",
+          "type": "escalation",
+          "content": "ดึงปลั๊กไฟออกทันทีและติดต่อศูนย์บริการ Samsung Electronics ใกล้บ้าน (คู่มือหน้า 13) ติดต่อศูนย์บริการ Samsung โทร 1282 (มีค่าโทร) หรือ 1800-29-3232 (โทรฟรีเฉพาะโทรศัพท์พื้นฐาน) หรือดูที่ www.samsung.com/th/support (คู่มือหน้า 74) ห้ามใช้ตู้เย็นจนกว่าจะได้รับการตรวจสอบ",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "มีอาหารเน่าเสียอยู่ในตู้เย็นใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2f",
+          "on_no": "n3"
+        },
+        {
+          "node_id": "n2f",
+          "type": "instruction",
+          "content": "นำอาหารที่เน่าเสียออก และทำความสะอาดตู้เย็น (คู่มือหน้า 64) ทำความสะอาดตู้เย็น: ถอดปลั๊กไฟออก > ใช้ผ้านุ่มที่ไม่ทิ้งเส้นขนชุบน้ำบิดหมาดหรือผ้าขนหนูกระดาษทำความสะอาดภายในและภายนอกของตู้เย็น > เช็ดให้แห้งสนิทด้วยผ้าแห้งหรือผ้าขนหนูกระดาษ > เสียบปลั๊กไฟกลับเข้าไป (คู่มือหน้า 59)",
+          "safety_critical": true,
+          "safety_warning": "ก่อนทำความสะอาดหรือบำรุงรักษา ให้ถอดปลั๊กไฟออกจากเต้าเสียบที่ผนัง ห้ามฉีดน้ำโดยตรงทั้งด้านในหรือด้านนอกตู้เย็น และห้ามใช้เบนซิน ทินเนอร์ หรือน้ำยาทำความสะอาดที่มีฤทธิ์กัดกร่อน เพราะอาจเกิดไฟฟ้าดูดหรือเพลิงไหม้ (คู่มือหน้า 18, 19 และ 59) อย่าใช้เครื่องเป่าผมเพื่อทำให้ภายในตู้เย็นแห้ง และอย่าวางเทียนที่จุดไฟในตู้เย็นเพื่อขจัดกลิ่นไม่พึงประสงค์ เพราะอาจเกิดไฟฟ้าดูดหรือเพลิงไหม้ ถ้าได้กลิ่นยาหรือควัน ให้ดึงปลั๊กไฟออกทันทีและติดต่อศูนย์บริการ Samsung Electronics (คู่มือหน้า 13 และ 18)",
+          "author_note": "หน้า 64 ระบุเพียง 'ทำความสะอาดตู้เย็น' ขั้นตอนทำความสะอาดมาจากหน้า 59 และคำเตือนมาจากหน้า 13, 18 และ 19. ข้อแรกที่ถามเรื่องกลิ่นยา/ควันมาจากหน้า 13 ไม่ใช่หน้า 64 เป็นการคัดกรองความปลอดภัยที่ผู้พัฒนาเพิ่ม",
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "node_id": "n3",
+          "type": "checkpoint",
+          "question": "มีอาหารที่มีกลิ่นแรงเก็บไว้โดยไม่ได้หีบห่อใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n3f",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n3f",
+          "type": "instruction",
+          "content": "หีบห่ออาหารที่มีกลิ่นแรงด้วยฟิล์มพลาสติก (คู่มือหน้า 64)",
+          "safety_critical": false,
+          "next": "n3v"
+        },
+        {
+          "node_id": "n3v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "กลิ่นไม่พึงประสงค์หายแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung โทร 1282 (มีค่าโทร) หรือ 1800-29-3232 (โทรฟรีเฉพาะโทรศัพท์พื้นฐาน) หรือดูที่ www.samsung.com/th/support (คู่มือหน้า 74) พร้อมแจ้งรุ่นตู้เย็น อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_rs5000fc_um_frost_vents",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RS70F65Q1BST/RS70F65K1BST/RS80F65G1FST",
+      "entry_symptom": "เกล็ดน้ำแข็งรอบๆ ช่องระบายอากาศ",
+      "entry_symptom_th": "มีเกล็ดน้ำแข็งรอบช่องระบายอากาศ",
+      "entry_symptom_aliases": [
+        "น้ำแข็งเกาะช่องลม",
+        "เกล็ดน้ำแข็งรอบช่องระบายอากาศ",
+        "frost around vents"
+      ],
+      "source": "Samsung Refrigerator User Manual RS70*/RS80* (Code No. DA68-04852N-00, Thai)",
+      "page_range": [
+        64,
+        64
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RS5000FC_p64_frost_vents",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "มีอาหารวางขวางช่องระบายอากาศของตู้เย็นอยู่ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n1f",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "จัดอาหารใหม่ ไม่ให้ขัดขวางช่องระบายอากาศของตู้เย็น (คู่มือหน้า 64)",
+          "safety_critical": true,
+          "safety_warning": "อย่าปิดกั้นช่องระบายอากาศภายในตู้เย็น โดยเฉพาะด้วยถุงพลาสติก เพราะตู้เย็นจะระบายความร้อนไม่ได้ ถ้าเป็นเช่นนี้นานเกินไป ตัวกรองน้ำอาจแตกและมีการรั่วซึมได้ (คู่มือหน้า 17)",
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "ไม่มีอาหารขวางช่องระบายอากาศและอาการหายแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung โทร 1282 (มีค่าโทร) หรือ 1800-29-3232 (โทรฟรีเฉพาะโทรศัพท์พื้นฐาน) หรือดูที่ www.samsung.com/th/support (คู่มือหน้า 74) พร้อมแจ้งรุ่นตู้เย็น อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_rs5000fc_um_frost_inner_wall",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RS70F65Q1BST/RS70F65K1BST/RS80F65G1FST",
+      "entry_symptom": "เกล็ดน้ำแข็งที่ผนังด้านในตู้เย็น",
+      "entry_symptom_th": "มีเกล็ดน้ำแข็งที่ผนังด้านในตู้เย็น",
+      "entry_symptom_aliases": [
+        "น้ำแข็งเกาะผนังตู้เย็น",
+        "ประตูตู้เย็นปิดไม่สนิท",
+        "frost inside fridge"
+      ],
+      "source": "Samsung Refrigerator User Manual RS70*/RS80* (Code No. DA68-04852N-00, Thai)",
+      "page_range": [
+        64,
+        64
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RS5000FC_p64_frost_inner_wall",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "มีอาหารหรือสิ่งของขวางช่องระบายอากาศ หรือทำให้ประตูปิดไม่สนิทหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n1f",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "จัดอาหารไม่ให้ขัดขวางช่องระบายอากาศของตู้เย็น และปิดประตูให้สนิท (คู่มือหน้า 64)",
+          "safety_critical": true,
+          "safety_warning": "อย่าปิดกั้นช่องระบายอากาศภายในตู้เย็น โดยเฉพาะด้วยถุงพลาสติก เพราะตู้เย็นจะระบายความร้อนไม่ได้ ถ้าเป็นเช่นนี้นานเกินไป ตัวกรองน้ำอาจแตกและมีการรั่วซึมได้ (คู่มือหน้า 17)",
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "ปะเก็นยางของประตูสะอาดใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_escalate",
+          "on_no": "n2f"
+        },
+        {
+          "node_id": "n2f",
+          "type": "instruction",
+          "content": "ทำความสะอาดปะเก็นยางของประตู: ถอดปลั๊กไฟ > ใช้ผ้าชุบน้ำผสมสารซักฟอก บิดหมาดแล้วเช็ดทำความสะอาดซีลยาง จากนั้นใช้ผ้าสะอาดเช็ดให้แห้ง (คู่มือหน้า 59)",
+          "safety_critical": true,
+          "safety_warning": "ก่อนทำความสะอาดหรือบำรุงรักษา ให้ถอดปลั๊กไฟออกจากเต้าเสียบที่ผนัง ห้ามฉีดน้ำโดยตรงทั้งด้านในหรือด้านนอกตู้เย็น และห้ามใช้เบนซิน ทินเนอร์ หรือน้ำยาทำความสะอาดที่มีฤทธิ์กัดกร่อน เพราะอาจเกิดไฟฟ้าดูดหรือเพลิงไหม้ (คู่มือหน้า 18, 19 และ 59)",
+          "author_note": "หน้า 64 ระบุเพียง 'ทำความสะอาดปะเก็นของประตูตู้เย็น' วิธีทำมาจากหัวข้อ 'ซีลยาง' หน้า 59 ซึ่งใช้คำว่า 'ซีลยาง' ส่วนหน้า 64 ใช้คำว่า 'ปะเก็น' ผู้พัฒนาโยงสองคำนี้ว่าเป็นชิ้นเดียวกัน",
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "ประตูปิดสนิทและไม่มีเกล็ดน้ำแข็งเพิ่มแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung โทร 1282 (มีค่าโทร) หรือ 1800-29-3232 (โทรฟรีเฉพาะโทรศัพท์พื้นฐาน) หรือดูที่ www.samsung.com/th/support (คู่มือหน้า 74) พร้อมแจ้งรุ่นตู้เย็น อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_rs5000fc_um_condensation",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RS70F65Q1BST/RS70F65K1BST/RS80F65G1FST",
+      "entry_symptom": "การควบแน่นก่อตัวขึ้นบนผนังด้านใน",
+      "entry_symptom_th": "มีหยดน้ำเกาะผนังด้านในตู้เย็น",
+      "entry_symptom_aliases": [
+        "ตู้เย็นมีน้ำเกาะ",
+        "ผนังตู้เย็นเปียก",
+        "หยดน้ำในตู้เย็น",
+        "condensation inside fridge"
+      ],
+      "source": "Samsung Refrigerator User Manual RS70*/RS80* (Code No. DA68-04852N-00, Thai)",
+      "page_range": [
+        64,
+        64
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RS5000FC_p64_condensation",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "ประตูตู้เย็นถูกเปิดค้างไว้นานหรือเปิดบ่อยใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n1f",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "ขจัดความชื้นและอย่าเปิดประตูตู้เย็นทิ้งไว้เป็นเวลานาน (คู่มือหน้า 64)",
+          "safety_critical": false,
+          "author_note": "คู่มือใช้คำว่า 'เปิดประตูค้างไว้' ผู้พัฒนาเพิ่ม 'เปิดบ่อย' ในคำถามเพื่อให้ผู้ใช้ตอบง่ายขึ้น คำแนะนำยังคงตามคู่มือ",
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "เก็บอาหารที่มีความชื้นสูงโดยไม่ได้หีบห่อใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2f",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n2f",
+          "type": "instruction",
+          "content": "หีบห่ออาหารด้วยฟิล์มพลาสติก (คู่มือหน้า 64)",
+          "safety_critical": false,
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "การควบแน่นลดลงแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung โทร 1282 (มีค่าโทร) หรือ 1800-29-3232 (โทรฟรีเฉพาะโทรศัพท์พื้นฐาน) หรือดูที่ www.samsung.com/th/support (คู่มือหน้า 74) พร้อมแจ้งรุ่นตู้เย็น อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_rs5000fc_um_water_flow_weak",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RS70F65Q1BST/RS70F65K1BST/RS80F65G1FST",
+      "entry_symptom": "น้ำไหลอ่อนกว่าปกติ",
+      "entry_symptom_th": "น้ำจากตู้เย็นไหลอ่อน",
+      "entry_symptom_aliases": [
+        "น้ำไหลเบา",
+        "น้ำไหลช้า",
+        "แรงดันน้ำตู้เย็นต่ำ",
+        "weak water flow"
+      ],
+      "source": "Samsung Refrigerator User Manual RS70*/RS80* (Code No. DA68-04852N-00, Thai)",
+      "page_range": [
+        65,
+        65
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RS5000FC_p65_water_flow_weak",
+      "severity": "low",
+      "difficulty": "medium",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "แรงดันน้ำที่จ่ายเข้าตู้เย็นอยู่ระหว่าง 206 kPa (30 psi) ถึง 861 kPa (125 psi) ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2",
+          "on_no": "n1e"
+        },
+        {
+          "node_id": "n1e",
+          "type": "escalation",
+          "content": "แรงดันน้ำอยู่นอกช่วงที่คู่มือกำหนด (206–861 kPa) คู่มือไม่ได้ระบุวิธีปรับแรงดัน ให้ติดต่อศูนย์บริการ Samsung หรือช่างประปา ติดต่อศูนย์บริการ Samsung โทร 1282 (มีค่าโทร) หรือ 1800-29-3232 (โทรฟรีเฉพาะโทรศัพท์พื้นฐาน) หรือดูที่ www.samsung.com/th/support (คู่มือหน้า 74)",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "ใช้งานร่วมกับระบบกรองน้ำแบบรีเวิร์สออสโมซิสอยู่ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2f",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n2f",
+          "type": "instruction",
+          "content": "ถ้าใช้ร่วมกับระบบกรองน้ำแบบรีเวิร์สออสโมซิส แรงดันน้ำที่ส่งไปยังท่อน้ำเย็นของตู้เย็นต้องมีค่าอย่างน้อย 206 kPa (30 psi) หากแรงดันต่ำกว่านั้น: ตรวจสอบว่าตัวกรองตะกอนในระบบรีเวิร์สออสโมซิสอุดตันหรือไม่ เปลี่ยนตัวกรองหากจำเป็น > เติมน้ำในถังน้ำของระบบรีเวิร์สออสโมซิส > ถ้าตู้เย็นมีตัวกรองน้ำ แรงดันน้ำอาจลดลงอีกเมื่อใช้ร่วมกับระบบรีเวิร์สออสโมซิส ให้ถอดตัวกรองน้ำออก สำหรับการซ่อมบำรุงระบบ ให้ติดต่อเจ้าหน้าที่ระบบประปาที่ได้รับการรับรอง (คู่มือหน้า 62)",
+          "safety_critical": false,
+          "author_note": "ขั้นตอนนี้มาจากหน้า 62 ไม่ใช่หน้า 65 ผู้ใช้ทั่วไปอาจไม่สามารถวัดแรงดันน้ำเองได้ ข้อความ 'ติดต่อช่างประปา' ในข้อแรกเป็นของผู้พัฒนา คู่มือหน้า 62 ใช้คำว่า 'เจ้าหน้าที่ระบบประปาที่ได้รับรอง' เฉพาะระบบรีเวิร์สออสโมซิส",
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "น้ำไหลแรงขึ้นตามปกติแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung โทร 1282 (มีค่าโทร) หรือ 1800-29-3232 (โทรฟรีเฉพาะโทรศัพท์พื้นฐาน) หรือดูที่ www.samsung.com/th/support (คู่มือหน้า 74) พร้อมแจ้งรุ่นตู้เย็น อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_rs5000fc_um_icemaker_noisy",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RS70F65Q1BST/RS70F65K1BST/RS80F65G1FST",
+      "entry_symptom": "เครื่องทำน้ำแข็งส่งเสียงดัง",
+      "entry_symptom_th": "เครื่องทำน้ำแข็งเสียงดัง",
+      "entry_symptom_aliases": [
+        "เครื่องทำน้ำแข็งส่งเสียง",
+        "เสียงจากเครื่องทำน้ำแข็ง",
+        "ice maker noise"
+      ],
+      "source": "Samsung Refrigerator User Manual RS70*/RS80* (Code No. DA68-04852N-00, Thai)",
+      "page_range": [
+        65,
+        65
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RS5000FC_p65_icemaker_noisy",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "เปิดเครื่องทำน้ำแข็งไว้ ทั้งที่ยังไม่ได้ต่อตู้เย็นกับระบบแหล่งจ่ายน้ำใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n1f",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "ปิดเครื่องทำน้ำแข็ง: แตะปุ่มใดก็ได้ ( < , ○ หรือ > ) เพื่อปลุกจอแสดงผล (ขั้นตอนนี้อาจใช้ไม่ได้กับบางรุ่น) > แตะ ○ จนกระทั่งไฟแสดงสถานะเครื่องทำน้ำแข็งกะพริบ > แตะ > เพื่อปิดใช้งาน > รอ 5 วินาทีหรือแตะ ○ เพื่อยืนยันการเลือก ไฟแสดงสถานะเครื่องทำน้ำแข็งจะหยุดกะพริบ (คู่มือหน้า 41)",
+          "safety_critical": false,
+          "author_note": "หน้า 65 ระบุเพียงให้เปิด/ปิดเครื่องทำน้ำแข็ง วิธีทำมาจากหน้า 41",
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "เครื่องทำน้ำแข็งหยุดส่งเสียงดังแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung โทร 1282 (มีค่าโทร) หรือ 1800-29-3232 (โทรฟรีเฉพาะโทรศัพท์พื้นฐาน) หรือดูที่ www.samsung.com/th/support (คู่มือหน้า 74) พร้อมแจ้งรุ่นตู้เย็น อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_rs5000fc_um_icemaker_no_ice",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RS70F65Q1BST/RS70F65K1BST/RS80F65G1FST",
+      "entry_symptom": "เครื่องทำน้ำแข็งไม่ผลิตน้ำแข็ง",
+      "entry_symptom_th": "ตู้เย็นไม่ทำน้ำแข็ง",
+      "entry_symptom_aliases": [
+        "เครื่องทำน้ำแข็งไม่ทำงาน",
+        "ไม่มีน้ำแข็ง",
+        "ไม่ผลิตน้ำแข็ง",
+        "ice maker not making ice"
+      ],
+      "source": "Samsung Refrigerator User Manual RS70*/RS80* (Code No. DA68-04852N-00, Thai)",
+      "page_range": [
+        65,
+        65
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RS5000FC_p65_icemaker_no_ice",
+      "severity": "medium",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "เพิ่งติดตั้งเครื่องทำน้ำแข็งใหม่ภายใน 24 ชั่วโมงที่ผ่านมาใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n1n",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n1n",
+          "type": "resolution",
+          "content": "ต้องรอเป็นเวลา 24 ชั่วโมงเพื่อให้ตู้เย็นผลิตน้ำแข็ง (คู่มือหน้า 65) ถ้าผ่านไปแล้วยังไม่มีน้ำแข็ง ให้เริ่มตรวจรายการนี้ใหม่",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "เครื่องทำน้ำแข็งเปิดทำงานอยู่ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n3",
+          "on_no": "n2f"
+        },
+        {
+          "node_id": "n2f",
+          "type": "instruction",
+          "content": "เปิดเครื่องทำน้ำแข็ง: แตะปุ่มใดก็ได้ ( < , ○ หรือ > ) เพื่อปลุกจอแสดงผล (ขั้นตอนนี้อาจใช้ไม่ได้กับบางรุ่น) > แตะ ○ จนกระทั่งไฟแสดงสถานะเครื่องทำน้ำแข็งกะพริบ > แตะ < เพื่อเปิดใช้งาน > รอ 5 วินาทีหรือแตะ ○ เพื่อยืนยันการเลือก ไฟแสดงสถานะเครื่องทำน้ำแข็งจะหยุดกะพริบ (คู่มือหน้า 41)",
+          "safety_critical": false,
+          "author_note": "หน้า 65 ระบุเพียงให้เปิด/ปิดเครื่องทำน้ำแข็ง วิธีทำมาจากหน้า 41",
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "node_id": "n3",
+          "type": "checkpoint",
+          "question": "การล็อกแผงเครื่องจ่ายน้ำไม่ได้เปิดใช้งานอยู่ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n4",
+          "on_no": "n3f"
+        },
+        {
+          "node_id": "n3f",
+          "type": "instruction",
+          "content": "ปิดใช้งานการล็อกแผงเครื่องจ่ายน้ำ: กดปุ่ม น้ำ / ล็อก ค้างไว้อีกครั้งนานกว่า 3 วินาที การล็อกเครื่องจ่ายน้ำจะถูกปิดทำงาน (คู่มือหน้า 48)",
+          "safety_critical": false,
+          "author_note": "หน้า 65 ระบุเพียง 'ปิดใช้งานการล็อกแผงเครื่องจ่ายน้ำ' วิธีปิดมาจากหน้า 48",
+          "next": "n3v"
+        },
+        {
+          "node_id": "n3v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n4"
+        },
+        {
+          "node_id": "n4",
+          "type": "checkpoint",
+          "question": "อุณหภูมิช่องแช่แข็งตั้งไว้ต่ำพอใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_escalate",
+          "on_no": "n4f"
+        },
+        {
+          "node_id": "n4f",
+          "type": "instruction",
+          "content": "ตั้งอุณหภูมิช่องแช่แข็งให้ต่ำกว่า -18 °C (0 °F) หรือ -20 °C (-4 °F) ในสภาพอากาศแวดล้อมอุ่น (คู่มือหน้า 65) วิธีตั้งอุณหภูมิ: แตะปุ่มใดก็ได้ ( < , ○ หรือ > ) เพื่อปลุกจอแสดงผล (ขั้นตอนนี้อาจใช้ไม่ได้กับบางรุ่น) > แตะ ○ จนกระทั่งไฟแสดงสถานะช่องแช่เย็นหรือช่องแช่แข็งกะพริบ > แตะ < หรือ > เพื่อเลือกอุณหภูมิที่ต้องการ (ช่องแช่เย็น 1–7 °C ช่องแช่แข็ง -23 ถึง -15 °C) > รอ 5 วินาทีหรือแตะ ○ เพื่อยืนยันการเลือก เมื่อเปลี่ยนอุณหภูมิ ตู้เย็นต้องใช้เวลาสักพักเพื่อไปถึงอุณหภูมิใหม่ ซึ่งเป็นเรื่องปกติ (คู่มือหน้า 40)",
+          "safety_critical": false,
+          "author_note": "คู่มือไม่ได้ระบุว่า 'อากาศแวดล้อมอุ่น' คือกี่องศา. หน้า 63 ระบุเพียงผลที่ต้องการ ส่วนวิธีกดปุ่มตั้งอุณหภูมิมาจากหน้า 40 คู่มือไม่ระบุว่ากด < หรือ > แล้วอุณหภูมิขึ้นหรือลง ให้ดูตัวเลขบนจอ",
+          "next": "n4v"
+        },
+        {
+          "node_id": "n4v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "เครื่องทำน้ำแข็งผลิตน้ำแข็งแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung โทร 1282 (มีค่าโทร) หรือ 1800-29-3232 (โทรฟรีเฉพาะโทรศัพท์พื้นฐาน) หรือดูที่ www.samsung.com/th/support (คู่มือหน้า 74) พร้อมแจ้งรุ่นตู้เย็น อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_rs5000fc_um_ice_not_dispensed",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RS70F65Q1BST/RS70F65K1BST/RS80F65G1FST",
+      "entry_symptom": "เครื่องไม่สามารถจ่ายน้ำแข็งได้",
+      "entry_symptom_th": "ตู้เย็นไม่จ่ายน้ำแข็ง",
+      "entry_symptom_aliases": [
+        "น้ำแข็งไม่ออก",
+        "จ่ายน้ำแข็งไม่ได้",
+        "น้ำแข็งติด",
+        "ice not dispensing"
+      ],
+      "source": "Samsung Refrigerator User Manual RS70*/RS80* (Code No. DA68-04852N-00, Thai)",
+      "page_range": [
+        65,
+        65
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RS5000FC_p65_ice_not_dispensed",
+      "severity": "medium",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "ใส่ถังของเครื่องทำน้ำแข็งเข้าที่อย่างถูกต้องแล้วใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2",
+          "on_no": "n1f"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "ใส่ถังของเครื่องทำน้ำแข็งให้ถูกต้อง (คู่มือหน้า 65)",
+          "safety_critical": true,
+          "safety_warning": "อย่าวางนิ้วหรือวัตถุอื่นๆ ลงในช่องเครื่องจ่ายน้ำ รางน้ำแข็ง และถังผลิตน้ำแข็ง เพราะอาจได้รับบาดเจ็บหรือวัสดุเสียหายได้ (คู่มือหน้า 13 และ 19)",
+          "author_note": "หน้า 65 ระบุเพียง 'ใส่ถังของเครื่องทำน้ำแข็งให้ถูกต้อง' ภาพการถอดถังอยู่หน้า 54 แต่ไม่มีภาพการใส่กลับโดยตรง",
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "ต่อท่อจ่ายน้ำถูกต้องและเปิดระบบแหล่งจ่ายน้ำแล้วใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n3",
+          "on_no": "n2f"
+        },
+        {
+          "node_id": "n2f",
+          "type": "instruction",
+          "content": "ตรวจสอบว่าได้ต่อท่อจ่ายน้ำถูกต้อง และเปิดระบบแหล่งจ่ายน้ำแล้ว (คู่มือหน้า 65)",
+          "safety_critical": false,
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "node_id": "n3",
+          "type": "checkpoint",
+          "question": "ไม่ได้ใช้เครื่องจ่ายน้ำแข็งมานานประมาณ 3 เดือน (น้ำแข็งอาจติดขัด) ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n3f",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n3f",
+          "type": "instruction",
+          "content": "ทำให้ถังผลิตน้ำแข็งว่างเปล่า (นำน้ำแข็งออก) และปิดเครื่องทำน้ำแข็ง (คู่มือหน้า 65) ปิดเครื่องทำน้ำแข็ง: แตะปุ่มใดก็ได้ ( < , ○ หรือ > ) เพื่อปลุกจอแสดงผล (ขั้นตอนนี้อาจใช้ไม่ได้กับบางรุ่น) > แตะ ○ จนกระทั่งไฟแสดงสถานะเครื่องทำน้ำแข็งกะพริบ > แตะ > เพื่อปิดใช้งาน > รอ 5 วินาทีหรือแตะ ○ เพื่อยืนยันการเลือก ไฟแสดงสถานะเครื่องทำน้ำแข็งจะหยุดกะพริบ (คู่มือหน้า 41)",
+          "safety_critical": true,
+          "safety_warning": "อย่าวางนิ้วหรือวัตถุอื่นๆ ลงในช่องเครื่องจ่ายน้ำ รางน้ำแข็ง และถังผลิตน้ำแข็ง เพราะอาจได้รับบาดเจ็บหรือวัสดุเสียหายได้ (คู่มือหน้า 13 และ 19)",
+          "author_note": "คู่มือหน้า 65 เขียนข้อนี้เป็นคำแนะนำเมื่อจะไม่ใช้ตู้เย็นนาน ไม่ได้อธิบายวิธีแก้น้ำแข็งที่ติดขัดไปแล้ว ผู้พัฒนาจึงวางข้อนี้ไว้เป็นขั้นสุดท้ายก่อนส่งต่อศูนย์บริการ ควรตรวจสอบ. หน้า 65 ระบุเพียงให้เปิด/ปิดเครื่องทำน้ำแข็ง วิธีทำมาจากหน้า 41",
+          "next": "n3v"
+        },
+        {
+          "node_id": "n3v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "เครื่องจ่ายน้ำแข็งได้ตามปกติแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung โทร 1282 (มีค่าโทร) หรือ 1800-29-3232 (โทรฟรีเฉพาะโทรศัพท์พื้นฐาน) หรือดูที่ www.samsung.com/th/support (คู่มือหน้า 74) พร้อมแจ้งรุ่นตู้เย็น อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_rs5000fc_um_water_not_dispensed",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RS70F65Q1BST/RS70F65K1BST/RS80F65G1FST",
+      "entry_symptom": "เครื่องไม่สามารถจ่ายน้ำ",
+      "entry_symptom_th": "ตู้เย็นไม่จ่ายน้ำ",
+      "entry_symptom_aliases": [
+        "น้ำไม่ออก",
+        "กดน้ำไม่ออก",
+        "เครื่องกดน้ำตู้เย็นไม่ออก",
+        "water dispenser not working"
+      ],
+      "source": "Samsung Refrigerator User Manual RS70*/RS80* (Code No. DA68-04852N-00, Thai)",
+      "page_range": [
+        65,
+        65
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RS5000FC_p65_water_not_dispensed",
+      "severity": "medium",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "ต่อท่อจ่ายน้ำถูกต้องและเปิดระบบน้ำประปาแล้วใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2",
+          "on_no": "n1f"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "ตรวจสอบว่าได้ต่อท่อจ่ายน้ำถูกต้อง และเปิดระบบแหล่งจ่ายน้ำแล้ว (คู่มือหน้า 65)",
+          "safety_critical": false,
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "การล็อกแผงเครื่องจ่ายน้ำไม่ได้เปิดใช้งานอยู่ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n3",
+          "on_no": "n2f"
+        },
+        {
+          "node_id": "n2f",
+          "type": "instruction",
+          "content": "ปิดใช้งานการล็อกแผงเครื่องจ่ายน้ำ: กดปุ่ม น้ำ / ล็อก ค้างไว้อีกครั้งนานกว่า 3 วินาที การล็อกเครื่องจ่ายน้ำจะถูกปิดทำงาน (คู่มือหน้า 48)",
+          "safety_critical": false,
+          "author_note": "หน้า 65 ระบุเพียง 'ปิดใช้งานการล็อกแผงเครื่องจ่ายน้ำ' วิธีปิดมาจากหน้า 48",
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "node_id": "n3",
+          "type": "checkpoint",
+          "question": "ติดตั้งตัวกรองน้ำของผู้ผลิตรายอื่น (ไม่ใช่ของ Samsung) อยู่ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n3f",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n3f",
+          "type": "instruction",
+          "content": "ใช้ตัวกรองที่ได้รับการรับรองหรือให้มาโดย Samsung เท่านั้น (คู่มือหน้า 65) เปลี่ยนตัวกรองน้ำ: 1. ปิดระบบแหล่งจ่ายน้ำหลัก 2. ต่อท่อแหล่งจ่ายน้ำเข้ากับด้านขาเข้าของตัวกรองไปที่ปลาย 3. ต่อท่อเครื่องจ่ายน้ำไปยังด้านขาออกของตัวกรอง 4. ตรวจสอบว่าไม่มีการรั่วไหลใดๆ หากไม่มี ให้ยึดท่อโดยใช้ตัวหนีบ 5. ใส่ตัวกรองน้ำลงในตำแหน่งแล้วยึดโดยใช้ตัวหนีบ 6. กดปุ่ม เปลี่ยนตัวกรอง ค้างไว้เป็นเวลา 3 วินาที เพื่อนับหนึ่งรอบการใช้งานตัวกรองใหม่ 7. เมื่อเสร็จสิ้นการเปลี่ยน ให้ฟลัชน้ำออก 1 ลิตร เพื่อขจัดสิ่งสกปรกออกจากท่อจ่ายน้ำ (คู่มือหน้า 61) ตัวกรองที่ติดตั้งใหม่อาจทำให้น้ำฉีดพุ่งออกมาช่วงสั้นๆ เพราะมีอากาศในท่อจ่ายน้ำ และอาจมีน้ำหยดลงพื้น ให้ใช้ผ้าแห้งเช็ดทำความสะอาด ซื้อตัวกรองใหม่ (ประเภทชิ้นส่วน: HAFEX/EXP) ได้ที่ศูนย์บริการ Samsung ใกล้บ้าน (คู่มือหน้า 62)",
+          "safety_critical": true,
+          "safety_warning": "ใช้เฉพาะตัวกรองน้ำที่ได้รับการรับรองหรือให้มาโดย Samsung เท่านั้น ตัวกรองที่ไม่ได้รับการรับรองอาจรั่วและทำให้ตู้เย็นเสียหาย และอาจทำให้เกิดไฟฟ้าดูด (คู่มือหน้า 61 และ 65) ถ้ามีน้ำหรือฝุ่นเข้าไปในตู้เย็น หรือตู้เย็นเปียก ให้ดึงปลั๊กไฟออกและติดต่อศูนย์บริการ Samsung Electronics เพราะมีความเสี่ยงของเพลิงไหม้หรือไฟฟ้าดูด (คู่มือหน้า 10, 17 และ 18)",
+          "author_note": "ขั้นตอนเปลี่ยนตัวกรองมาจากหน้า 61 (ขั้นตอนที่ 6 อ้างถึงปุ่ม 'เปลี่ยนตัวกรอง' ซึ่งไม่ตรงกับป้ายบนแผงหลักหน้า 38 ที่ใช้คำว่า Filter Reset) คู่มือไม่ได้ระบุว่าขั้นตอนที่ 6 ใช้กับรุ่นใด ควรตรวจกับรุ่นจริง",
+          "next": "n3v"
+        },
+        {
+          "node_id": "n3v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "เครื่องจ่ายน้ำได้ตามปกติแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung โทร 1282 (มีค่าโทร) หรือ 1800-29-3232 (โทรฟรีเฉพาะโทรศัพท์พื้นฐาน) หรือดูที่ www.samsung.com/th/support (คู่มือหน้า 74) พร้อมแจ้งรุ่นตู้เย็น อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_rs5000fc_um_filter_icon",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RS70F65Q1BST/RS70F65K1BST/RS80F65G1FST",
+      "entry_symptom": "เมื่อเห็นไอคอนตัวกรองน้ำ",
+      "entry_symptom_th": "ไอคอนเปลี่ยนตัวกรองน้ำกะพริบหรือขึ้นสีแดง",
+      "entry_symptom_aliases": [
+        "เปลี่ยนไส้กรองน้ำ",
+        "ไอคอนไส้กรองน้ำ",
+        "รีเซ็ตไส้กรองน้ำ",
+        "water filter icon",
+        "filter reset"
+      ],
+      "source": "Samsung Refrigerator User Manual RS70*/RS80* (Code No. DA68-04852N-00, Thai)",
+      "page_range": [
+        66,
+        66
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RS5000FC_p66_filter_icon",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "ไอคอนตัวกรองน้ำแสดงอยู่บนแผงควบคุมหลักของตู้เย็นใช่หรือไม่? (ประเภททั่วไป)",
+          "safety_critical": false,
+          "author_note": "หน้า 66 แยกวิธีตามประเภท: ทั่วไป / Family Hub / AI Home Hub ผู้ใช้ควรทราบประเภทของตู้เย็นตัวเอง",
+          "on_yes": "g1",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "g1",
+          "type": "instruction",
+          "content": "เปลี่ยนตัวกรองน้ำ: 1. ปิดระบบแหล่งจ่ายน้ำหลัก 2. ต่อท่อแหล่งจ่ายน้ำเข้ากับด้านขาเข้าของตัวกรองไปที่ปลาย 3. ต่อท่อเครื่องจ่ายน้ำไปยังด้านขาออกของตัวกรอง 4. ตรวจสอบว่าไม่มีการรั่วไหลใดๆ หากไม่มี ให้ยึดท่อโดยใช้ตัวหนีบ 5. ใส่ตัวกรองน้ำลงในตำแหน่งแล้วยึดโดยใช้ตัวหนีบ 6. กดปุ่ม เปลี่ยนตัวกรอง ค้างไว้เป็นเวลา 3 วินาที เพื่อนับหนึ่งรอบการใช้งานตัวกรองใหม่ 7. เมื่อเสร็จสิ้นการเปลี่ยน ให้ฟลัชน้ำออก 1 ลิตร เพื่อขจัดสิ่งสกปรกออกจากท่อจ่ายน้ำ (คู่มือหน้า 61) ตัวกรองที่ติดตั้งใหม่อาจทำให้น้ำฉีดพุ่งออกมาช่วงสั้นๆ เพราะมีอากาศในท่อจ่ายน้ำ และอาจมีน้ำหยดลงพื้น ให้ใช้ผ้าแห้งเช็ดทำความสะอาด ซื้อตัวกรองใหม่ (ประเภทชิ้นส่วน: HAFEX/EXP) ได้ที่ศูนย์บริการ Samsung ใกล้บ้าน (คู่มือหน้า 62)",
+          "safety_critical": true,
+          "safety_warning": "ใช้เฉพาะตัวกรองน้ำที่ได้รับการรับรองหรือให้มาโดย Samsung เท่านั้น ตัวกรองที่ไม่ได้รับการรับรองอาจรั่วและทำให้ตู้เย็นเสียหาย และอาจทำให้เกิดไฟฟ้าดูด (คู่มือหน้า 61 และ 65) ถ้ามีน้ำหรือฝุ่นเข้าไปในตู้เย็น หรือตู้เย็นเปียก ให้ดึงปลั๊กไฟออกและติดต่อศูนย์บริการ Samsung Electronics เพราะมีความเสี่ยงของเพลิงไหม้หรือไฟฟ้าดูด (คู่มือหน้า 10, 17 และ 18)",
+          "author_note": "ขั้นตอนเปลี่ยนตัวกรองมาจากหน้า 61 (ขั้นตอนที่ 6 อ้างถึงปุ่ม 'เปลี่ยนตัวกรอง' ซึ่งไม่ตรงกับป้ายบนแผงหลักหน้า 38 ที่ใช้คำว่า Filter Reset) คู่มือไม่ได้ระบุว่าขั้นตอนที่ 6 ใช้กับรุ่นใด ควรตรวจกับรุ่นจริง",
+          "next": "g2"
+        },
+        {
+          "node_id": "g2",
+          "type": "instruction",
+          "content": "รีเซ็ตสัญญาณเตือนการเปลี่ยนตัวกรองน้ำบนแผงหลัก (Filter Reset): แตะปุ่มใดก็ได้ ( < , ○ หรือ > ) เพื่อปลุกจอแสดงผล (ขั้นตอนนี้อาจใช้ไม่ได้กับบางรุ่น) > แตะ ○ จนกระทั่งไฟแสดงสถานะตัวกรองน้ำกะพริบ > แตะ < หรือ > เพื่อเลือกรีเซ็ตตัวกรองหรือกรองในภายหลัง: หากได้เปลี่ยนตัวกรองน้ำแล้ว ให้แตะ > เพื่อรีเซ็ตสัญญาณเตือนการเปลี่ยนตัวกรองน้ำ (หากต้องการเปลี่ยนในภายหลังและปิดสัญญาณเตือน ให้แตะ <) > รอ 5 วินาทีหรือแตะ ○ เพื่อยืนยันการเลือก ไฟแสดงสถานะตัวกรองน้ำจะหยุดกะพริบ (คู่มือหน้า 42 และ 66)",
+          "safety_critical": false,
+          "author_note": "หน้า 66 ระบุเพียง 'กด Filter Reset' วิธีกดปุ่มรีเซ็ตมาจากหน้า 42",
+          "next": "g3"
+        },
+        {
+          "node_id": "g3",
+          "type": "checkpoint",
+          "question": "หลังรีเซ็ตแล้ว ไฟแสดงสถานะตัวกรองน้ำหยุดกะพริบใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "ตู้เย็นเป็นประเภท Family Hub และไฟแสดงสถานะตัวกรองน้ำเป็นสีแดงใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "f1",
+          "on_no": "n3"
+        },
+        {
+          "node_id": "f1",
+          "type": "instruction",
+          "content": "เปลี่ยนตัวกรองน้ำ: 1. ปิดระบบแหล่งจ่ายน้ำหลัก 2. ต่อท่อแหล่งจ่ายน้ำเข้ากับด้านขาเข้าของตัวกรองไปที่ปลาย 3. ต่อท่อเครื่องจ่ายน้ำไปยังด้านขาออกของตัวกรอง 4. ตรวจสอบว่าไม่มีการรั่วไหลใดๆ หากไม่มี ให้ยึดท่อโดยใช้ตัวหนีบ 5. ใส่ตัวกรองน้ำลงในตำแหน่งแล้วยึดโดยใช้ตัวหนีบ 6. กดปุ่ม เปลี่ยนตัวกรอง ค้างไว้เป็นเวลา 3 วินาที เพื่อนับหนึ่งรอบการใช้งานตัวกรองใหม่ 7. เมื่อเสร็จสิ้นการเปลี่ยน ให้ฟลัชน้ำออก 1 ลิตร เพื่อขจัดสิ่งสกปรกออกจากท่อจ่ายน้ำ (คู่มือหน้า 61) ตัวกรองที่ติดตั้งใหม่อาจทำให้น้ำฉีดพุ่งออกมาช่วงสั้นๆ เพราะมีอากาศในท่อจ่ายน้ำ และอาจมีน้ำหยดลงพื้น ให้ใช้ผ้าแห้งเช็ดทำความสะอาด ซื้อตัวกรองใหม่ (ประเภทชิ้นส่วน: HAFEX/EXP) ได้ที่ศูนย์บริการ Samsung ใกล้บ้าน (คู่มือหน้า 62)",
+          "safety_critical": true,
+          "safety_warning": "ใช้เฉพาะตัวกรองน้ำที่ได้รับการรับรองหรือให้มาโดย Samsung เท่านั้น ตัวกรองที่ไม่ได้รับการรับรองอาจรั่วและทำให้ตู้เย็นเสียหาย และอาจทำให้เกิดไฟฟ้าดูด (คู่มือหน้า 61 และ 65) ถ้ามีน้ำหรือฝุ่นเข้าไปในตู้เย็น หรือตู้เย็นเปียก ให้ดึงปลั๊กไฟออกและติดต่อศูนย์บริการ Samsung Electronics เพราะมีความเสี่ยงของเพลิงไหม้หรือไฟฟ้าดูด (คู่มือหน้า 10, 17 และ 18)",
+          "author_note": "ขั้นตอนเปลี่ยนตัวกรองมาจากหน้า 61 (ขั้นตอนที่ 6 อ้างถึงปุ่ม 'เปลี่ยนตัวกรอง' ซึ่งไม่ตรงกับป้ายบนแผงหลักหน้า 38 ที่ใช้คำว่า Filter Reset) คู่มือไม่ได้ระบุว่าขั้นตอนที่ 6 ใช้กับรุ่นใด ควรตรวจกับรุ่นจริง",
+          "next": "f2"
+        },
+        {
+          "node_id": "f2",
+          "type": "instruction",
+          "content": "หลังเปลี่ยนตัวกรองน้ำแล้ว ให้รีเซ็ตตัวกรองใน Fridge Manager > การตั้งค่าตู้เย็น > ตัวกรองน้ำ (คู่มือหน้า 66)",
+          "safety_critical": false,
+          "next": "f3"
+        },
+        {
+          "node_id": "f3",
+          "type": "checkpoint",
+          "question": "หลังรีเซ็ตแล้ว ไฟแสดงสถานะตัวกรองน้ำไม่เป็นสีแดงแล้วใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n3",
+          "type": "checkpoint",
+          "question": "ตู้เย็นเป็นประเภท AI Home Hub และไฟแสดงสถานะตัวกรองน้ำเป็นสีแดงใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "h1",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "h1",
+          "type": "instruction",
+          "content": "เปลี่ยนตัวกรองน้ำ: 1. ปิดระบบแหล่งจ่ายน้ำหลัก 2. ต่อท่อแหล่งจ่ายน้ำเข้ากับด้านขาเข้าของตัวกรองไปที่ปลาย 3. ต่อท่อเครื่องจ่ายน้ำไปยังด้านขาออกของตัวกรอง 4. ตรวจสอบว่าไม่มีการรั่วไหลใดๆ หากไม่มี ให้ยึดท่อโดยใช้ตัวหนีบ 5. ใส่ตัวกรองน้ำลงในตำแหน่งแล้วยึดโดยใช้ตัวหนีบ 6. กดปุ่ม เปลี่ยนตัวกรอง ค้างไว้เป็นเวลา 3 วินาที เพื่อนับหนึ่งรอบการใช้งานตัวกรองใหม่ 7. เมื่อเสร็จสิ้นการเปลี่ยน ให้ฟลัชน้ำออก 1 ลิตร เพื่อขจัดสิ่งสกปรกออกจากท่อจ่ายน้ำ (คู่มือหน้า 61) ตัวกรองที่ติดตั้งใหม่อาจทำให้น้ำฉีดพุ่งออกมาช่วงสั้นๆ เพราะมีอากาศในท่อจ่ายน้ำ และอาจมีน้ำหยดลงพื้น ให้ใช้ผ้าแห้งเช็ดทำความสะอาด ซื้อตัวกรองใหม่ (ประเภทชิ้นส่วน: HAFEX/EXP) ได้ที่ศูนย์บริการ Samsung ใกล้บ้าน (คู่มือหน้า 62)",
+          "safety_critical": true,
+          "safety_warning": "ใช้เฉพาะตัวกรองน้ำที่ได้รับการรับรองหรือให้มาโดย Samsung เท่านั้น ตัวกรองที่ไม่ได้รับการรับรองอาจรั่วและทำให้ตู้เย็นเสียหาย และอาจทำให้เกิดไฟฟ้าดูด (คู่มือหน้า 61 และ 65) ถ้ามีน้ำหรือฝุ่นเข้าไปในตู้เย็น หรือตู้เย็นเปียก ให้ดึงปลั๊กไฟออกและติดต่อศูนย์บริการ Samsung Electronics เพราะมีความเสี่ยงของเพลิงไหม้หรือไฟฟ้าดูด (คู่มือหน้า 10, 17 และ 18)",
+          "author_note": "ขั้นตอนเปลี่ยนตัวกรองมาจากหน้า 61 (ขั้นตอนที่ 6 อ้างถึงปุ่ม 'เปลี่ยนตัวกรอง' ซึ่งไม่ตรงกับป้ายบนแผงหลักหน้า 38 ที่ใช้คำว่า Filter Reset) คู่มือไม่ได้ระบุว่าขั้นตอนที่ 6 ใช้กับรุ่นใด ควรตรวจกับรุ่นจริง",
+          "next": "h2"
+        },
+        {
+          "node_id": "h2",
+          "type": "instruction",
+          "content": "หลังเปลี่ยนตัวกรองน้ำแล้ว ให้รีเซ็ตตัวกรองใน การดูแลผลิตภัณฑ์ > ตัวกรองน้ำ (คู่มือหน้า 66)",
+          "safety_critical": false,
+          "next": "h3"
+        },
+        {
+          "node_id": "h3",
+          "type": "checkpoint",
+          "question": "หลังรีเซ็ตแล้ว ไฟแสดงสถานะตัวกรองน้ำไม่เป็นสีแดงแล้วใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "เปลี่ยนและรีเซ็ตตัวกรองน้ำเรียบร้อยแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung โทร 1282 (มีค่าโทร) หรือ 1800-29-3232 (โทรฟรีเฉพาะโทรศัพท์พื้นฐาน) หรือดูที่ www.samsung.com/th/support (คู่มือหน้า 74) พร้อมแจ้งรุ่นตู้เย็น อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_rs5000fc_um_door_not_open_wide",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RS70F65Q1BST/RS70F65K1BST/RS80F65G1FST",
+      "entry_symptom": "ประตูช่องแช่เย็นเปิดไม่กว้างพอ (ประตูเปิดอัตโนมัติ รุ่นที่เกี่ยวข้องเท่านั้น)",
+      "entry_symptom_th": "ประตูตู้เย็นเปิดอัตโนมัติเปิดไม่กว้าง",
+      "entry_symptom_aliases": [
+        "ประตูเปิดไม่สุด",
+        "ประตูตู้เย็นเปิดไม่กว้าง",
+        "ตู้เย็นเอียง",
+        "fridge door not opening wide"
+      ],
+      "source": "Samsung Refrigerator User Manual RS70*/RS80* (Code No. DA68-04852N-00, Thai)",
+      "page_range": [
+        67,
+        67
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RS5000FC_p67_door_not_open_wide",
+      "severity": "low",
+      "difficulty": "medium",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "ประตูช่องแช่เย็นทั้งสองบานเปิดได้ไม่กว้างพอใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n1f",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "ยกด้านหลังของตู้เย็นขึ้นเพื่อปรับระดับ (คู่มือหน้า 67) โดยใช้แผ่นปรับระดับที่ให้มา ทำตามภาพ 'การปรับความสูงด้านหลัง (รุ่นที่เกี่ยวข้องเท่านั้น)' เพื่อยกด้านหลังของตู้เย็นขึ้น (คู่มือหน้า 28)",
+          "safety_critical": true,
+          "safety_warning": "ตู้เย็นต้องได้ระดับกับพื้นราบและแข็งแรง การปรับระดับต้องทำขณะที่ตู้เย็นว่างเปล่า ตรวจสอบว่าไม่มีอาหารคงค้างอยู่ในตู้เย็น และด้วยเหตุผลด้านความปลอดภัยให้ปรับด้านหน้าให้สูงกว่าด้านหลังเล็กน้อย (คู่มือหน้า 28)",
+          "author_note": "หน้า 67 ระบุเพียง 'ยกด้านหน้า/ด้านหลังขึ้นเพื่อปรับระดับ' และอ้างไปที่ 'ขั้นตอน 4 ปรับขาตั้งปรับระดับ' หน้า 28 วิธีทำจึงมาจากหน้า 28",
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "เฉพาะประตูด้านซ้ายที่เปิดได้ไม่กว้างพอใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2f",
+          "on_no": "n3",
+          "author_note": "คู่มือไม่ระบุว่า 'ซ้าย/ขวา' มองจากด้านหน้าหรือด้านหลังตู้เย็น ผู้พัฒนาตีความว่ามองจากด้านหน้า ควรตรวจกับภาพประกอบหน้า 67"
+        },
+        {
+          "node_id": "n2f",
+          "type": "instruction",
+          "content": "ยกด้านหลังขวาของตู้เย็นขึ้นเพื่อปรับระดับ (คู่มือหน้า 67) โดยใช้แผ่นปรับระดับที่ให้มา ทำตามภาพ 'การปรับความสูงด้านหลัง (รุ่นที่เกี่ยวข้องเท่านั้น)' เพื่อยกด้านหลังของตู้เย็นขึ้น (คู่มือหน้า 28)",
+          "safety_critical": true,
+          "safety_warning": "ตู้เย็นต้องได้ระดับกับพื้นราบและแข็งแรง การปรับระดับต้องทำขณะที่ตู้เย็นว่างเปล่า ตรวจสอบว่าไม่มีอาหารคงค้างอยู่ในตู้เย็น และด้วยเหตุผลด้านความปลอดภัยให้ปรับด้านหน้าให้สูงกว่าด้านหลังเล็กน้อย (คู่มือหน้า 28)",
+          "author_note": "หน้า 67 ระบุเพียง 'ยกด้านหน้า/ด้านหลังขึ้นเพื่อปรับระดับ' และอ้างไปที่ 'ขั้นตอน 4 ปรับขาตั้งปรับระดับ' หน้า 28 วิธีทำจึงมาจากหน้า 28",
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n3",
+          "type": "checkpoint",
+          "question": "เฉพาะประตูด้านขวาที่เปิดได้ไม่กว้างพอใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n3f",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n3f",
+          "type": "instruction",
+          "content": "ยกด้านหลังซ้ายของตู้เย็นขึ้นเพื่อปรับระดับ (คู่มือหน้า 67) โดยใช้แผ่นปรับระดับที่ให้มา ทำตามภาพ 'การปรับความสูงด้านหลัง (รุ่นที่เกี่ยวข้องเท่านั้น)' เพื่อยกด้านหลังของตู้เย็นขึ้น (คู่มือหน้า 28)",
+          "safety_critical": true,
+          "safety_warning": "ตู้เย็นต้องได้ระดับกับพื้นราบและแข็งแรง การปรับระดับต้องทำขณะที่ตู้เย็นว่างเปล่า ตรวจสอบว่าไม่มีอาหารคงค้างอยู่ในตู้เย็น และด้วยเหตุผลด้านความปลอดภัยให้ปรับด้านหน้าให้สูงกว่าด้านหลังเล็กน้อย (คู่มือหน้า 28)",
+          "author_note": "หน้า 67 ระบุเพียง 'ยกด้านหน้า/ด้านหลังขึ้นเพื่อปรับระดับ' และอ้างไปที่ 'ขั้นตอน 4 ปรับขาตั้งปรับระดับ' หน้า 28 วิธีทำจึงมาจากหน้า 28",
+          "next": "n3v"
+        },
+        {
+          "node_id": "n3v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "ประตูเปิดได้กว้างพอแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung โทร 1282 (มีค่าโทร) หรือ 1800-29-3232 (โทรฟรีเฉพาะโทรศัพท์พื้นฐาน) หรือดูที่ www.samsung.com/th/support (คู่มือหน้า 74) พร้อมแจ้งรุ่นตู้เย็น อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_rs5000fc_um_door_opens_too_wide",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RS70F65Q1BST/RS70F65K1BST/RS80F65G1FST",
+      "entry_symptom": "เปิดประตูช่องแช่เย็นกว้างเกินไป (ประตูเปิดอัตโนมัติ รุ่นที่เกี่ยวข้องเท่านั้น)",
+      "entry_symptom_th": "ประตูตู้เย็นเปิดกว้างเกินไป",
+      "entry_symptom_aliases": [
+        "ประตูเปิดกว้างเกิน",
+        "ประตูตู้เย็นเด้งเปิดกว้าง",
+        "fridge door opens too wide"
+      ],
+      "source": "Samsung Refrigerator User Manual RS70*/RS80* (Code No. DA68-04852N-00, Thai)",
+      "page_range": [
+        67,
+        67
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RS5000FC_p67_door_opens_too_wide",
+      "severity": "low",
+      "difficulty": "medium",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "ประตูช่องแช่เย็นเปิดกว้างเกินไปใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n1f",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "ยกด้านหน้าของตู้เย็นขึ้นเพื่อปรับระดับ (คู่มือหน้า 67): เสียบไขควงปากแบนเข้าไปในตัวปรับระดับของขาหน้า หมุนตัวปรับระดับตามเข็มนาฬิกาเพื่อปรับระดับขึ้น หรือหมุนทวนเข็มนาฬิกาเพื่อลดระดับลง ทำทั้งด้านช่องแช่แข็งและด้านช่องแช่เย็นตามต้องการ (คู่มือหน้า 28)",
+          "safety_critical": true,
+          "safety_warning": "ตู้เย็นต้องได้ระดับกับพื้นราบและแข็งแรง การปรับระดับต้องทำขณะที่ตู้เย็นว่างเปล่า ตรวจสอบว่าไม่มีอาหารคงค้างอยู่ในตู้เย็น และด้วยเหตุผลด้านความปลอดภัยให้ปรับด้านหน้าให้สูงกว่าด้านหลังเล็กน้อย (คู่มือหน้า 28)",
+          "author_note": "หน้า 67 ระบุเพียง 'ยกด้านหน้า/ด้านหลังขึ้นเพื่อปรับระดับ' และอ้างไปที่ 'ขั้นตอน 4 ปรับขาตั้งปรับระดับ' หน้า 28 วิธีทำจึงมาจากหน้า 28",
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "ประตูเปิดได้ในมุมที่เหมาะสมแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung โทร 1282 (มีค่าโทร) หรือ 1800-29-3232 (โทรฟรีเฉพาะโทรศัพท์พื้นฐาน) หรือดูที่ www.samsung.com/th/support (คู่มือหน้า 74) พร้อมแจ้งรุ่นตู้เย็น อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_rs5000fc_um_sound_startup",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RS70F65Q1BST/RS70F65K1BST/RS80F65G1FST",
+      "entry_symptom": "เมื่อเริ่มหรือสิ้นสุดการทำงาน ตู้เย็นอาจส่งเสียงดังคล้ายกับการจุดระเบิดเครื่องยนต์ของรถยนต์",
+      "entry_symptom_th": "ตู้เย็นมีเสียงคลิกหรือเสียงดังตอนเริ่มทำงาน",
+      "entry_symptom_aliases": [
+        "เสียงคลิกตู้เย็น",
+        "เสียงจ๊อกแจ๊ก",
+        "เสียงหึ่งตู้เย็นตอนเริ่ม",
+        "ตู้เย็นมีเสียงดัง",
+        "เสียงผิดปกติจากตู้เย็น",
+        "fridge noise"
+      ],
+      "source": "Samsung Refrigerator User Manual RS70*/RS80* (Code No. DA68-04852N-00, Thai)",
+      "page_range": [
+        68,
+        68
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RS5000FC_p68_sound_startup",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "เสียงที่ได้ยินเป็นเสียงคลิก (จ๊อกแจ๊ก) หรือเสียงดังหึ่งๆ ตอนตู้เย็นเริ่มหรือสิ้นสุดการทำงาน แล้วค่อยๆ เบาลงใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n1n",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n1n",
+          "type": "resolution",
+          "content": "เป็นเสียงปกติ เมื่อเริ่มหรือสิ้นสุดการทำงาน ตู้เย็นอาจส่งเสียงดังคล้ายการจุดระเบิดเครื่องยนต์ของรถยนต์ เมื่อทำงานราบรื่นแล้ว เสียงจะค่อยๆ ลดลง (คู่มือหน้า 68) คู่มือแจ้งว่าการเรียกบริการในกรณีที่เป็นสถานการณ์ปกติ (ไม่ใช่ผลิตภัณฑ์บกพร่อง) มีค่าบริการสำหรับผู้ใช้ทั่วไป (คู่มือหน้า 63 และ 68)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung โทร 1282 (มีค่าโทร) หรือ 1800-29-3232 (โทรฟรีเฉพาะโทรศัพท์พื้นฐาน) หรือดูที่ www.samsung.com/th/support (คู่มือหน้า 74) พร้อมแจ้งรุ่นตู้เย็น อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_rs5000fc_um_sound_fan",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RS70F65Q1BST/RS70F65K1BST/RS80F65G1FST",
+      "entry_symptom": "เสียงขณะพัดลมทำงาน (เสียงหวี่ๆ เสียงลมพัด)",
+      "entry_symptom_th": "ตู้เย็นมีเสียงพัดลมหรือเสียงลมพัด",
+      "entry_symptom_aliases": [
+        "เสียงพัดลมตู้เย็น",
+        "เสียงหวี่ตู้เย็น",
+        "เสียงลมในตู้เย็น",
+        "ตู้เย็นมีเสียงดัง",
+        "เสียงผิดปกติจากตู้เย็น",
+        "fridge noise"
+      ],
+      "source": "Samsung Refrigerator User Manual RS70*/RS80* (Code No. DA68-04852N-00, Thai)",
+      "page_range": [
+        68,
+        68
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RS5000FC_p68_sound_fan",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "เป็นเสียงหวี่ๆ หรือเสียงลมพัดขณะพัดลมทำงาน และเสียงหายไปเมื่อตู้เย็นเย็นถึงอุณหภูมิที่ตั้งไว้ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n1n",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n1n",
+          "type": "resolution",
+          "content": "เป็นเสียงปกติ ในขณะที่พัดลมทำงาน เสียงเหล่านี้อาจเกิดขึ้น เมื่อตู้เย็นไปถึงอุณหภูมิที่ตั้งไว้ จะไม่มีเสียงพัดลมอีก (คู่มือหน้า 68) คู่มือแจ้งว่าการเรียกบริการในกรณีที่เป็นสถานการณ์ปกติ (ไม่ใช่ผลิตภัณฑ์บกพร่อง) มีค่าบริการสำหรับผู้ใช้ทั่วไป (คู่มือหน้า 63 และ 68)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung โทร 1282 (มีค่าโทร) หรือ 1800-29-3232 (โทรฟรีเฉพาะโทรศัพท์พื้นฐาน) หรือดูที่ www.samsung.com/th/support (คู่มือหน้า 74) พร้อมแจ้งรุ่นตู้เย็น อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_rs5000fc_um_sound_defrost_sizzle",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RS70F65Q1BST/RS70F65K1BST/RS80F65G1FST",
+      "entry_symptom": "เสียงซี่ซ่าในระหว่างการละลายน้ำแข็ง (เสียงฟู่ๆ)",
+      "entry_symptom_th": "ตู้เย็นมีเสียงฟู่หรือซ่าตอนละลายน้ำแข็ง",
+      "entry_symptom_aliases": [
+        "เสียงฟู่ตู้เย็น",
+        "เสียงซ่าตู้เย็น",
+        "เสียงละลายน้ำแข็ง",
+        "ตู้เย็นมีเสียงดัง",
+        "เสียงผิดปกติจากตู้เย็น",
+        "fridge noise"
+      ],
+      "source": "Samsung Refrigerator User Manual RS70*/RS80* (Code No. DA68-04852N-00, Thai)",
+      "page_range": [
+        68,
+        68
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RS5000FC_p68_sound_defrost_sizzle",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "เป็นเสียงซี่ซ่าหรือฟู่ๆ ในช่วงที่ตู้เย็นกำลังละลายน้ำแข็งใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n1n",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n1n",
+          "type": "resolution",
+          "content": "เป็นเสียงปกติ ในระหว่างการละลายน้ำแข็ง น้ำอาจหยดลงมาบนตัวทำความร้อนละลายน้ำแข็ง ทำให้เกิดเสียงซี่ซ่า (คู่มือหน้า 68) คู่มือแจ้งว่าการเรียกบริการในกรณีที่เป็นสถานการณ์ปกติ (ไม่ใช่ผลิตภัณฑ์บกพร่อง) มีค่าบริการสำหรับผู้ใช้ทั่วไป (คู่มือหน้า 63 และ 68)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung โทร 1282 (มีค่าโทร) หรือ 1800-29-3232 (โทรฟรีเฉพาะโทรศัพท์พื้นฐาน) หรือดูที่ www.samsung.com/th/support (คู่มือหน้า 74) พร้อมแจ้งรุ่นตู้เย็น อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_rs5000fc_um_sound_refrigerant_flow",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RS70F65Q1BST/RS70F65K1BST/RS80F65G1FST",
+      "entry_symptom": "เสียงคล้ายน้ำไหลหรือการผุดเป็นฟองขณะตู้เย็นให้ความเย็นหรือการแข็งตัว",
+      "entry_symptom_th": "ตู้เย็นมีเสียงน้ำไหลหรือเสียงฟองอากาศ",
+      "entry_symptom_aliases": [
+        "เสียงน้ำไหลในตู้เย็น",
+        "เสียงฟองในตู้เย็น",
+        "เสียงน้ำยาแอร์ไหล",
+        "ตู้เย็นมีเสียงดัง",
+        "เสียงผิดปกติจากตู้เย็น",
+        "fridge noise"
+      ],
+      "source": "Samsung Refrigerator User Manual RS70*/RS80* (Code No. DA68-04852N-00, Thai)",
+      "page_range": [
+        69,
+        69
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RS5000FC_p69_sound_refrigerant_flow",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "เป็นเสียงคล้ายน้ำไหลหรือการผุดเป็นฟองขณะตู้เย็นทำความเย็นหรือแช่แข็งใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n1n",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n1n",
+          "type": "resolution",
+          "content": "เป็นเสียงปกติ เมื่อตู้เย็นให้ความเย็นหรือการแข็งตัว ก๊าซสารทำความเย็นจะเคลื่อนย้ายระหว่างท่อที่มีซีลปิดผนึก ทำให้เกิดเสียงคล้ายน้ำไหลการผุดเป็นฟอง (คู่มือหน้า 69) คู่มือแจ้งว่าการเรียกบริการในกรณีที่เป็นสถานการณ์ปกติ (ไม่ใช่ผลิตภัณฑ์บกพร่อง) มีค่าบริการสำหรับผู้ใช้ทั่วไป (คู่มือหน้า 63 และ 68)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung โทร 1282 (มีค่าโทร) หรือ 1800-29-3232 (โทรฟรีเฉพาะโทรศัพท์พื้นฐาน) หรือดูที่ www.samsung.com/th/support (คู่มือหน้า 74) พร้อมแจ้งรุ่นตู้เย็น อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_rs5000fc_um_sound_cracking",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RS70F65Q1BST/RS70F65K1BST/RS80F65G1FST",
+      "entry_symptom": "เสียงกระแทกหรือเสียงรอยแตกเมื่ออุณหภูมิตู้เย็นเพิ่มขึ้นหรือลดลง",
+      "entry_symptom_th": "ตู้เย็นมีเสียงแตกหรือเสียงกระแทก",
+      "entry_symptom_aliases": [
+        "เสียงแตกในตู้เย็น",
+        "เสียงก๊อกแก๊กตู้เย็น",
+        "เสียงรอยแตกตู้เย็น",
+        "ตู้เย็นมีเสียงดัง",
+        "เสียงผิดปกติจากตู้เย็น",
+        "fridge noise"
+      ],
+      "source": "Samsung Refrigerator User Manual RS70*/RS80* (Code No. DA68-04852N-00, Thai)",
+      "page_range": [
+        69,
+        69
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RS5000FC_p69_sound_cracking",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "เป็นเสียงกระแทกหรือรอยแตกในช่วงที่อุณหภูมิตู้เย็นเปลี่ยน ระหว่างรอบละลายน้ำแข็ง หรือขณะชิ้นส่วนไฟฟ้าทำงานใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n1n",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n1n",
+          "type": "resolution",
+          "content": "เป็นเสียงปกติ เมื่ออุณหภูมิตู้เย็นเพิ่มขึ้นหรือลดลง ชิ้นส่วนพลาสติกจะสัมผัสกันและขยายตัว ทำให้เกิดเสียงการกระแทก เสียงเหล่านี้เกิดในระหว่างรอบการละลายน้ำแข็งหรือขณะที่ชิ้นส่วนทางไฟฟ้าทำงาน (คู่มือหน้า 69) คู่มือแจ้งว่าการเรียกบริการในกรณีที่เป็นสถานการณ์ปกติ (ไม่ใช่ผลิตภัณฑ์บกพร่อง) มีค่าบริการสำหรับผู้ใช้ทั่วไป (คู่มือหน้า 63 และ 68)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung โทร 1282 (มีค่าโทร) หรือ 1800-29-3232 (โทรฟรีเฉพาะโทรศัพท์พื้นฐาน) หรือดูที่ www.samsung.com/th/support (คู่มือหน้า 74) พร้อมแจ้งรุ่นตู้เย็น อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_rs5000fc_um_sound_ice_valve",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RS70F65Q1BST/RS70F65K1BST/RS80F65G1FST",
+      "entry_symptom": "เสียงหึ่งๆ เมื่อวาล์วน้ำเปิดเติมน้ำให้เครื่องทำน้ำแข็ง (รุ่นที่มีเครื่องทำน้ำแข็ง)",
+      "entry_symptom_th": "ตู้เย็นมีเสียงหึ่งตอนเติมน้ำเครื่องทำน้ำแข็ง",
+      "entry_symptom_aliases": [
+        "เสียงวาล์วน้ำตู้เย็น",
+        "เสียงหึ่งเครื่องทำน้ำแข็ง",
+        "ตู้เย็นมีเสียงดัง",
+        "เสียงผิดปกติจากตู้เย็น",
+        "fridge noise"
+      ],
+      "source": "Samsung Refrigerator User Manual RS70*/RS80* (Code No. DA68-04852N-00, Thai)",
+      "page_range": [
+        69,
+        69
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RS5000FC_p69_sound_ice_valve",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "ตู้เย็นของท่านมีเครื่องทำน้ำแข็ง และได้ยินเสียงหึ่งๆ ตอนวาล์วน้ำเปิดเติมน้ำให้เครื่องทำน้ำแข็งใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n1n",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n1n",
+          "type": "resolution",
+          "content": "เป็นเสียงปกติ สำหรับรุ่นที่มีเครื่องทำน้ำแข็ง เมื่อวาล์วน้ำเปิดเพื่อเติมน้ำให้เครื่องทำน้ำแข็ง จะมีเสียงหึ่งๆ ออกมา (คู่มือหน้า 69) คู่มือแจ้งว่าการเรียกบริการในกรณีที่เป็นสถานการณ์ปกติ (ไม่ใช่ผลิตภัณฑ์บกพร่อง) มีค่าบริการสำหรับผู้ใช้ทั่วไป (คู่มือหน้า 63 และ 68)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung โทร 1282 (มีค่าโทร) หรือ 1800-29-3232 (โทรฟรีเฉพาะโทรศัพท์พื้นฐาน) หรือดูที่ www.samsung.com/th/support (คู่มือหน้า 74) พร้อมแจ้งรุ่นตู้เย็น อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_rs5000fc_um_sound_pressure_water",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RS70F65Q1BST/RS70F65K1BST/RS80F65G1FST",
+      "entry_symptom": "เสียงน้ำไหลเมื่อเปิดและปิดประตูตู้เย็น",
+      "entry_symptom_th": "ตู้เย็นมีเสียงน้ำไหลตอนเปิดปิดประตู",
+      "entry_symptom_aliases": [
+        "เสียงน้ำตอนปิดประตูตู้เย็น",
+        "เสียงน้ำไหลเปิดประตูตู้เย็น",
+        "ตู้เย็นมีเสียงดัง",
+        "เสียงผิดปกติจากตู้เย็น",
+        "fridge noise"
+      ],
+      "source": "Samsung Refrigerator User Manual RS70*/RS80* (Code No. DA68-04852N-00, Thai)",
+      "page_range": [
+        69,
+        69
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RS5000FC_p69_sound_pressure_water",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "ได้ยินเสียงน้ำไหลตอนเปิดหรือปิดประตูตู้เย็นใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n1n",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n1n",
+          "type": "resolution",
+          "content": "เป็นเสียงปกติ เนื่องจากการปรับสมดุลแรงดันในขณะเปิดและปิดประตูตู้เย็น อาจมีเสียงน้ำไหลเกิดขึ้น (คู่มือหน้า 69) คู่มือแจ้งว่าการเรียกบริการในกรณีที่เป็นสถานการณ์ปกติ (ไม่ใช่ผลิตภัณฑ์บกพร่อง) มีค่าบริการสำหรับผู้ใช้ทั่วไป (คู่มือหน้า 63 และ 68)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung โทร 1282 (มีค่าโทร) หรือ 1800-29-3232 (โทรฟรีเฉพาะโทรศัพท์พื้นฐาน) หรือดูที่ www.samsung.com/th/support (คู่มือหน้า 74) พร้อมแจ้งรุ่นตู้เย็น อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_rs5000fc_um_app_not_found",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RS70F65Q1BST/RS70F65K1BST/RS80F65G1FST",
+      "entry_symptom": "ไม่พบ “SmartThings” ในสโตร์ของแอป",
+      "entry_symptom_th": "ค้นหาแอป SmartThings ในสโตร์ไม่เจอ",
+      "entry_symptom_aliases": [
+        "หาแอป SmartThings ไม่เจอ",
+        "ไม่มีแอป SmartThings ในสโตร์",
+        "SmartThings app not found"
+      ],
+      "source": "Samsung Refrigerator User Manual RS70*/RS80* (Code No. DA68-04852N-00, Thai)",
+      "page_range": [
+        70,
+        70
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RS5000FC_p70_app_not_found",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "ค้นหา SmartThings ในสโตร์ของแอปบนโทรศัพท์แล้วไม่พบใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2",
+          "on_no": "n_nomatch"
+        },
+        {
+          "node_id": "n2",
+          "type": "escalation",
+          "content": "คู่มือระบุว่าเวอร์ชันซอฟต์แวร์ที่รองรับของแอป SmartThings อาจเปลี่ยนแปลงตามนโยบายการรองรับระบบปฏิบัติการของผู้ผลิต และนโยบายการอัปเดตแอปบนระบบปฏิบัติการเวอร์ชันที่มีอยู่อาจถูกระงับด้วยเหตุผลด้านความสามารถในการใช้งานหรือความปลอดภัย (คู่มือหน้า 70) คู่มือไม่ได้ให้ขั้นตอนแก้ไข หากต้องการความช่วยเหลือ ติดต่อศูนย์บริการ Samsung โทร 1282 (มีค่าโทร) หรือ 1800-29-3232 (โทรฟรีเฉพาะโทรศัพท์พื้นฐาน) หรือดูที่ www.samsung.com/th/support (คู่มือหน้า 74)",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "node_id": "n_nomatch",
+          "type": "escalation",
+          "content": "อาการไม่ตรงกับรายการนี้ในคู่มือ ลองเลือกอาการ SmartThings อื่น หรือติดต่อศูนย์บริการ Samsung โทร 1282 (มีค่าโทร) หรือ 1800-29-3232 (โทรฟรีเฉพาะโทรศัพท์พื้นฐาน) หรือดูที่ www.samsung.com/th/support (คู่มือหน้า 74)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_rs5000fc_um_app_not_working",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RS70F65Q1BST/RS70F65K1BST/RS80F65G1FST",
+      "entry_symptom": "แอป SmartThings ไม่ทำงาน",
+      "entry_symptom_th": "แอป SmartThings ใช้งานไม่ได้",
+      "entry_symptom_aliases": [
+        "SmartThings ไม่ทำงาน",
+        "แอปตู้เย็นใช้ไม่ได้",
+        "SmartThings app not working"
+      ],
+      "source": "Samsung Refrigerator User Manual RS70*/RS80* (Code No. DA68-04852N-00, Thai)",
+      "page_range": [
+        70,
+        70
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RS5000FC_p70_app_not_working",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "ตู้เย็นรุ่นของท่านเป็นรุ่นที่รองรับแอป SmartThings ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_escalate",
+          "on_no": "n1e"
+        },
+        {
+          "node_id": "n1e",
+          "type": "escalation",
+          "content": "คู่มือระบุว่าแอป SmartThings พร้อมใช้งานสำหรับรุ่นที่เกี่ยวข้องเท่านั้น (คู่มือหน้า 70) หากตู้เย็นรุ่นของท่านไม่รองรับ จะใช้แอปนี้ไม่ได้ ตรวจสอบกับศูนย์บริการว่ารุ่นของท่านรองรับหรือไม่ ติดต่อศูนย์บริการ Samsung โทร 1282 (มีค่าโทร) หรือ 1800-29-3232 (โทรฟรีเฉพาะโทรศัพท์พื้นฐาน) หรือดูที่ www.samsung.com/th/support (คู่มือหน้า 74)",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung โทร 1282 (มีค่าโทร) หรือ 1800-29-3232 (โทรฟรีเฉพาะโทรศัพท์พื้นฐาน) หรือดูที่ www.samsung.com/th/support (คู่มือหน้า 74) พร้อมแจ้งรุ่นตู้เย็น อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_rs5000fc_um_installed_not_connected",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RS70F65Q1BST/RS70F65K1BST/RS80F65G1FST",
+      "entry_symptom": "แอป SmartThings ถูกติดตั้งไว้แต่ไม่เชื่อมต่อกับตู้เย็นของฉัน",
+      "entry_symptom_th": "ติดตั้งแอป SmartThings แล้วแต่ไม่เชื่อมต่อกับตู้เย็น",
+      "entry_symptom_aliases": [
+        "SmartThings เชื่อมตู้เย็นไม่ได้",
+        "ลงทะเบียนตู้เย็นใน SmartThings",
+        "SmartThings not connected to fridge"
+      ],
+      "source": "Samsung Refrigerator User Manual RS70*/RS80* (Code No. DA68-04852N-00, Thai)",
+      "page_range": [
+        70,
+        70
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RS5000FC_p70_installed_not_connected",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "เข้าสู่ระบบบัญชี Samsung ในแอปแล้วใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2",
+          "on_no": "n1f"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "เข้าสู่ระบบบัญชี Samsung เพื่อใช้แอป (คู่มือหน้า 70)",
+          "safety_critical": false,
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "เราเตอร์ที่บ้านทำงานได้ปกติใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n3",
+          "on_no": "n2f"
+        },
+        {
+          "node_id": "n2f",
+          "type": "instruction",
+          "content": "ตรวจให้แน่ใจว่าเราเตอร์ทำงานได้ปกติ (คู่มือหน้า 70)",
+          "safety_critical": false,
+          "author_note": "คู่มือไม่ระบุวิธีตรวจเราเตอร์ ผู้ใช้ควรตรวจว่าอุปกรณ์อื่นต่ออินเทอร์เน็ตผ่านเราเตอร์ได้หรือไม่ ซึ่งเป็นคำแนะนำของผู้พัฒนา",
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "node_id": "n3",
+          "type": "checkpoint",
+          "question": "ได้ลงทะเบียนตู้เย็นเข้ากับแอปแล้ว หลังติดตั้งแอปใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_escalate",
+          "on_no": "n3f"
+        },
+        {
+          "node_id": "n3f",
+          "type": "instruction",
+          "content": "เชื่อมต่อตู้เย็นโดยใช้ฟังก์ชันการลงทะเบียนอุปกรณ์ของแอป SmartThings (คู่มือหน้า 70)",
+          "safety_critical": false,
+          "next": "n3v"
+        },
+        {
+          "node_id": "n3v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "แอป SmartThings เชื่อมต่อกับตู้เย็นแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung โทร 1282 (มีค่าโทร) หรือ 1800-29-3232 (โทรฟรีเฉพาะโทรศัพท์พื้นฐาน) หรือดูที่ www.samsung.com/th/support (คู่มือหน้า 74) พร้อมแจ้งรุ่นตู้เย็น อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_rs5000fc_um_cannot_login",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RS70F65Q1BST/RS70F65K1BST/RS80F65G1FST",
+      "entry_symptom": "ไม่สามารถเข้าสู่ระบบแอป",
+      "entry_symptom_th": "เข้าสู่ระบบแอป SmartThings ไม่ได้",
+      "entry_symptom_aliases": [
+        "login SmartThings ไม่ได้",
+        "ไม่มีบัญชี Samsung",
+        "cannot log in SmartThings"
+      ],
+      "source": "Samsung Refrigerator User Manual RS70*/RS80* (Code No. DA68-04852N-00, Thai)",
+      "page_range": [
+        70,
+        70
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RS5000FC_p70_cannot_login",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "มีบัญชี Samsung แล้วใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_escalate",
+          "on_no": "n1f"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "ทำตามคำแนะนำบนหน้าจอของแอปเพื่อสร้างบัญชี Samsung (คู่มือหน้า 70)",
+          "safety_critical": false,
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "เข้าสู่ระบบแอปได้แล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung โทร 1282 (มีค่าโทร) หรือ 1800-29-3232 (โทรฟรีเฉพาะโทรศัพท์พื้นฐาน) หรือดูที่ www.samsung.com/th/support (คู่มือหน้า 74) พร้อมแจ้งรุ่นตู้เย็น อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_rs5000fc_um_registration_error",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RS70F65Q1BST/RS70F65K1BST/RS80F65G1FST",
+      "entry_symptom": "มีข้อความแจ้งข้อผิดพลาดปรากฏขึ้นเมื่อฉันพยายามลงทะเบียนตู้เย็นของฉัน",
+      "entry_symptom_th": "ลงทะเบียนตู้เย็นในแอปแล้วขึ้นข้อผิดพลาด",
+      "entry_symptom_aliases": [
+        "ลงทะเบียนตู้เย็นไม่ได้",
+        "SmartThings error",
+        "registration error"
+      ],
+      "source": "Samsung Refrigerator User Manual RS70*/RS80* (Code No. DA68-04852N-00, Thai)",
+      "page_range": [
+        70,
+        70
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RS5000FC_p70_registration_error",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "instruction",
+          "content": "รอสักครู่แล้วลองลงทะเบียนตู้เย็นอีกครั้ง (คู่มือหน้า 70) สาเหตุที่คู่มือระบุคือเราเตอร์ (AP) อยู่ห่างจากตู้เย็นมากเกินไป หรือมีสัญญาณรบกวนจากสภาพแวดล้อมใกล้เคียง",
+          "safety_critical": false,
+          "author_note": "คู่มือระบุเพียงให้รอสักครู่แล้วลองใหม่ ไม่ได้ให้วิธีเพิ่มเติมเรื่องระยะห่างจากเราเตอร์",
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "ลงทะเบียนตู้เย็นสำเร็จแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung โทร 1282 (มีค่าโทร) หรือ 1800-29-3232 (โทรฟรีเฉพาะโทรศัพท์พื้นฐาน) หรือดูที่ www.samsung.com/th/support (คู่มือหน้า 74) พร้อมแจ้งรุ่นตู้เย็น อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_rs5000fc_um_connected_not_working",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RS70F65Q1BST/RS70F65K1BST/RS80F65G1FST",
+      "entry_symptom": "แอป SmartThings เชื่อมต่อกับตู้เย็นของฉันสำเร็จ แต่ไม่ทำงาน",
+      "entry_symptom_th": "แอป SmartThings เชื่อมต่อแล้วแต่สั่งงานตู้เย็นไม่ได้",
+      "entry_symptom_aliases": [
+        "SmartThings เชื่อมแล้วใช้ไม่ได้",
+        "สั่งตู้เย็นผ่านแอปไม่ได้",
+        "connected but not working"
+      ],
+      "source": "Samsung Refrigerator User Manual RS70*/RS80* (Code No. DA68-04852N-00, Thai)",
+      "page_range": [
+        70,
+        70
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RS5000FC_p70_connected_not_working",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "instruction",
+          "content": "ออกจากแอปแล้วเริ่มแอป SmartThings ใหม่ หรือตัดการเชื่อมต่อเราเตอร์แล้วเชื่อมต่อใหม่ (คู่มือหน้า 70)",
+          "safety_critical": false,
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n2",
+          "type": "instruction",
+          "content": "ถอดปลั๊กไฟของตู้เย็น แล้วเสียบกลับเข้าไปหลังจาก 1 นาที (คู่มือหน้า 70) หน้า 17 แนะนำให้รออย่างน้อยห้านาทีก่อนเสียบปลั๊กกลับ จึงควรรอตามเวลาที่นานกว่า",
+          "safety_critical": true,
+          "safety_warning": "ห้ามเสียบปลั๊กไฟเข้ากับเต้าเสียบที่ผนังโดยที่มือเปียก และอย่าใช้ปลั๊กไฟ สายไฟ หรือเต้าเสียบที่ผนังที่ชำรุดหรือหลวมคลอน เพราะอาจเกิดไฟฟ้าดูดหรือเพลิงไหม้ เวลาถอดปลั๊กให้จับที่ตัวปลั๊กแล้วดึงออกมาแนวตรง ห้ามดึงที่สายไฟ (คู่มือหน้า 9 และ 11) ในการเคลื่อนย้ายตู้เย็น ระวังอย่าให้ทับสายไฟหรือทำให้สายไฟเสียหาย อย่าติดตั้งตู้เย็นใกล้เครื่องทำความร้อนหรือวัสดุที่ก่อเปลวไฟ และอย่าติดตั้งในสถานที่ที่อาจเกิดการรั่วไหลของก๊าซ มิฉะนั้นอาจเกิดไฟฟ้าดูดหรือเพลิงไหม้ ถ้าถอดปลั๊กตู้เย็นแล้ว ควรรออย่างน้อยห้านาทีก่อนเสียบปลั๊กกลับ (คู่มือหน้า 9 และ 17)",
+          "author_note": "หน้า 70 ระบุให้เสียบกลับหลัง 1 นาที แต่หน้า 17 ระบุให้รออย่างน้อยห้านาที คู่มือสองจุดนี้ไม่ตรงกัน ผู้พัฒนาเลือกให้รอตามเวลาที่นานกว่า ควรตรวจกับฉบับภาษาอังกฤษ",
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "แอป SmartThings สั่งงานตู้เย็นได้แล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung โทร 1282 (มีค่าโทร) หรือ 1800-29-3232 (โทรฟรีเฉพาะโทรศัพท์พื้นฐาน) หรือดูที่ www.samsung.com/th/support (คู่มือหน้า 74) พร้อมแจ้งรุ่นตู้เย็น อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_rs5000fc_um_wifi_icon_blinking",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RS70F65Q1BST/RS70F65K1BST/RS80F65G1FST",
+      "entry_symptom": "ไอคอน Wi-Fi ติดกะพริบ (รุ่นที่เกี่ยวข้องเท่านั้น)",
+      "entry_symptom_th": "ไอคอน Wi-Fi บนตู้เย็นกะพริบ",
+      "entry_symptom_aliases": [
+        "ไฟ Wi-Fi กะพริบ",
+        "สัญลักษณ์ไวไฟกะพริบ",
+        "Wi-Fi icon blinking"
+      ],
+      "source": "Samsung Refrigerator User Manual RS70*/RS80* (Code No. DA68-04852N-00, Thai)",
+      "page_range": [
+        70,
+        70
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RS5000FC_p70_wifi_icon_blinking",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "ไอคอน Wi-Fi บนตู้เย็นกะพริบอยู่ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2",
+          "on_no": "n_nomatch"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "ท่านต้องการใช้งานตู้เย็นร่วมกับแอป SmartThings ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "c1",
+          "on_no": "o1"
+        },
+        {
+          "node_id": "c1",
+          "type": "instruction",
+          "content": "เชื่อมต่อตู้เย็นของท่านกับแอป SmartThings ก่อนใช้งาน เมื่อเชื่อมต่อสำเร็จ ไฟแสดงสถานะจะหยุดกะพริบ (คู่มือหน้า 70)",
+          "safety_critical": false,
+          "author_note": "คู่มือหน้า 70 ไม่อธิบายขั้นตอนเชื่อมต่อละเอียด ผู้ใช้ควรใช้ฟังก์ชันลงทะเบียนอุปกรณ์ในแอป (ดูรายการ 'ติดตั้งแอปไว้แต่ไม่เชื่อมต่อ')",
+          "next": "c1v"
+        },
+        {
+          "node_id": "c1v",
+          "type": "checkpoint",
+          "question": "ไฟแสดงสถานะ Wi-Fi หยุดกะพริบแล้วใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "o1",
+          "type": "instruction",
+          "content": "กดปุ่ม \"＞\" ค้างไว้ 10 วินาที ไฟแสดงสถานะจะหยุดกะพริบโดยมีข้อความ “OFF” ปรากฏบนจอแสดงอุณหภูมิ (คู่มือหน้า 70 และ 42)",
+          "safety_critical": false,
+          "author_note": "หน้า 42 อธิบายการเปิด/ปิด Wi-Fi ด้วยการแตะ > ค้างไว้ 10 วินาทีเช่นกัน (จอแสดง On/OFF)",
+          "next": "o1v"
+        },
+        {
+          "node_id": "o1v",
+          "type": "checkpoint",
+          "question": "ไฟแสดงสถานะ Wi-Fi หยุดกะพริบและจอแสดง OFF ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "ไอคอน Wi-Fi หยุดกะพริบแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung โทร 1282 (มีค่าโทร) หรือ 1800-29-3232 (โทรฟรีเฉพาะโทรศัพท์พื้นฐาน) หรือดูที่ www.samsung.com/th/support (คู่มือหน้า 74) พร้อมแจ้งรุ่นตู้เย็น อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        },
+        {
+          "node_id": "n_nomatch",
+          "type": "escalation",
+          "content": "อาการไม่ตรงกับรายการนี้ในคู่มือ ลองเลือกอาการอื่นที่ตรงกว่า หรือติดต่อศูนย์บริการ Samsung โทร 1282 (มีค่าโทร) หรือ 1800-29-3232 (โทรฟรีเฉพาะโทรศัพท์พื้นฐาน) หรือดูที่ www.samsung.com/th/support (คู่มือหน้า 74)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    }
+  ]
+}

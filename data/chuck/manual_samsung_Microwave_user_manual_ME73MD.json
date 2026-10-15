@@ -1,0 +1,104 @@
+[
+  {
+    "chunk_id": "manual_Samsung_Microwave_ME73MD_p20_normal_conditions",
+    "device_category": "Microwave Oven",
+    "brand": "Samsung",
+    "model": "ME73MD",
+    "source": "Samsung Microwave Oven User Manual ME73MD (ME73MD_XST-DE68-04091Q-01_TH_EN)",
+    "page": 20,
+    "content": "Condensation inside the oven. Air flow around the door and outer casing. Light reflection around the door and outer casing. Steam escaping from around the door or vents. This is normal.",
+    "metadata": {
+      "symptom": "Condensation inside the oven. Air flow around the door and outer casing. Light reflection around the door and outer casing. Steam escaping from around the door or vents.",
+      "possible_cause": null,
+      "solution": "This is normal.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Microwave_ME73MD_p20_not_start",
+    "device_category": "Microwave Oven",
+    "brand": "Samsung",
+    "model": "ME73MD",
+    "source": "Samsung Microwave Oven User Manual ME73MD (ME73MD_XST-DE68-04091Q-01_TH_EN)",
+    "page": 20,
+    "content": "The oven does not start when you press the Start button. Is the door completely closed? Is the door completely closed?",
+    "metadata": {
+      "symptom": "The oven does not start when you press the Start button.",
+      "possible_cause": "Is the door completely closed?",
+      "solution": "Is the door completely closed?",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": "ห้ามใช้เตาถ้าประตูหรือซีลประตูชำรุด ต้องให้ผู้มีคุณสมบัติซ่อมก่อน (คู่มือหน้า 2 และ 5) ห้ามเปิดเตาขณะประตูเปิด ห้ามแก้ไขกลไกนิรภัยของประตูหรือสอดสิ่งใดเข้าไปในรูกลไกนิรภัย (คู่มือหน้า 5) ห้ามสอดนิ้วหรือสิ่งแปลกปลอมเข้าไปในเตา ถ้าสิ่งแปลกปลอมเข้าไปในเตาให้ถอดปลั๊กและติดต่อศูนย์บริการ (คู่มือหน้า 4)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Microwave_ME73MD_p20_not_cooked_at_all",
+    "device_category": "Microwave Oven",
+    "brand": "Samsung",
+    "model": "ME73MD",
+    "source": "Samsung Microwave Oven User Manual ME73MD (ME73MD_XST-DE68-04091Q-01_TH_EN)",
+    "page": 20,
+    "content": "The food is not cooked at all. Have you set the timer correctly and/or pressed the Start button? Is the door closed? Have you overloaded the electric circuit and caused a fuse to blow or a breaker to be triggered? 1. Have you set the timer correctly and/or pressed the Start button? 2. Is the door closed? 3. Have you overloaded the electric circuit and caused a fuse to blow or a breaker to be triggered?",
+    "metadata": {
+      "symptom": "The food is not cooked at all.",
+      "possible_cause": "Have you set the timer correctly and/or pressed the Start button? Is the door closed? Have you overloaded the electric circuit and caused a fuse to blow or a breaker to be triggered?",
+      "solution": "1. Have you set the timer correctly and/or pressed the Start button?\n2. Is the door closed?\n3. Have you overloaded the electric circuit and caused a fuse to blow or a breaker to be triggered?",
+      "severity": "medium",
+      "difficulty": "easy",
+      "safety_warning": "ห้ามเปิดเตาขณะไม่มีอาหาร (คู่มือหน้า 10) ใช้เวลาสั้นลงสำหรับอาหารปริมาณน้อยเพื่อป้องกันความร้อนเกินหรืออาหารไหม้ (คู่มือหน้า 5) | ห้ามใช้เตาถ้าประตูหรือซีลประตูชำรุด ต้องให้ผู้มีคุณสมบัติซ่อมก่อน (คู่มือหน้า 2 และ 5) ห้ามเปิดเตาขณะประตูเปิด ห้ามแก้ไขกลไกนิรภัยของประตูหรือสอดสิ่งใดเข้าไปในรูกลไกนิรภัย (คู่มือหน้า 5) ห้ามสอดนิ้วหรือสิ่งแปลกปลอมเข้าไปในเตา ถ้าสิ่งแปลกปลอมเข้าไปในเตาให้ถอดปลั๊กและติดต่อศูนย์บริการ (คู่มือหน้า 4)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Microwave_ME73MD_p20_over_under_cooked",
+    "device_category": "Microwave Oven",
+    "brand": "Samsung",
+    "model": "ME73MD",
+    "source": "Samsung Microwave Oven User Manual ME73MD (ME73MD_XST-DE68-04091Q-01_TH_EN)",
+    "page": 20,
+    "content": "The food is either overcooked or undercooked. Was the appropriate cooking length set for the type of food? Was an appropriate power level chosen? 1. Was the appropriate cooking length set for the type of food? 2. Was an appropriate power level chosen?",
+    "metadata": {
+      "symptom": "The food is either overcooked or undercooked.",
+      "possible_cause": "Was the appropriate cooking length set for the type of food? Was an appropriate power level chosen?",
+      "solution": "1. Was the appropriate cooking length set for the type of food?\n2. Was an appropriate power level chosen?",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": "ตัวเตา ภาชนะ และอาหารอาจร้อนจัด ใช้ถุงมือกันความร้อนเมื่อนำภาชนะออก และยืนห่างช่วงแขนเมื่อเปิดประตูเพื่อป้องกันไอร้อนหรือไอน้ำลวก ของเหลวที่อุ่นให้ตั้งทิ้งไว้อย่างน้อย 20 วินาทีก่อนหยิบ (คู่มือหน้า 5) ห้ามเปิดเตาขณะไม่มีอาหาร (คู่มือหน้า 10) ใช้เวลาสั้นลงสำหรับอาหารปริมาณน้อยเพื่อป้องกันความร้อนเกินหรืออาหารไหม้ (คู่มือหน้า 5) | ตัวเตา ภาชนะ และอาหารอาจร้อนจัด ใช้ถุงมือกันความร้อนเมื่อนำภาชนะออก และยืนห่างช่วงแขนเมื่อเปิดประตูเพื่อป้องกันไอร้อนหรือไอน้ำลวก ของเหลวที่อุ่นให้ตั้งทิ้งไว้อย่างน้อย 20 วินาทีก่อนหยิบ (คู่มือหน้า 5)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Microwave_ME73MD_p20_arcing",
+    "device_category": "Microwave Oven",
+    "brand": "Samsung",
+    "model": "ME73MD",
+    "source": "Samsung Microwave Oven User Manual ME73MD (ME73MD_XST-DE68-04091Q-01_TH_EN)",
+    "page": 20,
+    "content": "Sparking and cracking occur inside the oven (arcing). Have you used a dish with metal trimmings? Have you left a fork or other metal utensil inside the oven? Is aluminum foil too close to the inside walls? 1. Have you used a dish with metal trimmings? 2. Have you left a fork or other metal utensil inside the oven? 3. Is aluminum foil too close to the inside walls?",
+    "metadata": {
+      "symptom": "Sparking and cracking occur inside the oven (arcing).",
+      "possible_cause": "Have you used a dish with metal trimmings? Have you left a fork or other metal utensil inside the oven? Is aluminum foil too close to the inside walls?",
+      "solution": "1. Have you used a dish with metal trimmings?\n2. Have you left a fork or other metal utensil inside the oven?\n3. Is aluminum foil too close to the inside walls?",
+      "severity": "medium",
+      "difficulty": "easy",
+      "safety_warning": "ถ้ามีควันออกมา ให้ปิดเครื่องหรือถอดปลั๊กและปิดประตูเตาไว้เพื่อสกัดเปลวไฟ (คู่มือหน้า 3) ถ้าเตามีเสียงผิดปกติ กลิ่นไหม้ หรือควัน ให้ถอดปลั๊กทันทีและติดต่อศูนย์บริการที่ใกล้ที่สุด (คู่มือหน้า 4) ขณะเตากำลังทำงาน ไม่ควรปิดเตาด้วยการถอดปลั๊ก (คู่มือหน้า 4) ใช้เฉพาะภาชนะที่ใช้กับไมโครเวฟได้ ห้ามใช้ภาชนะโลหะ จานชามที่ขอบเป็นทองหรือเงิน ไม้เสียบ และต้องถอดลวดมัดถุงออก เพราะอาจเกิดประกายไฟ (คู่มือหน้า 5) ดูตารางภาชนะที่ใช้ได้หรือไม่ได้ในหน้า 19 ตัวเตา ภาชนะ และอาหารอาจร้อนจัด ใช้ถุงมือกันความร้อนเมื่อนำภาชนะออก และยืนห่างช่วงแขนเมื่อเปิดประตูเพื่อป้องกันไอร้อนหรือไอน้ำลวก ของเหลวที่อุ่นให้ตั้งทิ้งไว้อย่างน้อย 20 วินาทีก่อนหยิบ (คู่มือหน้า 5)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Microwave_ME73MD_p20_radio_tv_interference",
+    "device_category": "Microwave Oven",
+    "brand": "Samsung",
+    "model": "ME73MD",
+    "source": "Samsung Microwave Oven User Manual ME73MD (ME73MD_XST-DE68-04091Q-01_TH_EN)",
+    "page": 20,
+    "content": "The oven causes interference with radios or televisions. Slight interference may be observed on televisions or radios when the oven is operating. If interference is detected by the oven's microprocessor, the display may be reset. 1. Slight interference may be observed on televisions or radios when the oven is operating. This is normal. To solve this problem, install the oven away from televisions, radios and aerials. 2. If interference is detected by the oven's microprocessor, the display may be reset. To solve this problem, disconnect the power plug and reconnect it. Reset the time.",
+    "metadata": {
+      "symptom": "The oven causes interference with radios or televisions.",
+      "possible_cause": "Slight interference may be observed on televisions or radios when the oven is operating. If interference is detected by the oven's microprocessor, the display may be reset.",
+      "solution": "1. Slight interference may be observed on televisions or radios when the oven is operating. This is normal. To solve this problem, install the oven away from televisions, radios and aerials.\n2. If interference is detected by the oven's microprocessor, the display may be reset. To solve this problem, disconnect the power plug and reconnect it. Reset the time.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": "ห้ามวางเตาเหนือของเปราะบาง ห้ามวางเตาใกล้เครื่องทำความร้อนหรือบนพื้นผิวที่ไม่เรียบ และห้ามวางเตาในตู้ เตาออกแบบให้วางบนเคาน์เตอร์เท่านั้น (คู่มือหน้า 3 และ 4) ระวังอย่าให้สายไฟถูกหนีบหรือเสียหาย (คู่มือหน้า 4) | เสียบปลั๊กให้แน่นเข้ากับเต้ารับ ห้ามใช้ปลั๊กแปลงหลายทาง สายต่อพ่วง หรือหม้อแปลงไฟ ห้ามใช้ปลั๊ก สายไฟ หรือเต้ารับที่ชำรุดหรือหลวม ห้ามจับสายไฟด้วยมือเปียก ห้ามดึง งอมากเกินไป หรือวางของหนักทับสายไฟ ถ้าสายไฟชำรุด ต้องให้ผู้ผลิต ตัวแทนบริการ หรือผู้มีคุณสมบัติเทียบเท่าเป็นผู้เปลี่ยน (คู่มือหน้า 4) ถ้ามีควันออกมา ให้ปิดเครื่องหรือถอดปลั๊กและปิดประตูเตาไว้เพื่อสกัดเปลวไฟ (คู่มือหน้า 3) ถ้าเตามีเสียงผิดปกติ กลิ่นไหม้ หรือควัน ให้ถอดปลั๊กทันทีและติดต่อศูนย์บริการที่ใกล้ที่สุด (คู่มือหน้า 4) ขณะเตากำลังทำงาน ไม่ควรปิดเตาด้วยการถอดปลั๊ก (คู่มือหน้า 4)"
+    }
+  }
+]

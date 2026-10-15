@@ -1,0 +1,954 @@
+[
+  {
+    "chunk_id": "manual_Samsung_Television_KM2DVBADN_p131_flickering_dimming",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "KM2DVBADN-2.1.5",
+    "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+    "page": 131,
+    "content": "Flickering and Dimming 1. If your Samsung Television is flickering or dimming sporadically, you may need to disable some of the energy efficiency features. 2. Disable Ambient Light Detection, Energy Saving Mode, or Motion Lighting. 3. Settings > General > Eco Solution > Ambient Light Detection 4. Settings > General > Eco Solution > Energy Saving Mode 5. Settings > General > Eco Solution > Motion Lighting",
+    "metadata": {
+      "symptom": "Flickering and Dimming",
+      "possible_cause": null,
+      "solution": "1. If your Samsung Television is flickering or dimming sporadically, you may need to disable some of the energy efficiency features.\n2. Disable Ambient Light Detection, Energy Saving Mode, or Motion Lighting.\n3. Settings > General > Eco Solution > Ambient Light Detection\n4. Settings > General > Eco Solution > Energy Saving Mode\n5. Settings > General > Eco Solution > Motion Lighting",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_KM2DVBADN_p131_component_screen_colour",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "KM2DVBADN-2.1.5",
+    "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+    "page": 131,
+    "content": "Component Connections/ Screen Colour 1. If the colour on your TV screen is not correct or the black and white colours are off, run Start Picture Test. 2. Settings > Support > Self Diagnosis > Start Picture Test 3. If the test results indicate that the problem is not caused by the TV, do the following: 4. Confirm that the video input connectors are connected to the correct external device video output connectors. 5. Check the other connections as well. If the TV is connected to an external device via a component cable, confirm that the Pb, Pr, and Y jacks are plugged into their proper connectors.",
+    "metadata": {
+      "symptom": "Component Connections/ Screen Colour",
+      "possible_cause": null,
+      "solution": "1. If the colour on your TV screen is not correct or the black and white colours are off, run Start Picture Test.\n2. Settings > Support > Self Diagnosis > Start Picture Test\n3. If the test results indicate that the problem is not caused by the TV, do the following:\n4. Confirm that the video input connectors are connected to the correct external device video output connectors.\n5. Check the other connections as well. If the TV is connected to an external device via a component cable, confirm that the Pb, Pr, and Y jacks are plugged into their proper connectors.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_KM2DVBADN_p131_screen_brightness",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "KM2DVBADN-2.1.5",
+    "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+    "page": 131,
+    "content": "Screen Brightness 1. If the colours on your Samsung TV are correct but just a little too dark or bright, try adjusting the following settings first. 2. Settings > Picture > Expert Settings > Backlight 3. Settings > Picture > Expert Settings > Contrast 4. Settings > Picture > Expert Settings > Brightness 5. Settings > Picture > Expert Settings > Sharpness 6. Settings > Picture > Expert Settings > Colour 7. Settings > Picture > Expert Settings > Tint (G/R)",
+    "metadata": {
+      "symptom": "Screen Brightness",
+      "possible_cause": null,
+      "solution": "1. If the colours on your Samsung TV are correct but just a little too dark or bright, try adjusting the following settings first.\n2. Settings > Picture > Expert Settings > Backlight\n3. Settings > Picture > Expert Settings > Contrast\n4. Settings > Picture > Expert Settings > Brightness\n5. Settings > Picture > Expert Settings > Sharpness\n6. Settings > Picture > Expert Settings > Colour\n7. Settings > Picture > Expert Settings > Tint (G/R)",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_KM2DVBADN_p132_blurring_juddering",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "KM2DVBADN-2.1.5",
+    "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+    "page": 132,
+    "content": "Blurring, or Juddering 1. If you notice blurring or juddering on the screen, use the Auto Motion Plus Settings function to resolve the issue. 2. Settings > Picture > Expert Settings > Auto Motion Plus Settings",
+    "metadata": {
+      "symptom": "Blurring, or Juddering",
+      "possible_cause": null,
+      "solution": "1. If you notice blurring or juddering on the screen, use the Auto Motion Plus Settings function to resolve the issue.\n2. Settings > Picture > Expert Settings > Auto Motion Plus Settings",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_KM2DVBADN_p132_unwanted_powering_off",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "KM2DVBADN-2.1.5",
+    "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+    "page": 132,
+    "content": "Unwanted Powering Off 1. If your TV appears to turn off by itself, try disabling some of the TV's energy efficiency functions. 2. See if Sleep Timer has been enabled. The Sleep Timer automatically turns the TV off after a specified period of time. 3. Settings > General > System Manager > Time > Sleep Timer 4. If the Sleep Timer has not been enabled, see if Auto Power Off or Off Timer has been enabled and disable it. 5. Settings > General > Eco Solution > Auto Power Off 6. Settings > General > System Manager > Time > Off Timer",
+    "metadata": {
+      "symptom": "Unwanted Powering Off",
+      "possible_cause": null,
+      "solution": "1. If your TV appears to turn off by itself, try disabling some of the TV's energy efficiency functions.\n2. See if Sleep Timer has been enabled. The Sleep Timer automatically turns the TV off after a specified period of time.\n3. Settings > General > System Manager > Time > Sleep Timer\n4. If the Sleep Timer has not been enabled, see if Auto Power Off or Off Timer has been enabled and disable it.\n5. Settings > General > Eco Solution > Auto Power Off\n6. Settings > General > System Manager > Time > Off Timer",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_KM2DVBADN_p132_problems_powering_on",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "KM2DVBADN-2.1.5",
+    "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+    "page": 132,
+    "content": "Problems Powering On 1. If you are having problems powering on your TV, there are a number of things to check before calling the service department. 2. Confirm that the TV's power cord is connected correctly at both ends and that the remote control is operating normally. 3. Make sure that the antenna cable or cable TV cable is firmly connected. 4. If you have a cable box or satellite box, confirm that it is plugged in and turned on.",
+    "metadata": {
+      "symptom": "Problems Powering On",
+      "possible_cause": null,
+      "solution": "1. If you are having problems powering on your TV, there are a number of things to check before calling the service department.\n2. Confirm that the TV's power cord is connected correctly at both ends and that the remote control is operating normally.\n3. Make sure that the antenna cable or cable TV cable is firmly connected.\n4. If you have a cable box or satellite box, confirm that it is plugged in and turned on.",
+      "severity": "medium",
+      "difficulty": "easy",
+      "safety_warning": "ถอดหรือเสียบปลั๊กโดยจับที่หัวปลั๊ก ไม่ดึงที่สายไฟ และห้ามจับปลั๊กด้วยมือเปียก ถ้าสายไฟหรือปลั๊กชำรุด ให้หยุดใช้งานแล้วติดต่อศูนย์บริการ"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_KM2DVBADN_p132_unable_find_channel",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "KM2DVBADN-2.1.5",
+    "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+    "page": 132,
+    "content": "Unable to find a Channel 1. If your TV is not connected to a cable box or satellite box, run Auto Tuning. 2. Settings > Broadcasting (Auto Tuning Settings) > Auto Tuning 3. The Auto Tuning Settings may not appear depending on the model or geographical area.",
+    "metadata": {
+      "symptom": "Unable to find a Channel",
+      "possible_cause": null,
+      "solution": "1. If your TV is not connected to a cable box or satellite box, run Auto Tuning.\n2. Settings > Broadcasting (Auto Tuning Settings) > Auto Tuning\n3. The Auto Tuning Settings may not appear depending on the model or geographical area.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_KM2DVBADN_p132_not_as_good_as_store",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "KM2DVBADN-2.1.5",
+    "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+    "page": 132,
+    "content": "The TV image does not look as good as it did in the store. 1. Store displays are tuned to a digital HD channel. 2. If you have an analogue cable box or satellite box, upgrade to a digital cable box or satellite box. Use HDMI or Component cables to deliver HD (high definition) picture quality. 3. Many HD channels are upscaled from SD (Standard Definition) content. Look for a channel that is broadcasting HD content. 4. Cable/Satellite Subscribers: Try HD channels from the channel lineup. 5. Terrestrial/Cable Antenna Connection: Try HD channels after running the Auto Tuning function. 6. Settings > Broadcasting (Auto Tuning Settings) > Auto Tuning 7. The Auto Tuning Settings may not appear depending on the model or geographical area. 8. Adjust the cable box or satellite box's video output resolution to 1080i or 720p.",
+    "metadata": {
+      "symptom": "The TV image does not look as good as it did in the store.",
+      "possible_cause": null,
+      "solution": "1. Store displays are tuned to a digital HD channel.\n2. If you have an analogue cable box or satellite box, upgrade to a digital cable box or satellite box. Use HDMI or Component cables to deliver HD (high definition) picture quality.\n3. Many HD channels are upscaled from SD (Standard Definition) content. Look for a channel that is broadcasting HD content.\n4. Cable/Satellite Subscribers: Try HD channels from the channel lineup.\n5. Terrestrial/Cable Antenna Connection: Try HD channels after running the Auto Tuning function.\n6. Settings > Broadcasting (Auto Tuning Settings) > Auto Tuning\n7. The Auto Tuning Settings may not appear depending on the model or geographical area.\n8. Adjust the cable box or satellite box's video output resolution to 1080i or 720p.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_KM2DVBADN_p133_picture_distorted",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "KM2DVBADN-2.1.5",
+    "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+    "page": 133,
+    "content": "The picture is distorted. 1. The compression of video content may cause picture distortions, especially in fast moving pictures from sports programmes and action movies. 2. If the signal reception is weak or poor, screen distortion may be visible but it is not a malfunction. 3. Mobile phones used close to the TV (within 1 m) may cause noise on analogue and digital channels.",
+    "metadata": {
+      "symptom": "The picture is distorted.",
+      "possible_cause": null,
+      "solution": "1. The compression of video content may cause picture distortions, especially in fast moving pictures from sports programmes and action movies.\n2. If the signal reception is weak or poor, screen distortion may be visible but it is not a malfunction.\n3. Mobile phones used close to the TV (within 1 m) may cause noise on analogue and digital channels.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_KM2DVBADN_p133_colour_wrong_or_missing",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "KM2DVBADN-2.1.5",
+    "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+    "page": 133,
+    "content": "The colour is wrong or missing. If you’re using a Component connection, make sure that the Component cables are connected to the correct jacks. Incorrect or loose connections may cause colour problems or a blank screen.",
+    "metadata": {
+      "symptom": "The colour is wrong or missing.",
+      "possible_cause": null,
+      "solution": "If you’re using a Component connection, make sure that the Component cables are connected to the correct jacks. Incorrect or loose connections may cause colour problems or a blank screen.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_KM2DVBADN_p133_colour_poor_not_bright",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "KM2DVBADN-2.1.5",
+    "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+    "page": 133,
+    "content": "The colour is poor or the picture is not bright enough. 1. Go to Picture and then adjust the Picture Mode, Brightness, Sharpness, and Colour settings. 2. Settings > Picture > Picture Mode 3. Settings > Picture > Expert Settings > Brightness 4. Settings > Picture > Expert Settings > Sharpness 5. Settings > Picture > Expert Settings > Colour 6. See if Energy Saving Mode has been enabled. 7. Settings > General > Eco Solution > Energy Saving Mode 8. Try resetting the picture. 9. Settings > Picture > Expert Settings > Reset Picture",
+    "metadata": {
+      "symptom": "The colour is poor or the picture is not bright enough.",
+      "possible_cause": null,
+      "solution": "1. Go to Picture and then adjust the Picture Mode, Brightness, Sharpness, and Colour settings.\n2. Settings > Picture > Picture Mode\n3. Settings > Picture > Expert Settings > Brightness\n4. Settings > Picture > Expert Settings > Sharpness\n5. Settings > Picture > Expert Settings > Colour\n6. See if Energy Saving Mode has been enabled.\n7. Settings > General > Eco Solution > Energy Saving Mode\n8. Try resetting the picture.\n9. Settings > Picture > Expert Settings > Reset Picture",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_KM2DVBADN_p133_dotted_line_edge",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "KM2DVBADN-2.1.5",
+    "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+    "page": 133,
+    "content": "There is a dotted line on the edge of the screen. 1. Change Picture Size to 16:9 Standard. 2. Settings > Picture > Picture Size Settings > Picture Size > 16:9 Standard",
+    "metadata": {
+      "symptom": "There is a dotted line on the edge of the screen.",
+      "possible_cause": null,
+      "solution": "1. Change Picture Size to 16:9 Standard.\n2. Settings > Picture > Picture Size Settings > Picture Size > 16:9 Standard",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_KM2DVBADN_p133_picture_black_white",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "KM2DVBADN-2.1.5",
+    "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+    "page": 133,
+    "content": "The picture is black and white. 1. If you are using AV or analogue equipment, disconnect the adapter from the Component (Blue) input port on the TV and connect it to the AV (Yellow) input port. 2. The Component or AV input port may not be provided depending on the model or geographical area. 3. Check whether Greyscale is set to On. 4. Settings > General > Accessibility > Greyscale",
+    "metadata": {
+      "symptom": "The picture is black and white.",
+      "possible_cause": null,
+      "solution": "1. If you are using AV or analogue equipment, disconnect the adapter from the Component (Blue) input port on the TV and connect it to the AV (Yellow) input port.\n2. The Component or AV input port may not be provided depending on the model or geographical area.\n3. Check whether Greyscale is set to On.\n4. Settings > General > Accessibility > Greyscale",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_KM2DVBADN_p134_no_sound_or_low",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "KM2DVBADN-2.1.5",
+    "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+    "page": 134,
+    "content": "There is no sound or the sound is too low at maximum volume. Check the volume control of your TV, and then check the volume control of the external device (cable box or satellite box, DVD, Blu-ray, etc.) connected to your TV.",
+    "metadata": {
+      "symptom": "There is no sound or the sound is too low at maximum volume.",
+      "possible_cause": null,
+      "solution": "Check the volume control of your TV, and then check the volume control of the external device (cable box or satellite box, DVD, Blu-ray, etc.) connected to your TV.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_KM2DVBADN_p134_picture_good_no_sound",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "KM2DVBADN-2.1.5",
+    "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+    "page": 134,
+    "content": "The picture is good but there is no sound. 1. Set Sound Output to TV Speaker. 2. Settings > Sound > Sound Output 3. If you are using an external device, check the device’s audio output option. For example, you may need to change your cable box’s audio option to HDMI if the box connected to your TV is using an HDMI cable. 4. To listen to computer sound, connect an external speaker to the computer’s audio output connector. 5. If your TV has a headphone jack, make sure there is nothing plugged into it. 6. Reboot the connected device by disconnecting and then reconnecting the device’s power cable.",
+    "metadata": {
+      "symptom": "The picture is good but there is no sound.",
+      "possible_cause": null,
+      "solution": "1. Set Sound Output to TV Speaker.\n2. Settings > Sound > Sound Output\n3. If you are using an external device, check the device’s audio output option. For example, you may need to change your cable box’s audio option to HDMI if the box connected to your TV is using an HDMI cable.\n4. To listen to computer sound, connect an external speaker to the computer’s audio output connector.\n5. If your TV has a headphone jack, make sure there is nothing plugged into it.\n6. Reboot the connected device by disconnecting and then reconnecting the device’s power cable.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": "ถอดหรือเสียบปลั๊กโดยจับที่หัวปลั๊ก ไม่ดึงที่สายไฟ และห้ามจับปลั๊กด้วยมือเปียก ถ้าสายไฟหรือปลั๊กชำรุด ให้หยุดใช้งานแล้วติดต่อศูนย์บริการ"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_KM2DVBADN_p134_no_sound_is_heard",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "KM2DVBADN-2.1.5",
+    "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+    "page": 134,
+    "content": "No sound is heard. 1. Check whether the Digital Output Audio Format is set to Dolby Digital+. If you are using a receiver that does not support Dolby Digital Plus, you will hear no sound when you select Dolby Digital+. 2. Settings > Sound > Expert Settings > Digital Output Audio Format > Dolby Digital+",
+    "metadata": {
+      "symptom": "No sound is heard.",
+      "possible_cause": null,
+      "solution": "1. Check whether the Digital Output Audio Format is set to Dolby Digital+. If you are using a receiver that does not support Dolby Digital Plus, you will hear no sound when you select Dolby Digital+.\n2. Settings > Sound > Expert Settings > Digital Output Audio Format > Dolby Digital+",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_KM2DVBADN_p134_speakers_odd_sound",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "KM2DVBADN-2.1.5",
+    "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+    "page": 134,
+    "content": "The speakers are making an odd sound. 1. Run Start Sound Test. 2. Settings > Support > Self Diagnosis > Start Sound Test 3. Make sure that the audio cable is connected to the correct audio output connector on the external device. 4. For antenna or cable connections, check the signal information. A low signal level may cause sound distortions.",
+    "metadata": {
+      "symptom": "The speakers are making an odd sound.",
+      "possible_cause": null,
+      "solution": "1. Run Start Sound Test.\n2. Settings > Support > Self Diagnosis > Start Sound Test\n3. Make sure that the audio cable is connected to the correct audio output connector on the external device.\n4. For antenna or cable connections, check the signal information. A low signal level may cause sound distortions.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_KM2DVBADN_p135_weak_or_no_signal",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "KM2DVBADN-2.1.5",
+    "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+    "page": 135,
+    "content": "“Weak or No Signal” displayed in TV mode/cannot find channel. 1. Make sure the antenna cable is connected securely to the TV. 2. Select Source to confirm that the correct input source has been selected. 3. If the TV is not connected to a cable box or satellite box, run Auto Tuning to search for channels. 4. Settings > Broadcasting (Auto Tuning Settings) > Auto Tuning 5. The Auto Tuning Settings may not appear depending on the model or geographical area.",
+    "metadata": {
+      "symptom": "“Weak or No Signal” displayed in TV mode/cannot find channel.",
+      "possible_cause": null,
+      "solution": "1. Make sure the antenna cable is connected securely to the TV.\n2. Select Source to confirm that the correct input source has been selected.\n3. If the TV is not connected to a cable box or satellite box, run Auto Tuning to search for channels.\n4. Settings > Broadcasting (Auto Tuning Settings) > Auto Tuning\n5. The Auto Tuning Settings may not appear depending on the model or geographical area.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_KM2DVBADN_p135_not_receiving_all_channels",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "KM2DVBADN-2.1.5",
+    "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+    "page": 135,
+    "content": "The TV is not receiving all channels. 1. Confirm that the coaxial cable is securely connected to the TV. 2. Run Start Setup or Auto Tuning. 3. Settings > Broadcasting (Auto Tuning Settings) > Auto Tuning 4. The Auto Tuning Settings may not appear depending on the model or geographical area.",
+    "metadata": {
+      "symptom": "The TV is not receiving all channels.",
+      "possible_cause": null,
+      "solution": "1. Confirm that the coaxial cable is securely connected to the TV.\n2. Run Start Setup or Auto Tuning.\n3. Settings > Broadcasting (Auto Tuning Settings) > Auto Tuning\n4. The Auto Tuning Settings may not appear depending on the model or geographical area.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_KM2DVBADN_p135_no_subtitles_digital",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "KM2DVBADN-2.1.5",
+    "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+    "page": 135,
+    "content": "There are no subtitles with digital channels. 1. Go to Subtitle and change the Subtitle Mode. 2. Settings > General > Accessibility > Subtitle Settings > Subtitle > Subtitle Mode. 3. Some channels may not have subtitle data.",
+    "metadata": {
+      "symptom": "There are no subtitles with digital channels.",
+      "possible_cause": null,
+      "solution": "1. Go to Subtitle and change the Subtitle Mode.\n2. Settings > General > Accessibility > Subtitle Settings > Subtitle > Subtitle Mode.\n3. Some channels may not have subtitle data.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_KM2DVBADN_p135_picture_quality_low",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "KM2DVBADN-2.1.5",
+    "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+    "page": 135,
+    "content": "The picture quality is low. Select high definition (HD) channels or programmes.",
+    "metadata": {
+      "symptom": "The picture quality is low.",
+      "possible_cause": null,
+      "solution": "Select high definition (HD) channels or programmes.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_KM2DVBADN_p136_mode_not_supported",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "KM2DVBADN-2.1.5",
+    "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+    "page": 136,
+    "content": "The \"Mode Not Supported\" message appears. Set output resolution of your PC or game console so it matches a resolution supported by the TV.",
+    "metadata": {
+      "symptom": "The \"Mode Not Supported\" message appears.",
+      "possible_cause": null,
+      "solution": "Set output resolution of your PC or game console so it matches a resolution supported by the TV.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_KM2DVBADN_p136_video_ok_no_audio",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "KM2DVBADN-2.1.5",
+    "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+    "page": 136,
+    "content": "The video is OK but there is no audio. 1. If you are using an HDMI connection, check the audio output setting on your PC. 2. If you are using an HDMI-to-DVI cable, a separate audio cable is required. Note that the HDMI-to-DVI connection is only supported by the HDMI (DVI) port and does not transmit audio. To listen to the computer sound, connect external speakers to the audio output connection of the computer.",
+    "metadata": {
+      "symptom": "The video is OK but there is no audio.",
+      "possible_cause": null,
+      "solution": "1. If you are using an HDMI connection, check the audio output setting on your PC.\n2. If you are using an HDMI-to-DVI cable, a separate audio cable is required. Note that the HDMI-to-DVI connection is only supported by the HDMI (DVI) port and does not transmit audio. To listen to the computer sound, connect external speakers to the audio output connection of the computer.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_KM2DVBADN_p136_cannot_connect_network_apps",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "KM2DVBADN-2.1.5",
+    "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+    "page": 136,
+    "content": "The TV cannot connect to your network or apps (for Internet compatible models only). 1. Make sure the TV has a network connection. 2. Settings > General > Network > Network Status 3. Contact your Internet service provider.",
+    "metadata": {
+      "symptom": "The TV cannot connect to your network or apps (for Internet compatible models only).",
+      "possible_cause": null,
+      "solution": "1. Make sure the TV has a network connection.\n2. Settings > General > Network > Network Status\n3. Contact your Internet service provider.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_KM2DVBADN_p136_wireless_connection_failed",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "KM2DVBADN-2.1.5",
+    "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+    "page": 136,
+    "content": "The wireless network connection failed. Confirm your wireless modem/router is on and connected to the Internet.",
+    "metadata": {
+      "symptom": "The wireless network connection failed.",
+      "possible_cause": null,
+      "solution": "Confirm your wireless modem/router is on and connected to the Internet.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_KM2DVBADN_p136_wireless_signal_weak",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "KM2DVBADN-2.1.5",
+    "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+    "page": 136,
+    "content": "The wireless network signal is too weak. 1. Position your wireless router, modem router, or access point in a central location. Avoid putting it in a corner. 2. Use a wireless repeater to get an instant boost in your wireless signal strength. Place the repeater halfway between your wireless router and your TV.",
+    "metadata": {
+      "symptom": "The wireless network signal is too weak.",
+      "possible_cause": null,
+      "solution": "1. Position your wireless router, modem router, or access point in a central location. Avoid putting it in a corner.\n2. Use a wireless repeater to get an instant boost in your wireless signal strength. Place the repeater halfway between your wireless router and your TV.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_KM2DVBADN_p26_no_network_cable_found",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "KM2DVBADN-2.1.5",
+    "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+    "page": 26,
+    "content": "No network cable found Make sure that the LAN cable is plugged in on both ends. If it is plugged in, make sure that the router is turned on. If the router is on, try turning it off and then on.",
+    "metadata": {
+      "symptom": "No network cable found",
+      "possible_cause": null,
+      "solution": "Make sure that the LAN cable is plugged in on both ends. If it is plugged in, make sure that the router is turned on. If the router is on, try turning it off and then on.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_KM2DVBADN_p26_wireless_router_not_found",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "KM2DVBADN-2.1.5",
+    "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+    "page": 26,
+    "content": "Wireless network connection failed 1. If a selected wireless router is not found, go to Open Network Settings, and then select the correct router. 2. Settings > General > Network > Open Network Settings",
+    "metadata": {
+      "symptom": "Wireless network connection failed",
+      "possible_cause": null,
+      "solution": "1. If a selected wireless router is not found, go to Open Network Settings, and then select the correct router.\n2. Settings > General > Network > Open Network Settings",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_KM2DVBADN_p27_unable_connect_wireless_router",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "KM2DVBADN-2.1.5",
+    "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+    "page": 27,
+    "content": "Unable to connect to a wireless router 1. Check if the router is turned on. If it is, turn it off and then on. 2. Enter the correct password if required.",
+    "metadata": {
+      "symptom": "Unable to connect to a wireless router",
+      "possible_cause": null,
+      "solution": "1. Check if the router is turned on. If it is, turn it off and then on.\n2. Enter the correct password if required.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_KM2DVBADN_p27_ip_auto_setting_failed",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "KM2DVBADN-2.1.5",
+    "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+    "page": 27,
+    "content": "IP auto setting failed 1. Configure the settings in IP Settings. 2. Settings > General > Network > Network Status > IP Settings 3. Make sure that the DHCP server is enabled on the router, and then unplug the router and plug it back in. 4. Reset the router if required. 5. For wireless connection, enter the correct password if required.",
+    "metadata": {
+      "symptom": "IP auto setting failed",
+      "possible_cause": null,
+      "solution": "1. Configure the settings in IP Settings.\n2. Settings > General > Network > Network Status > IP Settings\n3. Make sure that the DHCP server is enabled on the router, and then unplug the router and plug it back in.\n4. Reset the router if required.\n5. For wireless connection, enter the correct password if required.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": "ถอดหรือเสียบปลั๊กโดยจับที่หัวปลั๊ก ไม่ดึงที่สายไฟ และห้ามจับปลั๊กด้วยมือเปียก ถ้าสายไฟหรือปลั๊กชำรุด ให้หยุดใช้งานแล้วติดต่อศูนย์บริการ"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_KM2DVBADN_p27_unable_connect_network",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "KM2DVBADN-2.1.5",
+    "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+    "page": 27,
+    "content": "Unable to connect to the network 1. Check all IP Settings. 2. Settings > General > Network > Network Status > IP Settings 3. After checking the DHCP server status (must be active) on the router, remove the LAN cable, and then connect it again. 4. For wireless connection, enter the correct password if required.",
+    "metadata": {
+      "symptom": "Unable to connect to the network",
+      "possible_cause": null,
+      "solution": "1. Check all IP Settings.\n2. Settings > General > Network > Network Status > IP Settings\n3. After checking the DHCP server status (must be active) on the router, remove the LAN cable, and then connect it again.\n4. For wireless connection, enter the correct password if required.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_KM2DVBADN_p27_local_not_internet",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "KM2DVBADN-2.1.5",
+    "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+    "page": 27,
+    "content": "Connected to a local network, but not to the Internet 1. Make sure that the Internet LAN cable is connected to the router's external LAN port. 2. Check the DNS values in IP Settings. 3. Settings > General > Network > Network Status > IP Settings",
+    "metadata": {
+      "symptom": "Connected to a local network, but not to the Internet",
+      "possible_cause": null,
+      "solution": "1. Make sure that the Internet LAN cable is connected to the router's external LAN port.\n2. Check the DNS values in IP Settings.\n3. Settings > General > Network > Network Status > IP Settings",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_KM2DVBADN_p27_setup_done_no_internet",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "KM2DVBADN-2.1.5",
+    "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+    "page": 27,
+    "content": "Network setup is complete, but unable to connect to the Internet If the problem persists, contact your Internet Service Provider.",
+    "metadata": {
+      "symptom": "Network setup is complete, but unable to connect to the Internet",
+      "possible_cause": null,
+      "solution": "If the problem persists, contact your Internet Service Provider.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_KM2DVBADN_p137_schedule_recording_cannot_use",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "KM2DVBADN-2.1.5",
+    "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+    "page": 137,
+    "content": "Schedule Recording cannot be used. 1. Check if there is a USB device connected to the TV. 2. Recording will automatically stop if the signal becomes too weak. 3. Check the free space on the USB device. The function will not work if there isn't enough storage space on the USB device. 4. This function may not be supported depending on the model or geographical area.",
+    "metadata": {
+      "symptom": "Schedule Recording cannot be used.",
+      "possible_cause": null,
+      "solution": "1. Check if there is a USB device connected to the TV.\n2. Recording will automatically stop if the signal becomes too weak.\n3. Check the free space on the USB device. The function will not work if there isn't enough storage space on the USB device.\n4. This function may not be supported depending on the model or geographical area.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_KM2DVBADN_p137_anynet_not_working",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "KM2DVBADN-2.1.5",
+    "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+    "page": 137,
+    "content": "Anynet+ does not work. 1. Confirm that the device is an Anynet+ device. The Anynet+ system supports Anynet+ devices only. 2. Check if the power cord of the Anynet+ device is properly connected. 3. Check the cable connections of the Anynet+ device. 4. Go to Anynet+ (HDMI-CEC) and see if Anynet+ (HDMI-CEC) has been set to On. 5. Settings > General > External Device Manager > Anynet+ (HDMI-CEC) 6. Anynet+ may not function when some other functions are active, including Channel Search, Smart Hub, Initial Setup, etc. 7. If you have disconnected and then reconnected the HDMI cable, scan for devices again or turn your TV off and on.",
+    "metadata": {
+      "symptom": "Anynet+ does not work.",
+      "possible_cause": null,
+      "solution": "1. Confirm that the device is an Anynet+ device. The Anynet+ system supports Anynet+ devices only.\n2. Check if the power cord of the Anynet+ device is properly connected.\n3. Check the cable connections of the Anynet+ device.\n4. Go to Anynet+ (HDMI-CEC) and see if Anynet+ (HDMI-CEC) has been set to On.\n5. Settings > General > External Device Manager > Anynet+ (HDMI-CEC)\n6. Anynet+ may not function when some other functions are active, including Channel Search, Smart Hub, Initial Setup, etc.\n7. If you have disconnected and then reconnected the HDMI cable, scan for devices again or turn your TV off and on.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": "ถอดหรือเสียบปลั๊กโดยจับที่หัวปลั๊ก ไม่ดึงที่สายไฟ และห้ามจับปลั๊กด้วยมือเปียก ถ้าสายไฟหรือปลั๊กชำรุด ให้หยุดใช้งานแล้วติดต่อศูนย์บริการ"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_KM2DVBADN_p138_anynet_connecting_message",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "KM2DVBADN-2.1.5",
+    "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+    "page": 138,
+    "content": "The message \"Connecting to Anynet+ device...\" or \"Disconnecting from Anynet+ device\" appears on the screen. You cannot use the remote control when the TV is configuring Anynet+ or switching to a viewing mode. Use the remote control after the TV has completed the Anynet+ configuration or has switched to a viewing mode.",
+    "metadata": {
+      "symptom": "The message \"Connecting to Anynet+ device...\" or \"Disconnecting from Anynet+ device\" appears on the screen.",
+      "possible_cause": null,
+      "solution": "You cannot use the remote control when the TV is configuring Anynet+ or switching to a viewing mode. Use the remote control after the TV has completed the Anynet+ configuration or has switched to a viewing mode.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_KM2DVBADN_p138_anynet_device_wont_play",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "KM2DVBADN-2.1.5",
+    "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+    "page": 138,
+    "content": "The Anynet+ device won't play. You cannot use the play function when Start Setup is in progress.",
+    "metadata": {
+      "symptom": "The Anynet+ device won't play.",
+      "possible_cause": null,
+      "solution": "You cannot use the play function when Start Setup is in progress.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_KM2DVBADN_p138_anynet_device_not_displayed",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "KM2DVBADN-2.1.5",
+    "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+    "page": 138,
+    "content": "The connected device is not displayed. 1. Check whether the device supports Anynet+. 2. Check whether the HDMI cable is properly connected. 3. Go to Anynet+ (HDMI-CEC) and see if Anynet+ (HDMI-CEC) has been set to On. 4. Settings > General > External Device Manager > Anynet+ (HDMI-CEC) 5. Scan for Anynet+ devices again. 6. Anynet+ devices must be connected to the TV using an HDMI cable. Make sure the device is connected to your TV with an HDMI cable. Some HDMI cables may not support Anynet+. 7. If the connection is terminated because there has been a power failure or the HDMI cable has been disconnected, please scan for the device again.",
+    "metadata": {
+      "symptom": "The connected device is not displayed.",
+      "possible_cause": null,
+      "solution": "1. Check whether the device supports Anynet+.\n2. Check whether the HDMI cable is properly connected.\n3. Go to Anynet+ (HDMI-CEC) and see if Anynet+ (HDMI-CEC) has been set to On.\n4. Settings > General > External Device Manager > Anynet+ (HDMI-CEC)\n5. Scan for Anynet+ devices again.\n6. Anynet+ devices must be connected to the TV using an HDMI cable. Make sure the device is connected to your TV with an HDMI cable. Some HDMI cables may not support Anynet+.\n7. If the connection is terminated because there has been a power failure or the HDMI cable has been disconnected, please scan for the device again.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_KM2DVBADN_p138_audio_not_through_av_receiver",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "KM2DVBADN-2.1.5",
+    "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+    "page": 138,
+    "content": "The TV audio is not being played through the AV receiver. 1. Connect an optical cable to the TV and the AV receiver. 2. ARC enables the TV to output digital sound via the HDMI (ARC) port. 3. However, ARC is only available when the TV is connected to an AV receiver that supports ARC.",
+    "metadata": {
+      "symptom": "The TV audio is not being played through the AV receiver.",
+      "possible_cause": null,
+      "solution": "1. Connect an optical cable to the TV and the AV receiver.\n2. ARC enables the TV to output digital sound via the HDMI (ARC) port.\n3. However, ARC is only available when the TV is connected to an AV receiver that supports ARC.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_KM2DVBADN_p138_app_in_other_language",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "KM2DVBADN-2.1.5",
+    "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+    "page": 138,
+    "content": "I launched an app, but it's in English. How can I change the language? Languages supported by the app may be different from the user interface language. The ability to change the language depends on the service provider.",
+    "metadata": {
+      "symptom": "I launched an app, but it's in English. How can I change the language?",
+      "possible_cause": null,
+      "solution": "Languages supported by the app may be different from the user interface language. The ability to change the language depends on the service provider.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_KM2DVBADN_p138_application_not_working",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "KM2DVBADN-2.1.5",
+    "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+    "page": 138,
+    "content": "My application is not working. 1. Check with the service provider. 2. Refer to the Help section on the application service provider's website.",
+    "metadata": {
+      "symptom": "My application is not working.",
+      "possible_cause": null,
+      "solution": "1. Check with the service provider.\n2. Refer to the Help section on the application service provider's website.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_KM2DVBADN_p139_files_cannot_play",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "KM2DVBADN-2.1.5",
+    "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+    "page": 139,
+    "content": "Some files can't be played. This problem may occur with high-bitrate files. Most files can be played back, but you might experience problems with high-bitrate files.",
+    "metadata": {
+      "symptom": "Some files can't be played.",
+      "possible_cause": null,
+      "solution": "This problem may occur with high-bitrate files. Most files can be played back, but you might experience problems with high-bitrate files.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_KM2DVBADN_p140_tv_is_hot",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "KM2DVBADN-2.1.5",
+    "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+    "page": 140,
+    "content": "The TV is hot. Watching TV for an extended period of time causes the panel to generate heat. The heat from the panel is dissipated through internal vents running along the top of the TV. The bottom, however, may feel hot to the touch after extended use. Children watching TV need constant adult supervision to prevent them from touching the TV. This heat, however, is not a defect and does not affect the TV's functionality.",
+    "metadata": {
+      "symptom": "The TV is hot.",
+      "possible_cause": null,
+      "solution": "Watching TV for an extended period of time causes the panel to generate heat. The heat from the panel is dissipated through internal vents running along the top of the TV. The bottom, however, may feel hot to the touch after extended use. Children watching TV need constant adult supervision to prevent them from touching the TV. This heat, however, is not a defect and does not affect the TV's functionality.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_KM2DVBADN_p140_not_full_screen",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "KM2DVBADN-2.1.5",
+    "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+    "page": 140,
+    "content": "The picture won’t display in full screen. 1. HD channels will have black bars on either side of the screen when displaying upscaled SD (4:3) content. 2. Black bars will appear at the top and bottom of the screen when you watch movies that have aspect ratios different from your TV. 3. Adjust the picture size options on your external device or set the TV to full screen. 4. Settings > Picture > Picture Size Settings",
+    "metadata": {
+      "symptom": "The picture won’t display in full screen.",
+      "possible_cause": null,
+      "solution": "1. HD channels will have black bars on either side of the screen when displaying upscaled SD (4:3) content.\n2. Black bars will appear at the top and bottom of the screen when you watch movies that have aspect ratios different from your TV.\n3. Adjust the picture size options on your external device or set the TV to full screen.\n4. Settings > Picture > Picture Size Settings",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_KM2DVBADN_p140_subtitles_greyed_out",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "KM2DVBADN-2.1.5",
+    "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+    "page": 140,
+    "content": "The Subtitles item in the TV is greyed out. When an external device is connected with an HDMI or Component cable, the Subtitle function is unavailable. Adjust the subtitle setting on the external device.",
+    "metadata": {
+      "symptom": "The Subtitles item in the TV is greyed out.",
+      "possible_cause": null,
+      "solution": "When an external device is connected with an HDMI or Component cable, the Subtitle function is unavailable. Adjust the subtitle setting on the external device.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_KM2DVBADN_p140_smells_like_plastic",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "KM2DVBADN-2.1.5",
+    "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+    "page": 140,
+    "content": "The TV smells of plastic. This smell is normal and will dissipate over time.",
+    "metadata": {
+      "symptom": "The TV smells of plastic.",
+      "possible_cause": null,
+      "solution": "This smell is normal and will dissipate over time.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_KM2DVBADN_p140_signal_information_not_activated",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "KM2DVBADN-2.1.5",
+    "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+    "page": 140,
+    "content": "Signal Information under Self Diagnosis isn't activated. 1. Verify that the current channel is a digital channel. 2. Signal Information is only available for digital channels. 3. Settings > Support > Self Diagnosis > Signal Information",
+    "metadata": {
+      "symptom": "Signal Information under Self Diagnosis isn't activated.",
+      "possible_cause": null,
+      "solution": "1. Verify that the current channel is a digital channel.\n2. Signal Information is only available for digital channels.\n3. Settings > Support > Self Diagnosis > Signal Information",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_KM2DVBADN_p140_tilted_to_side",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "KM2DVBADN-2.1.5",
+    "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+    "page": 140,
+    "content": "The TV is tilted to the side. Remove the base stand from the TV and reassemble it.",
+    "metadata": {
+      "symptom": "The TV is tilted to the side.",
+      "possible_cause": null,
+      "solution": "Remove the base stand from the TV and reassemble it.",
+      "severity": "medium",
+      "difficulty": "medium",
+      "safety_warning": "ทีวีอาจล้มหรือตกขณะถอดและประกอบขาตั้ง ควรให้อีกคนช่วยจับทีวี วางทีวีบนพื้นผิวเรียบนุ่ม และระวังมือไม่ให้ถูกหนีบ"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_KM2DVBADN_p140_stand_wobbly",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "KM2DVBADN-2.1.5",
+    "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+    "page": 140,
+    "content": "The stand is wobbly or crooked. Make sure the indicator arrows on the stand and stand holder are properly aligned.",
+    "metadata": {
+      "symptom": "The stand is wobbly or crooked.",
+      "possible_cause": null,
+      "solution": "Make sure the indicator arrows on the stand and stand holder are properly aligned.",
+      "severity": "medium",
+      "difficulty": "medium",
+      "safety_warning": "ทีวีอาจล้มหรือตกขณะถอดและประกอบขาตั้ง ควรให้อีกคนช่วยจับทีวี วางทีวีบนพื้นผิวเรียบนุ่ม และระวังมือไม่ให้ถูกหนีบ"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_KM2DVBADN_p140_remote_voice_not_work",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "KM2DVBADN-2.1.5",
+    "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+    "page": 140,
+    "content": "The remote control and/or voice control does not work. The TV ships with protective stickers covering some of the sensors. Make sure all of the stickers have been removed.",
+    "metadata": {
+      "symptom": "The remote control and/or voice control does not work.",
+      "possible_cause": null,
+      "solution": "The TV ships with protective stickers covering some of the sensors. Make sure all of the stickers have been removed.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_KM2DVBADN_p141_broadcasting_deactivated",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "KM2DVBADN-2.1.5",
+    "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+    "page": 141,
+    "content": "The Broadcasting function has been deactivated. 1. Broadcasting is only available when the Source is set to TV. 2. Broadcasting cannot be accessed while you watch TV using a cable box or satellite box. 3. Broadcasting cannot be accessed while a recording is in progress or the Timeshift function is running.",
+    "metadata": {
+      "symptom": "The Broadcasting function has been deactivated.",
+      "possible_cause": null,
+      "solution": "1. Broadcasting is only available when the Source is set to TV.\n2. Broadcasting cannot be accessed while you watch TV using a cable box or satellite box.\n3. Broadcasting cannot be accessed while a recording is in progress or the Timeshift function is running.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_KM2DVBADN_p141_settings_lost",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "KM2DVBADN-2.1.5",
+    "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+    "page": 141,
+    "content": "The settings are lost after 5 minutes or every time the TV is turned off. 1. If Usage Mode is set to Retail Mode, the TV's audio and video settings are automatically reset every 5 minutes. 2. Change Usage Mode to Home Mode. 3. Settings > General > System Manager > Usage Mode",
+    "metadata": {
+      "symptom": "The settings are lost after 5 minutes or every time the TV is turned off.",
+      "possible_cause": null,
+      "solution": "1. If Usage Mode is set to Retail Mode, the TV's audio and video settings are automatically reset every 5 minutes.\n2. Change Usage Mode to Home Mode.\n3. Settings > General > System Manager > Usage Mode",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_KM2DVBADN_p141_pop_banner_ad",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "KM2DVBADN-2.1.5",
+    "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+    "page": 141,
+    "content": "A POP (TV’s internal banner ad) appears on the screen. 1. Change Usage Mode to Home Mode. 2. Settings > General > System Manager > Usage Mode",
+    "metadata": {
+      "symptom": "A POP (TV’s internal banner ad) appears on the screen.",
+      "possible_cause": null,
+      "solution": "1. Change Usage Mode to Home Mode.\n2. Settings > General > System Manager > Usage Mode",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_KM2DVBADN_p141_popping_noise",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "KM2DVBADN-2.1.5",
+    "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+    "page": 141,
+    "content": "The TV is making a popping noise. The expansion and contraction of the TV's outer casing may cause a popping noise. This does not indicate a product malfunction. The TV is safe to use.",
+    "metadata": {
+      "symptom": "The TV is making a popping noise.",
+      "possible_cause": null,
+      "solution": "The expansion and contraction of the TV's outer casing may cause a popping noise. This does not indicate a product malfunction. The TV is safe to use.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_KM2DVBADN_p141_humming_noise",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "KM2DVBADN-2.1.5",
+    "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+    "page": 141,
+    "content": "The TV is making a humming noise. 1. Your TV utilises high-speed switching circuits and high levels of electrical current. Depending on the TV's brightness level, the TV may seem slightly noisier than a conventional TV. 2. Your TV has undergone strict quality control procedures that meet our demanding performance and reliability requirements. 3. Some noise coming from the TV is considered normal and is not an acceptable cause for an exchange or refund.",
+    "metadata": {
+      "symptom": "The TV is making a humming noise.",
+      "possible_cause": null,
+      "solution": "1. Your TV utilises high-speed switching circuits and high levels of electrical current. Depending on the TV's brightness level, the TV may seem slightly noisier than a conventional TV.\n2. Your TV has undergone strict quality control procedures that meet our demanding performance and reliability requirements.\n3. Some noise coming from the TV is considered normal and is not an acceptable cause for an exchange or refund.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_KM2DVBADN_p141_software_update_failed",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "KM2DVBADN-2.1.5",
+    "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+    "page": 141,
+    "content": "The software update over the Internet has failed. 1. Check the network connection status. 2. Settings > General > Network > Network Status 3. If the TV is not connected to a network, connect it to a network. 4. The upgrade stops if you already have the latest software version.",
+    "metadata": {
+      "symptom": "The software update over the Internet has failed.",
+      "possible_cause": null,
+      "solution": "1. Check the network connection status.\n2. Settings > General > Network > Network Status\n3. If the TV is not connected to a network, connect it to a network.\n4. The upgrade stops if you already have the latest software version.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  }
+]

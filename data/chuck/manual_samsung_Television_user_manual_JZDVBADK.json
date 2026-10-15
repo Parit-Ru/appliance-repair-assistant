@@ -1,0 +1,1056 @@
+[
+  {
+    "chunk_id": "manual_Samsung_Television_JZDVBADK_p94_flickering_dimming",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "JZDVBADK-1.1.2",
+    "source": "Samsung TV e-Manual JZDVBADK-1.1.2 (ENG-JZDVBADK-1.1.2)",
+    "page": 94,
+    "content": "Flickering and Dimming 1. If your Samsung Television is flickering or dimming sporadically, you may need to disable some of the energy efficiency features. 2. Disable Energy Saving Mode or Eco Sensor or Motion Lighting. 3. Settings > System > Eco Solution > Energy Saving Mode 4. Settings > System > Eco Solution > Eco Sensor 5. Settings > System > Eco Solution > Motion Lighting",
+    "metadata": {
+      "symptom": "Flickering and Dimming",
+      "possible_cause": null,
+      "solution": "1. If your Samsung Television is flickering or dimming sporadically, you may need to disable some of the energy efficiency features.\n2. Disable Energy Saving Mode or Eco Sensor or Motion Lighting.\n3. Settings > System > Eco Solution > Energy Saving Mode\n4. Settings > System > Eco Solution > Eco Sensor\n5. Settings > System > Eco Solution > Motion Lighting",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_JZDVBADK_p94_component_screen_colour",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "JZDVBADK-1.1.2",
+    "source": "Samsung TV e-Manual JZDVBADK-1.1.2 (ENG-JZDVBADK-1.1.2)",
+    "page": 94,
+    "content": "Component Connections/Screen Colour 1. If the colour on your Samsung television screen is not correct or the black and white colours are off, run Start Picture Test. 2. Settings > Support > Self Diagnosis > Start Picture Test 3. If the test results indicate that the problem is not caused by the TV, do the following: 4. Confirm that the video input connectors are connected to the correct external device video output connectors. 5. Check the other connections as well. If the TV is connected to an external device via a component cable, confirm that the Pb, Pr, and Y jacks are plugged into their proper connectors.",
+    "metadata": {
+      "symptom": "Component Connections/Screen Colour",
+      "possible_cause": null,
+      "solution": "1. If the colour on your Samsung television screen is not correct or the black and white colours are off, run Start Picture Test.\n2. Settings > Support > Self Diagnosis > Start Picture Test\n3. If the test results indicate that the problem is not caused by the TV, do the following:\n4. Confirm that the video input connectors are connected to the correct external device video output connectors.\n5. Check the other connections as well. If the TV is connected to an external device via a component cable, confirm that the Pb, Pr, and Y jacks are plugged into their proper connectors.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_JZDVBADK_p94_screen_brightness",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "JZDVBADK-1.1.2",
+    "source": "Samsung TV e-Manual JZDVBADK-1.1.2 (ENG-JZDVBADK-1.1.2)",
+    "page": 94,
+    "content": "Screen Brightness 1. If the colours on your Samsung TV are correct but just a little too dark or bright, try adjusting the following settings first. 2. Select Settings > Picture > Expert Settings menu and adjust the Backlight, Contrast, Brightness, Sharpness, Colour, and Tint (G/R) settings.",
+    "metadata": {
+      "symptom": "Screen Brightness",
+      "possible_cause": null,
+      "solution": "1. If the colours on your Samsung TV are correct but just a little too dark or bright, try adjusting the following settings first.\n2. Select Settings > Picture > Expert Settings menu and adjust the Backlight, Contrast, Brightness, Sharpness, Colour, and Tint (G/R) settings.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_JZDVBADK_p94_ghosting_blurring_juddering",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "JZDVBADK-1.1.2",
+    "source": "Samsung TV e-Manual JZDVBADK-1.1.2 (ENG-JZDVBADK-1.1.2)",
+    "page": 94,
+    "content": "Ghosting, Blurring, or Juddering 1. If you notice ghosting or blurring on the screen, use the Auto Motion Plus function to resolve the issue. 2. Settings > Picture > Expert Settings > Auto Motion Plus",
+    "metadata": {
+      "symptom": "Ghosting, Blurring, or Juddering",
+      "possible_cause": null,
+      "solution": "1. If you notice ghosting or blurring on the screen, use the Auto Motion Plus function to resolve the issue.\n2. Settings > Picture > Expert Settings > Auto Motion Plus",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_JZDVBADK_p95_unwanted_powering_off",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "JZDVBADK-1.1.2",
+    "source": "Samsung TV e-Manual JZDVBADK-1.1.2 (ENG-JZDVBADK-1.1.2)",
+    "page": 95,
+    "content": "Unwanted Powering Off 1. If your Samsung TV appears to turn off by itself, try disabling some of the TV's energy efficiency functions. 2. See if Sleep Timer has been enabled. The Sleep Timer automatically turns the TV off after a specified period of time. 3. Settings > System > Time > Sleep Timer 4. If the Sleep Timer has not been enabled, see if Auto Power Off has been enabled and disable them. 5. Settings > System > Eco Solution > Auto Power Off",
+    "metadata": {
+      "symptom": "Unwanted Powering Off",
+      "possible_cause": null,
+      "solution": "1. If your Samsung TV appears to turn off by itself, try disabling some of the TV's energy efficiency functions.\n2. See if Sleep Timer has been enabled. The Sleep Timer automatically turns the TV off after a specified period of time.\n3. Settings > System > Time > Sleep Timer\n4. If the Sleep Timer has not been enabled, see if Auto Power Off has been enabled and disable them.\n5. Settings > System > Eco Solution > Auto Power Off",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_JZDVBADK_p95_problems_powering_on",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "JZDVBADK-1.1.2",
+    "source": "Samsung TV e-Manual JZDVBADK-1.1.2 (ENG-JZDVBADK-1.1.2)",
+    "page": 95,
+    "content": "Problems Powering On 1. If you are having problems powering on your Samsung television, there are a number of things to check before calling the service department. 2. Confirm that the TV's power cord is connected correctly at both ends and that the remote control is operating normally. 3. Make sure that the aerial cable or cable TV cable is firmly connected. 4. If you have a cable or satellite box confirm that it is plugged in and turned on.",
+    "metadata": {
+      "symptom": "Problems Powering On",
+      "possible_cause": null,
+      "solution": "1. If you are having problems powering on your Samsung television, there are a number of things to check before calling the service department.\n2. Confirm that the TV's power cord is connected correctly at both ends and that the remote control is operating normally.\n3. Make sure that the aerial cable or cable TV cable is firmly connected.\n4. If you have a cable or satellite box confirm that it is plugged in and turned on.",
+      "severity": "medium",
+      "difficulty": "easy",
+      "safety_warning": "ถอดหรือเสียบปลั๊กโดยจับที่หัวปลั๊ก ไม่ดึงที่สายไฟ และห้ามจับปลั๊กด้วยมือเปียก ถ้าสายไฟหรือปลั๊กชำรุด ให้หยุดใช้งานแล้วติดต่อศูนย์บริการ"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_JZDVBADK_p95_unable_find_channel",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "JZDVBADK-1.1.2",
+    "source": "Samsung TV e-Manual JZDVBADK-1.1.2 (ENG-JZDVBADK-1.1.2)",
+    "page": 95,
+    "content": "Unable to find a Channel 1. If your TV is not connected to a cable or satellite box, run Auto Tuning. 2. Settings > Broadcasting > Auto Tuning",
+    "metadata": {
+      "symptom": "Unable to find a Channel",
+      "possible_cause": null,
+      "solution": "1. If your TV is not connected to a cable or satellite box, run Auto Tuning.\n2. Settings > Broadcasting > Auto Tuning",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_JZDVBADK_p95_not_as_good_as_store",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "JZDVBADK-1.1.2",
+    "source": "Samsung TV e-Manual JZDVBADK-1.1.2 (ENG-JZDVBADK-1.1.2)",
+    "page": 95,
+    "content": "The TV image does not look as good as it did in the store. 1. Store displays are all tuned to digital, HD (high definition) channels. 2. If you have an analogue cable or satellite box, upgrade to a digital cable or satellite box. Use HDMI or Component cables to deliver HD (high definition) picture quality. 3. Many HD channels are upscaled from SD (Standard Definition) content. Look for a channel that is broadcasting HD content. 4. Cable/Satellite Subscribers: Try HD channels from the channel lineup. 5. Terrestrial/Cable Aerial Connection: Try HD channels after running the Auto Tuning function. 6. Adjust the cable or satellite box's video output resolution to 1080i or 720p.",
+    "metadata": {
+      "symptom": "The TV image does not look as good as it did in the store.",
+      "possible_cause": null,
+      "solution": "1. Store displays are all tuned to digital, HD (high definition) channels.\n2. If you have an analogue cable or satellite box, upgrade to a digital cable or satellite box. Use HDMI or Component cables to deliver HD (high definition) picture quality.\n3. Many HD channels are upscaled from SD (Standard Definition) content. Look for a channel that is broadcasting HD content.\n4. Cable/Satellite Subscribers: Try HD channels from the channel lineup.\n5. Terrestrial/Cable Aerial Connection: Try HD channels after running the Auto Tuning function.\n6. Adjust the cable or satellite box's video output resolution to 1080i or 720p.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_JZDVBADK_p96_picture_distorted",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "JZDVBADK-1.1.2",
+    "source": "Samsung TV e-Manual JZDVBADK-1.1.2 (ENG-JZDVBADK-1.1.2)",
+    "page": 96,
+    "content": "The picture is distorted. 1. The compression of video content may cause picture distortions, especially in fast moving pictures from sports programmes and action movies. 2. If the signal reception is weak or poor, screen distortion may be accompanied but it is not a malfunction. 3. Mobile phones used close to the TV (within 1m) may cause noise in analogue and digital channels.",
+    "metadata": {
+      "symptom": "The picture is distorted.",
+      "possible_cause": null,
+      "solution": "1. The compression of video content may cause picture distortions, especially in fast moving pictures from sports programmes and action movies.\n2. If the signal reception is weak or poor, screen distortion may be accompanied but it is not a malfunction.\n3. Mobile phones used close to the TV (within 1m) may cause noise in analogue and digital channels.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_JZDVBADK_p96_colour_wrong_or_missing",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "JZDVBADK-1.1.2",
+    "source": "Samsung TV e-Manual JZDVBADK-1.1.2 (ENG-JZDVBADK-1.1.2)",
+    "page": 96,
+    "content": "The colour is wrong or missing. If you’re using a Component connection, make sure that the Component cables are connected to the correct jacks. Incorrect or loose connections may cause colour problems or a blank screen.",
+    "metadata": {
+      "symptom": "The colour is wrong or missing.",
+      "possible_cause": null,
+      "solution": "If you’re using a Component connection, make sure that the Component cables are connected to the correct jacks. Incorrect or loose connections may cause colour problems or a blank screen.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_JZDVBADK_p96_colour_poor_not_bright",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "JZDVBADK-1.1.2",
+    "source": "Samsung TV e-Manual JZDVBADK-1.1.2 (ENG-JZDVBADK-1.1.2)",
+    "page": 96,
+    "content": "The colour is poor or the picture is not bright enough. 1. Go to the Picture menu and then adjust the Picture Mode, Brightness, Sharpness, and Colour settings. 2. See if Energy Saving Mode has been enabled. 3. Settings > System > Eco Solution > Energy Saving Mode 4. Try resetting the picture. 5. Settings > Picture > Expert Settings > Reset Picture",
+    "metadata": {
+      "symptom": "The colour is poor or the picture is not bright enough.",
+      "possible_cause": null,
+      "solution": "1. Go to the Picture menu and then adjust the Picture Mode, Brightness, Sharpness, and Colour settings.\n2. See if Energy Saving Mode has been enabled.\n3. Settings > System > Eco Solution > Energy Saving Mode\n4. Try resetting the picture.\n5. Settings > Picture > Expert Settings > Reset Picture",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_JZDVBADK_p96_dotted_line_edge",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "JZDVBADK-1.1.2",
+    "source": "Samsung TV e-Manual JZDVBADK-1.1.2 (ENG-JZDVBADK-1.1.2)",
+    "page": 96,
+    "content": "There is a dotted line on the edge of the screen. 1. Change Picture Size to 16:9 Standard. 2. Change the cable or satellite box resolution.",
+    "metadata": {
+      "symptom": "There is a dotted line on the edge of the screen.",
+      "possible_cause": null,
+      "solution": "1. Change Picture Size to 16:9 Standard.\n2. Change the cable or satellite box resolution.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_JZDVBADK_p96_picture_black_white",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "JZDVBADK-1.1.2",
+    "source": "Samsung TV e-Manual JZDVBADK-1.1.2 (ENG-JZDVBADK-1.1.2)",
+    "page": 96,
+    "content": "The picture is black and white. If you use AV equipment, connect a Composite adapter (Yellow). Then, remove the Component adapter (Blue).",
+    "metadata": {
+      "symptom": "The picture is black and white.",
+      "possible_cause": null,
+      "solution": "If you use AV equipment, connect a Composite adapter (Yellow). Then, remove the Component adapter (Blue).",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_JZDVBADK_p97_no_sound_or_low",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "JZDVBADK-1.1.2",
+    "source": "Samsung TV e-Manual JZDVBADK-1.1.2 (ENG-JZDVBADK-1.1.2)",
+    "page": 97,
+    "content": "There is no sound or the sound is too low at maximum volume. Check the volume control of the device (cable or satellite box, DVD, Blu-ray, etc.) connected to your TV.",
+    "metadata": {
+      "symptom": "There is no sound or the sound is too low at maximum volume.",
+      "possible_cause": null,
+      "solution": "Check the volume control of the device (cable or satellite box, DVD, Blu-ray, etc.) connected to your TV.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_JZDVBADK_p97_picture_good_no_sound",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "JZDVBADK-1.1.2",
+    "source": "Samsung TV e-Manual JZDVBADK-1.1.2 (ENG-JZDVBADK-1.1.2)",
+    "page": 97,
+    "content": "The picture is good but there is no sound. 1. Set Select Speaker to TV Speaker. 2. Settings > Sound > Select Speaker 3. If you are using an external device, check the device’s audio output option. (For example, you may need to change your cable box’s audio option to HDMI if the box connected to your TV is using an HDMI cable.) 4. To listen to the computer sound, connect the external speaker to the computer’s audio output connector. 5. If your TV has a headphone jack, make sure there is nothing plugged into it. 6. Reboot the connected device by disconnecting and then reconnecting the device’s power cable.",
+    "metadata": {
+      "symptom": "The picture is good but there is no sound.",
+      "possible_cause": null,
+      "solution": "1. Set Select Speaker to TV Speaker.\n2. Settings > Sound > Select Speaker\n3. If you are using an external device, check the device’s audio output option. (For example, you may need to change your cable box’s audio option to HDMI if the box connected to your TV is using an HDMI cable.)\n4. To listen to the computer sound, connect the external speaker to the computer’s audio output connector.\n5. If your TV has a headphone jack, make sure there is nothing plugged into it.\n6. Reboot the connected device by disconnecting and then reconnecting the device’s power cable.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": "ถอดหรือเสียบปลั๊กโดยจับที่หัวปลั๊ก ไม่ดึงที่สายไฟ และห้ามจับปลั๊กด้วยมือเปียก ถ้าสายไฟหรือปลั๊กชำรุด ให้หยุดใช้งานแล้วติดต่อศูนย์บริการ"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_JZDVBADK_p97_speakers_odd_sound",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "JZDVBADK-1.1.2",
+    "source": "Samsung TV e-Manual JZDVBADK-1.1.2 (ENG-JZDVBADK-1.1.2)",
+    "page": 97,
+    "content": "The speakers are making an odd sound. 1. Make sure that the audio cable is connected to the correct audio output connector on the external device. 2. For aerial or cable connections, check the signal information. A low signal level may cause sound distortions. 3. Run Start Sound Test. 4. Settings > Support > Self Diagnosis > Start Sound Test",
+    "metadata": {
+      "symptom": "The speakers are making an odd sound.",
+      "possible_cause": null,
+      "solution": "1. Make sure that the audio cable is connected to the correct audio output connector on the external device.\n2. For aerial or cable connections, check the signal information. A low signal level may cause sound distortions.\n3. Run Start Sound Test.\n4. Settings > Support > Self Diagnosis > Start Sound Test",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_JZDVBADK_p98_weak_or_no_signal",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "JZDVBADK-1.1.2",
+    "source": "Samsung TV e-Manual JZDVBADK-1.1.2 (ENG-JZDVBADK-1.1.2)",
+    "page": 98,
+    "content": "\"Weak or No Signal\" displayed in TV mode/cannot find channel. 1. Select Source to confirm that the correct input source has been selected. 2. If the TV is not connected to a cable or satellite box, run Auto Tuning to search for channels. 3. Settings > Broadcasting > Auto Tuning",
+    "metadata": {
+      "symptom": "\"Weak or No Signal\" displayed in TV mode/cannot find channel.",
+      "possible_cause": null,
+      "solution": "1. Select Source to confirm that the correct input source has been selected.\n2. If the TV is not connected to a cable or satellite box, run Auto Tuning to search for channels.\n3. Settings > Broadcasting > Auto Tuning",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_JZDVBADK_p98_not_receiving_all_channels",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "JZDVBADK-1.1.2",
+    "source": "Samsung TV e-Manual JZDVBADK-1.1.2 (ENG-JZDVBADK-1.1.2)",
+    "page": 98,
+    "content": "The TV is not receiving all channels. 1. Confirm that the coaxial cable is securely connected to the TV. 2. Run Auto Tuning. 3. Settings > Broadcasting > Auto Tuning",
+    "metadata": {
+      "symptom": "The TV is not receiving all channels.",
+      "possible_cause": null,
+      "solution": "1. Confirm that the coaxial cable is securely connected to the TV.\n2. Run Auto Tuning.\n3. Settings > Broadcasting > Auto Tuning",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_JZDVBADK_p98_no_subtitles_digital",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "JZDVBADK-1.1.2",
+    "source": "Samsung TV e-Manual JZDVBADK-1.1.2 (ENG-JZDVBADK-1.1.2)",
+    "page": 98,
+    "content": "There are no subtitles with digital channels. 1. Go to Subtitle and change the Subtitle Mode. 2. Settings > System > Accessibility > Subtitle 3. Some channels may not have subtitle data.",
+    "metadata": {
+      "symptom": "There are no subtitles with digital channels.",
+      "possible_cause": null,
+      "solution": "1. Go to Subtitle and change the Subtitle Mode.\n2. Settings > System > Accessibility > Subtitle\n3. Some channels may not have subtitle data.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_JZDVBADK_p98_picture_quality_low",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "JZDVBADK-1.1.2",
+    "source": "Samsung TV e-Manual JZDVBADK-1.1.2 (ENG-JZDVBADK-1.1.2)",
+    "page": 98,
+    "content": "The picture quality is low. Select high definition (HD) channels or programmes.",
+    "metadata": {
+      "symptom": "The picture quality is low.",
+      "possible_cause": null,
+      "solution": "Select high definition (HD) channels or programmes.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_JZDVBADK_p98_mode_not_supported",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "JZDVBADK-1.1.2",
+    "source": "Samsung TV e-Manual JZDVBADK-1.1.2 (ENG-JZDVBADK-1.1.2)",
+    "page": 98,
+    "content": "The \"Mode Not Supported\" message appears. Set your PC’s output resolution so it matches a resolution supported by the TV.",
+    "metadata": {
+      "symptom": "The \"Mode Not Supported\" message appears.",
+      "possible_cause": null,
+      "solution": "Set your PC’s output resolution so it matches a resolution supported by the TV.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_JZDVBADK_p98_video_ok_no_audio",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "JZDVBADK-1.1.2",
+    "source": "Samsung TV e-Manual JZDVBADK-1.1.2 (ENG-JZDVBADK-1.1.2)",
+    "page": 98,
+    "content": "The video is OK but there is no audio. 1. If you are using an HDMI connection, check the audio output setting on your PC. 2. If you are using an HDMI-to-DVI cable, a separate audio cable is required.",
+    "metadata": {
+      "symptom": "The video is OK but there is no audio.",
+      "possible_cause": null,
+      "solution": "1. If you are using an HDMI connection, check the audio output setting on your PC.\n2. If you are using an HDMI-to-DVI cable, a separate audio cable is required.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_JZDVBADK_p99_cannot_connect_network_apps",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "JZDVBADK-1.1.2",
+    "source": "Samsung TV e-Manual JZDVBADK-1.1.2 (ENG-JZDVBADK-1.1.2)",
+    "page": 99,
+    "content": "The TV cannot connect to your network or apps (for Internet compatible models only). 1. Make sure the TV has a network connection. 2. Settings > Network > Network Status 3. Contact your Internet service provider.",
+    "metadata": {
+      "symptom": "The TV cannot connect to your network or apps (for Internet compatible models only).",
+      "possible_cause": null,
+      "solution": "1. Make sure the TV has a network connection.\n2. Settings > Network > Network Status\n3. Contact your Internet service provider.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_JZDVBADK_p99_wireless_connection_failed",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "JZDVBADK-1.1.2",
+    "source": "Samsung TV e-Manual JZDVBADK-1.1.2 (ENG-JZDVBADK-1.1.2)",
+    "page": 99,
+    "content": "The wireless network connection failed. Confirm your wireless modem/router is on and connected to the Internet.",
+    "metadata": {
+      "symptom": "The wireless network connection failed.",
+      "possible_cause": null,
+      "solution": "Confirm your wireless modem/router is on and connected to the Internet.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_JZDVBADK_p99_wireless_signal_weak",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "JZDVBADK-1.1.2",
+    "source": "Samsung TV e-Manual JZDVBADK-1.1.2 (ENG-JZDVBADK-1.1.2)",
+    "page": 99,
+    "content": "The wireless network signal is too weak. 1. Position your wireless router, modem router, or access point in a central location. Avoid putting it in a corner. 2. Use a wireless repeater to get an instant boost in your wireless signal strength. Place the repeater halfway between your wireless router and your TV. 3. The most common wireless technology, 802.11g (wireless-G), operates at a frequency of 2.4 GHz. This frequency is widely used by many cordless phones, microwave ovens, baby monitors, garage doors, and other wireless devices. Reduce interference by not using or turning off wireless devices that use the 2.4 GHz frequency. Instead, use devices that communicate via the 5.0 GHz frequency.",
+    "metadata": {
+      "symptom": "The wireless network signal is too weak.",
+      "possible_cause": null,
+      "solution": "1. Position your wireless router, modem router, or access point in a central location. Avoid putting it in a corner.\n2. Use a wireless repeater to get an instant boost in your wireless signal strength. Place the repeater halfway between your wireless router and your TV.\n3. The most common wireless technology, 802.11g (wireless-G), operates at a frequency of 2.4 GHz. This frequency is widely used by many cordless phones, microwave ovens, baby monitors, garage doors, and other wireless devices. Reduce interference by not using or turning off wireless devices that use the 2.4 GHz frequency. Instead, use devices that communicate via the 5.0 GHz frequency.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_JZDVBADK_p99_software_update_failed",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "JZDVBADK-1.1.2",
+    "source": "Samsung TV e-Manual JZDVBADK-1.1.2 (ENG-JZDVBADK-1.1.2)",
+    "page": 99,
+    "content": "The software update over the Internet has failed. 1. Check the network connection status. 2. Settings > Network > Network Status 3. If the TV is not connected to a network, connect to a network. 4. The upgrade stops if you already have the latest software version.",
+    "metadata": {
+      "symptom": "The software update over the Internet has failed.",
+      "possible_cause": null,
+      "solution": "1. Check the network connection status.\n2. Settings > Network > Network Status\n3. If the TV is not connected to a network, connect to a network.\n4. The upgrade stops if you already have the latest software version.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_JZDVBADK_p99_schedule_recording_cannot_use",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "JZDVBADK-1.1.2",
+    "source": "Samsung TV e-Manual JZDVBADK-1.1.2 (ENG-JZDVBADK-1.1.2)",
+    "page": 99,
+    "content": "Schedule Recording cannot be used. 1. Check if there is a USB device connected to the TV. 2. Recording will automatically stop if the signal becomes too weak. The Timeshift function will not work if there isn't enough storage space on the USB device.",
+    "metadata": {
+      "symptom": "Schedule Recording cannot be used.",
+      "possible_cause": null,
+      "solution": "1. Check if there is a USB device connected to the TV.\n2. Recording will automatically stop if the signal becomes too weak. The Timeshift function will not work if there isn't enough storage space on the USB device.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_JZDVBADK_p100_anynet_not_working",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "JZDVBADK-1.1.2",
+    "source": "Samsung TV e-Manual JZDVBADK-1.1.2 (ENG-JZDVBADK-1.1.2)",
+    "page": 100,
+    "content": "Anynet+ does not work. 1. Confirm that the device is an Anynet+ device. The Anynet+ system supports Anynet+ devices only. 2. Check if the power cord of the Anynet+ device is properly connected. 3. Check the cable connections of the Anynet+ device. 4. Go to Anynet+ (HDMI-CEC) and see if Anynet+ (HDMI-CEC) has been set to On. 5. Settings > System > Expert Settings > Anynet+ (HDMI-CEC) 6. Check whether the TV remote control is in TV mode. 7. Check whether the remote control is Anynet+ compatible. 8. Anynet+ may not function when some other functions are active, including Channel Search, Smart Hub, Plug & Play, etc. 9. If you have disconnected and then reconnected the HDMI cable, scan for devices again or turn your TV off and on.",
+    "metadata": {
+      "symptom": "Anynet+ does not work.",
+      "possible_cause": null,
+      "solution": "1. Confirm that the device is an Anynet+ device. The Anynet+ system supports Anynet+ devices only.\n2. Check if the power cord of the Anynet+ device is properly connected.\n3. Check the cable connections of the Anynet+ device.\n4. Go to Anynet+ (HDMI-CEC) and see if Anynet+ (HDMI-CEC) has been set to On.\n5. Settings > System > Expert Settings > Anynet+ (HDMI-CEC)\n6. Check whether the TV remote control is in TV mode.\n7. Check whether the remote control is Anynet+ compatible.\n8. Anynet+ may not function when some other functions are active, including Channel Search, Smart Hub, Plug & Play, etc.\n9. If you have disconnected and then reconnected the HDMI cable, scan for devices again or turn your TV off and on.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": "ถอดหรือเสียบปลั๊กโดยจับที่หัวปลั๊ก ไม่ดึงที่สายไฟ และห้ามจับปลั๊กด้วยมือเปียก ถ้าสายไฟหรือปลั๊กชำรุด ให้หยุดใช้งานแล้วติดต่อศูนย์บริการ"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_JZDVBADK_p100_anynet_connecting_message",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "JZDVBADK-1.1.2",
+    "source": "Samsung TV e-Manual JZDVBADK-1.1.2 (ENG-JZDVBADK-1.1.2)",
+    "page": 100,
+    "content": "The message \"Connecting to Anynet+ device...\" or \"Disconnecting from Anynet+ device\" appears on the screen. You cannot use the remote control when you are configuring Anynet+ or switching to a viewing mode. Use the remote control after the TV has completed the Anynet+ configuration or has switched to a viewing mode.",
+    "metadata": {
+      "symptom": "The message \"Connecting to Anynet+ device...\" or \"Disconnecting from Anynet+ device\" appears on the screen.",
+      "possible_cause": null,
+      "solution": "You cannot use the remote control when you are configuring Anynet+ or switching to a viewing mode. Use the remote control after the TV has completed the Anynet+ configuration or has switched to a viewing mode.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_JZDVBADK_p100_anynet_device_wont_play",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "JZDVBADK-1.1.2",
+    "source": "Samsung TV e-Manual JZDVBADK-1.1.2 (ENG-JZDVBADK-1.1.2)",
+    "page": 100,
+    "content": "The Anynet+ device won't play. You cannot use the play function when Start Setup is in progress.",
+    "metadata": {
+      "symptom": "The Anynet+ device won't play.",
+      "possible_cause": null,
+      "solution": "You cannot use the play function when Start Setup is in progress.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_JZDVBADK_p100_anynet_device_not_displayed",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "JZDVBADK-1.1.2",
+    "source": "Samsung TV e-Manual JZDVBADK-1.1.2 (ENG-JZDVBADK-1.1.2)",
+    "page": 100,
+    "content": "The connected device is not displayed. 1. Check whether the device supports Anynet+. 2. Check whether the HDMI cable is properly connected. 3. Go to Anynet+ (HDMI-CEC) and see if Anynet+ (HDMI-CEC) has been set to On. 4. Settings > System > Expert Settings > Anynet+ (HDMI-CEC) 5. Scan for Anynet+ devices again. 6. Anynet+ devices must be connected to the TV using an HDMI cable. Make sure the device is connected to your TV with an HDMI cable. Some HDMI cables may not support Anynet+. 7. If the connection is terminated because there has been a power failure or the HDMI cable has been disconnected, please scan for the device again.",
+    "metadata": {
+      "symptom": "The connected device is not displayed.",
+      "possible_cause": null,
+      "solution": "1. Check whether the device supports Anynet+.\n2. Check whether the HDMI cable is properly connected.\n3. Go to Anynet+ (HDMI-CEC) and see if Anynet+ (HDMI-CEC) has been set to On.\n4. Settings > System > Expert Settings > Anynet+ (HDMI-CEC)\n5. Scan for Anynet+ devices again.\n6. Anynet+ devices must be connected to the TV using an HDMI cable. Make sure the device is connected to your TV with an HDMI cable. Some HDMI cables may not support Anynet+.\n7. If the connection is terminated because there has been a power failure or the HDMI cable has been disconnected, please scan for the device again.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_JZDVBADK_p100_audio_not_through_receiver",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "JZDVBADK-1.1.2",
+    "source": "Samsung TV e-Manual JZDVBADK-1.1.2 (ENG-JZDVBADK-1.1.2)",
+    "page": 100,
+    "content": "The TV audio is not being played through the receiver. 1. Connect an optical cable to the TV and the receiver. 2. ARC enables the TV to output digital sound via the HDMI (ARC) port. 3. However, ARC is only available when the TV is connected to an audio receiver that supports ARC.",
+    "metadata": {
+      "symptom": "The TV audio is not being played through the receiver.",
+      "possible_cause": null,
+      "solution": "1. Connect an optical cable to the TV and the receiver.\n2. ARC enables the TV to output digital sound via the HDMI (ARC) port.\n3. However, ARC is only available when the TV is connected to an audio receiver that supports ARC.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_JZDVBADK_p101_app_in_other_language",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "JZDVBADK-1.1.2",
+    "source": "Samsung TV e-Manual JZDVBADK-1.1.2 (ENG-JZDVBADK-1.1.2)",
+    "page": 101,
+    "content": "I launched an app, but it's in English. How can I change the language? Languages supported by the app may be different from the user interface language. The ability to change the language depends on the service provider.",
+    "metadata": {
+      "symptom": "I launched an app, but it's in English. How can I change the language?",
+      "possible_cause": null,
+      "solution": "Languages supported by the app may be different from the user interface language. The ability to change the language depends on the service provider.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_JZDVBADK_p101_application_not_working",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "JZDVBADK-1.1.2",
+    "source": "Samsung TV e-Manual JZDVBADK-1.1.2 (ENG-JZDVBADK-1.1.2)",
+    "page": 101,
+    "content": "My application is not working. 1. Check with the service provider. 2. Refer to the Help section on the application service provider's website.",
+    "metadata": {
+      "symptom": "My application is not working.",
+      "possible_cause": null,
+      "solution": "1. Check with the service provider.\n2. Refer to the Help section on the application service provider's website.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_JZDVBADK_p101_files_cannot_play",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "JZDVBADK-1.1.2",
+    "source": "Samsung TV e-Manual JZDVBADK-1.1.2 (ENG-JZDVBADK-1.1.2)",
+    "page": 101,
+    "content": "Some files can't be played. This problem may occur with high-bitrate files. Most files can be played back, but you might experience problems with high-bitrate files.",
+    "metadata": {
+      "symptom": "Some files can't be played.",
+      "possible_cause": null,
+      "solution": "This problem may occur with high-bitrate files. Most files can be played back, but you might experience problems with high-bitrate files.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_JZDVBADK_p102_tv_is_hot",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "JZDVBADK-1.1.2",
+    "source": "Samsung TV e-Manual JZDVBADK-1.1.2 (ENG-JZDVBADK-1.1.2)",
+    "page": 102,
+    "content": "The TV is hot. Watching TV for an extended period of time causes the panel to generate heat. The heat from the panel is dissipated through internal vents running along the top of the TV. The bottom, however, may feel hot to the touch after extended use. Children watching TV need constant adult supervision to prevent them from touching the TV. This heat, however, is not a defect and does not affect the TV's functionality.",
+    "metadata": {
+      "symptom": "The TV is hot.",
+      "possible_cause": null,
+      "solution": "Watching TV for an extended period of time causes the panel to generate heat. The heat from the panel is dissipated through internal vents running along the top of the TV. The bottom, however, may feel hot to the touch after extended use. Children watching TV need constant adult supervision to prevent them from touching the TV. This heat, however, is not a defect and does not affect the TV's functionality.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_JZDVBADK_p102_not_full_screen",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "JZDVBADK-1.1.2",
+    "source": "Samsung TV e-Manual JZDVBADK-1.1.2 (ENG-JZDVBADK-1.1.2)",
+    "page": 102,
+    "content": "The picture won’t display in full screen. 1. HD channels will have black bars on either side of the screen when displaying upscaled SD (4:3) content. 2. Black bars will appear at the top and bottom of the screen when you watch movies that have aspect ratios different from your TV. 3. Adjust the picture size options on your external device or set the TV to full screen.",
+    "metadata": {
+      "symptom": "The picture won’t display in full screen.",
+      "possible_cause": null,
+      "solution": "1. HD channels will have black bars on either side of the screen when displaying upscaled SD (4:3) content.\n2. Black bars will appear at the top and bottom of the screen when you watch movies that have aspect ratios different from your TV.\n3. Adjust the picture size options on your external device or set the TV to full screen.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_JZDVBADK_p102_subtitles_greyed_out",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "JZDVBADK-1.1.2",
+    "source": "Samsung TV e-Manual JZDVBADK-1.1.2 (ENG-JZDVBADK-1.1.2)",
+    "page": 102,
+    "content": "The Subtitles item in the TV menu is greyed out. When an external device is connected with an HDMI or Component cable, the Subtitle is unavailable. Adjust the subtitle setting on the external device.",
+    "metadata": {
+      "symptom": "The Subtitles item in the TV menu is greyed out.",
+      "possible_cause": null,
+      "solution": "When an external device is connected with an HDMI or Component cable, the Subtitle is unavailable. Adjust the subtitle setting on the external device.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_JZDVBADK_p102_smells_like_plastic",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "JZDVBADK-1.1.2",
+    "source": "Samsung TV e-Manual JZDVBADK-1.1.2 (ENG-JZDVBADK-1.1.2)",
+    "page": 102,
+    "content": "The TV smells of plastic. This smell is normal and will dissipate over time.",
+    "metadata": {
+      "symptom": "The TV smells of plastic.",
+      "possible_cause": null,
+      "solution": "This smell is normal and will dissipate over time.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_JZDVBADK_p102_signal_information_not_activated",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "JZDVBADK-1.1.2",
+    "source": "Samsung TV e-Manual JZDVBADK-1.1.2 (ENG-JZDVBADK-1.1.2)",
+    "page": 102,
+    "content": "The Signal Information option under Self Diagnosis isn't activated. 1. Verify that the current channel is a digital channel. 2. The Signal Information is only available for digital channels.",
+    "metadata": {
+      "symptom": "The Signal Information option under Self Diagnosis isn't activated.",
+      "possible_cause": null,
+      "solution": "1. Verify that the current channel is a digital channel.\n2. The Signal Information is only available for digital channels.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_JZDVBADK_p102_tilted_to_side",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "JZDVBADK-1.1.2",
+    "source": "Samsung TV e-Manual JZDVBADK-1.1.2 (ENG-JZDVBADK-1.1.2)",
+    "page": 102,
+    "content": "The TV is tilted to the side. Remove the base stand from the TV and reassemble it.",
+    "metadata": {
+      "symptom": "The TV is tilted to the side.",
+      "possible_cause": null,
+      "solution": "Remove the base stand from the TV and reassemble it.",
+      "severity": "medium",
+      "difficulty": "medium",
+      "safety_warning": "ทีวีอาจล้มหรือตกขณะถอดและประกอบขาตั้ง ควรให้อีกคนช่วยจับทีวี วางทีวีบนพื้นผิวเรียบนุ่ม และระวังมือไม่ให้ถูกหนีบ"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_JZDVBADK_p102_stand_wobbly",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "JZDVBADK-1.1.2",
+    "source": "Samsung TV e-Manual JZDVBADK-1.1.2 (ENG-JZDVBADK-1.1.2)",
+    "page": 102,
+    "content": "The stand is wobbly or crooked. Make sure the indicator arrows on the stand and stand holder are properly aligned.",
+    "metadata": {
+      "symptom": "The stand is wobbly or crooked.",
+      "possible_cause": null,
+      "solution": "Make sure the indicator arrows on the stand and stand holder are properly aligned.",
+      "severity": "medium",
+      "difficulty": "medium",
+      "safety_warning": "ทีวีอาจล้มหรือตกขณะถอดและประกอบขาตั้ง ควรให้อีกคนช่วยจับทีวี วางทีวีบนพื้นผิวเรียบนุ่ม และระวังมือไม่ให้ถูกหนีบ"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_JZDVBADK_p102_remote_voice_not_work",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "JZDVBADK-1.1.2",
+    "source": "Samsung TV e-Manual JZDVBADK-1.1.2 (ENG-JZDVBADK-1.1.2)",
+    "page": 102,
+    "content": "The remote control, and/or voice does not work. The TV ships with protective stickers covering some of the sensors. Make sure all of the stickers have been removed.",
+    "metadata": {
+      "symptom": "The remote control, and/or voice does not work.",
+      "possible_cause": null,
+      "solution": "The TV ships with protective stickers covering some of the sensors. Make sure all of the stickers have been removed.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_JZDVBADK_p103_broadcasting_deactivated",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "JZDVBADK-1.1.2",
+    "source": "Samsung TV e-Manual JZDVBADK-1.1.2 (ENG-JZDVBADK-1.1.2)",
+    "page": 103,
+    "content": "The Broadcasting option has been deactivated. 1. Broadcasting is only available when the Source is set to TV. 2. The Broadcasting menu cannot be accessed while you watch TV using a cable or satellite box. 3. The Broadcasting menu cannot be accessed while a recording is in progress or the timeshift function is running.",
+    "metadata": {
+      "symptom": "The Broadcasting option has been deactivated.",
+      "possible_cause": null,
+      "solution": "1. Broadcasting is only available when the Source is set to TV.\n2. The Broadcasting menu cannot be accessed while you watch TV using a cable or satellite box.\n3. The Broadcasting menu cannot be accessed while a recording is in progress or the timeshift function is running.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_JZDVBADK_p103_settings_lost",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "JZDVBADK-1.1.2",
+    "source": "Samsung TV e-Manual JZDVBADK-1.1.2 (ENG-JZDVBADK-1.1.2)",
+    "page": 103,
+    "content": "The settings are lost after 5 minutes or every time the TV is turned off. 1. If the Usage Mode is set to Retail Mode, the TV's audio and video settings are automatically reset every 5 minutes. 2. Change the Usage Mode to Home Mode. 3. Settings > System > Expert Settings > Usage Mode",
+    "metadata": {
+      "symptom": "The settings are lost after 5 minutes or every time the TV is turned off.",
+      "possible_cause": null,
+      "solution": "1. If the Usage Mode is set to Retail Mode, the TV's audio and video settings are automatically reset every 5 minutes.\n2. Change the Usage Mode to Home Mode.\n3. Settings > System > Expert Settings > Usage Mode",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_JZDVBADK_p103_intermittent_loss_audio_video",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "JZDVBADK-1.1.2",
+    "source": "Samsung TV e-Manual JZDVBADK-1.1.2 (ENG-JZDVBADK-1.1.2)",
+    "page": 103,
+    "content": "There is an intermittent loss of audio or video. 1. Check the cable connections and reconnect them. 2. Loss of audio or video can be caused by using overly rigid or thick cables. 3. Make sure the cables are flexible enough for long term use. If you are mounting the TV to a wall, we recommend using cables with 90-degree connectors.",
+    "metadata": {
+      "symptom": "There is an intermittent loss of audio or video.",
+      "possible_cause": null,
+      "solution": "1. Check the cable connections and reconnect them.\n2. Loss of audio or video can be caused by using overly rigid or thick cables.\n3. Make sure the cables are flexible enough for long term use. If you are mounting the TV to a wall, we recommend using cables with 90-degree connectors.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_JZDVBADK_p103_particles_on_bezel",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "JZDVBADK-1.1.2",
+    "source": "Samsung TV e-Manual JZDVBADK-1.1.2 (ENG-JZDVBADK-1.1.2)",
+    "page": 103,
+    "content": "There are small particles on the TV's bezel. This is part of the product’s design and is not a defect.",
+    "metadata": {
+      "symptom": "There are small particles on the TV's bezel.",
+      "possible_cause": null,
+      "solution": "This is part of the product’s design and is not a defect.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_JZDVBADK_p103_pip_not_available",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "JZDVBADK-1.1.2",
+    "source": "Samsung TV e-Manual JZDVBADK-1.1.2 (ENG-JZDVBADK-1.1.2)",
+    "page": 103,
+    "content": "The PIP is not available. PIP is available only when an external device is connected with an HDMI or Component cable. Note that the function is unavailable when the Smart Hub is active or the Sports Mode is On.",
+    "metadata": {
+      "symptom": "The PIP is not available.",
+      "possible_cause": null,
+      "solution": "PIP is available only when an external device is connected with an HDMI or Component cable. Note that the function is unavailable when the Smart Hub is active or the Sports Mode is On.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_JZDVBADK_p103_pop_banner_ad",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "JZDVBADK-1.1.2",
+    "source": "Samsung TV e-Manual JZDVBADK-1.1.2 (ENG-JZDVBADK-1.1.2)",
+    "page": 103,
+    "content": "A POP (TV’s internal banner ad) appears on the screen. 1. Change the Usage Mode to Home Mode. 2. Settings > System > Expert Settings > Usage Mode",
+    "metadata": {
+      "symptom": "A POP (TV’s internal banner ad) appears on the screen.",
+      "possible_cause": null,
+      "solution": "1. Change the Usage Mode to Home Mode.\n2. Settings > System > Expert Settings > Usage Mode",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_JZDVBADK_p103_popping_noise",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "JZDVBADK-1.1.2",
+    "source": "Samsung TV e-Manual JZDVBADK-1.1.2 (ENG-JZDVBADK-1.1.2)",
+    "page": 103,
+    "content": "The TV is making a popping noise. The expansion and contraction of the TV's outer casing may cause a popping noise. This does not indicate a product malfunction. The TV is safe to use.",
+    "metadata": {
+      "symptom": "The TV is making a popping noise.",
+      "possible_cause": null,
+      "solution": "The expansion and contraction of the TV's outer casing may cause a popping noise. This does not indicate a product malfunction. The TV is safe to use.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_JZDVBADK_p103_humming_noise",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "JZDVBADK-1.1.2",
+    "source": "Samsung TV e-Manual JZDVBADK-1.1.2 (ENG-JZDVBADK-1.1.2)",
+    "page": 103,
+    "content": "The TV is making a humming noise. 1. Your TV utilises high-speed switching circuits and high levels of electrical current. Depending on the TV's brightness level, the TV may seem slightly noisier than a conventional TV. 2. Your TV has undergone strict quality control procedures that meet our demanding performance and reliability requirements. 3. Some noise coming from the TV is considered normal and is not an acceptable cause for an exchange or refund.",
+    "metadata": {
+      "symptom": "The TV is making a humming noise.",
+      "possible_cause": null,
+      "solution": "1. Your TV utilises high-speed switching circuits and high levels of electrical current. Depending on the TV's brightness level, the TV may seem slightly noisier than a conventional TV.\n2. Your TV has undergone strict quality control procedures that meet our demanding performance and reliability requirements.\n3. Some noise coming from the TV is considered normal and is not an acceptable cause for an exchange or refund.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_JZDVBADK_p14_wired_no_network_cable_found",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "JZDVBADK-1.1.2",
+    "source": "Samsung TV e-Manual JZDVBADK-1.1.2 (ENG-JZDVBADK-1.1.2)",
+    "page": 14,
+    "content": "No network cable found Make sure that the network cable is plugged in. If it is connected, make sure that the router is turned on. If it is on, try turning it off and on again.",
+    "metadata": {
+      "symptom": "No network cable found",
+      "possible_cause": null,
+      "solution": "Make sure that the network cable is plugged in. If it is connected, make sure that the router is turned on. If it is on, try turning it off and on again.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_JZDVBADK_p14_wired_ip_auto_setting_failed",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "JZDVBADK-1.1.2",
+    "source": "Samsung TV e-Manual JZDVBADK-1.1.2 (ENG-JZDVBADK-1.1.2)",
+    "page": 14,
+    "content": "IP auto setting failed (wired network) 1. Do the following or configure the IP Settings manually. 2. Make sure that the DHCP server is enabled on the router, and reset the router.",
+    "metadata": {
+      "symptom": "IP auto setting failed (wired network)",
+      "possible_cause": null,
+      "solution": "1. Do the following or configure the IP Settings manually.\n2. Make sure that the DHCP server is enabled on the router, and reset the router.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_JZDVBADK_p14_wired_unable_connect_network",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "JZDVBADK-1.1.2",
+    "source": "Samsung TV e-Manual JZDVBADK-1.1.2 (ENG-JZDVBADK-1.1.2)",
+    "page": 14,
+    "content": "Unable to connect to the network (wired network) 1. Check all IP Settings. 2. After checking the DHCP server status (must be active) on the router, remove the LAN cable and connect it again.",
+    "metadata": {
+      "symptom": "Unable to connect to the network (wired network)",
+      "possible_cause": null,
+      "solution": "1. Check all IP Settings.\n2. After checking the DHCP server status (must be active) on the router, remove the LAN cable and connect it again.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_JZDVBADK_p14_wired_local_not_internet",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "JZDVBADK-1.1.2",
+    "source": "Samsung TV e-Manual JZDVBADK-1.1.2 (ENG-JZDVBADK-1.1.2)",
+    "page": 14,
+    "content": "Connected to a local network, but not to the Internet (wired network) 1. Make sure that the Internet LAN cable is connected to the router's external LAN port. 2. Check the DNS values in IP Settings.",
+    "metadata": {
+      "symptom": "Connected to a local network, but not to the Internet (wired network)",
+      "possible_cause": null,
+      "solution": "1. Make sure that the Internet LAN cable is connected to the router's external LAN port.\n2. Check the DNS values in IP Settings.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_JZDVBADK_p14_wired_setup_done_no_internet",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "JZDVBADK-1.1.2",
+    "source": "Samsung TV e-Manual JZDVBADK-1.1.2 (ENG-JZDVBADK-1.1.2)",
+    "page": 14,
+    "content": "Network setup is complete, but unable to connect to the Internet (wired network) If the problem persists, contact your Internet Service Provider.",
+    "metadata": {
+      "symptom": "Network setup is complete, but unable to connect to the Internet (wired network)",
+      "possible_cause": null,
+      "solution": "If the problem persists, contact your Internet Service Provider.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_JZDVBADK_p15_wireless_router_not_found",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "JZDVBADK-1.1.2",
+    "source": "Samsung TV e-Manual JZDVBADK-1.1.2 (ENG-JZDVBADK-1.1.2)",
+    "page": 15,
+    "content": "Wireless network connection failed If a selected wireless router is not found, go to Open Network Settings and select the correct router.",
+    "metadata": {
+      "symptom": "Wireless network connection failed",
+      "possible_cause": null,
+      "solution": "If a selected wireless router is not found, go to Open Network Settings and select the correct router.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_JZDVBADK_p15_wireless_unable_connect_router",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "JZDVBADK-1.1.2",
+    "source": "Samsung TV e-Manual JZDVBADK-1.1.2 (ENG-JZDVBADK-1.1.2)",
+    "page": 15,
+    "content": "Unable to connect to a wireless router 1. Check if the router is turned on. If it is, turn it off and on again. 2. Enter the correct password if required.",
+    "metadata": {
+      "symptom": "Unable to connect to a wireless router",
+      "possible_cause": null,
+      "solution": "1. Check if the router is turned on. If it is, turn it off and on again.\n2. Enter the correct password if required.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_JZDVBADK_p15_wireless_ip_auto_setting_failed",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "JZDVBADK-1.1.2",
+    "source": "Samsung TV e-Manual JZDVBADK-1.1.2 (ENG-JZDVBADK-1.1.2)",
+    "page": 15,
+    "content": "IP auto setting failed (wireless network) 1. Do the following or configure the IP Settings manually. 2. Make sure that the DHCP server is enabled on the router. Then, unplug the router and plug it back in. 3. Enter the correct password if required.",
+    "metadata": {
+      "symptom": "IP auto setting failed (wireless network)",
+      "possible_cause": null,
+      "solution": "1. Do the following or configure the IP Settings manually.\n2. Make sure that the DHCP server is enabled on the router. Then, unplug the router and plug it back in.\n3. Enter the correct password if required.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": "ถอดหรือเสียบปลั๊กโดยจับที่หัวปลั๊ก ไม่ดึงที่สายไฟ และห้ามจับปลั๊กด้วยมือเปียก ถ้าสายไฟหรือปลั๊กชำรุด ให้หยุดใช้งานแล้วติดต่อศูนย์บริการ"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_JZDVBADK_p15_wireless_unable_connect_network",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "JZDVBADK-1.1.2",
+    "source": "Samsung TV e-Manual JZDVBADK-1.1.2 (ENG-JZDVBADK-1.1.2)",
+    "page": 15,
+    "content": "Unable to connect to the network (wireless network) 1. Check all IP Settings. 2. Enter the correct password if required.",
+    "metadata": {
+      "symptom": "Unable to connect to the network (wireless network)",
+      "possible_cause": null,
+      "solution": "1. Check all IP Settings.\n2. Enter the correct password if required.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_JZDVBADK_p15_wireless_local_not_internet",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "JZDVBADK-1.1.2",
+    "source": "Samsung TV e-Manual JZDVBADK-1.1.2 (ENG-JZDVBADK-1.1.2)",
+    "page": 15,
+    "content": "Connected to a local network, but not to the Internet (wireless network) 1. Make sure that the Internet LAN cable is connected to the router's external LAN port. 2. Check the DNS values in IP Settings.",
+    "metadata": {
+      "symptom": "Connected to a local network, but not to the Internet (wireless network)",
+      "possible_cause": null,
+      "solution": "1. Make sure that the Internet LAN cable is connected to the router's external LAN port.\n2. Check the DNS values in IP Settings.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_JZDVBADK_p15_wireless_setup_done_no_internet",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "JZDVBADK-1.1.2",
+    "source": "Samsung TV e-Manual JZDVBADK-1.1.2 (ENG-JZDVBADK-1.1.2)",
+    "page": 15,
+    "content": "Network setup is complete, but unable to connect to the Internet (wireless network) If the problem persists, contact your Internet Service Provider.",
+    "metadata": {
+      "symptom": "Network setup is complete, but unable to connect to the Internet (wireless network)",
+      "possible_cause": null,
+      "solution": "If the problem persists, contact your Internet Service Provider.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  }
+]

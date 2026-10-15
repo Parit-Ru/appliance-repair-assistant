@@ -1,0 +1,155 @@
+[
+  {
+    "chunk_id": "manual_Samsung_Microwave_GE83MDT_p37_normal_conditions",
+    "device_category": "Microwave Oven",
+    "brand": "Samsung",
+    "model": "GE83MDT",
+    "source": "Samsung Microwave Oven User Manual GE83MDT (GE83MDT_XST_DE68-04111E)",
+    "page": 37,
+    "content": "Condensation inside the oven. Air flow around the door and outer casing. Light reflection around the door and outer casing. Steam escaping from around the door or vents. This is normal.",
+    "metadata": {
+      "symptom": "Condensation inside the oven. Air flow around the door and outer casing. Light reflection around the door and outer casing. Steam escaping from around the door or vents.",
+      "possible_cause": null,
+      "solution": "This is normal.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Microwave_GE83MDT_p37_not_start",
+    "device_category": "Microwave Oven",
+    "brand": "Samsung",
+    "model": "GE83MDT",
+    "source": "Samsung Microwave Oven User Manual GE83MDT (GE83MDT_XST_DE68-04111E)",
+    "page": 37,
+    "content": "The oven does not start when you press the Start button. Is the door completely closed? Is the door completely closed?",
+    "metadata": {
+      "symptom": "The oven does not start when you press the Start button.",
+      "possible_cause": "Is the door completely closed?",
+      "solution": "Is the door completely closed?",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": "ห้ามใช้เตาถ้าประตูหรือซีลประตูชำรุด ต้องให้ผู้มีคุณสมบัติซ่อมก่อน (คู่มือหน้า 3 และ 10) ห้ามเปิดเตาขณะประตูเปิด ห้ามแก้ไขกลไกนิรภัยของประตูหรือสอดสิ่งใดเข้าไปในรูกลไกนิรภัย (คู่มือหน้า 10) ห้ามสอดนิ้วหรือสิ่งแปลกปลอมเข้าไปในเตา ถ้าสิ่งแปลกปลอมเข้าไปในเตาให้ถอดปลั๊กและติดต่อศูนย์บริการ (คู่มือหน้า 9)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Microwave_GE83MDT_p37_not_cooked_at_all",
+    "device_category": "Microwave Oven",
+    "brand": "Samsung",
+    "model": "GE83MDT",
+    "source": "Samsung Microwave Oven User Manual GE83MDT (GE83MDT_XST_DE68-04111E)",
+    "page": 37,
+    "content": "The food is not cooked at all. Have you set the timer correctly and/or pressed the Start button? Is the door closed? Have you overloaded the electric circuit and caused a fuse to blow or a breaker to be triggered? 1. Have you set the timer correctly and/or pressed the Start button? 2. Is the door closed? 3. Have you overloaded the electric circuit and caused a fuse to blow or a breaker to be triggered?",
+    "metadata": {
+      "symptom": "The food is not cooked at all.",
+      "possible_cause": "Have you set the timer correctly and/or pressed the Start button? Is the door closed? Have you overloaded the electric circuit and caused a fuse to blow or a breaker to be triggered?",
+      "solution": "1. Have you set the timer correctly and/or pressed the Start button?\n2. Is the door closed?\n3. Have you overloaded the electric circuit and caused a fuse to blow or a breaker to be triggered?",
+      "severity": "medium",
+      "difficulty": "easy",
+      "safety_warning": "ห้ามเปิดเตาขณะไม่มีอาหาร (คู่มือหน้า 15) ใช้เวลาสั้นลงสำหรับอาหารปริมาณน้อยเพื่อป้องกันความร้อนเกินหรืออาหารไหม้ (คู่มือหน้า 10) | ห้ามใช้เตาถ้าประตูหรือซีลประตูชำรุด ต้องให้ผู้มีคุณสมบัติซ่อมก่อน (คู่มือหน้า 3 และ 10) ห้ามเปิดเตาขณะประตูเปิด ห้ามแก้ไขกลไกนิรภัยของประตูหรือสอดสิ่งใดเข้าไปในรูกลไกนิรภัย (คู่มือหน้า 10) ห้ามสอดนิ้วหรือสิ่งแปลกปลอมเข้าไปในเตา ถ้าสิ่งแปลกปลอมเข้าไปในเตาให้ถอดปลั๊กและติดต่อศูนย์บริการ (คู่มือหน้า 9)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Microwave_GE83MDT_p37_over_under_cooked",
+    "device_category": "Microwave Oven",
+    "brand": "Samsung",
+    "model": "GE83MDT",
+    "source": "Samsung Microwave Oven User Manual GE83MDT (GE83MDT_XST_DE68-04111E)",
+    "page": 37,
+    "content": "The food is either overcooked or undercooked. Was the appropriate cooking length set for the type of food? Was an appropriate power level chosen? 1. Was the appropriate cooking length set for the type of food? 2. Was an appropriate power level chosen?",
+    "metadata": {
+      "symptom": "The food is either overcooked or undercooked.",
+      "possible_cause": "Was the appropriate cooking length set for the type of food? Was an appropriate power level chosen?",
+      "solution": "1. Was the appropriate cooking length set for the type of food?\n2. Was an appropriate power level chosen?",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": "ตัวเตา ภาชนะ และอาหารอาจร้อนจัด ใช้ถุงมือกันความร้อนเมื่อนำภาชนะออก และยืนห่างช่วงแขนเมื่อเปิดประตูเพื่อป้องกันไอร้อนหรือไอน้ำลวก ของเหลวที่อุ่นให้ตั้งทิ้งไว้อย่างน้อย 20 วินาทีก่อนหยิบ (คู่มือหน้า 10) ระวังอย่าสัมผัสชิ้นส่วนทำความร้อน (heating element) ภายในเตา และให้เด็กเล็กอยู่ห่าง (คู่มือหน้า 5) ห้ามเปิดเตาขณะไม่มีอาหาร (คู่มือหน้า 15) ใช้เวลาสั้นลงสำหรับอาหารปริมาณน้อยเพื่อป้องกันความร้อนเกินหรืออาหารไหม้ (คู่มือหน้า 10) | ตัวเตา ภาชนะ และอาหารอาจร้อนจัด ใช้ถุงมือกันความร้อนเมื่อนำภาชนะออก และยืนห่างช่วงแขนเมื่อเปิดประตูเพื่อป้องกันไอร้อนหรือไอน้ำลวก ของเหลวที่อุ่นให้ตั้งทิ้งไว้อย่างน้อย 20 วินาทีก่อนหยิบ (คู่มือหน้า 10) ระวังอย่าสัมผัสชิ้นส่วนทำความร้อน (heating element) ภายในเตา และให้เด็กเล็กอยู่ห่าง (คู่มือหน้า 5)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Microwave_GE83MDT_p37_light_not_working",
+    "device_category": "Microwave Oven",
+    "brand": "Samsung",
+    "model": "GE83MDT",
+    "source": "Samsung Microwave Oven User Manual GE83MDT (GE83MDT_XST_DE68-04111E)",
+    "page": 37,
+    "content": "The light bulb is not working. The Light bulb should not be replaced in person for safety reasons. Please contact nearest authorised Samsung customer care, to arrange for a qualified engineer to replace the bulb.",
+    "metadata": {
+      "symptom": "The light bulb is not working.",
+      "possible_cause": "The Light bulb should not be replaced in person for safety reasons.",
+      "solution": "Please contact nearest authorised Samsung customer care, to arrange for a qualified engineer to replace the bulb.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Microwave_GE83MDT_p37_radio_tv_interference",
+    "device_category": "Microwave Oven",
+    "brand": "Samsung",
+    "model": "GE83MDT",
+    "source": "Samsung Microwave Oven User Manual GE83MDT (GE83MDT_XST_DE68-04111E)",
+    "page": 37,
+    "content": "The oven causes interference with radios or televisions. Slight interference may be observed on televisions or radios when the oven is operating. If interference is detected by the oven's microprocessor, the display may be reset. 1. Slight interference may be observed on televisions or radios when the oven is operating. This is normal. To solve this problem, install the oven away from televisions, radios and aerials. 2. If interference is detected by the oven's microprocessor, the display may be reset. To solve this problem, disconnect the power plug and reconnect it. Reset the time.",
+    "metadata": {
+      "symptom": "The oven causes interference with radios or televisions.",
+      "possible_cause": "Slight interference may be observed on televisions or radios when the oven is operating. If interference is detected by the oven's microprocessor, the display may be reset.",
+      "solution": "1. Slight interference may be observed on televisions or radios when the oven is operating. This is normal. To solve this problem, install the oven away from televisions, radios and aerials.\n2. If interference is detected by the oven's microprocessor, the display may be reset. To solve this problem, disconnect the power plug and reconnect it. Reset the time.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": "ห้ามวางเตาเหนือสิ่งของที่แตกหักง่าย ห้ามวางเตาใกล้เครื่องทำความร้อนหรือบนพื้นผิวที่ไม่เรียบ และห้ามวางเตาในตู้ เตาออกแบบให้วางบนเคาน์เตอร์เท่านั้น (คู่มือหน้า 5, 8 และ 9) ห้ามสอดสายไฟระหว่างสิ่งของหรือหลังเตาจนถูกหนีบ (คู่มือหน้า 9) | เสียบปลั๊กให้แน่นเข้ากับเต้ารับ ห้ามใช้ปลั๊กแปลงหลายทาง สายต่อพ่วง หรือหม้อแปลงไฟ ห้ามใช้ปลั๊ก สายไฟ หรือเต้ารับที่ชำรุดหรือหลวม ห้ามจับปลั๊กด้วยมือเปียก ห้ามดึง งอมากเกินไป หรือวางของหนักทับสายไฟ (คู่มือหน้า 9) ถ้าสายไฟชำรุด ต้องให้ผู้ผลิต ตัวแทนบริการ หรือผู้มีคุณสมบัติเทียบเท่าเป็นผู้เปลี่ยน (คู่มือหน้า 4) ถ้ามีควันออกมา ให้ปิดเครื่องหรือถอดปลั๊กและปิดประตูเตาไว้เพื่อสกัดเปลวไฟ (คู่มือหน้า 4) ถ้าเตามีเสียงผิดปกติ กลิ่นไหม้ หรือควัน ให้ถอดปลั๊กทันทีและติดต่อศูนย์บริการที่ใกล้ที่สุด (คู่มือหน้า 5) ขณะเตากำลังทำงาน ไม่ควรปิดเตาด้วยการถอดปลั๊ก (คู่มือหน้า 9)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Microwave_GE83MDT_p37_smoke_smell_initial",
+    "device_category": "Microwave Oven",
+    "brand": "Samsung",
+    "model": "GE83MDT",
+    "source": "Samsung Microwave Oven User Manual GE83MDT (GE83MDT_XST_DE68-04111E)",
+    "page": 37,
+    "content": "Smoke and bad smell when initial operating. It's a temporary condition by new component heating. 1. Smoke and smell will disappear completely after 10 minutes operation. 2. To remove smell more quickly, please operate microwave oven with putting lemon formation or lemon juice in the cabinet.",
+    "metadata": {
+      "symptom": "Smoke and bad smell when initial operating.",
+      "possible_cause": "It's a temporary condition by new component heating.",
+      "solution": "1. Smoke and smell will disappear completely after 10 minutes operation.\n2. To remove smell more quickly, please operate microwave oven with putting lemon formation or lemon juice in the cabinet.",
+      "severity": "medium",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Microwave_GE83MDT_p37_arcing",
+    "device_category": "Microwave Oven",
+    "brand": "Samsung",
+    "model": "GE83MDT",
+    "source": "Samsung Microwave Oven User Manual GE83MDT (GE83MDT_XST_DE68-04111E)",
+    "page": 37,
+    "content": "Sparking and cracking occur inside the oven (arcing). Have you used a dish with metal trimmings? Have you left a fork or other metal utensil inside the oven? Is aluminum foil too close to the inside walls? 1. Have you used a dish with metal trimmings? 2. Have you left a fork or other metal utensil inside the oven? 3. Is aluminum foil too close to the inside walls?",
+    "metadata": {
+      "symptom": "Sparking and cracking occur inside the oven (arcing).",
+      "possible_cause": "Have you used a dish with metal trimmings? Have you left a fork or other metal utensil inside the oven? Is aluminum foil too close to the inside walls?",
+      "solution": "1. Have you used a dish with metal trimmings?\n2. Have you left a fork or other metal utensil inside the oven?\n3. Is aluminum foil too close to the inside walls?",
+      "severity": "medium",
+      "difficulty": "easy",
+      "safety_warning": "ถ้ามีควันออกมา ให้ปิดเครื่องหรือถอดปลั๊กและปิดประตูเตาไว้เพื่อสกัดเปลวไฟ (คู่มือหน้า 4) ถ้าเตามีเสียงผิดปกติ กลิ่นไหม้ หรือควัน ให้ถอดปลั๊กทันทีและติดต่อศูนย์บริการที่ใกล้ที่สุด (คู่มือหน้า 5) ขณะเตากำลังทำงาน ไม่ควรปิดเตาด้วยการถอดปลั๊ก (คู่มือหน้า 9) ใช้เฉพาะภาชนะที่ใช้กับไมโครเวฟได้ ห้ามใช้ภาชนะโลหะ จานชามที่ขอบเป็นทองหรือเงิน ไม้เสียบ ส้อม และต้องถอดลวดมัดถุงออก เพราะอาจเกิดประกายไฟและทำให้เตาเสียหาย (คู่มือหน้า 10) ดูตารางภาชนะที่ใช้ได้หรือไม่ได้ในหน้า 28 ตัวเตา ภาชนะ และอาหารอาจร้อนจัด ใช้ถุงมือกันความร้อนเมื่อนำภาชนะออก และยืนห่างช่วงแขนเมื่อเปิดประตูเพื่อป้องกันไอร้อนหรือไอน้ำลวก ของเหลวที่อุ่นให้ตั้งทิ้งไว้อย่างน้อย 20 วินาทีก่อนหยิบ (คู่มือหน้า 10) ระวังอย่าสัมผัสชิ้นส่วนทำความร้อน (heating element) ภายในเตา และให้เด็กเล็กอยู่ห่าง (คู่มือหน้า 5)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Microwave_GE83MDT_p37_code_se",
+    "device_category": "Microwave Oven",
+    "brand": "Samsung",
+    "model": "GE83MDT",
+    "source": "Samsung Microwave Oven User Manual GE83MDT (GE83MDT_XST_DE68-04111E)",
+    "page": 37,
+    "content": "“SE” message indicates. 1. The “SE” message is Clean the keys and check if there is water on the surface around key. 2. Turn off the microwave oven and try setting again. 3. If it occurs again, call your local SAMSUNG Customer Care Centre.",
+    "metadata": {
+      "symptom": "“SE” message indicates.",
+      "possible_cause": null,
+      "solution": "1. The “SE” message is Clean the keys and check if there is water on the surface around key.\n2. Turn off the microwave oven and try setting again.\n3. If it occurs again, call your local SAMSUNG Customer Care Centre.",
+      "severity": "medium",
+      "difficulty": "medium",
+      "safety_warning": "รอให้เตาเย็นลงก่อนทำความสะอาดห้องปรุงอาหารด้วยน้ำยาล้างจานอ่อนๆ ห้ามใช้สารขัดถูหรือสารเคมีทำความสะอาด ห้ามให้น้ำเข้าช่องระบายอากาศ (คู่มือหน้า 7) ห้ามใช้เบนซีน ทินเนอร์ แอลกอฮอล์ เครื่องฉีดไอน้ำ หรือเครื่องฉีดน้ำแรงดันสูง และห้ามฉีดหรือเทน้ำใส่เตาโดยตรง (คู่มือหน้า 9)"
+    }
+  }
+]

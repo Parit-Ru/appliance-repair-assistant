@@ -1,0 +1,735 @@
+{
+  "schema_version": 2,
+  "manual_id": "samsung_rf_um_da68_02676a",
+  "device_category": "Refrigerator",
+  "brand": "Samsung",
+  "model_pattern": "DA68-02676A",
+  "source_manual": "Samsung Refrigerator User Manual (Code No. DA68-02676A REV 1.4)",
+  "count": 9,
+  "graphs": [
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_rf_um_not_operating_or_warm",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "DA68-02676A",
+      "entry_symptom": "The appliance is not operating at all or the temperature is too high.",
+      "entry_symptom_th": "ตู้เย็นไม่ทำงานเลย หรืออุณหภูมิสูงเกินไป ตู้เย็นไม่เย็น",
+      "entry_symptom_aliases": [
+        "ตู้เย็นไม่เย็น",
+        "ตู้เย็นไม่ทำงาน",
+        "refrigerator not cooling"
+      ],
+      "source": "Samsung Refrigerator User Manual (Code No. DA68-02676A REV 1.4)",
+      "page_range": [
+        21,
+        21
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RFUM_p21_not_operating_or_warm",
+      "severity": "medium",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "เสียบปลั๊กตู้เย็นแน่นและถูกต้องหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2",
+          "on_no": "n_plug"
+        },
+        {
+          "node_id": "n_plug",
+          "type": "instruction",
+          "content": "เสียบปลั๊กตู้เย็นให้แน่นและถูกต้อง หลังเปิดเครื่อง ตู้เย็นต้องใช้เวลาหลายชั่วโมงกว่าจะถึงอุณหภูมิที่เหมาะสม (คู่มือหน้า 14 และ 21)",
+          "safety_critical": true,
+          "safety_warning": "ตรวจสอบว่ามือแห้งก่อนเสียบปลั๊ก และห้ามใช้สายไฟหรือปลั๊กที่แตกหรือสึกหรอ",
+          "author_note": "คำเตือนเพิ่มโดยผู้พัฒนา คู่มือหน้า 21 ระบุเพียงให้ตรวจว่าเสียบปลั๊กถูกต้อง",
+          "next": "n_check_plug"
+        },
+        {
+          "node_id": "n_check_plug",
+          "type": "checkpoint",
+          "question": "หลังเสียบปลั๊กถูกต้องแล้ว ตู้เย็นกลับมาทำงานหรือเริ่มเย็นหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "ตั้งปุ่มควบคุมอุณหภูมิที่แผงด้านหน้าไว้ถูกต้องหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n3",
+          "on_no": "n_set"
+        },
+        {
+          "node_id": "n_set",
+          "type": "instruction",
+          "content": "ปรับปุ่มควบคุมอุณหภูมิที่แผงด้านหน้าให้ถูกต้อง",
+          "safety_critical": false,
+          "next": "n_check_set"
+        },
+        {
+          "node_id": "n_check_set",
+          "type": "checkpoint",
+          "question": "หลังปรับแล้ว ตู้เย็นเริ่มเย็นลงหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "node_id": "n3",
+          "type": "checkpoint",
+          "question": "มีแสงแดดส่องถึงตู้เย็น หรือมีแหล่งความร้อนอยู่ใกล้ตู้เย็นหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_move_heat",
+          "on_no": "n4"
+        },
+        {
+          "node_id": "n_move_heat",
+          "type": "instruction",
+          "content": "ย้ายแหล่งความร้อนออกจากตู้เย็น หรือกันแสงแดดไม่ให้ส่องถึงตู้เย็น",
+          "safety_critical": false,
+          "author_note": "คู่มือหน้า 21 เป็นคำถามตรวจ ไม่ได้ระบุวิธีแก้ ขั้นนี้ผู้พัฒนาเพิ่มจากข้อความตรวจ",
+          "next": "n_check_heat"
+        },
+        {
+          "node_id": "n_check_heat",
+          "type": "checkpoint",
+          "question": "หลังย้ายแหล่งความร้อนแล้ว ตู้เย็นเริ่มเย็นลงหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n4"
+        },
+        {
+          "node_id": "n4",
+          "type": "checkpoint",
+          "question": "ด้านหลังตู้เย็นชิดผนังมากเกินไปหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_pull",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_pull",
+          "type": "instruction",
+          "content": "ดึงตู้เย็นออกจากผนังให้มีช่องว่างพอสมควรระหว่างผนังกับตู้เย็น (คู่มือหน้า 14)",
+          "safety_critical": true,
+          "safety_warning": "ดึงตู้เย็นออกตรงๆ และดันกลับตรงๆ เก็บสายไฟส่วนเกินด้านหลังตู้ไม่ให้ล้อทับสาย และตรวจว่าพื้นรับน้ำหนักตู้เย็นเต็มโหลดได้ (คู่มือหน้า 14)",
+          "author_note": "คู่มือหน้า 21 เป็นคำถามตรวจ ส่วนวิธีดึงตู้และคำเตือนมาจากหน้า 14",
+          "next": "n_check_wall"
+        },
+        {
+          "node_id": "n_check_wall",
+          "type": "checkpoint",
+          "question": "หลังเว้นระยะจากผนังแล้ว ตู้เย็นเริ่มเย็นลงหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "ตู้เย็นกลับมาทำงานหรือเย็นปกติแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ (ปลั๊ก การตั้งอุณหภูมิ แหล่งความร้อน ระยะห่างจากผนัง) ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_rf_um_food_frozen",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "DA68-02676A",
+      "entry_symptom": "The food in the refrigerator is frozen.",
+      "entry_symptom_th": "อาหารในช่องแช่เย็นแข็งตัว",
+      "entry_symptom_aliases": [
+        "อาหารในตู้เย็นแข็ง",
+        "ผักแข็งในตู้เย็น",
+        "food frozen in fridge"
+      ],
+      "source": "Samsung Refrigerator User Manual (Code No. DA68-02676A REV 1.4)",
+      "page_range": [
+        21,
+        21
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RFUM_p21_food_frozen",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "ตั้งปุ่มควบคุมอุณหภูมิที่แผงด้านหน้าไว้ที่เย็นที่สุดหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_adjust",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n_adjust",
+          "type": "instruction",
+          "content": "ปรับปุ่มควบคุมอุณหภูมิให้อุ่นขึ้น ไม่ตั้งที่เย็นที่สุด",
+          "safety_critical": false,
+          "author_note": "คู่มือหน้า 21 เป็นคำถามตรวจ ขั้นปรับเพิ่มโดยผู้พัฒนา",
+          "next": "n_check"
+        },
+        {
+          "node_id": "n_check",
+          "type": "checkpoint",
+          "question": "หลังปรับแล้ว อาหารไม่แข็งตัวอีกใช่หรือไม่? (สังเกตต่อไปสักระยะ)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "อุณหภูมิรอบตู้เย็นต่ำเกินไปหรือไม่? (เช่น ห้องที่เย็นมาก)",
+          "safety_critical": false,
+          "on_yes": "n_escalate_ambient",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "อาหารไม่แข็งตัวแล้ว — สาเหตุคือตั้งอุณหภูมิเย็นเกินไป",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate_ambient",
+          "type": "escalation",
+          "content": "คู่มือระบุว่าอุณหภูมิรอบตู้เย็นต่ำเกินไปเป็นสาเหตุที่ต้องตรวจ แต่ไม่ได้ระบุวิธีแก้ ติดต่อศูนย์บริการ Samsung เพื่อขอคำแนะนำ พร้อมแจ้งรุ่นเครื่องและอุณหภูมิห้องโดยประมาณ",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ (การตั้งอุณหภูมิ อุณหภูมิรอบตู้เย็น) ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่องและอาการที่พบ",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_rf_um_unusual_noises",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "DA68-02676A",
+      "entry_symptom": "There are unusual noises.",
+      "entry_symptom_th": "ตู้เย็นมีเสียงผิดปกติ เสียงดัง",
+      "entry_symptom_aliases": [
+        "ตู้เย็นเสียงดัง",
+        "ตู้เย็นมีเสียงแปลกๆ",
+        "refrigerator noisy"
+      ],
+      "source": "Samsung Refrigerator User Manual (Code No. DA68-02676A REV 1.4)",
+      "page_range": [
+        21,
+        21
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RFUM_p21_unusual_noises",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "ตู้เย็นตั้งอยู่บนพื้นที่มั่นคงและเรียบเสมอกันหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2",
+          "on_no": "n_level"
+        },
+        {
+          "node_id": "n_level",
+          "type": "instruction",
+          "content": "ปรับขาปรับระดับด้านที่เอียงตามทิศลูกศร จนตู้เย็นได้ระดับ (คู่มือหน้า 14)",
+          "safety_critical": false,
+          "author_note": "คู่มือหน้า 21 เป็นคำถามตรวจ ส่วนวิธีปรับขาปรับระดับมาจากหน้า 14",
+          "next": "n_check_level"
+        },
+        {
+          "node_id": "n_check_level",
+          "type": "checkpoint",
+          "question": "หลังปรับระดับแล้ว เสียงผิดปกติหายไปหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "ด้านหลังตู้เย็นชิดผนังมากเกินไปหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_pull",
+          "on_no": "n3"
+        },
+        {
+          "node_id": "n_pull",
+          "type": "instruction",
+          "content": "ดึงตู้เย็นออกจากผนังให้มีช่องว่างพอสมควร (คู่มือหน้า 14)",
+          "safety_critical": true,
+          "safety_warning": "ดึงตู้เย็นออกตรงๆ และดันกลับตรงๆ เก็บสายไฟส่วนเกินด้านหลังตู้ไม่ให้ล้อทับสาย และตรวจว่าพื้นรับน้ำหนักตู้เย็นเต็มโหลดได้ (คู่มือหน้า 14)",
+          "author_note": "คู่มือหน้า 21 เป็นคำถามตรวจ ส่วนวิธีดึงตู้และคำเตือนมาจากหน้า 14",
+          "next": "n_check_wall"
+        },
+        {
+          "node_id": "n_check_wall",
+          "type": "checkpoint",
+          "question": "หลังเว้นระยะจากผนังแล้ว เสียงผิดปกติหายไปหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "node_id": "n3",
+          "type": "checkpoint",
+          "question": "มีสิ่งของตกอยู่หลังหรือใต้ตู้เย็นหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_remove",
+          "on_no": "n4"
+        },
+        {
+          "node_id": "n_remove",
+          "type": "instruction",
+          "content": "นำสิ่งของที่ตกอยู่หลังหรือใต้ตู้เย็นออก (คู่มือหน้า 21)",
+          "safety_critical": true,
+          "safety_warning": "ดึงตู้เย็นออกตรงๆ และดันกลับตรงๆ เก็บสายไฟส่วนเกินด้านหลังตู้ไม่ให้ล้อทับสาย และตรวจว่าพื้นรับน้ำหนักตู้เย็นเต็มโหลดได้ (คู่มือหน้า 14)",
+          "author_note": "คำเตือนการดึงตู้มาจากคู่มือหน้า 14 ส่วนวิธีนำสิ่งของออกผู้พัฒนาเพิ่มจากข้อความตรวจ",
+          "next": "n_check_obj"
+        },
+        {
+          "node_id": "n_check_obj",
+          "type": "checkpoint",
+          "question": "หลังนำสิ่งของออกแล้ว เสียงผิดปกติหายไปหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n4"
+        },
+        {
+          "node_id": "n4",
+          "type": "checkpoint",
+          "question": "เสียงที่ได้ยินเป็นเสียงติ๊กๆ เบาๆ ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_normal",
+          "on_no": "n5"
+        },
+        {
+          "node_id": "n_normal",
+          "type": "resolution",
+          "content": "เสียงติ๊กเกิดขึ้นเมื่ออุปกรณ์ภายในตู้เย็นหดหรือขยายตัว เป็นการทำงานปกติ ไม่ใช่ความเสียหาย (คู่มือหน้า 21)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "node_id": "n5",
+          "type": "checkpoint",
+          "question": "เสียงดังมาจากคอมเพรสเซอร์ของตู้เย็นใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_escalate_comp",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "เสียงผิดปกติหายไปแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate_comp",
+          "type": "escalation",
+          "content": "คู่มือให้ตรวจว่าเสียงมาจากคอมเพรสเซอร์หรือไม่ แต่ไม่ระบุวิธีแก้ ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่องและลักษณะเสียง",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่องและลักษณะเสียง (ดังจากส่วนไหน ดังตอนไหน)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_rf_um_front_warm_condensation",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "DA68-02676A",
+      "entry_symptom": "The front corners and sides of the appliance are warm and condensation starts to form.",
+      "entry_symptom_th": "มุมและด้านข้างตู้เย็นด้านหน้าอุ่น มีหยดน้ำเกาะด้านนอก",
+      "entry_symptom_aliases": [
+        "ตู้เย็นข้างๆ อุ่น",
+        "ตู้เย็นมีหยดน้ำด้านนอก",
+        "refrigerator front warm"
+      ],
+      "source": "Samsung Refrigerator User Manual (Code No. DA68-02676A REV 1.4)",
+      "page_range": [
+        21,
+        21
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RFUM_p21_front_warm_condensation",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "ความอุ่นหรือหยดน้ำเกิดที่มุมด้านหน้าหรือด้านข้างบริเวณผิวด้านนอกของตู้เย็น ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_normal",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_normal",
+          "type": "resolution",
+          "content": "นี่เป็นอาการปกติ — ตู้เย็นมีท่อกันความร้อนที่มุมด้านหน้าเพื่อกันการควบแน่น แต่เมื่ออุณหภูมิรอบตู้เย็นสูงขึ้นอาจกันไม่ได้เสมอไป และในอากาศชื้นมาก ความชื้นสัมผัสผิวเย็นด้านนอกจะเกิดหยดน้ำ (คู่มือหน้า 21)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "อาการไม่ตรงกับกรณีที่คู่มือระบุ (ความอุ่นหรือหยดน้ำที่ผิวด้านนอกบริเวณมุมและด้านข้างด้านหน้า) ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่องและตำแหน่งที่พบ",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_rf_um_liquid_bubbling",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "DA68-02676A",
+      "entry_symptom": "You can hear a liquid bubbling in the appliance.",
+      "entry_symptom_th": "ได้ยินเสียงเหมือนของเหลวฟองอยู่ในตู้เย็น",
+      "entry_symptom_aliases": [
+        "เสียงน้ำในตู้เย็น",
+        "เสียงโครกครากในตู้เย็น",
+        "bubbling sound"
+      ],
+      "source": "Samsung Refrigerator User Manual (Code No. DA68-02676A REV 1.4)",
+      "page_range": [
+        21,
+        21
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RFUM_p21_liquid_bubbling",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "เสียงที่ได้ยินเป็นเสียงเหมือนน้ำหรือของเหลวฟองอยู่ภายในตู้เย็น ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_normal",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_normal",
+          "type": "resolution",
+          "content": "เป็นเสียงของสารทำความเย็นที่ทำให้ภายในตู้เย็นเย็น เป็นการทำงานปกติ ไม่ต้องดำเนินการใดๆ (คู่มือหน้า 21)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "เสียงไม่ตรงกับกรณีที่คู่มือระบุ หากเป็นเสียงผิดปกติอื่น ให้เลือกอาการ \"ตู้เย็นมีเสียงผิดปกติ\" หรือติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่อง",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_rf_um_bad_smell",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "DA68-02676A",
+      "entry_symptom": "There is a bad smell inside the appliance.",
+      "entry_symptom_th": "ตู้เย็นมีกลิ่นเหม็น",
+      "entry_symptom_aliases": [
+        "ตู้เย็นเหม็น",
+        "กลิ่นอับในตู้เย็น",
+        "refrigerator smell"
+      ],
+      "source": "Samsung Refrigerator User Manual (Code No. DA68-02676A REV 1.4)",
+      "page_range": [
+        21,
+        21
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RFUM_p21_bad_smell",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "มีอาหารเสียหรืออาหารที่น่าสงสัยอยู่ในตู้เย็นหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_clean",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "มีอาหารกลิ่นแรง (เช่น ปลา) ที่ไม่ได้ห่อให้สนิทอยู่ในตู้เย็นหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_wrap",
+          "on_no": "n_clean"
+        },
+        {
+          "node_id": "n_wrap",
+          "type": "instruction",
+          "content": "ห่ออาหารกลิ่นแรงหรือใส่ภาชนะให้ปิดสนิทไม่ให้อากาศเข้าออก (คู่มือหน้า 21)",
+          "safety_critical": false,
+          "next": "n_check_wrap"
+        },
+        {
+          "node_id": "n_check_wrap",
+          "type": "checkpoint",
+          "question": "หลังห่ออาหารแล้ว กลิ่นเหม็นหายไปหรือไม่? (สังเกตต่อไปสักระยะ)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_clean"
+        },
+        {
+          "node_id": "n_clean",
+          "type": "instruction",
+          "content": "นำอาหารที่เสียหรือน่าสงสัยออกไปทิ้ง แล้วทำความสะอาดภายในตู้เย็นด้วยฟองน้ำสะอาดหรือผ้านุ่มกับน้ำยาล้างจานอ่อนๆ ผสมน้ำอุ่น (คู่มือหน้า 12 และ 21)",
+          "safety_critical": true,
+          "safety_warning": "ห้ามฉีดน้ำใส่ตู้เย็นขณะที่เสียบปลั๊กอยู่ เพราะอาจเกิดไฟฟ้าช็อก และห้ามใช้เบนซีน ทินเนอร์ หรือน้ำยาล้างรถทำความสะอาด เพราะเสี่ยงเกิดไฟไหม้ (คู่มือหน้า 20)",
+          "next": "n_check_clean"
+        },
+        {
+          "node_id": "n_check_clean",
+          "type": "checkpoint",
+          "question": "หลังทำความสะอาดแล้ว กลิ่นเหม็นหายไปหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "กลิ่นเหม็นหายไปแล้ว — แนะนำให้ทำความสะอาดตู้เย็นเป็นประจำ (คู่มือหน้า 21)",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ (อาหารเสีย อาหารกลิ่นแรงไม่ห่อ การทำความสะอาด) ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่องและสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_rf_um_frost_on_walls",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "DA68-02676A",
+      "entry_symptom": "There is a layer of frost on the appliance's walls.",
+      "entry_symptom_th": "มีน้ำแข็งเกาะที่ผนังตู้เย็น",
+      "entry_symptom_aliases": [
+        "น้ำแข็งเกาะในตู้เย็น",
+        "ผนังตู้เย็นมีน้ำแข็ง",
+        "frost in fridge"
+      ],
+      "source": "Samsung Refrigerator User Manual (Code No. DA68-02676A REV 1.4)",
+      "page_range": [
+        21,
+        21
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RFUM_p21_frost_on_walls",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "ช่องลมออกของตู้เย็นถูกอาหารบังอยู่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_space",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n_space",
+          "type": "instruction",
+          "content": "จัดอาหารให้ห่างกันมากที่สุดเพื่อให้อากาศถ่ายเทดีขึ้น และไม่วางอาหารบังช่องลมออก (คู่มือหน้า 21)",
+          "safety_critical": false,
+          "next": "n_check_space"
+        },
+        {
+          "node_id": "n_check_space",
+          "type": "checkpoint",
+          "question": "หลังจัดอาหารแล้ว น้ำแข็งที่ผนังไม่เกาะเพิ่มใช่หรือไม่? (สังเกตต่อไปสักระยะ)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "ประตูตู้เย็นปิดสนิทแล้วหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_escalate",
+          "on_no": "n_close"
+        },
+        {
+          "node_id": "n_close",
+          "type": "instruction",
+          "content": "ปิดประตูตู้เย็นให้สนิท (คู่มือหน้า 21)",
+          "safety_critical": false,
+          "next": "n_check_close"
+        },
+        {
+          "node_id": "n_check_close",
+          "type": "checkpoint",
+          "question": "หลังปิดประตูสนิทแล้ว น้ำแข็งที่ผนังไม่เกาะเพิ่มใช่หรือไม่? (สังเกตต่อไปสักระยะ)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "น้ำแข็งไม่เกาะเพิ่มแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ (ช่องลมออกถูกบัง ประตูปิดไม่สนิท) ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่องและสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_rf_um_condensation_inside",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "DA68-02676A",
+      "entry_symptom": "Condensation forms on the inside wall of the appliance and around vegetables.",
+      "entry_symptom_th": "มีหยดน้ำเกาะที่ผนังด้านในตู้เย็นและรอบผัก",
+      "entry_symptom_aliases": [
+        "ในตู้เย็นมีหยดน้ำ",
+        "ผนังตู้เย็นเปียก",
+        "condensation inside fridge"
+      ],
+      "source": "Samsung Refrigerator User Manual (Code No. DA68-02676A REV 1.4)",
+      "page_range": [
+        21,
+        21
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RFUM_p21_condensation_inside",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "มีอาหารที่มีน้ำมาก (เช่น ผักผลไม้) เก็บไว้โดยไม่มีฝาปิดในที่ความชื้นสูง หรือเปิดประตูตู้เย็นทิ้งไว้นานหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_cover",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_cover",
+          "type": "instruction",
+          "content": "เก็บอาหารโดยมีฝาปิดหรือใส่ภาชนะปิดสนิท (คู่มือหน้า 21) และไม่เปิดประตูตู้เย็นทิ้งไว้นาน",
+          "safety_critical": false,
+          "author_note": "คู่มือระบุเพียงให้เก็บอาหารแบบปิดฝา ส่วน 'ไม่เปิดประตูนาน' ผู้พัฒนาเพิ่มจากสาเหตุที่คู่มือระบุ",
+          "next": "n_check"
+        },
+        {
+          "node_id": "n_check",
+          "type": "checkpoint",
+          "question": "หลังเก็บอาหารแบบปิดฝาแล้ว หยดน้ำภายในตู้ลดลงหรือไม่? (สังเกตต่อไปสักระยะ)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "หยดน้ำภายในตู้ลดลงแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับกรณีที่คู่มือระบุ (อาหารน้ำมากไม่ปิดฝาในที่ชื้น หรือเปิดประตูนาน) ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่องและอาการที่พบ",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_rf_um_led_lamp_out",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "DA68-02676A",
+      "entry_symptom": "The interior or exterior LED lamp has gone out.",
+      "entry_symptom_th": "หลอดไฟ LED ภายในหรือภายนอกตู้เย็นดับ ไฟในตู้ไม่ติด",
+      "entry_symptom_aliases": [
+        "ไฟในตู้เย็นไม่ติด",
+        "หลอดไฟตู้เย็นดับ",
+        "refrigerator LED lamp out"
+      ],
+      "source": "Samsung Refrigerator User Manual (Code No. DA68-02676A REV 1.4)",
+      "page_range": [
+        20,
+        20
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RFUM_p20_led_lamp_out",
+      "severity": "low",
+      "difficulty": "hard",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "หลอดไฟ LED ภายในหรือภายนอกตู้เย็นดับ ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_stop",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_stop",
+          "type": "instruction",
+          "content": "ห้ามถอดแยกฝาครอบหลอดไฟและหลอด LED ออกเอง (คู่มือหน้า 20)",
+          "safety_critical": true,
+          "safety_warning": "ห้ามถอดแยกฝาครอบหลอดไฟและหลอด LED ด้วยตนเอง (คู่มือหน้า 20)",
+          "next": "n_escalate_service"
+        },
+        {
+          "node_id": "n_escalate_service",
+          "type": "escalation",
+          "content": "ติดต่อศูนย์บริการ Samsung เพื่อเปลี่ยนหลอดไฟ LED (คู่มือหน้า 20) พร้อมแจ้งรุ่นเครื่อง",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "อาการไม่ตรงกับกรณีที่คู่มือระบุ (หลอดไฟ LED ดับ) ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่องและอาการที่พบ",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    }
+  ]
+}

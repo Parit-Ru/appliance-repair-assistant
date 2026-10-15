@@ -1,0 +1,1056 @@
+[
+  {
+    "chunk_id": "manual_Samsung_Television_MUSDVBADR_p128_flickering_dimming",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "MUSDVBADR-4.0.5",
+    "source": "Samsung TV e-Manual MUSDVBADR-4.0.5 (MUSDVBADR-4.0.5_EM_MUSE_ASIA_ENG)",
+    "page": 128,
+    "content": "Flickering and Dimming 1. If your Samsung Television is flickering or dimming sporadically, you may need to disable some of the energy efficiency features. 2. Disable Ambient Light Detection, Energy Saving Mode, or Motion Lighting. 3. Settings > General > Eco Solution > Ambient Light Detection 4. Settings > General > Eco Solution > Energy Saving Mode 5. Settings > General > Eco Solution > Motion Lighting",
+    "metadata": {
+      "symptom": "Flickering and Dimming",
+      "possible_cause": null,
+      "solution": "1. If your Samsung Television is flickering or dimming sporadically, you may need to disable some of the energy efficiency features.\n2. Disable Ambient Light Detection, Energy Saving Mode, or Motion Lighting.\n3. Settings > General > Eco Solution > Ambient Light Detection\n4. Settings > General > Eco Solution > Energy Saving Mode\n5. Settings > General > Eco Solution > Motion Lighting",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_MUSDVBADR_p128_component_screen_colour",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "MUSDVBADR-4.0.5",
+    "source": "Samsung TV e-Manual MUSDVBADR-4.0.5 (MUSDVBADR-4.0.5_EM_MUSE_ASIA_ENG)",
+    "page": 128,
+    "content": "Component Connections/Screen Colour 1. If the colour on your TV screen is not correct or the black and white colours are off, run Start Picture Test. 2. Settings > Support > Self Diagnosis > Start Picture Test 3. If the test results indicate that the problem is not caused by the TV, do the following: 4. When using the One Connect, confirm that its video input connectors are connected to the correct external device video output connectors. 5. When using the component cable, confirm that the green (Y), blue (Pb), and red (Pr) jacks are plugged into their proper connectors. 6. For more information about how to connect an external device, run Connection Guide. 7. Source > Connection Guide",
+    "metadata": {
+      "symptom": "Component Connections/Screen Colour",
+      "possible_cause": null,
+      "solution": "1. If the colour on your TV screen is not correct or the black and white colours are off, run Start Picture Test.\n2. Settings > Support > Self Diagnosis > Start Picture Test\n3. If the test results indicate that the problem is not caused by the TV, do the following:\n4. When using the One Connect, confirm that its video input connectors are connected to the correct external device video output connectors.\n5. When using the component cable, confirm that the green (Y), blue (Pb), and red (Pr) jacks are plugged into their proper connectors.\n6. For more information about how to connect an external device, run Connection Guide.\n7. Source > Connection Guide",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_MUSDVBADR_p129_screen_brightness",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "MUSDVBADR-4.0.5",
+    "source": "Samsung TV e-Manual MUSDVBADR-4.0.5 (MUSDVBADR-4.0.5_EM_MUSE_ASIA_ENG)",
+    "page": 129,
+    "content": "Screen Brightness 1. If the colours on your Samsung TV are correct but just a little too dark or bright, try adjusting the following settings first. 2. Settings > Picture > Expert Settings > Backlight 3. Settings > Picture > Expert Settings > Contrast 4. Settings > Picture > Expert Settings > Brightness 5. Settings > Picture > Expert Settings > Sharpness 6. Settings > Picture > Expert Settings > Colour 7. Settings > Picture > Expert Settings > Tint (G/R)",
+    "metadata": {
+      "symptom": "Screen Brightness",
+      "possible_cause": null,
+      "solution": "1. If the colours on your Samsung TV are correct but just a little too dark or bright, try adjusting the following settings first.\n2. Settings > Picture > Expert Settings > Backlight\n3. Settings > Picture > Expert Settings > Contrast\n4. Settings > Picture > Expert Settings > Brightness\n5. Settings > Picture > Expert Settings > Sharpness\n6. Settings > Picture > Expert Settings > Colour\n7. Settings > Picture > Expert Settings > Tint (G/R)",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_MUSDVBADR_p129_blurring_juddering",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "MUSDVBADR-4.0.5",
+    "source": "Samsung TV e-Manual MUSDVBADR-4.0.5 (MUSDVBADR-4.0.5_EM_MUSE_ASIA_ENG)",
+    "page": 129,
+    "content": "Blurring, or Juddering 1. If you notice blurring or juddering on the screen, use the Auto Motion Plus Settings function to resolve the issue. 2. Settings > Picture > Expert Settings > Auto Motion Plus Settings",
+    "metadata": {
+      "symptom": "Blurring, or Juddering",
+      "possible_cause": null,
+      "solution": "1. If you notice blurring or juddering on the screen, use the Auto Motion Plus Settings function to resolve the issue.\n2. Settings > Picture > Expert Settings > Auto Motion Plus Settings",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_MUSDVBADR_p129_unwanted_powering_off",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "MUSDVBADR-4.0.5",
+    "source": "Samsung TV e-Manual MUSDVBADR-4.0.5 (MUSDVBADR-4.0.5_EM_MUSE_ASIA_ENG)",
+    "page": 129,
+    "content": "Unwanted Powering Off 1. If your TV appears to turn off by itself, try disabling some of the TV's energy efficiency functions. 2. See if Sleep Timer has been enabled. The Sleep Timer automatically turns the TV off after a specified period of time. 3. Settings > General > System Manager > Time > Sleep Timer 4. If the Sleep Timer has not been enabled, see if Auto Power Off or Off Timer has been enabled and disable it. 5. Settings > General > Eco Solution > Auto Power Off 6. Settings > General > System Manager > Time > Off Timer",
+    "metadata": {
+      "symptom": "Unwanted Powering Off",
+      "possible_cause": null,
+      "solution": "1. If your TV appears to turn off by itself, try disabling some of the TV's energy efficiency functions.\n2. See if Sleep Timer has been enabled. The Sleep Timer automatically turns the TV off after a specified period of time.\n3. Settings > General > System Manager > Time > Sleep Timer\n4. If the Sleep Timer has not been enabled, see if Auto Power Off or Off Timer has been enabled and disable it.\n5. Settings > General > Eco Solution > Auto Power Off\n6. Settings > General > System Manager > Time > Off Timer",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_MUSDVBADR_p129_problems_powering_on",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "MUSDVBADR-4.0.5",
+    "source": "Samsung TV e-Manual MUSDVBADR-4.0.5 (MUSDVBADR-4.0.5_EM_MUSE_ASIA_ENG)",
+    "page": 129,
+    "content": "Problems Powering On 1. If you are having problems powering on your TV, there are a number of things to check before calling the service department. 2. Confirm that the TV's power cord is connected correctly at both ends and that the remote control is operating normally. 3. Make sure that the antenna cable or the cable TV's cable is firmly connected. 4. If you have a cable box or satellite box, confirm that it is plugged in and turned on.",
+    "metadata": {
+      "symptom": "Problems Powering On",
+      "possible_cause": null,
+      "solution": "1. If you are having problems powering on your TV, there are a number of things to check before calling the service department.\n2. Confirm that the TV's power cord is connected correctly at both ends and that the remote control is operating normally.\n3. Make sure that the antenna cable or the cable TV's cable is firmly connected.\n4. If you have a cable box or satellite box, confirm that it is plugged in and turned on.",
+      "severity": "medium",
+      "difficulty": "easy",
+      "safety_warning": "ถอดหรือเสียบปลั๊กโดยจับที่หัวปลั๊ก ไม่ดึงที่สายไฟ และห้ามจับปลั๊กด้วยมือเปียก ถ้าสายไฟหรือปลั๊กชำรุด ให้หยุดใช้งานแล้วติดต่อศูนย์บริการ"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_MUSDVBADR_p129_unable_find_channel",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "MUSDVBADR-4.0.5",
+    "source": "Samsung TV e-Manual MUSDVBADR-4.0.5 (MUSDVBADR-4.0.5_EM_MUSE_ASIA_ENG)",
+    "page": 129,
+    "content": "Unable to find a Channel 1. If your TV is not connected to a cable box or satellite box, run Auto Tuning. 2. Settings > Broadcasting (Auto Tuning Settings) > Auto Tuning 3. The Auto Tuning Settings may not appear depending on the model or geographical area.",
+    "metadata": {
+      "symptom": "Unable to find a Channel",
+      "possible_cause": null,
+      "solution": "1. If your TV is not connected to a cable box or satellite box, run Auto Tuning.\n2. Settings > Broadcasting (Auto Tuning Settings) > Auto Tuning\n3. The Auto Tuning Settings may not appear depending on the model or geographical area.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_MUSDVBADR_p130_not_as_good_as_store",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "MUSDVBADR-4.0.5",
+    "source": "Samsung TV e-Manual MUSDVBADR-4.0.5 (MUSDVBADR-4.0.5_EM_MUSE_ASIA_ENG)",
+    "page": 130,
+    "content": "The TV image does not look as good as it did in the store. 1. Store displays are tuned to a digital UHD channel or HD channel. 2. If you are using analogue cable, upgrade to digital cable. 3. If you use an analogue cable box or satellite box, upgrade to a digital cable box or satellite box and adjust the digital cable box and satellite box's video output resolution to UHD or HD. 4. Be sure to use an HDMI cable to enjoy high quality videos. 5. To connect the TV with your PC, make sure that your PC's graphic card supports UHD resolutions. 6. For more information about the supported UHD resolutions, refer to \"Supported Resolutions for UHD Input Signals\".",
+    "metadata": {
+      "symptom": "The TV image does not look as good as it did in the store.",
+      "possible_cause": null,
+      "solution": "1. Store displays are tuned to a digital UHD channel or HD channel.\n2. If you are using analogue cable, upgrade to digital cable.\n3. If you use an analogue cable box or satellite box, upgrade to a digital cable box or satellite box and adjust the digital cable box and satellite box's video output resolution to UHD or HD.\n4. Be sure to use an HDMI cable to enjoy high quality videos.\n5. To connect the TV with your PC, make sure that your PC's graphic card supports UHD resolutions.\n6. For more information about the supported UHD resolutions, refer to \"Supported Resolutions for UHD Input Signals\".",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_MUSDVBADR_p130_picture_distorted",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "MUSDVBADR-4.0.5",
+    "source": "Samsung TV e-Manual MUSDVBADR-4.0.5 (MUSDVBADR-4.0.5_EM_MUSE_ASIA_ENG)",
+    "page": 130,
+    "content": "The picture is distorted. 1. The compression of video content may cause picture distortions, especially in fast moving pictures from sports programmes and action movies. 2. If the signal reception is weak or poor, screen distortion may be visible but it is not a malfunction. 3. Mobile phones used close to the TV (within 1 m) may cause noise on analogue and digital channels.",
+    "metadata": {
+      "symptom": "The picture is distorted.",
+      "possible_cause": null,
+      "solution": "1. The compression of video content may cause picture distortions, especially in fast moving pictures from sports programmes and action movies.\n2. If the signal reception is weak or poor, screen distortion may be visible but it is not a malfunction.\n3. Mobile phones used close to the TV (within 1 m) may cause noise on analogue and digital channels.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_MUSDVBADR_p130_colour_wrong_or_missing",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "MUSDVBADR-4.0.5",
+    "source": "Samsung TV e-Manual MUSDVBADR-4.0.5 (MUSDVBADR-4.0.5_EM_MUSE_ASIA_ENG)",
+    "page": 130,
+    "content": "The colour is wrong or missing. 1. If you’re using a Component connection, make sure that the Component cables are connected to the correct jacks. 2. Incorrect or loose connections may cause colour problems or a blank screen.",
+    "metadata": {
+      "symptom": "The colour is wrong or missing.",
+      "possible_cause": null,
+      "solution": "1. If you’re using a Component connection, make sure that the Component cables are connected to the correct jacks.\n2. Incorrect or loose connections may cause colour problems or a blank screen.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_MUSDVBADR_p130_colour_poor_not_bright",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "MUSDVBADR-4.0.5",
+    "source": "Samsung TV e-Manual MUSDVBADR-4.0.5 (MUSDVBADR-4.0.5_EM_MUSE_ASIA_ENG)",
+    "page": 130,
+    "content": "The colour is poor or the picture is not bright enough. 1. Go to Picture and then adjust the Picture Mode, Brightness, Sharpness, and Colour settings. 2. Settings > Picture > Picture Mode 3. Settings > Picture > Expert Settings > Brightness 4. Settings > Picture > Expert Settings > Sharpness 5. Settings > Picture > Expert Settings > Colour 6. See if Energy Saving Mode has been enabled. 7. Settings > General > Eco Solution > Energy Saving Mode 8. Try resetting the picture. 9. Settings > Picture > Expert Settings > Reset Picture",
+    "metadata": {
+      "symptom": "The colour is poor or the picture is not bright enough.",
+      "possible_cause": null,
+      "solution": "1. Go to Picture and then adjust the Picture Mode, Brightness, Sharpness, and Colour settings.\n2. Settings > Picture > Picture Mode\n3. Settings > Picture > Expert Settings > Brightness\n4. Settings > Picture > Expert Settings > Sharpness\n5. Settings > Picture > Expert Settings > Colour\n6. See if Energy Saving Mode has been enabled.\n7. Settings > General > Eco Solution > Energy Saving Mode\n8. Try resetting the picture.\n9. Settings > Picture > Expert Settings > Reset Picture",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_MUSDVBADR_p130_dotted_line_edge",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "MUSDVBADR-4.0.5",
+    "source": "Samsung TV e-Manual MUSDVBADR-4.0.5 (MUSDVBADR-4.0.5_EM_MUSE_ASIA_ENG)",
+    "page": 130,
+    "content": "There is a dotted line on the edge of the screen. 1. Change Picture Size to 16:9 Standard. 2. Settings > Picture > Picture Size Settings > Picture Size > 16:9 Standard",
+    "metadata": {
+      "symptom": "There is a dotted line on the edge of the screen.",
+      "possible_cause": null,
+      "solution": "1. Change Picture Size to 16:9 Standard.\n2. Settings > Picture > Picture Size Settings > Picture Size > 16:9 Standard",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_MUSDVBADR_p130_picture_black_white",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "MUSDVBADR-4.0.5",
+    "source": "Samsung TV e-Manual MUSDVBADR-4.0.5 (MUSDVBADR-4.0.5_EM_MUSE_ASIA_ENG)",
+    "page": 130,
+    "content": "The picture is black and white. 1. Use a composite cable when you connect AV equipment to the TV. 2. If you are using AV or analogue equipment, disconnect the adapter from the Component (Blue) input port on the TV and connect it to the AV (Yellow) input port. 3. Check whether Greyscale is set to On. 4. Settings > General > Accessibility > Greyscale",
+    "metadata": {
+      "symptom": "The picture is black and white.",
+      "possible_cause": null,
+      "solution": "1. Use a composite cable when you connect AV equipment to the TV.\n2. If you are using AV or analogue equipment, disconnect the adapter from the Component (Blue) input port on the TV and connect it to the AV (Yellow) input port.\n3. Check whether Greyscale is set to On.\n4. Settings > General > Accessibility > Greyscale",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_MUSDVBADR_p131_not_full_screen",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "MUSDVBADR-4.0.5",
+    "source": "Samsung TV e-Manual MUSDVBADR-4.0.5 (MUSDVBADR-4.0.5_EM_MUSE_ASIA_ENG)",
+    "page": 131,
+    "content": "The picture won’t display in full screen. 1. HD channels will have black bars on either side of the screen when displaying upscaled SD (4:3) content. 2. Black bars will appear at the top and bottom of the screen when you watch movies that have aspect ratios different from your TV. 3. Adjust the picture size options on your external device or set the TV to full screen. 4. Settings > Picture > Picture Size Settings > Picture Size",
+    "metadata": {
+      "symptom": "The picture won’t display in full screen.",
+      "possible_cause": null,
+      "solution": "1. HD channels will have black bars on either side of the screen when displaying upscaled SD (4:3) content.\n2. Black bars will appear at the top and bottom of the screen when you watch movies that have aspect ratios different from your TV.\n3. Adjust the picture size options on your external device or set the TV to full screen.\n4. Settings > Picture > Picture Size Settings > Picture Size",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_MUSDVBADR_p131_subtitle_deactivated",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "MUSDVBADR-4.0.5",
+    "source": "Samsung TV e-Manual MUSDVBADR-4.0.5 (MUSDVBADR-4.0.5_EM_MUSE_ASIA_ENG)",
+    "page": 131,
+    "content": "The Subtitle function in the TV menu is deactivated. When an external device is connected with an HDMI or Component cable, the Subtitle function is unavailable. Adjust the subtitle setting on the external device.",
+    "metadata": {
+      "symptom": "The Subtitle function in the TV menu is deactivated.",
+      "possible_cause": null,
+      "solution": "When an external device is connected with an HDMI or Component cable, the Subtitle function is unavailable. Adjust the subtitle setting on the external device.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_MUSDVBADR_p131_subtitles_appear_on_screen",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "MUSDVBADR-4.0.5",
+    "source": "Samsung TV e-Manual MUSDVBADR-4.0.5 (MUSDVBADR-4.0.5_EM_MUSE_ASIA_ENG)",
+    "page": 131,
+    "content": "Subtitles appear on the TV screen. 1. Turn off the Subtitle function in Subtitle Settings. 2. Settings > General > Accessibility > Subtitle Settings > Subtitle",
+    "metadata": {
+      "symptom": "Subtitles appear on the TV screen.",
+      "possible_cause": null,
+      "solution": "1. Turn off the Subtitle function in Subtitle Settings.\n2. Settings > General > Accessibility > Subtitle Settings > Subtitle",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_MUSDVBADR_p132_no_sound_or_low",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "MUSDVBADR-4.0.5",
+    "source": "Samsung TV e-Manual MUSDVBADR-4.0.5 (MUSDVBADR-4.0.5_EM_MUSE_ASIA_ENG)",
+    "page": 132,
+    "content": "There is no sound or the sound is too low at maximum volume. Check the volume control of your TV, and then check the volume control of the external device (cable box or satellite box, DVD, Blu-ray, etc.) connected to your TV.",
+    "metadata": {
+      "symptom": "There is no sound or the sound is too low at maximum volume.",
+      "possible_cause": null,
+      "solution": "Check the volume control of your TV, and then check the volume control of the external device (cable box or satellite box, DVD, Blu-ray, etc.) connected to your TV.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_MUSDVBADR_p132_picture_good_no_sound",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "MUSDVBADR-4.0.5",
+    "source": "Samsung TV e-Manual MUSDVBADR-4.0.5 (MUSDVBADR-4.0.5_EM_MUSE_ASIA_ENG)",
+    "page": 132,
+    "content": "The picture is good but there is no sound. 1. Set Sound Output to TV Speaker. 2. Settings > Sound > Sound Output 3. If you are using an external device, check the device’s audio output option. For example, you may need to change your cable box’s audio option to HDMI if the box connected to your TV is using an HDMI cable. 4. To listen to computer sound, connect an external speaker to the computer’s audio output connector. 5. If your TV has a headphone jack, make sure there is nothing plugged into it. 6. Reboot the connected device by disconnecting and then reconnecting the device’s power cable.",
+    "metadata": {
+      "symptom": "The picture is good but there is no sound.",
+      "possible_cause": null,
+      "solution": "1. Set Sound Output to TV Speaker.\n2. Settings > Sound > Sound Output\n3. If you are using an external device, check the device’s audio output option. For example, you may need to change your cable box’s audio option to HDMI if the box connected to your TV is using an HDMI cable.\n4. To listen to computer sound, connect an external speaker to the computer’s audio output connector.\n5. If your TV has a headphone jack, make sure there is nothing plugged into it.\n6. Reboot the connected device by disconnecting and then reconnecting the device’s power cable.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": "ถอดหรือเสียบปลั๊กโดยจับที่หัวปลั๊ก ไม่ดึงที่สายไฟ และห้ามจับปลั๊กด้วยมือเปียก ถ้าสายไฟหรือปลั๊กชำรุด ให้หยุดใช้งานแล้วติดต่อศูนย์บริการ"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_MUSDVBADR_p132_no_sound_is_heard",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "MUSDVBADR-4.0.5",
+    "source": "Samsung TV e-Manual MUSDVBADR-4.0.5 (MUSDVBADR-4.0.5_EM_MUSE_ASIA_ENG)",
+    "page": 132,
+    "content": "No sound is heard. 1. Check whether Digital Output Audio Format is set to Dolby Digital+. 2. Set Digital Output Audio Format to Dolby Digital+ only when you play Dolby Digital+ (with Atmos) content. 3. If you are using an AV receiver that does not support Dolby Digital+, you will hear no sound when you select Dolby Digital+. 4. Settings > Sound > Expert Settings > Digital Output Audio Format > Dolby Digital+",
+    "metadata": {
+      "symptom": "No sound is heard.",
+      "possible_cause": null,
+      "solution": "1. Check whether Digital Output Audio Format is set to Dolby Digital+.\n2. Set Digital Output Audio Format to Dolby Digital+ only when you play Dolby Digital+ (with Atmos) content.\n3. If you are using an AV receiver that does not support Dolby Digital+, you will hear no sound when you select Dolby Digital+.\n4. Settings > Sound > Expert Settings > Digital Output Audio Format > Dolby Digital+",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_MUSDVBADR_p133_speakers_odd_sound",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "MUSDVBADR-4.0.5",
+    "source": "Samsung TV e-Manual MUSDVBADR-4.0.5 (MUSDVBADR-4.0.5_EM_MUSE_ASIA_ENG)",
+    "page": 133,
+    "content": "The speakers are making an odd sound. 1. Run Start Sound Test. 2. Settings > Support > Self Diagnosis > Start Sound Test 3. Make sure that the audio cable is connected to the correct audio output connector on the external device. 4. For antenna or cable connections, check the signal information. A low signal level may cause sound distortions.",
+    "metadata": {
+      "symptom": "The speakers are making an odd sound.",
+      "possible_cause": null,
+      "solution": "1. Run Start Sound Test.\n2. Settings > Support > Self Diagnosis > Start Sound Test\n3. Make sure that the audio cable is connected to the correct audio output connector on the external device.\n4. For antenna or cable connections, check the signal information. A low signal level may cause sound distortions.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_MUSDVBADR_p133_sound_interrupted",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "MUSDVBADR-4.0.5",
+    "source": "Samsung TV e-Manual MUSDVBADR-4.0.5 (MUSDVBADR-4.0.5_EM_MUSE_ASIA_ENG)",
+    "page": 133,
+    "content": "The sound is interrupted. 1. The sound may frequently be interrupted when a Bluetooth speaker is used. Make sure that the Bluetooth speaker and the wireless access point are on a straight line, and the Bluetooth speaker is placed as close as possible to the TV. 2. To minimise interruptions, we recommend a wireless access point that uses a 5 GHz frequency. 3. If the problem persists, we recommend that you use a wired connection.",
+    "metadata": {
+      "symptom": "The sound is interrupted.",
+      "possible_cause": null,
+      "solution": "1. The sound may frequently be interrupted when a Bluetooth speaker is used. Make sure that the Bluetooth speaker and the wireless access point are on a straight line, and the Bluetooth speaker is placed as close as possible to the TV.\n2. To minimise interruptions, we recommend a wireless access point that uses a 5 GHz frequency.\n3. If the problem persists, we recommend that you use a wired connection.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_MUSDVBADR_p133_tv_voices_activity",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "MUSDVBADR-4.0.5",
+    "source": "Samsung TV e-Manual MUSDVBADR-4.0.5 (MUSDVBADR-4.0.5_EM_MUSE_ASIA_ENG)",
+    "page": 133,
+    "content": "Whenever a function is used on the TV or the channel is changed, the TV voices the activity. The TV explains in voice-over the video scenes displayed on the screen. 1. Turn off the Voice Guide function in Voice Guide Settings. 2. Settings > General > Accessibility > Voice Guide Settings > Voice Guide",
+    "metadata": {
+      "symptom": "Whenever a function is used on the TV or the channel is changed, the TV voices the activity. The TV explains in voice-over the video scenes displayed on the screen.",
+      "possible_cause": null,
+      "solution": "1. Turn off the Voice Guide function in Voice Guide Settings.\n2. Settings > General > Accessibility > Voice Guide Settings > Voice Guide",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_MUSDVBADR_p133_audio_not_through_av_receiver",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "MUSDVBADR-4.0.5",
+    "source": "Samsung TV e-Manual MUSDVBADR-4.0.5 (MUSDVBADR-4.0.5_EM_MUSE_ASIA_ENG)",
+    "page": 133,
+    "content": "The TV audio is not being played through the AV receiver. 1. Connect an optical cable to the TV and the AV receiver. 2. ARC enables the TV to output digital sound via the HDMI (ARC) port. 3. However, ARC is only available when the TV is connected to an AV receiver that supports ARC. 4. The HDMI (ARC) port may support eARC in some models.",
+    "metadata": {
+      "symptom": "The TV audio is not being played through the AV receiver.",
+      "possible_cause": null,
+      "solution": "1. Connect an optical cable to the TV and the AV receiver.\n2. ARC enables the TV to output digital sound via the HDMI (ARC) port.\n3. However, ARC is only available when the TV is connected to an AV receiver that supports ARC.\n4. The HDMI (ARC) port may support eARC in some models.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_MUSDVBADR_p134_weak_or_no_signal",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "MUSDVBADR-4.0.5",
+    "source": "Samsung TV e-Manual MUSDVBADR-4.0.5 (MUSDVBADR-4.0.5_EM_MUSE_ASIA_ENG)",
+    "page": 134,
+    "content": "“Weak or No Signal” displayed in TV mode/cannot find channel. 1. Make sure that the external device is connected securely and turned on. Move to Sources to switch to other input sources. 2. Source > Sources",
+    "metadata": {
+      "symptom": "“Weak or No Signal” displayed in TV mode/cannot find channel.",
+      "possible_cause": null,
+      "solution": "1. Make sure that the external device is connected securely and turned on. Move to Sources to switch to other input sources.\n2. Source > Sources",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": "ถอดหรือเสียบปลั๊กโดยจับที่หัวปลั๊ก ไม่ดึงที่สายไฟ และห้ามจับปลั๊กด้วยมือเปียก ถ้าสายไฟหรือปลั๊กชำรุด ให้หยุดใช้งานแล้วติดต่อศูนย์บริการ"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_MUSDVBADR_p134_not_receiving_all_channels",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "MUSDVBADR-4.0.5",
+    "source": "Samsung TV e-Manual MUSDVBADR-4.0.5 (MUSDVBADR-4.0.5_EM_MUSE_ASIA_ENG)",
+    "page": 134,
+    "content": "The TV is not receiving all channels. 1. Confirm that the coaxial cable is securely connected to the TV. 2. Run Reset or Auto Tuning. 3. Settings > General > Reset 4. Settings > Broadcasting (Auto Tuning Settings) > Auto Tuning 5. The Auto Tuning Settings may not appear depending on the model or geographical area.",
+    "metadata": {
+      "symptom": "The TV is not receiving all channels.",
+      "possible_cause": null,
+      "solution": "1. Confirm that the coaxial cable is securely connected to the TV.\n2. Run Reset or Auto Tuning.\n3. Settings > General > Reset\n4. Settings > Broadcasting (Auto Tuning Settings) > Auto Tuning\n5. The Auto Tuning Settings may not appear depending on the model or geographical area.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_MUSDVBADR_p134_no_subtitles_digital",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "MUSDVBADR-4.0.5",
+    "source": "Samsung TV e-Manual MUSDVBADR-4.0.5 (MUSDVBADR-4.0.5_EM_MUSE_ASIA_ENG)",
+    "page": 134,
+    "content": "There are no subtitles with digital channels. 1. Go to Subtitle Settings and turn on the Subtitle function, and then change the Subtitle Mode. 2. Settings > General > Accessibility > Subtitle Settings 3. Some channels may not have subtitle data.",
+    "metadata": {
+      "symptom": "There are no subtitles with digital channels.",
+      "possible_cause": null,
+      "solution": "1. Go to Subtitle Settings and turn on the Subtitle function, and then change the Subtitle Mode.\n2. Settings > General > Accessibility > Subtitle Settings\n3. Some channels may not have subtitle data.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_MUSDVBADR_p134_broadcasting_deactivated",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "MUSDVBADR-4.0.5",
+    "source": "Samsung TV e-Manual MUSDVBADR-4.0.5 (MUSDVBADR-4.0.5_EM_MUSE_ASIA_ENG)",
+    "page": 134,
+    "content": "Broadcasting is deactivated. 1. Broadcasting is only available when Source is set to TV. 2. Broadcasting cannot be accessed while you watch TV using a cable box or satellite box. 3. Broadcasting cannot be accessed while a recording is in progress or the Timeshift function is running.",
+    "metadata": {
+      "symptom": "Broadcasting is deactivated.",
+      "possible_cause": null,
+      "solution": "1. Broadcasting is only available when Source is set to TV.\n2. Broadcasting cannot be accessed while you watch TV using a cable box or satellite box.\n3. Broadcasting cannot be accessed while a recording is in progress or the Timeshift function is running.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_MUSDVBADR_p135_mode_not_supported",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "MUSDVBADR-4.0.5",
+    "source": "Samsung TV e-Manual MUSDVBADR-4.0.5 (MUSDVBADR-4.0.5_EM_MUSE_ASIA_ENG)",
+    "page": 135,
+    "content": "The \"Mode Not Supported\" message appears. Adjust the output resolution of the external device to a resolution supported by the TV.",
+    "metadata": {
+      "symptom": "The \"Mode Not Supported\" message appears.",
+      "possible_cause": null,
+      "solution": "Adjust the output resolution of the external device to a resolution supported by the TV.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_MUSDVBADR_p135_video_ok_no_audio",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "MUSDVBADR-4.0.5",
+    "source": "Samsung TV e-Manual MUSDVBADR-4.0.5 (MUSDVBADR-4.0.5_EM_MUSE_ASIA_ENG)",
+    "page": 135,
+    "content": "The video is OK but there is no audio. 1. If you are using an HDMI connection, check the audio output setting on your PC. 2. If you are using a DVI to HDMI cable, a separate audio cable is required. 3. To listen to the computer sound, connect external speakers to the audio output connection of the computer.",
+    "metadata": {
+      "symptom": "The video is OK but there is no audio.",
+      "possible_cause": null,
+      "solution": "1. If you are using an HDMI connection, check the audio output setting on your PC.\n2. If you are using a DVI to HDMI cable, a separate audio cable is required.\n3. To listen to the computer sound, connect external speakers to the audio output connection of the computer.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_MUSDVBADR_p135_screen_mirroring",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "MUSDVBADR-4.0.5",
+    "source": "Samsung TV e-Manual MUSDVBADR-4.0.5 (MUSDVBADR-4.0.5_EM_MUSE_ASIA_ENG)",
+    "page": 135,
+    "content": "How can I use Screen Mirroring? 1. To wirelessly connect the TV to your PC, read the instructions at PC > Screen Sharing (Wireless) in Connection Guide, and then try to connect. 2. Source > Connection Guide > PC > Screen Sharing (Wireless) 3. Confirm that the TV and your PC are connected to the same wireless network. 4. To wirelessly connect the TV to your mobile device, read the instructions at Smartphone > Screen Sharing (Smart View) in Connection Guide, and then try to connect. 5. Source > Connection Guide > Smartphone > Screen Sharing (Smart View) 6. If the TV has difficulties connecting to your PC or mobile device due to surrounding radio interferences, change the frequency of the wireless access band, and then try to connect.",
+    "metadata": {
+      "symptom": "How can I use Screen Mirroring?",
+      "possible_cause": null,
+      "solution": "1. To wirelessly connect the TV to your PC, read the instructions at PC > Screen Sharing (Wireless) in Connection Guide, and then try to connect.\n2. Source > Connection Guide > PC > Screen Sharing (Wireless)\n3. Confirm that the TV and your PC are connected to the same wireless network.\n4. To wirelessly connect the TV to your mobile device, read the instructions at Smartphone > Screen Sharing (Smart View) in Connection Guide, and then try to connect.\n5. Source > Connection Guide > Smartphone > Screen Sharing (Smart View)\n6. If the TV has difficulties connecting to your PC or mobile device due to surrounding radio interferences, change the frequency of the wireless access band, and then try to connect.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_MUSDVBADR_p135_no_screen_external_device",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "MUSDVBADR-4.0.5",
+    "source": "Samsung TV e-Manual MUSDVBADR-4.0.5 (MUSDVBADR-4.0.5_EM_MUSE_ASIA_ENG)",
+    "page": 135,
+    "content": "No screen appears when connecting the TV to an external device. 1. For more information about how to connect an external device, run Connection Guide. 2. Source > Connection Guide 3. Make sure that the external device is connected securely and turned on. Move to Sources to switch to other input sources. 4. Source > Sources",
+    "metadata": {
+      "symptom": "No screen appears when connecting the TV to an external device.",
+      "possible_cause": null,
+      "solution": "1. For more information about how to connect an external device, run Connection Guide.\n2. Source > Connection Guide\n3. Make sure that the external device is connected securely and turned on. Move to Sources to switch to other input sources.\n4. Source > Sources",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": "ถอดหรือเสียบปลั๊กโดยจับที่หัวปลั๊ก ไม่ดึงที่สายไฟ และห้ามจับปลั๊กด้วยมือเปียก ถ้าสายไฟหรือปลั๊กชำรุด ให้หยุดใช้งานแล้วติดต่อศูนย์บริการ"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_MUSDVBADR_p136_wireless_connection_failed",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "MUSDVBADR-4.0.5",
+    "source": "Samsung TV e-Manual MUSDVBADR-4.0.5 (MUSDVBADR-4.0.5_EM_MUSE_ASIA_ENG)",
+    "page": 136,
+    "content": "Wireless network connection failed. Unable to connect to a wireless access point. 1. Make sure that no items that can generate electromagnetic interferences are placed between the TV and the wireless/wired access point. 2. Check if the access point is turned on. If it is on, turn it off, wait 1 or 2 minutes, and then turn it on. 3. Enter the correct password if required. 4. If the wireless connection fails, connect the TV to the access point via a LAN cable. 5. If the TV can connect to the Internet normally via the wired connection, there might be a problem with the access point. In this case, try using a different access point.",
+    "metadata": {
+      "symptom": "Wireless network connection failed. Unable to connect to a wireless access point.",
+      "possible_cause": null,
+      "solution": "1. Make sure that no items that can generate electromagnetic interferences are placed between the TV and the wireless/wired access point.\n2. Check if the access point is turned on. If it is on, turn it off, wait 1 or 2 minutes, and then turn it on.\n3. Enter the correct password if required.\n4. If the wireless connection fails, connect the TV to the access point via a LAN cable.\n5. If the TV can connect to the Internet normally via the wired connection, there might be a problem with the access point. In this case, try using a different access point.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_MUSDVBADR_p136_wired_connection_failed",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "MUSDVBADR-4.0.5",
+    "source": "Samsung TV e-Manual MUSDVBADR-4.0.5 (MUSDVBADR-4.0.5_EM_MUSE_ASIA_ENG)",
+    "page": 136,
+    "content": "Wired network connection failed. 1. Check if the LAN cable is plugged in on both ends. If it is plugged in, check if the access point is turned on. If it is on, turn it off, wait 1 or 2 minutes, and then turn it on. 2. Wired networks are not supported by some models.",
+    "metadata": {
+      "symptom": "Wired network connection failed.",
+      "possible_cause": null,
+      "solution": "1. Check if the LAN cable is plugged in on both ends. If it is plugged in, check if the access point is turned on. If it is on, turn it off, wait 1 or 2 minutes, and then turn it on.\n2. Wired networks are not supported by some models.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_MUSDVBADR_p136_auto_ip_configuration_failed",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "MUSDVBADR-4.0.5",
+    "source": "Samsung TV e-Manual MUSDVBADR-4.0.5 (MUSDVBADR-4.0.5_EM_MUSE_ASIA_ENG)",
+    "page": 136,
+    "content": "Auto IP configuration failed. Unable to connect to the network. 1. Check if the LAN cable is plugged in on both ends. If it is plugged in, check if the access point is turned on. 2. If the access point is on, turn it off, wait 1 or 2 minutes, and then turn it on. 3. Disconnect and then reconnect the power cable of the TV, or press and hold the power button for 3 seconds.",
+    "metadata": {
+      "symptom": "Auto IP configuration failed. Unable to connect to the network.",
+      "possible_cause": null,
+      "solution": "1. Check if the LAN cable is plugged in on both ends. If it is plugged in, check if the access point is turned on.\n2. If the access point is on, turn it off, wait 1 or 2 minutes, and then turn it on.\n3. Disconnect and then reconnect the power cable of the TV, or press and hold the power button for 3 seconds.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": "ถอดหรือเสียบปลั๊กโดยจับที่หัวปลั๊ก ไม่ดึงที่สายไฟ และห้ามจับปลั๊กด้วยมือเปียก ถ้าสายไฟหรือปลั๊กชำรุด ให้หยุดใช้งานแล้วติดต่อศูนย์บริการ"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_MUSDVBADR_p136_local_not_internet",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "MUSDVBADR-4.0.5",
+    "source": "Samsung TV e-Manual MUSDVBADR-4.0.5 (MUSDVBADR-4.0.5_EM_MUSE_ASIA_ENG)",
+    "page": 136,
+    "content": "Connected to a local network, but not to the Internet. 1. Check if the Internet LAN cable is connected to the access point's external LAN port. 2. Check the DNS setting in IP Settings. 3. Settings > General > Network > Network Status > IP Settings",
+    "metadata": {
+      "symptom": "Connected to a local network, but not to the Internet.",
+      "possible_cause": null,
+      "solution": "1. Check if the Internet LAN cable is connected to the access point's external LAN port.\n2. Check the DNS setting in IP Settings.\n3. Settings > General > Network > Network Status > IP Settings",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_MUSDVBADR_p136_setup_done_no_internet",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "MUSDVBADR-4.0.5",
+    "source": "Samsung TV e-Manual MUSDVBADR-4.0.5 (MUSDVBADR-4.0.5_EM_MUSE_ASIA_ENG)",
+    "page": 136,
+    "content": "Network setup is completed, but unable to connect to the Internet. If the problem persists, contact your Internet service provider.",
+    "metadata": {
+      "symptom": "Network setup is completed, but unable to connect to the Internet.",
+      "possible_cause": null,
+      "solution": "If the problem persists, contact your Internet service provider.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_MUSDVBADR_p137_anynet_not_working",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "MUSDVBADR-4.0.5",
+    "source": "Samsung TV e-Manual MUSDVBADR-4.0.5 (MUSDVBADR-4.0.5_EM_MUSE_ASIA_ENG)",
+    "page": 137,
+    "content": "Anynet+ does not work. 1. Confirm that the device is an Anynet+ device. The Anynet+ system supports Anynet+ devices only. 2. Check if the power cord of the Anynet+ device is properly connected. 3. Check the cable connections of the Anynet+ device. 4. Go to Anynet+ (HDMI-CEC) and see if Anynet+ (HDMI-CEC) has been set to On. 5. Settings > General > External Device Manager > Anynet+ (HDMI-CEC) 6. Anynet+ may not function when some other functions are active, including Channel Search, Smart Hub, Initial Setup, etc. 7. If you have disconnected and then reconnected the HDMI cable, scan for devices again or turn your TV off and on.",
+    "metadata": {
+      "symptom": "Anynet+ does not work.",
+      "possible_cause": null,
+      "solution": "1. Confirm that the device is an Anynet+ device. The Anynet+ system supports Anynet+ devices only.\n2. Check if the power cord of the Anynet+ device is properly connected.\n3. Check the cable connections of the Anynet+ device.\n4. Go to Anynet+ (HDMI-CEC) and see if Anynet+ (HDMI-CEC) has been set to On.\n5. Settings > General > External Device Manager > Anynet+ (HDMI-CEC)\n6. Anynet+ may not function when some other functions are active, including Channel Search, Smart Hub, Initial Setup, etc.\n7. If you have disconnected and then reconnected the HDMI cable, scan for devices again or turn your TV off and on.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": "ถอดหรือเสียบปลั๊กโดยจับที่หัวปลั๊ก ไม่ดึงที่สายไฟ และห้ามจับปลั๊กด้วยมือเปียก ถ้าสายไฟหรือปลั๊กชำรุด ให้หยุดใช้งานแล้วติดต่อศูนย์บริการ"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_MUSDVBADR_p137_anynet_connecting_message",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "MUSDVBADR-4.0.5",
+    "source": "Samsung TV e-Manual MUSDVBADR-4.0.5 (MUSDVBADR-4.0.5_EM_MUSE_ASIA_ENG)",
+    "page": 137,
+    "content": "The message \"Connecting to Anynet+ device...\" or \"Disconnecting from Anynet+ device\" appears on the screen. 1. You cannot use the remote control when the TV is configuring Anynet+ or switching to the TV viewing screen. 2. Use the remote control after the TV has completed the Anynet+ configuration or has switched to the TV viewing screen.",
+    "metadata": {
+      "symptom": "The message \"Connecting to Anynet+ device...\" or \"Disconnecting from Anynet+ device\" appears on the screen.",
+      "possible_cause": null,
+      "solution": "1. You cannot use the remote control when the TV is configuring Anynet+ or switching to the TV viewing screen.\n2. Use the remote control after the TV has completed the Anynet+ configuration or has switched to the TV viewing screen.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_MUSDVBADR_p138_anynet_device_wont_play",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "MUSDVBADR-4.0.5",
+    "source": "Samsung TV e-Manual MUSDVBADR-4.0.5 (MUSDVBADR-4.0.5_EM_MUSE_ASIA_ENG)",
+    "page": 138,
+    "content": "The Anynet+ device won't play. You cannot use the play function when Reset is in progress.",
+    "metadata": {
+      "symptom": "The Anynet+ device won't play.",
+      "possible_cause": null,
+      "solution": "You cannot use the play function when Reset is in progress.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_MUSDVBADR_p138_anynet_device_not_displayed",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "MUSDVBADR-4.0.5",
+    "source": "Samsung TV e-Manual MUSDVBADR-4.0.5 (MUSDVBADR-4.0.5_EM_MUSE_ASIA_ENG)",
+    "page": 138,
+    "content": "The connected device is not displayed. 1. Check whether the device supports Anynet+. 2. Check whether the HDMI cable is properly connected. 3. Go to Anynet+ (HDMI-CEC) and see if Anynet+ (HDMI-CEC) has been set to On. 4. Settings > General > External Device Manager > Anynet+ (HDMI-CEC) 5. Scan for Anynet+ devices again. 6. Anynet+ devices must be connected to the TV using an HDMI cable. Make sure the device is connected to your TV with an HDMI cable. Some HDMI cables may not support Anynet+. 7. If the connection is terminated because there has been a power failure or the HDMI cable has been disconnected, please scan for the device again.",
+    "metadata": {
+      "symptom": "The connected device is not displayed.",
+      "possible_cause": null,
+      "solution": "1. Check whether the device supports Anynet+.\n2. Check whether the HDMI cable is properly connected.\n3. Go to Anynet+ (HDMI-CEC) and see if Anynet+ (HDMI-CEC) has been set to On.\n4. Settings > General > External Device Manager > Anynet+ (HDMI-CEC)\n5. Scan for Anynet+ devices again.\n6. Anynet+ devices must be connected to the TV using an HDMI cable. Make sure the device is connected to your TV with an HDMI cable. Some HDMI cables may not support Anynet+.\n7. If the connection is terminated because there has been a power failure or the HDMI cable has been disconnected, please scan for the device again.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_MUSDVBADR_p138_remote_not_work",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "MUSDVBADR-4.0.5",
+    "source": "Samsung TV e-Manual MUSDVBADR-4.0.5 (MUSDVBADR-4.0.5_EM_MUSE_ASIA_ENG)",
+    "page": 138,
+    "content": "The remote control does not work. 1. The connection between the Samsung Smart Remote and the TV may be lost. 2. Point the Samsung Smart Remote at the front of the TV, and then press and hold the Return and Play/Pause buttons simultaneously for 3 seconds or more. 3. Also, if the remote control is not working or slow, the batteries might be low or dead. If this is the case, replace the batteries. Alkaline batteries are recommended for longer battery life.",
+    "metadata": {
+      "symptom": "The remote control does not work.",
+      "possible_cause": null,
+      "solution": "1. The connection between the Samsung Smart Remote and the TV may be lost.\n2. Point the Samsung Smart Remote at the front of the TV, and then press and hold the Return and Play/Pause buttons simultaneously for 3 seconds or more.\n3. Also, if the remote control is not working or slow, the batteries might be low or dead. If this is the case, replace the batteries. Alkaline batteries are recommended for longer battery life.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_MUSDVBADR_p138_remote_batteries_run_out",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "MUSDVBADR-4.0.5",
+    "source": "Samsung TV e-Manual MUSDVBADR-4.0.5 (MUSDVBADR-4.0.5_EM_MUSE_ASIA_ENG)",
+    "page": 138,
+    "content": "The remote control batteries run out quickly. 1. The batteries may be consumed quickly if the remote control is used very frequently or the Voice Wake-up function is turned on. 2. You can extend the battery life by turning off the Voice Wake-up function. 3. Explore Now > Settings > Voice Wake-up 4. The Voice Wake-up function may not be supported depending on the model or geographical area.",
+    "metadata": {
+      "symptom": "The remote control batteries run out quickly.",
+      "possible_cause": null,
+      "solution": "1. The batteries may be consumed quickly if the remote control is used very frequently or the Voice Wake-up function is turned on.\n2. You can extend the battery life by turning off the Voice Wake-up function.\n3. Explore Now > Settings > Voice Wake-up\n4. The Voice Wake-up function may not be supported depending on the model or geographical area.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_MUSDVBADR_p139_recording_cannot_use",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "MUSDVBADR-4.0.5",
+    "source": "Samsung TV e-Manual MUSDVBADR-4.0.5 (MUSDVBADR-4.0.5_EM_MUSE_ASIA_ENG)",
+    "page": 139,
+    "content": "The Timeshift or recording function cannot be used. 1. Check if there is a storage device connected to the TV. 2. Recording will automatically stop if the signal becomes too weak. 3. Check the free space on the storage device. 4. The function will not work if there isn't enough storage space on the storage device. 5. Before using the recording function, be sure to read all precautions. For more information, refer to \"Before Using the Recording and Timeshift Functions\".",
+    "metadata": {
+      "symptom": "The Timeshift or recording function cannot be used.",
+      "possible_cause": null,
+      "solution": "1. Check if there is a storage device connected to the TV.\n2. Recording will automatically stop if the signal becomes too weak.\n3. Check the free space on the storage device.\n4. The function will not work if there isn't enough storage space on the storage device.\n5. Before using the recording function, be sure to read all precautions. For more information, refer to \"Before Using the Recording and Timeshift Functions\".",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_MUSDVBADR_p139_cannot_record_external",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "MUSDVBADR-4.0.5",
+    "source": "Samsung TV e-Manual MUSDVBADR-4.0.5 (MUSDVBADR-4.0.5_EM_MUSE_ASIA_ENG)",
+    "page": 139,
+    "content": "Cannot record videos received from an external device or Samsung TV Plus. The recording function is only available for digital broadcast channels received by the TV. You cannot record videos received from an external device or Samsung TV Plus.",
+    "metadata": {
+      "symptom": "Cannot record videos received from an external device or Samsung TV Plus.",
+      "possible_cause": null,
+      "solution": "The recording function is only available for digital broadcast channels received by the TV. You cannot record videos received from an external device or Samsung TV Plus.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_MUSDVBADR_p139_format_device_message",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "MUSDVBADR-4.0.5",
+    "source": "Samsung TV e-Manual MUSDVBADR-4.0.5 (MUSDVBADR-4.0.5_EM_MUSE_ASIA_ENG)",
+    "page": 139,
+    "content": "The \"Format Device\" message appears when the Timeshift or recording function is used. 1. To use the recording function, the storage device connected to the TV must have been already formatted. 2. Formatting the storage device deletes all data from it, and the storage device is formatted in NTFS.",
+    "metadata": {
+      "symptom": "The \"Format Device\" message appears when the Timeshift or recording function is used.",
+      "possible_cause": null,
+      "solution": "1. To use the recording function, the storage device connected to the TV must have been already formatted.\n2. Formatting the storage device deletes all data from it, and the storage device is formatted in NTFS.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_MUSDVBADR_p139_recorded_files_not_play_pc",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "MUSDVBADR-4.0.5",
+    "source": "Samsung TV e-Manual MUSDVBADR-4.0.5 (MUSDVBADR-4.0.5_EM_MUSE_ASIA_ENG)",
+    "page": 139,
+    "content": "The recorded files on the TV are not played back on a PC. 1. The recorded files on the TV can only be played back on the same TV. Those video files cannot be played back on a PC or other TV. 2. This function may not be supported depending on the model or geographical area.",
+    "metadata": {
+      "symptom": "The recorded files on the TV are not played back on a PC.",
+      "possible_cause": null,
+      "solution": "1. The recorded files on the TV can only be played back on the same TV. Those video files cannot be played back on a PC or other TV.\n2. This function may not be supported depending on the model or geographical area.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_MUSDVBADR_p139_app_in_other_language",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "MUSDVBADR-4.0.5",
+    "source": "Samsung TV e-Manual MUSDVBADR-4.0.5 (MUSDVBADR-4.0.5_EM_MUSE_ASIA_ENG)",
+    "page": 139,
+    "content": "I launched an app, but it's in English. How can I change the language? 1. Languages supported by an app may be different from the TV Language set in the menu. 2. The ability to change the language depends on the app's provider.",
+    "metadata": {
+      "symptom": "I launched an app, but it's in English. How can I change the language?",
+      "possible_cause": null,
+      "solution": "1. Languages supported by an app may be different from the TV Language set in the menu.\n2. The ability to change the language depends on the app's provider.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_MUSDVBADR_p139_application_not_working",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "MUSDVBADR-4.0.5",
+    "source": "Samsung TV e-Manual MUSDVBADR-4.0.5 (MUSDVBADR-4.0.5_EM_MUSE_ASIA_ENG)",
+    "page": 139,
+    "content": "My application is not working. 1. The services of your application are not provided by the TV but by the application service provider. 2. Refer to the Help section on the application service provider's website.",
+    "metadata": {
+      "symptom": "My application is not working.",
+      "possible_cause": null,
+      "solution": "1. The services of your application are not provided by the TV but by the application service provider.\n2. Refer to the Help section on the application service provider's website.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_MUSDVBADR_p140_files_interrupted",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "MUSDVBADR-4.0.5",
+    "source": "Samsung TV e-Manual MUSDVBADR-4.0.5 (MUSDVBADR-4.0.5_EM_MUSE_ASIA_ENG)",
+    "page": 140,
+    "content": "Some files are interrupted during playback. This problem may occur with unsupported files or high-bitrate files. Most files can be played back, but some files may not play smoothly.",
+    "metadata": {
+      "symptom": "Some files are interrupted during playback.",
+      "possible_cause": null,
+      "solution": "This problem may occur with unsupported files or high-bitrate files. Most files can be played back, but some files may not play smoothly.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_MUSDVBADR_p140_files_cannot_play",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "MUSDVBADR-4.0.5",
+    "source": "Samsung TV e-Manual MUSDVBADR-4.0.5 (MUSDVBADR-4.0.5_EM_MUSE_ASIA_ENG)",
+    "page": 140,
+    "content": "Some files can't be played. 1. Some files that use an unsupported codec may not be played back. 2. Make sure that the codec is supported by the TV. For more information about the supported codecs, refer to \"Read Before Playing Photo, Video, or Music Files\".",
+    "metadata": {
+      "symptom": "Some files can't be played.",
+      "possible_cause": null,
+      "solution": "1. Some files that use an unsupported codec may not be played back.\n2. Make sure that the codec is supported by the TV. For more information about the supported codecs, refer to \"Read Before Playing Photo, Video, or Music Files\".",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_MUSDVBADR_p140_bixby_answers_automatically",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "MUSDVBADR-4.0.5",
+    "source": "Samsung TV e-Manual MUSDVBADR-4.0.5 (MUSDVBADR-4.0.5_EM_MUSE_ASIA_ENG)",
+    "page": 140,
+    "content": "Bixby answers automatically. 1. The TV may recognise an ambient noise or everyday conversation as a call to Bixby. 2. Turn off the Voice Wake-up function or set the sensitivity to Low. 3. Explore Now > Settings > Voice Wake-up 4. The Voice Wake-up function may not be supported depending on the model or geographical area.",
+    "metadata": {
+      "symptom": "Bixby answers automatically.",
+      "possible_cause": null,
+      "solution": "1. The TV may recognise an ambient noise or everyday conversation as a call to Bixby.\n2. Turn off the Voice Wake-up function or set the sensitivity to Low.\n3. Explore Now > Settings > Voice Wake-up\n4. The Voice Wake-up function may not be supported depending on the model or geographical area.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_MUSDVBADR_p140_bixby_no_answer",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "MUSDVBADR-4.0.5",
+    "source": "Samsung TV e-Manual MUSDVBADR-4.0.5 (MUSDVBADR-4.0.5_EM_MUSE_ASIA_ENG)",
+    "page": 140,
+    "content": "I spoke \"Hi, Bixby\" but Bixby does not answer. 1. The Samsung Smart Remote may not recognise your voice when it is far away from you, turned upside down, or located in an environment with loud ambient noise. 2. Use the Samsung Smart Remote less than 2 feet (1.5 m) with the remote control buttons facing upward. (There is a built-in microphone on the front of the Samsung Smart Remote.) 3. Do not place the Samsung Smart Remote near the TV speaker or an audio speaker. 4. Turn on the Voice Wake-up function. 5. Explore Now > Settings > Voice Wake-up",
+    "metadata": {
+      "symptom": "I spoke \"Hi, Bixby\" but Bixby does not answer.",
+      "possible_cause": null,
+      "solution": "1. The Samsung Smart Remote may not recognise your voice when it is far away from you, turned upside down, or located in an environment with loud ambient noise.\n2. Use the Samsung Smart Remote less than 2 feet (1.5 m) with the remote control buttons facing upward. (There is a built-in microphone on the front of the Samsung Smart Remote.)\n3. Do not place the Samsung Smart Remote near the TV speaker or an audio speaker.\n4. Turn on the Voice Wake-up function.\n5. Explore Now > Settings > Voice Wake-up",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_MUSDVBADR_p141_tv_is_hot",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "MUSDVBADR-4.0.5",
+    "source": "Samsung TV e-Manual MUSDVBADR-4.0.5 (MUSDVBADR-4.0.5_EM_MUSE_ASIA_ENG)",
+    "page": 141,
+    "content": "The TV is hot. 1. Watching TV for an extended period of time causes the panel to generate heat. 2. The heat from the panel is dissipated through internal vents running along the top of the TV. 3. The bottom, however, may feel hot to the touch after extended use. 4. Children watching TV need constant adult supervision to prevent them from touching the TV. 5. This heat, however, is not a defect and does not affect the TV's functionality.",
+    "metadata": {
+      "symptom": "The TV is hot.",
+      "possible_cause": null,
+      "solution": "1. Watching TV for an extended period of time causes the panel to generate heat.\n2. The heat from the panel is dissipated through internal vents running along the top of the TV.\n3. The bottom, however, may feel hot to the touch after extended use.\n4. Children watching TV need constant adult supervision to prevent them from touching the TV.\n5. This heat, however, is not a defect and does not affect the TV's functionality.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_MUSDVBADR_p141_smells_like_plastic",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "MUSDVBADR-4.0.5",
+    "source": "Samsung TV e-Manual MUSDVBADR-4.0.5 (MUSDVBADR-4.0.5_EM_MUSE_ASIA_ENG)",
+    "page": 141,
+    "content": "The TV smells of plastic. This smell is normal and will dissipate over time.",
+    "metadata": {
+      "symptom": "The TV smells of plastic.",
+      "possible_cause": null,
+      "solution": "This smell is normal and will dissipate over time.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_MUSDVBADR_p141_settings_lost",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "MUSDVBADR-4.0.5",
+    "source": "Samsung TV e-Manual MUSDVBADR-4.0.5 (MUSDVBADR-4.0.5_EM_MUSE_ASIA_ENG)",
+    "page": 141,
+    "content": "The settings are lost after 5 minutes or every time the TV is turned off. 1. If Usage Mode is set to Retail Mode, the TV's audio and video settings are automatically reset every 5 minutes. 2. Change Usage Mode to Home Mode. 3. Settings > General > System Manager > Usage Mode",
+    "metadata": {
+      "symptom": "The settings are lost after 5 minutes or every time the TV is turned off.",
+      "possible_cause": null,
+      "solution": "1. If Usage Mode is set to Retail Mode, the TV's audio and video settings are automatically reset every 5 minutes.\n2. Change Usage Mode to Home Mode.\n3. Settings > General > System Manager > Usage Mode",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_MUSDVBADR_p141_tilted_to_side",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "MUSDVBADR-4.0.5",
+    "source": "Samsung TV e-Manual MUSDVBADR-4.0.5 (MUSDVBADR-4.0.5_EM_MUSE_ASIA_ENG)",
+    "page": 141,
+    "content": "The TV is tilted to the side. Remove the base stand from the TV and reassemble it.",
+    "metadata": {
+      "symptom": "The TV is tilted to the side.",
+      "possible_cause": null,
+      "solution": "Remove the base stand from the TV and reassemble it.",
+      "severity": "medium",
+      "difficulty": "medium",
+      "safety_warning": "ทีวีอาจล้มหรือตกขณะถอดและประกอบขาตั้ง ควรให้อีกคนช่วยจับทีวี วางทีวีบนพื้นผิวเรียบนุ่ม และระวังมือไม่ให้ถูกหนีบ"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_MUSDVBADR_p141_stand_wobbly",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "MUSDVBADR-4.0.5",
+    "source": "Samsung TV e-Manual MUSDVBADR-4.0.5 (MUSDVBADR-4.0.5_EM_MUSE_ASIA_ENG)",
+    "page": 141,
+    "content": "The stand is wobbly or crooked. Refer to the Quick setup guide and make sure that the stand is assembled correctly.",
+    "metadata": {
+      "symptom": "The stand is wobbly or crooked.",
+      "possible_cause": null,
+      "solution": "Refer to the Quick setup guide and make sure that the stand is assembled correctly.",
+      "severity": "medium",
+      "difficulty": "medium",
+      "safety_warning": "ทีวีอาจล้มหรือตกขณะถอดและประกอบขาตั้ง ควรให้อีกคนช่วยจับทีวี วางทีวีบนพื้นผิวเรียบนุ่ม และระวังมือไม่ให้ถูกหนีบ"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_MUSDVBADR_p141_pop_banner_ad",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "MUSDVBADR-4.0.5",
+    "source": "Samsung TV e-Manual MUSDVBADR-4.0.5 (MUSDVBADR-4.0.5_EM_MUSE_ASIA_ENG)",
+    "page": 141,
+    "content": "A POP (TV’s internal banner ad) appears on the screen. 1. Change Usage Mode to Home Mode. 2. Settings > General > System Manager > Usage Mode",
+    "metadata": {
+      "symptom": "A POP (TV’s internal banner ad) appears on the screen.",
+      "possible_cause": null,
+      "solution": "1. Change Usage Mode to Home Mode.\n2. Settings > General > System Manager > Usage Mode",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_MUSDVBADR_p141_popping_noise",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "MUSDVBADR-4.0.5",
+    "source": "Samsung TV e-Manual MUSDVBADR-4.0.5 (MUSDVBADR-4.0.5_EM_MUSE_ASIA_ENG)",
+    "page": 141,
+    "content": "The TV is making a popping noise. 1. The expansion and contraction of the TV's outer casing may cause a popping noise. 2. This does not indicate a product malfunction. 3. The TV is safe to use.",
+    "metadata": {
+      "symptom": "The TV is making a popping noise.",
+      "possible_cause": null,
+      "solution": "1. The expansion and contraction of the TV's outer casing may cause a popping noise.\n2. This does not indicate a product malfunction.\n3. The TV is safe to use.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_MUSDVBADR_p141_humming_noise",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "MUSDVBADR-4.0.5",
+    "source": "Samsung TV e-Manual MUSDVBADR-4.0.5 (MUSDVBADR-4.0.5_EM_MUSE_ASIA_ENG)",
+    "page": 141,
+    "content": "The TV is making a humming noise. 1. Your TV utilises high-speed switching circuits and high levels of electrical current. Depending on the TV's brightness level, the TV may seem slightly noisier than a conventional TV. 2. Your TV has undergone strict quality control procedures that meet our demanding performance and reliability requirements. 3. Some noise coming from the TV is considered normal and is not an acceptable cause for an exchange or refund.",
+    "metadata": {
+      "symptom": "The TV is making a humming noise.",
+      "possible_cause": null,
+      "solution": "1. Your TV utilises high-speed switching circuits and high levels of electrical current. Depending on the TV's brightness level, the TV may seem slightly noisier than a conventional TV.\n2. Your TV has undergone strict quality control procedures that meet our demanding performance and reliability requirements.\n3. Some noise coming from the TV is considered normal and is not an acceptable cause for an exchange or refund.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_MUSDVBADR_p141_software_update_failed",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "MUSDVBADR-4.0.5",
+    "source": "Samsung TV e-Manual MUSDVBADR-4.0.5 (MUSDVBADR-4.0.5_EM_MUSE_ASIA_ENG)",
+    "page": 141,
+    "content": "The software update over the Internet has failed. 1. Check the network connection status. 2. Settings > General > Network > Network Status 3. If the TV is not connected to a network, connect it to a network. 4. The upgrade stops if you already have the latest software version.",
+    "metadata": {
+      "symptom": "The software update over the Internet has failed.",
+      "possible_cause": null,
+      "solution": "1. Check the network connection status.\n2. Settings > General > Network > Network Status\n3. If the TV is not connected to a network, connect it to a network.\n4. The upgrade stops if you already have the latest software version.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_MUSDVBADR_p142_signal_information_not_selectable",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "MUSDVBADR-4.0.5",
+    "source": "Samsung TV e-Manual MUSDVBADR-4.0.5 (MUSDVBADR-4.0.5_EM_MUSE_ASIA_ENG)",
+    "page": 142,
+    "content": "Cannot select Signal Information in Self Diagnosis. 1. Verify that the current channel is a digital channel. 2. Signal Information is only available for digital channels. 3. Settings > Support > Self Diagnosis > Signal Information",
+    "metadata": {
+      "symptom": "Cannot select Signal Information in Self Diagnosis.",
+      "possible_cause": null,
+      "solution": "1. Verify that the current channel is a digital channel.\n2. Signal Information is only available for digital channels.\n3. Settings > Support > Self Diagnosis > Signal Information",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  }
+]

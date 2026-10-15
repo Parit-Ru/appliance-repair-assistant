@@ -1,0 +1,2340 @@
+{
+  "schema_version": 2,
+  "manual_id": "samsung_mg23t5018c_um_de68_04594r",
+  "device_category": "Microwave Oven",
+  "brand": "Samsung",
+  "model_pattern": "MG23T5018C*",
+  "source_manual": "Samsung Microwave Oven User Manual MG23T5018C* (MG23T5018CC_ST_DE68_04594R_00_TH_EN_210624)",
+  "count": 29,
+  "graphs": [
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_mg23t5018c_um_buttons_cannot_press",
+      "device_category": "Microwave Oven",
+      "brand": "Samsung",
+      "model_pattern": "MG23T5018C*",
+      "entry_symptom": "The buttons cannot be pressed properly.",
+      "entry_symptom_th": "กดปุ่มไม่ติด",
+      "entry_symptom_aliases": [
+        "กดปุ่มไมโครเวฟไม่ได้",
+        "ปุ่มไมโครเวฟไม่ทำงาน",
+        "ปุ่มไมโครเวฟกดไม่ลง",
+        "microwave buttons not working"
+      ],
+      "source": "Samsung Microwave Oven User Manual MG23T5018C* (MG23T5018CC_ST_DE68_04594R_00_TH_EN_210624)",
+      "page_range": [
+        39,
+        39
+      ],
+      "source_chunk_id": "manual_Samsung_Microwave_MG23T5018C_p39_buttons_cannot_press",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "มีสิ่งแปลกปลอมติดอยู่ระหว่างปุ่มหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n1f",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "นำสิ่งแปลกปลอมออกแล้วลองใหม่ (คู่มือหน้า 39)",
+          "safety_critical": true,
+          "safety_warning": "รอให้เตาเย็นลงก่อนทำความสะอาดห้องปรุงอาหารด้วยน้ำยาล้างจานอ่อนๆ ห้ามใช้สารขัดถูหรือสารเคมีทำความสะอาด (คู่มือหน้า 10) ห้ามใช้เบนซีน ทินเนอร์ แอลกอฮอล์ เครื่องฉีดไอน้ำ หรือเครื่องฉีดน้ำแรงดันสูง และห้ามฉีดหรือเทน้ำใส่เตาโดยตรง (คู่มือหน้า 6) ห้ามใช้สารขัดถูแรงหรือเครื่องขูดโลหะแหลมคมกับกระจกประตู เพราะกระจกอาจแตกได้ (คู่มือหน้า 5)",
+          "author_note": "หน้า 39 ไม่ระบุวิธีนำสิ่งแปลกปลอมออก ผู้พัฒนาใส่ข้อห้ามเรื่องการทำความสะอาดจากหน้า 5, 6 และ 10",
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "(เฉพาะรุ่นปุ่มสัมผัส) มีความชื้นที่ผิวด้านนอกของแผงควบคุมหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2f",
+          "on_no": "n3"
+        },
+        {
+          "node_id": "n2f",
+          "type": "instruction",
+          "content": "เช็ดความชื้นที่ผิวด้านนอกออก (คู่มือหน้า 39)",
+          "safety_critical": false,
+          "author_note": "หน้า 39 ระบุว่าใช้เฉพาะรุ่นปุ่มสัมผัส (For touch models) ผู้ตรวจควรยืนยันว่ารุ่นนี้เป็นปุ่มสัมผัสหรือไม่",
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "node_id": "n3",
+          "type": "checkpoint",
+          "question": "ล็อกเด็ก (Child Lock) เปิดอยู่ (จอแสดง “L”) ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n3f",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n3f",
+          "type": "instruction",
+          "content": "ปิดล็อกเด็ก (Child Lock) โดยกดปุ่ม START/+30s ค้างไว้ 3 วินาที (คู่มือหน้า 29)",
+          "safety_critical": false,
+          "author_note": "หน้า 39 ระบุเพียง 'Deactivate Child lock' วิธีปิดและการที่จอแสดง L มาจากหน้า 29",
+          "next": "n3v"
+        },
+        {
+          "node_id": "n3v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "กดปุ่มได้ตามปกติแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ติดต่อ Samsung Customer Care ประเทศไทย โทร 1282 หรือ 1800-29-3232 (โทรฟรี) หรือเว็บไซต์ www.samsung.com/th/support (คู่มือหน้า 44) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว (คู่มือหน้า 42) การเรียกบริการเพื่ออธิบายวิธีใช้งาน แก้การติดตั้งที่ไม่ถูกต้อง หรือทำความสะอาดและบำรุงรักษาตามปกติ ไม่อยู่ในการรับประกันของ Samsung (คู่มือหน้า 44)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_mg23t5018c_um_time_not_displayed",
+      "device_category": "Microwave Oven",
+      "brand": "Samsung",
+      "model_pattern": "MG23T5018C*",
+      "entry_symptom": "The time is not displayed.",
+      "entry_symptom_th": "จอไม่แสดงเวลา",
+      "entry_symptom_aliases": [
+        "จอไมโครเวฟดับ",
+        "ไม่แสดงเวลา",
+        "นาฬิกาไมโครเวฟหาย",
+        "microwave display off"
+      ],
+      "source": "Samsung Microwave Oven User Manual MG23T5018C* (MG23T5018CC_ST_DE68_04594R_00_TH_EN_210624)",
+      "page_range": [
+        39,
+        39
+      ],
+      "source_chunk_id": "manual_Samsung_Microwave_MG23T5018C_p39_time_not_displayed",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "เปิดโหมดประหยัดพลังงาน (Eco) ไว้ ทำให้จอดับใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n1f",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "ยกเลิกโหมดประหยัดพลังงาน โดยเปิดประตูหรือกดปุ่ม STOP/Eco จอจะแสดงเวลาปัจจุบัน (คู่มือหน้า 15)",
+          "safety_critical": false,
+          "author_note": "หน้า 39 ระบุเพียง 'Turn off the Eco function' วิธียกเลิกมาจากหน้า 15 หน้า 14 ระบุว่าต้องตั้งนาฬิกาใหม่หลังไฟดับ ซึ่งคู่มือไม่ได้ระบุเป็นสาเหตุในหน้า 39",
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "จอแสดงเวลาตามปกติแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ติดต่อ Samsung Customer Care ประเทศไทย โทร 1282 หรือ 1800-29-3232 (โทรฟรี) หรือเว็บไซต์ www.samsung.com/th/support (คู่มือหน้า 44) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว (คู่มือหน้า 42) การเรียกบริการเพื่ออธิบายวิธีใช้งาน แก้การติดตั้งที่ไม่ถูกต้อง หรือทำความสะอาดและบำรุงรักษาตามปกติ ไม่อยู่ในการรับประกันของ Samsung (คู่มือหน้า 44)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_mg23t5018c_um_does_not_work",
+      "device_category": "Microwave Oven",
+      "brand": "Samsung",
+      "model_pattern": "MG23T5018C*",
+      "entry_symptom": "The microwave oven does not work.",
+      "entry_symptom_th": "เตาไมโครเวฟไม่ทำงาน",
+      "entry_symptom_aliases": [
+        "ไมโครเวฟไม่ติด",
+        "ไมโครเวฟไม่ทำงาน",
+        "เปิดไมโครเวฟไม่ได้",
+        "microwave does not work"
+      ],
+      "source": "Samsung Microwave Oven User Manual MG23T5018C* (MG23T5018CC_ST_DE68_04594R_00_TH_EN_210624)",
+      "page_range": [
+        39,
+        39
+      ],
+      "source_chunk_id": "manual_Samsung_Microwave_MG23T5018C_p39_does_not_work",
+      "severity": "medium",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "ปลั๊กเสียบแน่นเข้ากับเต้ารับและมีไฟฟ้าจ่ายเข้าเตาแล้วใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2",
+          "on_no": "n1f"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "ตรวจให้แน่ใจว่ามีไฟฟ้าจ่ายเข้าเตา: เสียบปลั๊กให้แน่นเข้ากับเต้ารับ (คู่มือหน้า 39 และ 6)",
+          "safety_critical": true,
+          "safety_warning": "เสียบปลั๊กให้แน่นเข้ากับเต้ารับ ห้ามใช้ปลั๊กแปลงหลายทาง สายต่อพ่วง หรือหม้อแปลงไฟ ห้ามใช้ปลั๊ก สายไฟ หรือเต้ารับที่ชำรุดหรือหลวม ห้ามจับสายไฟด้วยมือเปียก ห้ามดึง งอมากเกินไป หรือวางของหนักทับสายไฟ (คู่มือหน้า 6) ถ้าสายไฟชำรุด ต้องให้ผู้ผลิต ตัวแทนบริการ หรือผู้มีคุณสมบัติเทียบเท่าเป็นผู้เปลี่ยน (คู่มือหน้า 5)",
+          "author_note": "หน้า 39 ระบุเพียง 'Make sure power is supplied' คู่มือไม่อธิบายวิธีตรวจไฟที่เต้ารับ",
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "ประตูเตาปิดสนิทแล้วใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n3",
+          "on_no": "n2f"
+        },
+        {
+          "node_id": "n2f",
+          "type": "instruction",
+          "content": "ปิดประตูให้สนิทแล้วลองใหม่ (คู่มือหน้า 39)",
+          "safety_critical": true,
+          "safety_warning": "ห้ามใช้เตาถ้าประตูหรือซีลประตูชำรุด ต้องให้ผู้มีคุณสมบัติซ่อมก่อน (คู่มือหน้า 3) ห้ามผู้ไม่มีความสามารถถอดฝาครอบที่ป้องกันคลื่นไมโครเวฟ (คู่มือหน้า 3) ห้ามสอดนิ้วหรือสิ่งแปลกปลอมเข้าไปในเตา ถ้าสิ่งแปลกปลอมเข้าไปในเตาให้ถอดปลั๊กและติดต่อศูนย์บริการ (คู่มือหน้า 6)",
+          "author_note": "หน้า 39–42 เป็นรายการตรวจ ไม่ได้อธิบายวิธีแก้โดยละเอียด ขั้นตอนที่เกินจากข้อความตรวจผู้พัฒนาเขียนเพิ่มจากหน้าที่อ้างอิง",
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "node_id": "n3",
+          "type": "checkpoint",
+          "question": "มีสิ่งแปลกปลอมปิดกลไกนิรภัยของประตู (safety interlock) อยู่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n3f",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n3f",
+          "type": "instruction",
+          "content": "นำสิ่งแปลกปลอมออกแล้วลองใหม่ (คู่มือหน้า 39) กลไกนิรภัยของประตูคือรูกลไกนิรภัย (safety interlock holes) และกลอนประตู (door latches) (คู่มือหน้า 11)",
+          "safety_critical": true,
+          "safety_warning": "ห้ามใช้เตาถ้าประตูหรือซีลประตูชำรุด ต้องให้ผู้มีคุณสมบัติซ่อมก่อน (คู่มือหน้า 3) ห้ามผู้ไม่มีความสามารถถอดฝาครอบที่ป้องกันคลื่นไมโครเวฟ (คู่มือหน้า 3) ห้ามสอดนิ้วหรือสิ่งแปลกปลอมเข้าไปในเตา ถ้าสิ่งแปลกปลอมเข้าไปในเตาให้ถอดปลั๊กและติดต่อศูนย์บริการ (คู่มือหน้า 6)",
+          "author_note": "หน้า 39 ไม่ระบุวิธีนำสิ่งแปลกปลอมออก ผู้พัฒนาไม่เพิ่มวิธี และใส่ข้อห้ามสอดนิ้วหรือสิ่งแปลกปลอมเข้าเตาจากหน้า 6 ตำแหน่งรูกลไกนิรภัยอยู่ในรายการส่วนประกอบหน้า 11",
+          "next": "n3v"
+        },
+        {
+          "node_id": "n3v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "เตาทำงานตามปกติแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ติดต่อ Samsung Customer Care ประเทศไทย โทร 1282 หรือ 1800-29-3232 (โทรฟรี) หรือเว็บไซต์ www.samsung.com/th/support (คู่มือหน้า 44) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว (คู่มือหน้า 42) การเรียกบริการเพื่ออธิบายวิธีใช้งาน แก้การติดตั้งที่ไม่ถูกต้อง หรือทำความสะอาดและบำรุงรักษาตามปกติ ไม่อยู่ในการรับประกันของ Samsung (คู่มือหน้า 44)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_mg23t5018c_um_stops_in_operation",
+      "device_category": "Microwave Oven",
+      "brand": "Samsung",
+      "model_pattern": "MG23T5018C*",
+      "entry_symptom": "The microwave oven stops while in operation.",
+      "entry_symptom_th": "เตาหยุดทำงานระหว่างปรุง",
+      "entry_symptom_aliases": [
+        "ไมโครเวฟหยุดเอง",
+        "ไมโครเวฟหยุดกลางคัน",
+        "เปิดประตูแล้วไมโครเวฟหยุด",
+        "microwave stops"
+      ],
+      "source": "Samsung Microwave Oven User Manual MG23T5018C* (MG23T5018CC_ST_DE68_04594R_00_TH_EN_210624)",
+      "page_range": [
+        39,
+        39
+      ],
+      "source_chunk_id": "manual_Samsung_Microwave_MG23T5018C_p39_stops_in_operation",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "เตาหยุดหลังจากเปิดประตูเพื่อพลิกอาหารใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n1f",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "หลังพลิกอาหารแล้ว ปิดประตูและกดปุ่ม START/+30s อีกครั้งเพื่อเริ่มทำงานต่อ (คู่มือหน้า 39 และ 15)",
+          "safety_critical": true,
+          "safety_warning": "ตัวเตา ประตู ภายในเตา ภาชนะ และอาหารอาจร้อนจัด ระวังอย่าสัมผัสชิ้นส่วนทำความร้อน (heating element) ภายในเตา เด็กเล็กต้องอยู่ห่าง (คู่มือหน้า 5) ใช้ถุงมือกันความร้อนเมื่อนำภาชนะออก และยืนห่างช่วงแขนเมื่อเปิดประตูเพื่อป้องกันไอร้อนหรือไอน้ำลวก ของเหลวที่อุ่นให้ตั้งทิ้งไว้อย่างน้อย 20 วินาทีก่อนหยิบ (คู่มือหน้า 7)",
+          "author_note": "หน้า 15 ระบุว่าการเปิดประตูทำให้หยุดชั่วคราวและให้ปิดประตูแล้วกด START/+30s เพื่อทำต่อ",
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "เตาทำงานต่อได้ตามปกติแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ติดต่อ Samsung Customer Care ประเทศไทย โทร 1282 หรือ 1800-29-3232 (โทรฟรี) หรือเว็บไซต์ www.samsung.com/th/support (คู่มือหน้า 44) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว (คู่มือหน้า 42) การเรียกบริการเพื่ออธิบายวิธีใช้งาน แก้การติดตั้งที่ไม่ถูกต้อง หรือทำความสะอาดและบำรุงรักษาตามปกติ ไม่อยู่ในการรับประกันของ Samsung (คู่มือหน้า 44)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_mg23t5018c_um_power_off",
+      "device_category": "Microwave Oven",
+      "brand": "Samsung",
+      "model_pattern": "MG23T5018C*",
+      "entry_symptom": "The power turns off during operation.",
+      "entry_symptom_th": "เตาไมโครเวฟดับระหว่างทำงาน",
+      "entry_symptom_aliases": [
+        "ไมโครเวฟดับเอง",
+        "ไมโครเวฟหยุดทำงานกลางคัน",
+        "เตาไมโครเวฟตัดไฟ",
+        "microwave turns off"
+      ],
+      "source": "Samsung Microwave Oven User Manual MG23T5018C* (MG23T5018CC_ST_DE68_04594R_00_TH_EN_210624)",
+      "page_range": [
+        39,
+        39
+      ],
+      "source_chunk_id": "manual_Samsung_Microwave_MG23T5018C_p39_power_off",
+      "severity": "medium",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "เตาทำงานต่อเนื่องเป็นเวลานานก่อนที่จะดับหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n1f",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "หยุดใช้เตาและปล่อยให้เตาเย็นลง (คู่มือหน้า 39) เตาอาจร้อนเกินและปิดเองจนกว่าจะเย็นลงพอ (คู่มือหน้า 7)",
+          "safety_critical": true,
+          "safety_warning": "ตัวเตา ประตู ภายในเตา ภาชนะ และอาหารอาจร้อนจัด ระวังอย่าสัมผัสชิ้นส่วนทำความร้อน (heating element) ภายในเตา เด็กเล็กต้องอยู่ห่าง (คู่มือหน้า 5) ใช้ถุงมือกันความร้อนเมื่อนำภาชนะออก และยืนห่างช่วงแขนเมื่อเปิดประตูเพื่อป้องกันไอร้อนหรือไอน้ำลวก ของเหลวที่อุ่นให้ตั้งทิ้งไว้อย่างน้อย 20 วินาทีก่อนหยิบ (คู่มือหน้า 7)",
+          "author_note": "หน้า 39–42 เป็นรายการตรวจ ไม่ได้อธิบายวิธีแก้โดยละเอียด ขั้นตอนที่เกินจากข้อความตรวจผู้พัฒนาเขียนเพิ่มจากหน้าที่อ้างอิง",
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "เปิดเตาโดยไม่มีอาหารอยู่ข้างในหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2f",
+          "on_no": "n3"
+        },
+        {
+          "node_id": "n2f",
+          "type": "instruction",
+          "content": "ใส่อาหารลงในเตาก่อนเปิดใช้งาน (คู่มือหน้า 39)",
+          "safety_critical": true,
+          "safety_warning": "ห้ามเปิดเตาขณะไม่มีอาหาร (คู่มือหน้า 13) ใช้เวลาสั้นลงสำหรับอาหารปริมาณน้อยเพื่อป้องกันความร้อนเกินหรืออาหารไหม้ (คู่มือหน้า 7)",
+          "author_note": "หน้า 39 ระบุให้ใส่อาหาร คำเตือนมาจากหน้า 13 และ 7 คู่มือไม่ระบุเวลาที่ต้องรอก่อนเปิดใหม่",
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "node_id": "n3",
+          "type": "checkpoint",
+          "question": "ไม่ได้ยินเสียงพัดลมระบายความร้อนขณะเตาทำงานใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n3e",
+          "on_no": "n4"
+        },
+        {
+          "node_id": "n3e",
+          "type": "escalation",
+          "content": "พัดลมระบายความร้อนอาจไม่ทำงาน คู่มือหน้า 39 ให้ฟังเสียงพัดลมแต่ไม่มีวิธีแก้ที่ผู้ใช้ทำเองได้ ห้ามซ่อมเตาเอง (คู่มือหน้า 10) ให้ติดต่อ Samsung Customer Care ประเทศไทย โทร 1282 หรือ 1800-29-3232 (โทรฟรี) (คู่มือหน้า 44)",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "node_id": "n4",
+          "type": "checkpoint",
+          "question": "เว้นระยะรอบเตาตามที่คู่มือการติดตั้งกำหนดแล้วใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n5",
+          "on_no": "n4f"
+        },
+        {
+          "node_id": "n4f",
+          "type": "instruction",
+          "content": "เว้นระยะรอบเตา: ด้านบน 20 ซม. และด้านหลัง ด้านซ้ายและด้านขวาอย่างน้อยด้านละ 10 ซม. (คู่มือหน้า 9) ช่องรับและระบายอากาศอยู่ด้านหน้าและด้านหลังเตา (คู่มือหน้า 40)",
+          "safety_critical": true,
+          "safety_warning": "ห้ามใช้ผ้าหรือกระดาษปิดช่องระบายอากาศ เพราะเสี่ยงต่อไฟไหม้ เตาอาจร้อนเกินและปิดเองจนกว่าจะเย็นลงพอ (คู่มือหน้า 7) ติดตั้งเตาตามระยะห่างที่คู่มือกำหนด (คู่มือหน้า 9) และระวังอย่าให้น้ำเข้าช่องระบายอากาศ (คู่มือหน้า 10)",
+          "author_note": "หน้า 39 ระบุเพียงให้เว้นระยะตามคู่มือการติดตั้ง ตัวเลขระยะห่างมาจากหน้า 9",
+          "next": "n4v"
+        },
+        {
+          "node_id": "n4v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n5"
+        },
+        {
+          "node_id": "n5",
+          "type": "checkpoint",
+          "question": "ใช้เต้ารับเฉพาะสำหรับเตาไมโครเวฟ ไม่มีเครื่องใช้ไฟฟ้าอื่นเสียบร่วมในเต้ารับเดียวกันใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_escalate",
+          "on_no": "n5f"
+        },
+        {
+          "node_id": "n5f",
+          "type": "instruction",
+          "content": "ใช้เต้ารับเพียงช่องเดียวสำหรับเตาไมโครเวฟโดยเฉพาะ ไม่เสียบเครื่องใช้ไฟฟ้าอื่นร่วมในเต้ารับเดียวกัน (คู่มือหน้า 39) ห้ามใช้ปลั๊กแปลงหลายทาง สายต่อพ่วง หรือหม้อแปลงไฟ (คู่มือหน้า 6)",
+          "safety_critical": true,
+          "safety_warning": "เสียบปลั๊กให้แน่นเข้ากับเต้ารับ ห้ามใช้ปลั๊กแปลงหลายทาง สายต่อพ่วง หรือหม้อแปลงไฟ ห้ามใช้ปลั๊ก สายไฟ หรือเต้ารับที่ชำรุดหรือหลวม ห้ามจับสายไฟด้วยมือเปียก ห้ามดึง งอมากเกินไป หรือวางของหนักทับสายไฟ (คู่มือหน้า 6) ถ้าสายไฟชำรุด ต้องให้ผู้ผลิต ตัวแทนบริการ หรือผู้มีคุณสมบัติเทียบเท่าเป็นผู้เปลี่ยน (คู่มือหน้า 5)",
+          "author_note": "หน้า 39 ระบุเพียงให้กำหนดเต้ารับเดียวสำหรับเตา ข้อห้ามเรื่องปลั๊กแปลงและสายต่อพ่วงมาจากหน้า 6",
+          "next": "n5v"
+        },
+        {
+          "node_id": "n5v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "เตาทำงานต่อเนื่องได้ตามปกติแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ติดต่อ Samsung Customer Care ประเทศไทย โทร 1282 หรือ 1800-29-3232 (โทรฟรี) หรือเว็บไซต์ www.samsung.com/th/support (คู่มือหน้า 44) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว (คู่มือหน้า 42) การเรียกบริการเพื่ออธิบายวิธีใช้งาน แก้การติดตั้งที่ไม่ถูกต้อง หรือทำความสะอาดและบำรุงรักษาตามปกติ ไม่อยู่ในการรับประกันของ Samsung (คู่มือหน้า 44)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_mg23t5018c_um_popping",
+      "device_category": "Microwave Oven",
+      "brand": "Samsung",
+      "model_pattern": "MG23T5018C*",
+      "entry_symptom": "There is a popping sound during operation, and the microwave oven doesn't work.",
+      "entry_symptom_th": "มีเสียงดังเปรี๊ยะระหว่างทำงานและเตาไม่ทำงาน",
+      "entry_symptom_aliases": [
+        "ไมโครเวฟมีเสียงระเบิด",
+        "เสียงเปรี๊ยะในไมโครเวฟ",
+        "ภาชนะปิดฝาแตก",
+        "microwave popping"
+      ],
+      "source": "Samsung Microwave Oven User Manual MG23T5018C* (MG23T5018CC_ST_DE68_04594R_00_TH_EN_210624)",
+      "page_range": [
+        39,
+        39
+      ],
+      "source_chunk_id": "manual_Samsung_Microwave_MG23T5018C_p39_popping",
+      "severity": "medium",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "กำลังอุ่นอาหารที่ปิดผนึกหรือใช้ภาชนะที่มีฝาปิดสนิทอยู่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n1f",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "กดปุ่ม STOP/Eco หรือเปิดประตูเพื่อหยุดชั่วคราว แล้วกดปุ่ม STOP/Eco อีกครั้งเพื่อหยุดทั้งหมด (คู่มือหน้า 15) แล้วเปลี่ยนไปใช้ภาชนะที่ไม่ปิดสนิท ห้ามใช้ภาชนะปิดสนิทเพราะอาจแตกระหว่างปรุงจากการขยายตัวของสิ่งที่อยู่ข้างใน (คู่มือหน้า 39)",
+          "safety_critical": true,
+          "safety_warning": "ห้ามอุ่นอาหารหรือของเหลวในภาชนะที่ปิดสนิทหรือสุญญากาศ เพราะอาจระเบิด (คู่มือหน้า 3 และ 7) ห้ามอุ่นไข่ทั้งเปลือกหรือไข่ต้มสุกทั้งฟอง (คู่มือหน้า 7) ตัวเตา ประตู ภายในเตา ภาชนะ และอาหารอาจร้อนจัด ระวังอย่าสัมผัสชิ้นส่วนทำความร้อน (heating element) ภายในเตา เด็กเล็กต้องอยู่ห่าง (คู่มือหน้า 5) ใช้ถุงมือกันความร้อนเมื่อนำภาชนะออก และยืนห่างช่วงแขนเมื่อเปิดประตูเพื่อป้องกันไอร้อนหรือไอน้ำลวก ของเหลวที่อุ่นให้ตั้งทิ้งไว้อย่างน้อย 20 วินาทีก่อนหยิบ (คู่มือหน้า 7) ถ้ามีควันออกมา ให้ปิดเครื่องหรือถอดปลั๊กและปิดประตูเตาไว้เพื่อสกัดเปลวไฟ (คู่มือหน้า 4) ถ้าเตามีเสียงผิดปกติ กลิ่นไหม้ หรือควัน ให้ถอดปลั๊กทันทีและติดต่อศูนย์บริการที่ใกล้ที่สุด (คู่มือหน้า 5) ขณะเตากำลังทำงาน ไม่ควรปิดเตาด้วยการถอดปลั๊ก (คู่มือหน้า 6)",
+          "author_note": "หน้า 39 ระบุเพียงให้ไม่ใช้ภาชนะปิดสนิท ขั้นตอนหยุดเตาด้วยปุ่ม STOP/Eco มาจากหน้า 15 หน้า 5 ระบุว่าถ้าเตามีเสียงผิดปกติให้ถอดปลั๊กทันทีและติดต่อศูนย์บริการ ซึ่งเข้มกว่าหน้า 39 จึงใส่ไว้ในคำเตือนและขั้นตอนส่งต่อ",
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "เตาทำงานได้ตามปกติและไม่มีเสียงเปรี๊ยะแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ถ้าเตามีเสียงผิดปกติ กลิ่นไหม้ ควัน ประกายไฟ หรือรู้สึกว่ามีไฟฟ้าออกมาจากเตา ให้ถอดปลั๊กและหยุดใช้เตา (คู่มือหน้า 5) แล้วติดต่อ Samsung Customer Care ประเทศไทย โทร 1282 หรือ 1800-29-3232 (โทรฟรี) (คู่มือหน้า 44) พร้อมแจ้งรุ่นเครื่องและอาการ ห้ามซ่อมเตาเอง (คู่มือหน้า 10)",
+          "outcome_kind": "handoff_informed"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_mg23t5018c_um_exterior_hot",
+      "device_category": "Microwave Oven",
+      "brand": "Samsung",
+      "model_pattern": "MG23T5018C*",
+      "entry_symptom": "The microwave oven exterior is too hot during operation.",
+      "entry_symptom_th": "ตัวเตาด้านนอกร้อนเกินไประหว่างทำงาน",
+      "entry_symptom_aliases": [
+        "ตัวเตาร้อน",
+        "ไมโครเวฟด้านนอกร้อน",
+        "ผนังด้านนอกไมโครเวฟร้อน",
+        "microwave exterior hot"
+      ],
+      "source": "Samsung Microwave Oven User Manual MG23T5018C* (MG23T5018CC_ST_DE68_04594R_00_TH_EN_210624)",
+      "page_range": [
+        40,
+        40
+      ],
+      "source_chunk_id": "manual_Samsung_Microwave_MG23T5018C_p40_exterior_hot",
+      "severity": "medium",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "เว้นระยะรอบเตาตามที่คู่มือการติดตั้งกำหนดแล้วใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2",
+          "on_no": "n1f"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "เว้นระยะรอบเตา: ด้านบน 20 ซม. และด้านหลัง ด้านซ้ายและด้านขวาอย่างน้อยด้านละ 10 ซม. (คู่มือหน้า 9) ช่องรับและระบายอากาศอยู่ด้านหน้าและด้านหลังเตา (คู่มือหน้า 40)",
+          "safety_critical": true,
+          "safety_warning": "ห้ามใช้ผ้าหรือกระดาษปิดช่องระบายอากาศ เพราะเสี่ยงต่อไฟไหม้ เตาอาจร้อนเกินและปิดเองจนกว่าจะเย็นลงพอ (คู่มือหน้า 7) ติดตั้งเตาตามระยะห่างที่คู่มือกำหนด (คู่มือหน้า 9) และระวังอย่าให้น้ำเข้าช่องระบายอากาศ (คู่มือหน้า 10)",
+          "author_note": "หน้า 40 ระบุเพียงให้เว้นระยะตามคู่มือการติดตั้ง ตัวเลขระยะห่างมาจากหน้า 9",
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "มีสิ่งของวางอยู่บนเตาหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2f",
+          "on_no": "n3"
+        },
+        {
+          "node_id": "n2f",
+          "type": "instruction",
+          "content": "นำสิ่งของทั้งหมดบนเตาออก (คู่มือหน้า 40) คู่มือหน้า 6 ห้ามวางสิ่งของบนเตา ภายในเตา หรือบนประตูเตา",
+          "safety_critical": true,
+          "safety_warning": "ตัวเตา ประตู ภายในเตา ภาชนะ และอาหารอาจร้อนจัด ระวังอย่าสัมผัสชิ้นส่วนทำความร้อน (heating element) ภายในเตา เด็กเล็กต้องอยู่ห่าง (คู่มือหน้า 5) ใช้ถุงมือกันความร้อนเมื่อนำภาชนะออก และยืนห่างช่วงแขนเมื่อเปิดประตูเพื่อป้องกันไอร้อนหรือไอน้ำลวก ของเหลวที่อุ่นให้ตั้งทิ้งไว้อย่างน้อย 20 วินาทีก่อนหยิบ (คู่มือหน้า 7)",
+          "author_note": "หน้า 40 ระบุให้นำสิ่งของบนเตาออก คำเตือนเรื่องความร้อนมาจากหน้า 5 และ 7",
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "node_id": "n3",
+          "type": "checkpoint",
+          "question": "ประตูหรือผิวด้านนอกของเตาอุ่นหรือร้อนในระดับที่ใช้เตาแล้วเกิดขึ้นได้ตามปกติ (ไม่ใช่ร้อนจัดผิดปกติ) ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n3n",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n3n",
+          "type": "resolution",
+          "content": "คู่มือระบุว่าประตูหรือผิวด้านนอกของเตาอาจร้อนขณะเตาทำงาน และอุณหภูมิของพื้นผิวที่สัมผัสได้อาจสูง ให้ระวังและให้เด็กเล็กอยู่ห่าง (คู่มือหน้า 5 และ 6)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "ตัวเตาด้านนอกไม่ร้อนผิดปกติแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ติดต่อ Samsung Customer Care ประเทศไทย โทร 1282 หรือ 1800-29-3232 (โทรฟรี) หรือเว็บไซต์ www.samsung.com/th/support (คู่มือหน้า 44) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว (คู่มือหน้า 42) การเรียกบริการเพื่ออธิบายวิธีใช้งาน แก้การติดตั้งที่ไม่ถูกต้อง หรือทำความสะอาดและบำรุงรักษาตามปกติ ไม่อยู่ในการรับประกันของ Samsung (คู่มือหน้า 44)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_mg23t5018c_um_door_cannot_open",
+      "device_category": "Microwave Oven",
+      "brand": "Samsung",
+      "model_pattern": "MG23T5018C*",
+      "entry_symptom": "The door cannot be opened properly.",
+      "entry_symptom_th": "เปิดประตูเตาได้ไม่ปกติ",
+      "entry_symptom_aliases": [
+        "เปิดประตูไมโครเวฟไม่ออก",
+        "ประตูไมโครเวฟติด",
+        "ประตูเปิดยาก",
+        "microwave door stuck"
+      ],
+      "source": "Samsung Microwave Oven User Manual MG23T5018C* (MG23T5018CC_ST_DE68_04594R_00_TH_EN_210624)",
+      "page_range": [
+        40,
+        40
+      ],
+      "source_chunk_id": "manual_Samsung_Microwave_MG23T5018C_p40_door_cannot_open",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "มีเศษอาหารติดอยู่ระหว่างประตูกับด้านในเตาหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n1f",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "ทำความสะอาดเตาแล้วจึงเปิดประตู: ใช้ผ้านุ่มชุบน้ำสบู่เช็ดด้านในและด้านนอกของเตา แล้วล้างและเช็ดให้แห้ง ให้ความสำคัญกับประตูและซีลประตูเป็นพิเศษ (คู่มือหน้า 10 และ 40)",
+          "safety_critical": true,
+          "safety_warning": "รอให้เตาเย็นลงก่อนทำความสะอาดห้องปรุงอาหารด้วยน้ำยาล้างจานอ่อนๆ ห้ามใช้สารขัดถูหรือสารเคมีทำความสะอาด (คู่มือหน้า 10) ห้ามใช้เบนซีน ทินเนอร์ แอลกอฮอล์ เครื่องฉีดไอน้ำ หรือเครื่องฉีดน้ำแรงดันสูง และห้ามฉีดหรือเทน้ำใส่เตาโดยตรง (คู่มือหน้า 6) ห้ามใช้สารขัดถูแรงหรือเครื่องขูดโลหะแหลมคมกับกระจกประตู เพราะกระจกอาจแตกได้ (คู่มือหน้า 5) ห้ามใช้เตาถ้าประตูหรือซีลประตูชำรุด ต้องให้ผู้มีคุณสมบัติซ่อมก่อน (คู่มือหน้า 3) ห้ามผู้ไม่มีความสามารถถอดฝาครอบที่ป้องกันคลื่นไมโครเวฟ (คู่มือหน้า 3) ห้ามสอดนิ้วหรือสิ่งแปลกปลอมเข้าไปในเตา ถ้าสิ่งแปลกปลอมเข้าไปในเตาให้ถอดปลั๊กและติดต่อศูนย์บริการ (คู่มือหน้า 6)",
+          "author_note": "หน้า 40 ระบุเพียง 'Clean the microwave oven' วิธีเช็ดมาจากหน้า 10",
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว เปิดฝาเครื่องได้หรือไม่?",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "เปิดประตูเตาได้ตามปกติแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ถ้าประตูยังเปิดหรือปิดได้ไม่เรียบร้อย ให้ติดต่อช่างที่มีคุณสมบัติหรือศูนย์บริการ Samsung เพื่อขอความช่วยเหลือ (คู่มือหน้า 10) โทร 1282 หรือ 1800-29-3232 (โทรฟรี) (คู่มือหน้า 44) ห้ามใช้เตาเมื่อประตูหรือซีลประตูชำรุด (คู่มือหน้า 3)",
+          "outcome_kind": "handoff_informed"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_mg23t5018c_um_heating_not_working",
+      "device_category": "Microwave Oven",
+      "brand": "Samsung",
+      "model_pattern": "MG23T5018C*",
+      "entry_symptom": "Heating including the Warm function does not work properly.",
+      "entry_symptom_th": "เตาไม่ให้ความร้อนตามปกติ (รวมถึงฟังก์ชัน Warm)",
+      "entry_symptom_aliases": [
+        "ไมโครเวฟไม่ร้อน",
+        "ไมโครเวฟอุ่นไม่ร้อน",
+        "อาหารไม่ร้อน",
+        "microwave not heating",
+        "warm function"
+      ],
+      "source": "Samsung Microwave Oven User Manual MG23T5018C* (MG23T5018CC_ST_DE68_04594R_00_TH_EN_210624)",
+      "page_range": [
+        40,
+        40
+      ],
+      "source_chunk_id": "manual_Samsung_Microwave_MG23T5018C_p40_heating_not_working",
+      "severity": "medium",
+      "difficulty": "medium",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "instruction",
+          "content": "ทดสอบเตา: วางแก้วน้ำหนึ่งแก้ว (หรือน้ำหนึ่งถ้วยในภาชนะที่ใช้กับไมโครเวฟได้) บนจานหมุน ปิดประตู กดปุ่ม Microwave แล้วกดปุ่ม START/+30s ซ้ำเพื่อตั้งเวลา 1-2 นาที เพื่อตรวจว่าน้ำร้อนขึ้นหรือไม่ (คู่มือหน้า 40 และ 12)",
+          "safety_critical": true,
+          "safety_warning": "ตัวเตา ประตู ภายในเตา ภาชนะ และอาหารอาจร้อนจัด ระวังอย่าสัมผัสชิ้นส่วนทำความร้อน (heating element) ภายในเตา เด็กเล็กต้องอยู่ห่าง (คู่มือหน้า 5) ใช้ถุงมือกันความร้อนเมื่อนำภาชนะออก และยืนห่างช่วงแขนเมื่อเปิดประตูเพื่อป้องกันไอร้อนหรือไอน้ำลวก ของเหลวที่อุ่นให้ตั้งทิ้งไว้อย่างน้อย 20 วินาทีก่อนหยิบ (คู่มือหน้า 7) ใช้เฉพาะภาชนะที่ใช้กับไมโครเวฟได้ ห้ามใช้ภาชนะโลหะ จานชามที่ขอบเป็นทองหรือเงิน ไม้เสียบ และต้องถอดลวดมัดถุงออก เพราะอาจเกิดประกายไฟ (คู่มือหน้า 7) ยกเว้นตะแกรงย่าง (grill rack) และจานอบกรอบ (crusty plate) ซึ่งเป็นอุปกรณ์เสริมของเตา (คู่มือหน้า 9)",
+          "author_note": "หน้า 40 ระบุให้เปิดเตา 1-2 นาที ส่วนหน้า 12 อธิบายการทดสอบเดียวกันว่าให้ตั้งเวลา 4 หรือ 5 นาทีและตรวจว่าน้ำเดือด ซึ่งคู่มือสองหน้าไม่ตรงกัน ผู้พัฒนาใช้เวลาจากหน้า 40 และขั้นตอนกดปุ่มจากหน้า 12",
+          "next": "n2"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "ในการทดสอบ น้ำร้อนขึ้นหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n3",
+          "on_no": "n_escalate_test"
+        },
+        {
+          "node_id": "n3",
+          "type": "checkpoint",
+          "question": "ปริมาณอาหารที่ปรุงมากเกินไปหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n3f",
+          "on_no": "n4"
+        },
+        {
+          "node_id": "n3f",
+          "type": "instruction",
+          "content": "ลดปริมาณอาหารแล้วเริ่มปรุงอีกครั้ง (คู่มือหน้า 40)",
+          "safety_critical": true,
+          "safety_warning": "ตัวเตา ประตู ภายในเตา ภาชนะ และอาหารอาจร้อนจัด ระวังอย่าสัมผัสชิ้นส่วนทำความร้อน (heating element) ภายในเตา เด็กเล็กต้องอยู่ห่าง (คู่มือหน้า 5) ใช้ถุงมือกันความร้อนเมื่อนำภาชนะออก และยืนห่างช่วงแขนเมื่อเปิดประตูเพื่อป้องกันไอร้อนหรือไอน้ำลวก ของเหลวที่อุ่นให้ตั้งทิ้งไว้อย่างน้อย 20 วินาทีก่อนหยิบ (คู่มือหน้า 7)",
+          "next": "n3v"
+        },
+        {
+          "node_id": "n3v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n4"
+        },
+        {
+          "node_id": "n4",
+          "type": "checkpoint",
+          "question": "ใช้ภาชนะปรุงที่มีก้นแบนอยู่แล้วใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_escalate",
+          "on_no": "n4f"
+        },
+        {
+          "node_id": "n4f",
+          "type": "instruction",
+          "content": "ใช้ภาชนะปรุงที่มีก้นแบน (คู่มือหน้า 40) และต้องเป็นภาชนะที่ใช้กับไมโครเวฟได้ (คู่มือหน้า 7)",
+          "safety_critical": true,
+          "safety_warning": "ใช้เฉพาะภาชนะที่ใช้กับไมโครเวฟได้ ห้ามใช้ภาชนะโลหะ จานชามที่ขอบเป็นทองหรือเงิน ไม้เสียบ และต้องถอดลวดมัดถุงออก เพราะอาจเกิดประกายไฟ (คู่มือหน้า 7) ยกเว้นตะแกรงย่าง (grill rack) และจานอบกรอบ (crusty plate) ซึ่งเป็นอุปกรณ์เสริมของเตา (คู่มือหน้า 9) ตัวเตา ประตู ภายในเตา ภาชนะ และอาหารอาจร้อนจัด ระวังอย่าสัมผัสชิ้นส่วนทำความร้อน (heating element) ภายในเตา เด็กเล็กต้องอยู่ห่าง (คู่มือหน้า 5) ใช้ถุงมือกันความร้อนเมื่อนำภาชนะออก และยืนห่างช่วงแขนเมื่อเปิดประตูเพื่อป้องกันไอร้อนหรือไอน้ำลวก ของเหลวที่อุ่นให้ตั้งทิ้งไว้อย่างน้อย 20 วินาทีก่อนหยิบ (คู่มือหน้า 7)",
+          "next": "n4v"
+        },
+        {
+          "node_id": "n4v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "เตาให้ความร้อนได้ตามปกติแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ติดต่อ Samsung Customer Care ประเทศไทย โทร 1282 หรือ 1800-29-3232 (โทรฟรี) หรือเว็บไซต์ www.samsung.com/th/support (คู่มือหน้า 44) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว (คู่มือหน้า 42) การเรียกบริการเพื่ออธิบายวิธีใช้งาน แก้การติดตั้งที่ไม่ถูกต้อง หรือทำความสะอาดและบำรุงรักษาตามปกติ ไม่อยู่ในการรับประกันของ Samsung (คู่มือหน้า 44)",
+          "outcome_kind": "handoff_unknown"
+        },
+        {
+          "node_id": "n_escalate_test",
+          "type": "escalation",
+          "content": "น้ำไม่ร้อนขึ้นในการทดสอบ เตาอาจทำงานผิดปกติ ห้ามซ่อมเตาเอง (คู่มือหน้า 10) ให้ติดต่อ Samsung Customer Care ประเทศไทย โทร 1282 หรือ 1800-29-3232 (โทรฟรี) (คู่มือหน้า 44) พร้อมแจ้งรุ่นเครื่อง",
+          "outcome_kind": "handoff_informed"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_mg23t5018c_um_thaw",
+      "device_category": "Microwave Oven",
+      "brand": "Samsung",
+      "model_pattern": "MG23T5018C*",
+      "entry_symptom": "The thaw function does not work.",
+      "entry_symptom_th": "ฟังก์ชันละลายน้ำแข็ง (thaw) ไม่ทำงาน",
+      "entry_symptom_aliases": [
+        "ไมโครเวฟละลายน้ำแข็งไม่ได้",
+        "Quick Defrost ไม่ทำงาน",
+        "ละลายของแช่แข็งไม่ได้",
+        "thaw not working"
+      ],
+      "source": "Samsung Microwave Oven User Manual MG23T5018C* (MG23T5018CC_ST_DE68_04594R_00_TH_EN_210624)",
+      "page_range": [
+        40,
+        40
+      ],
+      "source_chunk_id": "manual_Samsung_Microwave_MG23T5018C_p40_thaw",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "ปริมาณอาหารที่ละลายมากเกินไปหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n1f",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "ลดปริมาณอาหารแล้วเริ่มใช้ฟังก์ชันอีกครั้ง (คู่มือหน้า 40) สำหรับ Quick Defrost ให้เลือกประเภทอาหารและน้ำหนักตามตารางโปรแกรม (คู่มือหน้า 16)",
+          "safety_critical": true,
+          "safety_warning": "ตัวเตา ประตู ภายในเตา ภาชนะ และอาหารอาจร้อนจัด ระวังอย่าสัมผัสชิ้นส่วนทำความร้อน (heating element) ภายในเตา เด็กเล็กต้องอยู่ห่าง (คู่มือหน้า 5) ใช้ถุงมือกันความร้อนเมื่อนำภาชนะออก และยืนห่างช่วงแขนเมื่อเปิดประตูเพื่อป้องกันไอร้อนหรือไอน้ำลวก ของเหลวที่อุ่นให้ตั้งทิ้งไว้อย่างน้อย 20 วินาทีก่อนหยิบ (คู่มือหน้า 7)",
+          "author_note": "หน้า 40 ใช้คำว่า thaw function รุ่นนี้ไม่มีปุ่มชื่อนี้ ผู้พัฒนาตีความว่าตรงกับ Quick Defrost (หน้า 15–16) และการละลายด้วยตนเอง (หน้า 35) ควรให้ผู้ตรวจยืนยัน",
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "ฟังก์ชันละลายน้ำแข็งทำงานตามปกติแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ติดต่อ Samsung Customer Care ประเทศไทย โทร 1282 หรือ 1800-29-3232 (โทรฟรี) หรือเว็บไซต์ www.samsung.com/th/support (คู่มือหน้า 44) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว (คู่มือหน้า 42) การเรียกบริการเพื่ออธิบายวิธีใช้งาน แก้การติดตั้งที่ไม่ถูกต้อง หรือทำความสะอาดและบำรุงรักษาตามปกติ ไม่อยู่ในการรับประกันของ Samsung (คู่มือหน้า 44)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_mg23t5018c_um_light_dim",
+      "device_category": "Microwave Oven",
+      "brand": "Samsung",
+      "model_pattern": "MG23T5018C*",
+      "entry_symptom": "The interior light is dim or does not turn on.",
+      "entry_symptom_th": "ไฟในเตาสลัวหรือไม่ติด",
+      "entry_symptom_aliases": [
+        "ไฟในไมโครเวฟไม่ติด",
+        "หลอดไฟไมโครเวฟมืด",
+        "ไฟในเตาสลัว",
+        "microwave light dim"
+      ],
+      "source": "Samsung Microwave Oven User Manual MG23T5018C* (MG23T5018CC_ST_DE68_04594R_00_TH_EN_210624)",
+      "page_range": [
+        40,
+        40
+      ],
+      "source_chunk_id": "manual_Samsung_Microwave_MG23T5018C_p40_light_dim",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "ประตูเปิดค้างไว้นาน หรือเตาอยู่ในโหมดประหยัดพลังงาน (Eco) หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n1f",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "ปิดประตูแล้วเปิดใหม่ หรือกดปุ่ม STOP/Eco (คู่มือหน้า 40) หน้า 15 ระบุว่าถ้าเปิดประตูทิ้งไว้ ไฟภายในจะดับเองหลังผ่านไป 5 นาที",
+          "safety_critical": false,
+          "author_note": "หน้า 40 ระบุสาเหตุและวิธีแก้ ส่วนเวลา 5 นาทีมาจากหน้า 15",
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "ภายในเตามีสิ่งสกปรกบังไฟส่องสว่างอยู่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2f",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n2f",
+          "type": "instruction",
+          "content": "ทำความสะอาดภายในเตาแล้วตรวจอีกครั้ง (คู่มือหน้า 40) รอให้เตาเย็นก่อนแล้วล้างด้วยน้ำยาล้างจานอ่อนๆ (คู่มือหน้า 10)",
+          "safety_critical": true,
+          "safety_warning": "รอให้เตาเย็นลงก่อนทำความสะอาดห้องปรุงอาหารด้วยน้ำยาล้างจานอ่อนๆ ห้ามใช้สารขัดถูหรือสารเคมีทำความสะอาด (คู่มือหน้า 10) ห้ามใช้เบนซีน ทินเนอร์ แอลกอฮอล์ เครื่องฉีดไอน้ำ หรือเครื่องฉีดน้ำแรงดันสูง และห้ามฉีดหรือเทน้ำใส่เตาโดยตรง (คู่มือหน้า 6) ห้ามใช้สารขัดถูแรงหรือเครื่องขูดโลหะแหลมคมกับกระจกประตู เพราะกระจกอาจแตกได้ (คู่มือหน้า 5)",
+          "author_note": "หน้า 5 ระบุให้ปิดเครื่องก่อนเปลี่ยนหลอดไฟ แต่หน้า 10 ระบุว่าห้ามเปลี่ยนหลอดไฟเอง ผู้พัฒนาจึงให้ส่งต่อศูนย์บริการแทนการเปลี่ยนหลอดเอง",
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "ไฟในเตาสว่างตามปกติแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ถ้าไฟภายในเตายังไม่ติดหรือยังสลัว ห้ามเปลี่ยนหลอดไฟเอง ให้ติดต่อศูนย์บริการ Samsung (คู่มือหน้า 10) โทร 1282 หรือ 1800-29-3232 (โทรฟรี) (คู่มือหน้า 44)",
+          "outcome_kind": "handoff_informed"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_mg23t5018c_um_beeping",
+      "device_category": "Microwave Oven",
+      "brand": "Samsung",
+      "model_pattern": "MG23T5018C*",
+      "entry_symptom": "A beeping sound occurs during cooking.",
+      "entry_symptom_th": "มีเสียงบี๊บระหว่างปรุงอาหาร",
+      "entry_symptom_aliases": [
+        "ไมโครเวฟมีเสียงบี๊บ",
+        "ไมโครเวฟร้องระหว่างทำงาน",
+        "เสียงเตือนให้พลิกอาหาร",
+        "microwave beeping"
+      ],
+      "source": "Samsung Microwave Oven User Manual MG23T5018C* (MG23T5018CC_ST_DE68_04594R_00_TH_EN_210624)",
+      "page_range": [
+        40,
+        40
+      ],
+      "source_chunk_id": "manual_Samsung_Microwave_MG23T5018C_p40_beeping",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "เสียงบี๊บดังระหว่างใช้ Auto Cook ในช่วงละลายน้ำแข็ง ซึ่งหมายถึงถึงเวลาพลิกอาหารใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n1f",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "เปิดประตูและพลิกอาหาร แล้วปิดประตูและกดปุ่ม START/+30s อีกครั้งเพื่อเริ่มทำงานต่อ (คู่มือหน้า 40 และ 16)",
+          "safety_critical": true,
+          "safety_warning": "ตัวเตา ประตู ภายในเตา ภาชนะ และอาหารอาจร้อนจัด ระวังอย่าสัมผัสชิ้นส่วนทำความร้อน (heating element) ภายในเตา เด็กเล็กต้องอยู่ห่าง (คู่มือหน้า 5) ใช้ถุงมือกันความร้อนเมื่อนำภาชนะออก และยืนห่างช่วงแขนเมื่อเปิดประตูเพื่อป้องกันไอร้อนหรือไอน้ำลวก ของเหลวที่อุ่นให้ตั้งทิ้งไว้อย่างน้อย 20 วินาทีก่อนหยิบ (คู่มือหน้า 7)",
+          "author_note": "หน้า 40 ระบุเพียงให้พลิกอาหารแล้วกด START/+30s หน้า 16 ระบุให้เปิดประตูพลิกอาหารเมื่อเตาส่งเสียงบี๊บ",
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "เสียงบี๊บ 4 ครั้งเมื่อปรุงเสร็จ และเสียงเตือนอีกทุกนาที 3 ครั้ง ใช่หรือไม่? (คู่มือหน้า 13)",
+          "safety_critical": false,
+          "on_yes": "n2n",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n2n",
+          "type": "resolution",
+          "content": "เป็นการทำงานปกติ: เมื่อปรุงเสร็จเตาจะส่งเสียงบี๊บ 4 ครั้ง จากนั้นเสียงเตือนจะดังทุกนาทีอีก 3 ครั้ง (คู่มือหน้า 13) ถ้าไม่ต้องการเสียงบี๊บ กดปุ่ม < และ > พร้อมกันเพื่อปิดเสียง (คู่มือหน้า 29)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "เตาทำงานต่อได้ตามปกติแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ติดต่อ Samsung Customer Care ประเทศไทย โทร 1282 หรือ 1800-29-3232 (โทรฟรี) หรือเว็บไซต์ www.samsung.com/th/support (คู่มือหน้า 44) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว (คู่มือหน้า 42) การเรียกบริการเพื่ออธิบายวิธีใช้งาน แก้การติดตั้งที่ไม่ถูกต้อง หรือทำความสะอาดและบำรุงรักษาตามปกติ ไม่อยู่ในการรับประกันของ Samsung (คู่มือหน้า 44)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_mg23t5018c_um_not_level",
+      "device_category": "Microwave Oven",
+      "brand": "Samsung",
+      "model_pattern": "MG23T5018C*",
+      "entry_symptom": "The microwave oven is not level.",
+      "entry_symptom_th": "เตาไมโครเวฟตั้งไม่ระดับ",
+      "entry_symptom_aliases": [
+        "ไมโครเวฟเอียง",
+        "ไมโครเวฟโยก",
+        "ไมโครเวฟตั้งไม่เรียบ",
+        "microwave not level"
+      ],
+      "source": "Samsung Microwave Oven User Manual MG23T5018C* (MG23T5018CC_ST_DE68_04594R_00_TH_EN_210624)",
+      "page_range": [
+        40,
+        40
+      ],
+      "source_chunk_id": "manual_Samsung_Microwave_MG23T5018C_p40_not_level",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "เตาวางบนพื้นผิวที่ไม่เรียบหรือไม่มั่นคงหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n1f",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "ย้ายเตาไปวางบนพื้นผิวที่เรียบ มั่นคง และรับน้ำหนักเตาได้ ความสูงประมาณ 85 ซม. จากพื้น (คู่มือหน้า 9 และ 40)",
+          "safety_critical": true,
+          "safety_warning": "ห้ามวางเตาเหนือของเปราะบาง ห้ามวางเตาในตู้หรือหลังบานประตูตกแต่ง เตาออกแบบให้วางบนเคาน์เตอร์เท่านั้น (คู่มือหน้า 4, 5 และ 6) ระวังอย่าให้สายไฟถูกหนีบหรือเสียหาย (คู่มือหน้า 6)",
+          "author_note": "หน้า 40 ระบุเพียงให้วางบนพื้นผิวเรียบมั่นคง รายละเอียดความสูงและการรับน้ำหนักมาจากหน้า 9 คู่มือไม่อธิบายวิธีปรับระดับ",
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "เตาตั้งอยู่ในระดับและมั่นคงแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ติดต่อ Samsung Customer Care ประเทศไทย โทร 1282 หรือ 1800-29-3232 (โทรฟรี) หรือเว็บไซต์ www.samsung.com/th/support (คู่มือหน้า 44) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว (คู่มือหน้า 42) การเรียกบริการเพื่ออธิบายวิธีใช้งาน แก้การติดตั้งที่ไม่ถูกต้อง หรือทำความสะอาดและบำรุงรักษาตามปกติ ไม่อยู่ในการรับประกันของ Samsung (คู่มือหน้า 44)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_mg23t5018c_um_sparks",
+      "device_category": "Microwave Oven",
+      "brand": "Samsung",
+      "model_pattern": "MG23T5018C*",
+      "entry_symptom": "There are sparks during cooking.",
+      "entry_symptom_th": "มีประกายไฟระหว่างปรุงอาหาร",
+      "entry_symptom_aliases": [
+        "ไมโครเวฟมีประกายไฟ",
+        "ไมโครเวฟเป็นไฟ",
+        "ไมโครเวฟมีสะเก็ดไฟ",
+        "microwave sparks"
+      ],
+      "source": "Samsung Microwave Oven User Manual MG23T5018C* (MG23T5018CC_ST_DE68_04594R_00_TH_EN_210624)",
+      "page_range": [
+        40,
+        40
+      ],
+      "source_chunk_id": "manual_Samsung_Microwave_MG23T5018C_p40_sparks",
+      "severity": "medium",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "ใช้ภาชนะโลหะ จานชามขอบทองหรือเงิน ไม้เสียบ หรือลวดมัดถุงในเตาหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n1f",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "กดปุ่ม STOP/Eco หรือเปิดประตูเพื่อหยุดชั่วคราว แล้วกดปุ่ม STOP/Eco อีกครั้งเพื่อหยุดทั้งหมด (คู่มือหน้า 15) แล้วนำภาชนะโลหะออก ห้ามใช้ภาชนะโลหะ (คู่มือหน้า 40) ใช้เฉพาะภาชนะที่ใช้กับไมโครเวฟได้ (คู่มือหน้า 7)",
+          "safety_critical": true,
+          "safety_warning": "ถ้ามีควันออกมา ให้ปิดเครื่องหรือถอดปลั๊กและปิดประตูเตาไว้เพื่อสกัดเปลวไฟ (คู่มือหน้า 4) ถ้าเตามีเสียงผิดปกติ กลิ่นไหม้ หรือควัน ให้ถอดปลั๊กทันทีและติดต่อศูนย์บริการที่ใกล้ที่สุด (คู่มือหน้า 5) ขณะเตากำลังทำงาน ไม่ควรปิดเตาด้วยการถอดปลั๊ก (คู่มือหน้า 6) ใช้เฉพาะภาชนะที่ใช้กับไมโครเวฟได้ ห้ามใช้ภาชนะโลหะ จานชามที่ขอบเป็นทองหรือเงิน ไม้เสียบ และต้องถอดลวดมัดถุงออก เพราะอาจเกิดประกายไฟ (คู่มือหน้า 7) ยกเว้นตะแกรงย่าง (grill rack) และจานอบกรอบ (crusty plate) ซึ่งเป็นอุปกรณ์เสริมของเตา (คู่มือหน้า 9) ตัวเตา ประตู ภายในเตา ภาชนะ และอาหารอาจร้อนจัด ระวังอย่าสัมผัสชิ้นส่วนทำความร้อน (heating element) ภายในเตา เด็กเล็กต้องอยู่ห่าง (คู่มือหน้า 5) ใช้ถุงมือกันความร้อนเมื่อนำภาชนะออก และยืนห่างช่วงแขนเมื่อเปิดประตูเพื่อป้องกันไอร้อนหรือไอน้ำลวก ของเหลวที่อุ่นให้ตั้งทิ้งไว้อย่างน้อย 20 วินาทีก่อนหยิบ (คู่มือหน้า 7)",
+          "author_note": "หน้า 40 ระบุเพียงให้ไม่ใช้ภาชนะโลหะ ขั้นตอนหยุดเตามาจากหน้า 15 ตะแกรงย่างและจานอบกรอบเป็นอุปกรณ์เสริมที่ใช้กับโหมดย่างและผสมได้ (หน้า 9) ไม่ใช่ภาชนะโลหะทั่วไป",
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "ไม่มีประกายไฟระหว่างปรุงอาหารแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ถ้าเตามีเสียงผิดปกติ กลิ่นไหม้ ควัน ประกายไฟ หรือรู้สึกว่ามีไฟฟ้าออกมาจากเตา ให้ถอดปลั๊กและหยุดใช้เตา (คู่มือหน้า 5) แล้วติดต่อ Samsung Customer Care ประเทศไทย โทร 1282 หรือ 1800-29-3232 (โทรฟรี) (คู่มือหน้า 44) พร้อมแจ้งรุ่นเครื่องและอาการ ห้ามซ่อมเตาเอง (คู่มือหน้า 10)",
+          "outcome_kind": "handoff_informed"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_mg23t5018c_um_starts_immediately",
+      "device_category": "Microwave Oven",
+      "brand": "Samsung",
+      "model_pattern": "MG23T5018C*",
+      "entry_symptom": "When power is connected, the microwave oven immediately starts to work.",
+      "entry_symptom_th": "เสียบปลั๊กแล้วเตาเริ่มทำงานทันที",
+      "entry_symptom_aliases": [
+        "ไมโครเวฟทำงานทันทีที่เสียบปลั๊ก",
+        "เสียบปลั๊กแล้วไมโครเวฟหมุน",
+        "microwave starts when plugged in"
+      ],
+      "source": "Samsung Microwave Oven User Manual MG23T5018C* (MG23T5018CC_ST_DE68_04594R_00_TH_EN_210624)",
+      "page_range": [
+        40,
+        40
+      ],
+      "source_chunk_id": "manual_Samsung_Microwave_MG23T5018C_p40_starts_immediately",
+      "severity": "medium",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "ประตูเตาปิดไม่สนิทหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n1f",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "ปิดประตูให้สนิทแล้วตรวจอีกครั้ง (คู่มือหน้า 40) ต้องไม่มีสิ่งของหรือเศษอาหารขวางที่ประตูและซีลประตู (คู่มือหน้า 10)",
+          "safety_critical": true,
+          "safety_warning": "ห้ามใช้เตาถ้าประตูหรือซีลประตูชำรุด ต้องให้ผู้มีคุณสมบัติซ่อมก่อน (คู่มือหน้า 3) ห้ามผู้ไม่มีความสามารถถอดฝาครอบที่ป้องกันคลื่นไมโครเวฟ (คู่มือหน้า 3) ห้ามสอดนิ้วหรือสิ่งแปลกปลอมเข้าไปในเตา ถ้าสิ่งแปลกปลอมเข้าไปในเตาให้ถอดปลั๊กและติดต่อศูนย์บริการ (คู่มือหน้า 6)",
+          "author_note": "หน้า 40 ระบุเพียง 'Close the door and check again' รายละเอียดเรื่องซีลมาจากหน้า 10",
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "เตาไม่เริ่มทำงานเองเมื่อเสียบปลั๊กแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ถ้าเตามีเสียงผิดปกติ กลิ่นไหม้ ควัน ประกายไฟ หรือรู้สึกว่ามีไฟฟ้าออกมาจากเตา ให้ถอดปลั๊กและหยุดใช้เตา (คู่มือหน้า 5) แล้วติดต่อ Samsung Customer Care ประเทศไทย โทร 1282 หรือ 1800-29-3232 (โทรฟรี) (คู่มือหน้า 44) พร้อมแจ้งรุ่นเครื่องและอาการ ห้ามซ่อมเตาเอง (คู่มือหน้า 10)",
+          "outcome_kind": "handoff_informed"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_mg23t5018c_um_electricity",
+      "device_category": "Microwave Oven",
+      "brand": "Samsung",
+      "model_pattern": "MG23T5018C*",
+      "entry_symptom": "There is electricity coming from the microwave oven.",
+      "entry_symptom_th": "รู้สึกว่ามีไฟฟ้าออกมาจากเตา",
+      "entry_symptom_aliases": [
+        "ไมโครเวฟมีไฟดูด",
+        "ไมโครเวฟไฟรั่ว",
+        "จับไมโครเวฟแล้วชา",
+        "microwave electric shock"
+      ],
+      "source": "Samsung Microwave Oven User Manual MG23T5018C* (MG23T5018CC_ST_DE68_04594R_00_TH_EN_210624)",
+      "page_range": [
+        40,
+        40
+      ],
+      "source_chunk_id": "manual_Samsung_Microwave_MG23T5018C_p40_electricity",
+      "severity": "medium",
+      "difficulty": "medium",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "เต้ารับและปลั๊กต่อสายดินอย่างถูกต้องแล้วใช่หรือไม่? (ถ้าไม่แน่ใจ ให้ตอบไม่ใช่)",
+          "safety_critical": false,
+          "on_yes": "n_escalate",
+          "on_no": "n1f"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "ตรวจให้แน่ใจว่าเต้ารับและปลั๊กต่อสายดินอย่างถูกต้อง (คู่มือหน้า 40) เตาต้องต่อสายดินตามกฎหมายท้องถิ่นและระดับประเทศ (คู่มือหน้า 6)",
+          "safety_critical": true,
+          "safety_warning": "เตาต้องต่อสายดินอย่างถูกต้องตามกฎหมายท้องถิ่นและระดับประเทศ (คู่มือหน้า 6) ห้ามซ่อมหรือเปลี่ยนชิ้นส่วนเตาเอง (คู่มือหน้า 10) เสียบปลั๊กให้แน่นเข้ากับเต้ารับ ห้ามใช้ปลั๊กแปลงหลายทาง สายต่อพ่วง หรือหม้อแปลงไฟ ห้ามใช้ปลั๊ก สายไฟ หรือเต้ารับที่ชำรุดหรือหลวม ห้ามจับสายไฟด้วยมือเปียก ห้ามดึง งอมากเกินไป หรือวางของหนักทับสายไฟ (คู่มือหน้า 6) ถ้าสายไฟชำรุด ต้องให้ผู้ผลิต ตัวแทนบริการ หรือผู้มีคุณสมบัติเทียบเท่าเป็นผู้เปลี่ยน (คู่มือหน้า 5)",
+          "author_note": "คู่มือไม่อธิบายวิธีตรวจการต่อสายดิน ผู้ใช้ทั่วไปมักตรวจเองไม่ได้ ผู้พัฒนาจึงให้ส่งต่อศูนย์บริการเมื่ออาการยังอยู่ ควรให้ผู้ตรวจพิจารณาว่าควรส่งต่อทันทีหรือไม่",
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "ไม่มีไฟฟ้ารั่วออกจากเตาแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ถ้าเตามีเสียงผิดปกติ กลิ่นไหม้ ควัน ประกายไฟ หรือรู้สึกว่ามีไฟฟ้าออกมาจากเตา ให้ถอดปลั๊กและหยุดใช้เตา (คู่มือหน้า 5) แล้วติดต่อ Samsung Customer Care ประเทศไทย โทร 1282 หรือ 1800-29-3232 (โทรฟรี) (คู่มือหน้า 44) พร้อมแจ้งรุ่นเครื่องและอาการ ห้ามซ่อมเตาเอง (คู่มือหน้า 10)",
+          "outcome_kind": "handoff_informed"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_mg23t5018c_um_water_steam",
+      "device_category": "Microwave Oven",
+      "brand": "Samsung",
+      "model_pattern": "MG23T5018C*",
+      "entry_symptom": "Water drips. Steam emits through a door crack. Water remains in the microwave oven.",
+      "entry_symptom_th": "มีน้ำหยด ไอน้ำออกตามรอยแยกประตู หรือมีน้ำค้างอยู่ในเตา",
+      "entry_symptom_aliases": [
+        "ไมโครเวฟมีน้ำหยด",
+        "ไมโครเวฟมีไอน้ำ",
+        "น้ำขังในไมโครเวฟ",
+        "microwave water drips steam"
+      ],
+      "source": "Samsung Microwave Oven User Manual MG23T5018C* (MG23T5018CC_ST_DE68_04594R_00_TH_EN_210624)",
+      "page_range": [
+        40,
+        40
+      ],
+      "source_chunk_id": "manual_Samsung_Microwave_MG23T5018C_p40_water_steam",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "มีน้ำหยด ไอน้ำออกตามรอยแยกประตู หรือมีน้ำค้างอยู่ในเตาหลังปรุงอาหารใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n1n",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n1n",
+          "type": "resolution",
+          "content": "ขึ้นอยู่กับอาหาร อาจมีน้ำหรือไอน้ำได้ ไม่ใช่ความผิดปกติของเตา ปล่อยให้เตาเย็นลงแล้วเช็ดด้วยผ้าเช็ดจานแห้ง (คู่มือหน้า 40) ระวังไอร้อนเมื่อเปิดประตู (คู่มือหน้า 7)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ติดต่อ Samsung Customer Care ประเทศไทย โทร 1282 หรือ 1800-29-3232 (โทรฟรี) หรือเว็บไซต์ www.samsung.com/th/support (คู่มือหน้า 44) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว (คู่มือหน้า 42) การเรียกบริการเพื่ออธิบายวิธีใช้งาน แก้การติดตั้งที่ไม่ถูกต้อง หรือทำความสะอาดและบำรุงรักษาตามปกติ ไม่อยู่ในการรับประกันของ Samsung (คู่มือหน้า 44)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_mg23t5018c_um_brightness_varies",
+      "device_category": "Microwave Oven",
+      "brand": "Samsung",
+      "model_pattern": "MG23T5018C*",
+      "entry_symptom": "The brightness inside the microwave oven varies.",
+      "entry_symptom_th": "ความสว่างภายในเตาเปลี่ยนไปมา",
+      "entry_symptom_aliases": [
+        "ไฟในไมโครเวฟสว่างไม่เท่ากัน",
+        "ไฟในเตากะพริบ",
+        "ไฟในเตาหรี่ลง",
+        "microwave light brightness varies"
+      ],
+      "source": "Samsung Microwave Oven User Manual MG23T5018C* (MG23T5018CC_ST_DE68_04594R_00_TH_EN_210624)",
+      "page_range": [
+        41,
+        41
+      ],
+      "source_chunk_id": "manual_Samsung_Microwave_MG23T5018C_p41_brightness_varies",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "ความสว่างของไฟภายในเตาเปลี่ยนไปมาขณะปรุงอาหารใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n1n",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n1n",
+          "type": "resolution",
+          "content": "ไม่ใช่ความผิดปกติ: ความสว่างเปลี่ยนไปตามกำลังไฟที่เปลี่ยนตามฟังก์ชัน การเปลี่ยนกำลังไฟระหว่างปรุงไม่ใช่ความขัดข้องของเตา (คู่มือหน้า 41)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ติดต่อ Samsung Customer Care ประเทศไทย โทร 1282 หรือ 1800-29-3232 (โทรฟรี) หรือเว็บไซต์ www.samsung.com/th/support (คู่มือหน้า 44) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว (คู่มือหน้า 42) การเรียกบริการเพื่ออธิบายวิธีใช้งาน แก้การติดตั้งที่ไม่ถูกต้อง หรือทำความสะอาดและบำรุงรักษาตามปกติ ไม่อยู่ในการรับประกันของ Samsung (คู่มือหน้า 44)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_mg23t5018c_um_fan_still_running",
+      "device_category": "Microwave Oven",
+      "brand": "Samsung",
+      "model_pattern": "MG23T5018C*",
+      "entry_symptom": "Cooking is finished, but the cooling fan is still running.",
+      "entry_symptom_th": "ปรุงเสร็จแล้วแต่พัดลมระบายความร้อนยังทำงานอยู่",
+      "entry_symptom_aliases": [
+        "พัดลมไมโครเวฟยังหมุน",
+        "ปรุงเสร็จแล้วพัดลมไม่หยุด",
+        "ไมโครเวฟมีเสียงพัดลมหลังเสร็จ",
+        "microwave fan keeps running"
+      ],
+      "source": "Samsung Microwave Oven User Manual MG23T5018C* (MG23T5018CC_ST_DE68_04594R_00_TH_EN_210624)",
+      "page_range": [
+        41,
+        41
+      ],
+      "source_chunk_id": "manual_Samsung_Microwave_MG23T5018C_p41_fan_still_running",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "พัดลมยังทำงานอยู่ไม่เกินประมาณ 3 นาทีหลังปรุงเสร็จใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n1n",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n1n",
+          "type": "resolution",
+          "content": "ไม่ใช่ความผิดปกติ: พัดลมระบายความร้อนจะทำงานต่อประมาณ 3 นาทีหลังปรุงเสร็จเพื่อระบายอากาศในเตา (คู่มือหน้า 41)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ติดต่อ Samsung Customer Care ประเทศไทย โทร 1282 หรือ 1800-29-3232 (โทรฟรี) หรือเว็บไซต์ www.samsung.com/th/support (คู่มือหน้า 44) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว (คู่มือหน้า 42) การเรียกบริการเพื่ออธิบายวิธีใช้งาน แก้การติดตั้งที่ไม่ถูกต้อง หรือทำความสะอาดและบำรุงรักษาตามปกติ ไม่อยู่ในการรับประกันของ Samsung (คู่มือหน้า 44)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_mg23t5018c_um_turntable_out",
+      "device_category": "Microwave Oven",
+      "brand": "Samsung",
+      "model_pattern": "MG23T5018C*",
+      "entry_symptom": "While turning, the turntable comes out of place or stops turning.",
+      "entry_symptom_th": "จานหมุนหลุดจากตำแหน่งหรือหยุดหมุนขณะทำงาน",
+      "entry_symptom_aliases": [
+        "จานหมุนไมโครเวฟหลุด",
+        "จานไมโครเวฟไม่หมุน",
+        "จานหมุนหยุด",
+        "turntable stops"
+      ],
+      "source": "Samsung Microwave Oven User Manual MG23T5018C* (MG23T5018CC_ST_DE68_04594R_00_TH_EN_210624)",
+      "page_range": [
+        41,
+        41
+      ],
+      "source_chunk_id": "manual_Samsung_Microwave_MG23T5018C_p41_turntable_out",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "วางโรลเลอร์ริง (roller ring) ไว้กลางเตาและอยู่ในตำแหน่งที่ถูกต้องแล้วใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_escalate",
+          "on_no": "n1f"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "ติดตั้งโรลเลอร์ริง (roller ring) ไว้ตรงกลางเตา แล้ววางจานหมุนบนโรลเลอร์ริงโดยให้ส่วนกลางของจานสวมกับแกนหมุน (coupler) จากนั้นตรวจว่าจานหมุนได้อิสระ (คู่มือหน้า 9 และ 41)",
+          "safety_critical": true,
+          "safety_warning": "ห้ามเปิดเตาโดยไม่มีโรลเลอร์ริงและจานหมุน (คู่มือหน้า 9) ระวังอย่าให้จานหมุนเคลื่อนที่เมื่อนำภาชนะออก (คู่มือหน้า 4) ใช้ถุงมือกันความร้อนเมื่อนำภาชนะออก (คู่มือหน้า 7)",
+          "author_note": "หน้า 41 ระบุเพียง 'Install the roller ring' วิธีติดตั้งมาจากหน้า 9",
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "จานหมุนหมุนได้ตามปกติแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ติดต่อ Samsung Customer Care ประเทศไทย โทร 1282 หรือ 1800-29-3232 (โทรฟรี) หรือเว็บไซต์ www.samsung.com/th/support (คู่มือหน้า 44) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว (คู่มือหน้า 42) การเรียกบริการเพื่ออธิบายวิธีใช้งาน แก้การติดตั้งที่ไม่ถูกต้อง หรือทำความสะอาดและบำรุงรักษาตามปกติ ไม่อยู่ในการรับประกันของ Samsung (คู่มือหน้า 44)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_mg23t5018c_um_turntable_drags",
+      "device_category": "Microwave Oven",
+      "brand": "Samsung",
+      "model_pattern": "MG23T5018C*",
+      "entry_symptom": "The turntable drags while turning.",
+      "entry_symptom_th": "จานหมุนฝืดหรือติดขัดขณะหมุน",
+      "entry_symptom_aliases": [
+        "จานหมุนไมโครเวฟฝืด",
+        "จานหมุนติด",
+        "จานหมุนครูด",
+        "turntable drags"
+      ],
+      "source": "Samsung Microwave Oven User Manual MG23T5018C* (MG23T5018CC_ST_DE68_04594R_00_TH_EN_210624)",
+      "page_range": [
+        41,
+        41
+      ],
+      "source_chunk_id": "manual_Samsung_Microwave_MG23T5018C_p41_turntable_drags",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "โรลเลอร์ริงอยู่ในตำแหน่งที่ถูกต้องแล้วใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2",
+          "on_no": "n1f"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "ติดตั้งโรลเลอร์ริง (roller ring) ไว้ตรงกลางเตา แล้ววางจานหมุนบนโรลเลอร์ริงโดยให้ส่วนกลางของจานสวมกับแกนหมุน (coupler) จากนั้นตรวจว่าจานหมุนได้อิสระ (คู่มือหน้า 9 และ 41)",
+          "safety_critical": true,
+          "safety_warning": "ห้ามเปิดเตาโดยไม่มีโรลเลอร์ริงและจานหมุน (คู่มือหน้า 9) ระวังอย่าให้จานหมุนเคลื่อนที่เมื่อนำภาชนะออก (คู่มือหน้า 4) ใช้ถุงมือกันความร้อนเมื่อนำภาชนะออก (คู่มือหน้า 7)",
+          "author_note": "หน้า 41 ระบุสาเหตุเรื่องโรลเลอร์ริงแต่ไม่ได้ระบุวิธีแก้ในแถวนี้ ขั้นตอนมาจากหน้า 9",
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "ใส่อาหารมากเกินไปหรือใช้ภาชนะใหญ่จนชนผนังด้านในเตาหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2f",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n2f",
+          "type": "instruction",
+          "content": "ปรับปริมาณอาหารและไม่ใช้ภาชนะที่ใหญ่เกินไป (คู่มือหน้า 41)",
+          "safety_critical": true,
+          "safety_warning": "ห้ามเปิดเตาโดยไม่มีโรลเลอร์ริงและจานหมุน (คู่มือหน้า 9) ระวังอย่าให้จานหมุนเคลื่อนที่เมื่อนำภาชนะออก (คู่มือหน้า 4) ใช้ถุงมือกันความร้อนเมื่อนำภาชนะออก (คู่มือหน้า 7)",
+          "author_note": "หน้า 41 ระบุสาเหตุสามข้อรวมกัน ผู้พัฒนาแยกเป็นสองขั้นตอน",
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "จานหมุนหมุนได้ลื่นตามปกติแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ติดต่อ Samsung Customer Care ประเทศไทย โทร 1282 หรือ 1800-29-3232 (โทรฟรี) หรือเว็บไซต์ www.samsung.com/th/support (คู่มือหน้า 44) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว (คู่มือหน้า 42) การเรียกบริการเพื่ออธิบายวิธีใช้งาน แก้การติดตั้งที่ไม่ถูกต้อง หรือทำความสะอาดและบำรุงรักษาตามปกติ ไม่อยู่ในการรับประกันของ Samsung (คู่มือหน้า 44)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_mg23t5018c_um_turntable_noisy",
+      "device_category": "Microwave Oven",
+      "brand": "Samsung",
+      "model_pattern": "MG23T5018C*",
+      "entry_symptom": "The turntable rattles while turning and is noisy.",
+      "entry_symptom_th": "จานหมุนสั่นและมีเสียงดังขณะหมุน",
+      "entry_symptom_aliases": [
+        "จานไมโครเวฟมีเสียงดัง",
+        "จานหมุนสั่น",
+        "ไมโครเวฟมีเสียงกึกกัก",
+        "turntable noisy"
+      ],
+      "source": "Samsung Microwave Oven User Manual MG23T5018C* (MG23T5018CC_ST_DE68_04594R_00_TH_EN_210624)",
+      "page_range": [
+        41,
+        41
+      ],
+      "source_chunk_id": "manual_Samsung_Microwave_MG23T5018C_p41_turntable_noisy",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "มีเศษอาหารติดอยู่ที่พื้นเตาหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n1f",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "นำเศษอาหารที่ติดที่พื้นเตาออก (คู่มือหน้า 41) ยกจานหมุนออกมาล้างได้ง่าย (คู่มือหน้า 9) รอให้เตาเย็นก่อนแล้วล้างด้วยน้ำยาล้างจานอ่อนๆ (คู่มือหน้า 10)",
+          "safety_critical": true,
+          "safety_warning": "รอให้เตาเย็นลงก่อนทำความสะอาดห้องปรุงอาหารด้วยน้ำยาล้างจานอ่อนๆ ห้ามใช้สารขัดถูหรือสารเคมีทำความสะอาด (คู่มือหน้า 10) ห้ามใช้เบนซีน ทินเนอร์ แอลกอฮอล์ เครื่องฉีดไอน้ำ หรือเครื่องฉีดน้ำแรงดันสูง และห้ามฉีดหรือเทน้ำใส่เตาโดยตรง (คู่มือหน้า 6) ห้ามใช้สารขัดถูแรงหรือเครื่องขูดโลหะแหลมคมกับกระจกประตู เพราะกระจกอาจแตกได้ (คู่มือหน้า 5) ห้ามเปิดเตาโดยไม่มีโรลเลอร์ริงและจานหมุน (คู่มือหน้า 9) ระวังอย่าให้จานหมุนเคลื่อนที่เมื่อนำภาชนะออก (คู่มือหน้า 4) ใช้ถุงมือกันความร้อนเมื่อนำภาชนะออก (คู่มือหน้า 7)",
+          "author_note": "หน้า 41 ระบุเพียงให้นำเศษอาหารออก วิธีล้างและข้อห้ามมาจากหน้า 10",
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "จานหมุนหมุนเงียบตามปกติแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ติดต่อ Samsung Customer Care ประเทศไทย โทร 1282 หรือ 1800-29-3232 (โทรฟรี) หรือเว็บไซต์ www.samsung.com/th/support (คู่มือหน้า 44) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว (คู่มือหน้า 42) การเรียกบริการเพื่ออธิบายวิธีใช้งาน แก้การติดตั้งที่ไม่ถูกต้อง หรือทำความสะอาดและบำรุงรักษาตามปกติ ไม่อยู่ในการรับประกันของ Samsung (คู่มือหน้า 44)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_mg23t5018c_um_grill_smoke",
+      "device_category": "Microwave Oven",
+      "brand": "Samsung",
+      "model_pattern": "MG23T5018C*",
+      "entry_symptom": "Grill: Smoke comes out during operation.",
+      "entry_symptom_th": "มีควันออกระหว่างใช้โหมดย่าง",
+      "entry_symptom_aliases": [
+        "ย่างแล้วมีควัน",
+        "ตัวย่างไมโครเวฟมีควัน",
+        "ไมโครเวฟมีควันตอนย่าง",
+        "grill smoke"
+      ],
+      "source": "Samsung Microwave Oven User Manual MG23T5018C* (MG23T5018CC_ST_DE68_04594R_00_TH_EN_210624)",
+      "page_range": [
+        41,
+        41
+      ],
+      "source_chunk_id": "manual_Samsung_Microwave_MG23T5018C_p41_grill_smoke",
+      "severity": "medium",
+      "difficulty": "medium",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "instruction",
+          "content": "ปิดเตาโดยกดปุ่ม STOP/Eco สองครั้ง หรือถอดปลั๊ก และปิดประตูเตาไว้เพื่อสกัดเปลวไฟ (คู่มือหน้า 4 และ 15)",
+          "safety_critical": true,
+          "safety_warning": "ถ้ามีควันออกมา ให้ปิดเครื่องหรือถอดปลั๊กและปิดประตูเตาไว้เพื่อสกัดเปลวไฟ (คู่มือหน้า 4) ถ้าเตามีเสียงผิดปกติ กลิ่นไหม้ หรือควัน ให้ถอดปลั๊กทันทีและติดต่อศูนย์บริการที่ใกล้ที่สุด (คู่มือหน้า 5) ขณะเตากำลังทำงาน ไม่ควรปิดเตาด้วยการถอดปลั๊ก (คู่มือหน้า 6)",
+          "author_note": "หน้า 41 ไม่ได้สั่งให้ปิดเตาเมื่อมีควัน ขั้นตอนนี้มาจากหน้า 4 และ 5 ซึ่งระบุให้ปิดหรือถอดปลั๊กเมื่อมีควัน และหน้า 15 อธิบายการหยุดเตา",
+          "next": "n2"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "เพิ่งเริ่มใช้เตาครั้งแรกและควันออกจากชิ้นส่วนทำความร้อน (heating elements) ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2n",
+          "on_no": "n3"
+        },
+        {
+          "node_id": "n2n",
+          "type": "resolution",
+          "content": "ไม่ใช่ความผิดปกติ ระหว่างใช้งานครั้งแรกอาจมีควันออกจากชิ้นส่วนทำความร้อน ถ้าเปิดเตา 2-3 ครั้ง ควันควรหยุด (คู่มือหน้า 41) ถ้าควันไม่หยุดหรือมีกลิ่นไหม้ ให้ถอดปลั๊กและติดต่อศูนย์บริการ (คู่มือหน้า 5)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "node_id": "n3",
+          "type": "checkpoint",
+          "question": "มีอาหารติดอยู่ที่ชิ้นส่วนทำความร้อนหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n3f",
+          "on_no": "n4"
+        },
+        {
+          "node_id": "n3f",
+          "type": "instruction",
+          "content": "ปล่อยให้เตาเย็นลง แล้วนำอาหารออกจากชิ้นส่วนทำความร้อน (คู่มือหน้า 41)",
+          "safety_critical": true,
+          "safety_warning": "ตัวเตา ประตู ภายในเตา ภาชนะ และอาหารอาจร้อนจัด ระวังอย่าสัมผัสชิ้นส่วนทำความร้อน (heating element) ภายในเตา เด็กเล็กต้องอยู่ห่าง (คู่มือหน้า 5) ใช้ถุงมือกันความร้อนเมื่อนำภาชนะออก และยืนห่างช่วงแขนเมื่อเปิดประตูเพื่อป้องกันไอร้อนหรือไอน้ำลวก ของเหลวที่อุ่นให้ตั้งทิ้งไว้อย่างน้อย 20 วินาทีก่อนหยิบ (คู่มือหน้า 7) รอให้เตาเย็นลงก่อนทำความสะอาดห้องปรุงอาหารด้วยน้ำยาล้างจานอ่อนๆ ห้ามใช้สารขัดถูหรือสารเคมีทำความสะอาด (คู่มือหน้า 10) ห้ามใช้เบนซีน ทินเนอร์ แอลกอฮอล์ เครื่องฉีดไอน้ำ หรือเครื่องฉีดน้ำแรงดันสูง และห้ามฉีดหรือเทน้ำใส่เตาโดยตรง (คู่มือหน้า 6) ห้ามใช้สารขัดถูแรงหรือเครื่องขูดโลหะแหลมคมกับกระจกประตู เพราะกระจกอาจแตกได้ (คู่มือหน้า 5)",
+          "next": "n3v"
+        },
+        {
+          "node_id": "n3v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n4"
+        },
+        {
+          "node_id": "n4",
+          "type": "checkpoint",
+          "question": "วางอาหารใกล้ตัวย่าง (grill) มากเกินไปหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n4f",
+          "on_no": "n5"
+        },
+        {
+          "node_id": "n4f",
+          "type": "instruction",
+          "content": "วางอาหารให้อยู่ห่างจากตัวย่างในระยะที่เหมาะสมขณะปรุง (คู่มือหน้า 41) ใช้ตะแกรงย่างช่วยให้ปรุงและย่างได้ดีขึ้น (คู่มือหน้า 26)",
+          "safety_critical": true,
+          "safety_warning": "ตัวเตา ประตู ภายในเตา ภาชนะ และอาหารอาจร้อนจัด ระวังอย่าสัมผัสชิ้นส่วนทำความร้อน (heating element) ภายในเตา เด็กเล็กต้องอยู่ห่าง (คู่มือหน้า 5) ใช้ถุงมือกันความร้อนเมื่อนำภาชนะออก และยืนห่างช่วงแขนเมื่อเปิดประตูเพื่อป้องกันไอร้อนหรือไอน้ำลวก ของเหลวที่อุ่นให้ตั้งทิ้งไว้อย่างน้อย 20 วินาทีก่อนหยิบ (คู่มือหน้า 7)",
+          "author_note": "หน้า 41 ไม่ระบุระยะที่เหมาะสม ผู้พัฒนาไม่ระบุตัวเลข ส่วนการใช้ตะแกรงย่างมาจากหน้า 26",
+          "next": "n4v"
+        },
+        {
+          "node_id": "n4v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n5"
+        },
+        {
+          "node_id": "n5",
+          "type": "checkpoint",
+          "question": "เตรียมและจัดเรียงอาหารอย่างเหมาะสมแล้วใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_escalate",
+          "on_no": "n5f"
+        },
+        {
+          "node_id": "n5f",
+          "type": "instruction",
+          "content": "เตรียมและจัดเรียงอาหารให้เหมาะสมแล้วลองใหม่ (คู่มือหน้า 41)",
+          "safety_critical": true,
+          "safety_warning": "ตัวเตา ประตู ภายในเตา ภาชนะ และอาหารอาจร้อนจัด ระวังอย่าสัมผัสชิ้นส่วนทำความร้อน (heating element) ภายในเตา เด็กเล็กต้องอยู่ห่าง (คู่มือหน้า 5) ใช้ถุงมือกันความร้อนเมื่อนำภาชนะออก และยืนห่างช่วงแขนเมื่อเปิดประตูเพื่อป้องกันไอร้อนหรือไอน้ำลวก ของเหลวที่อุ่นให้ตั้งทิ้งไว้อย่างน้อย 20 วินาทีก่อนหยิบ (คู่มือหน้า 7)",
+          "author_note": "หน้า 41 ไม่อธิบายว่าอย่างไรจึงเหมาะสม ผู้พัฒนาไม่เพิ่มรายละเอียด ให้ดูตารางการย่างหน้า 36–38",
+          "next": "n5v"
+        },
+        {
+          "node_id": "n5v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "ไม่มีควันออกจากเตาแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ถ้าเตามีเสียงผิดปกติ กลิ่นไหม้ ควัน ประกายไฟ หรือรู้สึกว่ามีไฟฟ้าออกมาจากเตา ให้ถอดปลั๊กและหยุดใช้เตา (คู่มือหน้า 5) แล้วติดต่อ Samsung Customer Care ประเทศไทย โทร 1282 หรือ 1800-29-3232 (โทรฟรี) (คู่มือหน้า 44) พร้อมแจ้งรุ่นเครื่องและอาการ ห้ามซ่อมเตาเอง (คู่มือหน้า 10)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_mg23t5018c_um_not_heat",
+      "device_category": "Microwave Oven",
+      "brand": "Samsung",
+      "model_pattern": "MG23T5018C*",
+      "entry_symptom": "The microwave oven does not heat.",
+      "entry_symptom_th": "เตาไม่ให้ความร้อน",
+      "entry_symptom_aliases": [
+        "ไมโครเวฟไม่ร้อน",
+        "ไมโครเวฟไม่ทำความร้อน",
+        "microwave does not heat"
+      ],
+      "source": "Samsung Microwave Oven User Manual MG23T5018C* (MG23T5018CC_ST_DE68_04594R_00_TH_EN_210624)",
+      "page_range": [
+        41,
+        41
+      ],
+      "source_chunk_id": "manual_Samsung_Microwave_MG23T5018C_p41_not_heat",
+      "severity": "medium",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "ประตูเตาเปิดอยู่หรือปิดไม่สนิทหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n1f",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "ปิดประตูให้สนิทแล้วลองใหม่ (คู่มือหน้า 41)",
+          "safety_critical": true,
+          "safety_warning": "ห้ามใช้เตาถ้าประตูหรือซีลประตูชำรุด ต้องให้ผู้มีคุณสมบัติซ่อมก่อน (คู่มือหน้า 3) ห้ามผู้ไม่มีความสามารถถอดฝาครอบที่ป้องกันคลื่นไมโครเวฟ (คู่มือหน้า 3) ห้ามสอดนิ้วหรือสิ่งแปลกปลอมเข้าไปในเตา ถ้าสิ่งแปลกปลอมเข้าไปในเตาให้ถอดปลั๊กและติดต่อศูนย์บริการ (คู่มือหน้า 6)",
+          "author_note": "หน้า 41 ระบุเพียง 'Close the door and try again' คำเตือนเรื่องประตูมาจากหน้า 3 และ 6 หัวข้อ 'Microwave oven' หน้า 41 แยกจากหัวข้อ Grill",
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "เตาให้ความร้อนตามปกติแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ติดต่อ Samsung Customer Care ประเทศไทย โทร 1282 หรือ 1800-29-3232 (โทรฟรี) หรือเว็บไซต์ www.samsung.com/th/support (คู่มือหน้า 44) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว (คู่มือหน้า 42) การเรียกบริการเพื่ออธิบายวิธีใช้งาน แก้การติดตั้งที่ไม่ถูกต้อง หรือทำความสะอาดและบำรุงรักษาตามปกติ ไม่อยู่ในการรับประกันของ Samsung (คู่มือหน้า 44)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_mg23t5018c_um_smoke_preheat",
+      "device_category": "Microwave Oven",
+      "brand": "Samsung",
+      "model_pattern": "MG23T5018C*",
+      "entry_symptom": "Smoke comes out during preheating.",
+      "entry_symptom_th": "มีควันออกระหว่างอุ่นเตาเริ่มต้น",
+      "entry_symptom_aliases": [
+        "ไมโครเวฟมีควัน",
+        "ควันออกจากไมโครเวฟ",
+        "ไมโครเวฟมีควันตอนเริ่มใช้",
+        "microwave smoke"
+      ],
+      "source": "Samsung Microwave Oven User Manual MG23T5018C* (MG23T5018CC_ST_DE68_04594R_00_TH_EN_210624)",
+      "page_range": [
+        41,
+        41
+      ],
+      "source_chunk_id": "manual_Samsung_Microwave_MG23T5018C_p41_smoke_preheat",
+      "severity": "medium",
+      "difficulty": "medium",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "instruction",
+          "content": "ปิดเตาโดยกดปุ่ม STOP/Eco สองครั้ง หรือถอดปลั๊ก และปิดประตูเตาไว้เพื่อสกัดเปลวไฟ (คู่มือหน้า 4 และ 15)",
+          "safety_critical": true,
+          "safety_warning": "ถ้ามีควันออกมา ให้ปิดเครื่องหรือถอดปลั๊กและปิดประตูเตาไว้เพื่อสกัดเปลวไฟ (คู่มือหน้า 4) ถ้าเตามีเสียงผิดปกติ กลิ่นไหม้ หรือควัน ให้ถอดปลั๊กทันทีและติดต่อศูนย์บริการที่ใกล้ที่สุด (คู่มือหน้า 5) ขณะเตากำลังทำงาน ไม่ควรปิดเตาด้วยการถอดปลั๊ก (คู่มือหน้า 6)",
+          "author_note": "หน้า 41 ไม่ได้สั่งให้ปิดเตาเมื่อมีควัน ขั้นตอนนี้มาจากหน้า 4 และ 5 ซึ่งระบุให้ปิดหรือถอดปลั๊กเมื่อมีควัน และหน้า 15 อธิบายการหยุดเตา",
+          "next": "n2"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "เพิ่งเริ่มใช้เตาครั้งแรกและควันออกจากชิ้นส่วนทำความร้อน (heating elements) ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2n",
+          "on_no": "n3"
+        },
+        {
+          "node_id": "n2n",
+          "type": "resolution",
+          "content": "ไม่ใช่ความผิดปกติ ระหว่างใช้งานครั้งแรกอาจมีควันออกจากชิ้นส่วนทำความร้อน ถ้าเปิดเตา 2-3 ครั้ง ควันควรหยุด (คู่มือหน้า 41) ถ้าควันไม่หยุดหรือมีกลิ่นไหม้ ให้ถอดปลั๊กและติดต่อศูนย์บริการ (คู่มือหน้า 5)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "node_id": "n3",
+          "type": "checkpoint",
+          "question": "มีอาหารติดอยู่ที่ชิ้นส่วนทำความร้อนหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n3f",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n3f",
+          "type": "instruction",
+          "content": "ปล่อยให้เตาเย็นลง แล้วนำอาหารออกจากชิ้นส่วนทำความร้อน (คู่มือหน้า 41)",
+          "safety_critical": true,
+          "safety_warning": "ตัวเตา ประตู ภายในเตา ภาชนะ และอาหารอาจร้อนจัด ระวังอย่าสัมผัสชิ้นส่วนทำความร้อน (heating element) ภายในเตา เด็กเล็กต้องอยู่ห่าง (คู่มือหน้า 5) ใช้ถุงมือกันความร้อนเมื่อนำภาชนะออก และยืนห่างช่วงแขนเมื่อเปิดประตูเพื่อป้องกันไอร้อนหรือไอน้ำลวก ของเหลวที่อุ่นให้ตั้งทิ้งไว้อย่างน้อย 20 วินาทีก่อนหยิบ (คู่มือหน้า 7) รอให้เตาเย็นลงก่อนทำความสะอาดห้องปรุงอาหารด้วยน้ำยาล้างจานอ่อนๆ ห้ามใช้สารขัดถูหรือสารเคมีทำความสะอาด (คู่มือหน้า 10) ห้ามใช้เบนซีน ทินเนอร์ แอลกอฮอล์ เครื่องฉีดไอน้ำ หรือเครื่องฉีดน้ำแรงดันสูง และห้ามฉีดหรือเทน้ำใส่เตาโดยตรง (คู่มือหน้า 6) ห้ามใช้สารขัดถูแรงหรือเครื่องขูดโลหะแหลมคมกับกระจกประตู เพราะกระจกอาจแตกได้ (คู่มือหน้า 5)",
+          "next": "n3v"
+        },
+        {
+          "node_id": "n3v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "ไม่มีควันออกจากเตาแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ถ้าเตามีเสียงผิดปกติ กลิ่นไหม้ ควัน ประกายไฟ หรือรู้สึกว่ามีไฟฟ้าออกมาจากเตา ให้ถอดปลั๊กและหยุดใช้เตา (คู่มือหน้า 5) แล้วติดต่อ Samsung Customer Care ประเทศไทย โทร 1282 หรือ 1800-29-3232 (โทรฟรี) (คู่มือหน้า 44) พร้อมแจ้งรุ่นเครื่องและอาการ ห้ามซ่อมเตาเอง (คู่มือหน้า 10)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_mg23t5018c_um_burning_smell",
+      "device_category": "Microwave Oven",
+      "brand": "Samsung",
+      "model_pattern": "MG23T5018C*",
+      "entry_symptom": "There is a burning or plastic smell when using the microwave oven.",
+      "entry_symptom_th": "มีกลิ่นไหม้หรือกลิ่นพลาสติกขณะใช้เตา",
+      "entry_symptom_aliases": [
+        "ไมโครเวฟมีกลิ่นไหม้",
+        "ไมโครเวฟมีกลิ่นพลาสติก",
+        "กลิ่นไหม้ในไมโครเวฟ",
+        "microwave burning smell"
+      ],
+      "source": "Samsung Microwave Oven User Manual MG23T5018C* (MG23T5018CC_ST_DE68_04594R_00_TH_EN_210624)",
+      "page_range": [
+        41,
+        41
+      ],
+      "source_chunk_id": "manual_Samsung_Microwave_MG23T5018C_p41_burning_smell",
+      "severity": "medium",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "ใช้ภาชนะพลาสติกหรือภาชนะที่ไม่ทนความร้อนในเตาหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n1f",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "กดปุ่ม STOP/Eco หรือเปิดประตูเพื่อหยุดชั่วคราว แล้วกดปุ่ม STOP/Eco อีกครั้งเพื่อหยุดทั้งหมด (คู่มือหน้า 15) แล้วเปลี่ยนไปใช้ภาชนะแก้วที่ทนอุณหภูมิสูง (คู่มือหน้า 41)",
+          "safety_critical": true,
+          "safety_warning": "ถ้ามีควันออกมา ให้ปิดเครื่องหรือถอดปลั๊กและปิดประตูเตาไว้เพื่อสกัดเปลวไฟ (คู่มือหน้า 4) ถ้าเตามีเสียงผิดปกติ กลิ่นไหม้ หรือควัน ให้ถอดปลั๊กทันทีและติดต่อศูนย์บริการที่ใกล้ที่สุด (คู่มือหน้า 5) ขณะเตากำลังทำงาน ไม่ควรปิดเตาด้วยการถอดปลั๊ก (คู่มือหน้า 6) ตัวเตา ประตู ภายในเตา ภาชนะ และอาหารอาจร้อนจัด ระวังอย่าสัมผัสชิ้นส่วนทำความร้อน (heating element) ภายในเตา เด็กเล็กต้องอยู่ห่าง (คู่มือหน้า 5) ใช้ถุงมือกันความร้อนเมื่อนำภาชนะออก และยืนห่างช่วงแขนเมื่อเปิดประตูเพื่อป้องกันไอร้อนหรือไอน้ำลวก ของเหลวที่อุ่นให้ตั้งทิ้งไว้อย่างน้อย 20 วินาทีก่อนหยิบ (คู่มือหน้า 7)",
+          "author_note": "หน้า 41 ระบุเพียงให้ใช้ภาชนะแก้วที่ทนความร้อน หน้า 5 ระบุว่าเมื่อมีกลิ่นไหม้ให้ถอดปลั๊กทันทีและติดต่อศูนย์บริการ ซึ่งเข้มกว่า จึงใส่ไว้ในคำเตือนและขั้นตอนส่งต่อ ขั้นตอนหยุดเตามาจากหน้า 15 และการใช้ภาชนะที่ทนความร้อนในโหมดย่างและผสมมาจากหน้า 26",
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "ไม่มีกลิ่นไหม้หรือกลิ่นพลาสติกแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ถ้าเตามีเสียงผิดปกติ กลิ่นไหม้ ควัน ประกายไฟ หรือรู้สึกว่ามีไฟฟ้าออกมาจากเตา ให้ถอดปลั๊กและหยุดใช้เตา (คู่มือหน้า 5) แล้วติดต่อ Samsung Customer Care ประเทศไทย โทร 1282 หรือ 1800-29-3232 (โทรฟรี) (คู่มือหน้า 44) พร้อมแจ้งรุ่นเครื่องและอาการ ห้ามซ่อมเตาเอง (คู่มือหน้า 10)",
+          "outcome_kind": "handoff_informed"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_mg23t5018c_um_bad_smell",
+      "device_category": "Microwave Oven",
+      "brand": "Samsung",
+      "model_pattern": "MG23T5018C*",
+      "entry_symptom": "There is a bad smell coming from inside the microwave oven.",
+      "entry_symptom_th": "มีกลิ่นเหม็นออกมาจากภายในเตา",
+      "entry_symptom_aliases": [
+        "ไมโครเวฟมีกลิ่นเหม็น",
+        "ไมโครเวฟมีกลิ่นอับ",
+        "กลิ่นในไมโครเวฟ",
+        "microwave bad smell"
+      ],
+      "source": "Samsung Microwave Oven User Manual MG23T5018C* (MG23T5018CC_ST_DE68_04594R_00_TH_EN_210624)",
+      "page_range": [
+        42,
+        42
+      ],
+      "source_chunk_id": "manual_Samsung_Microwave_MG23T5018C_p42_bad_smell",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "instruction",
+          "content": "เมื่อเตาว่าง วางเลมอนหนึ่งชิ้นไว้ในเตาแล้วเปิดเตาเพื่อกำจัดกลิ่นให้เร็วขึ้น แล้วเช็ดด้วยผ้าแห้งหลังเตาเย็น (คู่มือหน้า 42) หรือใช้วิธีของหน้า 10: วางถ้วยน้ำมะนาวเจือจางไว้กลางจานหมุน อุ่นด้วยกำลังสูงสุด 10 นาที เมื่อครบรอบรอให้เตาเย็นลง แล้วจึงเปิดประตูและทำความสะอาดห้องปรุงอาหาร (คู่มือหน้า 10)",
+          "safety_critical": true,
+          "safety_warning": "ตัวเตา ประตู ภายในเตา ภาชนะ และอาหารอาจร้อนจัด ระวังอย่าสัมผัสชิ้นส่วนทำความร้อน (heating element) ภายในเตา เด็กเล็กต้องอยู่ห่าง (คู่มือหน้า 5) ใช้ถุงมือกันความร้อนเมื่อนำภาชนะออก และยืนห่างช่วงแขนเมื่อเปิดประตูเพื่อป้องกันไอร้อนหรือไอน้ำลวก ของเหลวที่อุ่นให้ตั้งทิ้งไว้อย่างน้อย 20 วินาทีก่อนหยิบ (คู่มือหน้า 7) รอให้เตาเย็นลงก่อนทำความสะอาดห้องปรุงอาหารด้วยน้ำยาล้างจานอ่อนๆ ห้ามใช้สารขัดถูหรือสารเคมีทำความสะอาด (คู่มือหน้า 10) ห้ามใช้เบนซีน ทินเนอร์ แอลกอฮอล์ เครื่องฉีดไอน้ำ หรือเครื่องฉีดน้ำแรงดันสูง และห้ามฉีดหรือเทน้ำใส่เตาโดยตรง (คู่มือหน้า 6) ห้ามใช้สารขัดถูแรงหรือเครื่องขูดโลหะแหลมคมกับกระจกประตู เพราะกระจกอาจแตกได้ (คู่มือหน้า 5)",
+          "author_note": "หน้า 42 กล่าวถึง 'steam function' แต่รุ่นนี้ไม่มีฟังก์ชันไอน้ำในรายการปุ่ม (หน้า 11) และไม่มีหัวข้ออธิบายในคู่มือ ผู้พัฒนาจึงไม่ใส่เป็นขั้นตอน ส่วนวิธีเลมอนและเช็ดด้วยผ้าแห้งมาจากหน้า 42 และวิธีละเอียดมาจากหน้า 10 ควรให้ผู้ตรวจยืนยัน",
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "กลิ่นเหม็นในเตาหายแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ติดต่อ Samsung Customer Care ประเทศไทย โทร 1282 หรือ 1800-29-3232 (โทรฟรี) หรือเว็บไซต์ www.samsung.com/th/support (คู่มือหน้า 44) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว (คู่มือหน้า 42) การเรียกบริการเพื่ออธิบายวิธีใช้งาน แก้การติดตั้งที่ไม่ถูกต้อง หรือทำความสะอาดและบำรุงรักษาตามปกติ ไม่อยู่ในการรับประกันของ Samsung (คู่มือหน้า 44)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_mg23t5018c_um_not_cook_properly",
+      "device_category": "Microwave Oven",
+      "brand": "Samsung",
+      "model_pattern": "MG23T5018C*",
+      "entry_symptom": "The microwave oven does not cook properly.",
+      "entry_symptom_th": "เตาปรุงอาหารได้ไม่ดี",
+      "entry_symptom_aliases": [
+        "ไมโครเวฟอาหารไม่สุก",
+        "ไมโครเวฟทำอาหารไม่ดี",
+        "อาหารไม่ร้อนทั่ว",
+        "microwave not cooking properly"
+      ],
+      "source": "Samsung Microwave Oven User Manual MG23T5018C* (MG23T5018CC_ST_DE68_04594R_00_TH_EN_210624)",
+      "page_range": [
+        42,
+        42
+      ],
+      "source_chunk_id": "manual_Samsung_Microwave_MG23T5018C_p42_not_cook_properly",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "เปิดประตูเตาบ่อยระหว่างปรุงหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n1f",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "ลดการเปิดประตูระหว่างปรุง เพราะการเปิดบ่อยทำให้อุณหภูมิภายในลดลงและอาจกระทบผลการปรุง (คู่มือหน้า 42)",
+          "safety_critical": false,
+          "author_note": "หน้า 39–42 เป็นรายการตรวจ ไม่ได้อธิบายวิธีแก้โดยละเอียด ขั้นตอนที่เกินจากข้อความตรวจผู้พัฒนาเขียนเพิ่มจากหน้าที่อ้างอิง",
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "ตั้งปุ่มควบคุมถูกต้องตามอาหารและโหมดแล้วใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n3",
+          "on_no": "n2f"
+        },
+        {
+          "node_id": "n2f",
+          "type": "instruction",
+          "content": "ตั้งปุ่มควบคุมให้ถูกต้องแล้วลองใหม่ (คู่มือหน้า 42) เช่น กด Microwave เลือกระดับกำลังด้วย < หรือ > แล้วกด OK ตั้งเวลาด้วย < หรือ > แล้วกด START/+30s (คู่มือหน้า 13)",
+          "safety_critical": false,
+          "author_note": "หน้า 42 ระบุเพียง 'Correctly set the controls' วิธีตั้งปุ่มของโหมดไมโครเวฟมาจากหน้า 13 โหมดอื่น (Grill, Microwave+Grill, Quick Defrost, Grill Fry, Auto Cook) ดูหน้า 15–28",
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "node_id": "n3",
+          "type": "checkpoint",
+          "question": "ใส่อุปกรณ์เสริม (โรลเลอร์ริง จานหมุน ตะแกรงย่าง) ถูกต้องแล้วใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n4",
+          "on_no": "n3f"
+        },
+        {
+          "node_id": "n3f",
+          "type": "instruction",
+          "content": "ใส่อุปกรณ์เสริมให้ถูกต้อง: โรลเลอร์ริงอยู่ตรงกลางเตา จานหมุนวางบนโรลเลอร์ริงโดยให้ส่วนกลางสวมกับแกนหมุน และวางตะแกรงย่างบนจานหมุน (คู่มือหน้า 9 และ 42)",
+          "safety_critical": true,
+          "safety_warning": "ห้ามเปิดเตาโดยไม่มีโรลเลอร์ริงและจานหมุน (คู่มือหน้า 9) ระวังอย่าให้จานหมุนเคลื่อนที่เมื่อนำภาชนะออก (คู่มือหน้า 4) ใช้ถุงมือกันความร้อนเมื่อนำภาชนะออก (คู่มือหน้า 7)",
+          "author_note": "หน้า 42 ระบุเพียง 'Correctly insert the accessories' วิธีวางอุปกรณ์แต่ละชิ้นมาจากหน้า 9",
+          "next": "n3v"
+        },
+        {
+          "node_id": "n3v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n4"
+        },
+        {
+          "node_id": "n4",
+          "type": "checkpoint",
+          "question": "ใช้ภาชนะที่เหมาะสม ก้นแบน และใช้กับไมโครเวฟได้แล้วใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_escalate",
+          "on_no": "n4f"
+        },
+        {
+          "node_id": "n4f",
+          "type": "instruction",
+          "content": "ใช้ภาชนะที่เหมาะสมซึ่งมีก้นแบน (คู่มือหน้า 42) ต้องเป็นภาชนะที่ใช้กับไมโครเวฟได้ ดูตารางภาชนะหน้า 30",
+          "safety_critical": true,
+          "safety_warning": "ใช้เฉพาะภาชนะที่ใช้กับไมโครเวฟได้ ห้ามใช้ภาชนะโลหะ จานชามที่ขอบเป็นทองหรือเงิน ไม้เสียบ และต้องถอดลวดมัดถุงออก เพราะอาจเกิดประกายไฟ (คู่มือหน้า 7) ยกเว้นตะแกรงย่าง (grill rack) และจานอบกรอบ (crusty plate) ซึ่งเป็นอุปกรณ์เสริมของเตา (คู่มือหน้า 9) ตัวเตา ประตู ภายในเตา ภาชนะ และอาหารอาจร้อนจัด ระวังอย่าสัมผัสชิ้นส่วนทำความร้อน (heating element) ภายในเตา เด็กเล็กต้องอยู่ห่าง (คู่มือหน้า 5) ใช้ถุงมือกันความร้อนเมื่อนำภาชนะออก และยืนห่างช่วงแขนเมื่อเปิดประตูเพื่อป้องกันไอร้อนหรือไอน้ำลวก ของเหลวที่อุ่นให้ตั้งทิ้งไว้อย่างน้อย 20 วินาทีก่อนหยิบ (คู่มือหน้า 7)",
+          "author_note": "ตารางภาชนะที่ใช้ได้หรือไม่ได้อยู่หน้า 30 คู่มือไม่ระบุขนาดภาชนะที่เหมาะสม",
+          "next": "n4v"
+        },
+        {
+          "node_id": "n4v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "เตาปรุงอาหารได้ตามปกติแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ติดต่อ Samsung Customer Care ประเทศไทย โทร 1282 หรือ 1800-29-3232 (โทรฟรี) หรือเว็บไซต์ www.samsung.com/th/support (คู่มือหน้า 44) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว (คู่มือหน้า 42) การเรียกบริการเพื่ออธิบายวิธีใช้งาน แก้การติดตั้งที่ไม่ถูกต้อง หรือทำความสะอาดและบำรุงรักษาตามปกติ ไม่อยู่ในการรับประกันของ Samsung (คู่มือหน้า 44)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_mg23t5018c_um_code_cd0",
+      "device_category": "Microwave Oven",
+      "brand": "Samsung",
+      "model_pattern": "MG23T5018C*",
+      "entry_symptom": "Information code C-d0: Control buttons are pressed over 10 seconds.",
+      "entry_symptom_th": "หน้าจอแสดงรหัส C-d0 (กดปุ่มควบคุมค้างนานเกินสิบวินาที)",
+      "entry_symptom_aliases": [
+        "รหัส C-d0",
+        "ขึ้น C-d0",
+        "error C-d0",
+        "C-d0",
+        "ปุ่มค้าง",
+        "ปุ่มติด",
+        "กดปุ่มค้าง"
+      ],
+      "source": "Samsung Microwave Oven User Manual MG23T5018C* (MG23T5018CC_ST_DE68_04594R_00_TH_EN_210624)",
+      "page_range": [
+        42,
+        42
+      ],
+      "source_chunk_id": "manual_Samsung_Microwave_MG23T5018C_p42_code_cd0",
+      "severity": "medium",
+      "difficulty": "medium",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "หน้าจอแสดงรหัส C-d0 ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2",
+          "on_no": "n_nomatch"
+        },
+        {
+          "node_id": "n2",
+          "type": "instruction",
+          "content": "ทำความสะอาดปุ่มควบคุม และตรวจว่ามีน้ำอยู่บนพื้นผิวรอบปุ่มหรือไม่ (คู่มือหน้า 42)",
+          "safety_critical": true,
+          "safety_warning": "รอให้เตาเย็นลงก่อนทำความสะอาดห้องปรุงอาหารด้วยน้ำยาล้างจานอ่อนๆ ห้ามใช้สารขัดถูหรือสารเคมีทำความสะอาด (คู่มือหน้า 10) ห้ามใช้เบนซีน ทินเนอร์ แอลกอฮอล์ เครื่องฉีดไอน้ำ หรือเครื่องฉีดน้ำแรงดันสูง และห้ามฉีดหรือเทน้ำใส่เตาโดยตรง (คู่มือหน้า 6) ห้ามใช้สารขัดถูแรงหรือเครื่องขูดโลหะแหลมคมกับกระจกประตู เพราะกระจกอาจแตกได้ (คู่มือหน้า 5)",
+          "author_note": "หน้า 42 ไม่ระบุวิธีทำความสะอาดปุ่ม ผู้พัฒนาใส่ข้อห้ามเรื่องการทำความสะอาดจากหน้า 5, 6 และ 10",
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว รหัสบนจอหายไปและเครื่องทำงานปกติหรือไม่?",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "node_id": "n3",
+          "type": "instruction",
+          "content": "ปิดเตาไว้นานกว่า 30 วินาที แล้วลองตั้งค่าใหม่ (คู่มือหน้า 42)",
+          "safety_critical": false,
+          "author_note": "หน้า 42 ระบุว่า 'turn off the microwave oven over 30 seconds' โดยไม่ระบุวิธีปิดเตา ผู้พัฒนาไม่ระบุวิธี ควรให้ผู้ตรวจยืนยัน",
+          "next": "n3v"
+        },
+        {
+          "node_id": "n3v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว รหัสบนจอหายไปและเครื่องทำงานปกติหรือไม่?",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "รหัสหายไปและเตาทำงานปกติแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ทำตามรายการตรวจแล้วรหัส C-d0 ยังแสดงอยู่ ให้ติดต่อ Samsung Customer Care ประเทศไทย โทร 1282 หรือ 1800-29-3232 (โทรฟรี) (คู่มือหน้า 44) พร้อมแจ้งรุ่นเครื่อง รหัส และสิ่งที่ได้ตรวจไปแล้ว (คู่มือหน้า 42)",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "node_id": "n_nomatch",
+          "type": "escalation",
+          "content": "รหัสที่แสดงไม่ใช่ C-d0 ให้เลือกรหัสตามที่ปรากฏบนจอ หรือติดต่อศูนย์บริการ Samsung พร้อมแจ้งรหัสที่เห็น",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    }
+  ]
+}

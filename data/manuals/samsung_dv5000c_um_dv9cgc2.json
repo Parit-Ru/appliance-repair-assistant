@@ -1,0 +1,2165 @@
+{
+  "schema_version": 2,
+  "manual_id": "samsung_dv5000c_um_dv9cgc2",
+  "device_category": "Dryer",
+  "brand": "Samsung",
+  "model_pattern": "DV9*CGC2****",
+  "source_manual": "Samsung Heat Pump Dryer User Manual DV9*CGC2**** (D-PJT_DV5000C_D.LED_WEB_EN_TH_MY_250308)",
+  "count": 22,
+  "graphs": [
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_dv5000c_um_door_is_open",
+      "device_category": "Dryer",
+      "brand": "Samsung",
+      "model_pattern": "DV9*CGC2****",
+      "entry_symptom": "Door is open",
+      "entry_symptom_th": "เครื่องอบแจ้งว่าประตูเปิดอยู่",
+      "entry_symptom_aliases": [
+        "ประตูเปิดอยู่",
+        "ประตูไม่สนิท",
+        "dryer door open"
+      ],
+      "source": "Samsung Heat Pump Dryer User Manual DV9*CGC2**** (D-PJT_DV5000C_D.LED_WEB_EN_TH_MY_250308)",
+      "page_range": [
+        42,
+        42
+      ],
+      "source_chunk_id": "manual_Samsung_Dryer_DV5000C_p42_door_is_open",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "ปิดประตูเครื่องสนิทแล้วหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2",
+          "on_no": "n1f"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "ปิดประตูเครื่องให้สนิท",
+          "safety_critical": false,
+          "author_note": "คู่มือเป็นรายการตรวจ ไม่ได้อธิบายวิธีแก้ ขั้นตอนแก้ผู้พัฒนาเขียนเพิ่มจากข้อความตรวจ",
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "ไม่มีผ้าติดอยู่ที่ประตูใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_escalate",
+          "on_no": "n2f"
+        },
+        {
+          "node_id": "n2f",
+          "type": "instruction",
+          "content": "นำผ้าที่ติดอยู่ที่ประตูออก แล้วปิดประตูให้สนิท (คู่มือหน้า 42)",
+          "safety_critical": true,
+          "safety_warning": "ห้ามสัมผัสกระจกประตูและภายในถังขณะอบหรือหลังอบเสร็จใหม่ๆ เพราะร้อนและอาจทำให้ไหม้ และห้ามสอดมือเข้าไปในถังขณะถังกำลังหมุน (คู่มือหน้า 9, 10 และ 11)",
+          "author_note": "หน้า 42 เป็นคำถามตรวจ ส่วนคำเตือนเรื่องกระจกประตูและภายในถังที่ร้อนมาจากหน้า 10",
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "เครื่องไม่แจ้งว่าประตูเปิดอยู่แล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_dv5000c_um_does_not_run",
+      "device_category": "Dryer",
+      "brand": "Samsung",
+      "model_pattern": "DV9*CGC2****",
+      "entry_symptom": "Dryer does not run",
+      "entry_symptom_th": "เครื่องอบผ้าไม่ทำงาน",
+      "entry_symptom_aliases": [
+        "เครื่องอบไม่ทำงาน",
+        "เครื่องอบผ้าไม่ติด",
+        "dryer won't start"
+      ],
+      "source": "Samsung Heat Pump Dryer User Manual DV9*CGC2**** (D-PJT_DV5000C_D.LED_WEB_EN_TH_MY_250308)",
+      "page_range": [
+        42,
+        42
+      ],
+      "source_chunk_id": "manual_Samsung_Dryer_DV5000C_p42_does_not_run",
+      "severity": "medium",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "ปิดประตูเครื่องสนิทแล้วหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2",
+          "on_no": "n1f"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "ปิดประตูเครื่องให้สนิท",
+          "safety_critical": false,
+          "author_note": "คู่มือเป็นรายการตรวจ ไม่ได้อธิบายวิธีแก้ ขั้นตอนแก้ผู้พัฒนาเขียนเพิ่มจากข้อความตรวจ",
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "เสียบปลั๊กเข้าเต้ารับแล้วใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n3",
+          "on_no": "n2f"
+        },
+        {
+          "node_id": "n2f",
+          "type": "instruction",
+          "content": "เสียบปลั๊กให้แน่นเข้ากับเต้ารับแบบสามขาที่ต่อสายดิน ไม่ใช้อะแดปเตอร์หรือปลั๊กพ่วง (คู่มือหน้า 14)",
+          "safety_critical": true,
+          "safety_warning": "ห้ามใช้ปลั๊ก สายไฟ หรือเต้ารับที่ชำรุดหรือหลวม ห้ามใช้อะแดปเตอร์หรือปลั๊กพ่วง และห้ามแตะปลั๊กด้วยมือเปียก เมื่อถอดปลั๊กให้จับที่ตัวปลั๊ก ไม่ดึงที่สายไฟ เพราะอาจเกิดไฟฟ้าช็อกหรือไฟไหม้ ต้องเสียบกับเต้ารับแบบสามขาที่ต่อสายดิน (คู่มือหน้า 8, 9 และ 14)",
+          "author_note": "หน้า 42 เป็นคำถามตรวจ ส่วนวิธีเสียบและคำเตือนมาจากหน้า 8, 9 และ 14",
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "node_id": "n3",
+          "type": "checkpoint",
+          "question": "เบรกเกอร์และฟิวส์ของบ้านปกติใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n4",
+          "on_no": "n3f"
+        },
+        {
+          "node_id": "n3f",
+          "type": "instruction",
+          "content": "ตรวจเบรกเกอร์และฟิวส์ของบ้าน ถ้าเบรกเกอร์ตัดให้ยกกลับ (คู่มือหน้า 42)",
+          "safety_critical": true,
+          "safety_warning": "ห้ามใช้ฟิวส์ที่ไม่ใช่ฟิวส์มาตรฐาน (เช่น ลวดทองแดงหรือลวดเหล็ก) และห้ามซ่อม ถอดแยก หรือดัดแปลงเครื่องเอง ถ้าเบรกเกอร์ตัดซ้ำหลังยกกลับ ให้หยุดใช้งานและติดต่อศูนย์บริการ (คู่มือหน้า 10)",
+          "author_note": "คู่มือหน้า 42 ระบุเพียง 'Check the home's circuit breaker and fuses' ส่วนคำเตือนเรื่องฟิวส์มาตรฐานมาจากหน้า 10 และข้อความ 'ถ้าเบรกเกอร์ตัดให้ยกกลับ' กับ 'ถ้าตัดซ้ำให้หยุดใช้งาน' ผู้พัฒนาเพิ่มเอง",
+          "next": "n3v"
+        },
+        {
+          "node_id": "n3v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n4"
+        },
+        {
+          "node_id": "n4",
+          "type": "checkpoint",
+          "question": "ถังเก็บน้ำไม่เต็มใช่หรือไม่? (ถ้าไม่ได้ใช้ถังเก็บน้ำ ให้ตอบใช่)",
+          "safety_critical": false,
+          "on_yes": "n5",
+          "on_no": "n4f"
+        },
+        {
+          "node_id": "n4f",
+          "type": "instruction",
+          "content": "เทน้ำในถังเก็บน้ำ (water tank): ดึงที่จับถังด้วยมือข้างเดียวจนถังออกมาครึ่งหนึ่ง แล้วใช้มืออีกข้างรองใต้ถังและดึงถังออกช้าๆ ด้วยสองมือ > เทน้ำออกทางรูระบายน้ำ (B) > ใส่ถังกลับเข้าที่ (คู่มือหน้า 36)",
+          "safety_critical": true,
+          "safety_warning": "ถังเก็บน้ำหนักมาก ให้ดึงออกช้าๆ ด้วยสองมือและรักษาระดับถังให้ตรง ถ้าทำตกอาจบาดเจ็บ และห้ามดื่มน้ำที่เกิดจากการควบแน่น (คู่มือหน้า 9 และ 36)",
+          "author_note": "หน้า 42 บอกให้เทน้ำในถัง ขั้นตอนมาจากหน้า 36 เครื่องตั้งต้นจากโรงงานใช้ถังเก็บน้ำ (หน้า 17)",
+          "next": "n4v"
+        },
+        {
+          "node_id": "n4v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n5"
+        },
+        {
+          "node_id": "n5",
+          "type": "checkpoint",
+          "question": "ทำความสะอาดตัวกรองเศษผ้าแล้วหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_escalate",
+          "on_no": "n5f"
+        },
+        {
+          "node_id": "n5f",
+          "type": "instruction",
+          "content": "ทำความสะอาดตัวกรองเศษผ้า (lint filter): เปิดประตูเครื่อง จับด้านบนของตัวกรองแล้วดึงออก (อย่าถอดซีลยางของประตู) > เปิดตัวกรองชั้นนอกแล้วถอดตัวกรองชั้นใน (A) ออก > กางตัวกรองชั้นนอกและชั้นในออก > เก็บเศษผ้าออกจากตัวกรองทั้งสองชั้น แล้วทำความสะอาดด้วยแปรงทำความสะอาด (ถ้าต้องการให้สะอาดทั่วถึง ล้างด้วยน้ำไหลแล้วผึ่งให้แห้งสนิท ห้ามเขย่าหรือเคาะตัวกรอง และอย่าเปิดตัวกรองด้วยแรงมาก) > ใส่ตัวกรองชั้นในเข้าไปในชั้นนอก แล้วใส่ตัวกรองเศษผ้ากลับที่เดิม ห้ามใส่ขณะตัวกรองยังเปียก (คู่มือหน้า 38 และ 39)",
+          "safety_critical": true,
+          "safety_warning": "ถอดปลั๊กก่อนทำความสะอาดหรือบำรุงรักษา และห้ามฉีดน้ำใส่เครื่องโดยตรง ห้ามใช้เบนซีน ทินเนอร์ แอลกอฮอล์ หรืออะซีโตนทำความสะอาด เพราะอาจเกิดไฟฟ้าช็อกหรือไฟไหม้ (คู่มือหน้า 11 และ 37) ประตูกระจกและภายในถังอาจยังร้อน ห้ามสัมผัส (คู่มือหน้า 10)",
+          "author_note": "ขั้นตอนมาจากหัวข้อ Lint filter หน้า 38–39 ส่วนการถอดปลั๊กก่อนทำความสะอาดผู้พัฒนาเพิ่มจากหน้า 11 และ 37",
+          "next": "n5v"
+        },
+        {
+          "node_id": "n5v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "เครื่องอบผ้าทำงานแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_dv5000c_um_does_not_heat",
+      "device_category": "Dryer",
+      "brand": "Samsung",
+      "model_pattern": "DV9*CGC2****",
+      "entry_symptom": "Dryer does not heat",
+      "entry_symptom_th": "เครื่องอบผ้าไม่ให้ความร้อน",
+      "entry_symptom_aliases": [
+        "เครื่องอบไม่ร้อน",
+        "ผ้าไม่ร้อน",
+        "dryer not heating"
+      ],
+      "source": "Samsung Heat Pump Dryer User Manual DV9*CGC2**** (D-PJT_DV5000C_D.LED_WEB_EN_TH_MY_250308)",
+      "page_range": [
+        42,
+        42
+      ],
+      "source_chunk_id": "manual_Samsung_Dryer_DV5000C_p42_does_not_heat",
+      "severity": "medium",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "เบรกเกอร์และฟิวส์ของบ้านปกติใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2",
+          "on_no": "n1f"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "ตรวจเบรกเกอร์และฟิวส์ของบ้าน ถ้าเบรกเกอร์ตัดให้ยกกลับ (คู่มือหน้า 42)",
+          "safety_critical": true,
+          "safety_warning": "ห้ามใช้ฟิวส์ที่ไม่ใช่ฟิวส์มาตรฐาน (เช่น ลวดทองแดงหรือลวดเหล็ก) และห้ามซ่อม ถอดแยก หรือดัดแปลงเครื่องเอง ถ้าเบรกเกอร์ตัดซ้ำหลังยกกลับ ให้หยุดใช้งานและติดต่อศูนย์บริการ (คู่มือหน้า 10)",
+          "author_note": "คู่มือหน้า 42 ระบุเพียง 'Check the home's circuit breaker and fuses' ส่วนคำเตือนเรื่องฟิวส์มาตรฐานมาจากหน้า 10 และข้อความ 'ถ้าเบรกเกอร์ตัดให้ยกกลับ' กับ 'ถ้าตัดซ้ำให้หยุดใช้งาน' ผู้พัฒนาเพิ่มเอง",
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "เลือกรอบอบที่ไม่ใช่ COOL AIR อยู่ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n3",
+          "on_no": "n2f"
+        },
+        {
+          "node_id": "n2f",
+          "type": "instruction",
+          "content": "หมุนปุ่ม Cycle Selector เลือกรอบอื่นที่ไม่ใช่ COOL AIR (คู่มือหน้า 24 และ 27)",
+          "safety_critical": false,
+          "author_note": "หน้า 42 ใช้คำว่า 'heat setting' ผู้พัฒนาโยงกับรอบอบที่เลือกด้วย Cycle Selector (หน้า 24) ส่วน COOL AIR เป็นรอบไม่ใช้ความร้อน (หน้า 27)",
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "node_id": "n3",
+          "type": "checkpoint",
+          "question": "ทำความสะอาดตัวกรองเศษผ้าแล้วหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n4",
+          "on_no": "n3f"
+        },
+        {
+          "node_id": "n3f",
+          "type": "instruction",
+          "content": "ทำความสะอาดตัวกรองเศษผ้า (lint filter): เปิดประตูเครื่อง จับด้านบนของตัวกรองแล้วดึงออก (อย่าถอดซีลยางของประตู) > เปิดตัวกรองชั้นนอกแล้วถอดตัวกรองชั้นใน (A) ออก > กางตัวกรองชั้นนอกและชั้นในออก > เก็บเศษผ้าออกจากตัวกรองทั้งสองชั้น แล้วทำความสะอาดด้วยแปรงทำความสะอาด (ถ้าต้องการให้สะอาดทั่วถึง ล้างด้วยน้ำไหลแล้วผึ่งให้แห้งสนิท ห้ามเขย่าหรือเคาะตัวกรอง และอย่าเปิดตัวกรองด้วยแรงมาก) > ใส่ตัวกรองชั้นในเข้าไปในชั้นนอก แล้วใส่ตัวกรองเศษผ้ากลับที่เดิม ห้ามใส่ขณะตัวกรองยังเปียก (คู่มือหน้า 38 และ 39)",
+          "safety_critical": true,
+          "safety_warning": "ถอดปลั๊กก่อนทำความสะอาดหรือบำรุงรักษา และห้ามฉีดน้ำใส่เครื่องโดยตรง ห้ามใช้เบนซีน ทินเนอร์ แอลกอฮอล์ หรืออะซีโตนทำความสะอาด เพราะอาจเกิดไฟฟ้าช็อกหรือไฟไหม้ (คู่มือหน้า 11 และ 37) ประตูกระจกและภายในถังอาจยังร้อน ห้ามสัมผัส (คู่มือหน้า 10)",
+          "author_note": "หน้า 42 เขียนรวมว่า 'Check the lint filter and heat exchanger. Clean them if necessary.' ผู้พัฒนาแยกเป็นสองคำถามเพื่อให้ขั้นตอนชัดเจน ขั้นตอนมาจากหัวข้อ Lint filter หน้า 38–39 ส่วนการถอดปลั๊กก่อนทำความสะอาดผู้พัฒนาเพิ่มจากหน้า 11 และ 37",
+          "next": "n3v"
+        },
+        {
+          "node_id": "n3v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n4"
+        },
+        {
+          "node_id": "n4",
+          "type": "checkpoint",
+          "question": "ทำความสะอาด heat exchanger แล้วหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n5",
+          "on_no": "n4f"
+        },
+        {
+          "node_id": "n4f",
+          "type": "instruction",
+          "content": "ทำความสะอาด heat exchanger: กดส่วนบนของฝาครอบด้านนอก (A) เบาๆ เพื่อเปิด > ปลดตัวล็อกของฝาครอบชั้นใน (B) แล้วดึงฝาครอบชั้นในออก > เปิดฝาครอบทิ้งไว้ให้อากาศถ่ายเทประมาณ 10 นาทีก่อนทำความสะอาด > ปัดฝุ่นบน heat exchanger ด้วยแปรงที่ให้มา แล้วเช็ดฝุ่นที่เหลือด้วยผ้านุ่มหมาดๆ (ถ้า heat exchanger แห้งสนิทจนทำความสะอาดยาก ให้พรมน้ำเล็กน้อยแล้วใช้แปรงทำความสะอาด) > เช็ดฝาครอบชั้นในด้วยผ้านุ่มหมาดๆ > ใส่ฝาครอบชั้นในกลับที่เดิมแล้วล็อกตัวล็อกให้เรียบร้อย > ปิดฝาครอบด้านนอก (คู่มือหน้า 39, 40 และ 41)",
+          "safety_critical": true,
+          "safety_warning": "ถอดปลั๊กก่อนทำความสะอาด (คู่มือหน้า 11) อาจมีสารทำความเย็นรั่วเล็กน้อยค้างรอบ heat exchanger ให้เปิดฝาครอบ heat exchanger ระบายอากาศประมาณ 10 นาทีก่อนทำความสะอาด (คู่มือหน้า 40) ห้ามสัมผัสหรือทำความสะอาด heat exchanger ด้วยมือเปล่าหรือเครื่องมือเหล็ก เพราะอาจบาดเจ็บหรือไหม้ และระวังอย่าให้ครีบเสียหาย (คู่มือหน้า 11 และ 40) ห้ามทำให้วงจรสารทำความเย็นเสียหาย (คู่มือหน้า 7)",
+          "author_note": "ขั้นตอนมาจากหัวข้อ Heat exchanger หน้า 39–41 ส่วนการถอดปลั๊กก่อนทำความสะอาดผู้พัฒนาเพิ่มจากหน้า 11 และ 37",
+          "next": "n4v"
+        },
+        {
+          "node_id": "n4v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n5"
+        },
+        {
+          "node_id": "n5",
+          "type": "checkpoint",
+          "question": "เครื่องอยู่ในช่วงระบายความร้อน (cool-down) ท้ายรอบการอบใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n5n",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n5n",
+          "type": "resolution",
+          "content": "ท้ายรอบการอบเครื่องจะทำงานโดยไม่ใช้ความร้อน (cool down) เพื่อให้ผ้าไม่เสียหาย จึงเป็นการทำงานปกติ (คู่มือหน้า 7 และ 42)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "เครื่องให้ความร้อนปกติแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_dv5000c_um_does_not_dry",
+      "device_category": "Dryer",
+      "brand": "Samsung",
+      "model_pattern": "DV9*CGC2****",
+      "entry_symptom": "Dryer does not dry",
+      "entry_symptom_th": "เครื่องอบผ้าอบไม่แห้ง",
+      "entry_symptom_aliases": [
+        "ผ้าไม่แห้ง",
+        "อบแล้วผ้ายังเปียก",
+        "dryer not drying"
+      ],
+      "source": "Samsung Heat Pump Dryer User Manual DV9*CGC2**** (D-PJT_DV5000C_D.LED_WEB_EN_TH_MY_250308)",
+      "page_range": [
+        42,
+        42
+      ],
+      "source_chunk_id": "manual_Samsung_Dryer_DV5000C_p42_does_not_dry",
+      "severity": "medium",
+      "difficulty": "medium",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "ตรวจตามรายการของอาการ 'เครื่องอบผ้าไม่ทำงาน' และ 'เครื่องอบผ้าไม่ให้ความร้อน' ครบแล้วใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2",
+          "on_no": "n1f"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "ตรวจตามขั้นตอนของอาการ 'Dryer does not run' และ 'Dryer does not heat' ก่อน (คู่มือหน้า 42)",
+          "safety_critical": false,
+          "author_note": "หน้า 42 เขียนว่า 'Check the above, plus…' ผู้พัฒนาตีความว่า 'the above' คือสองแถวก่อนหน้า (ไม่ทำงาน / ไม่ให้ความร้อน) ควรให้ผู้ตรวจยืนยัน",
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "ใส่ผ้าในเครื่องมากเกินไปหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2f",
+          "on_no": "n3"
+        },
+        {
+          "node_id": "n2f",
+          "type": "instruction",
+          "content": "นำผ้าบางส่วนออก ไม่ใส่เกินประมาณ ¾ ของถัง ผ้าต้องหมุนได้อิสระ (คู่มือหน้า 28 และ 30)",
+          "safety_critical": true,
+          "safety_warning": "ห้ามสัมผัสกระจกประตูและภายในถังขณะอบหรือหลังอบเสร็จใหม่ๆ เพราะร้อนและอาจทำให้ไหม้ และห้ามสอดมือเข้าไปในถังขณะถังกำลังหมุน (คู่มือหน้า 9, 10 และ 11)",
+          "author_note": "หน้า 42 ระบุให้ตรวจว่าไม่ใส่เกิน ส่วนเกณฑ์ ¾ ของถังมาจากตารางขนาดโหลดหน้า 28 ซึ่งระบุสำหรับ Large load ความจุสูงสุดของเครื่องอยู่หน้า 47",
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "node_id": "n3",
+          "type": "checkpoint",
+          "question": "แยกอบผ้าเบาและผ้าหนาแล้ว และจัดผ้าชิ้นใหญ่ให้อบได้สม่ำเสมอแล้วใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n4",
+          "on_no": "n3f"
+        },
+        {
+          "node_id": "n3f",
+          "type": "instruction",
+          "content": "แยกอบผ้าเบาและผ้าหนาคนละรอบ และจัดตำแหน่งผ้าชิ้นใหญ่ใหม่เพื่อให้อบแห้งสม่ำเสมอ (คู่มือหน้า 42)",
+          "safety_critical": true,
+          "safety_warning": "ห้ามสัมผัสกระจกประตูและภายในถังขณะอบหรือหลังอบเสร็จใหม่ๆ เพราะร้อนและอาจทำให้ไหม้ และห้ามสอดมือเข้าไปในถังขณะถังกำลังหมุน (คู่มือหน้า 9, 10 และ 11)",
+          "author_note": "หน้า 42 แยกเป็นสองข้อ (แยกผ้าเบา/หนัก / จัดผ้าชิ้นใหญ่ใหม่) ผู้พัฒนารวมเป็นคำถามเดียวเพื่อลดจำนวนเส้นทาง คู่มือไม่ระบุวิธีจัดตำแหน่งผ้า",
+          "next": "n3v"
+        },
+        {
+          "node_id": "n3v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n4"
+        },
+        {
+          "node_id": "n4",
+          "type": "checkpoint",
+          "question": "เครื่องระบายน้ำควบแน่นได้ปกติใช่หรือไม่? (ถ้าใช้ถังเก็บน้ำ ถังต้องไม่เต็ม ถ้าใช้สายระบาย สายต้องไม่หักงอ ไม่เสียหาย และไม่แข็งตัว)",
+          "safety_critical": false,
+          "on_yes": "n5",
+          "on_no": "n4f"
+        },
+        {
+          "node_id": "n4f",
+          "type": "instruction",
+          "content": "ถ้าใช้ถังเก็บน้ำ ให้เทน้ำออก: ดึงที่จับถังด้วยมือข้างเดียวจนถังออกมาครึ่งหนึ่ง แล้วใช้มืออีกข้างรองใต้ถังและดึงถังออกช้าๆ ด้วยสองมือ > เทน้ำออกทางรูระบายน้ำ (B) > ใส่ถังกลับเข้าที่ (คู่มือหน้า 36) ถ้าใช้สายระบายน้ำ ให้ตรวจว่าสายไม่หักงอหรือเสียหาย และไม่แข็งตัว (ถ้าแข็งตัว: ถ้าสายระบายน้ำแข็งตัว ให้พันสายด้วยผ้าชุบน้ำอุ่นประมาณสิบนาทีเพื่อละลายน้ำแข็ง (คู่มือหน้า 11 และ 44))",
+          "safety_critical": true,
+          "safety_warning": "ถังเก็บน้ำหนักมาก ให้ดึงออกช้าๆ ด้วยสองมือและรักษาระดับถังให้ตรง ถ้าทำตกอาจบาดเจ็บ และห้ามดื่มน้ำที่เกิดจากการควบแน่น (คู่มือหน้า 9 และ 36)",
+          "author_note": "หน้า 42 ไม่ได้อธิบายว่า 'draining properly' ตรวจอย่างไร ผู้พัฒนาโยงกับรายการตรวจรหัส 5C (หน้า 44) และขั้นตอนเทน้ำหน้า 36 ควรให้ผู้ตรวจยืนยันการโยงนี้",
+          "next": "n4v"
+        },
+        {
+          "node_id": "n4v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n5"
+        },
+        {
+          "node_id": "n5",
+          "type": "checkpoint",
+          "question": "อบผ้าจำนวนน้อย (โหลดเล็ก) หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n5f",
+          "on_no": "n6"
+        },
+        {
+          "node_id": "n5f",
+          "type": "instruction",
+          "content": "เพิ่มผ้าขนหนูแห้งสองสามผืนเข้าไปในโหลด (คู่มือหน้า 30 และ 42)",
+          "safety_critical": true,
+          "safety_warning": "ห้ามสัมผัสกระจกประตูและภายในถังขณะอบหรือหลังอบเสร็จใหม่ๆ เพราะร้อนและอาจทำให้ไหม้ และห้ามสอดมือเข้าไปในถังขณะถังกำลังหมุน (คู่มือหน้า 9, 10 และ 11)",
+          "author_note": "หน้า 42 บอกให้เพิ่มผ้าขนหนูแห้งสำหรับโหลดเล็ก คำว่า 'โหลดเล็ก' ตามหน้า 28 คือ 3–5 ชิ้นไม่เกิน ¼ ของถัง และหน้า 30 กล่าวถึงการอบผ้าหนึ่งหรือสองชิ้น",
+          "next": "n5v"
+        },
+        {
+          "node_id": "n5v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n6"
+        },
+        {
+          "node_id": "n6",
+          "type": "checkpoint",
+          "question": "ทำความสะอาดตัวกรองเศษผ้าแล้วหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n7",
+          "on_no": "n6f"
+        },
+        {
+          "node_id": "n6f",
+          "type": "instruction",
+          "content": "ทำความสะอาดตัวกรองเศษผ้า (lint filter): เปิดประตูเครื่อง จับด้านบนของตัวกรองแล้วดึงออก (อย่าถอดซีลยางของประตู) > เปิดตัวกรองชั้นนอกแล้วถอดตัวกรองชั้นใน (A) ออก > กางตัวกรองชั้นนอกและชั้นในออก > เก็บเศษผ้าออกจากตัวกรองทั้งสองชั้น แล้วทำความสะอาดด้วยแปรงทำความสะอาด (ถ้าต้องการให้สะอาดทั่วถึง ล้างด้วยน้ำไหลแล้วผึ่งให้แห้งสนิท ห้ามเขย่าหรือเคาะตัวกรอง และอย่าเปิดตัวกรองด้วยแรงมาก) > ใส่ตัวกรองชั้นในเข้าไปในชั้นนอก แล้วใส่ตัวกรองเศษผ้ากลับที่เดิม ห้ามใส่ขณะตัวกรองยังเปียก (คู่มือหน้า 38 และ 39)",
+          "safety_critical": true,
+          "safety_warning": "ถอดปลั๊กก่อนทำความสะอาดหรือบำรุงรักษา และห้ามฉีดน้ำใส่เครื่องโดยตรง ห้ามใช้เบนซีน ทินเนอร์ แอลกอฮอล์ หรืออะซีโตนทำความสะอาด เพราะอาจเกิดไฟฟ้าช็อกหรือไฟไหม้ (คู่มือหน้า 11 และ 37) ประตูกระจกและภายในถังอาจยังร้อน ห้ามสัมผัส (คู่มือหน้า 10)",
+          "author_note": "หน้า 42 เขียนรวมว่า 'Clean the lint filter and heat exchanger.' ผู้พัฒนาแยกเป็นสองคำถาม ขั้นตอนมาจากหัวข้อ Lint filter หน้า 38–39 ส่วนการถอดปลั๊กก่อนทำความสะอาดผู้พัฒนาเพิ่มจากหน้า 11 และ 37",
+          "next": "n6v"
+        },
+        {
+          "node_id": "n6v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n7"
+        },
+        {
+          "node_id": "n7",
+          "type": "checkpoint",
+          "question": "ทำความสะอาด heat exchanger แล้วหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_escalate",
+          "on_no": "n7f"
+        },
+        {
+          "node_id": "n7f",
+          "type": "instruction",
+          "content": "ทำความสะอาด heat exchanger: กดส่วนบนของฝาครอบด้านนอก (A) เบาๆ เพื่อเปิด > ปลดตัวล็อกของฝาครอบชั้นใน (B) แล้วดึงฝาครอบชั้นในออก > เปิดฝาครอบทิ้งไว้ให้อากาศถ่ายเทประมาณ 10 นาทีก่อนทำความสะอาด > ปัดฝุ่นบน heat exchanger ด้วยแปรงที่ให้มา แล้วเช็ดฝุ่นที่เหลือด้วยผ้านุ่มหมาดๆ (ถ้า heat exchanger แห้งสนิทจนทำความสะอาดยาก ให้พรมน้ำเล็กน้อยแล้วใช้แปรงทำความสะอาด) > เช็ดฝาครอบชั้นในด้วยผ้านุ่มหมาดๆ > ใส่ฝาครอบชั้นในกลับที่เดิมแล้วล็อกตัวล็อกให้เรียบร้อย > ปิดฝาครอบด้านนอก (คู่มือหน้า 39, 40 และ 41)",
+          "safety_critical": true,
+          "safety_warning": "ถอดปลั๊กก่อนทำความสะอาด (คู่มือหน้า 11) อาจมีสารทำความเย็นรั่วเล็กน้อยค้างรอบ heat exchanger ให้เปิดฝาครอบ heat exchanger ระบายอากาศประมาณ 10 นาทีก่อนทำความสะอาด (คู่มือหน้า 40) ห้ามสัมผัสหรือทำความสะอาด heat exchanger ด้วยมือเปล่าหรือเครื่องมือเหล็ก เพราะอาจบาดเจ็บหรือไหม้ และระวังอย่าให้ครีบเสียหาย (คู่มือหน้า 11 และ 40) ห้ามทำให้วงจรสารทำความเย็นเสียหาย (คู่มือหน้า 7)",
+          "author_note": "ขั้นตอนมาจากหัวข้อ Heat exchanger หน้า 39–41 ส่วนการถอดปลั๊กก่อนทำความสะอาดผู้พัฒนาเพิ่มจากหน้า 11 และ 37",
+          "next": "n7v"
+        },
+        {
+          "node_id": "n7v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "เครื่องอบผ้าแห้งตามปกติแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_dv5000c_um_dryer_is_noisy",
+      "device_category": "Dryer",
+      "brand": "Samsung",
+      "model_pattern": "DV9*CGC2****",
+      "entry_symptom": "Dryer is noisy",
+      "entry_symptom_th": "เครื่องอบผ้าเสียงดัง",
+      "entry_symptom_aliases": [
+        "เสียงดัง",
+        "เครื่องอบมีเสียงผิดปกติ",
+        "dryer noisy"
+      ],
+      "source": "Samsung Heat Pump Dryer User Manual DV9*CGC2**** (D-PJT_DV5000C_D.LED_WEB_EN_TH_MY_250308)",
+      "page_range": [
+        42,
+        42
+      ],
+      "source_chunk_id": "manual_Samsung_Dryer_DV5000C_p42_dryer_is_noisy",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "มีเหรียญ กระดุม ไฟแช็ก หรือวัตถุอื่นอยู่ในถังหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n1f",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "นำวัตถุเหล่านั้นออกจากถัง (คู่มือหน้า 42) ก่อนอบควรเอาของในกระเป๋าเสื้อผ้าออกให้หมด (คู่มือหน้า 11)",
+          "safety_critical": true,
+          "safety_warning": "ห้ามสัมผัสกระจกประตูและภายในถังขณะอบหรือหลังอบเสร็จใหม่ๆ เพราะร้อนและอาจทำให้ไหม้ และห้ามสอดมือเข้าไปในถังขณะถังกำลังหมุน (คู่มือหน้า 9, 10 และ 11)",
+          "author_note": "หน้า 42 ให้ตรวจวัตถุในถัง วิธีนำออกผู้พัฒนาเขียนเพิ่ม คำเตือนมาจากหน้า 9–11",
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "เครื่องตั้งได้ระดับและมั่นคงบนพื้นใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n3",
+          "on_no": "n2f"
+        },
+        {
+          "node_id": "n2f",
+          "type": "instruction",
+          "content": "ใช้ระดับน้ำ (level) ตรวจความได้ระดับของเครื่องทั้งซ้าย–ขวาและหน้า–หลัง ถ้าไม่ได้ระดับให้หมุนขาปรับระดับไปทางซ้ายหรือขวาเพื่อปรับความสูง แล้วตรวจว่าเครื่องตั้งมั่นคงบนพื้น ยืดขาปรับระดับเท่าที่จำเป็นเท่านั้น เพราะยืดมากเกินไปทำให้เครื่องสั่นได้ (คู่มือหน้า 16)",
+          "safety_critical": false,
+          "author_note": "คู่มือหน้า 42 เป็นรายการตรวจ ส่วนวิธีปรับขาปรับระดับมาจากหน้า 16",
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "node_id": "n3",
+          "type": "checkpoint",
+          "question": "เสียงที่ได้ยินเป็นเสียงครางต่ำจากลมที่ไหลผ่านถังและพัดลมใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n3n",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n3n",
+          "type": "resolution",
+          "content": "เสียงครางต่ำจากลมที่ไหลผ่านถังและพัดลมเกิดขึ้นได้ตามปกติ (คู่มือหน้า 42)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "เครื่องไม่มีเสียงดังผิดปกติแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_dv5000c_um_dries_unevenly",
+      "device_category": "Dryer",
+      "brand": "Samsung",
+      "model_pattern": "DV9*CGC2****",
+      "entry_symptom": "Dries unevenly",
+      "entry_symptom_th": "อบแห้งไม่สม่ำเสมอ",
+      "entry_symptom_aliases": [
+        "ผ้าแห้งไม่เท่ากัน",
+        "บางส่วนยังเปียก",
+        "dries unevenly"
+      ],
+      "source": "Samsung Heat Pump Dryer User Manual DV9*CGC2**** (D-PJT_DV5000C_D.LED_WEB_EN_TH_MY_250308)",
+      "page_range": [
+        42,
+        42
+      ],
+      "source_chunk_id": "manual_Samsung_Dryer_DV5000C_p42_dries_unevenly",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "ส่วนที่ยังชื้นเป็นตะเข็บ กระเป๋า หรือส่วนหนาของเสื้อผ้าใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n1n",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n1n",
+          "type": "resolution",
+          "content": "ตะเข็บ กระเป๋า และส่วนอื่นๆ ของเสื้อผ้าอบแห้งยากกว่าส่วนอื่น เป็นเรื่องปกติ (คู่มือหน้า 42)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "แยกอบผ้าหนาและผ้าเบาคนละรอบแล้วใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_escalate",
+          "on_no": "n2f"
+        },
+        {
+          "node_id": "n2f",
+          "type": "instruction",
+          "content": "แยกอบผ้าหนาและผ้าเบาคนละรอบ (คู่มือหน้า 42)",
+          "safety_critical": false,
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "ผ้าแห้งสม่ำเสมอแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_dv5000c_um_emits_odour",
+      "device_category": "Dryer",
+      "brand": "Samsung",
+      "model_pattern": "DV9*CGC2****",
+      "entry_symptom": "Dryer emits an odour",
+      "entry_symptom_th": "เครื่องอบผ้ามีกลิ่น",
+      "entry_symptom_aliases": [
+        "เครื่องอบผ้าเหม็น",
+        "มีกลิ่นออกมาจากเครื่อง",
+        "dryer odour"
+      ],
+      "source": "Samsung Heat Pump Dryer User Manual DV9*CGC2**** (D-PJT_DV5000C_D.LED_WEB_EN_TH_MY_250308)",
+      "page_range": [
+        42,
+        42
+      ],
+      "source_chunk_id": "manual_Samsung_Dryer_DV5000C_p42_emits_odour",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "เครื่องอยู่ในบริเวณที่มีกลิ่นภายในบ้านอยู่แล้วใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n1n",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n1n",
+          "type": "resolution",
+          "content": "เครื่องอาจดึงกลิ่นภายในบ้านจากอากาศโดยรอบเข้ามาแล้วปล่อยออก เป็นเรื่องปกติ (คู่มือหน้า 42)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ถ้าได้กลิ่นที่ไม่ใช่กลิ่นจากอากาศภายในบ้าน เช่น กลิ่นไหม้หรือมีควัน ให้ถอดปลั๊กทันทีและติดต่อศูนย์บริการ Samsung (คู่มือหน้า 10 และ 14) พร้อมแจ้งรุ่นเครื่องและอาการ",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_dv5000c_um_turns_off_before_dry",
+      "device_category": "Dryer",
+      "brand": "Samsung",
+      "model_pattern": "DV9*CGC2****",
+      "entry_symptom": "Dryer turns off before the load is dry",
+      "entry_symptom_th": "เครื่องอบผ้าหยุดก่อนผ้าแห้ง",
+      "entry_symptom_aliases": [
+        "เครื่องอบหยุดก่อนแห้ง",
+        "อบไม่ครบรอบ",
+        "dryer stops early"
+      ],
+      "source": "Samsung Heat Pump Dryer User Manual DV9*CGC2**** (D-PJT_DV5000C_D.LED_WEB_EN_TH_MY_250308)",
+      "page_range": [
+        42,
+        42
+      ],
+      "source_chunk_id": "manual_Samsung_Dryer_DV5000C_p42_turns_off_before_dry",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "ใส่ผ้าในเครื่องน้อยเกินไปใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n1f",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "เพิ่มผ้าเข้าไป แล้วเริ่มรอบอบใหม่ด้วยการกดปุ่ม Start/Pause (คู่มือหน้า 25 และ 42)",
+          "safety_critical": true,
+          "safety_warning": "ห้ามสัมผัสกระจกประตูและภายในถังขณะอบหรือหลังอบเสร็จใหม่ๆ เพราะร้อนและอาจทำให้ไหม้ และห้ามสอดมือเข้าไปในถังขณะถังกำลังหมุน (คู่มือหน้า 9, 10 และ 11)",
+          "author_note": "วิธีเริ่มรอบใหม่มาจากปุ่ม Start/Pause หน้า 25 คู่มือหน้า 42 ไม่ได้ระบุว่าน้อยแค่ไหน",
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "ใส่ผ้าในเครื่องมากเกินไปใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2f",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n2f",
+          "type": "instruction",
+          "content": "นำผ้าบางส่วนออก แล้วเริ่มรอบอบใหม่ด้วยการกดปุ่ม Start/Pause (คู่มือหน้า 25 และ 42)",
+          "safety_critical": true,
+          "safety_warning": "ห้ามสัมผัสกระจกประตูและภายในถังขณะอบหรือหลังอบเสร็จใหม่ๆ เพราะร้อนและอาจทำให้ไหม้ และห้ามสอดมือเข้าไปในถังขณะถังกำลังหมุน (คู่มือหน้า 9, 10 และ 11)",
+          "author_note": "วิธีเริ่มรอบใหม่มาจากปุ่ม Start/Pause หน้า 25 เกณฑ์ปริมาณผ้าตามหน้า 28 (Large load ประมาณ ¾ ของถัง)",
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "เครื่องอบผ้าจนแห้งครบรอบแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_dv5000c_um_lint_on_clothes",
+      "device_category": "Dryer",
+      "brand": "Samsung",
+      "model_pattern": "DV9*CGC2****",
+      "entry_symptom": "Lint on clothes",
+      "entry_symptom_th": "มีขุยผ้าติดเสื้อผ้า",
+      "entry_symptom_aliases": [
+        "ขุยผ้า",
+        "ผ้ามีเศษผ้าติด",
+        "lint on clothes"
+      ],
+      "source": "Samsung Heat Pump Dryer User Manual DV9*CGC2**** (D-PJT_DV5000C_D.LED_WEB_EN_TH_MY_250308)",
+      "page_range": [
+        43,
+        43
+      ],
+      "source_chunk_id": "manual_Samsung_Dryer_DV5000C_p43_lint_on_clothes",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "ทำความสะอาดตัวกรองเศษผ้าก่อนอบทุกครั้งแล้วใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2",
+          "on_no": "n1f"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "ทำความสะอาดตัวกรองเศษผ้า (lint filter): เปิดประตูเครื่อง จับด้านบนของตัวกรองแล้วดึงออก (อย่าถอดซีลยางของประตู) > เปิดตัวกรองชั้นนอกแล้วถอดตัวกรองชั้นใน (A) ออก > กางตัวกรองชั้นนอกและชั้นในออก > เก็บเศษผ้าออกจากตัวกรองทั้งสองชั้น แล้วทำความสะอาดด้วยแปรงทำความสะอาด (ถ้าต้องการให้สะอาดทั่วถึง ล้างด้วยน้ำไหลแล้วผึ่งให้แห้งสนิท ห้ามเขย่าหรือเคาะตัวกรอง และอย่าเปิดตัวกรองด้วยแรงมาก) > ใส่ตัวกรองชั้นในเข้าไปในชั้นนอก แล้วใส่ตัวกรองเศษผ้ากลับที่เดิม ห้ามใส่ขณะตัวกรองยังเปียก (คู่มือหน้า 38 และ 39)",
+          "safety_critical": true,
+          "safety_warning": "ถอดปลั๊กก่อนทำความสะอาดหรือบำรุงรักษา และห้ามฉีดน้ำใส่เครื่องโดยตรง ห้ามใช้เบนซีน ทินเนอร์ แอลกอฮอล์ หรืออะซีโตนทำความสะอาด เพราะอาจเกิดไฟฟ้าช็อกหรือไฟไหม้ (คู่มือหน้า 11 และ 37) ประตูกระจกและภายในถังอาจยังร้อน ห้ามสัมผัส (คู่มือหน้า 10)",
+          "author_note": "ขั้นตอนมาจากหัวข้อ Lint filter หน้า 38–39 ส่วนการถอดปลั๊กก่อนทำความสะอาดผู้พัฒนาเพิ่มจากหน้า 11 และ 37",
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "อบผ้าที่ทำให้เกิดขุย (เช่น ผ้าขนหนู) รวมกับผ้าที่ดักขุย (เช่น กางเกงผ้าลินินสีดำ) ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2f",
+          "on_no": "n3"
+        },
+        {
+          "node_id": "n2f",
+          "type": "instruction",
+          "content": "แยกอบผ้าที่ทำให้เกิดขุยออกจากผ้าที่ดักขุย (คู่มือหน้า 43)",
+          "safety_critical": false,
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "node_id": "n3",
+          "type": "checkpoint",
+          "question": "ใส่ผ้าปริมาณมากในรอบเดียวใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n3f",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n3f",
+          "type": "instruction",
+          "content": "แบ่งโหลดใหญ่เป็นโหลดเล็กลง (คู่มือหน้า 43)",
+          "safety_critical": false,
+          "next": "n3v"
+        },
+        {
+          "node_id": "n3v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "ไม่มีขุยผ้าติดเสื้อผ้าแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_dv5000c_um_wrinkled_after_wrinkle_prevent",
+      "device_category": "Dryer",
+      "brand": "Samsung",
+      "model_pattern": "DV9*CGC2****",
+      "entry_symptom": "Items still wrinkled after Wrinkle Prevent",
+      "entry_symptom_th": "ผ้ายังยับหลังใช้ Wrinkle Prevent",
+      "entry_symptom_aliases": [
+        "ผ้ายับ",
+        "wrinkle prevent",
+        "ผ้าไม่เรียบ"
+      ],
+      "source": "Samsung Heat Pump Dryer User Manual DV9*CGC2**** (D-PJT_DV5000C_D.LED_WEB_EN_TH_MY_250308)",
+      "page_range": [
+        43,
+        43
+      ],
+      "source_chunk_id": "manual_Samsung_Dryer_DV5000C_p43_wrinkled_after_wrinkle_prevent",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "โหลดมี 1–4 ชิ้นใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2",
+          "on_no": "n1f"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "ลดจำนวนผ้าเหลือ 1–4 ชิ้น โหลดเล็กให้ผลดีที่สุด (คู่มือหน้า 43)",
+          "safety_critical": false,
+          "author_note": "หน้า 43 ระบุว่าโหลดเล็ก 1–4 ชิ้นให้ผลดีที่สุด และให้ใส่ผ้าน้อยลง",
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "ใส่ผ้าประเภทเดียวกันในโหลดเดียวกันใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_escalate",
+          "on_no": "n2f"
+        },
+        {
+          "node_id": "n2f",
+          "type": "instruction",
+          "content": "ใส่ผ้าประเภทเดียวกันในโหลดเดียวกัน (คู่มือหน้า 43)",
+          "safety_critical": false,
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "ผ้าไม่ยับแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_dv5000c_um_odours_remain_after_cool_air",
+      "device_category": "Dryer",
+      "brand": "Samsung",
+      "model_pattern": "DV9*CGC2****",
+      "entry_symptom": "Odours remain in items after COOL AIR",
+      "entry_symptom_th": "กลิ่นยังติดผ้าหลังรอบ COOL AIR",
+      "entry_symptom_aliases": [
+        "ผ้ามีกลิ่นหลังอบ",
+        "กลิ่นไม่หาย",
+        "odours remain"
+      ],
+      "source": "Samsung Heat Pump Dryer User Manual DV9*CGC2**** (D-PJT_DV5000C_D.LED_WEB_EN_TH_MY_250308)",
+      "page_range": [
+        43,
+        43
+      ],
+      "source_chunk_id": "manual_Samsung_Dryer_DV5000C_p43_odours_remain_after_cool_air",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "ซักผ้าที่มีกลิ่นแรงอย่างทั่วถึงก่อนนำมาอบแล้วใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_escalate",
+          "on_no": "n1f"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "ซักผ้าที่มีกลิ่นแรงให้ทั่วถึงก่อนนำมาอบ (คู่มือหน้า 43)",
+          "safety_critical": false,
+          "author_note": "คู่มือไม่ระบุวิธีซักกลิ่นแรง",
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "ผ้าไม่มีกลิ่นแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_dv5000c_um_code_tc",
+      "device_category": "Dryer",
+      "brand": "Samsung",
+      "model_pattern": "DV9*CGC2****",
+      "entry_symptom": "Information code tC: Air temperature sensor issue",
+      "entry_symptom_th": "หน้าจอแสดงรหัส tC (เซ็นเซอร์อุณหภูมิอากาศ)",
+      "entry_symptom_aliases": [
+        "รหัส tC",
+        "ขึ้น tC",
+        "error tC",
+        "tC",
+        "เซ็นเซอร์อุณหภูมิ",
+        "air temperature sensor"
+      ],
+      "source": "Samsung Heat Pump Dryer User Manual DV9*CGC2**** (D-PJT_DV5000C_D.LED_WEB_EN_TH_MY_250308)",
+      "page_range": [
+        43,
+        43
+      ],
+      "source_chunk_id": "manual_Samsung_Dryer_DV5000C_p43_code_tc",
+      "severity": "medium",
+      "difficulty": "medium",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "หน้าจอแสดงรหัส tC ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2",
+          "on_no": "n_nomatch"
+        },
+        {
+          "node_id": "n2",
+          "type": "instruction",
+          "content": "ทำความสะอาดตัวกรองเศษผ้า (lint filter): เปิดประตูเครื่อง จับด้านบนของตัวกรองแล้วดึงออก (อย่าถอดซีลยางของประตู) > เปิดตัวกรองชั้นนอกแล้วถอดตัวกรองชั้นใน (A) ออก > กางตัวกรองชั้นนอกและชั้นในออก > เก็บเศษผ้าออกจากตัวกรองทั้งสองชั้น แล้วทำความสะอาดด้วยแปรงทำความสะอาด (ถ้าต้องการให้สะอาดทั่วถึง ล้างด้วยน้ำไหลแล้วผึ่งให้แห้งสนิท ห้ามเขย่าหรือเคาะตัวกรอง และอย่าเปิดตัวกรองด้วยแรงมาก) > ใส่ตัวกรองชั้นในเข้าไปในชั้นนอก แล้วใส่ตัวกรองเศษผ้ากลับที่เดิม ห้ามใส่ขณะตัวกรองยังเปียก (คู่มือหน้า 38 และ 39)",
+          "safety_critical": true,
+          "safety_warning": "ถอดปลั๊กก่อนทำความสะอาดหรือบำรุงรักษา และห้ามฉีดน้ำใส่เครื่องโดยตรง ห้ามใช้เบนซีน ทินเนอร์ แอลกอฮอล์ หรืออะซีโตนทำความสะอาด เพราะอาจเกิดไฟฟ้าช็อกหรือไฟไหม้ (คู่มือหน้า 11 และ 37) ประตูกระจกและภายในถังอาจยังร้อน ห้ามสัมผัส (คู่มือหน้า 10)",
+          "author_note": "หน้า 43 เขียนว่า 'Clean the lint filter and/or heat exchanger' ผู้พัฒนาแยกเป็นสองขั้นตอน ขั้นตอนมาจากหัวข้อ Lint filter หน้า 38–39 ส่วนการถอดปลั๊กก่อนทำความสะอาดผู้พัฒนาเพิ่มจากหน้า 11 และ 37",
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว รหัสบนจอหายไปและเครื่องทำงานปกติหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "node_id": "n3",
+          "type": "instruction",
+          "content": "ทำความสะอาด heat exchanger: กดส่วนบนของฝาครอบด้านนอก (A) เบาๆ เพื่อเปิด > ปลดตัวล็อกของฝาครอบชั้นใน (B) แล้วดึงฝาครอบชั้นในออก > เปิดฝาครอบทิ้งไว้ให้อากาศถ่ายเทประมาณ 10 นาทีก่อนทำความสะอาด > ปัดฝุ่นบน heat exchanger ด้วยแปรงที่ให้มา แล้วเช็ดฝุ่นที่เหลือด้วยผ้านุ่มหมาดๆ (ถ้า heat exchanger แห้งสนิทจนทำความสะอาดยาก ให้พรมน้ำเล็กน้อยแล้วใช้แปรงทำความสะอาด) > เช็ดฝาครอบชั้นในด้วยผ้านุ่มหมาดๆ > ใส่ฝาครอบชั้นในกลับที่เดิมแล้วล็อกตัวล็อกให้เรียบร้อย > ปิดฝาครอบด้านนอก (คู่มือหน้า 39, 40 และ 41)",
+          "safety_critical": true,
+          "safety_warning": "ถอดปลั๊กก่อนทำความสะอาด (คู่มือหน้า 11) อาจมีสารทำความเย็นรั่วเล็กน้อยค้างรอบ heat exchanger ให้เปิดฝาครอบ heat exchanger ระบายอากาศประมาณ 10 นาทีก่อนทำความสะอาด (คู่มือหน้า 40) ห้ามสัมผัสหรือทำความสะอาด heat exchanger ด้วยมือเปล่าหรือเครื่องมือเหล็ก เพราะอาจบาดเจ็บหรือไหม้ และระวังอย่าให้ครีบเสียหาย (คู่มือหน้า 11 และ 40) ห้ามทำให้วงจรสารทำความเย็นเสียหาย (คู่มือหน้า 7)",
+          "author_note": "ขั้นตอนมาจากหัวข้อ Heat exchanger หน้า 39–41 ส่วนการถอดปลั๊กก่อนทำความสะอาดผู้พัฒนาเพิ่มจากหน้า 11 และ 37",
+          "next": "n3v"
+        },
+        {
+          "node_id": "n3v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว รหัสบนจอหายไปและเครื่องทำงานปกติหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "รหัสหายไปและเครื่องทำงานปกติแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ทำตามรายการตรวจแล้วรหัส tC ยังแสดงอยู่ ติดต่อศูนย์บริการ Samsung ในพื้นที่ (คู่มือหน้า 43 และ 44) พร้อมแจ้งรุ่นเครื่อง รหัส และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        },
+        {
+          "node_id": "n_nomatch",
+          "type": "escalation",
+          "content": "รหัสที่แสดงไม่ใช่ tC ให้เลือกรหัสตามที่ปรากฏบนจอ ถ้าเป็นรหัสที่ไม่มีในรายการ คู่มือหน้า 44 ให้ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรหัสที่เห็น",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_dv5000c_um_code_tc5",
+      "device_category": "Dryer",
+      "brand": "Samsung",
+      "model_pattern": "DV9*CGC2****",
+      "entry_symptom": "Information code tC5: Compressor temperature sensor issue",
+      "entry_symptom_th": "หน้าจอแสดงรหัส tC5 (เซ็นเซอร์อุณหภูมิคอมเพรสเซอร์)",
+      "entry_symptom_aliases": [
+        "รหัส tC5",
+        "ขึ้น tC5",
+        "error tC5",
+        "tC5",
+        "คอมเพรสเซอร์",
+        "compressor temperature sensor"
+      ],
+      "source": "Samsung Heat Pump Dryer User Manual DV9*CGC2**** (D-PJT_DV5000C_D.LED_WEB_EN_TH_MY_250308)",
+      "page_range": [
+        43,
+        43
+      ],
+      "source_chunk_id": "manual_Samsung_Dryer_DV5000C_p43_code_tc5",
+      "severity": "medium",
+      "difficulty": "medium",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "หน้าจอแสดงรหัส tC5 ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2",
+          "on_no": "n_nomatch"
+        },
+        {
+          "node_id": "n2",
+          "type": "instruction",
+          "content": "รอ 2–3 นาที แล้วกดปุ่ม Power เปิดเครื่อง และกด Start/Pause เริ่มรอบการทำงานใหม่ (คู่มือหน้า 25 และ 43)",
+          "safety_critical": false,
+          "author_note": "หน้า 43 เขียนว่า 'Turn the power on and restart' โดยไม่ระบุวิธี ผู้พัฒนาเลือกปุ่ม Power และ Start/Pause ตามหน้า 25",
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว รหัสบนจอหายไปและเครื่องทำงานปกติหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "รหัสหายไปและเครื่องทำงานปกติแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ทำตามรายการตรวจแล้วรหัส tC5 ยังแสดงอยู่ ติดต่อศูนย์บริการ Samsung ในพื้นที่ (คู่มือหน้า 43 และ 44) พร้อมแจ้งรุ่นเครื่อง รหัส และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        },
+        {
+          "node_id": "n_nomatch",
+          "type": "escalation",
+          "content": "รหัสที่แสดงไม่ใช่ tC5 ให้เลือกรหัสตามที่ปรากฏบนจอ ถ้าเป็นรหัสที่ไม่มีในรายการ คู่มือหน้า 44 ให้ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรหัสที่เห็น",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_dv5000c_um_code_ac6",
+      "device_category": "Dryer",
+      "brand": "Samsung",
+      "model_pattern": "DV9*CGC2****",
+      "entry_symptom": "Information code AC6: Check communications between the main and the inverter PBAs.",
+      "entry_symptom_th": "หน้าจอแสดงรหัส AC6 (การสื่อสารระหว่างแผงวงจรหลักกับอินเวอร์เตอร์)",
+      "entry_symptom_aliases": [
+        "รหัส AC6",
+        "ขึ้น AC6",
+        "error AC6",
+        "AC6",
+        "ac6",
+        "inverter"
+      ],
+      "source": "Samsung Heat Pump Dryer User Manual DV9*CGC2**** (D-PJT_DV5000C_D.LED_WEB_EN_TH_MY_250308)",
+      "page_range": [
+        43,
+        43
+      ],
+      "source_chunk_id": "manual_Samsung_Dryer_DV5000C_p43_code_ac6",
+      "severity": "medium",
+      "difficulty": "medium",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "หน้าจอแสดงรหัส AC6 ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2",
+          "on_no": "n_nomatch"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "รหัสหายไปและเครื่องกลับมาทำงานปกติเองแล้วใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2n",
+          "on_no": "n3"
+        },
+        {
+          "node_id": "n2n",
+          "type": "resolution",
+          "content": "เครื่องกลับมาทำงานปกติเอง ซึ่งอาจเกิดขึ้นได้ตามสถานะของเครื่อง (คู่มือหน้า 43)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "node_id": "n3",
+          "type": "instruction",
+          "content": "กดปุ่ม Power ปิดเครื่อง แล้วกด Power เปิดเครื่องอีกครั้ง จากนั้นกด Start/Pause เริ่มรอบการทำงานใหม่ (คู่มือหน้า 25 และ 43)",
+          "safety_critical": true,
+          "safety_warning": "อย่าหยุดเครื่องอบก่อนจบรอบการอบ เว้นแต่จะนำผ้าออกและกางออกทันทีเพื่อระบายความร้อน (คู่มือหน้า 7 และ 9) และอย่าถอดปลั๊กขณะเครื่องกำลังทำงาน (คู่มือหน้า 14)",
+          "author_note": "คู่มือใช้คำว่า 'restarting the cycle' โดยไม่ระบุวิธี ผู้พัฒนาเลือกกดปุ่ม Power ปิด/เปิดเครื่อง แล้วกด Start/Pause ตามปุ่มที่ระบุในหน้า 25",
+          "next": "n3v"
+        },
+        {
+          "node_id": "n3v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว รหัสบนจอหายไปและเครื่องทำงานปกติหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "รหัสหายไปและเครื่องทำงานปกติแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ทำตามรายการตรวจแล้วรหัส AC6 ยังแสดงอยู่ ติดต่อศูนย์บริการ Samsung ในพื้นที่ (คู่มือหน้า 43 และ 44) พร้อมแจ้งรุ่นเครื่อง รหัส และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        },
+        {
+          "node_id": "n_nomatch",
+          "type": "escalation",
+          "content": "รหัสที่แสดงไม่ใช่ AC6 ให้เลือกรหัสตามที่ปรากฏบนจอ ถ้าเป็นรหัสที่ไม่มีในรายการ คู่มือหน้า 44 ให้ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรหัสที่เห็น",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_dv5000c_um_code_3c",
+      "device_category": "Dryer",
+      "brand": "Samsung",
+      "model_pattern": "DV9*CGC2****",
+      "entry_symptom": "Information code 3C: Check the motor for operation.",
+      "entry_symptom_th": "หน้าจอแสดงรหัส 3C (ตรวจมอเตอร์)",
+      "entry_symptom_aliases": [
+        "รหัส 3C",
+        "ขึ้น 3C",
+        "error 3C",
+        "3C",
+        "มอเตอร์"
+      ],
+      "source": "Samsung Heat Pump Dryer User Manual DV9*CGC2**** (D-PJT_DV5000C_D.LED_WEB_EN_TH_MY_250308)",
+      "page_range": [
+        43,
+        43
+      ],
+      "source_chunk_id": "manual_Samsung_Dryer_DV5000C_p43_code_3c",
+      "severity": "medium",
+      "difficulty": "medium",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "หน้าจอแสดงรหัส 3C ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2",
+          "on_no": "n_nomatch"
+        },
+        {
+          "node_id": "n2",
+          "type": "instruction",
+          "content": "กดปุ่ม Power ปิดเครื่อง แล้วกด Power เปิดเครื่องและกด Start/Pause เริ่มรอบการทำงานใหม่ (คู่มือหน้า 25)",
+          "safety_critical": true,
+          "safety_warning": "อย่าหยุดเครื่องอบก่อนจบรอบการอบ เว้นแต่จะนำผ้าออกและกางออกทันทีเพื่อระบายความร้อน (คู่มือหน้า 7 และ 9) และอย่าถอดปลั๊กขณะเครื่องกำลังทำงาน (คู่มือหน้า 14)",
+          "author_note": "คู่มือใช้คำว่า 'restarting the cycle' โดยไม่ระบุวิธี ผู้พัฒนาเลือกกดปุ่ม Power ปิด/เปิดเครื่อง แล้วกด Start/Pause ตามปุ่มที่ระบุในหน้า 25",
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว รหัสบนจอหายไปและเครื่องทำงานปกติหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "รหัสหายไปและเครื่องทำงานปกติแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ทำตามรายการตรวจแล้วรหัส 3C ยังแสดงอยู่ ติดต่อศูนย์บริการ Samsung ในพื้นที่ (คู่มือหน้า 43 และ 44) พร้อมแจ้งรุ่นเครื่อง รหัส และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        },
+        {
+          "node_id": "n_nomatch",
+          "type": "escalation",
+          "content": "รหัสที่แสดงไม่ใช่ 3C ให้เลือกรหัสตามที่ปรากฏบนจอ ถ้าเป็นรหัสที่ไม่มีในรายการ คู่มือหน้า 44 ให้ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรหัสที่เห็น",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_dv5000c_um_code_fil_ter",
+      "device_category": "Dryer",
+      "brand": "Samsung",
+      "model_pattern": "DV9*CGC2****",
+      "entry_symptom": "Information code FIL+tEr: (Alert sounds) Heat exchanger needs to be cleaned",
+      "entry_symptom_th": "หน้าจอแสดงรหัส FIL+tEr (ต้องทำความสะอาด heat exchanger มีเสียงเตือน)",
+      "entry_symptom_aliases": [
+        "รหัส FIL+tEr",
+        "ขึ้น FIL+tEr",
+        "error FIL+tEr",
+        "FIL+tEr",
+        "fil ter",
+        "fil+ter",
+        "heat exchanger",
+        "เสียงเตือน",
+        "Clean Heat Exchanger"
+      ],
+      "source": "Samsung Heat Pump Dryer User Manual DV9*CGC2**** (D-PJT_DV5000C_D.LED_WEB_EN_TH_MY_250308)",
+      "page_range": [
+        43,
+        43
+      ],
+      "source_chunk_id": "manual_Samsung_Dryer_DV5000C_p43_code_fil_ter",
+      "severity": "medium",
+      "difficulty": "medium",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "หน้าจอแสดงรหัส FIL+tEr ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2",
+          "on_no": "n_nomatch"
+        },
+        {
+          "node_id": "n2",
+          "type": "instruction",
+          "content": "ทำความสะอาด heat exchanger: กดส่วนบนของฝาครอบด้านนอก (A) เบาๆ เพื่อเปิด > ปลดตัวล็อกของฝาครอบชั้นใน (B) แล้วดึงฝาครอบชั้นในออก > เปิดฝาครอบทิ้งไว้ให้อากาศถ่ายเทประมาณ 10 นาทีก่อนทำความสะอาด > ปัดฝุ่นบน heat exchanger ด้วยแปรงที่ให้มา แล้วเช็ดฝุ่นที่เหลือด้วยผ้านุ่มหมาดๆ (ถ้า heat exchanger แห้งสนิทจนทำความสะอาดยาก ให้พรมน้ำเล็กน้อยแล้วใช้แปรงทำความสะอาด) > เช็ดฝาครอบชั้นในด้วยผ้านุ่มหมาดๆ > ใส่ฝาครอบชั้นในกลับที่เดิมแล้วล็อกตัวล็อกให้เรียบร้อย > ปิดฝาครอบด้านนอก (คู่มือหน้า 39, 40 และ 41)",
+          "safety_critical": true,
+          "safety_warning": "ถอดปลั๊กก่อนทำความสะอาด (คู่มือหน้า 11) อาจมีสารทำความเย็นรั่วเล็กน้อยค้างรอบ heat exchanger ให้เปิดฝาครอบ heat exchanger ระบายอากาศประมาณ 10 นาทีก่อนทำความสะอาด (คู่มือหน้า 40) ห้ามสัมผัสหรือทำความสะอาด heat exchanger ด้วยมือเปล่าหรือเครื่องมือเหล็ก เพราะอาจบาดเจ็บหรือไหม้ และระวังอย่าให้ครีบเสียหาย (คู่มือหน้า 11 และ 40) ห้ามทำให้วงจรสารทำความเย็นเสียหาย (คู่มือหน้า 7)",
+          "author_note": "ขั้นตอนมาจากหัวข้อ Heat exchanger หน้า 39–41 ส่วนการถอดปลั๊กก่อนทำความสะอาดผู้พัฒนาเพิ่มจากหน้า 11 และ 37",
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว รหัสบนจอหายไปและเครื่องทำงานปกติหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "node_id": "n3",
+          "type": "instruction",
+          "content": "ถ้าเสียงเตือนยังดังต่อหลังปิดเสียงเตือนแล้ว ให้ถอดปลั๊กแล้วเสียบใหม่ หรือถอดแล้วใส่ฝาครอบชั้นในของ heat exchanger ใหม่ (คู่มือหน้า 41)",
+          "safety_critical": true,
+          "safety_warning": "ถอดปลั๊กก่อนทำความสะอาด (คู่มือหน้า 11) อาจมีสารทำความเย็นรั่วเล็กน้อยค้างรอบ heat exchanger ให้เปิดฝาครอบ heat exchanger ระบายอากาศประมาณ 10 นาทีก่อนทำความสะอาด (คู่มือหน้า 40) ห้ามสัมผัสหรือทำความสะอาด heat exchanger ด้วยมือเปล่าหรือเครื่องมือเหล็ก เพราะอาจบาดเจ็บหรือไหม้ และระวังอย่าให้ครีบเสียหาย (คู่มือหน้า 11 และ 40) ห้ามทำให้วงจรสารทำความเย็นเสียหาย (คู่มือหน้า 7)",
+          "author_note": "ขั้นตอนนี้มาจากหมายเหตุหน้า 41 ไม่ใช่หน้า 43 คู่มือไม่ระบุว่าให้ปิดเสียงเตือนอย่างไร",
+          "next": "n3v"
+        },
+        {
+          "node_id": "n3v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว รหัสบนจอหายไปและเครื่องทำงานปกติหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "รหัสหายไปและเครื่องทำงานปกติแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ทำตามรายการตรวจแล้วรหัส FIL+tEr ยังแสดงอยู่ ติดต่อศูนย์บริการ Samsung ในพื้นที่ (คู่มือหน้า 43 และ 44) พร้อมแจ้งรุ่นเครื่อง รหัส และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        },
+        {
+          "node_id": "n_nomatch",
+          "type": "escalation",
+          "content": "รหัสที่แสดงไม่ใช่ FIL+tEr ให้เลือกรหัสตามที่ปรากฏบนจอ ถ้าเป็นรหัสที่ไม่มีในรายการ คู่มือหน้า 44 ให้ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรหัสที่เห็น",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_dv5000c_um_code_dc",
+      "device_category": "Dryer",
+      "brand": "Samsung",
+      "model_pattern": "DV9*CGC2****",
+      "entry_symptom": "Information code dC: Dryer operation with the door open",
+      "entry_symptom_th": "หน้าจอแสดงรหัส dC (ใช้งานเครื่องขณะประตูเปิด)",
+      "entry_symptom_aliases": [
+        "รหัส dC",
+        "ขึ้น dC",
+        "error dC",
+        "dC",
+        "dc",
+        "ประตูเปิดอยู่"
+      ],
+      "source": "Samsung Heat Pump Dryer User Manual DV9*CGC2**** (D-PJT_DV5000C_D.LED_WEB_EN_TH_MY_250308)",
+      "page_range": [
+        43,
+        43
+      ],
+      "source_chunk_id": "manual_Samsung_Dryer_DV5000C_p43_code_dc",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "หน้าจอแสดงรหัส dC ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2",
+          "on_no": "n_nomatch"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "ปิดประตูสนิทและเริ่มรอบการทำงานใหม่แล้วใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n3",
+          "on_no": "n2f"
+        },
+        {
+          "node_id": "n2f",
+          "type": "instruction",
+          "content": "ปิดประตูให้สนิท แล้วกดปุ่ม Start/Pause เริ่มรอบการทำงานใหม่ (คู่มือหน้า 25 และ 43)",
+          "safety_critical": false,
+          "author_note": "คู่มือหน้า 42–44 ใช้คำว่า 'start again' / 'restart' ส่วนตำแหน่งและหน้าที่ของปุ่ม Start/Pause มาจากหน้า 25",
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว รหัสบนจอหายไปและเครื่องทำงานปกติหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "node_id": "n3",
+          "type": "checkpoint",
+          "question": "Child Lock ไม่ได้เปิดใช้งานอยู่ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_escalate",
+          "on_no": "n3f"
+        },
+        {
+          "node_id": "n3f",
+          "type": "instruction",
+          "content": "ปลดล็อกเด็ก (Child Lock) โดยกดปุ่ม Dry Level และ Time ค้างพร้อมกัน 3 วินาที (คู่มือหน้า 32)",
+          "safety_critical": true,
+          "safety_warning": "ห้ามให้เด็กหรือสัตว์เลี้ยงเข้าไปหรือเล่นในเครื่อง ประตูเปิดจากด้านในยาก ถ้าติดอยู่ภายในอาจขาดอากาศหายใจ (คู่มือหน้า 9 และ 10) ห้ามเข้าถึงภายในเครื่องขณะถังกำลังหมุน (คู่มือหน้า 9)",
+          "author_note": "หน้า 43 ให้ตรวจ Child Lock วิธีปลดล็อกมาจากหน้า 32 คู่มือระบุว่าอาจเกิดข้อความนี้ได้เมื่อเปิดประตูทั้งที่เครื่องไม่ทำงานและ Child Lock เปิดอยู่",
+          "next": "n3v"
+        },
+        {
+          "node_id": "n3v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว รหัสบนจอหายไปและเครื่องทำงานปกติหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "รหัสหายไปและเครื่องทำงานปกติแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ทำตามรายการตรวจแล้วรหัส dC ยังแสดงอยู่ ติดต่อศูนย์บริการ Samsung ในพื้นที่ (คู่มือหน้า 43 และ 44) พร้อมแจ้งรุ่นเครื่อง รหัส และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        },
+        {
+          "node_id": "n_nomatch",
+          "type": "escalation",
+          "content": "รหัสที่แสดงไม่ใช่ dC ให้เลือกรหัสตามที่ปรากฏบนจอ ถ้าเป็นรหัสที่ไม่มีในรายการ คู่มือหน้า 44 ให้ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรหัสที่เห็น",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_dv5000c_um_code_cl",
+      "device_category": "Dryer",
+      "brand": "Samsung",
+      "model_pattern": "DV9*CGC2****",
+      "entry_symptom": "Information code CL: Child Lock is on. Open the door and check inside the drum.",
+      "entry_symptom_th": "หน้าจอแสดงรหัส CL (Child Lock เปิดอยู่)",
+      "entry_symptom_aliases": [
+        "รหัส CL",
+        "ขึ้น CL",
+        "error CL",
+        "CL",
+        "child lock",
+        "ล็อกเด็ก"
+      ],
+      "source": "Samsung Heat Pump Dryer User Manual DV9*CGC2**** (D-PJT_DV5000C_D.LED_WEB_EN_TH_MY_250308)",
+      "page_range": [
+        44,
+        44
+      ],
+      "source_chunk_id": "manual_Samsung_Dryer_DV5000C_p44_code_cl",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "หน้าจอแสดงรหัส CL ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2",
+          "on_no": "n_nomatch"
+        },
+        {
+          "node_id": "n2",
+          "type": "instruction",
+          "content": "เปิดประตูเครื่องและตรวจดูภายในถัง (คู่มือหน้า 44)",
+          "safety_critical": true,
+          "safety_warning": "ห้ามให้เด็กหรือสัตว์เลี้ยงเข้าไปหรือเล่นในเครื่อง ประตูเปิดจากด้านในยาก ถ้าติดอยู่ภายในอาจขาดอากาศหายใจ (คู่มือหน้า 9 และ 10) ห้ามเข้าถึงภายในเครื่องขณะถังกำลังหมุน (คู่มือหน้า 9) ห้ามสัมผัสกระจกประตูและภายในถังขณะอบหรือหลังอบเสร็จใหม่ๆ เพราะร้อนและอาจทำให้ไหม้ และห้ามสอดมือเข้าไปในถังขณะถังกำลังหมุน (คู่มือหน้า 9, 10 และ 11)",
+          "author_note": "หน้า 44 ให้เปิดประตูและตรวจภายในถัง คู่มือไม่ระบุว่าต้องตรวจหาอะไร ผู้พัฒนาเพิ่มคำเตือนเรื่องเด็ก/สัตว์เลี้ยงจากหน้า 9–10 และกระจกร้อนจากหน้า 10",
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว รหัสบนจอหายไปและเครื่องทำงานปกติหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "node_id": "n3",
+          "type": "instruction",
+          "content": "ปลดล็อกเด็ก (Child Lock) โดยกดปุ่ม Dry Level และ Time ค้างพร้อมกัน 3 วินาที (คู่มือหน้า 32)",
+          "safety_critical": false,
+          "author_note": "วิธีปลดล็อกมาจากหน้า 32 หน้า 44 ระบุว่า 'turn off Child Lock or the power' แต่หน้า 32 ระบุว่า Child Lock ยังคงทำงานแม้ปิดแล้วเปิดเครื่องใหม่ ผู้พัฒนาจึงใช้การปลดล็อกด้วยปุ่มเป็นวิธีหลัก ควรให้ผู้ตรวจยืนยันกับคู่มือฉบับพิมพ์",
+          "next": "n3v"
+        },
+        {
+          "node_id": "n3v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว รหัสบนจอหายไปและเครื่องทำงานปกติหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "รหัสหายไปและเครื่องทำงานปกติแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ทำตามรายการตรวจแล้วรหัส CL ยังแสดงอยู่ ติดต่อศูนย์บริการ Samsung ในพื้นที่ (คู่มือหน้า 44 และ 44) พร้อมแจ้งรุ่นเครื่อง รหัส และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        },
+        {
+          "node_id": "n_nomatch",
+          "type": "escalation",
+          "content": "รหัสที่แสดงไม่ใช่ CL ให้เลือกรหัสตามที่ปรากฏบนจอ ถ้าเป็นรหัสที่ไม่มีในรายการ คู่มือหน้า 44 ให้ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรหัสที่เห็น",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_dv5000c_um_code_nc",
+      "device_category": "Dryer",
+      "brand": "Samsung",
+      "model_pattern": "DV9*CGC2****",
+      "entry_symptom": "Information code nC: Lint filter problem",
+      "entry_symptom_th": "หน้าจอแสดงรหัส nC (ปัญหาตัวกรองเศษผ้า)",
+      "entry_symptom_aliases": [
+        "รหัส nC",
+        "ขึ้น nC",
+        "error nC",
+        "nC",
+        "lint filter",
+        "ตัวกรองเศษผ้า"
+      ],
+      "source": "Samsung Heat Pump Dryer User Manual DV9*CGC2**** (D-PJT_DV5000C_D.LED_WEB_EN_TH_MY_250308)",
+      "page_range": [
+        44,
+        44
+      ],
+      "source_chunk_id": "manual_Samsung_Dryer_DV5000C_p44_code_nc",
+      "severity": "medium",
+      "difficulty": "medium",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "หน้าจอแสดงรหัส nC ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2",
+          "on_no": "n_nomatch"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "ตัวกรองเศษผ้า (ชั้นนอกและชั้นใน) ประกอบและใส่เข้าที่ถูกต้องใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_escalate",
+          "on_no": "n2f"
+        },
+        {
+          "node_id": "n2f",
+          "type": "instruction",
+          "content": "ถอดตัวกรองเศษผ้าออก ตรวจว่าใส่ตัวกรองชั้นในอยู่ในชั้นนอกครบและไม่เสียหาย แล้วใส่กลับที่เดิมให้เข้าที่ (คู่มือหน้า 38 และ 39)",
+          "safety_critical": true,
+          "safety_warning": "ถอดปลั๊กก่อนทำความสะอาดหรือบำรุงรักษา และห้ามฉีดน้ำใส่เครื่องโดยตรง ห้ามใช้เบนซีน ทินเนอร์ แอลกอฮอล์ หรืออะซีโตนทำความสะอาด เพราะอาจเกิดไฟฟ้าช็อกหรือไฟไหม้ (คู่มือหน้า 11 และ 37) ประตูกระจกและภายในถังอาจยังร้อน ห้ามสัมผัส (คู่มือหน้า 10)",
+          "author_note": "หน้า 44 บอกให้ตรวจการประกอบตัวกรองเศษผ้า (lint filter assembly) โดยไม่ระบุเกณฑ์ ผู้พัฒนาสรุปขั้นตอนตรวจจากขั้นตอนถอดและใส่กลับในหน้า 38–39",
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว รหัสบนจอหายไปและเครื่องทำงานปกติหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "รหัสหายไปและเครื่องทำงานปกติแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ทำตามรายการตรวจแล้วรหัส nC ยังแสดงอยู่ ติดต่อศูนย์บริการ Samsung ในพื้นที่ (คู่มือหน้า 44 และ 44) พร้อมแจ้งรุ่นเครื่อง รหัส และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        },
+        {
+          "node_id": "n_nomatch",
+          "type": "escalation",
+          "content": "รหัสที่แสดงไม่ใช่ nC ให้เลือกรหัสตามที่ปรากฏบนจอ ถ้าเป็นรหัสที่ไม่มีในรายการ คู่มือหน้า 44 ให้ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรหัสที่เห็น",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_dv5000c_um_code_nc2",
+      "device_category": "Dryer",
+      "brand": "Samsung",
+      "model_pattern": "DV9*CGC2****",
+      "entry_symptom": "Information code nC2: Internal heat exchanger cover problem",
+      "entry_symptom_th": "หน้าจอแสดงรหัส nC2 (ปัญหาฝาครอบชั้นในของ heat exchanger)",
+      "entry_symptom_aliases": [
+        "รหัส nC2",
+        "ขึ้น nC2",
+        "error nC2",
+        "nC2",
+        "heat exchanger cover",
+        "ฝาครอบ heat exchanger"
+      ],
+      "source": "Samsung Heat Pump Dryer User Manual DV9*CGC2**** (D-PJT_DV5000C_D.LED_WEB_EN_TH_MY_250308)",
+      "page_range": [
+        44,
+        44
+      ],
+      "source_chunk_id": "manual_Samsung_Dryer_DV5000C_p44_code_nc2",
+      "severity": "medium",
+      "difficulty": "medium",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "หน้าจอแสดงรหัส nC2 ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2",
+          "on_no": "n_nomatch"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "ฝาครอบชั้นในของ heat exchanger ใส่เข้าที่และล็อกตัวล็อกเรียบร้อยแล้วใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_escalate",
+          "on_no": "n2f"
+        },
+        {
+          "node_id": "n2f",
+          "type": "instruction",
+          "content": "ใส่ฝาครอบชั้นในของ heat exchanger กลับที่เดิมแล้วล็อกตัวล็อกให้เรียบร้อย จากนั้นปิดฝาครอบด้านนอก (คู่มือหน้า 41)",
+          "safety_critical": true,
+          "safety_warning": "ถอดปลั๊กก่อนทำความสะอาด (คู่มือหน้า 11) อาจมีสารทำความเย็นรั่วเล็กน้อยค้างรอบ heat exchanger ให้เปิดฝาครอบ heat exchanger ระบายอากาศประมาณ 10 นาทีก่อนทำความสะอาด (คู่มือหน้า 40) ห้ามสัมผัสหรือทำความสะอาด heat exchanger ด้วยมือเปล่าหรือเครื่องมือเหล็ก เพราะอาจบาดเจ็บหรือไหม้ และระวังอย่าให้ครีบเสียหาย (คู่มือหน้า 11 และ 40) ห้ามทำให้วงจรสารทำความเย็นเสียหาย (คู่มือหน้า 7)",
+          "author_note": "หน้า 44 บอกให้ตรวจการประกอบฝาครอบชั้นใน (internal heat exchanger cover assembly) โดยไม่ระบุเกณฑ์ ผู้พัฒนาโยงกับขั้นตอนใส่ฝาครอบกลับและล็อกตัวล็อกในหน้า 41",
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว รหัสบนจอหายไปและเครื่องทำงานปกติหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "รหัสหายไปและเครื่องทำงานปกติแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ทำตามรายการตรวจแล้วรหัส nC2 ยังแสดงอยู่ ติดต่อศูนย์บริการ Samsung ในพื้นที่ (คู่มือหน้า 44 และ 44) พร้อมแจ้งรุ่นเครื่อง รหัส และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        },
+        {
+          "node_id": "n_nomatch",
+          "type": "escalation",
+          "content": "รหัสที่แสดงไม่ใช่ nC2 ให้เลือกรหัสตามที่ปรากฏบนจอ ถ้าเป็นรหัสที่ไม่มีในรายการ คู่มือหน้า 44 ให้ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรหัสที่เห็น",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_dv5000c_um_code_5c",
+      "device_category": "Dryer",
+      "brand": "Samsung",
+      "model_pattern": "DV9*CGC2****",
+      "entry_symptom": "Information code 5C: Draining malfunction",
+      "entry_symptom_th": "หน้าจอแสดงรหัส 5C (ระบายน้ำผิดปกติ)",
+      "entry_symptom_aliases": [
+        "รหัส 5C",
+        "ขึ้น 5C",
+        "error 5C",
+        "5C",
+        "ระบายน้ำ",
+        "ปั๊มน้ำ",
+        "water tank full",
+        "ถังเก็บน้ำเต็ม"
+      ],
+      "source": "Samsung Heat Pump Dryer User Manual DV9*CGC2**** (D-PJT_DV5000C_D.LED_WEB_EN_TH_MY_250308)",
+      "page_range": [
+        44,
+        44
+      ],
+      "source_chunk_id": "manual_Samsung_Dryer_DV5000C_p44_code_5c",
+      "severity": "medium",
+      "difficulty": "medium",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "หน้าจอแสดงรหัส 5C ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2",
+          "on_no": "n_nomatch"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "สายระบายน้ำไม่หักงอและไม่เสียหายใช่หรือไม่? (ถ้าไม่ได้ใช้สายระบาย ให้ตอบใช่)",
+          "safety_critical": false,
+          "on_yes": "n3",
+          "on_no": "n2f"
+        },
+        {
+          "node_id": "n2f",
+          "type": "instruction",
+          "content": "จัดสายระบายน้ำไม่ให้หักงอ ถ้าสายเสียหายให้ติดต่อศูนย์บริการ (คู่มือหน้า 44)",
+          "safety_critical": false,
+          "author_note": "หน้า 44 เป็นรายการตรวจ ไม่ได้ระบุวิธีแก้สายหักงอหรือเสียหาย ส่วนการติดต่อศูนย์บริการเมื่อสายเสียหายผู้พัฒนาเพิ่มเอง",
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว รหัสบนจอหายไปและเครื่องทำงานปกติหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "node_id": "n3",
+          "type": "checkpoint",
+          "question": "สายระบายน้ำไม่แข็งตัวใช่หรือไม่? (ถ้าไม่ได้ใช้สายระบาย ให้ตอบใช่)",
+          "safety_critical": false,
+          "on_yes": "n4",
+          "on_no": "n3f"
+        },
+        {
+          "node_id": "n3f",
+          "type": "instruction",
+          "content": "ถ้าสายระบายน้ำแข็งตัว ให้พันสายด้วยผ้าชุบน้ำอุ่นประมาณสิบนาทีเพื่อละลายน้ำแข็ง (คู่มือหน้า 11 และ 44)",
+          "safety_critical": true,
+          "safety_warning": "ติดตั้งเครื่องในที่ที่อุณหภูมิอยู่ในช่วง 5–35 °C ถ้าต่ำจนน้ำในเครื่องและสายแข็งตัว เครื่องอาจไม่ทำงานหรือเสียหาย (คู่มือหน้า 15) และหลังใช้งานทุกครั้งต้องไม่มีน้ำค้างอยู่ในสายระบาย (คู่มือหน้า 11) ถอดปลั๊กก่อนทำงานกับสายระบาย",
+          "author_note": "ขั้นตอนละลายน้ำแข็งมาจากหน้า 44 และ 11 ส่วนการถอดปลั๊กก่อนทำงานกับสายระบายผู้พัฒนาเพิ่มจากหน้า 11",
+          "next": "n3v"
+        },
+        {
+          "node_id": "n3v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว รหัสบนจอหายไปและเครื่องทำงานปกติหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n4"
+        },
+        {
+          "node_id": "n4",
+          "type": "checkpoint",
+          "question": "ถังเก็บน้ำไม่เต็มใช่หรือไม่? (ถ้าไม่ได้ใช้ถังเก็บน้ำ ให้ตอบใช่)",
+          "safety_critical": false,
+          "on_yes": "n_escalate",
+          "on_no": "n4f"
+        },
+        {
+          "node_id": "n4f",
+          "type": "instruction",
+          "content": "เทน้ำในถังเก็บน้ำ (water tank): ดึงที่จับถังด้วยมือข้างเดียวจนถังออกมาครึ่งหนึ่ง แล้วใช้มืออีกข้างรองใต้ถังและดึงถังออกช้าๆ ด้วยสองมือ > เทน้ำออกทางรูระบายน้ำ (B) > ใส่ถังกลับเข้าที่ (คู่มือหน้า 36) จากนั้นเปิดเครื่องและกด Start/Pause เริ่มรอบใหม่ (คู่มือหน้า 25, 36 และ 44)",
+          "safety_critical": true,
+          "safety_warning": "ถังเก็บน้ำหนักมาก ให้ดึงออกช้าๆ ด้วยสองมือและรักษาระดับถังให้ตรง ถ้าทำตกอาจบาดเจ็บ และห้ามดื่มน้ำที่เกิดจากการควบแน่น (คู่มือหน้า 9 และ 36)",
+          "author_note": "หน้า 36 ระบุว่าเมื่อขึ้นรหัส 5C ให้เทน้ำในถังแล้วกด Start/Pause รหัสจะหายและเครื่องจะอบต่อ",
+          "next": "n4v"
+        },
+        {
+          "node_id": "n4v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว รหัสบนจอหายไปและเครื่องทำงานปกติหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "รหัสหายไปและเครื่องทำงานปกติแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ทำตามรายการตรวจแล้วรหัส 5C ยังแสดงอยู่ ติดต่อศูนย์บริการ Samsung ในพื้นที่ (คู่มือหน้า 44 และ 44) พร้อมแจ้งรุ่นเครื่อง รหัส และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        },
+        {
+          "node_id": "n_nomatch",
+          "type": "escalation",
+          "content": "รหัสที่แสดงไม่ใช่ 5C ให้เลือกรหัสตามที่ปรากฏบนจอ ถ้าเป็นรหัสที่ไม่มีในรายการ คู่มือหน้า 44 ให้ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรหัสที่เห็น",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_dv5000c_um_code_hc",
+      "device_category": "Dryer",
+      "brand": "Samsung",
+      "model_pattern": "DV9*CGC2****",
+      "entry_symptom": "Information code HC: Compressor overheating",
+      "entry_symptom_th": "หน้าจอแสดงรหัส HC (คอมเพรสเซอร์ร้อนเกิน)",
+      "entry_symptom_aliases": [
+        "รหัส HC",
+        "ขึ้น HC",
+        "error HC",
+        "HC",
+        "คอมเพรสเซอร์ร้อนเกิน",
+        "compressor overheating"
+      ],
+      "source": "Samsung Heat Pump Dryer User Manual DV9*CGC2**** (D-PJT_DV5000C_D.LED_WEB_EN_TH_MY_250308)",
+      "page_range": [
+        44,
+        44
+      ],
+      "source_chunk_id": "manual_Samsung_Dryer_DV5000C_p44_code_hc",
+      "severity": "medium",
+      "difficulty": "medium",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "หน้าจอแสดงรหัส HC ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2",
+          "on_no": "n_nomatch"
+        },
+        {
+          "node_id": "n2",
+          "type": "instruction",
+          "content": "ทำความสะอาดตัวกรองเศษผ้า (lint filter): เปิดประตูเครื่อง จับด้านบนของตัวกรองแล้วดึงออก (อย่าถอดซีลยางของประตู) > เปิดตัวกรองชั้นนอกแล้วถอดตัวกรองชั้นใน (A) ออก > กางตัวกรองชั้นนอกและชั้นในออก > เก็บเศษผ้าออกจากตัวกรองทั้งสองชั้น แล้วทำความสะอาดด้วยแปรงทำความสะอาด (ถ้าต้องการให้สะอาดทั่วถึง ล้างด้วยน้ำไหลแล้วผึ่งให้แห้งสนิท ห้ามเขย่าหรือเคาะตัวกรอง และอย่าเปิดตัวกรองด้วยแรงมาก) > ใส่ตัวกรองชั้นในเข้าไปในชั้นนอก แล้วใส่ตัวกรองเศษผ้ากลับที่เดิม ห้ามใส่ขณะตัวกรองยังเปียก (คู่มือหน้า 38 และ 39)",
+          "safety_critical": true,
+          "safety_warning": "ถอดปลั๊กก่อนทำความสะอาดหรือบำรุงรักษา และห้ามฉีดน้ำใส่เครื่องโดยตรง ห้ามใช้เบนซีน ทินเนอร์ แอลกอฮอล์ หรืออะซีโตนทำความสะอาด เพราะอาจเกิดไฟฟ้าช็อกหรือไฟไหม้ (คู่มือหน้า 11 และ 37) ประตูกระจกและภายในถังอาจยังร้อน ห้ามสัมผัส (คู่มือหน้า 10)",
+          "author_note": "หน้า 44 ให้ตรวจความสะอาดของ heat exchanger และ lint filter ขั้นตอนมาจากหัวข้อ Lint filter หน้า 38–39 ส่วนการถอดปลั๊กก่อนทำความสะอาดผู้พัฒนาเพิ่มจากหน้า 11 และ 37",
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว รหัสบนจอหายไปและเครื่องทำงานปกติหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "node_id": "n3",
+          "type": "instruction",
+          "content": "ทำความสะอาด heat exchanger: กดส่วนบนของฝาครอบด้านนอก (A) เบาๆ เพื่อเปิด > ปลดตัวล็อกของฝาครอบชั้นใน (B) แล้วดึงฝาครอบชั้นในออก > เปิดฝาครอบทิ้งไว้ให้อากาศถ่ายเทประมาณ 10 นาทีก่อนทำความสะอาด > ปัดฝุ่นบน heat exchanger ด้วยแปรงที่ให้มา แล้วเช็ดฝุ่นที่เหลือด้วยผ้านุ่มหมาดๆ (ถ้า heat exchanger แห้งสนิทจนทำความสะอาดยาก ให้พรมน้ำเล็กน้อยแล้วใช้แปรงทำความสะอาด) > เช็ดฝาครอบชั้นในด้วยผ้านุ่มหมาดๆ > ใส่ฝาครอบชั้นในกลับที่เดิมแล้วล็อกตัวล็อกให้เรียบร้อย > ปิดฝาครอบด้านนอก (คู่มือหน้า 39, 40 และ 41)",
+          "safety_critical": true,
+          "safety_warning": "ถอดปลั๊กก่อนทำความสะอาด (คู่มือหน้า 11) อาจมีสารทำความเย็นรั่วเล็กน้อยค้างรอบ heat exchanger ให้เปิดฝาครอบ heat exchanger ระบายอากาศประมาณ 10 นาทีก่อนทำความสะอาด (คู่มือหน้า 40) ห้ามสัมผัสหรือทำความสะอาด heat exchanger ด้วยมือเปล่าหรือเครื่องมือเหล็ก เพราะอาจบาดเจ็บหรือไหม้ และระวังอย่าให้ครีบเสียหาย (คู่มือหน้า 11 และ 40) ห้ามทำให้วงจรสารทำความเย็นเสียหาย (คู่มือหน้า 7)",
+          "author_note": "ขั้นตอนมาจากหัวข้อ Heat exchanger หน้า 39–41 ส่วนการถอดปลั๊กก่อนทำความสะอาดผู้พัฒนาเพิ่มจากหน้า 11 และ 37",
+          "next": "n3v"
+        },
+        {
+          "node_id": "n3v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว รหัสบนจอหายไปและเครื่องทำงานปกติหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "รหัสหายไปและเครื่องทำงานปกติแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ทำตามรายการตรวจแล้วรหัส HC ยังแสดงอยู่ ติดต่อศูนย์บริการ Samsung ในพื้นที่ (คู่มือหน้า 44 และ 44) พร้อมแจ้งรุ่นเครื่อง รหัส และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        },
+        {
+          "node_id": "n_nomatch",
+          "type": "escalation",
+          "content": "รหัสที่แสดงไม่ใช่ HC ให้เลือกรหัสตามที่ปรากฏบนจอ ถ้าเป็นรหัสที่ไม่มีในรายการ คู่มือหน้า 44 ให้ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรหัสที่เห็น",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1536 @@
+{
+  "schema_version": 2,
+  "manual_id": "samsung_rb6000d_um_da68_04800b",
+  "device_category": "Refrigerator",
+  "brand": "Samsung",
+  "model_pattern": "RB45**/RB50**/RB53**",
+  "source_manual": "Samsung Refrigerator User Manual RB45**/RB50**/RB53** (BMF_RB6000D_DA68-04800B_EN_240305)",
+  "count": 22,
+  "graphs": [
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_rb6000d_um_not_cooling",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RB45**/RB50**/RB53**",
+      "entry_symptom": "Fridge/freezer does not operate. Fridge/freezer temperature is warm.",
+      "entry_symptom_th": "ตู้เย็น/ช่องแช่แข็งไม่ทำงานหรือไม่เย็น",
+      "entry_symptom_aliases": [
+        "ตู้เย็นไม่เย็น",
+        "ตู้เย็นไม่ทำงาน",
+        "ช่องแช่แข็งไม่เย็น",
+        "ตู้เย็นอุ่น",
+        "fridge not cooling",
+        "refrigerator warm"
+      ],
+      "source": "Samsung Refrigerator User Manual RB45**/RB50**/RB53** (BMF_RB6000D_DA68-04800B_EN_240305)",
+      "page_range": [
+        69,
+        69
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RB6000D_p69_not_cooling",
+      "severity": "medium",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "เสียบปลั๊กตู้เย็นแน่นเข้ากับเต้ารับแล้วใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2",
+          "on_no": "n1f"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "เสียบปลั๊กให้แน่นเข้ากับเต้ารับ โดยให้สายไฟห้อยลงด้านล่าง ถ้าเต้ารับหลวมห้ามเสียบปลั๊ก (คู่มือหน้า 11, 12 และ 69)",
+          "safety_critical": true,
+          "safety_warning": "ห้ามเสียบปลั๊กเข้ากับเต้ารับที่หลวม ห้ามใช้ปลั๊ก สายไฟ หรือเต้ารับที่ชำรุด ห้ามเสียบหรือแตะปลั๊กด้วยมือเปียก เสียบปลั๊กให้แน่นโดยให้สายห้อยลงด้านล่าง และเมื่อถอดปลั๊กให้จับที่ตัวปลั๊กดึงตรงออก ไม่ดึงที่สายไฟ เพราะอาจเกิดไฟฟ้าช็อกหรือไฟไหม้ (คู่มือหน้า 11, 12, 14 และ 15)",
+          "author_note": "หน้า 69/70 เป็นรายการตรวจ ไม่ได้อธิบายวิธีแก้โดยละเอียด ขั้นตอนที่เกินจากข้อความตรวจผู้พัฒนาเขียนเพิ่มจากหน้าที่อ้างอิง (คำเตือนและวิธีเสียบมาจากหน้า 11, 12, 14 และ 15)",
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "ตั้งอุณหภูมิไว้เย็นพอแล้วใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n3",
+          "on_no": "n2f"
+        },
+        {
+          "node_id": "n2f",
+          "type": "instruction",
+          "content": "ตั้งอุณหภูมิให้ต่ำลง: แตะปุ่มใดปุ่มหนึ่ง (<, ○ หรือ >) เพื่อปลุกหน้าจอ > แตะ ○ เพื่อเลือกช่องแช่เย็นหรือช่องแช่แข็ง (ไฟช่องที่เลือกจะกะพริบ) > แตะ < หรือ > เพื่อเลือกอุณหภูมิ (ช่องแช่เย็น 1–7 °C, ช่องแช่แข็ง −23 ถึง −15 °C) > รอจนไฟช่องที่เลือกหยุดกะพริบ หรือแตะ ○ เพื่อยืนยัน (คู่มือหน้า 37)",
+          "safety_critical": false,
+          "author_note": "หน้า 69 ระบุเพียง 'Set the temperature lower/higher' ขั้นตอนตั้งอุณหภูมิมาจากหน้า 37 ซึ่งไม่ระบุว่าปุ่ม < หรือ > ทิศใดลดหรือเพิ่มอุณหภูมิ (ข้อความในหน้า 37 ไม่มีลูกศรบอกทิศทาง) ผู้พัฒนาจึงไม่ระบุทิศทาง ควรให้ผู้ตรวจยืนยันกับคู่มือฉบับพิมพ์",
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "node_id": "n3",
+          "type": "checkpoint",
+          "question": "ตู้เย็นอยู่ห่างจากแสงแดดโดยตรงและแหล่งความร้อนแล้วใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n4",
+          "on_no": "n3f"
+        },
+        {
+          "node_id": "n3f",
+          "type": "instruction",
+          "content": "ย้ายตู้เย็นให้ห่างจากแสงแดดโดยตรงและแหล่งความร้อน (คู่มือหน้า 30 และ 69) ถ้าจำเป็นต้องเคลื่อนย้าย ให้ใช้กระดาษหนาหรือผ้า เช่น พรมเก่า ปูตามทางเคลื่อนย้ายเพื่อป้องกันพื้น (คู่มือหน้า 32)",
+          "safety_critical": true,
+          "safety_warning": "เมื่อเคลื่อนย้ายตู้เย็น ระวังอย่าให้ล้มหรือทับสายไฟ และให้ปลั๊กไม่ถูกบีบหรือเสียหายจากด้านหลังตู้เย็น (คู่มือหน้า 12) ห้ามยื่นมือ เท้า หรือวัตถุโลหะเข้าไปใต้หรือด้านหลังตู้เย็น (คู่มือหน้า 15 และ 16)",
+          "author_note": "หน้า 69 ระบุให้ย้ายตู้เย็นให้ห่างแสงแดดหรือแหล่งความร้อน คำเตือนการเคลื่อนย้ายมาจากหน้า 12, 15 และ 16 และวิธีปูพื้นมาจากหน้า 32",
+          "next": "n3v"
+        },
+        {
+          "node_id": "n3v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n4"
+        },
+        {
+          "node_id": "n4",
+          "type": "checkpoint",
+          "question": "เว้นระยะจากด้านหลังและด้านข้างตู้เย็นอย่างน้อย 5 ซม. แล้วใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n5",
+          "on_no": "n4f"
+        },
+        {
+          "node_id": "n4f",
+          "type": "instruction",
+          "content": "เว้นระยะจากด้านหลังและด้านข้างให้ห่างอย่างน้อย 5 ซม. (คู่มือหน้า 69) คู่มือหน้า 9 แนะนำให้เว้นด้านซ้าย ขวา และหลังมากกว่า 50 มม. และด้านบนมากกว่า 100 มม.",
+          "safety_critical": true,
+          "safety_warning": "เมื่อเคลื่อนย้ายตู้เย็น ระวังอย่าให้ล้มหรือทับสายไฟ และให้ปลั๊กไม่ถูกบีบหรือเสียหายจากด้านหลังตู้เย็น (คู่มือหน้า 12) ห้ามยื่นมือ เท้า หรือวัตถุโลหะเข้าไปใต้หรือด้านหลังตู้เย็น (คู่มือหน้า 15 และ 16) ห้ามปิดกั้นช่องระบายอากาศของตู้เย็นหรือโครงสร้างที่ติดตั้ง (คู่มือหน้า 7) และห้ามใช้เทียนไขหรือไดร์เป่าผมในตู้เย็น (คู่มือหน้า 17)",
+          "author_note": "หน้า 69 ระบุ 5 ซม. ส่วนหน้า 9 ระบุระยะที่แนะนำมากกว่านั้น (มากกว่า 50 มม. ซ้าย ขวา หลัง และ 100 มม. ด้านบน) แสดงทั้งสองตัวเลขให้ผู้ใช้ ควรให้ผู้ตรวจยืนยัน",
+          "next": "n4v"
+        },
+        {
+          "node_id": "n4v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n5"
+        },
+        {
+          "node_id": "n5",
+          "type": "checkpoint",
+          "question": "ไม่ได้เปิดใช้ฟังก์ชัน Vacation ใช่หรือไม่? (ถ้าไม่มีหรือไม่ได้ใช้ฟังก์ชันนี้ ให้ตอบใช่)",
+          "safety_critical": false,
+          "on_yes": "n6",
+          "on_no": "n5f"
+        },
+        {
+          "node_id": "n5f",
+          "type": "instruction",
+          "content": "ยกเลิกฟังก์ชัน Vacation โดยตั้งอุณหภูมิช่องแช่เย็นเป็นค่าอื่น (1–7 °C): แตะปุ่มใดปุ่มหนึ่งเพื่อปลุกหน้าจอ > แตะ ○ เพื่อเลือกช่องแช่เย็น > แตะ < หรือ > เพื่อเลือกอุณหภูมิ แล้วรอจนไฟกะพริบหยุดหรือแตะ ○ เพื่อยืนยัน (คู่มือหน้า 37)",
+          "safety_critical": false,
+          "author_note": "หน้า 69 ระบุเพียง 'Deactivate the Vacation function' หน้า 37 อธิบายว่า Vacation เป็นตัวเลือกหนึ่งของช่องแช่เย็น ผู้พัฒนาสรุปว่าการเลือกอุณหภูมิอื่นคือการยกเลิก ควรให้ผู้ตรวจยืนยัน",
+          "next": "n5v"
+        },
+        {
+          "node_id": "n5v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n6"
+        },
+        {
+          "node_id": "n6",
+          "type": "checkpoint",
+          "question": "ไม่ได้ใส่อาหารมากเกินไปและอาหารไม่บังช่องระบายอากาศใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_escalate",
+          "on_no": "n6f"
+        },
+        {
+          "node_id": "n6f",
+          "type": "instruction",
+          "content": "ไม่ใส่อาหารในตู้เย็นมากเกินไป และไม่ให้อาหารบังช่องระบายอากาศ อย่าวางอาหารใกล้ช่องระบายด้านหลังตู้ (คู่มือหน้า 20 และ 69)",
+          "safety_critical": true,
+          "safety_warning": "ห้ามปิดกั้นช่องระบายอากาศของตู้เย็นหรือโครงสร้างที่ติดตั้ง (คู่มือหน้า 7) และห้ามใช้เทียนไขหรือไดร์เป่าผมในตู้เย็น (คู่มือหน้า 17)",
+          "author_note": "หน้า 69 ระบุให้ไม่ใส่อาหารมากเกินไปและไม่ให้อาหารบังช่องระบายอากาศ ข้อความ 'ไม่วางอาหารใกล้ช่องระบายด้านหลัง' มาจากหน้า 20",
+          "next": "n6v"
+        },
+        {
+          "node_id": "n6v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "ตู้เย็นกลับมาเย็นหรือทำงานตามปกติแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung ในพื้นที่ (คู่มือหน้า 4) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว การเรียกบริการในกรณีที่ตู้เย็นทำงานปกติ (No Defect Cases) ผู้ใช้อาจต้องเสียค่าใช้จ่าย (คู่มือหน้า 69)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_rb6000d_um_over_cooling",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RB45**/RB50**/RB53**",
+      "entry_symptom": "Fridge/freezer is over-cooling.",
+      "entry_symptom_th": "ตู้เย็น/ช่องแช่แข็งเย็นจัดเกินไป",
+      "entry_symptom_aliases": [
+        "ตู้เย็นเย็นเกินไป",
+        "ผักแข็ง",
+        "ของในตู้เย็นแข็ง",
+        "fridge too cold",
+        "over cooling"
+      ],
+      "source": "Samsung Refrigerator User Manual RB45**/RB50**/RB53** (BMF_RB6000D_DA68-04800B_EN_240305)",
+      "page_range": [
+        69,
+        69
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RB6000D_p69_over_cooling",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "ปรับตั้งอุณหภูมิให้สูงขึ้นแล้วใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_escalate",
+          "on_no": "n1f"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "ตั้งอุณหภูมิให้สูงขึ้น: แตะปุ่มใดปุ่มหนึ่ง (<, ○ หรือ >) เพื่อปลุกหน้าจอ > แตะ ○ เพื่อเลือกช่องแช่เย็นหรือช่องแช่แข็ง (ไฟช่องที่เลือกจะกะพริบ) > แตะ < หรือ > เพื่อเลือกอุณหภูมิ (ช่องแช่เย็น 1–7 °C, ช่องแช่แข็ง −23 ถึง −15 °C) > รอจนไฟช่องที่เลือกหยุดกะพริบ หรือแตะ ○ เพื่อยืนยัน (คู่มือหน้า 37)",
+          "safety_critical": false,
+          "author_note": "หน้า 69 ระบุเพียง 'Set the temperature lower/higher' ขั้นตอนตั้งอุณหภูมิมาจากหน้า 37 ซึ่งไม่ระบุว่าปุ่ม < หรือ > ทิศใดลดหรือเพิ่มอุณหภูมิ (ข้อความในหน้า 37 ไม่มีลูกศรบอกทิศทาง) ผู้พัฒนาจึงไม่ระบุทิศทาง ควรให้ผู้ตรวจยืนยันกับคู่มือฉบับพิมพ์",
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "ตู้เย็นไม่เย็นจัดเกินไปแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung ในพื้นที่ (คู่มือหน้า 4) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว การเรียกบริการในกรณีที่ตู้เย็นทำงานปกติ (No Defect Cases) ผู้ใช้อาจต้องเสียค่าใช้จ่าย (คู่มือหน้า 69)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_rb6000d_um_interior_wall_hot",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RB45**/RB50**/RB53**",
+      "entry_symptom": "Interior wall is hot.",
+      "entry_symptom_th": "ผนังด้านในตู้เย็นร้อน",
+      "entry_symptom_aliases": [
+        "ผนังตู้เย็นอุ่น",
+        "ขอบตู้เย็นร้อน",
+        "มุมตู้เย็นร้อน",
+        "interior wall hot"
+      ],
+      "source": "Samsung Refrigerator User Manual RB45**/RB50**/RB53** (BMF_RB6000D_DA68-04800B_EN_240305)",
+      "page_range": [
+        69,
+        69
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RB6000D_p69_interior_wall_hot",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "ส่วนที่ร้อนอยู่ที่มุมด้านหน้าของตู้เย็น (front corners) ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n1n",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n1n",
+          "type": "resolution",
+          "content": "ตู้เย็นมีท่อกันความร้อน (heat-proof piping) ที่มุมด้านหน้า เพื่อป้องกันการเกิดหยดน้ำควบแน่น ถ้าอุณหภูมิแวดล้อมสูงขึ้น อุปกรณ์นี้อาจทำงานได้ไม่เต็มประสิทธิภาพ นี่ไม่ใช่ความขัดข้องของระบบ (คู่มือหน้า 69)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung ในพื้นที่ (คู่มือหน้า 4) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว การเรียกบริการในกรณีที่ตู้เย็นทำงานปกติ (No Defect Cases) ผู้ใช้อาจต้องเสียค่าใช้จ่าย (คู่มือหน้า 69)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_rb6000d_um_odours",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RB45**/RB50**/RB53**",
+      "entry_symptom": "Refrigerator has odours.",
+      "entry_symptom_th": "ตู้เย็นมีกลิ่น",
+      "entry_symptom_aliases": [
+        "ตู้เย็นเหม็น",
+        "กลิ่นในตู้เย็น",
+        "ตู้เย็นมีกลิ่นอับ",
+        "refrigerator smells"
+      ],
+      "source": "Samsung Refrigerator User Manual RB45**/RB50**/RB53** (BMF_RB6000D_DA68-04800B_EN_240305)",
+      "page_range": [
+        70,
+        70
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RB6000D_p70_odours",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "ทำความสะอาดตู้เย็นและนำอาหารที่เสียออกแล้วใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2",
+          "on_no": "n1f"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "ทำความสะอาดตู้เย็นและนำอาหารที่เสียออก: ถอดปลั๊ก > เช็ดภายในและภายนอกด้วยผ้านุ่มไม่เป็นขุยหรือกระดาษเช็ดมือที่เปียกหมาดๆ > เช็ดให้แห้งสนิทด้วยผ้าแห้งหรือกระดาษเช็ดมือ > เสียบปลั๊กกลับ (คู่มือหน้า 67 และ 70)",
+          "safety_critical": true,
+          "safety_warning": "ถอดปลั๊กก่อนทำความสะอาดหรือบำรุงรักษา ห้ามฉีดน้ำใส่ตู้เย็นโดยตรง ห้ามใช้เบนซีน ทินเนอร์ หรือน้ำยาที่มีคลอรีนทำความสะอาด ห้ามจุดเทียนในตู้เย็นเพื่อดับกลิ่น และห้ามใช้ไดร์เป่าผมเป่าภายใน เพราะอาจเกิดไฟฟ้าช็อกหรือไฟไหม้ (คู่มือหน้า 23, 24 และ 67) ถ้าถอดปลั๊กตู้เย็น ต้องรออย่างน้อยห้านาทีก่อนเสียบกลับ (คู่มือหน้า 21)",
+          "author_note": "หน้า 70 บอกให้ทำความสะอาดตู้เย็นและนำอาหารเสียออก ขั้นตอนมาจากหัวข้อ Cleaning หน้า 67",
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "ห่ออาหารที่มีกลิ่นแรงมิดชิดแล้วใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_escalate",
+          "on_no": "n2f"
+        },
+        {
+          "node_id": "n2f",
+          "type": "instruction",
+          "content": "ห่ออาหารที่มีกลิ่นแรงให้มิดชิดหรือใส่ภาชนะที่ปิดสนิท (คู่มือหน้า 21 และ 70)",
+          "safety_critical": false,
+          "author_note": "หน้า 70 ระบุเพียง 'wrapped airtight' วิธีห่อมาจากหน้า 21 (ห่ออาหารให้มิดชิดหรือใส่ภาชนะปิดสนิท)",
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "กลิ่นในตู้เย็นหายแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung ในพื้นที่ (คู่มือหน้า 4) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว การเรียกบริการในกรณีที่ตู้เย็นทำงานปกติ (No Defect Cases) ผู้ใช้อาจต้องเสียค่าใช้จ่าย (คู่มือหน้า 69)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_rb6000d_um_frost_vents",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RB45**/RB50**/RB53**",
+      "entry_symptom": "Frost around the vents.",
+      "entry_symptom_th": "มีน้ำแข็งเกาะรอบช่องระบายอากาศ",
+      "entry_symptom_aliases": [
+        "น้ำแข็งเกาะที่ช่องลม",
+        "น้ำแข็งเกาะรอบช่องระบาย",
+        "frost vents"
+      ],
+      "source": "Samsung Refrigerator User Manual RB45**/RB50**/RB53** (BMF_RB6000D_DA68-04800B_EN_240305)",
+      "page_range": [
+        70,
+        70
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RB6000D_p70_frost_vents",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "มีอาหารบังช่องระบายอากาศของตู้เย็นหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n1f",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "ย้ายอาหารที่บังช่องระบายอากาศของตู้เย็นออก (คู่มือหน้า 70)",
+          "safety_critical": true,
+          "safety_warning": "ห้ามแตะผนังช่องแช่แข็งหรืออาหารในช่องแช่แข็งด้วยมือเปียก เพราะอาจเกิดแผลจากความเย็นจัด (frostbite) (คู่มือหน้า 15) และถอดปลั๊กก่อนทำความสะอาดหรือบำรุงรักษา (คู่มือหน้า 24)",
+          "author_note": "หน้า 70 ระบุเพียงให้ไม่มีอาหารบังช่องระบายอากาศ คำเตือนเรื่องมือเปียกกับช่องแช่แข็งมาจากหน้า 15 และ 24",
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "น้ำแข็งรอบช่องระบายอากาศไม่เกิดขึ้นอีกแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung ในพื้นที่ (คู่มือหน้า 4) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว การเรียกบริการในกรณีที่ตู้เย็นทำงานปกติ (No Defect Cases) ผู้ใช้อาจต้องเสียค่าใช้จ่าย (คู่มือหน้า 69)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_rb6000d_um_frost_walls",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RB45**/RB50**/RB53**",
+      "entry_symptom": "Frost on interior walls.",
+      "entry_symptom_th": "มีน้ำแข็งเกาะที่ผนังด้านใน",
+      "entry_symptom_aliases": [
+        "น้ำแข็งเกาะผนังตู้เย็น",
+        "น้ำแข็งเกาะด้านใน",
+        "ประตูปิดไม่สนิท",
+        "frost interior walls"
+      ],
+      "source": "Samsung Refrigerator User Manual RB45**/RB50**/RB53** (BMF_RB6000D_DA68-04800B_EN_240305)",
+      "page_range": [
+        70,
+        70
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RB6000D_p70_frost_walls",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "มีอาหารขวางไม่ให้ประตูตู้เย็นปิดสนิทหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n1f",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "ย้ายอาหารที่ขวางประตูออก แล้วปิดประตูให้สนิท (คู่มือหน้า 70)",
+          "safety_critical": false,
+          "author_note": "หน้า 69/70 เป็นรายการตรวจ ไม่ได้อธิบายวิธีแก้โดยละเอียด ขั้นตอนที่เกินจากข้อความตรวจผู้พัฒนาเขียนเพิ่มจากหน้าที่อ้างอิง",
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "ทำความสะอาดซีลประตู (door gasket) แล้วใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_escalate",
+          "on_no": "n2f"
+        },
+        {
+          "node_id": "n2f",
+          "type": "instruction",
+          "content": "ทำความสะอาดซีลประตู (door gasket) ด้วยฟองน้ำสะอาดหรือผ้านุ่มกับผงซักฟอกอ่อนในน้ำอุ่น ห้ามใช้สารขัดถูหรือสารทำความสะอาดรุนแรงกับซีล (คู่มือหน้า 24 และ 70)",
+          "safety_critical": true,
+          "safety_warning": "ถอดปลั๊กก่อนทำความสะอาดหรือปรับแต่ง (คู่มือหน้า 24 และ 28) ระวังนิ้วมือในช่องว่างระหว่างประตูกับตัวตู้ (คู่มือหน้า 15 และ 16) ห้ามใช้สารขัดถูหรือสารทำความสะอาดรุนแรงกับซีลประตูเพราะอาจทำให้วัสดุเป็นรอยหรือเสียหาย (คู่มือหน้า 24)",
+          "author_note": "หน้า 70 ระบุเพียง 'Clean the door gasket' หน้า 24 อธิบายการทำความสะอาดตู้เย็นโดยรวมว่าใช้ฟองน้ำสะอาดหรือผ้านุ่มกับผงซักฟอกอ่อนในน้ำอุ่น และห้ามใช้สารขัดถูหรือสารรุนแรงกับซีล ผู้พัฒนานำมาใช้กับซีลประตู",
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "ไม่มีน้ำแข็งเกาะที่ผนังด้านในอีกแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung ในพื้นที่ (คู่มือหน้า 4) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว การเรียกบริการในกรณีที่ตู้เย็นทำงานปกติ (No Defect Cases) ผู้ใช้อาจต้องเสียค่าใช้จ่าย (คู่มือหน้า 69)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_rb6000d_um_frost_freezer",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RB45**/RB50**/RB53**",
+      "entry_symptom": "Excessive frost build-ups in the freezer.",
+      "entry_symptom_th": "มีน้ำแข็งเกาะหนามากในช่องแช่แข็ง",
+      "entry_symptom_aliases": [
+        "น้ำแข็งเกาะช่องฟรีซ",
+        "ช่องแช่แข็งมีน้ำแข็งเยอะ",
+        "กลับด้านประตูแล้วน้ำแข็งเกาะ",
+        "excessive frost freezer"
+      ],
+      "source": "Samsung Refrigerator User Manual RB45**/RB50**/RB53** (BMF_RB6000D_DA68-04800B_EN_240305)",
+      "page_range": [
+        70,
+        70
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RB6000D_p70_frost_freezer",
+      "severity": "medium",
+      "difficulty": "medium",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "เคยกลับด้านบานประตูตู้เย็น (door reversal) แล้วไม่ได้หมุนซีลประตูกลับด้วยหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n1f",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "ถอดซีลประตู (door gasket) ของประตูช่องแช่เย็นและช่องแช่แข็ง หมุนกลับ 180° แล้วติดกลับเข้าไป (หน้า 60 ระบุให้หมุนตามเข็มนาฬิกา 180 องศา) (คู่มือหน้า 60 และ 70)",
+          "safety_critical": true,
+          "safety_warning": "ถอดปลั๊กก่อนทำความสะอาดหรือปรับแต่ง (คู่มือหน้า 24 และ 28) ระวังนิ้วมือในช่องว่างระหว่างประตูกับตัวตู้ (คู่มือหน้า 15 และ 16) ห้ามใช้สารขัดถูหรือสารทำความสะอาดรุนแรงกับซีลประตูเพราะอาจทำให้วัสดุเป็นรอยหรือเสียหาย (คู่มือหน้า 24)",
+          "author_note": "หน้า 70 ระบุให้หมุน 180° โดยไม่ระบุทิศ หน้า 60 (ขั้นตอนกลับด้านประตู) ระบุให้หมุนตามเข็มนาฬิกา 180 องศา ผู้พัฒนานำมาใช้ ควรให้ผู้ตรวจยืนยัน หน้า 48 ระบุว่าการกลับด้านประตูต้องทำโดยช่างที่ Samsung รับรองโดยผู้ใช้เสียค่าใช้จ่ายเอง (ไม่อยู่ในการรับประกัน) จึงควรแจ้งช่างหรือศูนย์บริการถ้าไม่ได้หมุนซีลหลังกลับด้านประตู",
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "ซีลประตูแนบสนิทและน้ำแข็งในช่องแช่แข็งไม่เกาะเพิ่มแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung ในพื้นที่ (คู่มือหน้า 4) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว การเรียกบริการในกรณีที่ตู้เย็นทำงานปกติ (No Defect Cases) ผู้ใช้อาจต้องเสียค่าใช้จ่าย (คู่มือหน้า 69)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_rb6000d_um_condensation",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RB45**/RB50**/RB53**",
+      "entry_symptom": "Condensation forms on the interior walls.",
+      "entry_symptom_th": "มีหยดน้ำเกาะที่ผนังด้านในตู้เย็น",
+      "entry_symptom_aliases": [
+        "ผนังตู้เย็นเปียก",
+        "มีน้ำเกาะในตู้เย็น",
+        "หยดน้ำในตู้เย็น",
+        "condensation interior"
+      ],
+      "source": "Samsung Refrigerator User Manual RB45**/RB50**/RB53** (BMF_RB6000D_DA68-04800B_EN_240305)",
+      "page_range": [
+        70,
+        70
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RB6000D_p70_condensation",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "เปิดประตูตู้เย็นค้างไว้นานหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n1f",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "เช็ดความชื้นออก และไม่เปิดประตูทิ้งไว้นาน (คู่มือหน้า 70)",
+          "safety_critical": false,
+          "author_note": "หน้า 70 ไม่ระบุวิธีเช็ดความชื้น ผู้พัฒนาไม่เพิ่มรายละเอียด",
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "ห่ออาหารที่มีความชื้นสูงมิดชิดแล้วใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_escalate",
+          "on_no": "n2f"
+        },
+        {
+          "node_id": "n2f",
+          "type": "instruction",
+          "content": "ห่ออาหารที่มีความชื้นสูงให้มิดชิดหรือใส่ภาชนะที่ปิดสนิท (คู่มือหน้า 21 และ 70)",
+          "safety_critical": false,
+          "author_note": "หน้า 70 ระบุเพียง 'wrapped airtight' วิธีห่อมาจากหน้า 21 (ห่ออาหารให้มิดชิดหรือใส่ภาชนะปิดสนิท)",
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "ไม่มีหยดน้ำเกาะที่ผนังด้านในแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung ในพื้นที่ (คู่มือหน้า 4) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว การเรียกบริการในกรณีที่ตู้เย็นทำงานปกติ (No Defect Cases) ผู้ใช้อาจต้องเสียค่าใช้จ่าย (คู่มือหน้า 69)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_rb6000d_um_sound_start_stop",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RB45**/RB50**/RB53**",
+      "entry_symptom": "Clicking! or Chirping! Buzzing!",
+      "entry_symptom_th": "ได้ยินเสียงคลิก จิ๊บ หรือหึ่งตอนตู้เย็นเริ่มหรือสิ้นสุดการทำงาน",
+      "entry_symptom_aliases": [
+        "ตู้เย็นมีเสียงคลิก",
+        "ตู้เย็นมีเสียงหึ่ง",
+        "เสียงเครื่องยนต์ตู้เย็น",
+        "fridge clicking",
+        "fridge buzzing"
+      ],
+      "source": "Samsung Refrigerator User Manual RB45**/RB50**/RB53** (BMF_RB6000D_DA68-04800B_EN_240305)",
+      "page_range": [
+        71,
+        71
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RB6000D_p71_sound_start_stop",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "เสียงที่ได้ยินเป็นเสียงคลิก จิ๊บ หรือหึ่ง ในช่วงที่ตู้เย็นเริ่มหรือสิ้นสุดการทำงานใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n1n",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n1n",
+          "type": "resolution",
+          "content": "เป็นเสียงปกติ: เมื่อตู้เย็นเริ่มหรือสิ้นสุดการทำงานอาจมีเสียงคล้ายเครื่องยนต์รถติด และเสียงจะเบาลงเมื่อการทำงานคงที่ (คู่มือหน้า 71)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "เสียงที่ได้ยินไม่ตรงกับเสียงปกติที่คู่มือระบุ (หน้า 71 และ 72) ติดต่อศูนย์บริการ Samsung ในพื้นที่ (คู่มือหน้า 4) พร้อมแจ้งรุ่นเครื่องและลักษณะเสียง ถ้าตู้เย็นมีกลิ่นไหม้หรือควัน ให้ถอดปลั๊กทันทีแล้วติดต่อศูนย์บริการ (คู่มือหน้า 19) การเรียกบริการสำหรับเสียงปกติ ผู้ใช้อาจต้องเสียค่าใช้จ่าย (คู่มือหน้า 71)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_rb6000d_um_sound_fan",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RB45**/RB50**/RB53**",
+      "entry_symptom": "SSSRRR! Whir!",
+      "entry_symptom_th": "ได้ยินเสียงซ่าหรือเสียงพัดลมหมุนขณะตู้เย็นทำงาน",
+      "entry_symptom_aliases": [
+        "เสียงพัดลมตู้เย็น",
+        "ตู้เย็นมีเสียงซ่า",
+        "เสียงลมในตู้เย็น",
+        "fridge fan noise"
+      ],
+      "source": "Samsung Refrigerator User Manual RB45**/RB50**/RB53** (BMF_RB6000D_DA68-04800B_EN_240305)",
+      "page_range": [
+        71,
+        71
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RB6000D_p71_sound_fan",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "เสียงที่ได้ยินเป็นเสียงซ่าหรือเสียงพัดลมหมุนขณะตู้เย็นกำลังทำงานใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n1n",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n1n",
+          "type": "resolution",
+          "content": "เป็นเสียงปกติ: เสียงนี้เกิดขึ้นได้ขณะพัดลมทำงาน และเมื่อตู้เย็นถึงอุณหภูมิที่ตั้งไว้ จะไม่มีเสียงพัดลม (คู่มือหน้า 71)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "เสียงที่ได้ยินไม่ตรงกับเสียงปกติที่คู่มือระบุ (หน้า 71 และ 72) ติดต่อศูนย์บริการ Samsung ในพื้นที่ (คู่มือหน้า 4) พร้อมแจ้งรุ่นเครื่องและลักษณะเสียง ถ้าตู้เย็นมีกลิ่นไหม้หรือควัน ให้ถอดปลั๊กทันทีแล้วติดต่อศูนย์บริการ (คู่มือหน้า 19) การเรียกบริการสำหรับเสียงปกติ ผู้ใช้อาจต้องเสียค่าใช้จ่าย (คู่มือหน้า 71)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_rb6000d_um_sound_defrost",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RB45**/RB50**/RB53**",
+      "entry_symptom": "HiSS!",
+      "entry_symptom_th": "ได้ยินเสียงฟู่หรือเสียงน้ำหยดลงบนฮีตเตอร์ขณะละลายน้ำแข็ง",
+      "entry_symptom_aliases": [
+        "ตู้เย็นมีเสียงฟู่",
+        "เสียงน้ำหยดตู้เย็น",
+        "เสียงละลายน้ำแข็ง",
+        "fridge hissing",
+        "defrost sound"
+      ],
+      "source": "Samsung Refrigerator User Manual RB45**/RB50**/RB53** (BMF_RB6000D_DA68-04800B_EN_240305)",
+      "page_range": [
+        71,
+        71
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RB6000D_p71_sound_defrost",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "เสียงที่ได้ยินเป็นเสียงฟู่คล้ายน้ำหยดลงบนของร้อนในช่วงที่ตู้เย็นละลายน้ำแข็ง (defrost) ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n1n",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n1n",
+          "type": "resolution",
+          "content": "เป็นเสียงปกติ: ในรอบละลายน้ำแข็ง (defrost) น้ำอาจหยดลงบนฮีตเตอร์ละลายน้ำแข็งและเกิดเสียงฟู่ (คู่มือหน้า 71)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "เสียงที่ได้ยินไม่ตรงกับเสียงปกติที่คู่มือระบุ (หน้า 71 และ 72) ติดต่อศูนย์บริการ Samsung ในพื้นที่ (คู่มือหน้า 4) พร้อมแจ้งรุ่นเครื่องและลักษณะเสียง ถ้าตู้เย็นมีกลิ่นไหม้หรือควัน ให้ถอดปลั๊กทันทีแล้วติดต่อศูนย์บริการ (คู่มือหน้า 19) การเรียกบริการสำหรับเสียงปกติ ผู้ใช้อาจต้องเสียค่าใช้จ่าย (คู่มือหน้า 71)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_rb6000d_um_sound_bubbling",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RB45**/RB50**/RB53**",
+      "entry_symptom": "Bubbling!",
+      "entry_symptom_th": "ได้ยินเสียงน้ำเดือดหรือเสียงฟองในตู้เย็น",
+      "entry_symptom_aliases": [
+        "เสียงน้ำไหลในตู้เย็น",
+        "เสียงฟองตู้เย็น",
+        "ตู้เย็นมีเสียงน้ำเดือด",
+        "fridge bubbling"
+      ],
+      "source": "Samsung Refrigerator User Manual RB45**/RB50**/RB53** (BMF_RB6000D_DA68-04800B_EN_240305)",
+      "page_range": [
+        72,
+        72
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RB6000D_p72_sound_bubbling",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "เสียงที่ได้ยินเป็นเสียงคล้ายฟองหรือน้ำเดือดขณะตู้เย็นกำลังทำความเย็นหรือแช่แข็งใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n1n",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n1n",
+          "type": "resolution",
+          "content": "เป็นเสียงปกติ: ขณะตู้เย็นทำความเย็นหรือแช่แข็ง ก๊าซทำความเย็นเคลื่อนที่ผ่านท่อปิดและทำให้เกิดเสียงคล้ายฟอง (คู่มือหน้า 72)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "เสียงที่ได้ยินไม่ตรงกับเสียงปกติที่คู่มือระบุ (หน้า 71 และ 72) ติดต่อศูนย์บริการ Samsung ในพื้นที่ (คู่มือหน้า 4) พร้อมแจ้งรุ่นเครื่องและลักษณะเสียง ถ้าตู้เย็นมีกลิ่นไหม้หรือควัน ให้ถอดปลั๊กทันทีแล้วติดต่อศูนย์บริการ (คู่มือหน้า 19) การเรียกบริการสำหรับเสียงปกติ ผู้ใช้อาจต้องเสียค่าใช้จ่าย (คู่มือหน้า 71)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_rb6000d_um_sound_cracking",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RB45**/RB50**/RB53**",
+      "entry_symptom": "Cracking!",
+      "entry_symptom_th": "ได้ยินเสียงแก๊กหรือเสียงเคาะจากชิ้นส่วนพลาสติก",
+      "entry_symptom_aliases": [
+        "ตู้เย็นมีเสียงแก๊ก",
+        "เสียงเคาะตู้เย็น",
+        "เสียงพลาสติกขยายตัว",
+        "fridge cracking",
+        "fridge knocking"
+      ],
+      "source": "Samsung Refrigerator User Manual RB45**/RB50**/RB53** (BMF_RB6000D_DA68-04800B_EN_240305)",
+      "page_range": [
+        72,
+        72
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RB6000D_p72_sound_cracking",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "เสียงที่ได้ยินเป็นเสียงแก๊กหรือเสียงเคาะ ขณะอุณหภูมิในตู้เย็นเปลี่ยน ในรอบละลายน้ำแข็ง หรือขณะชิ้นส่วนอิเล็กทรอนิกส์ทำงานใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n1n",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n1n",
+          "type": "resolution",
+          "content": "เป็นเสียงปกติ: เมื่ออุณหภูมิตู้เย็นเพิ่มหรือลด ชิ้นส่วนพลาสติกจะหดและขยายตัวและเกิดเสียงเคาะ เสียงนี้เกิดในรอบละลายน้ำแข็งหรือเมื่อชิ้นส่วนอิเล็กทรอนิกส์ทำงาน (คู่มือหน้า 72)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "เสียงที่ได้ยินไม่ตรงกับเสียงปกติที่คู่มือระบุ (หน้า 71 และ 72) ติดต่อศูนย์บริการ Samsung ในพื้นที่ (คู่มือหน้า 4) พร้อมแจ้งรุ่นเครื่องและลักษณะเสียง ถ้าตู้เย็นมีกลิ่นไหม้หรือควัน ให้ถอดปลั๊กทันทีแล้วติดต่อศูนย์บริการ (คู่มือหน้า 19) การเรียกบริการสำหรับเสียงปกติ ผู้ใช้อาจต้องเสียค่าใช้จ่าย (คู่มือหน้า 71)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_rb6000d_um_sound_ice_maker",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RB45**/RB50**/RB53**",
+      "entry_symptom": "Buzzing sounds from the ice maker when the water valve opens (ice maker models)",
+      "entry_symptom_th": "ได้ยินเสียงหึ่งจากเครื่องทำน้ำแข็งตอนเติมน้ำ (รุ่นที่มีเครื่องทำน้ำแข็ง)",
+      "entry_symptom_aliases": [
+        "เสียงหึ่งเครื่องทำน้ำแข็ง",
+        "เสียงวาล์วน้ำตู้เย็น",
+        "ice maker buzzing"
+      ],
+      "source": "Samsung Refrigerator User Manual RB45**/RB50**/RB53** (BMF_RB6000D_DA68-04800B_EN_240305)",
+      "page_range": [
+        72,
+        72
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RB6000D_p72_sound_ice_maker",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "ตู้เย็นรุ่นนี้มีเครื่องทำน้ำแข็ง และเสียงหึ่งเกิดขึ้นตอนที่วาล์วน้ำเปิดเพื่อเติมน้ำใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n1n",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n1n",
+          "type": "resolution",
+          "content": "เป็นเสียงปกติ: สำหรับรุ่นที่มีเครื่องทำน้ำแข็ง เมื่อวาล์วน้ำเปิดเพื่อเติมน้ำเข้าเครื่องทำน้ำแข็งอาจมีเสียงหึ่ง (คู่มือหน้า 72)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "เสียงที่ได้ยินไม่ตรงกับเสียงปกติที่คู่มือระบุ (หน้า 71 และ 72) ติดต่อศูนย์บริการ Samsung ในพื้นที่ (คู่มือหน้า 4) พร้อมแจ้งรุ่นเครื่องและลักษณะเสียง ถ้าตู้เย็นมีกลิ่นไหม้หรือควัน ให้ถอดปลั๊กทันทีแล้วติดต่อศูนย์บริการ (คู่มือหน้า 19) การเรียกบริการสำหรับเสียงปกติ ผู้ใช้อาจต้องเสียค่าใช้จ่าย (คู่มือหน้า 71)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_rb6000d_um_sound_whoosh",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RB45**/RB50**/RB53**",
+      "entry_symptom": "Whooshing sounds when opening and closing the refrigerator door",
+      "entry_symptom_th": "ได้ยินเสียงลมวูบตอนเปิดหรือปิดประตูตู้เย็น",
+      "entry_symptom_aliases": [
+        "เสียงลมตอนเปิดประตูตู้เย็น",
+        "เสียงฟู่ตอนปิดประตู",
+        "fridge whoosh"
+      ],
+      "source": "Samsung Refrigerator User Manual RB45**/RB50**/RB53** (BMF_RB6000D_DA68-04800B_EN_240305)",
+      "page_range": [
+        72,
+        72
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RB6000D_p72_sound_whoosh",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "เสียงลมวูบเกิดขึ้นตอนเปิดหรือปิดประตูตู้เย็นใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n1n",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n1n",
+          "type": "resolution",
+          "content": "เป็นเสียงปกติ: เกิดจากการปรับสมดุลความดันเมื่อเปิดและปิดประตูตู้เย็น อาจมีเสียงลมวูบ (คู่มือหน้า 72)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "เสียงที่ได้ยินไม่ตรงกับเสียงปกติที่คู่มือระบุ (หน้า 71 และ 72) ติดต่อศูนย์บริการ Samsung ในพื้นที่ (คู่มือหน้า 4) พร้อมแจ้งรุ่นเครื่องและลักษณะเสียง ถ้าตู้เย็นมีกลิ่นไหม้หรือควัน ให้ถอดปลั๊กทันทีแล้วติดต่อศูนย์บริการ (คู่มือหน้า 19) การเรียกบริการสำหรับเสียงปกติ ผู้ใช้อาจต้องเสียค่าใช้จ่าย (คู่มือหน้า 71)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_rb6000d_um_st_app_not_found",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RB45**/RB50**/RB53**",
+      "entry_symptom": "Could not find “SmartThings” in the app market.",
+      "entry_symptom_th": "ค้นหาแอป SmartThings ในแอปสโตร์ไม่พบ",
+      "entry_symptom_aliases": [
+        "หาแอป SmartThings ไม่เจอ",
+        "ไม่มี SmartThings ใน Play Store",
+        "ติดตั้ง SmartThings ไม่ได้",
+        "SmartThings not found"
+      ],
+      "source": "Samsung Refrigerator User Manual RB45**/RB50**/RB53** (BMF_RB6000D_DA68-04800B_EN_240305)",
+      "page_range": [
+        73,
+        73
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RB6000D_p73_st_app_not_found",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "โทรศัพท์ของคุณใช้ระบบปฏิบัติการเวอร์ชันเก่าที่ผู้ผลิตระบบปฏิบัติการอาจหยุดอัปเดตแอปให้แล้วใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n1n",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n1n",
+          "type": "resolution",
+          "content": "เวอร์ชันซอฟต์แวร์ของแอป SmartThings ที่รองรับเปลี่ยนแปลงได้ตามนโยบายสนับสนุนระบบปฏิบัติการของผู้ผลิต และนโยบายอัปเดตแอปสำหรับระบบปฏิบัติการเวอร์ชันเดิมอาจถูกระงับด้วยเหตุผลด้านการใช้งานหรือความปลอดภัย จึงอาจหาแอปไม่พบ ไม่ใช่ความผิดปกติของตู้เย็น (คู่มือหน้า 73)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ยังแก้ปัญหาการใช้แอป SmartThings ไม่ได้ ติดต่อ st.service@samsung.com (คู่มือหน้า 39) หรือศูนย์บริการ Samsung ในพื้นที่ (คู่มือหน้า 4) พร้อมแจ้งรุ่นตู้เย็น รุ่นโทรศัพท์ เวอร์ชันระบบปฏิบัติการ และอาการที่เกิดขึ้น",
+          "outcome_kind": "handoff_informed"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_rb6000d_um_st_fails_to_operate",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RB45**/RB50**/RB53**",
+      "entry_symptom": "The SmartThings app fails to operate.",
+      "entry_symptom_th": "แอป SmartThings ใช้งานไม่ได้",
+      "entry_symptom_aliases": [
+        "SmartThings ใช้ไม่ได้",
+        "แอปตู้เย็นไม่ทำงาน",
+        "แอป Samsung Smart Refrigerator",
+        "SmartThings not working"
+      ],
+      "source": "Samsung Refrigerator User Manual RB45**/RB50**/RB53** (BMF_RB6000D_DA68-04800B_EN_240305)",
+      "page_range": [
+        73,
+        73
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RB6000D_p73_st_fails_to_operate",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "ตู้เย็นของคุณไม่ใช่รุ่นที่รองรับ SmartThings (ไม่ใช่ applicable model) ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n1n",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n1n",
+          "type": "resolution",
+          "content": "แอป SmartThings ใช้ได้เฉพาะรุ่นที่รองรับเท่านั้น (applicable models only) ถ้าตู้เย็นไม่ใช่รุ่นที่รองรับ จะใช้งานแอปไม่ได้ ซึ่งไม่ใช่ความผิดปกติ (คู่มือหน้า 73)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "คุณใช้แอป Samsung Smart Refrigerator รุ่นเก่าอยู่ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2f",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n2f",
+          "type": "instruction",
+          "content": "แอป Samsung Smart Refrigerator รุ่นเก่าเชื่อมต่อกับรุ่น Samsung Smart Home ไม่ได้ ให้ติดตั้งและใช้แอป SmartThings จาก Google Play Store, Galaxy Apps หรือ Apple App Store แทน (คู่มือหน้า 39 และ 73)",
+          "safety_critical": false,
+          "author_note": "หน้า 73 ระบุเพียงว่าแอปรุ่นเก่าเชื่อมต่อไม่ได้ การให้ใช้ SmartThings แทนมาจากหน้า 39 และ 40 ผู้พัฒนาสรุปเอง ควรให้ผู้ตรวจยืนยัน",
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "เชื่อมต่อและใช้งานแอป SmartThings ได้แล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ยังแก้ปัญหาการใช้แอป SmartThings ไม่ได้ ติดต่อ st.service@samsung.com (คู่มือหน้า 39) หรือศูนย์บริการ Samsung ในพื้นที่ (คู่มือหน้า 4) พร้อมแจ้งรุ่นตู้เย็น รุ่นโทรศัพท์ เวอร์ชันระบบปฏิบัติการ และอาการที่เกิดขึ้น",
+          "outcome_kind": "handoff_informed"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_rb6000d_um_st_not_connected",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RB45**/RB50**/RB53**",
+      "entry_symptom": "The SmartThings app is installed but is not connected to my refrigerator.",
+      "entry_symptom_th": "ติดตั้งแอป SmartThings แล้วแต่เชื่อมต่อกับตู้เย็นไม่ได้",
+      "entry_symptom_aliases": [
+        "SmartThings เชื่อมต่อตู้เย็นไม่ได้",
+        "แอปไม่เจอตู้เย็น",
+        "ตู้เย็นไม่เชื่อมต่อแอป",
+        "SmartThings not connected"
+      ],
+      "source": "Samsung Refrigerator User Manual RB45**/RB50**/RB53** (BMF_RB6000D_DA68-04800B_EN_240305)",
+      "page_range": [
+        73,
+        73
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RB6000D_p73_st_not_connected",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "ล็อกอินบัญชี Samsung ในแอป SmartThings แล้วใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2",
+          "on_no": "n1f"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "ล็อกอินบัญชี Samsung ในแอป SmartThings (คู่มือหน้า 73) ถ้ายังไม่มีบัญชี ให้ทำตามคำแนะนำบนหน้าจอของแอปเพื่อสร้างบัญชี",
+          "safety_critical": false,
+          "author_note": "หน้า 73 ระบุเพียงว่าต้องล็อกอินบัญชี Samsung ส่วนการสร้างบัญชีมาจากแถว 'Could not log into the app.' ในหน้าเดียวกัน",
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "เราเตอร์ทำงานปกติใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n3",
+          "on_no": "n2f"
+        },
+        {
+          "node_id": "n2f",
+          "type": "instruction",
+          "content": "ตรวจให้แน่ใจว่าเราเตอร์ทำงานปกติ (คู่มือหน้า 73)",
+          "safety_critical": false,
+          "author_note": "หน้า 73 ไม่ระบุวิธีตรวจเราเตอร์ ผู้พัฒนาไม่เพิ่มรายละเอียด (การตัดการเชื่อมต่อและเชื่อมต่อเราเตอร์ใหม่อยู่ในอาการ 'connected but does not run')",
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "node_id": "n3",
+          "type": "checkpoint",
+          "question": "ไอคอน Wi-Fi บนจอตู้เย็นดับอยู่ (ยังไม่เชื่อมต่อเครือข่าย) ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n3f",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n3f",
+          "type": "instruction",
+          "content": "เชื่อมต่อตู้เย็นกับแอป SmartThings: เปิดอุปกรณ์ที่ต้องการเชื่อมต่อแล้วเปิดแอป SmartThings บนโทรศัพท์ > ถ้ามีป๊อปอัปว่าพบอุปกรณ์ใหม่ ให้แตะ ADD NOW ถ้าไม่มี ให้แตะปุ่ม + แล้วเลือกอุปกรณ์จากรายการ > ถ้าไม่มีในรายการ ให้แตะ Supported Devices เลือกประเภทอุปกรณ์ (Refrigerator) และรุ่นที่ตรงกัน > ทำตามคำแนะนำในแอปเพื่อตั้งค่า (คู่มือหน้า 40)",
+          "safety_critical": false,
+          "author_note": "หน้า 73 ระบุให้ใช้แอป SmartThings เชื่อมต่อและลงทะเบียนตู้เย็นกับ AP ที่บ้าน ขั้นตอนในแอปมาจากหน้า 40",
+          "next": "n3v"
+        },
+        {
+          "node_id": "n3v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "แอป SmartThings เชื่อมต่อกับตู้เย็นได้แล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ยังแก้ปัญหาการใช้แอป SmartThings ไม่ได้ ติดต่อ st.service@samsung.com (คู่มือหน้า 39) หรือศูนย์บริการ Samsung ในพื้นที่ (คู่มือหน้า 4) พร้อมแจ้งรุ่นตู้เย็น รุ่นโทรศัพท์ เวอร์ชันระบบปฏิบัติการ และอาการที่เกิดขึ้น",
+          "outcome_kind": "handoff_informed"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_rb6000d_um_st_login",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RB45**/RB50**/RB53**",
+      "entry_symptom": "Could not log into the app.",
+      "entry_symptom_th": "ล็อกอินเข้าแอปไม่ได้",
+      "entry_symptom_aliases": [
+        "ล็อกอิน SmartThings ไม่ได้",
+        "เข้าแอปไม่ได้",
+        "ไม่มีบัญชี Samsung",
+        "SmartThings login"
+      ],
+      "source": "Samsung Refrigerator User Manual RB45**/RB50**/RB53** (BMF_RB6000D_DA68-04800B_EN_240305)",
+      "page_range": [
+        73,
+        73
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RB6000D_p73_st_login",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "มีบัญชี Samsung และล็อกอินด้วยบัญชีนั้นแล้วใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_escalate",
+          "on_no": "n1f"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "ล็อกอินด้วยบัญชี Samsung ถ้ายังไม่มีบัญชี ให้ทำตามคำแนะนำบนหน้าจอของแอปเพื่อสร้างบัญชี (คู่มือหน้า 73)",
+          "safety_critical": false,
+          "author_note": "คู่มือไม่ระบุวิธีกู้รหัสผ่านหรือแก้ปัญหาล็อกอินอื่น",
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "ล็อกอินเข้าแอปได้แล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ยังแก้ปัญหาการใช้แอป SmartThings ไม่ได้ ติดต่อ st.service@samsung.com (คู่มือหน้า 39) หรือศูนย์บริการ Samsung ในพื้นที่ (คู่มือหน้า 4) พร้อมแจ้งรุ่นตู้เย็น รุ่นโทรศัพท์ เวอร์ชันระบบปฏิบัติการ และอาการที่เกิดขึ้น",
+          "outcome_kind": "handoff_informed"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_rb6000d_um_st_register_error",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RB45**/RB50**/RB53**",
+      "entry_symptom": "An error message appears when I try to register my refrigerator.",
+      "entry_symptom_th": "มีข้อความแจ้งข้อผิดพลาดตอนลงทะเบียนตู้เย็น",
+      "entry_symptom_aliases": [
+        "ลงทะเบียนตู้เย็นไม่ได้",
+        "Easy Connection ล้มเหลว",
+        "ขึ้น error ตอนเชื่อมต่อ",
+        "SmartThings register error"
+      ],
+      "source": "Samsung Refrigerator User Manual RB45**/RB50**/RB53** (BMF_RB6000D_DA68-04800B_EN_240305)",
+      "page_range": [
+        73,
+        73
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RB6000D_p73_st_register_error",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "instruction",
+          "content": "รอสักครู่แล้วลองลงทะเบียนตู้เย็นอีกครั้ง (คู่มือหน้า 73) การเชื่อมต่อแบบ Easy Connection อาจล้มเหลวเพราะระยะห่างจากเราเตอร์ (AP) หรือสัญญาณรบกวนทางไฟฟ้าจากสภาพแวดล้อมรอบข้าง",
+          "safety_critical": false,
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "ลงทะเบียนตู้เย็นสำเร็จแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ยังแก้ปัญหาการใช้แอป SmartThings ไม่ได้ ติดต่อ st.service@samsung.com (คู่มือหน้า 39) หรือศูนย์บริการ Samsung ในพื้นที่ (คู่มือหน้า 4) พร้อมแจ้งรุ่นตู้เย็น รุ่นโทรศัพท์ เวอร์ชันระบบปฏิบัติการ และอาการที่เกิดขึ้น",
+          "outcome_kind": "handoff_informed"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_rb6000d_um_st_connected_not_run",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RB45**/RB50**/RB53**",
+      "entry_symptom": "The SmartThings app is successfully connected to my refrigerator but does not run.",
+      "entry_symptom_th": "แอปเชื่อมต่อกับตู้เย็นสำเร็จแล้วแต่ใช้งานไม่ได้",
+      "entry_symptom_aliases": [
+        "แอปเชื่อมต่อแล้วแต่ไม่ทำงาน",
+        "SmartThings ค้าง",
+        "สั่งตู้เย็นผ่านแอปไม่ได้",
+        "SmartThings connected but not running"
+      ],
+      "source": "Samsung Refrigerator User Manual RB45**/RB50**/RB53** (BMF_RB6000D_DA68-04800B_EN_240305)",
+      "page_range": [
+        73,
+        73
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RB6000D_p73_st_connected_not_run",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "instruction",
+          "content": "ปิดแอป SmartThings แล้วเปิดใหม่ หรือตัดการเชื่อมต่อแล้วเชื่อมต่อเราเตอร์ใหม่ (คู่มือหน้า 73)",
+          "safety_critical": false,
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n2",
+          "type": "instruction",
+          "content": "ปิดตู้เย็นแล้วเปิดใหม่หลังผ่านไป 1 นาที (คู่มือหน้า 73) ถ้าปิดโดยถอดปลั๊ก ให้รออย่างน้อยห้านาทีก่อนเสียบปลั๊กกลับ (คู่มือหน้า 21)",
+          "safety_critical": true,
+          "safety_warning": "ถ้าปิดตู้เย็นด้วยการถอดปลั๊ก คู่มือหน้า 21 ระบุว่าต้องรออย่างน้อยห้านาทีก่อนเสียบปลั๊กกลับ และห้ามเสียบปลั๊กด้วยมือเปียก (คู่มือหน้า 15 และ 21)",
+          "author_note": "หน้า 73 ระบุให้เปิดใหม่หลังผ่านไป 1 นาที แต่หน้า 21 ระบุให้รออย่างน้อยห้านาทีก่อนเสียบปลั๊กกลับ คู่มือไม่ขัดแย้งกันโดยตรงแต่ไม่ชัดเจน และหน้า 73 ไม่ระบุวิธีปิดเครื่อง จึงแสดงทั้งสองค่า ควรให้ผู้ตรวจยืนยัน",
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "แอป SmartThings ใช้งานกับตู้เย็นได้ตามปกติแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ยังแก้ปัญหาการใช้แอป SmartThings ไม่ได้ ติดต่อ st.service@samsung.com (คู่มือหน้า 39) หรือศูนย์บริการ Samsung ในพื้นที่ (คู่มือหน้า 4) พร้อมแจ้งรุ่นตู้เย็น รุ่นโทรศัพท์ เวอร์ชันระบบปฏิบัติการ และอาการที่เกิดขึ้น",
+          "outcome_kind": "handoff_informed"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_rb6000d_um_st_wifi_blinking",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RB45**/RB50**/RB53**",
+      "entry_symptom": "The Wi-Fi icon is blinking.",
+      "entry_symptom_th": "ไอคอน Wi-Fi บนจอตู้เย็นกะพริบ",
+      "entry_symptom_aliases": [
+        "ไฟ Wi-Fi กะพริบ",
+        "ไอคอนไวไฟตู้เย็นกะพริบ",
+        "Wi-Fi blinking fridge"
+      ],
+      "source": "Samsung Refrigerator User Manual RB45**/RB50**/RB53** (BMF_RB6000D_DA68-04800B_EN_240305)",
+      "page_range": [
+        73,
+        73
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RB6000D_p73_st_wifi_blinking",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "เชื่อมต่อตู้เย็นกับแอป SmartThings สำเร็จแล้วใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2",
+          "on_no": "n1f"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "เชื่อมต่อตู้เย็นกับแอป SmartThings: เปิดอุปกรณ์ที่ต้องการเชื่อมต่อแล้วเปิดแอป SmartThings บนโทรศัพท์ > ถ้ามีป๊อปอัปว่าพบอุปกรณ์ใหม่ ให้แตะ ADD NOW ถ้าไม่มี ให้แตะปุ่ม + แล้วเลือกอุปกรณ์จากรายการ > ถ้าไม่มีในรายการ ให้แตะ Supported Devices เลือกประเภทอุปกรณ์ (Refrigerator) และรุ่นที่ตรงกัน > ทำตามคำแนะนำในแอปเพื่อตั้งค่า (คู่มือหน้า 40)",
+          "safety_critical": false,
+          "author_note": "หน้า 73 ระบุให้เชื่อมต่อกับแอปก่อนใช้งาน ขั้นตอนในแอปมาจากหน้า 40",
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังเชื่อมต่อแล้ว ไอคอน Wi-Fi หยุดกะพริบหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "เชื่อมต่อไม่สำเร็จ หรือไม่ต้องการใช้แอปใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2f",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n2f",
+          "type": "instruction",
+          "content": "แตะปุ่ม > ค้างไว้ 10 วินาที ไฟแสดงจะหยุดกะพริบและจอแสดงอุณหภูมิแสดง “O FF” (คู่มือหน้า 73)",
+          "safety_critical": false,
+          "author_note": "หน้า 73 ระบุให้กด 'ปุ่ม' ค้าง 10 วินาที โดยตัวปุ่มเป็นสัญลักษณ์ในภาพซึ่งไม่มีข้อความในคู่มือ ผู้พัฒนาจึงระบุเป็นปุ่ม '>' ตามที่สรุปไว้จากภาพหน้า 73 ควรให้ผู้ตรวจยืนยันกับคู่มือฉบับพิมพ์",
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "ไอคอน Wi-Fi หยุดกะพริบและจอแสดงอุณหภูมิแสดง “O FF” หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "ไอคอน Wi-Fi หยุดกะพริบแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ยังแก้ปัญหาการใช้แอป SmartThings ไม่ได้ ติดต่อ st.service@samsung.com (คู่มือหน้า 39) หรือศูนย์บริการ Samsung ในพื้นที่ (คู่มือหน้า 4) พร้อมแจ้งรุ่นตู้เย็น รุ่นโทรศัพท์ เวอร์ชันระบบปฏิบัติการ และอาการที่เกิดขึ้น",
+          "outcome_kind": "handoff_informed"
+        }
+      ]
+    }
+  ]
+}

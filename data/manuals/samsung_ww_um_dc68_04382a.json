@@ -1,0 +1,3859 @@
+{
+  "schema_version": 2,
+  "manual_id": "samsung_ww_um_dc68_04382a",
+  "device_category": "Washing Machine",
+  "brand": "Samsung",
+  "model_pattern": "WW9*T4*****/WW8*T4*****/WW7*T4*****/WW90FG********",
+  "source_manual": "Samsung Washing Machine User Manual (Code No. DC68-04382A-13)",
+  "count": 35,
+  "graphs": [
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_ww_um_does_not_start",
+      "device_category": "Washing Machine",
+      "brand": "Samsung",
+      "model_pattern": "WW9*T4*****/WW8*T4*****/WW7*T4*****/WW90FG********",
+      "entry_symptom": "Does not start.",
+      "entry_symptom_th": "เครื่องซักผ้าไม่เริ่มทำงาน",
+      "entry_symptom_aliases": [
+        "เครื่องซักผ้าไม่ติด",
+        "เครื่องไม่ทำงาน",
+        "washing machine won't start"
+      ],
+      "source": "Samsung Washing Machine User Manual (Code No. DC68-04382A-13)",
+      "page_range": [
+        51,
+        51
+      ],
+      "source_chunk_id": "manual_Samsung_WashingMachine_WWUM_p51_does_not_start",
+      "severity": "medium",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "เสียบปลั๊กเครื่องซักผ้าอยู่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2",
+          "on_no": "n1f"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "เสียบปลั๊กให้แน่นเข้ากับเต้ารับที่มีไฟ ใช้เต้ารับสำหรับเครื่องนี้เท่านั้น ไม่ใช้ปลั๊กพ่วง (คู่มือหน้า 7 และ 51)",
+          "safety_critical": true,
+          "safety_warning": "ห้ามใช้ปลั๊ก สายไฟ หรือเต้ารับที่ชำรุดหรือหลวม เพราะอาจเกิดไฟฟ้าช็อกหรือไฟไหม้ และห้ามแตะปลั๊กด้วยมือเปียก (คู่มือหน้า 8 และ 10)",
+          "author_note": "คู่มือหน้า 51 เป็นคำถามตรวจ ส่วนวิธีเสียบปลั๊กและคำเตือนมาจากหน้า 7, 8 และ 10",
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "ปิดประตูเครื่องสนิทแล้วหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n3",
+          "on_no": "n2f"
+        },
+        {
+          "node_id": "n2f",
+          "type": "instruction",
+          "content": "ปิดประตูให้สนิท",
+          "safety_critical": false,
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "node_id": "n3",
+          "type": "checkpoint",
+          "question": "เปิดก๊อกน้ำแล้วหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n4",
+          "on_no": "n3f"
+        },
+        {
+          "node_id": "n3f",
+          "type": "instruction",
+          "content": "เปิดก๊อกน้ำ",
+          "safety_critical": false,
+          "next": "n3v"
+        },
+        {
+          "node_id": "n3v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n4"
+        },
+        {
+          "node_id": "n4",
+          "type": "checkpoint",
+          "question": "กดหรือแตะ Start/Pause เพื่อเริ่มเครื่องแล้วหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n5",
+          "on_no": "n4f"
+        },
+        {
+          "node_id": "n4f",
+          "type": "instruction",
+          "content": "กดหรือแตะ Start/Pause เพื่อเริ่มเครื่อง",
+          "safety_critical": false,
+          "next": "n4v"
+        },
+        {
+          "node_id": "n4v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n5"
+        },
+        {
+          "node_id": "n5",
+          "type": "checkpoint",
+          "question": "Child Lock ไม่ได้เปิดใช้งานอยู่ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n6",
+          "on_no": "n5f"
+        },
+        {
+          "node_id": "n5f",
+          "type": "instruction",
+          "content": "ปลดล็อกเด็ก (Child Lock) โดยกดปุ่ม Temp. และ Spin ค้างพร้อมกัน 3 วินาที (คู่มือหน้า 42)",
+          "safety_critical": false,
+          "author_note": "หน้า 51 ให้ตรวจว่า Child Lock ไม่ทำงาน วิธีปลดล็อกมาจากหน้า 42",
+          "next": "n5v"
+        },
+        {
+          "node_id": "n5v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n6"
+        },
+        {
+          "node_id": "n6",
+          "type": "checkpoint",
+          "question": "ได้ยินเสียงคลิกหลายครั้งก่อนเครื่องเริ่มเติมน้ำใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n6n",
+          "on_no": "n7"
+        },
+        {
+          "node_id": "n6n",
+          "type": "resolution",
+          "content": "เป็นการทำงานปกติ เครื่องกำลังตรวจล็อกประตูและระบายน้ำสั้นๆ ก่อนเริ่มเติมน้ำ (คู่มือหน้า 51)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "node_id": "n7",
+          "type": "checkpoint",
+          "question": "ฟิวส์ไม่ขาดและเบรกเกอร์ไม่ตัดอยู่ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_escalate",
+          "on_no": "n7f"
+        },
+        {
+          "node_id": "n7f",
+          "type": "instruction",
+          "content": "ตรวจฟิวส์หรือรีเซ็ตเบรกเกอร์ (คู่มือหน้า 51)",
+          "safety_critical": true,
+          "safety_warning": "ถ้าเบรกเกอร์ตัดซ้ำหลังรีเซ็ต อย่ารีเซ็ตซ้ำ ให้หยุดใช้งานและติดต่อศูนย์บริการ ห้ามใช้ฟิวส์ที่ไม่ใช่ฟิวส์มาตรฐาน (คู่มือหน้า 10)",
+          "author_note": "คู่มือหน้า 51 ระบุเพียง 'Check the fuse or reset the circuit breaker' ประโยคแรกของคำเตือน (อย่ารีเซ็ตซ้ำ) ผู้พัฒนาเพิ่มเอง ส่วนเรื่องห้ามใช้ฟิวส์ที่ไม่ใช่มาตรฐานมาจากหน้า 10",
+          "next": "n7v"
+        },
+        {
+          "node_id": "n7v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "เครื่องซักผ้าเริ่มทำงานแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ (ปลั๊ก ประตู ก๊อกน้ำ ปุ่ม Start/Pause Child Lock ฟิวส์/เบรกเกอร์) ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่องและสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_ww_um_water_supply_insufficient",
+      "device_category": "Washing Machine",
+      "brand": "Samsung",
+      "model_pattern": "WW9*T4*****/WW8*T4*****/WW7*T4*****/WW90FG********",
+      "entry_symptom": "Water supply is insufficient, or no water is supplied.",
+      "entry_symptom_th": "น้ำเข้าเครื่องน้อยหรือไม่มีน้ำเข้าเครื่อง",
+      "entry_symptom_aliases": [
+        "น้ำไม่เข้าเครื่องซักผ้า",
+        "น้ำเข้าช้า",
+        "no water washing machine"
+      ],
+      "source": "Samsung Washing Machine User Manual (Code No. DC68-04382A-13)",
+      "page_range": [
+        51,
+        51
+      ],
+      "source_chunk_id": "manual_Samsung_WashingMachine_WWUM_p51_water_supply_insufficient",
+      "severity": "medium",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "เปิดก๊อกน้ำสุดแล้วหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2",
+          "on_no": "n1f"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "เปิดก๊อกน้ำให้สุด",
+          "safety_critical": false,
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "ปิดประตูเครื่องสนิทแล้วหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n3",
+          "on_no": "n2f"
+        },
+        {
+          "node_id": "n2f",
+          "type": "instruction",
+          "content": "ปิดประตูให้สนิท",
+          "safety_critical": false,
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "node_id": "n3",
+          "type": "checkpoint",
+          "question": "สายน้ำเข้าไม่แข็งตัวใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n4",
+          "on_no": "n3f"
+        },
+        {
+          "node_id": "n3f",
+          "type": "instruction",
+          "content": "ทำตามหัวข้อ Recovery from freezing: ปิดเครื่องและถอดปลั๊ก > ราดน้ำอุ่นที่ก๊อกน้ำเพื่อคลายสายน้ำเข้า > ถอดสายแล้วแช่ในน้ำอุ่น > เทน้ำอุ่นลงถังซักทิ้งไว้ประมาณ 10 นาที > ต่อสายกลับเข้าก๊อก (คู่มือหน้า 50)",
+          "safety_critical": true,
+          "safety_warning": "ปิดเครื่องและถอดปลั๊กก่อนเริ่มทุกขั้นตอน (คู่มือหน้า 50)",
+          "author_note": "หัวข้อ Recovery from freezing (หน้า 50) เขียนสำหรับเครื่องที่แข็งตัว ผู้พัฒนาโยงมาใช้กับกรณีสายน้ำ ก๊อกน้ำ หรือสายระบายแข็งตัวที่รายการตรวจอื่นพูดถึง",
+          "next": "n3v"
+        },
+        {
+          "node_id": "n3v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n4"
+        },
+        {
+          "node_id": "n4",
+          "type": "checkpoint",
+          "question": "สายน้ำเข้าไม่หักงอและไม่อุดตันใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n5",
+          "on_no": "n4f"
+        },
+        {
+          "node_id": "n4f",
+          "type": "instruction",
+          "content": "จัดสายน้ำเข้าให้ตรง ไม่ให้หักงอ",
+          "safety_critical": false,
+          "author_note": "คู่มือหน้า 51 เป็นคำถามตรวจ ไม่ได้ระบุวิธีแก้กรณีสายอุดตัน",
+          "next": "n4v"
+        },
+        {
+          "node_id": "n4v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n5"
+        },
+        {
+          "node_id": "n5",
+          "type": "checkpoint",
+          "question": "แรงดันน้ำไม่เพียงพอใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n5e",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n5e",
+          "type": "escalation",
+          "content": "คู่มือให้ตรวจแรงดันน้ำแต่ไม่ระบุวิธีแก้ ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่องและสิ่งที่ตรวจไปแล้ว",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "น้ำเข้าเครื่องได้ตามปกติแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_ww_um_detergent_remains_in_drawer",
+      "device_category": "Washing Machine",
+      "brand": "Samsung",
+      "model_pattern": "WW9*T4*****/WW8*T4*****/WW7*T4*****/WW90FG********",
+      "entry_symptom": "After a cycle, detergent remains in the detergent drawer.",
+      "entry_symptom_th": "ผงซักฟอกค้างในช่องใส่ผงซักฟอกหลังซักเสร็จ",
+      "entry_symptom_aliases": [
+        "ผงซักฟอกค้าง",
+        "ผงซักฟอกไม่ละลาย",
+        "detergent left in drawer"
+      ],
+      "source": "Samsung Washing Machine User Manual (Code No. DC68-04382A-13)",
+      "page_range": [
+        51,
+        51
+      ],
+      "source_chunk_id": "manual_Samsung_WashingMachine_WWUM_p51_detergent_remains_in_drawer",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "แรงดันน้ำตอนเครื่องทำงานไม่เพียงพอใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n1e",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n1e",
+          "type": "escalation",
+          "content": "คู่มือให้ตรวจแรงดันน้ำแต่ไม่ระบุวิธีแก้ ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่อง",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "ใส่ผงซักฟอกตรงกลางช่องใส่ผงซักฟอกหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n3",
+          "on_no": "n2f"
+        },
+        {
+          "node_id": "n2f",
+          "type": "instruction",
+          "content": "ใส่ผงซักฟอกตรงกลางช่องใส่ผงซักฟอก",
+          "safety_critical": false,
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "node_id": "n3",
+          "type": "checkpoint",
+          "question": "ใส่ฝาครอบ rinse (rinse cap) เข้าที่ถูกต้องหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n4",
+          "on_no": "n3f"
+        },
+        {
+          "node_id": "n3f",
+          "type": "instruction",
+          "content": "ใส่ฝาครอบ rinse ให้เข้าที่ถูกต้อง",
+          "safety_critical": false,
+          "next": "n3v"
+        },
+        {
+          "node_id": "n3v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n4"
+        },
+        {
+          "node_id": "n4",
+          "type": "checkpoint",
+          "question": "ถ้าใช้ผงซักฟอกชนิดเม็ด ตัวเลือก (detergent selector) อยู่ตำแหน่งบนใช่หรือไม่? (ถ้าไม่ได้ใช้ชนิดเม็ดให้ตอบใช่)",
+          "safety_critical": false,
+          "on_yes": "n5",
+          "on_no": "n4f"
+        },
+        {
+          "node_id": "n4f",
+          "type": "instruction",
+          "content": "เลื่อนตัวเลือกไปที่ตำแหน่งบน",
+          "safety_critical": false,
+          "next": "n4v"
+        },
+        {
+          "node_id": "n4v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n5"
+        },
+        {
+          "node_id": "n5",
+          "type": "instruction",
+          "content": "ถอดฝาครอบ rinse แล้วล้างช่องใส่ผงซักฟอก: กดคันปลดล็อก (A) ค้างแล้วดึงลิ้นชักออก ถอดคันปลดล็อกและตัวนำน้ำยาออก ล้างชิ้นส่วนด้วยน้ำไหลและแปรงขนนุ่ม ล้างช่องลิ้นชักด้านในด้วยแปรงขวด ใส่กลับแล้วดันลิ้นชักปิด (คู่มือหน้า 49)",
+          "safety_critical": false,
+          "next": "n5v"
+        },
+        {
+          "node_id": "n5v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "ผงซักฟอกไม่ค้างในช่องแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_ww_um_excessive_vibration_noise",
+      "device_category": "Washing Machine",
+      "brand": "Samsung",
+      "model_pattern": "WW9*T4*****/WW8*T4*****/WW7*T4*****/WW90FG********",
+      "entry_symptom": "Excessive vibrations or makes noise.",
+      "entry_symptom_th": "เครื่องสั่นมากหรือมีเสียงดัง",
+      "entry_symptom_aliases": [
+        "เครื่องซักผ้าสั่น",
+        "เครื่องซักผ้าเสียงดัง",
+        "washing machine vibrates"
+      ],
+      "source": "Samsung Washing Machine User Manual (Code No. DC68-04382A-13)",
+      "page_range": [
+        51,
+        51
+      ],
+      "source_chunk_id": "manual_Samsung_WashingMachine_WWUM_p51_excessive_vibration_noise",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "เครื่องตั้งบนพื้นที่ได้ระดับ แข็งแรง และไม่ลื่นใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2",
+          "on_no": "n1f"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "ปรับขาปรับระดับด้วยมือให้เครื่องได้ระดับ แล้วขันน็อตด้วยประแจ ตรวจว่าเครื่องไม่โยก (คู่มือหน้า 23 และ 51)",
+          "safety_critical": true,
+          "safety_warning": "ตรวจว่าขาปรับระดับไม่กดทับสายไฟ และขาทุกข้างวางแนบพื้น (คู่มือหน้า 23)",
+          "author_note": "คู่มือหน้า 51 ให้ใช้ขาปรับระดับ ส่วนวิธีปรับมาจากหน้า 23",
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "ถอดสลักขนส่ง (shipping bolts) ออกหมดแล้วหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n3",
+          "on_no": "n2f"
+        },
+        {
+          "node_id": "n2f",
+          "type": "instruction",
+          "content": "ถอดสลักขนส่งทั้งหมดออก (หัวข้อ Remove the shipping bolts หน้า 21–22) ต้องถอดก่อนเสียบปลั๊กเครื่อง (คู่มือหน้า 21)",
+          "safety_critical": false,
+          "author_note": "หน้า 51 เป็นคำถามตรวจ ส่วนการอ้างหัวข้อติดตั้งหน้า 21–22 ผู้พัฒนาเพิ่ม ยังไม่ได้อ่านรายละเอียดหน้า 22 เต็ม",
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "node_id": "n3",
+          "type": "checkpoint",
+          "question": "เครื่องไม่สัมผัสกับวัตถุอื่นใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n4",
+          "on_no": "n3f"
+        },
+        {
+          "node_id": "n3f",
+          "type": "instruction",
+          "content": "ขยับเครื่องให้ห่างจากวัตถุอื่น",
+          "safety_critical": false,
+          "author_note": "คู่มือหน้า 51 เป็นคำถามตรวจ ไม่ได้ระบุวิธีแก้",
+          "next": "n3v"
+        },
+        {
+          "node_id": "n3v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n4"
+        },
+        {
+          "node_id": "n4",
+          "type": "checkpoint",
+          "question": "ผ้าในถังกระจายสมดุลดีใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n5",
+          "on_no": "n4f"
+        },
+        {
+          "node_id": "n4f",
+          "type": "instruction",
+          "content": "จัดผ้าในถังใหม่ให้กระจายสมดุล (คู่มือหน้า 52)",
+          "safety_critical": false,
+          "author_note": "คู่มือหน้า 51 เป็นคำถามตรวจ ส่วนการจัดผ้าใหม่อ้างจากหน้า 52",
+          "next": "n4v"
+        },
+        {
+          "node_id": "n4v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n5"
+        },
+        {
+          "node_id": "n5",
+          "type": "checkpoint",
+          "question": "เสียงที่ได้ยินมาจากมอเตอร์ขณะเครื่องทำงานปกติใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n5n",
+          "on_no": "n6"
+        },
+        {
+          "node_id": "n5n",
+          "type": "resolution",
+          "content": "มอเตอร์ทำให้เกิดเสียงได้ขณะทำงานปกติ ไม่ใช่ความเสียหาย (คู่มือหน้า 51)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "node_id": "n6",
+          "type": "checkpoint",
+          "question": "กำลังซักเสื้อผ้าที่มีโลหะประดับหรือชุดหมีอยู่ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n6n",
+          "on_no": "n7"
+        },
+        {
+          "node_id": "n6n",
+          "type": "resolution",
+          "content": "เสื้อผ้าที่มีโลหะประดับหรือชุดหมีทำให้เกิดเสียงระหว่างซักได้ เป็นเรื่องปกติ (คู่มือหน้า 51)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "node_id": "n7",
+          "type": "checkpoint",
+          "question": "มีวัตถุโลหะ เช่น เหรียญ อยู่ในถังซักหรือกล่องตัวกรองหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n7f",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n7f",
+          "type": "instruction",
+          "content": "หลังซักเสร็จ นำวัตถุโลหะออกจากถังซักหรือกล่องตัวกรอง",
+          "safety_critical": false,
+          "next": "n7v"
+        },
+        {
+          "node_id": "n7v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "เครื่องไม่สั่นหรือเสียงดังผิดปกติแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_ww_um_does_not_drain",
+      "device_category": "Washing Machine",
+      "brand": "Samsung",
+      "model_pattern": "WW9*T4*****/WW8*T4*****/WW7*T4*****/WW90FG********",
+      "entry_symptom": "Does not drain and/or spin.",
+      "entry_symptom_th": "เครื่องไม่ระบายน้ำและ/หรือไม่ปั่นแห้ง",
+      "entry_symptom_aliases": [
+        "น้ำไม่ออก",
+        "เครื่องซักผ้าไม่ระบายน้ำ",
+        "washing machine won't drain"
+      ],
+      "source": "Samsung Washing Machine User Manual (Code No. DC68-04382A-13)",
+      "page_range": [
+        52,
+        52
+      ],
+      "source_chunk_id": "manual_Samsung_WashingMachine_WWUM_p52_does_not_drain",
+      "severity": "medium",
+      "difficulty": "medium",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "สายระบายน้ำตรงตลอดแนวไปยังท่อระบายน้ำหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2",
+          "on_no": "n1f"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "จัดสายระบายน้ำให้ตรงตลอดแนวไปยังท่อระบายน้ำ",
+          "safety_critical": false,
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "พบการติดขัดของท่อระบายน้ำที่เครื่องต่ออยู่ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2e",
+          "on_no": "n3"
+        },
+        {
+          "node_id": "n2e",
+          "type": "escalation",
+          "content": "คู่มือระบุให้เรียกช่างเมื่อพบการติดขัดของระบบระบายน้ำ ติดต่อศูนย์บริการ Samsung หรือผู้ดูแลท่อระบายน้ำ (คู่มือหน้า 52)",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "node_id": "n3",
+          "type": "checkpoint",
+          "question": "ตัวกรองเศษผงไม่อุดตันใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n4",
+          "on_no": "n3f"
+        },
+        {
+          "node_id": "n3f",
+          "type": "instruction",
+          "content": "ล้างตัวกรองเศษผง: ปิดเครื่องและถอดปลั๊ก > ระบายน้ำที่เหลือในถังซักตามหัวข้อ Emergency drain (หน้า 45) > เปิดฝาครอบตัวกรอง (A) ด้วยประแจที่ให้มา > หมุนน็อบตัวกรองไปทางซ้ายและระบายน้ำที่เหลือ > ล้างตัวกรองด้วยแปรงขนนุ่ม ตรวจว่าใบพัดปั๊มระบายน้ำภายในตัวกรองไม่ติดขัด > ใส่ตัวกรองกลับและหมุนน็อบไปทางขวา (คู่มือหน้า 48) บางรุ่นมีน็อบนิรภัย ให้กดเข้าแล้วหมุนทวนเข็มนาฬิกาเพื่อเปิด",
+          "safety_critical": true,
+          "safety_warning": "ปิดเครื่องและถอดปลั๊กก่อน ระบายน้ำที่เหลือในถังซัก ใช้ภาชนะใหญ่รองน้ำเพราะน้ำอาจมีมากกว่าที่คาด หลังทำความสะอาดต้องใส่ตัวกรองให้เข้าที่และปิดน็อบให้สนิท มิฉะนั้นอาจรั่วหรือเครื่องทำงานผิดปกติ (คู่มือหน้า 45 และ 48)",
+          "author_note": "คู่มือหน้า 52 เป็นคำถามตรวจ ส่วนวิธีล้างตัวกรองเศษผงมาจากหน้า 48 และหน้า 45",
+          "next": "n3v"
+        },
+        {
+          "node_id": "n3v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n4"
+        },
+        {
+          "node_id": "n4",
+          "type": "checkpoint",
+          "question": "ปิดประตูสนิทและกด Start/Pause แล้วหรือไม่? (เพื่อความปลอดภัย เครื่องจะไม่ปั่นหรือหมุนถังถ้าประตูไม่ปิด)",
+          "safety_critical": false,
+          "on_yes": "n5",
+          "on_no": "n4f"
+        },
+        {
+          "node_id": "n4f",
+          "type": "instruction",
+          "content": "ปิดประตูให้สนิทแล้วกดหรือแตะ Start/Pause",
+          "safety_critical": false,
+          "next": "n4v"
+        },
+        {
+          "node_id": "n4v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n5"
+        },
+        {
+          "node_id": "n5",
+          "type": "checkpoint",
+          "question": "สายระบายน้ำไม่แข็งตัวและไม่อุดตันใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n6",
+          "on_no": "n5f"
+        },
+        {
+          "node_id": "n5f",
+          "type": "instruction",
+          "content": "ทำตามหัวข้อ Recovery from freezing: ปิดเครื่องและถอดปลั๊ก > ราดน้ำอุ่นที่ก๊อกน้ำเพื่อคลายสายน้ำเข้า > ถอดสายแล้วแช่ในน้ำอุ่น > เทน้ำอุ่นลงถังซักทิ้งไว้ประมาณ 10 นาที > ต่อสายกลับเข้าก๊อก (คู่มือหน้า 50)",
+          "safety_critical": true,
+          "safety_warning": "ปิดเครื่องและถอดปลั๊กก่อนเริ่มทุกขั้นตอน (คู่มือหน้า 50)",
+          "author_note": "หัวข้อ Recovery from freezing (หน้า 50) เขียนสำหรับเครื่องที่แข็งตัว ผู้พัฒนาโยงมาใช้กับกรณีสายน้ำ ก๊อกน้ำ หรือสายระบายแข็งตัวที่รายการตรวจอื่นพูดถึง",
+          "next": "n5v"
+        },
+        {
+          "node_id": "n5v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n6"
+        },
+        {
+          "node_id": "n6",
+          "type": "checkpoint",
+          "question": "ท่อระบายน้ำที่ต่ออยู่อุดตันใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n6e",
+          "on_no": "n7"
+        },
+        {
+          "node_id": "n6e",
+          "type": "escalation",
+          "content": "คู่มือให้ตรวจว่าระบบระบายน้ำไม่อุดตัน แต่ไม่ระบุวิธีแก้ ติดต่อศูนย์บริการ Samsung หรือผู้ดูแลท่อระบายน้ำ",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "node_id": "n7",
+          "type": "checkpoint",
+          "question": "ไฟฟ้าไม่เพียงพอชั่วคราว (เช่น ไฟตก) ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n7n",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n7n",
+          "type": "resolution",
+          "content": "เมื่อไฟฟ้าไม่เพียงพอ เครื่องจะไม่ระบายน้ำหรือปั่นชั่วคราว และจะกลับมาทำงานปกติทันทีที่ไฟฟ้ากลับมาเพียงพอ (คู่มือหน้า 52)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "เครื่องระบายน้ำได้ตามปกติแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_ww_um_spin_not_working",
+      "device_category": "Washing Machine",
+      "brand": "Samsung",
+      "model_pattern": "WW9*T4*****/WW8*T4*****/WW7*T4*****/WW90FG********",
+      "entry_symptom": "Spinning does not work.",
+      "entry_symptom_th": "เครื่องไม่ปั่นแห้ง",
+      "entry_symptom_aliases": [
+        "ไม่ปั่นผ้า",
+        "ปั่นแห้งไม่ทำงาน",
+        "Ub",
+        "washing machine not spinning"
+      ],
+      "source": "Samsung Washing Machine User Manual (Code No. DC68-04382A-13)",
+      "page_range": [
+        52,
+        52
+      ],
+      "source_chunk_id": "manual_Samsung_WashingMachine_WWUM_p52_spin_not_working",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "ผ้าในถังกระจายสม่ำเสมอหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2",
+          "on_no": "n1f"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "จัดผ้าในถังให้กระจายสม่ำเสมอ",
+          "safety_critical": false,
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "เครื่องตั้งบนพื้นที่เรียบและมั่นคงใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n3",
+          "on_no": "n2f"
+        },
+        {
+          "node_id": "n2f",
+          "type": "instruction",
+          "content": "ปรับขาปรับระดับให้เครื่องได้ระดับ แล้วขันน็อตด้วยประแจ (คู่มือหน้า 23)",
+          "safety_critical": true,
+          "safety_warning": "ตรวจว่าขาปรับระดับไม่กดทับสายไฟ และขาทุกข้างวางแนบพื้น (คู่มือหน้า 23)",
+          "author_note": "คู่มือหน้า 52 เป็นคำถามตรวจ ส่วนวิธีปรับระดับมาจากหน้า 23",
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "node_id": "n3",
+          "type": "checkpoint",
+          "question": "ซักผ้าเพียงชิ้นเดียว (เช่น เสื้อคลุมอาบน้ำหรือกางเกงยีนส์) หรือเห็นข้อความ \"Ub\" บนจอหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n3f",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n3f",
+          "type": "instruction",
+          "content": "จัดผ้าใหม่ให้กระจายสมดุล คู่มือระบุว่าถ้าซักผ้าเพียงชิ้นเดียว ผลการปั่นแห้งอาจไม่น่าพอใจและจอจะแสดง \"Ub\" (คู่มือหน้า 52)",
+          "safety_critical": false,
+          "next": "n3v"
+        },
+        {
+          "node_id": "n3v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "เครื่องปั่นแห้งได้แล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_ww_um_door_does_not_open",
+      "device_category": "Washing Machine",
+      "brand": "Samsung",
+      "model_pattern": "WW9*T4*****/WW8*T4*****/WW7*T4*****/WW90FG********",
+      "entry_symptom": "The door does not open.",
+      "entry_symptom_th": "ประตูเครื่องซักผ้าเปิดไม่ได้",
+      "entry_symptom_aliases": [
+        "เปิดประตูเครื่องซักผ้าไม่ออก",
+        "ประตูล็อก",
+        "washing machine door locked"
+      ],
+      "source": "Samsung Washing Machine User Manual (Code No. DC68-04382A-13)",
+      "page_range": [
+        52,
+        52
+      ],
+      "source_chunk_id": "manual_Samsung_WashingMachine_WWUM_p52_door_does_not_open",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "กด Start/Pause เพื่อหยุดเครื่องแล้วหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2",
+          "on_no": "n1f"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "กดหรือแตะ Start/Pause เพื่อหยุดเครื่อง",
+          "safety_critical": true,
+          "safety_warning": "อย่าฝืนเปิดประตูด้วยแรง อาจทำให้เครื่องเสียหายหรือบาดเจ็บ และน้ำที่ไหลออกอาจทำให้ลวกหรือพื้นลื่น (คู่มือหน้า 10)",
+          "author_note": "คำเตือนเรื่องไม่ฝืนเปิดประตูมาจากหน้า 10 หน้า 52 ไม่ได้ระบุ",
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "ผ่านไปอย่างน้อย 3 นาทีหลังเครื่องหยุดหรือปิดเครื่องแล้วใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n3",
+          "on_no": "n2f"
+        },
+        {
+          "node_id": "n2f",
+          "type": "instruction",
+          "content": "รอให้ครบ 3 นาทีหลังเครื่องหยุดหรือปิดเครื่อง กลไกล็อกประตูอาจใช้เวลาสักครู่กว่าจะปลดล็อก",
+          "safety_critical": true,
+          "safety_warning": "อย่าฝืนเปิดประตูด้วยแรง อาจทำให้เครื่องเสียหายหรือบาดเจ็บ และน้ำที่ไหลออกอาจทำให้ลวกหรือพื้นลื่น (คู่มือหน้า 10)",
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "node_id": "n3",
+          "type": "checkpoint",
+          "question": "ยังมีน้ำค้างอยู่ในถังซักใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n3e",
+          "on_no": "n4"
+        },
+        {
+          "node_id": "n3e",
+          "type": "escalation",
+          "content": "ประตูอาจเปิดไม่ได้ถ้ายังมีน้ำในถัง คู่มือให้ตรวจว่าน้ำถูกระบายหมดแล้ว หากน้ำไม่ระบาย ให้ใช้อาการ \"เครื่องไม่ระบายน้ำ\" (คู่มือหน้า 52) หรือติดต่อศูนย์บริการ Samsung",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "node_id": "n4",
+          "type": "checkpoint",
+          "question": "ไฟล็อกประตูดับแล้วใช่หรือไม่? (ไฟนี้ดับหลังเครื่องระบายน้ำเสร็จ)",
+          "safety_critical": false,
+          "on_yes": "n_escalate",
+          "on_no": "n4f"
+        },
+        {
+          "node_id": "n4f",
+          "type": "instruction",
+          "content": "รอให้เครื่องระบายน้ำเสร็จและไฟล็อกประตูดับ",
+          "safety_critical": true,
+          "safety_warning": "อย่าฝืนเปิดประตูด้วยแรง อาจทำให้เครื่องเสียหายหรือบาดเจ็บ และน้ำที่ไหลออกอาจทำให้ลวกหรือพื้นลื่น (คู่มือหน้า 10)",
+          "next": "n4v"
+        },
+        {
+          "node_id": "n4v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "เปิดประตูเครื่องได้แล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_ww_um_excessive_suds",
+      "device_category": "Washing Machine",
+      "brand": "Samsung",
+      "model_pattern": "WW9*T4*****/WW8*T4*****/WW7*T4*****/WW90FG********",
+      "entry_symptom": "Excessive suds.",
+      "entry_symptom_th": "ฟองมากเกินไป",
+      "entry_symptom_aliases": [
+        "ฟองล้น",
+        "ฟองเยอะ",
+        "too many suds"
+      ],
+      "source": "Samsung Washing Machine User Manual (Code No. DC68-04382A-13)",
+      "page_range": [
+        52,
+        52
+      ],
+      "source_chunk_id": "manual_Samsung_WashingMachine_WWUM_p52_excessive_suds",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "ใช้ผงซักฟอกชนิดที่แนะนำสำหรับเครื่องนี้หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2",
+          "on_no": "n1f"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "เปลี่ยนไปใช้ผงซักฟอกชนิดที่แนะนำ",
+          "safety_critical": false,
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "ใช้ผงซักฟอกประสิทธิภาพสูง (HE) หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n3",
+          "on_no": "n2f"
+        },
+        {
+          "node_id": "n2f",
+          "type": "instruction",
+          "content": "ใช้ผงซักฟอก HE เพื่อป้องกันฟองมากเกินไป คู่มือไม่แนะนำผงซักฟอกที่ไม่ใช่ HE",
+          "safety_critical": false,
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "node_id": "n3",
+          "type": "checkpoint",
+          "question": "ลดปริมาณผงซักฟอกแล้วหรือไม่ เมื่อใช้น้ำอ่อน ซักผ้าน้อย หรือผ้าไม่สกปรกมาก?",
+          "safety_critical": false,
+          "on_yes": "n_escalate",
+          "on_no": "n3f"
+        },
+        {
+          "node_id": "n3f",
+          "type": "instruction",
+          "content": "ลดปริมาณผงซักฟอกลงสำหรับน้ำอ่อน ผ้าน้อย หรือผ้าไม่สกปรกมาก",
+          "safety_critical": false,
+          "next": "n3v"
+        },
+        {
+          "node_id": "n3v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "ฟองลดลงแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_ww_um_cannot_apply_additional_detergent",
+      "device_category": "Washing Machine",
+      "brand": "Samsung",
+      "model_pattern": "WW9*T4*****/WW8*T4*****/WW7*T4*****/WW90FG********",
+      "entry_symptom": "Cannot apply additional detergent.",
+      "entry_symptom_th": "เติมผงซักฟอกเพิ่มไม่ได้",
+      "entry_symptom_aliases": [
+        "ใส่น้ำยาซักผ้าเพิ่มไม่ได้",
+        "ใส่น้ำยาปรับผ้านุ่มไม่ได้",
+        "cannot add detergent"
+      ],
+      "source": "Samsung Washing Machine User Manual (Code No. DC68-04382A-13)",
+      "page_range": [
+        53,
+        53
+      ],
+      "source_chunk_id": "manual_Samsung_WashingMachine_WWUM_p53_cannot_apply_additional_detergent",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "ปริมาณผงซักฟอกและน้ำยาปรับผ้านุ่มที่เหลืออยู่ไม่เกินขีดจำกัดใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_escalate",
+          "on_no": "n1f"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "ลดปริมาณผงซักฟอกและน้ำยาปรับผ้านุ่มไม่ให้เกินขีดจำกัด",
+          "safety_critical": false,
+          "author_note": "คู่มือไม่ได้ระบุวิธีลดปริมาณ",
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "เติมผงซักฟอกเพิ่มได้แล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_ww_um_stops",
+      "device_category": "Washing Machine",
+      "brand": "Samsung",
+      "model_pattern": "WW9*T4*****/WW8*T4*****/WW7*T4*****/WW90FG********",
+      "entry_symptom": "Stops.",
+      "entry_symptom_th": "เครื่องซักผ้าหยุดทำงานกลางรอบ",
+      "entry_symptom_aliases": [
+        "เครื่องซักผ้าหยุดเอง",
+        "เครื่องหยุดกลางคัน",
+        "washing machine stops"
+      ],
+      "source": "Samsung Washing Machine User Manual (Code No. DC68-04382A-13)",
+      "page_range": [
+        53,
+        53
+      ],
+      "source_chunk_id": "manual_Samsung_WashingMachine_WWUM_p53_stops",
+      "severity": "medium",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "เสียบปลั๊กเข้ากับเต้ารับที่มีไฟอยู่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2",
+          "on_no": "n1f"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "เสียบปลั๊กให้แน่นเข้ากับเต้ารับที่มีไฟ (คู่มือหน้า 7 และ 53)",
+          "safety_critical": true,
+          "safety_warning": "ห้ามใช้ปลั๊ก สายไฟ หรือเต้ารับที่ชำรุดหรือหลวม เพราะอาจเกิดไฟฟ้าช็อกหรือไฟไหม้ และห้ามแตะปลั๊กด้วยมือเปียก (คู่มือหน้า 8 และ 10)",
+          "author_note": "หน้า 53 เป็นคำถามตรวจ ส่วนคำเตือนมาจากหน้า 7, 8 และ 10",
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "ฟิวส์ไม่ขาดและเบรกเกอร์ไม่ตัดอยู่ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n3",
+          "on_no": "n2f"
+        },
+        {
+          "node_id": "n2f",
+          "type": "instruction",
+          "content": "ตรวจฟิวส์หรือรีเซ็ตเบรกเกอร์ (คู่มือหน้า 53)",
+          "safety_critical": true,
+          "safety_warning": "ถ้าเบรกเกอร์ตัดซ้ำหลังรีเซ็ต อย่ารีเซ็ตซ้ำ ให้หยุดใช้งานและติดต่อศูนย์บริการ ห้ามใช้ฟิวส์ที่ไม่ใช่ฟิวส์มาตรฐาน (คู่มือหน้า 10)",
+          "author_note": "คู่มือหน้า 51 ระบุเพียง 'Check the fuse or reset the circuit breaker' ประโยคแรกของคำเตือน (อย่ารีเซ็ตซ้ำ) ผู้พัฒนาเพิ่มเอง ส่วนเรื่องห้ามใช้ฟิวส์ที่ไม่ใช่มาตรฐานมาจากหน้า 10",
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "node_id": "n3",
+          "type": "checkpoint",
+          "question": "ปิดประตูสนิทและกด Start/Pause เพื่อเริ่มเครื่องแล้วหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n4",
+          "on_no": "n3f"
+        },
+        {
+          "node_id": "n3f",
+          "type": "instruction",
+          "content": "ปิดประตูให้สนิทแล้วกดปุ่ม Start/Pause เพื่อเริ่มเครื่อง (เพื่อความปลอดภัย เครื่องจะไม่หมุนถังหรือปั่นถ้าประตูไม่ปิด)",
+          "safety_critical": false,
+          "next": "n3v"
+        },
+        {
+          "node_id": "n3v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n4"
+        },
+        {
+          "node_id": "n4",
+          "type": "checkpoint",
+          "question": "เครื่องเพิ่งทำเสียงคลิกหลายครั้งก่อนเริ่มเติมน้ำใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n4n",
+          "on_no": "n5"
+        },
+        {
+          "node_id": "n4n",
+          "type": "resolution",
+          "content": "เป็นการทำงานปกติ เครื่องกำลังตรวจล็อกประตูและระบายน้ำสั้นๆ ก่อนเติมน้ำ (คู่มือหน้า 53)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "node_id": "n5",
+          "type": "checkpoint",
+          "question": "รอบการซักอยู่ในช่วงหยุดพักหรือแช่ผ้าใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n5n",
+          "on_no": "n6"
+        },
+        {
+          "node_id": "n5n",
+          "type": "resolution",
+          "content": "ในรอบซักอาจมีช่วงหยุดพักหรือแช่ผ้า ให้รอสักครู่ เครื่องอาจเริ่มทำงานต่อเอง (คู่มือหน้า 53)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "node_id": "n6",
+          "type": "checkpoint",
+          "question": "ตะแกรงกรองของสายน้ำเข้าที่ก๊อกน้ำไม่อุดตันใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n7",
+          "on_no": "n6f"
+        },
+        {
+          "node_id": "n6f",
+          "type": "instruction",
+          "content": "ล้างตะแกรงกรองสายน้ำเข้า (ปีละ 1–2 ครั้ง): ปิดเครื่องและถอดปลั๊ก > ปิดก๊อกน้ำ > คลายและถอดสายน้ำเข้าที่ด้านหลังเครื่อง คลุมสายด้วยผ้ากันน้ำพุ่ง > ใช้คีมดึงตะแกรงกรองออกจากวาล์วน้ำเข้า > แช่ตะแกรงให้จมน้ำรวมถึงส่วนเกลียวต่อ > ผึ่งในที่ร่มให้แห้งสนิท > ใส่ตะแกรงกลับและต่อสายน้ำ > เปิดก๊อกน้ำ (คู่มือหน้า 47)",
+          "safety_critical": true,
+          "safety_warning": "ปิดเครื่องและถอดปลั๊ก ปิดก๊อกน้ำ ก่อนถอดสายน้ำเข้า คลุมปลายสายด้วยผ้าเพื่อกันน้ำพุ่งออก (คู่มือหน้า 47)",
+          "author_note": "หน้า 53 เป็นคำถามตรวจและให้ล้างตะแกรงเป็นระยะ ส่วนวิธีล้างมาจากหน้า 47",
+          "next": "n6v"
+        },
+        {
+          "node_id": "n6v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n7"
+        },
+        {
+          "node_id": "n7",
+          "type": "checkpoint",
+          "question": "ไฟฟ้าไม่เพียงพอชั่วคราว (เช่น ไฟตก) ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n7n",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n7n",
+          "type": "resolution",
+          "content": "เมื่อไฟฟ้าไม่เพียงพอ เครื่องจะไม่ระบายน้ำหรือปั่นชั่วคราว และจะกลับมาทำงานปกติทันทีที่ไฟฟ้ากลับมาเพียงพอ (คู่มือหน้า 53)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "เครื่องกลับมาทำงานต่อแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_ww_um_wrong_water_temperature",
+      "device_category": "Washing Machine",
+      "brand": "Samsung",
+      "model_pattern": "WW9*T4*****/WW8*T4*****/WW7*T4*****/WW90FG********",
+      "entry_symptom": "Fills with the wrong water temperature.",
+      "entry_symptom_th": "น้ำที่เติมเข้าเครื่องมีอุณหภูมิไม่ถูกต้อง",
+      "entry_symptom_aliases": [
+        "น้ำไม่ร้อน",
+        "น้ำเย็นเกินไป",
+        "wrong water temperature"
+      ],
+      "source": "Samsung Washing Machine User Manual (Code No. DC68-04382A-13)",
+      "page_range": [
+        53,
+        53
+      ],
+      "source_chunk_id": "manual_Samsung_WashingMachine_WWUM_p53_wrong_water_temperature",
+      "severity": "low",
+      "difficulty": "medium",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "เปิดก๊อกน้ำทั้งสองก๊อกสุดแล้วหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2",
+          "on_no": "n1f"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "เปิดก๊อกน้ำทั้งสองก๊อกให้สุด",
+          "safety_critical": false,
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "เลือกอุณหภูมิน้ำถูกต้องแล้วหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n3",
+          "on_no": "n2f"
+        },
+        {
+          "node_id": "n2f",
+          "type": "instruction",
+          "content": "เลือกอุณหภูมิน้ำให้ถูกต้อง",
+          "safety_critical": false,
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "node_id": "n3",
+          "type": "checkpoint",
+          "question": "ต่อสายน้ำเข้ากับก๊อกถูกต้อง (ร้อนกับร้อน เย็นกับเย็น) หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n4",
+          "on_no": "n3f"
+        },
+        {
+          "node_id": "n3f",
+          "type": "instruction",
+          "content": "ต่อสายน้ำให้ตรงกับก๊อกที่ถูกต้อง แล้วล้างท่อน้ำ (Flush water lines)",
+          "safety_critical": true,
+          "safety_warning": "ปิดเครื่องและถอดปลั๊ก ปิดก๊อกน้ำ ก่อนถอดสายน้ำเข้า คลุมปลายสายด้วยผ้าเพื่อกันน้ำพุ่งออก (คู่มือหน้า 47)",
+          "author_note": "คู่มือหน้า 53 เป็นคำถามตรวจและให้ล้างท่อน้ำ ส่วนคำเตือนตอนถอดสายนำมาจากหน้า 47",
+          "next": "n3v"
+        },
+        {
+          "node_id": "n3v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n4"
+        },
+        {
+          "node_id": "n4",
+          "type": "checkpoint",
+          "question": "เครื่องทำน้ำร้อนตั้งให้จ่ายน้ำร้อนอย่างน้อย 49 °C (120 °F) ที่ก๊อก และกำลังผลิตกับอัตราการฟื้นตัวเพียงพอใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n5",
+          "on_no": "n4f"
+        },
+        {
+          "node_id": "n4f",
+          "type": "instruction",
+          "content": "ตั้งเครื่องทำน้ำร้อนให้จ่ายน้ำร้อนอย่างน้อย 49 °C (120 °F) ที่ก๊อก และตรวจกำลังผลิตกับอัตราการฟื้นตัวของเครื่องทำน้ำร้อน",
+          "safety_critical": false,
+          "author_note": "คู่มือไม่ระบุวิธีตั้งเครื่องทำน้ำร้อน ผู้ใช้อาจต้องปรึกษาช่างผู้ติดตั้ง",
+          "next": "n4v"
+        },
+        {
+          "node_id": "n4v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n5"
+        },
+        {
+          "node_id": "n5",
+          "type": "checkpoint",
+          "question": "ตะแกรงกรองสายน้ำเข้าอุดตันหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n5f",
+          "on_no": "n6"
+        },
+        {
+          "node_id": "n5f",
+          "type": "instruction",
+          "content": "ล้างตะแกรงกรองสายน้ำเข้า (ปีละ 1–2 ครั้ง): ปิดเครื่องและถอดปลั๊ก > ปิดก๊อกน้ำ > คลายและถอดสายน้ำเข้าที่ด้านหลังเครื่อง คลุมสายด้วยผ้ากันน้ำพุ่ง > ใช้คีมดึงตะแกรงกรองออกจากวาล์วน้ำเข้า > แช่ตะแกรงให้จมน้ำรวมถึงส่วนเกลียวต่อ > ผึ่งในที่ร่มให้แห้งสนิท > ใส่ตะแกรงกลับและต่อสายน้ำ > เปิดก๊อกน้ำ (คู่มือหน้า 47)",
+          "safety_critical": true,
+          "safety_warning": "ปิดเครื่องและถอดปลั๊ก ปิดก๊อกน้ำ ก่อนถอดสายน้ำเข้า คลุมปลายสายด้วยผ้าเพื่อกันน้ำพุ่งออก (คู่มือหน้า 47)",
+          "next": "n5v"
+        },
+        {
+          "node_id": "n5v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n6"
+        },
+        {
+          "node_id": "n6",
+          "type": "checkpoint",
+          "question": "เห็นอุณหภูมิน้ำเปลี่ยนระหว่างเติมน้ำ หรือเห็นแต่น้ำร้อนหรือน้ำเย็นผ่านช่องใส่ผงซักฟอกใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n6n",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n6n",
+          "type": "resolution",
+          "content": "เป็นการทำงานปกติของระบบควบคุมอุณหภูมิน้ำอัตโนมัติ ซึ่งตรวจอุณหภูมิน้ำที่เข้ามาและปรับระหว่างเติมน้ำ (คู่มือหน้า 53)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "น้ำเข้าเครื่องมีอุณหภูมิถูกต้องแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_ww_um_load_wet_end_of_cycle",
+      "device_category": "Washing Machine",
+      "brand": "Samsung",
+      "model_pattern": "WW9*T4*****/WW8*T4*****/WW7*T4*****/WW90FG********",
+      "entry_symptom": "Load is wet at the end of a cycle.",
+      "entry_symptom_th": "ผ้าเปียกหลังจบรอบซัก",
+      "entry_symptom_aliases": [
+        "ผ้าไม่แห้งหลังปั่น",
+        "ผ้าเปียกมาก",
+        "clothes still wet"
+      ],
+      "source": "Samsung Washing Machine User Manual (Code No. DC68-04382A-13)",
+      "page_range": [
+        54,
+        54
+      ],
+      "source_chunk_id": "manual_Samsung_WashingMachine_WWUM_p54_load_wet_end_of_cycle",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "เลือกความเร็วปั่นแห้งสูง (High) หรือสูงพิเศษ (Extra High) แล้วหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2",
+          "on_no": "n1f"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "เลือกความเร็วปั่นแห้งเป็น High หรือ Extra High",
+          "safety_critical": false,
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "ใช้ผงซักฟอกประสิทธิภาพสูง (HE) หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n3",
+          "on_no": "n2f"
+        },
+        {
+          "node_id": "n2f",
+          "type": "instruction",
+          "content": "ใช้ผงซักฟอก HE เพื่อลดฟองมากเกินไป",
+          "safety_critical": false,
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "node_id": "n3",
+          "type": "checkpoint",
+          "question": "ซักผ้าน้อยมาก (1–2 ชิ้น) หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n3f",
+          "on_no": "n4"
+        },
+        {
+          "node_id": "n3f",
+          "type": "instruction",
+          "content": "ซักผ้าให้มากขึ้นให้พอดีกับรอบซัก เพราะผ้าจำนวนน้อยอาจไม่สมดุลและปั่นไม่สุด",
+          "safety_critical": false,
+          "author_note": "หน้า 54 ระบุสาเหตุ (ผ้าน้อยอาจไม่สมดุล) ส่วนการเพิ่มผ้าเป็นวิธีแก้ที่ผู้พัฒนาสรุปจากสาเหตุนั้น",
+          "next": "n3v"
+        },
+        {
+          "node_id": "n3v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n4"
+        },
+        {
+          "node_id": "n4",
+          "type": "checkpoint",
+          "question": "สายระบายน้ำไม่หักงอและไม่อุดตันใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_escalate",
+          "on_no": "n4f"
+        },
+        {
+          "node_id": "n4f",
+          "type": "instruction",
+          "content": "จัดสายระบายน้ำให้ไม่หักงอ",
+          "safety_critical": false,
+          "next": "n4v"
+        },
+        {
+          "node_id": "n4v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "ผ้าไม่เปียกหลังจบรอบซักแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_ww_um_leaks_water",
+      "device_category": "Washing Machine",
+      "brand": "Samsung",
+      "model_pattern": "WW9*T4*****/WW8*T4*****/WW7*T4*****/WW90FG********",
+      "entry_symptom": "Leaks water.",
+      "entry_symptom_th": "เครื่องซักผ้ารั่ว มีน้ำรั่วออกมา",
+      "entry_symptom_aliases": [
+        "น้ำรั่วจากเครื่องซักผ้า",
+        "เครื่องซักผ้าน้ำรั่ว",
+        "washing machine leaking"
+      ],
+      "source": "Samsung Washing Machine User Manual (Code No. DC68-04382A-13)",
+      "page_range": [
+        54,
+        54
+      ],
+      "source_chunk_id": "manual_Samsung_WashingMachine_WWUM_p54_leaks_water",
+      "severity": "medium",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "ปิดประตูเครื่องสนิทแล้วหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2",
+          "on_no": "n1f"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "ปิดประตูให้สนิท",
+          "safety_critical": false,
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "ข้อต่อสายทุกจุดแน่นหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n3",
+          "on_no": "n2f"
+        },
+        {
+          "node_id": "n2f",
+          "type": "instruction",
+          "content": "ขันข้อต่อสายทุกจุดให้แน่น หากสายน้ำเข้าหลุดจากก๊อกและน้ำท่วมเครื่อง ให้ถอดปลั๊กทันที",
+          "safety_critical": true,
+          "safety_warning": "ถ้าสายน้ำเข้าหลุดจากก๊อกและน้ำท่วมเครื่อง ให้ถอดปลั๊กทันที (คู่มือหน้า 10)",
+          "author_note": "หน้า 54 เป็นคำถามตรวจ ส่วนคำเตือนถอดปลั๊กมาจากหน้า 10 วิธีขันข้อต่อผู้พัฒนาสรุปจากข้อความตรวจ",
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "node_id": "n3",
+          "type": "checkpoint",
+          "question": "ปลายสายระบายน้ำเสียบถูกต้องและยึดแน่นกับระบบระบายน้ำหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n4",
+          "on_no": "n3f"
+        },
+        {
+          "node_id": "n3f",
+          "type": "instruction",
+          "content": "เสียบปลายสายระบายน้ำให้ถูกต้องและยึดให้แน่นกับระบบระบายน้ำ",
+          "safety_critical": false,
+          "next": "n3v"
+        },
+        {
+          "node_id": "n3v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n4"
+        },
+        {
+          "node_id": "n4",
+          "type": "checkpoint",
+          "question": "ไม่ได้ใส่ผ้าเกินความจุของเครื่องใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n5",
+          "on_no": "n4f"
+        },
+        {
+          "node_id": "n4f",
+          "type": "instruction",
+          "content": "ลดปริมาณผ้าไม่ให้ใส่เกินความจุ",
+          "safety_critical": false,
+          "next": "n4v"
+        },
+        {
+          "node_id": "n4v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n5"
+        },
+        {
+          "node_id": "n5",
+          "type": "checkpoint",
+          "question": "ใช้ผงซักฟอกประสิทธิภาพสูง (HE) หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_escalate",
+          "on_no": "n5f"
+        },
+        {
+          "node_id": "n5f",
+          "type": "instruction",
+          "content": "ใช้ผงซักฟอก HE เพื่อป้องกันฟองมากเกินไป",
+          "safety_critical": false,
+          "next": "n5v"
+        },
+        {
+          "node_id": "n5v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "เครื่องไม่รั่วแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_ww_um_has_odours",
+      "device_category": "Washing Machine",
+      "brand": "Samsung",
+      "model_pattern": "WW9*T4*****/WW8*T4*****/WW7*T4*****/WW90FG********",
+      "entry_symptom": "Has odours.",
+      "entry_symptom_th": "เครื่องซักผ้ามีกลิ่นเหม็น",
+      "entry_symptom_aliases": [
+        "เครื่องซักผ้าเหม็น",
+        "กลิ่นอับ",
+        "washing machine smells"
+      ],
+      "source": "Samsung Washing Machine User Manual (Code No. DC68-04382A-13)",
+      "page_range": [
+        54,
+        54
+      ],
+      "source_chunk_id": "manual_Samsung_WashingMachine_WWUM_p54_has_odours",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "ใช้ผงซักฟอกในปริมาณที่เหมาะสมจนไม่เกิดฟองสะสมตามซอกใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2",
+          "on_no": "n1f"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "ใช้ผงซักฟอก HE ในปริมาณที่เหมาะสม เพื่อไม่ให้ฟองสะสมตามซอก (คู่มือหน้า 52)",
+          "safety_critical": false,
+          "author_note": "หน้า 54 ระบุว่าฟองสะสมตามซอกทำให้เหม็น ไม่ได้บอกวิธีแก้ ผู้พัฒนาอ้างคำแนะนำเรื่องฟองจากหน้า 52",
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "ทำความสะอาดถังซักด้วยรอบ DRUM CLEAN เป็นประจำหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n3",
+          "on_no": "n2f"
+        },
+        {
+          "node_id": "n2f",
+          "type": "instruction",
+          "content": "ทำ DRUM CLEAN: กด Power เปิดเครื่อง หมุน Cycle Selector ไปที่ DRUM CLEAN แล้วกด Start/Pause ค้างไว้ รอบนี้ใช้น้ำ 60–70 °C และช่วยกำจัดสิ่งสกปรกที่ยางประตู (คู่มือหน้า 43)",
+          "safety_critical": true,
+          "safety_warning": "ห้ามใช้สารทำความสะอาดใดๆ ล้างถังซัก สารเคมีตกค้างอาจทำให้ผ้าหรือถังซักเสียหาย (คู่มือหน้า 43)",
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "node_id": "n3",
+          "type": "checkpoint",
+          "question": "ทำความสะอาดซีลประตู (diaphragm) แล้วหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n4",
+          "on_no": "n3f"
+        },
+        {
+          "node_id": "n3f",
+          "type": "instruction",
+          "content": "ทำความสะอาดซีลประตู (diaphragm) หน้า 54 ไม่ระบุวิธี รอบ DRUM CLEAN ช่วยกำจัดสิ่งสกปรกที่ยางประตู (หน้า 43)",
+          "safety_critical": false,
+          "author_note": "คู่มือไม่ระบุวิธีล้างซีลประตู",
+          "next": "n3v"
+        },
+        {
+          "node_id": "n3v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n4"
+        },
+        {
+          "node_id": "n4",
+          "type": "checkpoint",
+          "question": "ผึ่งหรือเช็ดภายในเครื่องให้แห้งหลังจบรอบซักหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_escalate",
+          "on_no": "n4f"
+        },
+        {
+          "node_id": "n4f",
+          "type": "instruction",
+          "content": "ทำให้ภายในเครื่องแห้งหลังจบรอบซัก",
+          "safety_critical": false,
+          "author_note": "หน้า 54 ระบุให้ทำให้แห้ง ไม่ได้บอกวิธี",
+          "next": "n4v"
+        },
+        {
+          "node_id": "n4v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "กลิ่นเหม็นหายแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_ww_um_no_bubbles",
+      "device_category": "Washing Machine",
+      "brand": "Samsung",
+      "model_pattern": "WW9*T4*****/WW8*T4*****/WW7*T4*****/WW90FG********",
+      "entry_symptom": "No bubbles are seen (Bubbleshot models only).",
+      "entry_symptom_th": "ไม่เห็นฟอง (เฉพาะรุ่น Bubbleshot)",
+      "entry_symptom_aliases": [
+        "ไม่มีฟอง",
+        "Bubbleshot ไม่มีฟอง",
+        "no bubbles"
+      ],
+      "source": "Samsung Washing Machine User Manual (Code No. DC68-04382A-13)",
+      "page_range": [
+        54,
+        54
+      ],
+      "source_chunk_id": "manual_Samsung_WashingMachine_WWUM_p54_no_bubbles",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "ใส่ผ้าเกินความจุของเครื่องหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n1f",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "ลดปริมาณผ้าไม่ให้ใส่เกินความจุ",
+          "safety_critical": false,
+          "author_note": "หน้า 54 ระบุเพียงสาเหตุ (ใส่ผ้ามากอาจบังฟอง) ส่วนการลดผ้าเป็นวิธีแก้ที่ผู้พัฒนาสรุปจากสาเหตุนั้น",
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "ผ้าสกปรกมากเป็นพิเศษใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2n",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n2n",
+          "type": "resolution",
+          "content": "ผ้าที่สกปรกมากอาจไม่เกิดฟอง (คู่มือหน้า 54)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "เห็นฟองตามปกติแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_ww_um_addwash_door",
+      "device_category": "Washing Machine",
+      "brand": "Samsung",
+      "model_pattern": "WW9*T4*****/WW8*T4*****/WW7*T4*****/WW90FG********",
+      "entry_symptom": "Can I open the AddWash Door at any time? (applicable models only)",
+      "entry_symptom_th": "เปิด AddWash Door ไม่ได้ (เฉพาะรุ่นที่มี)",
+      "entry_symptom_aliases": [
+        "AddWash เปิดไม่ได้",
+        "ประตูเติมผ้าเปิดไม่ได้",
+        "AddWash door won't open"
+      ],
+      "source": "Samsung Washing Machine User Manual (Code No. DC68-04382A-13)",
+      "page_range": [
+        54,
+        54
+      ],
+      "source_chunk_id": "manual_Samsung_WashingMachine_WWUM_p54_addwash_door",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "ไฟแสดงสถานะของ AddWash Door ปรากฏอยู่ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2",
+          "on_no": "n_indicator"
+        },
+        {
+          "node_id": "n_indicator",
+          "type": "resolution",
+          "content": "AddWash Door เปิดได้เฉพาะเมื่อไฟแสดงสถานะปรากฏ รอให้ไฟปรากฏก่อนจึงเปิด (คู่มือหน้า 54)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "เครื่องกำลังต้มหรืออบแห้ง และอุณหภูมิภายในสูงอยู่ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_hot",
+          "on_no": "n3"
+        },
+        {
+          "node_id": "n_hot",
+          "type": "resolution",
+          "content": "AddWash Door ไม่เปิดขณะกำลังต้มหรืออบแห้งและอุณหภูมิภายในสูง เป็นการทำงานปกติ (คู่มือหน้า 54)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "node_id": "n3",
+          "type": "checkpoint",
+          "question": "ตั้ง Child Lock ไว้ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_child",
+          "on_no": "n4"
+        },
+        {
+          "node_id": "n_child",
+          "type": "instruction",
+          "content": "ปลดล็อกเด็ก (Child Lock) โดยกดปุ่ม Temp. และ Spin ค้างพร้อมกัน 3 วินาที (คู่มือหน้า 42)",
+          "safety_critical": false,
+          "author_note": "หน้า 54 ระบุว่า Child Lock ทำให้เปิดไม่ได้ วิธีปลดล็อกมาจากหน้า 42",
+          "next": "n_child_chk"
+        },
+        {
+          "node_id": "n_child_chk",
+          "type": "checkpoint",
+          "question": "หลังปลดล็อกเด็กแล้ว เปิด AddWash Door ได้หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n4"
+        },
+        {
+          "node_id": "n4",
+          "type": "checkpoint",
+          "question": "เครื่องกำลังทำรอบ Drum wash หรือ Drum drying ที่ไม่ต้องเติมผ้าอยู่ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_drum",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_drum",
+          "type": "resolution",
+          "content": "AddWash Door ไม่เปิดขณะทำรอบ Drum wash หรือ Drum drying ที่ไม่เกี่ยวกับการเติมผ้า เป็นการทำงานปกติ (คู่มือหน้า 54)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "เปิด AddWash Door ได้แล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "อาการไม่ตรงกับกรณีที่คู่มือระบุ (ไฟแสดงสถานะ อุณหภูมิสูง Child Lock Drum wash/drying) ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่องและอาการที่พบ",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_ww_um_increased_washing_time",
+      "device_category": "Washing Machine",
+      "brand": "Samsung",
+      "model_pattern": "WW9*T4*****/WW8*T4*****/WW7*T4*****/WW90FG********",
+      "entry_symptom": "Increased time of washing",
+      "entry_symptom_th": "เวลาซักจริงนานกว่าที่แสดงตอนเลือกรอบ",
+      "entry_symptom_aliases": [
+        "เวลาซักนาน",
+        "เวลาซักไม่ตรง",
+        "washing time longer"
+      ],
+      "source": "Samsung Washing Machine User Manual (Code No. DC68-04382A-13)",
+      "page_range": [
+        54,
+        54
+      ],
+      "source_chunk_id": "manual_Samsung_WashingMachine_WWUM_p54_increased_washing_time",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "เวลาซักจริงนานกว่าเวลาที่ประมาณไว้ตอนเลือกรอบซักใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n1n",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n1n",
+          "type": "resolution",
+          "content": "เวลาซักจริงอาจต่างจากเวลาที่ประมาณไว้ตอนเลือกรอบซัก เป็นการทำงานปกติ (คู่มือหน้า 54)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "อาการไม่ตรงกับกรณีที่คู่มือระบุ ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่องและอาการที่พบ",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_ww_um_recovery_from_freezing",
+      "device_category": "Washing Machine",
+      "brand": "Samsung",
+      "model_pattern": "WW9*T4*****/WW8*T4*****/WW7*T4*****/WW90FG********",
+      "entry_symptom": "The washing machine may freeze when it drops below 0°C.",
+      "entry_symptom_th": "เครื่องซักผ้าแข็งตัวเมื่ออุณหภูมิต่ำกว่า 0 องศา",
+      "entry_symptom_aliases": [
+        "เครื่องซักผ้าแข็ง",
+        "น้ำในเครื่องซักผ้าเป็นน้ำแข็ง",
+        "washing machine frozen"
+      ],
+      "source": "Samsung Washing Machine User Manual (Code No. DC68-04382A-13)",
+      "page_range": [
+        50,
+        50
+      ],
+      "source_chunk_id": "manual_Samsung_WashingMachine_WWUM_p50_recovery_from_freezing",
+      "severity": "medium",
+      "difficulty": "medium",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "อุณหภูมิรอบเครื่องต่ำกว่า 0 °C และคุณสงสัยว่าเครื่อง สายน้ำ หรือก๊อกน้ำแข็งตัวใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2",
+          "on_no": "n_escalate_nomatch"
+        },
+        {
+          "node_id": "n2",
+          "type": "instruction",
+          "content": "ปิดเครื่องและถอดปลั๊ก แล้วราดน้ำอุ่นที่ก๊อกน้ำเพื่อคลายสายน้ำเข้า (คู่มือหน้า 50)",
+          "safety_critical": true,
+          "safety_warning": "ปิดเครื่องและถอดปลั๊กก่อนเริ่มทุกขั้นตอน (คู่มือหน้า 50)",
+          "next": "n3"
+        },
+        {
+          "node_id": "n3",
+          "type": "instruction",
+          "content": "ถอดสายน้ำเข้า แล้วแช่สายในน้ำอุ่น (คู่มือหน้า 50)",
+          "safety_critical": false,
+          "next": "n4"
+        },
+        {
+          "node_id": "n4",
+          "type": "instruction",
+          "content": "เทน้ำอุ่นลงในถังซักและทิ้งไว้ประมาณ 10 นาที (คู่มือหน้า 50)",
+          "safety_critical": false,
+          "next": "n5"
+        },
+        {
+          "node_id": "n5",
+          "type": "instruction",
+          "content": "ต่อสายน้ำเข้ากลับเข้ากับก๊อกน้ำ (คู่มือหน้า 50)",
+          "safety_critical": false,
+          "next": "n6"
+        },
+        {
+          "node_id": "n6",
+          "type": "checkpoint",
+          "question": "เครื่องทำงานปกติแล้วหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n7"
+        },
+        {
+          "node_id": "n7",
+          "type": "instruction",
+          "content": "ทำซ้ำขั้นตอนข้างต้นจนกว่าเครื่องจะทำงานปกติ (คู่มือหน้า 50)",
+          "safety_critical": true,
+          "safety_warning": "ปิดเครื่องและถอดปลั๊กก่อนเริ่มทุกขั้นตอน (คู่มือหน้า 50)",
+          "next": "n8"
+        },
+        {
+          "node_id": "n8",
+          "type": "checkpoint",
+          "question": "หลังทำซ้ำแล้ว เครื่องทำงานปกติหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "เครื่องกลับมาทำงานปกติแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ทำตามขั้นตอนแก้ปัญหาแข็งตัวซ้ำแล้วเครื่องยังไม่ทำงานปกติ ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่องและสิ่งที่ได้ทำไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        },
+        {
+          "node_id": "n_escalate_nomatch",
+          "type": "escalation",
+          "content": "อาการไม่ตรงกับกรณีที่คู่มือระบุ (เครื่องหรือสายน้ำแข็งตัวเมื่ออุณหภูมิต่ำกว่า 0 °C) ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่องและอาการที่พบ",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_ww_um_code_4c",
+      "device_category": "Washing Machine",
+      "brand": "Samsung",
+      "model_pattern": "WW9*T4*****/WW8*T4*****/WW7*T4*****/WW90FG********",
+      "entry_symptom": "Information code 4C: Water is not supplied.",
+      "entry_symptom_th": "หน้าจอแสดงรหัส 4C (น้ำไม่เข้าเครื่อง)",
+      "entry_symptom_aliases": [
+        "รหัส 4C",
+        "ขึ้น 4C",
+        "error 4C",
+        "4C",
+        "น้ำไม่เข้าเครื่อง"
+      ],
+      "source": "Samsung Washing Machine User Manual (Code No. DC68-04382A-13)",
+      "page_range": [
+        55,
+        55
+      ],
+      "source_chunk_id": "manual_Samsung_WashingMachine_WWUM_p55_code_4c",
+      "severity": "medium",
+      "difficulty": "medium",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "หน้าจอแสดงรหัส 4C ใช่หรือไม่? (ขณะแสดงรหัสนี้ เครื่องจะระบายน้ำ 3 นาที และปุ่มเปิด/ปิดจะใช้ไม่ได้ — คู่มือหน้า 55)",
+          "safety_critical": false,
+          "on_yes": "n2",
+          "on_no": "n_nomatch"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "เปิดก๊อกน้ำแล้วหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n3",
+          "on_no": "n2f"
+        },
+        {
+          "node_id": "n2f",
+          "type": "instruction",
+          "content": "เปิดก๊อกน้ำ",
+          "safety_critical": false,
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "node_id": "n3",
+          "type": "checkpoint",
+          "question": "สายน้ำเข้าไม่อุดตันใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n4",
+          "on_no": "n3f"
+        },
+        {
+          "node_id": "n3f",
+          "type": "instruction",
+          "content": "ทำให้สายน้ำเข้าโล่ง ไม่อุดตัน",
+          "safety_critical": false,
+          "author_note": "คู่มือไม่ระบุวิธีแก้สายอุดตัน",
+          "next": "n3v"
+        },
+        {
+          "node_id": "n3v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n4"
+        },
+        {
+          "node_id": "n4",
+          "type": "checkpoint",
+          "question": "ก๊อกน้ำไม่แข็งตัวใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n5",
+          "on_no": "n4f"
+        },
+        {
+          "node_id": "n4f",
+          "type": "instruction",
+          "content": "ทำตามหัวข้อ Recovery from freezing: ปิดเครื่องและถอดปลั๊ก > ราดน้ำอุ่นที่ก๊อกน้ำเพื่อคลายสายน้ำเข้า > ถอดสายแล้วแช่ในน้ำอุ่น > เทน้ำอุ่นลงถังซักทิ้งไว้ประมาณ 10 นาที > ต่อสายกลับเข้าก๊อก (คู่มือหน้า 50)",
+          "safety_critical": true,
+          "safety_warning": "ปิดเครื่องและถอดปลั๊กก่อนเริ่มทุกขั้นตอน (คู่มือหน้า 50)",
+          "author_note": "หัวข้อ Recovery from freezing (หน้า 50) เขียนสำหรับเครื่องที่แข็งตัว ผู้พัฒนาโยงมาใช้กับกรณีสายน้ำ ก๊อกน้ำ หรือสายระบายแข็งตัวที่รายการตรวจอื่นพูดถึง",
+          "next": "n4v"
+        },
+        {
+          "node_id": "n4v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว รหัสบนจอหายไปและเครื่องทำงานปกติหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n5"
+        },
+        {
+          "node_id": "n5",
+          "type": "checkpoint",
+          "question": "แรงดันน้ำไม่เพียงพอใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n5e",
+          "on_no": "n6"
+        },
+        {
+          "node_id": "n5e",
+          "type": "escalation",
+          "content": "คู่มือให้ตรวจแรงดันน้ำแต่ไม่ระบุวิธีแก้ ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่องและรหัส 4C",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "node_id": "n6",
+          "type": "checkpoint",
+          "question": "ต่อสายน้ำเย็นกับก๊อกน้ำเย็น และสายน้ำร้อนกับก๊อกน้ำร้อนถูกต้องหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n7",
+          "on_no": "n6f"
+        },
+        {
+          "node_id": "n6f",
+          "type": "instruction",
+          "content": "ต่อสายน้ำเข้ากับก๊อกน้ำร้อน/เย็นให้ถูกต้อง",
+          "safety_critical": true,
+          "safety_warning": "ปิดเครื่องและถอดปลั๊ก ปิดก๊อกน้ำ ก่อนถอดสายน้ำเข้า คลุมปลายสายด้วยผ้าเพื่อกันน้ำพุ่งออก (คู่มือหน้า 47)",
+          "author_note": "คู่มือหน้า 55 เป็นคำถามตรวจ ส่วนคำเตือนตอนถอดสายนำมาจากหน้า 47",
+          "next": "n6v"
+        },
+        {
+          "node_id": "n6v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว รหัสบนจอหายไปและเครื่องทำงานปกติหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n7"
+        },
+        {
+          "node_id": "n7",
+          "type": "instruction",
+          "content": "ล้างตะแกรงกรองสายน้ำเข้า (ปีละ 1–2 ครั้ง): ปิดเครื่องและถอดปลั๊ก > ปิดก๊อกน้ำ > คลายและถอดสายน้ำเข้าที่ด้านหลังเครื่อง คลุมสายด้วยผ้ากันน้ำพุ่ง > ใช้คีมดึงตะแกรงกรองออกจากวาล์วน้ำเข้า > แช่ตะแกรงให้จมน้ำรวมถึงส่วนเกลียวต่อ > ผึ่งในที่ร่มให้แห้งสนิท > ใส่ตะแกรงกลับและต่อสายน้ำ > เปิดก๊อกน้ำ (คู่มือหน้า 47)",
+          "safety_critical": true,
+          "safety_warning": "ปิดเครื่องและถอดปลั๊ก ปิดก๊อกน้ำ ก่อนถอดสายน้ำเข้า คลุมปลายสายด้วยผ้าเพื่อกันน้ำพุ่งออก (คู่มือหน้า 47)",
+          "author_note": "คู่มือหน้า 55 บอกให้ล้างตะแกรงกรอง วิธีล้างมาจากหน้า 47",
+          "next": "n7v"
+        },
+        {
+          "node_id": "n7v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว รหัสบนจอหายไปและเครื่องทำงานปกติหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "รหัสหายไปและเครื่องทำงานปกติแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ทำตามรายการตรวจแล้วรหัส 4C ยังแสดงอยู่ ติดต่อศูนย์บริการ Samsung ในพื้นที่ (คู่มือหน้า 55) พร้อมแจ้งรุ่นเครื่อง รหัส และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        },
+        {
+          "node_id": "n_nomatch",
+          "type": "escalation",
+          "content": "รหัสที่แสดงไม่ใช่ 4C ให้เลือกรหัสตามที่ปรากฏบนจอ หรือติดต่อศูนย์บริการ Samsung พร้อมแจ้งรหัสที่เห็น",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_ww_um_code_4c2",
+      "device_category": "Washing Machine",
+      "brand": "Samsung",
+      "model_pattern": "WW9*T4*****/WW8*T4*****/WW7*T4*****/WW90FG********",
+      "entry_symptom": "Information code 4C2.",
+      "entry_symptom_th": "หน้าจอแสดงรหัส 4C2 (สายน้ำเย็น)",
+      "entry_symptom_aliases": [
+        "รหัส 4C2",
+        "ขึ้น 4C2",
+        "error 4C2",
+        "4C2",
+        "สายน้ำเย็น"
+      ],
+      "source": "Samsung Washing Machine User Manual (Code No. DC68-04382A-13)",
+      "page_range": [
+        55,
+        55
+      ],
+      "source_chunk_id": "manual_Samsung_WashingMachine_WWUM_p55_code_4c2",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "หน้าจอแสดงรหัส 4C2 ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2",
+          "on_no": "n_nomatch"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "สายน้ำเย็นต่อเข้ากับก๊อกน้ำเย็นแน่นหรือไม่ (ไม่ได้ต่อเข้ากับก๊อกน้ำร้อน)?",
+          "safety_critical": false,
+          "on_yes": "n_escalate",
+          "on_no": "n2f"
+        },
+        {
+          "node_id": "n2f",
+          "type": "instruction",
+          "content": "ต่อสายน้ำเย็นเข้ากับก๊อกน้ำเย็นให้แน่น ถ้าต่อเข้ากับก๊อกน้ำร้อน ผ้าอาจเสียรูปในบางรอบ",
+          "safety_critical": true,
+          "safety_warning": "ปิดเครื่องและถอดปลั๊ก ปิดก๊อกน้ำ ก่อนถอดสายน้ำเข้า คลุมปลายสายด้วยผ้าเพื่อกันน้ำพุ่งออก (คู่มือหน้า 47)",
+          "author_note": "คู่มือหน้า 55 เป็นคำถามตรวจ ส่วนคำเตือนตอนถอดสายนำมาจากหน้า 47",
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว รหัสบนจอหายไปและเครื่องทำงานปกติหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "รหัสหายไปและเครื่องทำงานปกติแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ทำตามรายการตรวจแล้วรหัส 4C2 ยังแสดงอยู่ ติดต่อศูนย์บริการ Samsung ในพื้นที่ (คู่มือหน้า 55) พร้อมแจ้งรุ่นเครื่อง รหัส และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        },
+        {
+          "node_id": "n_nomatch",
+          "type": "escalation",
+          "content": "รหัสที่แสดงไม่ใช่ 4C2 ให้เลือกรหัสตามที่ปรากฏบนจอ หรือติดต่อศูนย์บริการ Samsung พร้อมแจ้งรหัสที่เห็น",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_ww_um_code_5c",
+      "device_category": "Washing Machine",
+      "brand": "Samsung",
+      "model_pattern": "WW9*T4*****/WW8*T4*****/WW7*T4*****/WW90FG********",
+      "entry_symptom": "Information code 5C: Water is not draining.",
+      "entry_symptom_th": "หน้าจอแสดงรหัส 5C (น้ำไม่ระบาย)",
+      "entry_symptom_aliases": [
+        "รหัส 5C",
+        "ขึ้น 5C",
+        "error 5C",
+        "5C",
+        "น้ำไม่ระบาย"
+      ],
+      "source": "Samsung Washing Machine User Manual (Code No. DC68-04382A-13)",
+      "page_range": [
+        55,
+        55
+      ],
+      "source_chunk_id": "manual_Samsung_WashingMachine_WWUM_p55_code_5c",
+      "severity": "medium",
+      "difficulty": "medium",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "หน้าจอแสดงรหัส 5C ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2",
+          "on_no": "n_nomatch"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "สายระบายน้ำไม่แข็งตัวและไม่อุดตันใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n3",
+          "on_no": "n2f"
+        },
+        {
+          "node_id": "n2f",
+          "type": "instruction",
+          "content": "ทำตามหัวข้อ Recovery from freezing: ปิดเครื่องและถอดปลั๊ก > ราดน้ำอุ่นที่ก๊อกน้ำเพื่อคลายสายน้ำเข้า > ถอดสายแล้วแช่ในน้ำอุ่น > เทน้ำอุ่นลงถังซักทิ้งไว้ประมาณ 10 นาที > ต่อสายกลับเข้าก๊อก (คู่มือหน้า 50)",
+          "safety_critical": true,
+          "safety_warning": "ปิดเครื่องและถอดปลั๊กก่อนเริ่มทุกขั้นตอน (คู่มือหน้า 50)",
+          "author_note": "หัวข้อ Recovery from freezing (หน้า 50) เขียนสำหรับเครื่องที่แข็งตัว ผู้พัฒนาโยงมาใช้กับกรณีสายน้ำ ก๊อกน้ำ หรือสายระบายแข็งตัวที่รายการตรวจอื่นพูดถึง",
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว รหัสบนจอหายไปและเครื่องทำงานปกติหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "node_id": "n3",
+          "type": "checkpoint",
+          "question": "วางสายระบายน้ำถูกตำแหน่งตามประเภทการต่อท่อหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n4",
+          "on_no": "n3f"
+        },
+        {
+          "node_id": "n3f",
+          "type": "instruction",
+          "content": "จัดตำแหน่งสายระบายน้ำให้ถูกต้องตามประเภทการต่อท่อระบายน้ำที่ใช้",
+          "safety_critical": false,
+          "author_note": "คู่มือหน้า 55 ไม่ได้ระบุตำแหน่งที่ถูกต้อง รายละเอียดอยู่ในส่วนการติดตั้งซึ่งผู้พัฒนายังไม่ได้อ่านครบ",
+          "next": "n3v"
+        },
+        {
+          "node_id": "n3v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว รหัสบนจอหายไปและเครื่องทำงานปกติหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n4"
+        },
+        {
+          "node_id": "n4",
+          "type": "instruction",
+          "content": "ล้างตัวกรองเศษผง: ปิดเครื่องและถอดปลั๊ก > ระบายน้ำที่เหลือในถังซักตามหัวข้อ Emergency drain (หน้า 45) > เปิดฝาครอบตัวกรอง (A) ด้วยประแจที่ให้มา > หมุนน็อบตัวกรองไปทางซ้ายและระบายน้ำที่เหลือ > ล้างตัวกรองด้วยแปรงขนนุ่ม ตรวจว่าใบพัดปั๊มระบายน้ำภายในตัวกรองไม่ติดขัด > ใส่ตัวกรองกลับและหมุนน็อบไปทางขวา (คู่มือหน้า 48) บางรุ่นมีน็อบนิรภัย ให้กดเข้าแล้วหมุนทวนเข็มนาฬิกาเพื่อเปิด",
+          "safety_critical": true,
+          "safety_warning": "ปิดเครื่องและถอดปลั๊กก่อน ระบายน้ำที่เหลือในถังซัก ใช้ภาชนะใหญ่รองน้ำเพราะน้ำอาจมีมากกว่าที่คาด หลังทำความสะอาดต้องใส่ตัวกรองให้เข้าที่และปิดน็อบให้สนิท มิฉะนั้นอาจรั่วหรือเครื่องทำงานผิดปกติ (คู่มือหน้า 45 และ 48)",
+          "author_note": "คู่มือหน้า 55 บอกให้ล้างตัวกรอง วิธีล้างมาจากหน้า 48 และ 45",
+          "next": "n4v"
+        },
+        {
+          "node_id": "n4v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว รหัสบนจอหายไปและเครื่องทำงานปกติหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n5"
+        },
+        {
+          "node_id": "n5",
+          "type": "checkpoint",
+          "question": "สายระบายน้ำตรงตลอดแนวไปยังระบบระบายน้ำหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_escalate",
+          "on_no": "n5f"
+        },
+        {
+          "node_id": "n5f",
+          "type": "instruction",
+          "content": "จัดสายระบายน้ำให้ตรงตลอดแนวไปยังระบบระบายน้ำ",
+          "safety_critical": false,
+          "next": "n5v"
+        },
+        {
+          "node_id": "n5v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว รหัสบนจอหายไปและเครื่องทำงานปกติหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "รหัสหายไปและเครื่องทำงานปกติแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ทำตามรายการตรวจแล้วรหัส 5C ยังแสดงอยู่ ติดต่อศูนย์บริการ Samsung ในพื้นที่ (คู่มือหน้า 55) พร้อมแจ้งรุ่นเครื่อง รหัส และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        },
+        {
+          "node_id": "n_nomatch",
+          "type": "escalation",
+          "content": "รหัสที่แสดงไม่ใช่ 5C ให้เลือกรหัสตามที่ปรากฏบนจอ หรือติดต่อศูนย์บริการ Samsung พร้อมแจ้งรหัสที่เห็น",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_ww_um_code_dc",
+      "device_category": "Washing Machine",
+      "brand": "Samsung",
+      "model_pattern": "WW9*T4*****/WW8*T4*****/WW7*T4*****/WW90FG********",
+      "entry_symptom": "Information code dC: Operating the washing machine with the door open.",
+      "entry_symptom_th": "หน้าจอแสดงรหัส dC (เปิดประตูขณะเครื่องทำงาน)",
+      "entry_symptom_aliases": [
+        "รหัส dC",
+        "ขึ้น dC",
+        "error dC",
+        "dC",
+        "dc",
+        "ประตูเปิดอยู่"
+      ],
+      "source": "Samsung Washing Machine User Manual (Code No. DC68-04382A-13)",
+      "page_range": [
+        55,
+        55
+      ],
+      "source_chunk_id": "manual_Samsung_WashingMachine_WWUM_p55_code_dc",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "หน้าจอแสดงรหัส dC ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2",
+          "on_no": "n_nomatch"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "ปิดประตูเครื่องสนิทแล้วหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n3",
+          "on_no": "n2f"
+        },
+        {
+          "node_id": "n2f",
+          "type": "instruction",
+          "content": "ปิดประตูให้สนิท",
+          "safety_critical": false,
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว รหัสบนจอหายไปและเครื่องทำงานปกติหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "node_id": "n3",
+          "type": "checkpoint",
+          "question": "ไม่มีผ้าติดอยู่ที่ประตูใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_escalate",
+          "on_no": "n3f"
+        },
+        {
+          "node_id": "n3f",
+          "type": "instruction",
+          "content": "นำผ้าที่ติดอยู่ที่ประตูออก แล้วปิดประตูให้สนิท",
+          "safety_critical": true,
+          "safety_warning": "อย่าฝืนเปิดประตูด้วยแรง อาจทำให้เครื่องเสียหายหรือบาดเจ็บ และน้ำที่ไหลออกอาจทำให้ลวกหรือพื้นลื่น (คู่มือหน้า 10)",
+          "author_note": "คู่มือหน้า 55 เป็นคำถามตรวจ ส่วนวิธีแก้และคำเตือนผู้พัฒนาเพิ่มจากหน้า 10",
+          "next": "n3v"
+        },
+        {
+          "node_id": "n3v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว รหัสบนจอหายไปและเครื่องทำงานปกติหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "รหัสหายไปและเครื่องทำงานปกติแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ทำตามรายการตรวจแล้วรหัส dC ยังแสดงอยู่ ติดต่อศูนย์บริการ Samsung ในพื้นที่ (คู่มือหน้า 55) พร้อมแจ้งรุ่นเครื่อง รหัส และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        },
+        {
+          "node_id": "n_nomatch",
+          "type": "escalation",
+          "content": "รหัสที่แสดงไม่ใช่ dC ให้เลือกรหัสตามที่ปรากฏบนจอ หรือติดต่อศูนย์บริการ Samsung พร้อมแจ้งรหัสที่เห็น",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_ww_um_code_oc",
+      "device_category": "Washing Machine",
+      "brand": "Samsung",
+      "model_pattern": "WW9*T4*****/WW8*T4*****/WW7*T4*****/WW90FG********",
+      "entry_symptom": "Information code OC: Water is overflowed.",
+      "entry_symptom_th": "หน้าจอแสดงรหัส OC (น้ำล้น)",
+      "entry_symptom_aliases": [
+        "รหัส OC",
+        "ขึ้น OC",
+        "error OC",
+        "OC",
+        "น้ำล้น",
+        "น้ำเกิน"
+      ],
+      "source": "Samsung Washing Machine User Manual (Code No. DC68-04382A-13)",
+      "page_range": [
+        55,
+        55
+      ],
+      "source_chunk_id": "manual_Samsung_WashingMachine_WWUM_p55_code_oc",
+      "severity": "medium",
+      "difficulty": "medium",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "หน้าจอแสดงรหัส OC ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2",
+          "on_no": "n_nomatch"
+        },
+        {
+          "node_id": "n2",
+          "type": "instruction",
+          "content": "ปล่อยให้เครื่องปั่นแห้งจนจบ แล้วเริ่มรอบการทำงานใหม่ (คู่มือหน้า 55)",
+          "safety_critical": true,
+          "safety_warning": "ระวังน้ำที่ไหลออกจากเครื่องอาจลวกหรือทำให้พื้นลื่น (คู่มือหน้า 10)",
+          "author_note": "คู่มือหน้า 55 เขียนว่า 'Restart after spinning' ผู้พัฒนาตีความว่าให้รอให้เครื่องปั่นแห้งแล้วจึงเริ่มใหม่",
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว รหัสบนจอหายไปและเครื่องทำงานปกติหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "รหัสหายไปและเครื่องทำงานปกติแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ทำตามแล้วรหัส OC ยังแสดงอยู่ ติดต่อศูนย์บริการ Samsung ในพื้นที่ (คู่มือหน้า 55) พร้อมแจ้งรุ่นเครื่องและรหัส",
+          "outcome_kind": "handoff_unknown"
+        },
+        {
+          "node_id": "n_nomatch",
+          "type": "escalation",
+          "content": "รหัสที่แสดงไม่ใช่ OC ให้เลือกรหัสตามที่ปรากฏบนจอ หรือติดต่อศูนย์บริการ Samsung พร้อมแจ้งรหัสที่เห็น",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_ww_um_code_lc",
+      "device_category": "Washing Machine",
+      "brand": "Samsung",
+      "model_pattern": "WW9*T4*****/WW8*T4*****/WW7*T4*****/WW90FG********",
+      "entry_symptom": "Information code LC, LC1: Check the drain hose.",
+      "entry_symptom_th": "หน้าจอแสดงรหัส LC, LC1 (ตรวจสายระบายน้ำ)",
+      "entry_symptom_aliases": [
+        "รหัส LC, LC1",
+        "ขึ้น LC, LC1",
+        "error LC, LC1",
+        "LC, LC1",
+        "lc",
+        "lc1",
+        "LC1"
+      ],
+      "source": "Samsung Washing Machine User Manual (Code No. DC68-04382A-13)",
+      "page_range": [
+        56,
+        56
+      ],
+      "source_chunk_id": "manual_Samsung_WashingMachine_WWUM_p56_code_lc",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "หน้าจอแสดงรหัส LC, LC1 ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2",
+          "on_no": "n_nomatch"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "ปลายสายระบายน้ำไม่ได้วางอยู่บนพื้นใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n3",
+          "on_no": "n2f"
+        },
+        {
+          "node_id": "n2f",
+          "type": "instruction",
+          "content": "ยกปลายสายระบายน้ำขึ้นไม่ให้วางอยู่บนพื้น",
+          "safety_critical": false,
+          "author_note": "คู่มือหน้า 56 เป็นคำถามตรวจ ไม่ได้ระบุระดับความสูงที่ถูกต้อง",
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว รหัสบนจอหายไปและเครื่องทำงานปกติหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "node_id": "n3",
+          "type": "checkpoint",
+          "question": "สายระบายน้ำไม่อุดตันใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_escalate",
+          "on_no": "n3f"
+        },
+        {
+          "node_id": "n3f",
+          "type": "instruction",
+          "content": "ทำให้สายระบายน้ำโล่ง ไม่อุดตัน",
+          "safety_critical": false,
+          "author_note": "คู่มือไม่ระบุวิธีแก้สายอุดตัน",
+          "next": "n3v"
+        },
+        {
+          "node_id": "n3v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว รหัสบนจอหายไปและเครื่องทำงานปกติหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "รหัสหายไปและเครื่องทำงานปกติแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ทำตามรายการตรวจแล้วรหัส LC, LC1 ยังแสดงอยู่ ติดต่อศูนย์บริการ Samsung ในพื้นที่ (คู่มือหน้า 56) พร้อมแจ้งรุ่นเครื่อง รหัส และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        },
+        {
+          "node_id": "n_nomatch",
+          "type": "escalation",
+          "content": "รหัสที่แสดงไม่ใช่ LC, LC1 ให้เลือกรหัสตามที่ปรากฏบนจอ หรือติดต่อศูนย์บริการ Samsung พร้อมแจ้งรหัสที่เห็น",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_ww_um_code_3c",
+      "device_category": "Washing Machine",
+      "brand": "Samsung",
+      "model_pattern": "WW9*T4*****/WW8*T4*****/WW7*T4*****/WW90FG********",
+      "entry_symptom": "Information code 3C: Check the motor for operation.",
+      "entry_symptom_th": "หน้าจอแสดงรหัส 3C (ตรวจมอเตอร์)",
+      "entry_symptom_aliases": [
+        "รหัส 3C",
+        "ขึ้น 3C",
+        "error 3C",
+        "3C",
+        "มอเตอร์"
+      ],
+      "source": "Samsung Washing Machine User Manual (Code No. DC68-04382A-13)",
+      "page_range": [
+        56,
+        56
+      ],
+      "source_chunk_id": "manual_Samsung_WashingMachine_WWUM_p56_code_3c",
+      "severity": "medium",
+      "difficulty": "medium",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "หน้าจอแสดงรหัส 3C ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2",
+          "on_no": "n_nomatch"
+        },
+        {
+          "node_id": "n2",
+          "type": "instruction",
+          "content": "กดปุ่ม Power ปิดเครื่อง แล้วเปิดเครื่องและเริ่มรอบการทำงานใหม่",
+          "safety_critical": true,
+          "safety_warning": "อย่าปิดเครื่องด้วยการถอดปลั๊กขณะที่เครื่องกำลังทำงาน เพราะอาจเกิดประกายไฟเมื่อเสียบกลับ (คู่มือหน้า 10)",
+          "author_note": "คู่มือใช้คำว่า 'turn the machine off' หรือ 'power off' โดยไม่ระบุวิธี ผู้พัฒนาเลือกกดปุ่ม Power ตามคำเตือนหน้า 10 ที่ห้ามถอดปลั๊กขณะเครื่องกำลังทำงาน",
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว รหัสบนจอหายไปและเครื่องทำงานปกติหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "รหัสหายไปและเครื่องทำงานปกติแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ทำตามรายการตรวจแล้วรหัส 3C ยังแสดงอยู่ ติดต่อศูนย์บริการ Samsung ในพื้นที่ (คู่มือหน้า 56) พร้อมแจ้งรุ่นเครื่อง รหัส และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        },
+        {
+          "node_id": "n_nomatch",
+          "type": "escalation",
+          "content": "รหัสที่แสดงไม่ใช่ 3C ให้เลือกรหัสตามที่ปรากฏบนจอ หรือติดต่อศูนย์บริการ Samsung พร้อมแจ้งรหัสที่เห็น",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_ww_um_code_uc",
+      "device_category": "Washing Machine",
+      "brand": "Samsung",
+      "model_pattern": "WW9*T4*****/WW8*T4*****/WW7*T4*****/WW90FG********",
+      "entry_symptom": "Information code UC: The electronic control needs to be checked. / Low voltage detected.",
+      "entry_symptom_th": "หน้าจอแสดงรหัส UC (ตรวจระบบควบคุมไฟฟ้า/แรงดันไฟต่ำ)",
+      "entry_symptom_aliases": [
+        "รหัส UC",
+        "ขึ้น UC",
+        "error UC",
+        "UC",
+        "ไฟตก",
+        "แรงดันไฟต่ำ",
+        "uc"
+      ],
+      "source": "Samsung Washing Machine User Manual (Code No. DC68-04382A-13)",
+      "page_range": [
+        56,
+        56
+      ],
+      "source_chunk_id": "manual_Samsung_WashingMachine_WWUM_p56_code_uc",
+      "severity": "medium",
+      "difficulty": "medium",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "หน้าจอแสดงรหัส UC ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2",
+          "on_no": "n_nomatch"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "ไฟฟ้าที่จ่ายให้เครื่องปกติใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n3",
+          "on_no": "n2f"
+        },
+        {
+          "node_id": "n2f",
+          "type": "instruction",
+          "content": "ตรวจว่าเต้ารับมีไฟและจ่ายไฟปกติ",
+          "safety_critical": true,
+          "safety_warning": "ห้ามใช้ปลั๊ก สายไฟ หรือเต้ารับที่ชำรุดหรือหลวม เพราะอาจเกิดไฟฟ้าช็อกหรือไฟไหม้ และห้ามแตะปลั๊กด้วยมือเปียก (คู่มือหน้า 8 และ 10)",
+          "author_note": "คู่มือหน้า 56 เป็นคำถามตรวจ ไม่ได้ระบุวิธีตรวจไฟ",
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว รหัสบนจอหายไปและเครื่องทำงานปกติหรือไม่?",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "node_id": "n3",
+          "type": "checkpoint",
+          "question": "เสียบปลั๊กเครื่องอยู่ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_escalate",
+          "on_no": "n3f"
+        },
+        {
+          "node_id": "n3f",
+          "type": "instruction",
+          "content": "เสียบปลั๊กให้แน่นเข้ากับเต้ารับที่มีไฟ",
+          "safety_critical": true,
+          "safety_warning": "ห้ามใช้ปลั๊ก สายไฟ หรือเต้ารับที่ชำรุดหรือหลวม เพราะอาจเกิดไฟฟ้าช็อกหรือไฟไหม้ และห้ามแตะปลั๊กด้วยมือเปียก (คู่มือหน้า 8 และ 10)",
+          "next": "n3v"
+        },
+        {
+          "node_id": "n3v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว รหัสบนจอหายไปและเครื่องทำงานปกติหรือไม่?",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "รหัสหายไปและเครื่องทำงานปกติแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ทำตามรายการตรวจแล้วรหัส UC ยังแสดงอยู่ ติดต่อศูนย์บริการ Samsung ในพื้นที่ (คู่มือหน้า 56) พร้อมแจ้งรุ่นเครื่อง รหัส และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        },
+        {
+          "node_id": "n_nomatch",
+          "type": "escalation",
+          "content": "รหัสที่แสดงไม่ใช่ UC ให้เลือกรหัสตามที่ปรากฏบนจอ หรือติดต่อศูนย์บริการ Samsung พร้อมแจ้งรหัสที่เห็น",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_ww_um_code_hc",
+      "device_category": "Washing Machine",
+      "brand": "Samsung",
+      "model_pattern": "WW9*T4*****/WW8*T4*****/WW7*T4*****/WW90FG********",
+      "entry_symptom": "Information code HC: High temperature heating check.",
+      "entry_symptom_th": "หน้าจอแสดงรหัส HC (ตรวจความร้อนสูง)",
+      "entry_symptom_aliases": [
+        "รหัส HC",
+        "ขึ้น HC",
+        "error HC",
+        "HC",
+        "ความร้อนสูง",
+        "hc"
+      ],
+      "source": "Samsung Washing Machine User Manual (Code No. DC68-04382A-13)",
+      "page_range": [
+        56,
+        56
+      ],
+      "source_chunk_id": "manual_Samsung_WashingMachine_WWUM_p56_code_hc",
+      "severity": "medium",
+      "difficulty": "medium",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "หน้าจอแสดงรหัส HC ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2",
+          "on_no": "n_nomatch"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "หน้าจอยังแสดงรหัส HC อยู่ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2e",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n2e",
+          "type": "escalation",
+          "content": "คู่มือให้ตรวจการทำความร้อนที่อุณหภูมิสูงโดยไม่ระบุวิธีที่ผู้ใช้ทำเองได้ ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่องและรหัส HC (คู่มือหน้า 56)",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ทำตามรายการตรวจแล้วรหัส HC ยังแสดงอยู่ ติดต่อศูนย์บริการ Samsung ในพื้นที่ (คู่มือหน้า 56) พร้อมแจ้งรุ่นเครื่อง รหัส และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        },
+        {
+          "node_id": "n_nomatch",
+          "type": "escalation",
+          "content": "รหัสที่แสดงไม่ใช่ HC ให้เลือกรหัสตามที่ปรากฏบนจอ หรือติดต่อศูนย์บริการ Samsung พร้อมแจ้งรหัสที่เห็น",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_ww_um_code_1c",
+      "device_category": "Washing Machine",
+      "brand": "Samsung",
+      "model_pattern": "WW9*T4*****/WW8*T4*****/WW7*T4*****/WW90FG********",
+      "entry_symptom": "Information code 1C: The Water Level sensor is not working properly.",
+      "entry_symptom_th": "หน้าจอแสดงรหัส 1C (เซ็นเซอร์ระดับน้ำ)",
+      "entry_symptom_aliases": [
+        "รหัส 1C",
+        "ขึ้น 1C",
+        "error 1C",
+        "1C",
+        "เซ็นเซอร์ระดับน้ำ",
+        "water level sensor"
+      ],
+      "source": "Samsung Washing Machine User Manual (Code No. DC68-04382A-13)",
+      "page_range": [
+        56,
+        56
+      ],
+      "source_chunk_id": "manual_Samsung_WashingMachine_WWUM_p56_code_1c",
+      "severity": "medium",
+      "difficulty": "medium",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "หน้าจอแสดงรหัส 1C ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2",
+          "on_no": "n_nomatch"
+        },
+        {
+          "node_id": "n2",
+          "type": "instruction",
+          "content": "กดปุ่ม Power ปิดเครื่อง แล้วเปิดเครื่องและเริ่มรอบการทำงานใหม่",
+          "safety_critical": true,
+          "safety_warning": "อย่าปิดเครื่องด้วยการถอดปลั๊กขณะที่เครื่องกำลังทำงาน เพราะอาจเกิดประกายไฟเมื่อเสียบกลับ (คู่มือหน้า 10)",
+          "author_note": "คู่มือใช้คำว่า 'turn the machine off' หรือ 'power off' โดยไม่ระบุวิธี ผู้พัฒนาเลือกกดปุ่ม Power ตามคำเตือนหน้า 10 ที่ห้ามถอดปลั๊กขณะเครื่องกำลังทำงาน",
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว รหัสบนจอหายไปและเครื่องทำงานปกติหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "รหัสหายไปและเครื่องทำงานปกติแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ทำตามรายการตรวจแล้วรหัส 1C ยังแสดงอยู่ ติดต่อศูนย์บริการ Samsung ในพื้นที่ (คู่มือหน้า 56) พร้อมแจ้งรุ่นเครื่อง รหัส และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        },
+        {
+          "node_id": "n_nomatch",
+          "type": "escalation",
+          "content": "รหัสที่แสดงไม่ใช่ 1C ให้เลือกรหัสตามที่ปรากฏบนจอ หรือติดต่อศูนย์บริการ Samsung พร้อมแจ้งรหัสที่เห็น",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_ww_um_code_ac",
+      "device_category": "Washing Machine",
+      "brand": "Samsung",
+      "model_pattern": "WW9*T4*****/WW8*T4*****/WW7*T4*****/WW90FG********",
+      "entry_symptom": "Information code AC: Check communications between main and sub PBAs.",
+      "entry_symptom_th": "หน้าจอแสดงรหัส AC (การสื่อสารระหว่างแผงควบคุมหลักกับแผงรอง)",
+      "entry_symptom_aliases": [
+        "รหัส AC",
+        "ขึ้น AC",
+        "error AC",
+        "AC",
+        "ac"
+      ],
+      "source": "Samsung Washing Machine User Manual (Code No. DC68-04382A-13)",
+      "page_range": [
+        56,
+        56
+      ],
+      "source_chunk_id": "manual_Samsung_WashingMachine_WWUM_p56_code_ac",
+      "severity": "medium",
+      "difficulty": "medium",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "หน้าจอแสดงรหัส AC ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2",
+          "on_no": "n_nomatch"
+        },
+        {
+          "node_id": "n2",
+          "type": "instruction",
+          "content": "กดปุ่ม Power ปิดเครื่อง แล้วเปิดเครื่องและเริ่มรอบการทำงานใหม่",
+          "safety_critical": true,
+          "safety_warning": "อย่าปิดเครื่องด้วยการถอดปลั๊กขณะที่เครื่องกำลังทำงาน เพราะอาจเกิดประกายไฟเมื่อเสียบกลับ (คู่มือหน้า 10)",
+          "author_note": "คู่มือใช้คำว่า 'turn the machine off' หรือ 'power off' โดยไม่ระบุวิธี ผู้พัฒนาเลือกกดปุ่ม Power ตามคำเตือนหน้า 10 ที่ห้ามถอดปลั๊กขณะเครื่องกำลังทำงาน",
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว รหัสบนจอหายไปและเครื่องทำงานปกติหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "รหัสหายไปและเครื่องทำงานปกติแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ทำตามรายการตรวจแล้วรหัส AC ยังแสดงอยู่ ติดต่อศูนย์บริการ Samsung ในพื้นที่ (คู่มือหน้า 56) พร้อมแจ้งรุ่นเครื่อง รหัส และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        },
+        {
+          "node_id": "n_nomatch",
+          "type": "escalation",
+          "content": "รหัสที่แสดงไม่ใช่ AC ให้เลือกรหัสตามที่ปรากฏบนจอ หรือติดต่อศูนย์บริการ Samsung พร้อมแจ้งรหัสที่เห็น",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_ww_um_code_ddc",
+      "device_category": "Washing Machine",
+      "brand": "Samsung",
+      "model_pattern": "WW9*T4*****/WW8*T4*****/WW7*T4*****/WW90FG********",
+      "entry_symptom": "Information code DDC, ddC: This message appears when you open the AddWash Door without pressing Start/Pause.",
+      "entry_symptom_th": "หน้าจอแสดงรหัส DDC, ddC (เปิด AddWash Door โดยไม่กด Start/Pause)",
+      "entry_symptom_aliases": [
+        "รหัส DDC, ddC",
+        "ขึ้น DDC, ddC",
+        "error DDC, ddC",
+        "DDC, ddC",
+        "ddc",
+        "addwash"
+      ],
+      "source": "Samsung Washing Machine User Manual (Code No. DC68-04382A-13)",
+      "page_range": [
+        57,
+        57
+      ],
+      "source_chunk_id": "manual_Samsung_WashingMachine_WWUM_p57_code_ddc",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "หน้าจอแสดงรหัส DDC, ddC ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2",
+          "on_no": "n_nomatch"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "คุณเปิด AddWash Door เพื่อเติมผ้าใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2f",
+          "on_no": "n3"
+        },
+        {
+          "node_id": "n2f",
+          "type": "instruction",
+          "content": "หยุดเครื่องด้วย Start/Pause ก่อน แล้วเปิด AddWash Door ใส่ผ้า ปิด AddWash Door ให้สนิท แล้วกด Start/Pause เพื่อเดินเครื่องต่อ (คู่มือหน้า 57)",
+          "safety_critical": true,
+          "safety_warning": "ห้ามเปิด AddWash Door ขณะเครื่องกำลังทำงานและห้ามสัมผัสขณะถังหมุน ห้ามใส่วัตถุอื่นนอกจากผ้า (คู่มือหน้า 46)",
+          "author_note": "คู่มือหน้า 57 ให้ 'ทำอย่างใดอย่างหนึ่ง' ผู้พัฒนาจัดเป็นตัวเลือกตามว่าผู้ใช้ตั้งใจเติมผ้าหรือไม่ คำเตือนมาจากหน้า 46",
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว รหัสบนจอหายไปและเครื่องทำงานปกติหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "node_id": "n3",
+          "type": "instruction",
+          "content": "กดปิด AddWash Door ให้สนิท แล้วกด Start/Pause เพื่อลองอีกครั้ง (คู่มือหน้า 57)",
+          "safety_critical": false,
+          "next": "n3v"
+        },
+        {
+          "node_id": "n3v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว รหัสบนจอหายไปและเครื่องทำงานปกติหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "รหัสหายไปและเครื่องทำงานปกติแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ทำตามรายการตรวจแล้วรหัส DDC, ddC ยังแสดงอยู่ ติดต่อศูนย์บริการ Samsung ในพื้นที่ (คู่มือหน้า 57) พร้อมแจ้งรุ่นเครื่อง รหัส และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        },
+        {
+          "node_id": "n_nomatch",
+          "type": "escalation",
+          "content": "รหัสที่แสดงไม่ใช่ DDC, ddC ให้เลือกรหัสตามที่ปรากฏบนจอ หรือติดต่อศูนย์บริการ Samsung พร้อมแจ้งรหัสที่เห็น",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_ww_um_code_8c",
+      "device_category": "Washing Machine",
+      "brand": "Samsung",
+      "model_pattern": "WW9*T4*****/WW8*T4*****/WW7*T4*****/WW90FG********",
+      "entry_symptom": "Information code 8C: The MEMS sensor is not working properly.",
+      "entry_symptom_th": "หน้าจอแสดงรหัส 8C (เซ็นเซอร์ MEMS)",
+      "entry_symptom_aliases": [
+        "รหัส 8C",
+        "ขึ้น 8C",
+        "error 8C",
+        "8C",
+        "mems"
+      ],
+      "source": "Samsung Washing Machine User Manual (Code No. DC68-04382A-13)",
+      "page_range": [
+        57,
+        57
+      ],
+      "source_chunk_id": "manual_Samsung_WashingMachine_WWUM_p57_code_8c",
+      "severity": "medium",
+      "difficulty": "medium",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "หน้าจอแสดงรหัส 8C ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2",
+          "on_no": "n_nomatch"
+        },
+        {
+          "node_id": "n2",
+          "type": "instruction",
+          "content": "กดปุ่ม Power ปิดเครื่อง แล้วเปิดเครื่องและเริ่มรอบการทำงานใหม่",
+          "safety_critical": true,
+          "safety_warning": "อย่าปิดเครื่องด้วยการถอดปลั๊กขณะที่เครื่องกำลังทำงาน เพราะอาจเกิดประกายไฟเมื่อเสียบกลับ (คู่มือหน้า 10)",
+          "author_note": "คู่มือใช้คำว่า 'turn the machine off' หรือ 'power off' โดยไม่ระบุวิธี ผู้พัฒนาเลือกกดปุ่ม Power ตามคำเตือนหน้า 10 ที่ห้ามถอดปลั๊กขณะเครื่องกำลังทำงาน",
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว รหัสบนจอหายไปและเครื่องทำงานปกติหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "รหัสหายไปและเครื่องทำงานปกติแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ทำตามรายการตรวจแล้วรหัส 8C ยังแสดงอยู่ ติดต่อศูนย์บริการ Samsung ในพื้นที่ (คู่มือหน้า 57) พร้อมแจ้งรุ่นเครื่อง รหัส และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        },
+        {
+          "node_id": "n_nomatch",
+          "type": "escalation",
+          "content": "รหัสที่แสดงไม่ใช่ 8C ให้เลือกรหัสตามที่ปรากฏบนจอ หรือติดต่อศูนย์บริการ Samsung พร้อมแจ้งรหัสที่เห็น",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_ww_um_code_ac6",
+      "device_category": "Washing Machine",
+      "brand": "Samsung",
+      "model_pattern": "WW9*T4*****/WW8*T4*****/WW7*T4*****/WW90FG********",
+      "entry_symptom": "Information code AC6: Check communications between the main and the inverter PBAs.",
+      "entry_symptom_th": "หน้าจอแสดงรหัส AC6 (การสื่อสารระหว่างแผงควบคุมหลักกับอินเวอร์เตอร์)",
+      "entry_symptom_aliases": [
+        "รหัส AC6",
+        "ขึ้น AC6",
+        "error AC6",
+        "AC6",
+        "ac6"
+      ],
+      "source": "Samsung Washing Machine User Manual (Code No. DC68-04382A-13)",
+      "page_range": [
+        57,
+        57
+      ],
+      "source_chunk_id": "manual_Samsung_WashingMachine_WWUM_p57_code_ac6",
+      "severity": "medium",
+      "difficulty": "medium",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "หน้าจอแสดงรหัส AC6 ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2",
+          "on_no": "n_nomatch"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "เครื่องกลับมาทำงานปกติเองแล้วใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2n",
+          "on_no": "n3"
+        },
+        {
+          "node_id": "n2n",
+          "type": "resolution",
+          "content": "ขึ้นอยู่กับสถานะ เครื่องอาจกลับมาทำงานปกติเอง (คู่มือหน้า 57)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "node_id": "n3",
+          "type": "instruction",
+          "content": "กดปุ่ม Power ปิดเครื่อง แล้วเปิดเครื่องและเริ่มรอบการทำงานใหม่",
+          "safety_critical": true,
+          "safety_warning": "อย่าปิดเครื่องด้วยการถอดปลั๊กขณะที่เครื่องกำลังทำงาน เพราะอาจเกิดประกายไฟเมื่อเสียบกลับ (คู่มือหน้า 10)",
+          "author_note": "คู่มือใช้คำว่า 'turn the machine off' หรือ 'power off' โดยไม่ระบุวิธี ผู้พัฒนาเลือกกดปุ่ม Power ตามคำเตือนหน้า 10 ที่ห้ามถอดปลั๊กขณะเครื่องกำลังทำงาน",
+          "next": "n3v"
+        },
+        {
+          "node_id": "n3v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว รหัสบนจอหายไปและเครื่องทำงานปกติหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "รหัสหายไปและเครื่องทำงานปกติแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ทำตามรายการตรวจแล้วรหัส AC6 ยังแสดงอยู่ ติดต่อศูนย์บริการ Samsung ในพื้นที่ (คู่มือหน้า 57) พร้อมแจ้งรุ่นเครื่อง รหัส และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        },
+        {
+          "node_id": "n_nomatch",
+          "type": "escalation",
+          "content": "รหัสที่แสดงไม่ใช่ AC6 ให้เลือกรหัสตามที่ปรากฏบนจอ หรือติดต่อศูนย์บริการ Samsung พร้อมแจ้งรหัสที่เห็น",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_ww_um_code_dc1",
+      "device_category": "Washing Machine",
+      "brand": "Samsung",
+      "model_pattern": "WW9*T4*****/WW8*T4*****/WW7*T4*****/WW90FG********",
+      "entry_symptom": "Information code DC1: The Main Door lock/unlock is not working properly.",
+      "entry_symptom_th": "หน้าจอแสดงรหัส DC1 (ล็อก/ปลดล็อกประตูหลัก)",
+      "entry_symptom_aliases": [
+        "รหัส DC1",
+        "ขึ้น DC1",
+        "error DC1",
+        "DC1",
+        "dc1"
+      ],
+      "source": "Samsung Washing Machine User Manual (Code No. DC68-04382A-13)",
+      "page_range": [
+        57,
+        57
+      ],
+      "source_chunk_id": "manual_Samsung_WashingMachine_WWUM_p57_code_dc1",
+      "severity": "medium",
+      "difficulty": "medium",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "หน้าจอแสดงรหัส DC1 ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2",
+          "on_no": "n_nomatch"
+        },
+        {
+          "node_id": "n2",
+          "type": "instruction",
+          "content": "กดปุ่ม Power ปิดเครื่อง แล้วเปิดเครื่องและเริ่มรอบการทำงานใหม่",
+          "safety_critical": true,
+          "safety_warning": "อย่าปิดเครื่องด้วยการถอดปลั๊กขณะที่เครื่องกำลังทำงาน เพราะอาจเกิดประกายไฟเมื่อเสียบกลับ (คู่มือหน้า 10)",
+          "author_note": "คู่มือใช้คำว่า 'turn the machine off' หรือ 'power off' โดยไม่ระบุวิธี ผู้พัฒนาเลือกกดปุ่ม Power ตามคำเตือนหน้า 10 ที่ห้ามถอดปลั๊กขณะเครื่องกำลังทำงาน",
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว รหัสบนจอหายไปและเครื่องทำงานปกติหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "รหัสหายไปและเครื่องทำงานปกติแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ทำตามรายการตรวจแล้วรหัส DC1 ยังแสดงอยู่ ติดต่อศูนย์บริการ Samsung ในพื้นที่ (คู่มือหน้า 57) พร้อมแจ้งรุ่นเครื่อง รหัส และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        },
+        {
+          "node_id": "n_nomatch",
+          "type": "escalation",
+          "content": "รหัสที่แสดงไม่ใช่ DC1 ให้เลือกรหัสตามที่ปรากฏบนจอ หรือติดต่อศูนย์บริการ Samsung พร้อมแจ้งรหัสที่เห็น",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_ww_um_code_dc3",
+      "device_category": "Washing Machine",
+      "brand": "Samsung",
+      "model_pattern": "WW9*T4*****/WW8*T4*****/WW7*T4*****/WW90FG********",
+      "entry_symptom": "Information code DC3: The AddWash Door lock/unlock is not working properly.",
+      "entry_symptom_th": "หน้าจอแสดงรหัส DC3 (ล็อก/ปลดล็อก AddWash Door)",
+      "entry_symptom_aliases": [
+        "รหัส DC3",
+        "ขึ้น DC3",
+        "error DC3",
+        "DC3",
+        "dc3"
+      ],
+      "source": "Samsung Washing Machine User Manual (Code No. DC68-04382A-13)",
+      "page_range": [
+        57,
+        57
+      ],
+      "source_chunk_id": "manual_Samsung_WashingMachine_WWUM_p57_code_dc3",
+      "severity": "medium",
+      "difficulty": "medium",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "หน้าจอแสดงรหัส DC3 ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2",
+          "on_no": "n_nomatch"
+        },
+        {
+          "node_id": "n2",
+          "type": "instruction",
+          "content": "กดปุ่ม Power ปิดเครื่อง แล้วเปิดเครื่องและเริ่มรอบการทำงานใหม่",
+          "safety_critical": true,
+          "safety_warning": "อย่าปิดเครื่องด้วยการถอดปลั๊กขณะที่เครื่องกำลังทำงาน เพราะอาจเกิดประกายไฟเมื่อเสียบกลับ (คู่มือหน้า 10)",
+          "author_note": "คู่มือใช้คำว่า 'turn the machine off' หรือ 'power off' โดยไม่ระบุวิธี ผู้พัฒนาเลือกกดปุ่ม Power ตามคำเตือนหน้า 10 ที่ห้ามถอดปลั๊กขณะเครื่องกำลังทำงาน",
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว รหัสบนจอหายไปและเครื่องทำงานปกติหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "รหัสหายไปและเครื่องทำงานปกติแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ทำตามรายการตรวจแล้วรหัส DC3 ยังแสดงอยู่ ติดต่อศูนย์บริการ Samsung ในพื้นที่ (คู่มือหน้า 57) พร้อมแจ้งรุ่นเครื่อง รหัส และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        },
+        {
+          "node_id": "n_nomatch",
+          "type": "escalation",
+          "content": "รหัสที่แสดงไม่ใช่ DC3 ให้เลือกรหัสตามที่ปรากฏบนจอ หรือติดต่อศูนย์บริการ Samsung พร้อมแจ้งรหัสที่เห็น",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_ww_um_code_0",
+      "device_category": "Washing Machine",
+      "brand": "Samsung",
+      "model_pattern": "WW9*T4*****/WW8*T4*****/WW7*T4*****/WW90FG********",
+      "entry_symptom": "Information code 0: The machine does not turn off automatically after the last spinning process, and the \"0\" message remains.",
+      "entry_symptom_th": "หน้าจอแสดงรหัส 0 (เครื่องไม่ปิดเองหลังปั่นแห้งรอบสุดท้าย)",
+      "entry_symptom_aliases": [
+        "รหัส 0",
+        "ขึ้น 0",
+        "error 0",
+        "0",
+        "เลข 0",
+        "ขึ้น 0",
+        "drum clean"
+      ],
+      "source": "Samsung Washing Machine User Manual (Code No. DC68-04382A-13)",
+      "page_range": [
+        57,
+        57
+      ],
+      "source_chunk_id": "manual_Samsung_WashingMachine_WWUM_p57_code_0",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "หน้าจอแสดงรหัส 0 ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2",
+          "on_no": "n_nomatch"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "หน้าจอแสดงเลข \"0\" ค้างหลังปั่นแห้งรอบสุดท้ายใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2n",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n2n",
+          "type": "resolution",
+          "content": "เครื่องทำงานปกติแม้ไม่ได้ทำรอบ DRUM CLEAN แต่แนะนำให้ทำเป็นประจำเพื่อความสะอาด ตัวเตือน DRUM CLEAN จะกะพริบทุก 40 รอบซัก (คู่มือหน้า 43 และ 57)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ทำตามรายการตรวจแล้วรหัส 0 ยังแสดงอยู่ ติดต่อศูนย์บริการ Samsung ในพื้นที่ (คู่มือหน้า 57) พร้อมแจ้งรุ่นเครื่อง รหัส และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        },
+        {
+          "node_id": "n_nomatch",
+          "type": "escalation",
+          "content": "รหัสที่แสดงไม่ใช่ 0 ให้เลือกรหัสตามที่ปรากฏบนจอ หรือติดต่อศูนย์บริการ Samsung พร้อมแจ้งรหัสที่เห็น",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    }
+  ]
+}

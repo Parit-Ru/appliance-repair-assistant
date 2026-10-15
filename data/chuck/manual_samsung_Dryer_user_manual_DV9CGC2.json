@@ -1,0 +1,376 @@
+[
+  {
+    "chunk_id": "manual_Samsung_Dryer_DV5000C_p42_door_is_open",
+    "device_category": "Dryer",
+    "brand": "Samsung",
+    "model": "DV9*CGC2****",
+    "source": "Samsung Heat Pump Dryer User Manual DV9*CGC2**** (D-PJT_DV5000C_D.LED_WEB_EN_TH_MY_250308)",
+    "page": 42,
+    "content": "Door is open Operating the dryer with the door open; door not properly closed; laundry caught in the door. 1. Operating the dryer with the door open. 2. Make sure the door is properly closed. 3. Make sure laundry is not caught in the door.",
+    "metadata": {
+      "symptom": "Door is open",
+      "possible_cause": "Operating the dryer with the door open; door not properly closed; laundry caught in the door.",
+      "solution": "1. Operating the dryer with the door open.\n2. Make sure the door is properly closed.\n3. Make sure laundry is not caught in the door.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": "ห้ามสัมผัสกระจกประตูและภายในถังขณะอบหรือหลังอบเสร็จใหม่ๆ เพราะร้อนและอาจทำให้ไหม้ และห้ามสอดมือเข้าไปในถังขณะถังกำลังหมุน (คู่มือหน้า 9, 10 และ 11)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Dryer_DV5000C_p42_does_not_run",
+    "device_category": "Dryer",
+    "brand": "Samsung",
+    "model": "DV9*CGC2****",
+    "source": "Samsung Heat Pump Dryer User Manual DV9*CGC2**** (D-PJT_DV5000C_D.LED_WEB_EN_TH_MY_250308)",
+    "page": 42,
+    "content": "Dryer does not run Door not completely closed; power cord not plugged in; home circuit breaker or fuse problem; water tank full; lint filter dirty. 1. Make sure the door is completely closed. 2. Make sure the power cord is plugged in. 3. Check the home’s circuit breaker and fuses. 4. Empty the water tank. 5. Clean the lint filter.",
+    "metadata": {
+      "symptom": "Dryer does not run",
+      "possible_cause": "Door not completely closed; power cord not plugged in; home circuit breaker or fuse problem; water tank full; lint filter dirty.",
+      "solution": "1. Make sure the door is completely closed.\n2. Make sure the power cord is plugged in.\n3. Check the home’s circuit breaker and fuses.\n4. Empty the water tank.\n5. Clean the lint filter.",
+      "severity": "medium",
+      "difficulty": "easy",
+      "safety_warning": "ห้ามใช้ปลั๊ก สายไฟ หรือเต้ารับที่ชำรุดหรือหลวม ห้ามใช้อะแดปเตอร์หรือปลั๊กพ่วง และห้ามแตะปลั๊กด้วยมือเปียก เมื่อถอดปลั๊กให้จับที่ตัวปลั๊ก ไม่ดึงที่สายไฟ เพราะอาจเกิดไฟฟ้าช็อกหรือไฟไหม้ ต้องเสียบกับเต้ารับแบบสามขาที่ต่อสายดิน (คู่มือหน้า 8, 9 และ 14) | ห้ามใช้ฟิวส์ที่ไม่ใช่ฟิวส์มาตรฐาน (เช่น ลวดทองแดงหรือลวดเหล็ก) และห้ามซ่อม ถอดแยก หรือดัดแปลงเครื่องเอง ถ้าเบรกเกอร์ตัดซ้ำหลังยกกลับ ให้หยุดใช้งานและติดต่อศูนย์บริการ (คู่มือหน้า 10) | ถังเก็บน้ำหนักมาก ให้ดึงออกช้าๆ ด้วยสองมือและรักษาระดับถังให้ตรง ถ้าทำตกอาจบาดเจ็บ และห้ามดื่มน้ำที่เกิดจากการควบแน่น (คู่มือหน้า 9 และ 36) | ถอดปลั๊กก่อนทำความสะอาดหรือบำรุงรักษา และห้ามฉีดน้ำใส่เครื่องโดยตรง ห้ามใช้เบนซีน ทินเนอร์ แอลกอฮอล์ หรืออะซีโตนทำความสะอาด เพราะอาจเกิดไฟฟ้าช็อกหรือไฟไหม้ (คู่มือหน้า 11 และ 37) ประตูกระจกและภายในถังอาจยังร้อน ห้ามสัมผัส (คู่มือหน้า 10)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Dryer_DV5000C_p42_does_not_heat",
+    "device_category": "Dryer",
+    "brand": "Samsung",
+    "model": "DV9*CGC2****",
+    "source": "Samsung Heat Pump Dryer User Manual DV9*CGC2**** (D-PJT_DV5000C_D.LED_WEB_EN_TH_MY_250308)",
+    "page": 42,
+    "content": "Dryer does not heat Home circuit breaker or fuse problem; COOL AIR selected; lint filter or heat exchanger dirty; dryer may be in the cool-down phase of the cycle. 1. Check the home’s circuit breaker and fuses. 2. Select a heat setting other than COOL AIR. 3. Check the lint filter and heat exchanger. Clean them if necessary. 4. Dryer may be in the cool-down phase of the cycle.",
+    "metadata": {
+      "symptom": "Dryer does not heat",
+      "possible_cause": "Home circuit breaker or fuse problem; COOL AIR selected; lint filter or heat exchanger dirty; dryer may be in the cool-down phase of the cycle.",
+      "solution": "1. Check the home’s circuit breaker and fuses.\n2. Select a heat setting other than COOL AIR.\n3. Check the lint filter and heat exchanger. Clean them if necessary.\n4. Dryer may be in the cool-down phase of the cycle.",
+      "severity": "medium",
+      "difficulty": "easy",
+      "safety_warning": "ห้ามใช้ฟิวส์ที่ไม่ใช่ฟิวส์มาตรฐาน (เช่น ลวดทองแดงหรือลวดเหล็ก) และห้ามซ่อม ถอดแยก หรือดัดแปลงเครื่องเอง ถ้าเบรกเกอร์ตัดซ้ำหลังยกกลับ ให้หยุดใช้งานและติดต่อศูนย์บริการ (คู่มือหน้า 10) | ถอดปลั๊กก่อนทำความสะอาดหรือบำรุงรักษา และห้ามฉีดน้ำใส่เครื่องโดยตรง ห้ามใช้เบนซีน ทินเนอร์ แอลกอฮอล์ หรืออะซีโตนทำความสะอาด เพราะอาจเกิดไฟฟ้าช็อกหรือไฟไหม้ (คู่มือหน้า 11 และ 37) ประตูกระจกและภายในถังอาจยังร้อน ห้ามสัมผัส (คู่มือหน้า 10) | ถอดปลั๊กก่อนทำความสะอาด (คู่มือหน้า 11) อาจมีสารทำความเย็นรั่วเล็กน้อยค้างรอบ heat exchanger ให้เปิดฝาครอบ heat exchanger ระบายอากาศประมาณ 10 นาทีก่อนทำความสะอาด (คู่มือหน้า 40) ห้ามสัมผัสหรือทำความสะอาด heat exchanger ด้วยมือเปล่าหรือเครื่องมือเหล็ก เพราะอาจบาดเจ็บหรือไหม้ และระวังอย่าให้ครีบเสียหาย (คู่มือหน้า 11 และ 40) ห้ามทำให้วงจรสารทำความเย็นเสียหาย (คู่มือหน้า 7)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Dryer_DV5000C_p42_does_not_dry",
+    "device_category": "Dryer",
+    "brand": "Samsung",
+    "model": "DV9*CGC2****",
+    "source": "Samsung Heat Pump Dryer User Manual DV9*CGC2**** (D-PJT_DV5000C_D.LED_WEB_EN_TH_MY_250308)",
+    "page": 42,
+    "content": "Dryer does not dry Items listed for \"Dryer does not run\" and \"Dryer does not heat\" not resolved; dryer overloaded; light and heavy items mixed; large bulky items not repositioned; dryer not draining properly; small load; lint filter or heat exchanger dirty. 1. Check the above, plus… 2. Make sure the dryer is not overloaded. 3. Sort light and heavy items separately. 4. Reposition large, bulky items to ensure even drying. 5. Check that the dryer is draining properly. 6. For small loads, add a few dry towels. 7. Clean the lint filter and heat exchanger.",
+    "metadata": {
+      "symptom": "Dryer does not dry",
+      "possible_cause": "Items listed for \"Dryer does not run\" and \"Dryer does not heat\" not resolved; dryer overloaded; light and heavy items mixed; large bulky items not repositioned; dryer not draining properly; small load; lint filter or heat exchanger dirty.",
+      "solution": "1. Check the above, plus…\n2. Make sure the dryer is not overloaded.\n3. Sort light and heavy items separately.\n4. Reposition large, bulky items to ensure even drying.\n5. Check that the dryer is draining properly.\n6. For small loads, add a few dry towels.\n7. Clean the lint filter and heat exchanger.",
+      "severity": "medium",
+      "difficulty": "medium",
+      "safety_warning": "ห้ามสัมผัสกระจกประตูและภายในถังขณะอบหรือหลังอบเสร็จใหม่ๆ เพราะร้อนและอาจทำให้ไหม้ และห้ามสอดมือเข้าไปในถังขณะถังกำลังหมุน (คู่มือหน้า 9, 10 และ 11) | ถังเก็บน้ำหนักมาก ให้ดึงออกช้าๆ ด้วยสองมือและรักษาระดับถังให้ตรง ถ้าทำตกอาจบาดเจ็บ และห้ามดื่มน้ำที่เกิดจากการควบแน่น (คู่มือหน้า 9 และ 36) | ถอดปลั๊กก่อนทำความสะอาดหรือบำรุงรักษา และห้ามฉีดน้ำใส่เครื่องโดยตรง ห้ามใช้เบนซีน ทินเนอร์ แอลกอฮอล์ หรืออะซีโตนทำความสะอาด เพราะอาจเกิดไฟฟ้าช็อกหรือไฟไหม้ (คู่มือหน้า 11 และ 37) ประตูกระจกและภายในถังอาจยังร้อน ห้ามสัมผัส (คู่มือหน้า 10) | ถอดปลั๊กก่อนทำความสะอาด (คู่มือหน้า 11) อาจมีสารทำความเย็นรั่วเล็กน้อยค้างรอบ heat exchanger ให้เปิดฝาครอบ heat exchanger ระบายอากาศประมาณ 10 นาทีก่อนทำความสะอาด (คู่มือหน้า 40) ห้ามสัมผัสหรือทำความสะอาด heat exchanger ด้วยมือเปล่าหรือเครื่องมือเหล็ก เพราะอาจบาดเจ็บหรือไหม้ และระวังอย่าให้ครีบเสียหาย (คู่มือหน้า 11 และ 40) ห้ามทำให้วงจรสารทำความเย็นเสียหาย (คู่มือหน้า 7)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Dryer_DV5000C_p42_dryer_is_noisy",
+    "device_category": "Dryer",
+    "brand": "Samsung",
+    "model": "DV9*CGC2****",
+    "source": "Samsung Heat Pump Dryer User Manual DV9*CGC2**** (D-PJT_DV5000C_D.LED_WEB_EN_TH_MY_250308)",
+    "page": 42,
+    "content": "Dryer is noisy Coins, buttons, lighters or other objects in the drum; dryer not level or not standing firmly; humming from air moving through the drum and fan is normal. 1. Check for coins, buttons, lighters, etc. 2. Make sure the dryer is level and standing firmly on the floor. 3. The dryer may hum due to air moving through the drum and fan. This is normal.",
+    "metadata": {
+      "symptom": "Dryer is noisy",
+      "possible_cause": "Coins, buttons, lighters or other objects in the drum; dryer not level or not standing firmly; humming from air moving through the drum and fan is normal.",
+      "solution": "1. Check for coins, buttons, lighters, etc.\n2. Make sure the dryer is level and standing firmly on the floor.\n3. The dryer may hum due to air moving through the drum and fan. This is normal.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": "ห้ามสัมผัสกระจกประตูและภายในถังขณะอบหรือหลังอบเสร็จใหม่ๆ เพราะร้อนและอาจทำให้ไหม้ และห้ามสอดมือเข้าไปในถังขณะถังกำลังหมุน (คู่มือหน้า 9, 10 และ 11)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Dryer_DV5000C_p42_dries_unevenly",
+    "device_category": "Dryer",
+    "brand": "Samsung",
+    "model": "DV9*CGC2****",
+    "source": "Samsung Heat Pump Dryer User Manual DV9*CGC2**** (D-PJT_DV5000C_D.LED_WEB_EN_TH_MY_250308)",
+    "page": 42,
+    "content": "Dries unevenly Seams, pockets and other parts of clothing are harder to dry than others (normal); heavy and light items mixed. 1. Seams, pockets, and other parts of clothing are harder to dry than others. This is normal. 2. Sort heavy and light items separately.",
+    "metadata": {
+      "symptom": "Dries unevenly",
+      "possible_cause": "Seams, pockets and other parts of clothing are harder to dry than others (normal); heavy and light items mixed.",
+      "solution": "1. Seams, pockets, and other parts of clothing are harder to dry than others. This is normal.\n2. Sort heavy and light items separately.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Dryer_DV5000C_p42_emits_odour",
+    "device_category": "Dryer",
+    "brand": "Samsung",
+    "model": "DV9*CGC2****",
+    "source": "Samsung Heat Pump Dryer User Manual DV9*CGC2**** (D-PJT_DV5000C_D.LED_WEB_EN_TH_MY_250308)",
+    "page": 42,
+    "content": "Dryer emits an odour The dryer may draw household odours in from the surrounding air and then exhaust them. The dryer may draw household odours in from the surrounding air and then exhaust them. This is normal.",
+    "metadata": {
+      "symptom": "Dryer emits an odour",
+      "possible_cause": "The dryer may draw household odours in from the surrounding air and then exhaust them.",
+      "solution": "The dryer may draw household odours in from the surrounding air and then exhaust them. This is normal.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Dryer_DV5000C_p42_turns_off_before_dry",
+    "device_category": "Dryer",
+    "brand": "Samsung",
+    "model": "DV9*CGC2****",
+    "source": "Samsung Heat Pump Dryer User Manual DV9*CGC2**** (D-PJT_DV5000C_D.LED_WEB_EN_TH_MY_250308)",
+    "page": 42,
+    "content": "Dryer turns off before the load is dry Dryer load is too small; dryer load is too large. 1. Dryer load is too small. Add more items and restart the cycle. 2. Dryer load is too large. Remove items and restart the cycle.",
+    "metadata": {
+      "symptom": "Dryer turns off before the load is dry",
+      "possible_cause": "Dryer load is too small; dryer load is too large.",
+      "solution": "1. Dryer load is too small. Add more items and restart the cycle.\n2. Dryer load is too large. Remove items and restart the cycle.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": "ห้ามสัมผัสกระจกประตูและภายในถังขณะอบหรือหลังอบเสร็จใหม่ๆ เพราะร้อนและอาจทำให้ไหม้ และห้ามสอดมือเข้าไปในถังขณะถังกำลังหมุน (คู่มือหน้า 9, 10 และ 11)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Dryer_DV5000C_p43_lint_on_clothes",
+    "device_category": "Dryer",
+    "brand": "Samsung",
+    "model": "DV9*CGC2****",
+    "source": "Samsung Heat Pump Dryer User Manual DV9*CGC2**** (D-PJT_DV5000C_D.LED_WEB_EN_TH_MY_250308)",
+    "page": 43,
+    "content": "Lint on clothes Lint filter not cleaned before every load; lint-producing items dried together with lint trappers; load too large. 1. Make sure the lint filter is clean before every load. 2. Dry lint-producing items (fuzzy towels) separate from lint trappers, such as black linen pants. 3. Divide larger loads into smaller loads.",
+    "metadata": {
+      "symptom": "Lint on clothes",
+      "possible_cause": "Lint filter not cleaned before every load; lint-producing items dried together with lint trappers; load too large.",
+      "solution": "1. Make sure the lint filter is clean before every load.\n2. Dry lint-producing items (fuzzy towels) separate from lint trappers, such as black linen pants.\n3. Divide larger loads into smaller loads.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": "ถอดปลั๊กก่อนทำความสะอาดหรือบำรุงรักษา และห้ามฉีดน้ำใส่เครื่องโดยตรง ห้ามใช้เบนซีน ทินเนอร์ แอลกอฮอล์ หรืออะซีโตนทำความสะอาด เพราะอาจเกิดไฟฟ้าช็อกหรือไฟไหม้ (คู่มือหน้า 11 และ 37) ประตูกระจกและภายในถังอาจยังร้อน ห้ามสัมผัส (คู่มือหน้า 10)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Dryer_DV5000C_p43_wrinkled_after_wrinkle_prevent",
+    "device_category": "Dryer",
+    "brand": "Samsung",
+    "model": "DV9*CGC2****",
+    "source": "Samsung Heat Pump Dryer User Manual DV9*CGC2**** (D-PJT_DV5000C_D.LED_WEB_EN_TH_MY_250308)",
+    "page": 43,
+    "content": "Items still wrinkled after Wrinkle Prevent Load too large or items of different types. 1. Small loads of 1-4 items work best. 2. Load fewer items. Load similar type items.",
+    "metadata": {
+      "symptom": "Items still wrinkled after Wrinkle Prevent",
+      "possible_cause": "Load too large or items of different types.",
+      "solution": "1. Small loads of 1-4 items work best.\n2. Load fewer items. Load similar type items.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Dryer_DV5000C_p43_odours_remain_after_cool_air",
+    "device_category": "Dryer",
+    "brand": "Samsung",
+    "model": "DV9*CGC2****",
+    "source": "Samsung Heat Pump Dryer User Manual DV9*CGC2**** (D-PJT_DV5000C_D.LED_WEB_EN_TH_MY_250308)",
+    "page": 43,
+    "content": "Odours remain in items after COOL AIR Items with strong odours not thoroughly washed. Make sure to thoroughly wash items with strong odours.",
+    "metadata": {
+      "symptom": "Odours remain in items after COOL AIR",
+      "possible_cause": "Items with strong odours not thoroughly washed.",
+      "solution": "Make sure to thoroughly wash items with strong odours.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Dryer_DV5000C_p43_code_tc",
+    "device_category": "Dryer",
+    "brand": "Samsung",
+    "model": "DV9*CGC2****",
+    "source": "Samsung Heat Pump Dryer User Manual DV9*CGC2**** (D-PJT_DV5000C_D.LED_WEB_EN_TH_MY_250308)",
+    "page": 43,
+    "content": "Information code tC: Air temperature sensor issue Air temperature sensor issue 1. Clean the lint filter and/or heat exchanger. 2. If this continues, call for service.",
+    "metadata": {
+      "symptom": "Information code tC: Air temperature sensor issue",
+      "possible_cause": "Air temperature sensor issue",
+      "solution": "1. Clean the lint filter and/or heat exchanger.\n2. If this continues, call for service.",
+      "severity": "medium",
+      "difficulty": "medium",
+      "safety_warning": "ถอดปลั๊กก่อนทำความสะอาดหรือบำรุงรักษา และห้ามฉีดน้ำใส่เครื่องโดยตรง ห้ามใช้เบนซีน ทินเนอร์ แอลกอฮอล์ หรืออะซีโตนทำความสะอาด เพราะอาจเกิดไฟฟ้าช็อกหรือไฟไหม้ (คู่มือหน้า 11 และ 37) ประตูกระจกและภายในถังอาจยังร้อน ห้ามสัมผัส (คู่มือหน้า 10) | ถอดปลั๊กก่อนทำความสะอาด (คู่มือหน้า 11) อาจมีสารทำความเย็นรั่วเล็กน้อยค้างรอบ heat exchanger ให้เปิดฝาครอบ heat exchanger ระบายอากาศประมาณ 10 นาทีก่อนทำความสะอาด (คู่มือหน้า 40) ห้ามสัมผัสหรือทำความสะอาด heat exchanger ด้วยมือเปล่าหรือเครื่องมือเหล็ก เพราะอาจบาดเจ็บหรือไหม้ และระวังอย่าให้ครีบเสียหาย (คู่มือหน้า 11 และ 40) ห้ามทำให้วงจรสารทำความเย็นเสียหาย (คู่มือหน้า 7)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Dryer_DV5000C_p43_code_tc5",
+    "device_category": "Dryer",
+    "brand": "Samsung",
+    "model": "DV9*CGC2****",
+    "source": "Samsung Heat Pump Dryer User Manual DV9*CGC2**** (D-PJT_DV5000C_D.LED_WEB_EN_TH_MY_250308)",
+    "page": 43,
+    "content": "Information code tC5: Compressor temperature sensor issue Compressor temperature sensor issue Wait 2-3 minutes. Turn the power on and restart.",
+    "metadata": {
+      "symptom": "Information code tC5: Compressor temperature sensor issue",
+      "possible_cause": "Compressor temperature sensor issue",
+      "solution": "Wait 2-3 minutes. Turn the power on and restart.",
+      "severity": "medium",
+      "difficulty": "medium",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Dryer_DV5000C_p43_code_ac6",
+    "device_category": "Dryer",
+    "brand": "Samsung",
+    "model": "DV9*CGC2****",
+    "source": "Samsung Heat Pump Dryer User Manual DV9*CGC2**** (D-PJT_DV5000C_D.LED_WEB_EN_TH_MY_250308)",
+    "page": 43,
+    "content": "Information code AC6: Check communications between the main and the inverter PBAs. Check communications between the main and the inverter PBAs. 1. Depending on the state, the dryer may automatically returns to normal operation. 2. Turn the dryer off and turn it on again. Then, restart the cycle. 3. If the information code continues to appear, call for service.",
+    "metadata": {
+      "symptom": "Information code AC6: Check communications between the main and the inverter PBAs.",
+      "possible_cause": "Check communications between the main and the inverter PBAs.",
+      "solution": "1. Depending on the state, the dryer may automatically returns to normal operation.\n2. Turn the dryer off and turn it on again. Then, restart the cycle.\n3. If the information code continues to appear, call for service.",
+      "severity": "medium",
+      "difficulty": "medium",
+      "safety_warning": "อย่าหยุดเครื่องอบก่อนจบรอบการอบ เว้นแต่จะนำผ้าออกและกางออกทันทีเพื่อระบายความร้อน (คู่มือหน้า 7 และ 9) และอย่าถอดปลั๊กขณะเครื่องกำลังทำงาน (คู่มือหน้า 14)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Dryer_DV5000C_p43_code_3c",
+    "device_category": "Dryer",
+    "brand": "Samsung",
+    "model": "DV9*CGC2****",
+    "source": "Samsung Heat Pump Dryer User Manual DV9*CGC2**** (D-PJT_DV5000C_D.LED_WEB_EN_TH_MY_250308)",
+    "page": 43,
+    "content": "Information code 3C: Check the motor for operation. Check the motor for operation. 1. Try restarting the cycle. 2. If the information code continues to appear, call for service.",
+    "metadata": {
+      "symptom": "Information code 3C: Check the motor for operation.",
+      "possible_cause": "Check the motor for operation.",
+      "solution": "1. Try restarting the cycle.\n2. If the information code continues to appear, call for service.",
+      "severity": "medium",
+      "difficulty": "medium",
+      "safety_warning": "อย่าหยุดเครื่องอบก่อนจบรอบการอบ เว้นแต่จะนำผ้าออกและกางออกทันทีเพื่อระบายความร้อน (คู่มือหน้า 7 และ 9) และอย่าถอดปลั๊กขณะเครื่องกำลังทำงาน (คู่มือหน้า 14)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Dryer_DV5000C_p43_code_fil_ter",
+    "device_category": "Dryer",
+    "brand": "Samsung",
+    "model": "DV9*CGC2****",
+    "source": "Samsung Heat Pump Dryer User Manual DV9*CGC2**** (D-PJT_DV5000C_D.LED_WEB_EN_TH_MY_250308)",
+    "page": 43,
+    "content": "Information code FIL+tEr: (Alert sounds) Heat exchanger needs to be cleaned Clean the heat exchanger.",
+    "metadata": {
+      "symptom": "Information code FIL+tEr: (Alert sounds) Heat exchanger needs to be cleaned",
+      "possible_cause": null,
+      "solution": "Clean the heat exchanger.",
+      "severity": "medium",
+      "difficulty": "medium",
+      "safety_warning": "ถอดปลั๊กก่อนทำความสะอาด (คู่มือหน้า 11) อาจมีสารทำความเย็นรั่วเล็กน้อยค้างรอบ heat exchanger ให้เปิดฝาครอบ heat exchanger ระบายอากาศประมาณ 10 นาทีก่อนทำความสะอาด (คู่มือหน้า 40) ห้ามสัมผัสหรือทำความสะอาด heat exchanger ด้วยมือเปล่าหรือเครื่องมือเหล็ก เพราะอาจบาดเจ็บหรือไหม้ และระวังอย่าให้ครีบเสียหาย (คู่มือหน้า 11 และ 40) ห้ามทำให้วงจรสารทำความเย็นเสียหาย (คู่มือหน้า 7)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Dryer_DV5000C_p43_code_dc",
+    "device_category": "Dryer",
+    "brand": "Samsung",
+    "model": "DV9*CGC2****",
+    "source": "Samsung Heat Pump Dryer User Manual DV9*CGC2**** (D-PJT_DV5000C_D.LED_WEB_EN_TH_MY_250308)",
+    "page": 43,
+    "content": "Information code dC: Dryer operation with the door open Dryer operation with the door open 1. Close the door and start again. 2. If this continues, call for service. 3. Check if Child Lock is on. If Child Lock is on, you may get this message when you open the door even though the dryer is not operating.",
+    "metadata": {
+      "symptom": "Information code dC: Dryer operation with the door open",
+      "possible_cause": "Dryer operation with the door open",
+      "solution": "1. Close the door and start again.\n2. If this continues, call for service.\n3. Check if Child Lock is on. If Child Lock is on, you may get this message when you open the door even though the dryer is not operating.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": "ห้ามให้เด็กหรือสัตว์เลี้ยงเข้าไปหรือเล่นในเครื่อง ประตูเปิดจากด้านในยาก ถ้าติดอยู่ภายในอาจขาดอากาศหายใจ (คู่มือหน้า 9 และ 10) ห้ามเข้าถึงภายในเครื่องขณะถังกำลังหมุน (คู่มือหน้า 9)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Dryer_DV5000C_p44_code_cl",
+    "device_category": "Dryer",
+    "brand": "Samsung",
+    "model": "DV9*CGC2****",
+    "source": "Samsung Heat Pump Dryer User Manual DV9*CGC2**** (D-PJT_DV5000C_D.LED_WEB_EN_TH_MY_250308)",
+    "page": 44,
+    "content": "Information code CL: Child Lock is on. Open the door and check inside the drum. Child Lock is on. Open the door and check inside the drum. If Child Lock is on, turn off Child Lock or the power.",
+    "metadata": {
+      "symptom": "Information code CL: Child Lock is on. Open the door and check inside the drum.",
+      "possible_cause": "Child Lock is on. Open the door and check inside the drum.",
+      "solution": "If Child Lock is on, turn off Child Lock or the power.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": "ห้ามให้เด็กหรือสัตว์เลี้ยงเข้าไปหรือเล่นในเครื่อง ประตูเปิดจากด้านในยาก ถ้าติดอยู่ภายในอาจขาดอากาศหายใจ (คู่มือหน้า 9 และ 10) ห้ามเข้าถึงภายในเครื่องขณะถังกำลังหมุน (คู่มือหน้า 9) ห้ามสัมผัสกระจกประตูและภายในถังขณะอบหรือหลังอบเสร็จใหม่ๆ เพราะร้อนและอาจทำให้ไหม้ และห้ามสอดมือเข้าไปในถังขณะถังกำลังหมุน (คู่มือหน้า 9, 10 และ 11)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Dryer_DV5000C_p44_code_nc",
+    "device_category": "Dryer",
+    "brand": "Samsung",
+    "model": "DV9*CGC2****",
+    "source": "Samsung Heat Pump Dryer User Manual DV9*CGC2**** (D-PJT_DV5000C_D.LED_WEB_EN_TH_MY_250308)",
+    "page": 44,
+    "content": "Information code nC: Lint filter problem Lint filter problem 1. Check the lint filter assembly. 2. If this continues, call for service.",
+    "metadata": {
+      "symptom": "Information code nC: Lint filter problem",
+      "possible_cause": "Lint filter problem",
+      "solution": "1. Check the lint filter assembly.\n2. If this continues, call for service.",
+      "severity": "medium",
+      "difficulty": "medium",
+      "safety_warning": "ถอดปลั๊กก่อนทำความสะอาดหรือบำรุงรักษา และห้ามฉีดน้ำใส่เครื่องโดยตรง ห้ามใช้เบนซีน ทินเนอร์ แอลกอฮอล์ หรืออะซีโตนทำความสะอาด เพราะอาจเกิดไฟฟ้าช็อกหรือไฟไหม้ (คู่มือหน้า 11 และ 37) ประตูกระจกและภายในถังอาจยังร้อน ห้ามสัมผัส (คู่มือหน้า 10)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Dryer_DV5000C_p44_code_nc2",
+    "device_category": "Dryer",
+    "brand": "Samsung",
+    "model": "DV9*CGC2****",
+    "source": "Samsung Heat Pump Dryer User Manual DV9*CGC2**** (D-PJT_DV5000C_D.LED_WEB_EN_TH_MY_250308)",
+    "page": 44,
+    "content": "Information code nC2: Internal heat exchanger cover problem Internal heat exchanger cover problem 1. Check the internal heat exchanger cover assembly. 2. If this continues, call for service.",
+    "metadata": {
+      "symptom": "Information code nC2: Internal heat exchanger cover problem",
+      "possible_cause": "Internal heat exchanger cover problem",
+      "solution": "1. Check the internal heat exchanger cover assembly.\n2. If this continues, call for service.",
+      "severity": "medium",
+      "difficulty": "medium",
+      "safety_warning": "ถอดปลั๊กก่อนทำความสะอาด (คู่มือหน้า 11) อาจมีสารทำความเย็นรั่วเล็กน้อยค้างรอบ heat exchanger ให้เปิดฝาครอบ heat exchanger ระบายอากาศประมาณ 10 นาทีก่อนทำความสะอาด (คู่มือหน้า 40) ห้ามสัมผัสหรือทำความสะอาด heat exchanger ด้วยมือเปล่าหรือเครื่องมือเหล็ก เพราะอาจบาดเจ็บหรือไหม้ และระวังอย่าให้ครีบเสียหาย (คู่มือหน้า 11 และ 40) ห้ามทำให้วงจรสารทำความเย็นเสียหาย (คู่มือหน้า 7)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Dryer_DV5000C_p44_code_5c",
+    "device_category": "Dryer",
+    "brand": "Samsung",
+    "model": "DV9*CGC2****",
+    "source": "Samsung Heat Pump Dryer User Manual DV9*CGC2**** (D-PJT_DV5000C_D.LED_WEB_EN_TH_MY_250308)",
+    "page": 44,
+    "content": "Information code 5C: Draining malfunction Draining malfunction; Draining pump malfunction; Frozen draining hose; Water tank full. 1. Make sure the draining hose is not bent or damaged. 2. If the hose is frozen, wrap the hose with a towel soaked in warm water for approximately ten minutes to thaw the hose. 3. Empty the water tank, turn on the dryer, and start again. 4. If this continues, call for service.",
+    "metadata": {
+      "symptom": "Information code 5C: Draining malfunction",
+      "possible_cause": "Draining malfunction; Draining pump malfunction; Frozen draining hose; Water tank full.",
+      "solution": "1. Make sure the draining hose is not bent or damaged.\n2. If the hose is frozen, wrap the hose with a towel soaked in warm water for approximately ten minutes to thaw the hose.\n3. Empty the water tank, turn on the dryer, and start again.\n4. If this continues, call for service.",
+      "severity": "medium",
+      "difficulty": "medium",
+      "safety_warning": "ติดตั้งเครื่องในที่ที่อุณหภูมิอยู่ในช่วง 5–35 °C ถ้าต่ำจนน้ำในเครื่องและสายแข็งตัว เครื่องอาจไม่ทำงานหรือเสียหาย (คู่มือหน้า 15) และหลังใช้งานทุกครั้งต้องไม่มีน้ำค้างอยู่ในสายระบาย (คู่มือหน้า 11) ถอดปลั๊กก่อนทำงานกับสายระบาย | ถังเก็บน้ำหนักมาก ให้ดึงออกช้าๆ ด้วยสองมือและรักษาระดับถังให้ตรง ถ้าทำตกอาจบาดเจ็บ และห้ามดื่มน้ำที่เกิดจากการควบแน่น (คู่มือหน้า 9 และ 36)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Dryer_DV5000C_p44_code_hc",
+    "device_category": "Dryer",
+    "brand": "Samsung",
+    "model": "DV9*CGC2****",
+    "source": "Samsung Heat Pump Dryer User Manual DV9*CGC2**** (D-PJT_DV5000C_D.LED_WEB_EN_TH_MY_250308)",
+    "page": 44,
+    "content": "Information code HC: Compressor overheating Compressor overheating If this continues, call for service. Please check the cleaning condition of heat exchanger and lint filter.",
+    "metadata": {
+      "symptom": "Information code HC: Compressor overheating",
+      "possible_cause": "Compressor overheating",
+      "solution": "If this continues, call for service. Please check the cleaning condition of heat exchanger and lint filter.",
+      "severity": "medium",
+      "difficulty": "medium",
+      "safety_warning": "ถอดปลั๊กก่อนทำความสะอาดหรือบำรุงรักษา และห้ามฉีดน้ำใส่เครื่องโดยตรง ห้ามใช้เบนซีน ทินเนอร์ แอลกอฮอล์ หรืออะซีโตนทำความสะอาด เพราะอาจเกิดไฟฟ้าช็อกหรือไฟไหม้ (คู่มือหน้า 11 และ 37) ประตูกระจกและภายในถังอาจยังร้อน ห้ามสัมผัส (คู่มือหน้า 10) | ถอดปลั๊กก่อนทำความสะอาด (คู่มือหน้า 11) อาจมีสารทำความเย็นรั่วเล็กน้อยค้างรอบ heat exchanger ให้เปิดฝาครอบ heat exchanger ระบายอากาศประมาณ 10 นาทีก่อนทำความสะอาด (คู่มือหน้า 40) ห้ามสัมผัสหรือทำความสะอาด heat exchanger ด้วยมือเปล่าหรือเครื่องมือเหล็ก เพราะอาจบาดเจ็บหรือไหม้ และระวังอย่าให้ครีบเสียหาย (คู่มือหน้า 11 และ 40) ห้ามทำให้วงจรสารทำความเย็นเสียหาย (คู่มือหน้า 7)"
+    }
+  }
+]

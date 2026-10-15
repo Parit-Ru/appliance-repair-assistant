@@ -1,0 +1,223 @@
+[
+  {
+    "chunk_id": "manual_Samsung_Refrigerator_RFSM2009_p22_glass_shelf_stuck",
+    "device_category": "Refrigerator",
+    "brand": "Samsung",
+    "model": "RF195AC/RF197AC/RF215AC/RF217AC/RF18HFENB/RF20HFENB",
+    "source": "Samsung Refrigerator Bottom Mount Freezer Service Manual (RF195AC/RF197AC/RF215AC/RF217AC/RF18HFENB/RF20HFENB), Technical Service Guide 2009",
+    "page": 22,
+    "content": "The glass shelf does not slide out when pulled. When pulling out the shelf, if it does not slide out well, lift it up slightly and pull out again.",
+    "metadata": {
+      "symptom": "The glass shelf does not slide out when pulled.",
+      "possible_cause": null,
+      "solution": "When pulling out the shelf, if it does not slide out well, lift it up slightly and pull out again.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Refrigerator_RFSM2009_p23_moving_tray_stuck",
+    "device_category": "Refrigerator",
+    "brand": "Samsung",
+    "model": "RF195AC/RF197AC/RF215AC/RF217AC/RF18HFENB/RF20HFENB",
+    "source": "Samsung Refrigerator Bottom Mount Freezer Service Manual (RF195AC/RF197AC/RF215AC/RF217AC/RF18HFENB/RF20HFENB), Technical Service Guide 2009",
+    "page": 23,
+    "content": "The Moving Tray does not slide out when pulled. When pulling out the Moving Tray, if it does not slide out well, lift it up slightly and pull out again.",
+    "metadata": {
+      "symptom": "The Moving Tray does not slide out when pulled.",
+      "possible_cause": null,
+      "solution": "When pulling out the Moving Tray, if it does not slide out well, lift it up slightly and pull out again.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Refrigerator_RFSM2009_p23_remove_vegetable_fruit_drawers",
+    "device_category": "Refrigerator",
+    "brand": "Samsung",
+    "model": "RF195AC/RF197AC/RF215AC/RF217AC/RF18HFENB/RF20HFENB",
+    "source": "Samsung Refrigerator Bottom Mount Freezer Service Manual (RF195AC/RF197AC/RF215AC/RF217AC/RF18HFENB/RF20HFENB), Technical Service Guide 2009",
+    "page": 23,
+    "content": "Need to remove the vegetable and fruit drawer, the drawer shelf or the drawer partition. 1. Remove the vegetable & fruit drawer by pulling the roller part and lifting it up. 2. Remove the vegetable & fruit drawer shelf by pulling it out. 3. Remove the vegetable & fruit drawer partition by pulling it out.",
+    "metadata": {
+      "symptom": "Need to remove the vegetable and fruit drawer, the drawer shelf or the drawer partition.",
+      "possible_cause": null,
+      "solution": "1. Remove the vegetable & fruit drawer by pulling the roller part and lifting it up.\n2. Remove the vegetable & fruit drawer shelf by pulling it out.\n3. Remove the vegetable & fruit drawer partition by pulling it out.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Refrigerator_RFSM2009_p24_remove_door_bin",
+    "device_category": "Refrigerator",
+    "brand": "Samsung",
+    "model": "RF195AC/RF197AC/RF215AC/RF217AC/RF18HFENB/RF20HFENB",
+    "source": "Samsung Refrigerator Bottom Mount Freezer Service Manual (RF195AC/RF197AC/RF215AC/RF217AC/RF18HFENB/RF20HFENB), Technical Service Guide 2009",
+    "page": 24,
+    "content": "Need to remove a door bin. Lift the bin up and pull it straight out.",
+    "metadata": {
+      "symptom": "Need to remove a door bin.",
+      "possible_cause": null,
+      "solution": "Lift the bin up and pull it straight out.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Refrigerator_RFSM2009_p22_refrigerator_light",
+    "device_category": "Refrigerator",
+    "brand": "Samsung",
+    "model": "RF195AC/RF197AC/RF215AC/RF217AC/RF18HFENB/RF20HFENB",
+    "source": "Samsung Refrigerator Bottom Mount Freezer Service Manual (RF195AC/RF197AC/RF215AC/RF217AC/RF18HFENB/RF20HFENB), Technical Service Guide 2009",
+    "page": 22,
+    "content": "The light in the refrigerator compartment does not turn on. A faulty LED lamp is one of the causes checked on page 57; the other checks on that page (door switch, PCB output, connector) require voltage measurement. 1. Power OFF before replacing the lamp. 2. Remove the lamp cover by pulling it down while pushing the rear of the lamp cover. 3. Separate the LED panel.",
+    "metadata": {
+      "symptom": "The light in the refrigerator compartment does not turn on.",
+      "possible_cause": "A faulty LED lamp is one of the causes checked on page 57; the other checks on that page (door switch, PCB output, connector) require voltage measurement.",
+      "solution": "1. Power OFF before replacing the lamp.\n2. Remove the lamp cover by pulling it down while pushing the rear of the lamp cover.\n3. Separate the LED panel.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": "Unplug the refrigerator before cleaning and making repairs (page 17). When replacing the lamp of the freezer/fridge, power OFF (page 57)."
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Refrigerator_RFSM2009_p26_freezer_light",
+    "device_category": "Refrigerator",
+    "brand": "Samsung",
+    "model": "RF195AC/RF197AC/RF215AC/RF217AC/RF18HFENB/RF20HFENB",
+    "source": "Samsung Refrigerator Bottom Mount Freezer Service Manual (RF195AC/RF197AC/RF215AC/RF217AC/RF18HFENB/RF20HFENB), Technical Service Guide 2009",
+    "page": 26,
+    "content": "The light in the freezer compartment does not turn on. A faulty LED lamp is one of the causes checked on page 57; the other checks on that page (door switch, PCB output, connector) require voltage measurement. 1. Power OFF before replacing the lamp. 2. Remove the light by pulling the light cover down while pushing the rear plane of the light cover.",
+    "metadata": {
+      "symptom": "The light in the freezer compartment does not turn on.",
+      "possible_cause": "A faulty LED lamp is one of the causes checked on page 57; the other checks on that page (door switch, PCB output, connector) require voltage measurement.",
+      "solution": "1. Power OFF before replacing the lamp.\n2. Remove the light by pulling the light cover down while pushing the rear plane of the light cover.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": "Unplug the refrigerator before cleaning and making repairs (page 17). When replacing the lamp of the freezer/fridge, power OFF (page 57)."
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Refrigerator_RFSM2009_p52_compressor_delay",
+    "device_category": "Refrigerator",
+    "brand": "Samsung",
+    "model": "RF195AC/RF197AC/RF215AC/RF217AC/RF18HFENB/RF20HFENB",
+    "source": "Samsung Refrigerator Bottom Mount Freezer Service Manual (RF195AC/RF197AC/RF215AC/RF217AC/RF18HFENB/RF20HFENB), Technical Service Guide 2009",
+    "page": 52,
+    "content": "The compressor does not start right after it stopped. The compressor does not work unless 5 minutes pass after it turned off upon satisfying the temperature; the compressor also does not work during defrosting. Check again after 5 minutes. If the compressor still does not run, it is not a normal delay.",
+    "metadata": {
+      "symptom": "The compressor does not start right after it stopped.",
+      "possible_cause": "The compressor does not work unless 5 minutes pass after it turned off upon satisfying the temperature; the compressor also does not work during defrosting.",
+      "solution": "Check again after 5 minutes. If the compressor still does not run, it is not a normal delay.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Refrigerator_RFSM2009_p48_fan_delayed_start",
+    "device_category": "Refrigerator",
+    "brand": "Samsung",
+    "model": "RF195AC/RF197AC/RF215AC/RF217AC/RF18HFENB/RF20HFENB",
+    "source": "Samsung Refrigerator Bottom Mount Freezer Service Manual (RF195AC/RF197AC/RF215AC/RF217AC/RF18HFENB/RF20HFENB), Technical Service Guide 2009",
+    "page": 48,
+    "content": "The fans do not start immediately after the door is opened and closed, or after power is restored. Designed delays: at a high ambient temperature, after the door is opened and closed once, the fan operates after a 1 minute delay; after power is turned off and on, the unit starts with a 5 minute delay to prevent compressor overload; after a momentary power failure with the freezer temperature sensed at 41 F, the fans operate after 5 minutes; at a low ambient temperature (about 59 F / below 15 C) the compressor fan may not operate. Do not treat this as an error. Recheck after 5 minutes (the time may be longer depending on the temperature).",
+    "metadata": {
+      "symptom": "The fans do not start immediately after the door is opened and closed, or after power is restored.",
+      "possible_cause": "Designed delays: at a high ambient temperature, after the door is opened and closed once, the fan operates after a 1 minute delay; after power is turned off and on, the unit starts with a 5 minute delay to prevent compressor overload; after a momentary power failure with the freezer temperature sensed at 41 F, the fans operate after 5 minutes; at a low ambient temperature (about 59 F / below 15 C) the compressor fan may not operate.",
+      "solution": "Do not treat this as an error. Recheck after 5 minutes (the time may be longer depending on the temperature).",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Refrigerator_RFSM2009_p53_door_alarm_continuous",
+    "device_category": "Refrigerator",
+    "brand": "Samsung",
+    "model": "RF195AC/RF197AC/RF215AC/RF217AC/RF18HFENB/RF20HFENB",
+    "source": "Samsung Refrigerator Bottom Mount Freezer Service Manual (RF195AC/RF197AC/RF215AC/RF217AC/RF18HFENB/RF20HFENB), Technical Service Guide 2009",
+    "page": 53,
+    "content": "The door alarm (ding-dong) sounds continuously. The alarm sounds after 2 minutes from the first door opening and repeats at 1 minute intervals. It also sounds when the door is not pressed completely closed, because the controller senses the door as open. The inner lamp turns off 10 minutes after the door-open state is sensed. 1. Check that the door is closed completely. 2. Remove anything interfering with the door, such as the door gasket or food.",
+    "metadata": {
+      "symptom": "The door alarm (ding-dong) sounds continuously.",
+      "possible_cause": "The alarm sounds after 2 minutes from the first door opening and repeats at 1 minute intervals. It also sounds when the door is not pressed completely closed, because the controller senses the door as open. The inner lamp turns off 10 minutes after the door-open state is sensed.",
+      "solution": "1. Check that the door is closed completely.\n2. Remove anything interfering with the door, such as the door gasket or food.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Refrigerator_RFSM2009_p53_beep_continuous_test_mode",
+    "device_category": "Refrigerator",
+    "brand": "Samsung",
+    "model": "RF195AC/RF197AC/RF215AC/RF217AC/RF18HFENB/RF20HFENB",
+    "source": "Samsung Refrigerator Bottom Mount Freezer Service Manual (RF195AC/RF197AC/RF215AC/RF217AC/RF18HFENB/RF20HFENB), Technical Service Guide 2009",
+    "page": 53,
+    "content": "A beep-beep alarm sounds continuously and the front display is off. The manual operation / manual defrost test mode is active. In manual operation the alarm beeps continuously (0.25 seconds ON / 0.75 seconds OFF) until the manual operation is completed. Cancel the manual operation / defrost function by turning the main power OFF and ON (pages 30-31).",
+    "metadata": {
+      "symptom": "A beep-beep alarm sounds continuously and the front display is off.",
+      "possible_cause": "The manual operation / manual defrost test mode is active. In manual operation the alarm beeps continuously (0.25 seconds ON / 0.75 seconds OFF) until the manual operation is completed.",
+      "solution": "Cancel the manual operation / defrost function by turning the main power OFF and ON (pages 30-31).",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Refrigerator_RFSM2009_p51_no_power",
+    "device_category": "Refrigerator",
+    "brand": "Samsung",
+    "model": "RF195AC/RF197AC/RF215AC/RF217AC/RF18HFENB/RF20HFENB",
+    "source": "Samsung Refrigerator Bottom Mount Freezer Service Manual (RF195AC/RF197AC/RF215AC/RF217AC/RF18HFENB/RF20HFENB), Technical Service Guide 2009",
+    "page": 51,
+    "content": "The refrigerator has no power (display off, not running). The power plug is not connected or is loose. 1. Connect the plug again. 2. Check that the plug is not loose.",
+    "metadata": {
+      "symptom": "The refrigerator has no power (display off, not running).",
+      "possible_cause": "The power plug is not connected or is loose.",
+      "solution": "1. Connect the plug again.\n2. Check that the plug is not loose.",
+      "severity": "medium",
+      "difficulty": "easy",
+      "safety_warning": "Do not use a cord that shows cracks or abrasion damage along its length or at either end (page 17)."
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Refrigerator_RFSM2009_p37_exhibition_mode",
+    "device_category": "Refrigerator",
+    "brand": "Samsung",
+    "model": "RF195AC/RF197AC/RF215AC/RF217AC/RF18HFENB/RF20HFENB",
+    "source": "Samsung Refrigerator Bottom Mount Freezer Service Manual (RF195AC/RF197AC/RF215AC/RF217AC/RF18HFENB/RF20HFENB), Technical Service Guide 2009",
+    "page": 37,
+    "content": "The display, fans and lights work normally but the compressor does not run and the refrigerator does not cool. Exhibition / display mode is on. In this mode all functions such as the display and fan motor operate normally but the compressor does not operate and defrost is not operated. The mode stays on after power OFF and ON. Press the Power Freeze key and the Freezer key together (the mode is started by pressing them for 5 seconds with a ding-dong buzzer); pressing them repeatedly cancels exhibition / display mode. The mode also cancels automatically when the fresh food and freezer sensors read higher than 149 F (65 C).",
+    "metadata": {
+      "symptom": "The display, fans and lights work normally but the compressor does not run and the refrigerator does not cool.",
+      "possible_cause": "Exhibition / display mode is on. In this mode all functions such as the display and fan motor operate normally but the compressor does not operate and defrost is not operated. The mode stays on after power OFF and ON.",
+      "solution": "Press the Power Freeze key and the Freezer key together (the mode is started by pressing them for 5 seconds with a ding-dong buzzer); pressing them repeatedly cancels exhibition / display mode. The mode also cancels automatically when the fresh food and freezer sensors read higher than 149 F (65 C).",
+      "severity": "medium",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Refrigerator_RFSM2009_p31_sensor_led_blinking",
+    "device_category": "Refrigerator",
+    "brand": "Samsung",
+    "model": "RF195AC/RF197AC/RF215AC/RF217AC/RF18HFENB/RF20HFENB",
+    "source": "Samsung Refrigerator Bottom Mount Freezer Service Manual (RF195AC/RF197AC/RF215AC/RF217AC/RF18HFENB/RF20HFENB), Technical Service Guide 2009",
+    "page": 31,
+    "content": "The temperature display LEDs blink at 0.5 second intervals when the refrigerator is first turned on. The self-diagnostic function detected a bad temperature sensor. There is no beep sound. The display does not operate normally and temperature is controlled by the emergency operation. The error cancels automatically when all troubled sensors are corrected, or when the Power Freeze key and Power Cool key are pressed together for 8 seconds (returns to normal display mode). Refer to the self-diagnostic check list (pages 33-34).",
+    "metadata": {
+      "symptom": "The temperature display LEDs blink at 0.5 second intervals when the refrigerator is first turned on.",
+      "possible_cause": "The self-diagnostic function detected a bad temperature sensor. There is no beep sound. The display does not operate normally and temperature is controlled by the emergency operation.",
+      "solution": "The error cancels automatically when all troubled sensors are corrected, or when the Power Freeze key and Power Cool key are pressed together for 8 seconds (returns to normal display mode). Refer to the self-diagnostic check list (pages 33-34).",
+      "severity": "medium",
+      "difficulty": "hard",
+      "safety_warning": null
+    }
+  }
+]

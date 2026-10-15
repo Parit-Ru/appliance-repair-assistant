@@ -1,23 +1,159 @@
 {
   "schema_version": 1,
   "_readme": "รายการอุปกรณ์ที่ควรเตรียมก่อนซ่อม แยกตามประเภทเครื่อง",
-
-  "reviewed_by_author": true,
-  "_reviewed_by_author_note": "ตรวจและรับรองแล้วโดยผู้พัฒนาเมื่อ 8 กันยายน 2569 — เก็บครบทั้ง 7 รายการตามที่ AI ร่างไว้ รวมถึงข้อ flashlight และ step_stool ที่ไม่มีในคู่มือ (อนุมานจากสามัญสำนึกเรื่องความปลอดภัย/การเข้าถึง)",
-
+  "reviewed_by_author": false,
+  "_reviewed_by_author_note": "เครื่องปรับอากาศ: ผู้พัฒนาตรวจและรับรองแล้วเมื่อ 8 กันยายน 2569 (ครบ 7 รายการ). ไมโครเวฟ ตู้เย็น เครื่องซักผ้า เครื่องอบผ้า ทีวี (ทั้งสองคู่มือ): AI ร่างเมื่อ 14 ตุลาคม 2569 จากข้อความในคู่มือ ยังไม่ผ่านการตรวจโดยผู้พัฒนา. รายการที่มี source_page ตรวจกับหน้าในคู่มือแล้ว รายการที่มี author_note ไม่ได้อยู่ในคู่มือ.",
   "equipment": [
-    { "equipment_id": "usb_c_cable",      "name_th": "สายชาร์จ USB-C",              "name_en": "USB-C charging cable" },
-    { "equipment_id": "notepad_or_phone", "name_th": "กระดาษปากกา หรือมือถือ",      "name_en": "Notepad or phone" },
-    { "equipment_id": "dry_cloth",        "name_th": "ผ้าแห้ง",                     "name_en": "Dry cloth" },
-    { "equipment_id": "soft_brush",       "name_th": "แปรงขนนุ่ม",                  "name_en": "Soft brush" },
-    { "equipment_id": "drain_brush",      "name_th": "แปรงล้างท่อ",                 "name_en": "Drain pipe brush" },
-    { "equipment_id": "flashlight",       "name_th": "ไฟฉาย",                       "name_en": "Flashlight" },
-    { "equipment_id": "step_stool",       "name_th": "บันไดหรือเก้าอี้ที่มั่นคง",    "name_en": "Step stool" }
+    {
+      "equipment_id": "usb_c_cable",
+      "name_th": "สายชาร์จ USB-C",
+      "name_en": "USB-C charging cable"
+    },
+    {
+      "equipment_id": "notepad_or_phone",
+      "name_th": "กระดาษปากกา หรือมือถือ",
+      "name_en": "Notepad or phone"
+    },
+    {
+      "equipment_id": "dry_cloth",
+      "name_th": "ผ้าแห้ง",
+      "name_en": "Dry cloth"
+    },
+    {
+      "equipment_id": "soft_brush",
+      "name_th": "แปรงขนนุ่ม",
+      "name_en": "Soft brush"
+    },
+    {
+      "equipment_id": "drain_brush",
+      "name_th": "แปรงล้างท่อ",
+      "name_en": "Drain pipe brush"
+    },
+    {
+      "equipment_id": "flashlight",
+      "name_th": "ไฟฉาย",
+      "name_en": "Flashlight"
+    },
+    {
+      "equipment_id": "step_stool",
+      "name_th": "บันไดหรือเก้าอี้ที่มั่นคง",
+      "name_en": "Step stool"
+    },
+    {
+      "equipment_id": "oven_mitts",
+      "name_th": "ถุงมือกันความร้อน",
+      "name_en": "Oven mitts"
+    },
+    {
+      "equipment_id": "soft_cloth",
+      "name_th": "ผ้านุ่ม (หรือฟองน้ำสะอาด)",
+      "name_en": "Soft cloth or clean sponge"
+    },
+    {
+      "equipment_id": "mild_detergent",
+      "name_th": "น้ำสบู่หรือน้ำยาล้างจานชนิดอ่อน",
+      "name_en": "Soapy water or mild dish detergent"
+    },
+    {
+      "equipment_id": "microwave_safe_cup",
+      "name_th": "ถ้วยหรือภาชนะที่ใช้กับไมโครเวฟได้",
+      "name_en": "Microwave-safe cup"
+    },
+    {
+      "equipment_id": "lemon_juice",
+      "name_th": "น้ำมะนาวเจือจาง",
+      "name_en": "Diluted lemon juice"
+    },
+    {
+      "equipment_id": "flat_screwdriver",
+      "name_th": "ไขควงปากแบน",
+      "name_en": "Flat-head screwdriver"
+    },
+    {
+      "equipment_id": "thick_paper_or_cloth",
+      "name_th": "กระดาษหนาหรือผ้า (เช่น พรมเก่า)",
+      "name_en": "Thick paper or cloth (e.g. old carpet)"
+    },
+    {
+      "equipment_id": "smartphone",
+      "name_th": "โทรศัพท์มือถือ (ติดตั้งแอป SmartThings)",
+      "name_en": "Smartphone with SmartThings app"
+    },
+    {
+      "equipment_id": "toothbrush",
+      "name_th": "แปรงสีฟัน",
+      "name_en": "Toothbrush"
+    },
+    {
+      "equipment_id": "pliers",
+      "name_th": "คีม",
+      "name_en": "Pliers"
+    },
+    {
+      "equipment_id": "wrench",
+      "name_th": "ประแจ (ที่ให้มากับเครื่อง)",
+      "name_en": "Wrench (supplied with the machine)"
+    },
+    {
+      "equipment_id": "large_container",
+      "name_th": "ภาชนะใบใหญ่รองน้ำ",
+      "name_en": "Large container for draining water"
+    },
+    {
+      "equipment_id": "chlorine_bleach",
+      "name_th": "น้ำยาฟอกขาวคลอรีน",
+      "name_en": "Chlorine bleach"
+    },
+    {
+      "equipment_id": "cleaning_brush",
+      "name_th": "แปรงทำความสะอาด (ที่ให้มากับเครื่อง)",
+      "name_en": "Cleaning brush (supplied)"
+    },
+    {
+      "equipment_id": "spirit_level",
+      "name_th": "ระดับน้ำ (level)",
+      "name_en": "Spirit level"
+    },
+    {
+      "equipment_id": "warm_water_towel",
+      "name_th": "ผ้าชุบน้ำอุ่น",
+      "name_en": "Towel soaked in warm water"
+    },
+    {
+      "equipment_id": "hdmi_cable",
+      "name_th": "สาย HDMI",
+      "name_en": "HDMI cable"
+    },
+    {
+      "equipment_id": "lan_cable",
+      "name_th": "สาย LAN",
+      "name_en": "LAN cable"
+    },
+    {
+      "equipment_id": "batteries",
+      "name_th": "แบตเตอรี่ใหม่สำหรับรีโมต",
+      "name_en": "New remote control batteries"
+    },
+    {
+      "equipment_id": "usb_storage",
+      "name_th": "อุปกรณ์จัดเก็บข้อมูลที่ต่อกับทีวี (เช่น USB)",
+      "name_en": "Storage device (e.g. USB)"
+    },
+    {
+      "equipment_id": "optical_cable",
+      "name_th": "สาย optical (สายเสียงดิจิทัล)",
+      "name_en": "Optical cable"
+    },
+    {
+      "equipment_id": "wireless_repeater",
+      "name_th": "ตัวขยายสัญญาณไร้สาย (wireless repeater)",
+      "name_en": "Wireless repeater"
+    }
   ],
-
   "usage": [
     {
       "device_category": "Air Conditioner",
+      "reviewed_by_author": true,
       "items": [
         {
           "equipment_id": "usb_c_cable",
@@ -55,6 +191,235 @@
           "equipment_id": "step_stool",
           "purpose_th": "ขึ้นถึงแผ่นกรองอากาศของเครื่องที่ติดตั้งบนผนังสูง",
           "author_note": "คู่มือไม่ได้กล่าวถึง ผู้พัฒนาเป็นผู้เพิ่มรายการนี้"
+        }
+      ]
+    },
+    {
+      "device_category": "Microwave Oven",
+      "reviewed_by_author": false,
+      "items": [
+        {
+          "equipment_id": "oven_mitts",
+          "purpose_th": "จับภาชนะที่ร้อนออกจากเตา เพราะตัวเตา ภาชนะ และอาหารอาจร้อนจัด",
+          "source_page": 6,
+          "_evidence": "คู่มือ MC32K7055 หน้า 6 ระบุให้ใช้ถุงมือกันความร้อน (oven mitts) เมื่อนำภาชนะออก (คู่มือรุ่นอื่นในชุดเดียวกันระบุหน้า 6–7)"
+        },
+        {
+          "equipment_id": "soft_cloth",
+          "purpose_th": "เช็ดซีลประตูและด้านในกับด้านนอกของเตา เมื่อประตูเปิดหรือปิดไม่สะดวก",
+          "source_page": 9,
+          "_evidence": "คู่มือ MC32K7055 หน้า 9 ระบุให้ใช้ผ้านุ่มชุบน้ำสบู่เช็ดด้านในและด้านนอกของเตา แล้วล้างและเช็ดให้แห้ง"
+        },
+        {
+          "equipment_id": "mild_detergent",
+          "purpose_th": "ผสมน้ำเช็ดทำความสะอาดเตา หรือล้างจานหมุนหลังเตาเย็น",
+          "source_page": 9,
+          "_evidence": "คู่มือ MC32K7055 หน้า 9 ระบุน้ำสบู่ (soapy water) สำหรับทำความสะอาดเตา; คู่มือ MS20A3010A และ MG23T5018C ระบุน้ำยาล้างจานอ่อนๆ ในหน้าทำความสะอาด"
+        },
+        {
+          "equipment_id": "microwave_safe_cup",
+          "purpose_th": "ใส่น้ำหนึ่งถ้วยเพื่อทดสอบว่าเตาทำน้ำร้อนได้หรือไม่ ต้องเป็นภาชนะที่ใช้กับไมโครเวฟได้",
+          "source_page": 52,
+          "_evidence": "คู่มือ MC32K7055 หน้า 52 (หัวข้อแก้ปัญหา) ระบุให้วางน้ำหนึ่งถ้วยในภาชนะที่ใช้กับไมโครเวฟได้ไว้บนจานหมุนเพื่อทดสอบ"
+        },
+        {
+          "equipment_id": "lemon_juice",
+          "purpose_th": "ใส่ถ้วยน้ำมะนาวเจือจางอุ่นในเตาเพื่อช่วยดับกลิ่นไม่พึงประสงค์",
+          "source_page": 9,
+          "_evidence": "คู่มือ MC32K7055 หน้า 9 ระบุวิธีวางถ้วยน้ำมะนาวเจือจางไว้กลางจานหมุนแล้วอุ่นเพื่อกำจัดกลิ่น"
+        },
+        {
+          "equipment_id": "notepad_or_phone",
+          "purpose_th": "จดรุ่นเครื่องและอาการ หรือข้อความที่หน้าจอแสดง ไว้แจ้งศูนย์บริการ",
+          "author_note": "คู่มือให้แจ้งรุ่นเครื่องและอาการเมื่อติดต่อศูนย์บริการ แต่ไม่ได้ระบุอุปกรณ์ที่ใช้จด ผู้พัฒนาเป็นผู้เพิ่มรายการนี้"
+        }
+      ]
+    },
+    {
+      "device_category": "Refrigerator",
+      "reviewed_by_author": false,
+      "items": [
+        {
+          "equipment_id": "soft_cloth",
+          "purpose_th": "เช็ดทำความสะอาดภายในตู้เย็นและซีลประตู (ฟองน้ำสะอาดหรือผ้านุ่ม)",
+          "source_page": 13,
+          "_evidence": "คู่มือ RB5300D หน้า 13 ระบุให้ใช้ฟองน้ำสะอาดหรือผ้านุ่มกับผงซักฟอกอ่อนในน้ำอุ่นทำความสะอาดซีลประตู"
+        },
+        {
+          "equipment_id": "mild_detergent",
+          "purpose_th": "ผสมน้ำอุ่นทำความสะอาดภายในตู้และซีลประตู ห้ามใช้สารขัดถูหรือสารที่รุนแรง",
+          "source_page": 13,
+          "_evidence": "คู่มือ RB5300D หน้า 13 ระบุผงซักฟอกอ่อนในน้ำอุ่น; คู่มือ DA68-02676A และ DA68-02832D ระบุน้ำยาล้างจานอ่อนๆ ผสมน้ำอุ่น"
+        },
+        {
+          "equipment_id": "dry_cloth",
+          "purpose_th": "เช็ดให้แห้งสนิทหลังทำความสะอาด ก่อนเสียบปลั๊กกลับ",
+          "source_page": 40,
+          "_evidence": "คู่มือ RB5300D หน้า 40 ระบุให้เช็ดให้แห้งด้วยผ้าแห้งหรือกระดาษเช็ดมือ"
+        },
+        {
+          "equipment_id": "thick_paper_or_cloth",
+          "purpose_th": "ปูพื้นตามทางเคลื่อนย้ายตู้เย็นเพื่อป้องกันพื้นเสียหาย",
+          "source_page": 18,
+          "_evidence": "คู่มือ RB5300D หน้า 18 ระบุให้ใช้กระดาษหนาหรือผ้า เช่น พรมเก่า ปูตามทางเคลื่อนย้าย"
+        },
+        {
+          "equipment_id": "flat_screwdriver",
+          "purpose_th": "ปรับตัวปรับระดับขาหน้าให้ตู้เย็นตั้งได้ระดับ (ใช้ไขควงปากแบน)",
+          "source_page": 28,
+          "_evidence": "คู่มือ RS5000FC (DA68-04852N) หน้า 28 ระบุให้ใช้ไขควงปากแบนเสียบตัวปรับระดับของขาหน้าเพื่อปรับระดับตู้เย็น"
+        },
+        {
+          "equipment_id": "smartphone",
+          "purpose_th": "ติดตั้งและเชื่อมต่อแอป SmartThings เพื่อใช้ฟังก์ชันที่ต้องเชื่อมต่อ (เฉพาะรุ่นที่รองรับ)",
+          "source_page": 24,
+          "_evidence": "คู่มือ RB5300D หน้า 24 หัวข้อ SmartThings (applicable models only) ให้ดาวน์โหลดและติดตั้งแอปจากสโตร์"
+        },
+        {
+          "equipment_id": "notepad_or_phone",
+          "purpose_th": "จดรุ่นตู้เย็นและอาการที่เกิด ไว้แจ้งศูนย์บริการ",
+          "author_note": "คู่มือหน้า 41 ให้แจ้งรุ่นตู้เย็นและอาการเมื่อติดต่อศูนย์บริการ แต่ไม่ได้ระบุอุปกรณ์ที่ใช้จด ผู้พัฒนาเป็นผู้เพิ่มรายการนี้"
+        }
+      ]
+    },
+    {
+      "device_category": "Washing Machine",
+      "reviewed_by_author": false,
+      "items": [
+        {
+          "equipment_id": "pliers",
+          "purpose_th": "ดึงตะแกรงกรอง (mesh filter) ออกจากช่องน้ำเข้า เพื่อล้างทำความสะอาด",
+          "source_page": 33,
+          "_evidence": "คู่มือ WA5000R หน้า 33 หัวข้อ Mesh filter ระบุให้ใช้คีมดึงตะแกรงกรองออกจากช่องน้ำเข้า (WA21A และ DC68-04382A ระบุเช่นเดียวกัน)"
+        },
+        {
+          "equipment_id": "soft_brush",
+          "purpose_th": "ล้างตะแกรงกรอง ลิ้นชักผงซักฟอก และตัวกรองระบายน้ำ ด้วยน้ำไหลและแปรงขนนุ่ม",
+          "source_page": 33,
+          "_evidence": "คู่มือ WA5000R หน้า 33 ระบุให้ใช้แปรงขนนุ่ม (soft brush) ล้างตะแกรงกรอง"
+        },
+        {
+          "equipment_id": "toothbrush",
+          "purpose_th": "ขัดทำความสะอาดตะแกรงกรองน้ำเข้าที่อุดตัน",
+          "source_page": 35,
+          "_evidence": "คู่มือ WA5000R หน้า 35 ระบุให้ใช้แปรงสีฟันขัดตะแกรงกรอง (WA21A หน้า 38 ระบุเช่นเดียวกัน)"
+        },
+        {
+          "equipment_id": "chlorine_bleach",
+          "purpose_th": "เกลี่ยที่พื้นถังตอนทำรอบทำความสะอาดถัง (Tub Clean) ห้ามผสมกับสารอื่น เช่น น้ำส้มสายชูหรือกรดซิตริก และต้องระบายอากาศ",
+          "source_page": 32,
+          "_evidence": "คู่มือ WA21A หน้า 32 แนะนำน้ำยาฟอกขาวคลอรีน 200 มล. สำหรับรอบทำความสะอาดถัง; คู่มือ WA40F ระบุห้ามผสมกับสารอื่น"
+        },
+        {
+          "equipment_id": "wrench",
+          "purpose_th": "เปิดฝาครอบตัวกรองระบายน้ำ และขันน็อตขาปรับระดับ (ใช้ประแจที่ให้มากับเครื่อง)",
+          "source_page": 52,
+          "_evidence": "สเตตแมชชีนของคู่มือ DC68-04382A หน้า 52 ระบุให้เปิดฝาครอบตัวกรองด้วยประแจที่ให้มา และขันน็อตขาปรับระดับด้วยประแจ (หน้า 23)"
+        },
+        {
+          "equipment_id": "large_container",
+          "purpose_th": "รองน้ำที่ระบายออกจากถังซักตอนทำความสะอาดตัวกรอง เพราะน้ำอาจมีมากกว่าที่คาด",
+          "source_page": 52,
+          "_evidence": "สเตตแมชชีนของคู่มือ DC68-04382A หน้า 52 ระบุให้ใช้ภาชนะใหญ่รองน้ำ"
+        },
+        {
+          "equipment_id": "notepad_or_phone",
+          "purpose_th": "จดรหัสข้อผิดพลาดที่หน้าจอแสดง และรุ่นเครื่อง ไว้แจ้งศูนย์บริการ",
+          "author_note": "คู่มือให้แจ้งรุ่นเครื่องและอาการเมื่อติดต่อศูนย์บริการ แต่ไม่ได้ระบุอุปกรณ์ที่ใช้จด ผู้พัฒนาเป็นผู้เพิ่มรายการนี้"
+        }
+      ]
+    },
+    {
+      "device_category": "Dryer",
+      "reviewed_by_author": false,
+      "items": [
+        {
+          "equipment_id": "cleaning_brush",
+          "purpose_th": "ปัดเศษผ้าออกจากตัวกรองเศษผ้า (lint filter) และปัดฝุ่นบน heat exchanger ใช้แปรงที่ให้มากับเครื่อง",
+          "source_page": 40,
+          "_evidence": "คู่มือ DV5000C หน้า 40 ระบุให้ปัดฝุ่นบน heat exchanger ด้วยแปรงที่ให้มา (provided brush) และหน้า 38 ให้ทำความสะอาดตัวกรองด้วยแปรงทำความสะอาด"
+        },
+        {
+          "equipment_id": "soft_cloth",
+          "purpose_th": "เช็ดฝุ่นที่เหลือบน heat exchanger และฝาครอบชั้นในด้วยผ้านุ่มหมาดๆ",
+          "source_page": 40,
+          "_evidence": "คู่มือ DV5000C หน้า 40 ระบุให้เช็ดฝุ่นที่เหลือด้วยผ้านุ่มหมาด (smooth, damp cloth)"
+        },
+        {
+          "equipment_id": "spirit_level",
+          "purpose_th": "ตรวจความได้ระดับของเครื่องซ้าย–ขวา และหน้า–หลัง เมื่อเครื่องสั่นหรือมีเสียงดัง",
+          "source_page": 16,
+          "_evidence": "คู่มือ DV5000C หน้า 16 หัวข้อ Adjust the levelling feet ระบุให้ใช้ level ตรวจความได้ระดับ"
+        },
+        {
+          "equipment_id": "warm_water_towel",
+          "purpose_th": "พันสายระบายน้ำที่แข็งตัวประมาณสิบนาทีเพื่อละลายน้ำแข็ง",
+          "source_page": 44,
+          "_evidence": "คู่มือ DV5000C หน้า 44 ระบุให้พันสายด้วยผ้าขนหนูชุบน้ำอุ่นประมาณสิบนาทีเมื่อสายระบายน้ำแข็งตัว"
+        },
+        {
+          "equipment_id": "notepad_or_phone",
+          "purpose_th": "จดรหัสข้อผิดพลาดที่หน้าจอแสดง และรุ่นเครื่อง ไว้แจ้งศูนย์บริการ",
+          "author_note": "คู่มือให้แจ้งรุ่นเครื่องและอาการเมื่อติดต่อศูนย์บริการ แต่ไม่ได้ระบุอุปกรณ์ที่ใช้จด ผู้พัฒนาเป็นผู้เพิ่มรายการนี้"
+        }
+      ]
+    },
+    {
+      "device_category": "Television",
+      "reviewed_by_author": false,
+      "items": [
+        {
+          "equipment_id": "batteries",
+          "purpose_th": "เปลี่ยนแบตเตอรี่ของรีโมตที่ใช้ถ่าน เมื่อรีโมตทำงานไม่ปกติหรือตอบสนองช้ามาก",
+          "source_page": 292,
+          "_evidence": "คู่มือหน้า 292 ระบุว่าถ้ารีโมตมีแบตเตอรี่ ให้เปลี่ยนด้วยแบตเตอรี่ใหม่ (ไม่ได้ระบุขนาดของถ่าน)"
+        },
+        {
+          "equipment_id": "usb_c_cable",
+          "purpose_th": "ชาร์จรีโมต Samsung Smart Remote ผ่านพอร์ต USB (แบบ C) ที่ด้านล่างของรีโมต",
+          "source_page": 292,
+          "_evidence": "คู่มือหน้า 292 ระบุให้ชาร์จรีโมตผ่านพอร์ต USB (C-type) ที่ด้านล่าง หรือพลิกรีโมตให้แผงโซลาร์เซลล์โดนแสง"
+        },
+        {
+          "equipment_id": "smartphone",
+          "purpose_th": "ใช้แอป SmartThings เชื่อมต่อทีวีใหม่หรือใช้เป็นรีโมตผ่านมือถือ",
+          "source_page": 293,
+          "_evidence": "คู่มือหน้า 293 ระบุให้เชื่อมต่อทีวีใหม่จากแอป SmartThings หรือลบแล้วลงทะเบียนทีวีใหม่ในแอป"
+        },
+        {
+          "equipment_id": "hdmi_cable",
+          "purpose_th": "ต่อทีวีกับอุปกรณ์ภายนอกด้วยสาย HDMI เพื่อให้ได้ภาพคุณภาพสูง และใช้ตรวจการเชื่อมต่อ HDMI",
+          "source_page": 277,
+          "_evidence": "คู่มือหน้า 277 ระบุให้ใช้สาย HDMI เพื่อรับชมวิดีโอคุณภาพสูง และหน้า 285 มี HDMI Troubleshooting ตรวจการเชื่อมต่อสาย HDMI"
+        },
+        {
+          "equipment_id": "lan_cable",
+          "purpose_th": "ต่อทีวีกับเราเตอร์ด้วยสาย LAN เพื่อตรวจว่าเครือข่ายแบบมีสายใช้ได้ เมื่อเชื่อมต่อไร้สายไม่ได้",
+          "source_page": 286,
+          "_evidence": "คู่มือหน้า 286 ระบุให้ต่อทีวีกับเราเตอร์ไร้สายด้วยสาย LAN ถ้าเชื่อมต่อไร้สายไม่ได้ (ทีวีบางรุ่นไม่รองรับเครือข่ายแบบมีสาย)"
+        },
+        {
+          "equipment_id": "usb_storage",
+          "purpose_th": "ใช้เก็บไฟล์ที่อัดรายการและใช้ฟังก์ชัน Timeshift ต้องมีพื้นที่ว่างเพียงพอ",
+          "source_page": 294,
+          "_evidence": "คู่มือหน้า 294 ระบุให้ตรวจว่ามีอุปกรณ์จัดเก็บข้อมูลต่อกับทีวี และมีพื้นที่ว่างพอ (ถ้าฟอร์แมตจะลบข้อมูลทั้งหมดและฟอร์แมตเป็น NTFS)"
+        },
+        {
+          "equipment_id": "optical_cable",
+          "purpose_th": "ต่อเสียงดิจิทัลจากทีวีไปยัง AV receiver",
+          "source_page": 138,
+          "_evidence": "คู่มือ KM2DVBADN หน้า 138 ระบุให้ต่อสาย optical ระหว่างทีวีกับ AV receiver เมื่อเสียงทีวีไม่ออกที่ receiver"
+        },
+        {
+          "equipment_id": "wireless_repeater",
+          "purpose_th": "เพิ่มความแรงของสัญญาณไร้สาย โดยวางไว้กึ่งกลางระหว่างเราเตอร์กับทีวี",
+          "source_page": 136,
+          "_evidence": "คู่มือ KM2DVBADN หน้า 136 ระบุให้ใช้ wireless repeater เมื่อสัญญาณเครือข่ายไร้สายอ่อนเกินไป"
+        },
+        {
+          "equipment_id": "notepad_or_phone",
+          "purpose_th": "จดรุ่นทีวีและอาการ ไว้แจ้งศูนย์บริการ",
+          "author_note": "คู่มือหน้า 305 บอกว่าดูรุ่นทีวีและหมายเลขโทรศัพท์ Call Centre ได้ที่ Settings > Support > About The TV แต่ไม่ได้ระบุอุปกรณ์ที่ใช้จด ผู้พัฒนาเป็นผู้เพิ่มรายการนี้"
         }
       ]
     }

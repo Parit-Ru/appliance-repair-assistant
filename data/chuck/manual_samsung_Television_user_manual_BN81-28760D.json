@@ -1,0 +1,1243 @@
+[
+  {
+    "chunk_id": "manual_Samsung_Television_BN81_28760D_p272_screen_flashing_dark",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "BN81-28760D",
+    "source": "Samsung TV User Guide BN81-28760D (BN81-28760D-160_EUG_ROPDVBAAH_ASIA_ENG)",
+    "page": 272,
+    "content": "The screen is flashing or has become dark 1. If your TV is flickering or dimming sporadically, you may need to disable some of the energy efficiency features. 2. Disable Brightness Optimisation, Energy Saving Solution, Motion Lighting or Contrast Enhancer. 3. Settings > All Settings > General & Privacy > Power and Energy Saving > Brightness Optimisation 4. Settings > All Settings > General & Privacy > Power and Energy Saving > Energy Saving Solution 5. Settings > All Settings > General & Privacy > Power and Energy Saving > Motion Lighting 6. Settings > All Settings > Picture > Expert Settings > Contrast Enhancer 7. Some OLED models automatically decrease the screen brightness when the ambient temperature is high, to prevent afterimages. 8. Run Picture Test. When the tested image quality is normal, check the signal of the connected device. 9. Settings > Support > Device Care > Self Diagnosis > Picture Test",
+    "metadata": {
+      "symptom": "The screen is flashing or has become dark",
+      "possible_cause": null,
+      "solution": "1. If your TV is flickering or dimming sporadically, you may need to disable some of the energy efficiency features.\n2. Disable Brightness Optimisation, Energy Saving Solution, Motion Lighting or Contrast Enhancer.\n3. Settings > All Settings > General & Privacy > Power and Energy Saving > Brightness Optimisation\n4. Settings > All Settings > General & Privacy > Power and Energy Saving > Energy Saving Solution\n5. Settings > All Settings > General & Privacy > Power and Energy Saving > Motion Lighting\n6. Settings > All Settings > Picture > Expert Settings > Contrast Enhancer\n7. Some OLED models automatically decrease the screen brightness when the ambient temperature is high, to prevent afterimages.\n8. Run Picture Test. When the tested image quality is normal, check the signal of the connected device.\n9. Settings > Support > Device Care > Self Diagnosis > Picture Test",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_BN81_28760D_p273_picture_not_bright",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "BN81-28760D",
+    "source": "Samsung TV User Guide BN81-28760D (BN81-28760D-160_EUG_ROPDVBAAH_ASIA_ENG)",
+    "page": 273,
+    "content": "The picture is not bright, or the picture colours do not look clear 1. If the screen appears too dim, try changing the settings under Reset Picture or disabling Brightness Optimisation, Energy Saving Solution. 2. Settings > All Settings > Picture > Expert Settings > Reset Picture 3. Settings > All Settings > General & Privacy > Power and Energy Saving > Brightness Optimisation 4. Settings > All Settings > General & Privacy > Power and Energy Saving > Energy Saving Solution 5. Go to Picture and adjust the Picture Mode, Brightness, Contrast, and Sharpness settings. 6. Settings > All Settings > Picture > Picture Mode 7. Settings > All Settings > Picture > Expert Settings > Brightness 8. Settings > All Settings > Picture > Expert Settings > Contrast 9. Settings > All Settings > Picture > Expert Settings > Sharpness 10. Settings > All Settings > Picture > Expert Settings > Colour 11. Settings > All Settings > Picture > Expert Settings > Tint (G/R)",
+    "metadata": {
+      "symptom": "The picture is not bright, or the picture colours do not look clear",
+      "possible_cause": null,
+      "solution": "1. If the screen appears too dim, try changing the settings under Reset Picture or disabling Brightness Optimisation, Energy Saving Solution.\n2. Settings > All Settings > Picture > Expert Settings > Reset Picture\n3. Settings > All Settings > General & Privacy > Power and Energy Saving > Brightness Optimisation\n4. Settings > All Settings > General & Privacy > Power and Energy Saving > Energy Saving Solution\n5. Go to Picture and adjust the Picture Mode, Brightness, Contrast, and Sharpness settings.\n6. Settings > All Settings > Picture > Picture Mode\n7. Settings > All Settings > Picture > Expert Settings > Brightness\n8. Settings > All Settings > Picture > Expert Settings > Contrast\n9. Settings > All Settings > Picture > Expert Settings > Sharpness\n10. Settings > All Settings > Picture > Expert Settings > Colour\n11. Settings > All Settings > Picture > Expert Settings > Tint (G/R)",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_BN81_28760D_p274_picture_colours_wrong",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "BN81-28760D",
+    "source": "Samsung TV User Guide BN81-28760D (BN81-28760D-160_EUG_ROPDVBAAH_ASIA_ENG)",
+    "page": 274,
+    "content": "The picture colours are black and white or do not look the way they should look 1. If the product's colours or absolute whites/blacks seem to be off, launch Picture Test. 2. Settings > Support > Device Care > Self Diagnosis > Picture Test 3. If the test results indicate that the problem is not caused by the TV, do the following: 4. When using the One Connect Box, confirm that its video input connectors are connected to the correct external device video output connectors. 5. If using a component cable, ensure that the green (Y), blue (Pb), and red (Pr) cables are connected properly. Incorrect connections may cause colour problems or a blank screen. 6. Component port may not be supported depending on the model. 7. Check whether Greyscale is set to On. 8. Settings > All Settings > General & Privacy > Accessibility > Greyscale",
+    "metadata": {
+      "symptom": "The picture colours are black and white or do not look the way they should look",
+      "possible_cause": null,
+      "solution": "1. If the product's colours or absolute whites/blacks seem to be off, launch Picture Test.\n2. Settings > Support > Device Care > Self Diagnosis > Picture Test\n3. If the test results indicate that the problem is not caused by the TV, do the following:\n4. When using the One Connect Box, confirm that its video input connectors are connected to the correct external device video output connectors.\n5. If using a component cable, ensure that the green (Y), blue (Pb), and red (Pr) cables are connected properly. Incorrect connections may cause colour problems or a blank screen.\n6. Component port may not be supported depending on the model.\n7. Check whether Greyscale is set to On.\n8. Settings > All Settings > General & Privacy > Accessibility > Greyscale",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_BN81_28760D_p275_turns_off_by_itself",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "BN81-28760D",
+    "source": "Samsung TV User Guide BN81-28760D (BN81-28760D-160_EUG_ROPDVBAAH_ASIA_ENG)",
+    "page": 275,
+    "content": "The TV automatically turns off by itself 1. If your TV appears to turn off by itself, try disabling some of the TV's energy efficiency functions. 2. See if Sleep Timer has been enabled. The Sleep Timer automatically turns the TV off after a specified period of time. 3. Settings > All Settings > General & Privacy > Power and Energy Saving > Sleep Timer 4. If the Sleep Timer has not been enabled, see if Auto Power Off or Off Timer has been enabled and disable it. 5. Settings > All Settings > General & Privacy > Power and Energy Saving > Auto Power Off 6. Settings > All Settings > General & Privacy > Power and Energy Saving > Off Timer",
+    "metadata": {
+      "symptom": "The TV automatically turns off by itself",
+      "possible_cause": null,
+      "solution": "1. If your TV appears to turn off by itself, try disabling some of the TV's energy efficiency functions.\n2. See if Sleep Timer has been enabled. The Sleep Timer automatically turns the TV off after a specified period of time.\n3. Settings > All Settings > General & Privacy > Power and Energy Saving > Sleep Timer\n4. If the Sleep Timer has not been enabled, see if Auto Power Off or Off Timer has been enabled and disable it.\n5. Settings > All Settings > General & Privacy > Power and Energy Saving > Auto Power Off\n6. Settings > All Settings > General & Privacy > Power and Energy Saving > Off Timer",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_BN81_28760D_p275_cannot_turn_off",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "BN81-28760D",
+    "source": "Samsung TV User Guide BN81-28760D (BN81-28760D-160_EUG_ROPDVBAAH_ASIA_ENG)",
+    "page": 275,
+    "content": "TV cannot be turned off. 1. On some models, you can turn off the TV by pressing and holding the Power button. To switch from Art mode to TV mode or vice versa, short-press the Power button when the TV is on. 2. Configure operation settings for the power button on the remote control in Settings > All Settings > General & Privacy > Remote Control > Power Button Option. This feature is set to Art/TV by default. 3. If you briefly press the power button on the remote control, switches to Art mode or TV mode. If you set this feature to On/Off, the TV turns on or off. 4. This function may not be supported depending on the model.",
+    "metadata": {
+      "symptom": "TV cannot be turned off.",
+      "possible_cause": null,
+      "solution": "1. On some models, you can turn off the TV by pressing and holding the Power button. To switch from Art mode to TV mode or vice versa, short-press the Power button when the TV is on.\n2. Configure operation settings for the power button on the remote control in Settings > All Settings > General & Privacy > Remote Control > Power Button Option. This feature is set to Art/TV by default.\n3. If you briefly press the power button on the remote control, switches to Art mode or TV mode. If you set this feature to On/Off, the TV turns on or off.\n4. This function may not be supported depending on the model.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_BN81_28760D_p275_unable_power_on",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "BN81-28760D",
+    "source": "Samsung TV User Guide BN81-28760D (BN81-28760D-160_EUG_ROPDVBAAH_ASIA_ENG)",
+    "page": 275,
+    "content": "Unable to power on 1. If you are having problems powering on your TV, there are a number of things to check before calling the service department. 2. Confirm that the TV's power cord is connected correctly at both ends and that the remote control is operating normally. 3. Make sure that the antenna cable or cable TV cable is firmly connected. 4. If you have a cable box or satellite box, confirm that it is plugged in and turned on. 5. If your TV model supports the One Connect Box, check the One Connect Cable connecting the TV to the One Connect Box or check the connection between the TV and One Connect Box.",
+    "metadata": {
+      "symptom": "Unable to power on",
+      "possible_cause": null,
+      "solution": "1. If you are having problems powering on your TV, there are a number of things to check before calling the service department.\n2. Confirm that the TV's power cord is connected correctly at both ends and that the remote control is operating normally.\n3. Make sure that the antenna cable or cable TV cable is firmly connected.\n4. If you have a cable box or satellite box, confirm that it is plugged in and turned on.\n5. If your TV model supports the One Connect Box, check the One Connect Cable connecting the TV to the One Connect Box or check the connection between the TV and One Connect Box.",
+      "severity": "medium",
+      "difficulty": "easy",
+      "safety_warning": "ถอดหรือเสียบปลั๊กโดยจับที่หัวปลั๊ก ไม่ดึงที่สายไฟ และห้ามจับปลั๊กด้วยมือเปียก ถ้าสายไฟหรือปลั๊กชำรุด ให้หยุดใช้งานแล้วติดต่อศูนย์บริการ"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_BN81_28760D_p276_remains_on_no_auto_on",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "BN81-28760D",
+    "source": "Samsung TV User Guide BN81-28760D (BN81-28760D-160_EUG_ROPDVBAAH_ASIA_ENG)",
+    "page": 276,
+    "content": "The TV remains on or does not turn on automatically. 1. If the surrounding area is too dark or bright, the motion sensor may not work normally. The performance of the motion sensor may be affected by the installation environment (height, tilt, obstacles). If the clothes you wear or your skin colour is similar to the surrounding shading, the motion sensor may not work properly. 2. Motion Sensor may not be supported depending on the model or geographical area. 3. The TV responds to all visual changes around it (lights, displays, dogs, out-of-window changes and other occurrences). You can adjust the response level by adjusting the sensitivity of the motion detector. 4. (top of Smart Hub Home screen) Art > Art Options > Sleep Options > Motion Detector 5. Art Options can be found at the bottom of the Art home. To configure the option settings, scroll down to the far bottom. 6. Motion Detector may not be supported depending on the model or geographical area.",
+    "metadata": {
+      "symptom": "The TV remains on or does not turn on automatically.",
+      "possible_cause": null,
+      "solution": "1. If the surrounding area is too dark or bright, the motion sensor may not work normally. The performance of the motion sensor may be affected by the installation environment (height, tilt, obstacles). If the clothes you wear or your skin colour is similar to the surrounding shading, the motion sensor may not work properly.\n2. Motion Sensor may not be supported depending on the model or geographical area.\n3. The TV responds to all visual changes around it (lights, displays, dogs, out-of-window changes and other occurrences). You can adjust the response level by adjusting the sensitivity of the motion detector.\n4. (top of Smart Hub Home screen) Art > Art Options > Sleep Options > Motion Detector\n5. Art Options can be found at the bottom of the Art home. To configure the option settings, scroll down to the far bottom.\n6. Motion Detector may not be supported depending on the model or geographical area.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_BN81_28760D_p276_unable_find_channel",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "BN81-28760D",
+    "source": "Samsung TV User Guide BN81-28760D (BN81-28760D-160_EUG_ROPDVBAAH_ASIA_ENG)",
+    "page": 276,
+    "content": "Unable to find a Channel 1. If your TV is not connected to a cable box or satellite box, run Auto Store or Auto Tuning. 2. Settings > All Settings > General & Privacy > Broadcasting (Auto Tuning Settings) > Auto Store or Auto Tuning 3. The Auto Tuning Settings may not appear depending on the model or geographical area. 4. When using a broadcast receiver such as set-top box and IPTV, check the connection to the TV. 5. Connected Devices > Connection Guide 6. When the symptom persists, contact your service provider.",
+    "metadata": {
+      "symptom": "Unable to find a Channel",
+      "possible_cause": null,
+      "solution": "1. If your TV is not connected to a cable box or satellite box, run Auto Store or Auto Tuning.\n2. Settings > All Settings > General & Privacy > Broadcasting (Auto Tuning Settings) > Auto Store or Auto Tuning\n3. The Auto Tuning Settings may not appear depending on the model or geographical area.\n4. When using a broadcast receiver such as set-top box and IPTV, check the connection to the TV.\n5. Connected Devices > Connection Guide\n6. When the symptom persists, contact your service provider.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_BN81_28760D_p277_not_as_good_as_store",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "BN81-28760D",
+    "source": "Samsung TV User Guide BN81-28760D (BN81-28760D-160_EUG_ROPDVBAAH_ASIA_ENG)",
+    "page": 277,
+    "content": "The TV image does not look as good as it did in the store. 1. Store displays are tuned to a digital UHD channel or HD channel. 2. Change the output resolution of your devices such as digital broadcast receiver, IPTV and set-top box to UHD or HD. 3. Be sure to use an HDMI cable to enjoy high quality videos. 4. Connected Devices > Connection Guide > Video Device > HDMI 5. To connect the TV with your PC, make sure that your PC's graphic card supports UHD resolutions. 6. Make sure that the set-top box or cable box supports the content or broadcast for UHD and set the resolution. For more information, contact your service provider. 7. When using a Samsung TV Plus channel, check the network connection. When the network speed is slow, the app may not work or the image quality may be poor.",
+    "metadata": {
+      "symptom": "The TV image does not look as good as it did in the store.",
+      "possible_cause": null,
+      "solution": "1. Store displays are tuned to a digital UHD channel or HD channel.\n2. Change the output resolution of your devices such as digital broadcast receiver, IPTV and set-top box to UHD or HD.\n3. Be sure to use an HDMI cable to enjoy high quality videos.\n4. Connected Devices > Connection Guide > Video Device > HDMI\n5. To connect the TV with your PC, make sure that your PC's graphic card supports UHD resolutions.\n6. Make sure that the set-top box or cable box supports the content or broadcast for UHD and set the resolution. For more information, contact your service provider.\n7. When using a Samsung TV Plus channel, check the network connection. When the network speed is slow, the app may not work or the image quality may be poor.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_BN81_28760D_p277_video_blurry",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "BN81-28760D",
+    "source": "Samsung TV User Guide BN81-28760D (BN81-28760D-160_EUG_ROPDVBAAH_ASIA_ENG)",
+    "page": 277,
+    "content": "Displayed video looks blurry 1. If you notice blurring or juddering on the screen, use the Picture Clarity Settings function to resolve the issue. 2. Settings > All Settings > Picture > Expert Settings > Picture Clarity Settings",
+    "metadata": {
+      "symptom": "Displayed video looks blurry",
+      "possible_cause": null,
+      "solution": "1. If you notice blurring or juddering on the screen, use the Picture Clarity Settings function to resolve the issue.\n2. Settings > All Settings > Picture > Expert Settings > Picture Clarity Settings",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_BN81_28760D_p277_picture_distorted",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "BN81-28760D",
+    "source": "Samsung TV User Guide BN81-28760D (BN81-28760D-160_EUG_ROPDVBAAH_ASIA_ENG)",
+    "page": 277,
+    "content": "The picture is distorted. 1. The compression of video content may cause picture distortions, especially in fast moving pictures from sports programmes and action movies. 2. Remove and reconnect the power cord, and check the remote control battery. 3. If the signal reception is weak or poor, screen distortion may be visible but it is not a malfunction. 4. Mobile phones used close to the TV (within 1 m) may cause noise on analogue or digital channels. 5. This function may not be supported depending on the model or geographical area.",
+    "metadata": {
+      "symptom": "The picture is distorted.",
+      "possible_cause": null,
+      "solution": "1. The compression of video content may cause picture distortions, especially in fast moving pictures from sports programmes and action movies.\n2. Remove and reconnect the power cord, and check the remote control battery.\n3. If the signal reception is weak or poor, screen distortion may be visible but it is not a malfunction.\n4. Mobile phones used close to the TV (within 1 m) may cause noise on analogue or digital channels.\n5. This function may not be supported depending on the model or geographical area.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": "ถอดหรือเสียบปลั๊กโดยจับที่หัวปลั๊ก ไม่ดึงที่สายไฟ และห้ามจับปลั๊กด้วยมือเปียก ถ้าสายไฟหรือปลั๊กชำรุด ให้หยุดใช้งานแล้วติดต่อศูนย์บริการ"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_BN81_28760D_p278_dotted_line_edge",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "BN81-28760D",
+    "source": "Samsung TV User Guide BN81-28760D (BN81-28760D-160_EUG_ROPDVBAAH_ASIA_ENG)",
+    "page": 278,
+    "content": "There is a dotted line on the edge of the screen. 1. Change Picture Size to 16:9 Standard. 2. Settings > All Settings > Picture > Expert Settings > Picture Size Settings > Picture Size 3. Change the output resolution of your external device.",
+    "metadata": {
+      "symptom": "There is a dotted line on the edge of the screen.",
+      "possible_cause": null,
+      "solution": "1. Change Picture Size to 16:9 Standard.\n2. Settings > All Settings > Picture > Expert Settings > Picture Size Settings > Picture Size\n3. Change the output resolution of your external device.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_BN81_28760D_p278_not_full_screen",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "BN81-28760D",
+    "source": "Samsung TV User Guide BN81-28760D (BN81-28760D-160_EUG_ROPDVBAAH_ASIA_ENG)",
+    "page": 278,
+    "content": "The picture won’t display in full screen. 1. HD channels will have black bars on either side of the screen when displaying upscaled SD (4:3) content. 2. Black bars will appear at the top and bottom of the screen when you watch movies that have aspect ratios different from your TV. 3. Adjust the picture size options on your external device or set the TV to full screen. 4. Settings > All Settings > Picture > Expert Settings > Picture Size Settings > Picture Size",
+    "metadata": {
+      "symptom": "The picture won’t display in full screen.",
+      "possible_cause": null,
+      "solution": "1. HD channels will have black bars on either side of the screen when displaying upscaled SD (4:3) content.\n2. Black bars will appear at the top and bottom of the screen when you watch movies that have aspect ratios different from your TV.\n3. Adjust the picture size options on your external device or set the TV to full screen.\n4. Settings > All Settings > Picture > Expert Settings > Picture Size Settings > Picture Size",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_BN81_28760D_p278_subtitle_function_deactivated",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "BN81-28760D",
+    "source": "Samsung TV User Guide BN81-28760D (BN81-28760D-160_EUG_ROPDVBAAH_ASIA_ENG)",
+    "page": 278,
+    "content": "The Subtitle function in the TV menu is deactivated. 1. When an external device is connected with an HDMI or Component cable, the Subtitle function is unavailable. Adjust the subtitle setting on the external device. 2. This function may not be supported depending on the model or geographical area.",
+    "metadata": {
+      "symptom": "The Subtitle function in the TV menu is deactivated.",
+      "possible_cause": null,
+      "solution": "1. When an external device is connected with an HDMI or Component cable, the Subtitle function is unavailable. Adjust the subtitle setting on the external device.\n2. This function may not be supported depending on the model or geographical area.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_BN81_28760D_p278_subtitles_appear",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "BN81-28760D",
+    "source": "Samsung TV User Guide BN81-28760D (BN81-28760D-160_EUG_ROPDVBAAH_ASIA_ENG)",
+    "page": 278,
+    "content": "Subtitles appear on the TV screen. 1. Turn off the Subtitle function in Subtitle Settings. 2. Settings > All Settings > General & Privacy > Accessibility > Subtitle Settings > Subtitle 3. This function may not be supported depending on the model or geographical area.",
+    "metadata": {
+      "symptom": "Subtitles appear on the TV screen.",
+      "possible_cause": null,
+      "solution": "1. Turn off the Subtitle function in Subtitle Settings.\n2. Settings > All Settings > General & Privacy > Accessibility > Subtitle Settings > Subtitle\n3. This function may not be supported depending on the model or geographical area.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_BN81_28760D_p278_hdr_turns_off",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "BN81-28760D",
+    "source": "Samsung TV User Guide BN81-28760D (BN81-28760D-160_EUG_ROPDVBAAH_ASIA_ENG)",
+    "page": 278,
+    "content": "The HDR of the connected external device turns off. 1. If the Input Signal Plus feature is turned on, the range of receiving HDMI input signals is expanded, allowing you to view HDR content sent from an external device. 2. Settings > All Settings > General & Privacy > External Device Manager > Input Signal Plus 3. This function may not be supported depending on the model.",
+    "metadata": {
+      "symptom": "The HDR of the connected external device turns off.",
+      "possible_cause": null,
+      "solution": "1. If the Input Signal Plus feature is turned on, the range of receiving HDMI input signals is expanded, allowing you to view HDR content sent from an external device.\n2. Settings > All Settings > General & Privacy > External Device Manager > Input Signal Plus\n3. This function may not be supported depending on the model.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_BN81_28760D_p279_no_sound_or_low",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "BN81-28760D",
+    "source": "Samsung TV User Guide BN81-28760D (BN81-28760D-160_EUG_ROPDVBAAH_ASIA_ENG)",
+    "page": 279,
+    "content": "There is no sound or the sound is too low at maximum volume. 1. Check the volume control of your TV, and then check the volume control of the external device (cable box or satellite box, DVD, Blu-ray, etc.) connected to your TV. 2. Check the cable connection between an external device and the TV, and then try cable connection again.",
+    "metadata": {
+      "symptom": "There is no sound or the sound is too low at maximum volume.",
+      "possible_cause": null,
+      "solution": "1. Check the volume control of your TV, and then check the volume control of the external device (cable box or satellite box, DVD, Blu-ray, etc.) connected to your TV.\n2. Check the cable connection between an external device and the TV, and then try cable connection again.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_BN81_28760D_p279_picture_good_no_sound",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "BN81-28760D",
+    "source": "Samsung TV User Guide BN81-28760D (BN81-28760D-160_EUG_ROPDVBAAH_ASIA_ENG)",
+    "page": 279,
+    "content": "The picture is good but there is no sound. 1. Check the Sound Output setting. If it is set to TV Speaker, check the volume setting. 2. Settings > All Settings > Sound > Sound Output 3. If you are using an external device, check the device’s audio output option. 4. For example, you may need to change your cable box’s audio option to HDMI if the box connected to your TV is using an HDMI cable. 5. To listen to computer sound, connect an external speaker to the computer’s audio output connector. 6. If your TV has a headphone jack, make sure there is nothing plugged into it. 7. Reboot the connected device by disconnecting and then reconnecting the device’s power cord. 8. With a set-top box or cable box, check the cable connection and reboot the external device. When the symptom persists, contact your service provider.",
+    "metadata": {
+      "symptom": "The picture is good but there is no sound.",
+      "possible_cause": null,
+      "solution": "1. Check the Sound Output setting. If it is set to TV Speaker, check the volume setting.\n2. Settings > All Settings > Sound > Sound Output\n3. If you are using an external device, check the device’s audio output option.\n4. For example, you may need to change your cable box’s audio option to HDMI if the box connected to your TV is using an HDMI cable.\n5. To listen to computer sound, connect an external speaker to the computer’s audio output connector.\n6. If your TV has a headphone jack, make sure there is nothing plugged into it.\n7. Reboot the connected device by disconnecting and then reconnecting the device’s power cord.\n8. With a set-top box or cable box, check the cable connection and reboot the external device. When the symptom persists, contact your service provider.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": "ถอดหรือเสียบปลั๊กโดยจับที่หัวปลั๊ก ไม่ดึงที่สายไฟ และห้ามจับปลั๊กด้วยมือเปียก ถ้าสายไฟหรือปลั๊กชำรุด ให้หยุดใช้งานแล้วติดต่อศูนย์บริการ"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_BN81_28760D_p280_hdmi_earc_no_sound",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "BN81-28760D",
+    "source": "Samsung TV User Guide BN81-28760D (BN81-28760D-160_EUG_ROPDVBAAH_ASIA_ENG)",
+    "page": 280,
+    "content": "HDMI (eARC/ARC) is connected, and there is no sound. 1. Check whether Digital Output Audio Format is set to Pass-through. 2. If a soundbar or A/V receiver that does not support Dolby Digital+ is used and Pass-through is selected, there is no sound when a Dolby Digital+ source is received. 3. It is recommended to set Digital Output Audio Format to Auto if only limited audio format is supported depending on the performance of the connected soundbar or A/V receiver. 4. Settings > All Settings > Sound > Expert Settings > Digital Output Audio Format > Auto",
+    "metadata": {
+      "symptom": "HDMI (eARC/ARC) is connected, and there is no sound.",
+      "possible_cause": null,
+      "solution": "1. Check whether Digital Output Audio Format is set to Pass-through.\n2. If a soundbar or A/V receiver that does not support Dolby Digital+ is used and Pass-through is selected, there is no sound when a Dolby Digital+ source is received.\n3. It is recommended to set Digital Output Audio Format to Auto if only limited audio format is supported depending on the performance of the connected soundbar or A/V receiver.\n4. Settings > All Settings > Sound > Expert Settings > Digital Output Audio Format > Auto",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_BN81_28760D_p280_speakers_odd_sound",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "BN81-28760D",
+    "source": "Samsung TV User Guide BN81-28760D (BN81-28760D-160_EUG_ROPDVBAAH_ASIA_ENG)",
+    "page": 280,
+    "content": "The speakers are making an odd sound. 1. Run Sound Test. 2. Settings > Support > Device Care > Self Diagnosis > Sound Test 3. Make sure that the audio cable is connected to the correct audio output connector on the external device. 4. For antenna or cable connections, check the Broadcast Signal. A low signal level may cause sound distortions. 5. Settings > Support > Device Care > Self Diagnosis > Broadcast Signal",
+    "metadata": {
+      "symptom": "The speakers are making an odd sound.",
+      "possible_cause": null,
+      "solution": "1. Run Sound Test.\n2. Settings > Support > Device Care > Self Diagnosis > Sound Test\n3. Make sure that the audio cable is connected to the correct audio output connector on the external device.\n4. For antenna or cable connections, check the Broadcast Signal. A low signal level may cause sound distortions.\n5. Settings > Support > Device Care > Self Diagnosis > Broadcast Signal",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_BN81_28760D_p281_sound_interrupted",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "BN81-28760D",
+    "source": "Samsung TV User Guide BN81-28760D (BN81-28760D-160_EUG_ROPDVBAAH_ASIA_ENG)",
+    "page": 281,
+    "content": "The sound is interrupted. 1. Sound quality may become affected if the wireless router is close to the Bluetooth speaker. Place the Bluetooth speaker as close as possible to the TV without obstacle between them. Do not place the wireless router close to the Bluetooth speaker body. 2. To minimise interruptions, we recommend a wireless access point that uses a 5 GHz or 6 GHz frequency. 5 GHz or 6 GHz may not be supported depending on the model. 3. When the symptom persists, it is recommended to use wired connection such as HDMI (eARC/ARC) and Optical.",
+    "metadata": {
+      "symptom": "The sound is interrupted.",
+      "possible_cause": null,
+      "solution": "1. Sound quality may become affected if the wireless router is close to the Bluetooth speaker. Place the Bluetooth speaker as close as possible to the TV without obstacle between them. Do not place the wireless router close to the Bluetooth speaker body.\n2. To minimise interruptions, we recommend a wireless access point that uses a 5 GHz or 6 GHz frequency. 5 GHz or 6 GHz may not be supported depending on the model.\n3. When the symptom persists, it is recommended to use wired connection such as HDMI (eARC/ARC) and Optical.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_BN81_28760D_p281_voice_over",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "BN81-28760D",
+    "source": "Samsung TV User Guide BN81-28760D (BN81-28760D-160_EUG_ROPDVBAAH_ASIA_ENG)",
+    "page": 281,
+    "content": "Whenever a function is used on the TV or the channel is changed, the TV voices the activity. The TV explains in voice-over the video scenes displayed on the screen. 1. Turn off the Voice Guide function in Voice Guide Settings. 2. Settings > All Settings > General & Privacy > Accessibility > Voice Guide Settings > Voice Guide",
+    "metadata": {
+      "symptom": "Whenever a function is used on the TV or the channel is changed, the TV voices the activity. The TV explains in voice-over the video scenes displayed on the screen.",
+      "possible_cause": null,
+      "solution": "1. Turn off the Voice Guide function in Voice Guide Settings.\n2. Settings > All Settings > General & Privacy > Accessibility > Voice Guide Settings > Voice Guide",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_BN81_28760D_p281_not_through_soundbar",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "BN81-28760D",
+    "source": "Samsung TV User Guide BN81-28760D (BN81-28760D-160_EUG_ROPDVBAAH_ASIA_ENG)",
+    "page": 281,
+    "content": "The TV audio is not being played through the Soundbar or A/V receiver. 1. Check the Soundbar or A/V receiver's power supply and its settings. 2. When connecting the optical cable between the TV and Soundbar or A/V receiver, make sure that the sound output is set Receiver (Optical) on your TV. 3. In case of HDMI-eARC connection, make sure that it is connected to the eARC dedicated HDMI port on your TV. However, the eARC can be used only when the Soundbar or A/V receiver supports the eARC feature.",
+    "metadata": {
+      "symptom": "The TV audio is not being played through the Soundbar or A/V receiver.",
+      "possible_cause": null,
+      "solution": "1. Check the Soundbar or A/V receiver's power supply and its settings.\n2. When connecting the optical cable between the TV and Soundbar or A/V receiver, make sure that the sound output is set Receiver (Optical) on your TV.\n3. In case of HDMI-eARC connection, make sure that it is connected to the eARC dedicated HDMI port on your TV. However, the eARC can be used only when the Soundbar or A/V receiver supports the eARC feature.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_BN81_28760D_p282_sound_not_clear",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "BN81-28760D",
+    "source": "Samsung TV User Guide BN81-28760D (BN81-28760D-160_EUG_ROPDVBAAH_ASIA_ENG)",
+    "page": 282,
+    "content": "The sound is not heard clearly. 1. Change to an appropriate sound mode. 2. Settings > All Settings > Sound > Sound Mode 3. When AI Mode and Adaptive Sound Pro are turned on, the sound effects are automatically adjusted to the surroundings. 4. Settings > All Settings > Advanced Features > AI Mode Settings > AI Mode 5. This function may not be supported depending on the model. 6. To optimise the sound depending on the surroundings, select Adaptive Sound Pro. 7. Settings > All Settings > Advanced Features > AI Mode Settings > AI Sound Mode Settings > Adaptive Sound Pro 8. This function may not be supported depending on the model.",
+    "metadata": {
+      "symptom": "The sound is not heard clearly.",
+      "possible_cause": null,
+      "solution": "1. Change to an appropriate sound mode.\n2. Settings > All Settings > Sound > Sound Mode\n3. When AI Mode and Adaptive Sound Pro are turned on, the sound effects are automatically adjusted to the surroundings.\n4. Settings > All Settings > Advanced Features > AI Mode Settings > AI Mode\n5. This function may not be supported depending on the model.\n6. To optimise the sound depending on the surroundings, select Adaptive Sound Pro.\n7. Settings > All Settings > Advanced Features > AI Mode Settings > AI Sound Mode Settings > Adaptive Sound Pro\n8. This function may not be supported depending on the model.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_BN81_28760D_p282_external_volume_cannot_adjust",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "BN81-28760D",
+    "source": "Samsung TV User Guide BN81-28760D (BN81-28760D-160_EUG_ROPDVBAAH_ASIA_ENG)",
+    "page": 282,
+    "content": "The volume of the external device cannot be adjusted. 1. Check the cable connection between the TV and the external device. 2. When connecting an external speaker such as home theatre via HDMI, make sure it is connected to the HDMI (eARC/ARC) port on the TV. Make sure that the Settings > All Settings > General & Privacy > External Device Manager Anynet+ (HDMI-CEC) is active on your TV. 3. If a device is connected via Optical, volume control may not be possible, depending on the device.",
+    "metadata": {
+      "symptom": "The volume of the external device cannot be adjusted.",
+      "possible_cause": null,
+      "solution": "1. Check the cable connection between the TV and the external device.\n2. When connecting an external speaker such as home theatre via HDMI, make sure it is connected to the HDMI (eARC/ARC) port on the TV. Make sure that the Settings > All Settings > General & Privacy > External Device Manager Anynet+ (HDMI-CEC) is active on your TV.\n3. If a device is connected via Optical, volume control may not be possible, depending on the device.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_BN81_28760D_p283_weak_or_no_signal",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "BN81-28760D",
+    "source": "Samsung TV User Guide BN81-28760D (BN81-28760D-160_EUG_ROPDVBAAH_ASIA_ENG)",
+    "page": 283,
+    "content": "\"Weak or No Signal\" displayed in TV mode or cannot find channel. 1. Make sure that the external device is connected securely and turned on. Move to Connected Devices to switch to other input sources. 2. Connected Devices > Sources 3. When using a set-top box or cable box, check the broadcast signals or the network that is connected to the external device.",
+    "metadata": {
+      "symptom": "\"Weak or No Signal\" displayed in TV mode or cannot find channel.",
+      "possible_cause": null,
+      "solution": "1. Make sure that the external device is connected securely and turned on. Move to Connected Devices to switch to other input sources.\n2. Connected Devices > Sources\n3. When using a set-top box or cable box, check the broadcast signals or the network that is connected to the external device.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_BN81_28760D_p283_not_receiving_all_channels",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "BN81-28760D",
+    "source": "Samsung TV User Guide BN81-28760D (BN81-28760D-160_EUG_ROPDVBAAH_ASIA_ENG)",
+    "page": 283,
+    "content": "The TV is not receiving all channels. 1. Confirm that the coaxial cable is securely connected to the TV. 2. Run Factory data reset or Auto Store or Auto Tuning. 3. Settings > All Settings > General & Privacy > Factory data reset 4. Settings > All Settings > General & Privacy > Broadcasting (Auto Tuning Settings) > Auto Store or Auto Tuning 5. The Auto Tuning Settings may not appear depending on the model or geographical area.",
+    "metadata": {
+      "symptom": "The TV is not receiving all channels.",
+      "possible_cause": null,
+      "solution": "1. Confirm that the coaxial cable is securely connected to the TV.\n2. Run Factory data reset or Auto Store or Auto Tuning.\n3. Settings > All Settings > General & Privacy > Factory data reset\n4. Settings > All Settings > General & Privacy > Broadcasting (Auto Tuning Settings) > Auto Store or Auto Tuning\n5. The Auto Tuning Settings may not appear depending on the model or geographical area.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_BN81_28760D_p283_subtitles_digital_channel",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "BN81-28760D",
+    "source": "Samsung TV User Guide BN81-28760D (BN81-28760D-160_EUG_ROPDVBAAH_ASIA_ENG)",
+    "page": 283,
+    "content": "The subtitles are not provided on a digital channel. 1. When watching channels with the antenna cable connected, run Subtitle Settings. 2. Settings > All Settings > General & Privacy > Accessibility > Subtitle Settings 3. Some channels may not have subtitle data. 4. When watching a channel on an external device such as a set-top box and cable box, turn on the subtitle function on the device. For more information, contact your service provider. 5. This function may not be supported depending on the model or geographical area.",
+    "metadata": {
+      "symptom": "The subtitles are not provided on a digital channel.",
+      "possible_cause": null,
+      "solution": "1. When watching channels with the antenna cable connected, run Subtitle Settings.\n2. Settings > All Settings > General & Privacy > Accessibility > Subtitle Settings\n3. Some channels may not have subtitle data.\n4. When watching a channel on an external device such as a set-top box and cable box, turn on the subtitle function on the device. For more information, contact your service provider.\n5. This function may not be supported depending on the model or geographical area.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_BN81_28760D_p283_broadcasting_deactivated",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "BN81-28760D",
+    "source": "Samsung TV User Guide BN81-28760D (BN81-28760D-160_EUG_ROPDVBAAH_ASIA_ENG)",
+    "page": 283,
+    "content": "Broadcasting is deactivated. 1. Broadcasting is only available when Source is set to TV. 2. Broadcasting cannot be accessed while you watch TV using a cable box or satellite box. 3. Broadcasting cannot be accessed while a recording is in progress or the Timeshift function is running. 4. Record and Timeshift may not be supported depending on the model or geographical area.",
+    "metadata": {
+      "symptom": "Broadcasting is deactivated.",
+      "possible_cause": null,
+      "solution": "1. Broadcasting is only available when Source is set to TV.\n2. Broadcasting cannot be accessed while you watch TV using a cable box or satellite box.\n3. Broadcasting cannot be accessed while a recording is in progress or the Timeshift function is running.\n4. Record and Timeshift may not be supported depending on the model or geographical area.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_BN81_28760D_p284_mode_not_supported",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "BN81-28760D",
+    "source": "Samsung TV User Guide BN81-28760D (BN81-28760D-160_EUG_ROPDVBAAH_ASIA_ENG)",
+    "page": 284,
+    "content": "The \"Mode Not Supported\" message appears. Adjust the output resolution of the external device to a resolution supported by the TV.",
+    "metadata": {
+      "symptom": "The \"Mode Not Supported\" message appears.",
+      "possible_cause": null,
+      "solution": "Adjust the output resolution of the external device to a resolution supported by the TV.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_BN81_28760D_p284_video_ok_no_audio",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "BN81-28760D",
+    "source": "Samsung TV User Guide BN81-28760D (BN81-28760D-160_EUG_ROPDVBAAH_ASIA_ENG)",
+    "page": 284,
+    "content": "The video is OK but there is no audio. 1. If you are using an HDMI connection, check the audio output setting on your PC. 2. If you are using a DVI to HDMI cable, a separate audio cable is required. 3. To listen to the computer sound, connect external speakers to the audio output connection of the computer.",
+    "metadata": {
+      "symptom": "The video is OK but there is no audio.",
+      "possible_cause": null,
+      "solution": "1. If you are using an HDMI connection, check the audio output setting on your PC.\n2. If you are using a DVI to HDMI cable, a separate audio cable is required.\n3. To listen to the computer sound, connect external speakers to the audio output connection of the computer.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_BN81_28760D_p284_screen_mirroring",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "BN81-28760D",
+    "source": "Samsung TV User Guide BN81-28760D (BN81-28760D-160_EUG_ROPDVBAAH_ASIA_ENG)",
+    "page": 284,
+    "content": "I want to connect to a PC and mobile device via screen mirroring. 1. To wirelessly connect the TV to your PC, read the instructions at PC Screen Sharing (Wireless) in Connection Guide, and then try to connect. 2. Connected Devices > Connection Guide > PC > Screen Sharing (Wireless) 3. Confirm that the TV and your PC are connected to the same network. 4. To wirelessly connect the TV to your mobile device, read the instructions at Smartphone Screen Sharing (Smart View) in Connection Guide, and then try to connect. 5. Connected Devices > Connection Guide > Smartphone > Screen Sharing (Smart View) 6. If the TV has difficulties connecting to your PC or mobile device due to surrounding radio interferences, change the frequency of the wireless access band, and then try to connect.",
+    "metadata": {
+      "symptom": "I want to connect to a PC and mobile device via screen mirroring.",
+      "possible_cause": null,
+      "solution": "1. To wirelessly connect the TV to your PC, read the instructions at PC Screen Sharing (Wireless) in Connection Guide, and then try to connect.\n2. Connected Devices > Connection Guide > PC > Screen Sharing (Wireless)\n3. Confirm that the TV and your PC are connected to the same network.\n4. To wirelessly connect the TV to your mobile device, read the instructions at Smartphone Screen Sharing (Smart View) in Connection Guide, and then try to connect.\n5. Connected Devices > Connection Guide > Smartphone > Screen Sharing (Smart View)\n6. If the TV has difficulties connecting to your PC or mobile device due to surrounding radio interferences, change the frequency of the wireless access band, and then try to connect.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_BN81_28760D_p285_no_screen_external_device",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "BN81-28760D",
+    "source": "Samsung TV User Guide BN81-28760D (BN81-28760D-160_EUG_ROPDVBAAH_ASIA_ENG)",
+    "page": 285,
+    "content": "No screen appears when connecting the TV to an external device. 1. For more information about how to connect an external device, run Connection Guide. 2. Connected Devices > Connection Guide 3. Make sure that the external device is connected securely and turned on. Move to Sources to switch to other input sources. 4. Connected Devices > Sources 5. Using HDMI Troubleshooting, you can check the connection to HDMI cable and external devices (takes approximately 2 minutes). 6. Connected Devices > Connection Guide > Video Device > HDMI Troubleshooting 7. When using a set-top box or cable box, check the broadcast signals or the network that is connected to the external device.",
+    "metadata": {
+      "symptom": "No screen appears when connecting the TV to an external device.",
+      "possible_cause": null,
+      "solution": "1. For more information about how to connect an external device, run Connection Guide.\n2. Connected Devices > Connection Guide\n3. Make sure that the external device is connected securely and turned on. Move to Sources to switch to other input sources.\n4. Connected Devices > Sources\n5. Using HDMI Troubleshooting, you can check the connection to HDMI cable and external devices (takes approximately 2 minutes).\n6. Connected Devices > Connection Guide > Video Device > HDMI Troubleshooting\n7. When using a set-top box or cable box, check the broadcast signals or the network that is connected to the external device.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_BN81_28760D_p285_pc_screen_flickers",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "BN81-28760D",
+    "source": "Samsung TV User Guide BN81-28760D (BN81-28760D-160_EUG_ROPDVBAAH_ASIA_ENG)",
+    "page": 285,
+    "content": "The PC screen does not appear or it flickers. 1. When the PC screen does not appear or the PC is not recognised, check the power supply of the PC and then reconnect the HDMI cable between the PC and TV. When the symptom persists, check that the PC is in Sleep mode, and then set Input Signal Plus to On. 2. Settings > All Settings > General & Privacy > External Device Manager > Input Signal Plus 3. When the set resolution is not matched, it may cause a blank or flickering screen. For the PC supported resolution, refer to \"Read Before Connecting a Computer (Supported Resolutions)\".",
+    "metadata": {
+      "symptom": "The PC screen does not appear or it flickers.",
+      "possible_cause": null,
+      "solution": "1. When the PC screen does not appear or the PC is not recognised, check the power supply of the PC and then reconnect the HDMI cable between the PC and TV. When the symptom persists, check that the PC is in Sleep mode, and then set Input Signal Plus to On.\n2. Settings > All Settings > General & Privacy > External Device Manager > Input Signal Plus\n3. When the set resolution is not matched, it may cause a blank or flickering screen. For the PC supported resolution, refer to \"Read Before Connecting a Computer (Supported Resolutions)\".",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": "ถอดหรือเสียบปลั๊กโดยจับที่หัวปลั๊ก ไม่ดึงที่สายไฟ และห้ามจับปลั๊กด้วยมือเปียก ถ้าสายไฟหรือปลั๊กชำรุด ให้หยุดใช้งานแล้วติดต่อศูนย์บริการ"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_BN81_28760D_p286_wireless_failed",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "BN81-28760D",
+    "source": "Samsung TV User Guide BN81-28760D (BN81-28760D-160_EUG_ROPDVBAAH_ASIA_ENG)",
+    "page": 286,
+    "content": "Wireless network connection failed. Unable to connect to a wireless access point. Unable to connect to the network. 1. Settings > Support > Device Care > Self Diagnosis > Smart Hub Connection Test 2. Ensure that the network cable is connected and the router is powered on. 3. Connect your mobile device to the router via Wi-Fi. 4. Turn the router off and back on again. (Requires 2 to 3 minutes) 5. If a security key is required, make sure it has been entered correctly. 6. Unplug the TV’s power cord and plug it back in or press and hold the power button for at least 3 seconds. 7. Make sure that there is no electromagnetic wave generating device placed between the TV and router. 8. If unable to establish a wireless internet connection, connect the TV to the wireless router via a LAN cable. 9. If the TV is able to connect to the internet normally via the cable connection, there might be a problem with the wireless router. In this case, try using a different wireless router. 10. Wired networks are not supported by some models.",
+    "metadata": {
+      "symptom": "Wireless network connection failed. Unable to connect to a wireless access point. Unable to connect to the network.",
+      "possible_cause": null,
+      "solution": "1. Settings > Support > Device Care > Self Diagnosis > Smart Hub Connection Test\n2. Ensure that the network cable is connected and the router is powered on.\n3. Connect your mobile device to the router via Wi-Fi.\n4. Turn the router off and back on again. (Requires 2 to 3 minutes)\n5. If a security key is required, make sure it has been entered correctly.\n6. Unplug the TV’s power cord and plug it back in or press and hold the power button for at least 3 seconds.\n7. Make sure that there is no electromagnetic wave generating device placed between the TV and router.\n8. If unable to establish a wireless internet connection, connect the TV to the wireless router via a LAN cable.\n9. If the TV is able to connect to the internet normally via the cable connection, there might be a problem with the wireless router. In this case, try using a different wireless router.\n10. Wired networks are not supported by some models.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": "ถอดหรือเสียบปลั๊กโดยจับที่หัวปลั๊ก ไม่ดึงที่สายไฟ และห้ามจับปลั๊กด้วยมือเปียก ถ้าสายไฟหรือปลั๊กชำรุด ให้หยุดใช้งานแล้วติดต่อศูนย์บริการ"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_BN81_28760D_p286_wired_failed",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "BN81-28760D",
+    "source": "Samsung TV User Guide BN81-28760D (BN81-28760D-160_EUG_ROPDVBAAH_ASIA_ENG)",
+    "page": 286,
+    "content": "Wired network connection failed. 1. Check if the LAN cable is plugged in on both ends. If it is plugged in, check if the access point is turned on. If it is on, turn it off, wait 1 or 2 minutes, and then turn it on. 2. Wired networks are not supported by some models.",
+    "metadata": {
+      "symptom": "Wired network connection failed.",
+      "possible_cause": null,
+      "solution": "1. Check if the LAN cable is plugged in on both ends. If it is plugged in, check if the access point is turned on. If it is on, turn it off, wait 1 or 2 minutes, and then turn it on.\n2. Wired networks are not supported by some models.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_BN81_28760D_p286_local_not_internet",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "BN81-28760D",
+    "source": "Samsung TV User Guide BN81-28760D (BN81-28760D-160_EUG_ROPDVBAAH_ASIA_ENG)",
+    "page": 286,
+    "content": "Connected to a local network, but not to the Internet. 1. Check if the Internet LAN cable is connected to the access point's external LAN port. 2. Check the DNS setting in IP Settings. 3. Settings > All Settings > Connections > Network > Network Status > IP Settings 4. Wired networks are not supported by some models.",
+    "metadata": {
+      "symptom": "Connected to a local network, but not to the Internet.",
+      "possible_cause": null,
+      "solution": "1. Check if the Internet LAN cable is connected to the access point's external LAN port.\n2. Check the DNS setting in IP Settings.\n3. Settings > All Settings > Connections > Network > Network Status > IP Settings\n4. Wired networks are not supported by some models.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_BN81_28760D_p287_woc_cannot_be_found",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "BN81-28760D",
+    "source": "Samsung TV User Guide BN81-28760D (BN81-28760D-160_EUG_ROPDVBAAH_ASIA_ENG)",
+    "page": 287,
+    "content": "Wireless One Connect cannot be found. 1. For detailed instructions on connecting to Wireless One Connect, launch Connection Guide. 2. Connected Devices > Connection Guide > Wireless One Connect 3. Check that the connected type-C power adapter and cable are the supplied adapter and cable dedicated for Wireless One Connect. 4. The device may not work properly if used with components other than those that came with the device. 5. Check the connection between the screen and the Wireless One Connect. 6. Settings > All Settings > Connections > Wireless One Connect > Wireless One Connect Status 7. If Wireless One Connect is left disconnected from the screen for a long period of time, automatic connection may not work properly. If the connection is disconnected, check the power supply to the Wireless One Connect, and view the LED indicator light colour to check the connection.",
+    "metadata": {
+      "symptom": "Wireless One Connect cannot be found.",
+      "possible_cause": null,
+      "solution": "1. For detailed instructions on connecting to Wireless One Connect, launch Connection Guide.\n2. Connected Devices > Connection Guide > Wireless One Connect\n3. Check that the connected type-C power adapter and cable are the supplied adapter and cable dedicated for Wireless One Connect.\n4. The device may not work properly if used with components other than those that came with the device.\n5. Check the connection between the screen and the Wireless One Connect.\n6. Settings > All Settings > Connections > Wireless One Connect > Wireless One Connect Status\n7. If Wireless One Connect is left disconnected from the screen for a long period of time, automatic connection may not work properly. If the connection is disconnected, check the power supply to the Wireless One Connect, and view the LED indicator light colour to check the connection.",
+      "severity": "low",
+      "difficulty": "medium",
+      "safety_warning": "ถอดหรือเสียบปลั๊กโดยจับที่หัวปลั๊ก ไม่ดึงที่สายไฟ และห้ามจับปลั๊กด้วยมือเปียก ถ้าสายไฟหรือปลั๊กชำรุด ให้หยุดใช้งานแล้วติดต่อศูนย์บริการ"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_BN81_28760D_p288_woc_disconnected",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "BN81-28760D",
+    "source": "Samsung TV User Guide BN81-28760D (BN81-28760D-160_EUG_ROPDVBAAH_ASIA_ENG)",
+    "page": 288,
+    "content": "A message appears saying \"Wireless One Connect is disconnected. when viewing content provided by an external input source (e.g., a terrestrial broadcast service, set-top box or game console). 1. The Wireless One Connect may be disconnected or turned off. 2. Check that the Wireless One Connect is not turned off. Turn it on and wait, then it will automatically connect. 3. If it is turned on but disconnected, navigate to the Adjust menu, and adjust the Wireless One Connect position until the antenna icon colour becomes blue. 4. Settings > All Settings > Connections > Wireless One Connect > Wireless One Connect Status > Adjust 5. It automatically connects when the signal strength is sufficient.",
+    "metadata": {
+      "symptom": "A message appears saying \"Wireless One Connect is disconnected. when viewing content provided by an external input source (e.g., a terrestrial broadcast service, set-top box or game console).",
+      "possible_cause": null,
+      "solution": "1. The Wireless One Connect may be disconnected or turned off.\n2. Check that the Wireless One Connect is not turned off. Turn it on and wait, then it will automatically connect.\n3. If it is turned on but disconnected, navigate to the Adjust menu, and adjust the Wireless One Connect position until the antenna icon colour becomes blue.\n4. Settings > All Settings > Connections > Wireless One Connect > Wireless One Connect Status > Adjust\n5. It automatically connects when the signal strength is sufficient.",
+      "severity": "low",
+      "difficulty": "medium",
+      "safety_warning": "ถอดหรือเสียบปลั๊กโดยจับที่หัวปลั๊ก ไม่ดึงที่สายไฟ และห้ามจับปลั๊กด้วยมือเปียก ถ้าสายไฟหรือปลั๊กชำรุด ให้หยุดใช้งานแล้วติดต่อศูนย์บริการ"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_BN81_28760D_p288_woc_signal_low",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "BN81-28760D",
+    "source": "Samsung TV User Guide BN81-28760D (BN81-28760D-160_EUG_ROPDVBAAH_ASIA_ENG)",
+    "page": 288,
+    "content": "A message appears saying \"The signal strength is low. Adjust the location of your Wireless One Connect.\" when viewing content provided by an external input source (e.g., a terrestrial broadcast service, set-top box or game console). 1. The wireless signal is weak between the screen device and Wireless One Connect. 2. Navigate to the Adjust menu, and adjust the Wireless One Connect position until the antenna icon colour becomes blue. 3. Settings > All Settings > Connections > Wireless One Connect > Wireless One Connect Status > Adjust 4. It automatically connects when the signal strength is sufficient. 5. For more information on Wireless One Connect installation, refer to the \"Restrictions when using Wireless One Connect.\"",
+    "metadata": {
+      "symptom": "A message appears saying \"The signal strength is low. Adjust the location of your Wireless One Connect.\" when viewing content provided by an external input source (e.g., a terrestrial broadcast service, set-top box or game console).",
+      "possible_cause": null,
+      "solution": "1. The wireless signal is weak between the screen device and Wireless One Connect.\n2. Navigate to the Adjust menu, and adjust the Wireless One Connect position until the antenna icon colour becomes blue.\n3. Settings > All Settings > Connections > Wireless One Connect > Wireless One Connect Status > Adjust\n4. It automatically connects when the signal strength is sufficient.\n5. For more information on Wireless One Connect installation, refer to the \"Restrictions when using Wireless One Connect.\"",
+      "severity": "low",
+      "difficulty": "medium",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_BN81_28760D_p289_woc_not_auto_connect",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "BN81-28760D",
+    "source": "Samsung TV User Guide BN81-28760D (BN81-28760D-160_EUG_ROPDVBAAH_ASIA_ENG)",
+    "page": 289,
+    "content": "The device does not automatically connect after position adjustment. 1. Navigate to Wireless One Connect Status (Settings > All Settings > Connections > Wireless One Connect > Wireless One Connect Status), and select Unpair. 2. Press and hold the PAIR button on the Wireless One Connect for 3 seconds to enter pairing mode. (In pairing mode, the LED indicator on the side of the Wireless One Connect blinks blue.) 3. Navigate to Set up Wireless One Connect(Settings > All Settings > Connections > Wireless One Connect > Set up Wireless One Connect), search for the device and reconnect it.",
+    "metadata": {
+      "symptom": "The device does not automatically connect after position adjustment.",
+      "possible_cause": null,
+      "solution": "1. Navigate to Wireless One Connect Status (Settings > All Settings > Connections > Wireless One Connect > Wireless One Connect Status), and select Unpair.\n2. Press and hold the PAIR button on the Wireless One Connect for 3 seconds to enter pairing mode. (In pairing mode, the LED indicator on the side of the Wireless One Connect blinks blue.)\n3. Navigate to Set up Wireless One Connect(Settings > All Settings > Connections > Wireless One Connect > Set up Wireless One Connect), search for the device and reconnect it.",
+      "severity": "low",
+      "difficulty": "medium",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_BN81_28760D_p290_anynet_not_working",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "BN81-28760D",
+    "source": "Samsung TV User Guide BN81-28760D (BN81-28760D-160_EUG_ROPDVBAAH_ASIA_ENG)",
+    "page": 290,
+    "content": "Anynet+ does not work. The connected device is not displayed. 1. Make sure the device is an Anynet+ (HDMI-CEC) device. From the settings menu on the device, check and confirm that the HDMI-CEC option is enabled. 2. From the TV, check and confirm that the Anynet+ (HDMI-CEC) feature is set to On. 3. Settings > All Settings > General & Privacy > External Device Manager > Anynet+ (HDMI-CEC) 4. Check and confirm that the device’s power cord is securely plugged in. 5. Check the device's HDMI cable connection. 6. Anynet+ (HDMI-CEC) cannot function under specific circumstances. (when the TV is scanning channels or performing Factory data reset) 7. When connecting or disconnecting an HDMI cable, turn the TV off and then back on again.",
+    "metadata": {
+      "symptom": "Anynet+ does not work. The connected device is not displayed.",
+      "possible_cause": null,
+      "solution": "1. Make sure the device is an Anynet+ (HDMI-CEC) device. From the settings menu on the device, check and confirm that the HDMI-CEC option is enabled.\n2. From the TV, check and confirm that the Anynet+ (HDMI-CEC) feature is set to On.\n3. Settings > All Settings > General & Privacy > External Device Manager > Anynet+ (HDMI-CEC)\n4. Check and confirm that the device’s power cord is securely plugged in.\n5. Check the device's HDMI cable connection.\n6. Anynet+ (HDMI-CEC) cannot function under specific circumstances. (when the TV is scanning channels or performing Factory data reset)\n7. When connecting or disconnecting an HDMI cable, turn the TV off and then back on again.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": "ถอดหรือเสียบปลั๊กโดยจับที่หัวปลั๊ก ไม่ดึงที่สายไฟ และห้ามจับปลั๊กด้วยมือเปียก ถ้าสายไฟหรือปลั๊กชำรุด ให้หยุดใช้งานแล้วติดต่อศูนย์บริการ"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_BN81_28760D_p291_anynet_connecting_message",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "BN81-28760D",
+    "source": "Samsung TV User Guide BN81-28760D (BN81-28760D-160_EUG_ROPDVBAAH_ASIA_ENG)",
+    "page": 291,
+    "content": "The message \"Connecting to Anynet+ device...\" or \"Disconnecting from Anynet+ device\" appears on the screen. 1. You cannot use the remote control when the TV is configuring Anynet+ or switching to the TV viewing screen. 2. Use the remote control after the TV has completed the Anynet+ configuration or has switched to the TV viewing screen.",
+    "metadata": {
+      "symptom": "The message \"Connecting to Anynet+ device...\" or \"Disconnecting from Anynet+ device\" appears on the screen.",
+      "possible_cause": null,
+      "solution": "1. You cannot use the remote control when the TV is configuring Anynet+ or switching to the TV viewing screen.\n2. Use the remote control after the TV has completed the Anynet+ configuration or has switched to the TV viewing screen.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_BN81_28760D_p291_anynet_device_wont_play",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "BN81-28760D",
+    "source": "Samsung TV User Guide BN81-28760D (BN81-28760D-160_EUG_ROPDVBAAH_ASIA_ENG)",
+    "page": 291,
+    "content": "The Anynet+ device won't play. You cannot use the play function when Factory data reset is in progress.",
+    "metadata": {
+      "symptom": "The Anynet+ device won't play.",
+      "possible_cause": null,
+      "solution": "You cannot use the play function when Factory data reset is in progress.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_BN81_28760D_p292_remote_not_work",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "BN81-28760D",
+    "source": "Samsung TV User Guide BN81-28760D (BN81-28760D-160_EUG_ROPDVBAAH_ASIA_ENG)",
+    "page": 292,
+    "content": "The remote control does not work. 1. The connection between the remote control and the TV may be lost. 2. Point the Samsung Smart Remote at the front of the TV, and then press and hold the and buttons simultaneously for 3 seconds or more. 3. To reset a previously connected remote control, press and hold the and buttons simultaneously for more than 3 seconds. The remote control connection is reset. 4. Also, if the remote control does not work properly or its response is very slow, the battery might be low or dead. 5. Charge the remote control by using the USB port (C-type) on the bottom, or turn over the remote to expose the solar cell. 6. You can check remaining battery of Samsung Smart Remote with solar cell in Settings > All Settings > General & Privacy > Remote Control. 7. This function may not be supported depending on the model. 8. If the remote control has batteries, replace them with new ones.",
+    "metadata": {
+      "symptom": "The remote control does not work.",
+      "possible_cause": null,
+      "solution": "1. The connection between the remote control and the TV may be lost.\n2. Point the Samsung Smart Remote at the front of the TV, and then press and hold the and buttons simultaneously for 3 seconds or more.\n3. To reset a previously connected remote control, press and hold the and buttons simultaneously for more than 3 seconds. The remote control connection is reset.\n4. Also, if the remote control does not work properly or its response is very slow, the battery might be low or dead.\n5. Charge the remote control by using the USB port (C-type) on the bottom, or turn over the remote to expose the solar cell.\n6. You can check remaining battery of Samsung Smart Remote with solar cell in Settings > All Settings > General & Privacy > Remote Control.\n7. This function may not be supported depending on the model.\n8. If the remote control has batteries, replace them with new ones.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_BN81_28760D_p293_mobile_remote_not_work",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "BN81-28760D",
+    "source": "Samsung TV User Guide BN81-28760D (BN81-28760D-160_EUG_ROPDVBAAH_ASIA_ENG)",
+    "page": 293,
+    "content": "The mobile remote control does not work. 1. If the TV cannot be controlled with the previously used mobile remote control, try the following methods: 2. Reconnect the TV from the SmartThings app. 3. If the TV is in an offline state in the mobile SmartThings app, use the offline device diagnosis function to reconnect to the TV. 4. If the connection still fails, delete and re-register the TV from the SmartThings app. 5. This function may not be supported depending on the model. 6. Check that the TV power cable is plugged in properly. 7. If the TV power cable is not plugged in properly, the mobile remote control will display an error message and may not work. 8. Use the mobile remote control close to the TV. 9. The mobile remote control may not work if it is too distant from the TV. 10. Scan the QR code on the screen. 11. Press the power button at the bottom of the TV to turn it on, and scan the QR code on the screen to restart the mobile remote control. 12. This function may not be supported depending on the model.",
+    "metadata": {
+      "symptom": "The mobile remote control does not work.",
+      "possible_cause": null,
+      "solution": "1. If the TV cannot be controlled with the previously used mobile remote control, try the following methods:\n2. Reconnect the TV from the SmartThings app.\n3. If the TV is in an offline state in the mobile SmartThings app, use the offline device diagnosis function to reconnect to the TV.\n4. If the connection still fails, delete and re-register the TV from the SmartThings app.\n5. This function may not be supported depending on the model.\n6. Check that the TV power cable is plugged in properly.\n7. If the TV power cable is not plugged in properly, the mobile remote control will display an error message and may not work.\n8. Use the mobile remote control close to the TV.\n9. The mobile remote control may not work if it is too distant from the TV.\n10. Scan the QR code on the screen.\n11. Press the power button at the bottom of the TV to turn it on, and scan the QR code on the screen to restart the mobile remote control.\n12. This function may not be supported depending on the model.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": "ถอดหรือเสียบปลั๊กโดยจับที่หัวปลั๊ก ไม่ดึงที่สายไฟ และห้ามจับปลั๊กด้วยมือเปียก ถ้าสายไฟหรือปลั๊กชำรุด ให้หยุดใช้งานแล้วติดต่อศูนย์บริการ"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_BN81_28760D_p293_external_not_operated_by_remote",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "BN81-28760D",
+    "source": "Samsung TV User Guide BN81-28760D (BN81-28760D-160_EUG_ROPDVBAAH_ASIA_ENG)",
+    "page": 293,
+    "content": "External devices cannot be operated with the TV remote control. 1. Check the cable connection between the TV and external devices. 2. When the symptom persists, set it manually in Connected Devices > Universal remote setup.",
+    "metadata": {
+      "symptom": "External devices cannot be operated with the TV remote control.",
+      "possible_cause": null,
+      "solution": "1. Check the cable connection between the TV and external devices.\n2. When the symptom persists, set it manually in Connected Devices > Universal remote setup.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_BN81_28760D_p294_recording_cannot_use",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "BN81-28760D",
+    "source": "Samsung TV User Guide BN81-28760D (BN81-28760D-160_EUG_ROPDVBAAH_ASIA_ENG)",
+    "page": 294,
+    "content": "The Timeshift or recording function cannot be used. 1. Check if there is a storage device connected to the TV. 2. Recording will automatically stop if the signal becomes too weak. 3. Check the free space on the storage device. 4. The function will not work if there isn't enough storage space on the USB device. 5. Before using the recording function, be sure to read all precautions. For more information, refer to \"Before Using the Recording and Timeshift Functions\". 6. This function may not be supported depending on the model or geographical area.",
+    "metadata": {
+      "symptom": "The Timeshift or recording function cannot be used.",
+      "possible_cause": null,
+      "solution": "1. Check if there is a storage device connected to the TV.\n2. Recording will automatically stop if the signal becomes too weak.\n3. Check the free space on the storage device.\n4. The function will not work if there isn't enough storage space on the USB device.\n5. Before using the recording function, be sure to read all precautions. For more information, refer to \"Before Using the Recording and Timeshift Functions\".\n6. This function may not be supported depending on the model or geographical area.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_BN81_28760D_p294_cannot_record_external",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "BN81-28760D",
+    "source": "Samsung TV User Guide BN81-28760D (BN81-28760D-160_EUG_ROPDVBAAH_ASIA_ENG)",
+    "page": 294,
+    "content": "Cannot record videos received from an external device or Samsung TV Plus. 1. The recording function is only available for digital broadcast channels received by the TV. You cannot record videos received from an external device or Samsung TV Plus. 2. This function may not be supported depending on the model or geographical area.",
+    "metadata": {
+      "symptom": "Cannot record videos received from an external device or Samsung TV Plus.",
+      "possible_cause": null,
+      "solution": "1. The recording function is only available for digital broadcast channels received by the TV. You cannot record videos received from an external device or Samsung TV Plus.\n2. This function may not be supported depending on the model or geographical area.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_BN81_28760D_p294_format_device_message",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "BN81-28760D",
+    "source": "Samsung TV User Guide BN81-28760D (BN81-28760D-160_EUG_ROPDVBAAH_ASIA_ENG)",
+    "page": 294,
+    "content": "The \"Format Device\" message appears when the Timeshift or recording function is used. 1. To use the recording function, the storage device connected to the TV must have been already formatted. 2. Formatting the storage device deletes all data from it, and the storage device is formatted in NTFS. 3. This function may not be supported depending on the model or geographical area.",
+    "metadata": {
+      "symptom": "The \"Format Device\" message appears when the Timeshift or recording function is used.",
+      "possible_cause": null,
+      "solution": "1. To use the recording function, the storage device connected to the TV must have been already formatted.\n2. Formatting the storage device deletes all data from it, and the storage device is formatted in NTFS.\n3. This function may not be supported depending on the model or geographical area.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_BN81_28760D_p294_recorded_not_play_on_pc",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "BN81-28760D",
+    "source": "Samsung TV User Guide BN81-28760D (BN81-28760D-160_EUG_ROPDVBAAH_ASIA_ENG)",
+    "page": 294,
+    "content": "The recorded files on the TV are not played back on a PC. 1. The recorded files on the TV can only be played back on the same TV. Those video files cannot be played back on a PC or other TV. 2. Playback may not work properly if the recording file has a problem. If the problem persists, check the recording file. 3. This function may not be supported depending on the model or geographical area.",
+    "metadata": {
+      "symptom": "The recorded files on the TV are not played back on a PC.",
+      "possible_cause": null,
+      "solution": "1. The recorded files on the TV can only be played back on the same TV. Those video files cannot be played back on a PC or other TV.\n2. Playback may not work properly if the recording file has a problem. If the problem persists, check the recording file.\n3. This function may not be supported depending on the model or geographical area.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_BN81_28760D_p295_cannot_find_app",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "BN81-28760D",
+    "source": "Samsung TV User Guide BN81-28760D (BN81-28760D-160_EUG_ROPDVBAAH_ASIA_ENG)",
+    "page": 295,
+    "content": "I cannot find the app I want. 1. To use smart functions, you should connect to a network, agree to the terms and conditions, and log in with your Samsung account. If these settings were not configured during the initial setting process, you can configure Smart Hub settings by running Apps from the Home Screen. 2. (top of Smart Hub Home screen) Apps 3. If Smart Hub settings are complete but the app you want cannot be found on the Home Screen, you can find the app from Search or Apps. To add frequently used apps to the Home Screen, run the Add to Home feature from Apps. 4. (top of Smart Hub Home screen) Apps > App Settings > List of installed apps > Add to Home",
+    "metadata": {
+      "symptom": "I cannot find the app I want.",
+      "possible_cause": null,
+      "solution": "1. To use smart functions, you should connect to a network, agree to the terms and conditions, and log in with your Samsung account. If these settings were not configured during the initial setting process, you can configure Smart Hub settings by running Apps from the Home Screen.\n2. (top of Smart Hub Home screen) Apps\n3. If Smart Hub settings are complete but the app you want cannot be found on the Home Screen, you can find the app from Search or Apps. To add frequently used apps to the Home Screen, run the Add to Home feature from Apps.\n4. (top of Smart Hub Home screen) Apps > App Settings > List of installed apps > Add to Home",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_BN81_28760D_p295_app_different_language",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "BN81-28760D",
+    "source": "Samsung TV User Guide BN81-28760D (BN81-28760D-160_EUG_ROPDVBAAH_ASIA_ENG)",
+    "page": 295,
+    "content": "I launched an app, but it's in a different language. How can I change the language? 1. Languages supported by an app may be different from the TV Language set in the menu. 2. The ability to change the language depends on the app's provider. Change the language from the settings menu in the app.",
+    "metadata": {
+      "symptom": "I launched an app, but it's in a different language. How can I change the language?",
+      "possible_cause": null,
+      "solution": "1. Languages supported by an app may be different from the TV Language set in the menu.\n2. The ability to change the language depends on the app's provider. Change the language from the settings menu in the app.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_BN81_28760D_p295_app_poor_quality",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "BN81-28760D",
+    "source": "Samsung TV User Guide BN81-28760D (BN81-28760D-160_EUG_ROPDVBAAH_ASIA_ENG)",
+    "page": 295,
+    "content": "The app does not work properly. Its image quality is poor. 1. Check the network connection. When the network speed is slow, the app may not work or its image quality may be poor. 2. Uninstall and reinstall the app. For more information about app uninstallation, refer to \"Managing installed apps\". 3. The services of your application are not provided by the TV but by the application service provider. 4. Refer to the Help section on the application service provider's website.",
+    "metadata": {
+      "symptom": "The app does not work properly. Its image quality is poor.",
+      "possible_cause": null,
+      "solution": "1. Check the network connection. When the network speed is slow, the app may not work or its image quality may be poor.\n2. Uninstall and reinstall the app. For more information about app uninstallation, refer to \"Managing installed apps\".\n3. The services of your application are not provided by the TV but by the application service provider.\n4. Refer to the Help section on the application service provider's website.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_BN81_28760D_p295_smart_hub_home_keeps_appearing",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "BN81-28760D",
+    "source": "Samsung TV User Guide BN81-28760D (BN81-28760D-160_EUG_ROPDVBAAH_ASIA_ENG)",
+    "page": 295,
+    "content": "The Smart Hub Home Screen keeps appearing whenever you turn on the TV. 1. Turn off the Start with Smart Hub Home function in Start Screen Options. 2. Settings > All Settings > Advanced Features > Start Screen Options > Start with Smart Hub Home",
+    "metadata": {
+      "symptom": "The Smart Hub Home Screen keeps appearing whenever you turn on the TV.",
+      "possible_cause": null,
+      "solution": "1. Turn off the Start with Smart Hub Home function in Start Screen Options.\n2. Settings > All Settings > Advanced Features > Start Screen Options > Start with Smart Hub Home",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_BN81_28760D_p296_files_interrupted",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "BN81-28760D",
+    "source": "Samsung TV User Guide BN81-28760D (BN81-28760D-160_EUG_ROPDVBAAH_ASIA_ENG)",
+    "page": 296,
+    "content": "Some files are interrupted during playback. This problem may occur with unsupported files or high-bitrate files. Most files can be played back, but some files may not play smoothly.",
+    "metadata": {
+      "symptom": "Some files are interrupted during playback.",
+      "possible_cause": null,
+      "solution": "This problem may occur with unsupported files or high-bitrate files. Most files can be played back, but some files may not play smoothly.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_BN81_28760D_p296_files_cannot_play",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "BN81-28760D",
+    "source": "Samsung TV User Guide BN81-28760D (BN81-28760D-160_EUG_ROPDVBAAH_ASIA_ENG)",
+    "page": 296,
+    "content": "Some files can't be played. 1. Some files that use an unsupported codec may not be played back. 2. Make sure that the codec is supported by the TV. For more information about the supported codecs, refer to \"Read Before Playing Photo, Video or Music Files\".",
+    "metadata": {
+      "symptom": "Some files can't be played.",
+      "possible_cause": null,
+      "solution": "1. Some files that use an unsupported codec may not be played back.\n2. Make sure that the codec is supported by the TV. For more information about the supported codecs, refer to \"Read Before Playing Photo, Video or Music Files\".",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_BN81_28760D_p297_microphone_off",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "BN81-28760D",
+    "source": "Samsung TV User Guide BN81-28760D (BN81-28760D-160_EUG_ROPDVBAAH_ASIA_ENG)",
+    "page": 297,
+    "content": "The microphone is off. 1. Turn on the microphone switch at the bottom of the TV. Each time the switch is turned on or off, the screen displays a pop-up window showing whether the microphone is turned on or off. 2. If the microphone is turned off, all voice recognition features and some sound features involving the microphone do not work. 3. The position and appearance of the microphone switch may differ depending on the model. 4. This function may not be supported depending on the model or geographical area.",
+    "metadata": {
+      "symptom": "The microphone is off.",
+      "possible_cause": null,
+      "solution": "1. Turn on the microphone switch at the bottom of the TV. Each time the switch is turned on or off, the screen displays a pop-up window showing whether the microphone is turned on or off.\n2. If the microphone is turned off, all voice recognition features and some sound features involving the microphone do not work.\n3. The position and appearance of the microphone switch may differ depending on the model.\n4. This function may not be supported depending on the model or geographical area.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_BN81_28760D_p297_voice_commands_poor",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "BN81-28760D",
+    "source": "Samsung TV User Guide BN81-28760D (BN81-28760D-160_EUG_ROPDVBAAH_ASIA_ENG)",
+    "page": 297,
+    "content": "The voice commands do not work well. 1. Voice commands may differ depending on the Voice Assistant. 2. Refer to the command examples for each Voice Assistant. 3. Bixby: Discover Bixby 4. Amazon Alexa: Settings > All Settings > Advanced Features > Voice > Amazon Alexa Settings 5. This function and Voice Recognition Solution Partner may not be supported depending on the model or geographical area. 6. The images, buttons, and functions of the Samsung Smart Remote may differ with the model or geographical area.",
+    "metadata": {
+      "symptom": "The voice commands do not work well.",
+      "possible_cause": null,
+      "solution": "1. Voice commands may differ depending on the Voice Assistant.\n2. Refer to the command examples for each Voice Assistant.\n3. Bixby: Discover Bixby\n4. Amazon Alexa: Settings > All Settings > Advanced Features > Voice > Amazon Alexa Settings\n5. This function and Voice Recognition Solution Partner may not be supported depending on the model or geographical area.\n6. The images, buttons, and functions of the Samsung Smart Remote may differ with the model or geographical area.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_BN81_28760D_p297_assistant_answers_uncalled",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "BN81-28760D",
+    "source": "Samsung TV User Guide BN81-28760D (BN81-28760D-160_EUG_ROPDVBAAH_ASIA_ENG)",
+    "page": 297,
+    "content": "Bixby/Alexa answers although I did not call it. 1. The TV may recognise an ambient noise or everyday conversation as a call to Voice Assistant. 2. Turn off the Hands-free wake-up function or set the Wake-up Sensitivity to Low. 3. Settings > All Settings > Advanced Features > Voice > Bixby Settings > Voice Wake-up 4. Bixby Settings > Voice Wake-Up 5. This function and Voice Recognition Solution Partner may not be supported depending on the model or geographical area. 6. The images, buttons, and functions of the Samsung Smart Remote may differ with the model or geographical area.",
+    "metadata": {
+      "symptom": "Bixby/Alexa answers although I did not call it.",
+      "possible_cause": null,
+      "solution": "1. The TV may recognise an ambient noise or everyday conversation as a call to Voice Assistant.\n2. Turn off the Hands-free wake-up function or set the Wake-up Sensitivity to Low.\n3. Settings > All Settings > Advanced Features > Voice > Bixby Settings > Voice Wake-up\n4. Bixby Settings > Voice Wake-Up\n5. This function and Voice Recognition Solution Partner may not be supported depending on the model or geographical area.\n6. The images, buttons, and functions of the Samsung Smart Remote may differ with the model or geographical area.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_BN81_28760D_p298_assistant_no_answer",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "BN81-28760D",
+    "source": "Samsung TV User Guide BN81-28760D (BN81-28760D-160_EUG_ROPDVBAAH_ASIA_ENG)",
+    "page": 298,
+    "content": "I spoke \"Hi, Bixby/Alexa\" but Bixby/Alexa does not answer. 1. When the TV is far from you or the ambient noise is so loud, the TV may be unable to recognise your voice. 2. When the distance to the TV is within 3 to 4 m, optimal performance is provided. Please look at your TV screen and speak. 3. Turn on the Hands-free wake-up function. 4. Bixby Settings > Voice Wake-up > Hands-free wake-up 5. This function and Voice Recognition Solution Partner may not be supported depending on the model or geographical area. 6. The images, buttons, and functions of the Samsung Smart Remote may differ with the model or geographical area.",
+    "metadata": {
+      "symptom": "I spoke \"Hi, Bixby/Alexa\" but Bixby/Alexa does not answer.",
+      "possible_cause": null,
+      "solution": "1. When the TV is far from you or the ambient noise is so loud, the TV may be unable to recognise your voice.\n2. When the distance to the TV is within 3 to 4 m, optimal performance is provided. Please look at your TV screen and speak.\n3. Turn on the Hands-free wake-up function.\n4. Bixby Settings > Voice Wake-up > Hands-free wake-up\n5. This function and Voice Recognition Solution Partner may not be supported depending on the model or geographical area.\n6. The images, buttons, and functions of the Samsung Smart Remote may differ with the model or geographical area.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_BN81_28760D_p298_voice_button_no_response",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "BN81-28760D",
+    "source": "Samsung TV User Guide BN81-28760D (BN81-28760D-160_EUG_ROPDVBAAH_ASIA_ENG)",
+    "page": 298,
+    "content": "Voice recognition does not work with the Samsung Smart Remote unlike other features. There is no response even if the Voice Assistant button is pressed. 1. The connection between the remote control and the TV may be lost. Try pairing the remote control with the TV. 2. Point the Samsung Smart Remote at the front of the TV, and then press and hold the and buttons simultaneously for 3 seconds or more. 3. To reset a previously connected remote control, press and hold the and buttons simultaneously for more than 3 seconds. The remote control connection is reset. 4. Also, if the remote control does not work properly or its response is very slow, the battery might be low or dead. 5. Charge the remote control by using the USB port (C-type) on the bottom, or turn over the remote to expose the solar cell. 6. You can check remaining battery of Samsung Smart Remote with solar cell in Settings > All Settings > General & Privacy > Remote Control. 7. This function may not be supported depending on the model. 8. If the remote control has batteries, replace them with new ones.",
+    "metadata": {
+      "symptom": "Voice recognition does not work with the Samsung Smart Remote unlike other features. There is no response even if the Voice Assistant button is pressed.",
+      "possible_cause": null,
+      "solution": "1. The connection between the remote control and the TV may be lost. Try pairing the remote control with the TV.\n2. Point the Samsung Smart Remote at the front of the TV, and then press and hold the and buttons simultaneously for 3 seconds or more.\n3. To reset a previously connected remote control, press and hold the and buttons simultaneously for more than 3 seconds. The remote control connection is reset.\n4. Also, if the remote control does not work properly or its response is very slow, the battery might be low or dead.\n5. Charge the remote control by using the USB port (C-type) on the bottom, or turn over the remote to expose the solar cell.\n6. You can check remaining battery of Samsung Smart Remote with solar cell in Settings > All Settings > General & Privacy > Remote Control.\n7. This function may not be supported depending on the model.\n8. If the remote control has batteries, replace them with new ones.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_BN81_28760D_p298_voice_heavy_load",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "BN81-28760D",
+    "source": "Samsung TV User Guide BN81-28760D (BN81-28760D-160_EUG_ROPDVBAAH_ASIA_ENG)",
+    "page": 298,
+    "content": "During voice recognition, the heavy load message appears and the function does not work. Unplug and then plug the TV power cord and then try again after 1 minute and 30 seconds. It may take a while if the voice recognition server is being inspected.",
+    "metadata": {
+      "symptom": "During voice recognition, the heavy load message appears and the function does not work.",
+      "possible_cause": null,
+      "solution": "Unplug and then plug the TV power cord and then try again after 1 minute and 30 seconds. It may take a while if the voice recognition server is being inspected.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": "ถอดหรือเสียบปลั๊กโดยจับที่หัวปลั๊ก ไม่ดึงที่สายไฟ และห้ามจับปลั๊กด้วยมือเปียก ถ้าสายไฟหรือปลั๊กชำรุด ให้หยุดใช้งานแล้วติดต่อศูนย์บริการ"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_BN81_28760D_p299_tv_is_hot",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "BN81-28760D",
+    "source": "Samsung TV User Guide BN81-28760D (BN81-28760D-160_EUG_ROPDVBAAH_ASIA_ENG)",
+    "page": 299,
+    "content": "The TV is hot. 1. Watching TV for an extended period of time causes the panel to generate heat. 2. The heat from the panel is dissipated through internal vents running along the top of the TV. 3. The bottom, however, may feel hot to the touch after extended use. 4. Children watching TV need constant adult supervision to prevent them from touching the TV. 5. This heat, however, is not a defect and does not affect the TV's functionality.",
+    "metadata": {
+      "symptom": "The TV is hot.",
+      "possible_cause": null,
+      "solution": "1. Watching TV for an extended period of time causes the panel to generate heat.\n2. The heat from the panel is dissipated through internal vents running along the top of the TV.\n3. The bottom, however, may feel hot to the touch after extended use.\n4. Children watching TV need constant adult supervision to prevent them from touching the TV.\n5. This heat, however, is not a defect and does not affect the TV's functionality.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_BN81_28760D_p299_smells_like_plastic",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "BN81-28760D",
+    "source": "Samsung TV User Guide BN81-28760D (BN81-28760D-160_EUG_ROPDVBAAH_ASIA_ENG)",
+    "page": 299,
+    "content": "The TV smells like plastic. This smell is normal and will dissipate over time.",
+    "metadata": {
+      "symptom": "The TV smells like plastic.",
+      "possible_cause": null,
+      "solution": "This smell is normal and will dissipate over time.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_BN81_28760D_p299_settings_lost",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "BN81-28760D",
+    "source": "Samsung TV User Guide BN81-28760D (BN81-28760D-160_EUG_ROPDVBAAH_ASIA_ENG)",
+    "page": 299,
+    "content": "The settings are lost after 5 minutes or every time the TV is turned off. 1. If Usage Mode is set to Retail Mode, the TV's audio and video settings are automatically reset every 5 minutes. 2. Change Usage Mode to Home Mode. 3. Settings > All Settings > General & Privacy > Usage Mode > Home Mode 4. This function may not be supported depending on the model or geographical area.",
+    "metadata": {
+      "symptom": "The settings are lost after 5 minutes or every time the TV is turned off.",
+      "possible_cause": null,
+      "solution": "1. If Usage Mode is set to Retail Mode, the TV's audio and video settings are automatically reset every 5 minutes.\n2. Change Usage Mode to Home Mode.\n3. Settings > All Settings > General & Privacy > Usage Mode > Home Mode\n4. This function may not be supported depending on the model or geographical area.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_BN81_28760D_p299_tilted_to_side",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "BN81-28760D",
+    "source": "Samsung TV User Guide BN81-28760D (BN81-28760D-160_EUG_ROPDVBAAH_ASIA_ENG)",
+    "page": 299,
+    "content": "The TV is tilted to the side. Remove the base stand from the TV and reassemble it.",
+    "metadata": {
+      "symptom": "The TV is tilted to the side.",
+      "possible_cause": null,
+      "solution": "Remove the base stand from the TV and reassemble it.",
+      "severity": "medium",
+      "difficulty": "medium",
+      "safety_warning": "ทีวีอาจล้มหรือตกขณะถอดและประกอบขาตั้ง ควรให้อีกคนช่วยจับทีวี วางทีวีบนพื้นผิวเรียบนุ่ม และระวังมือไม่ให้ถูกหนีบ"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_BN81_28760D_p299_stand_wobbly",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "BN81-28760D",
+    "source": "Samsung TV User Guide BN81-28760D (BN81-28760D-160_EUG_ROPDVBAAH_ASIA_ENG)",
+    "page": 299,
+    "content": "The stand is wobbly or crooked. Refer to the Unpacking and Installation Guide and make sure that the stand is assembled correctly.",
+    "metadata": {
+      "symptom": "The stand is wobbly or crooked.",
+      "possible_cause": null,
+      "solution": "Refer to the Unpacking and Installation Guide and make sure that the stand is assembled correctly.",
+      "severity": "medium",
+      "difficulty": "medium",
+      "safety_warning": "ทีวีอาจล้มหรือตกขณะถอดและประกอบขาตั้ง ควรให้อีกคนช่วยจับทีวี วางทีวีบนพื้นผิวเรียบนุ่ม และระวังมือไม่ให้ถูกหนีบ"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_BN81_28760D_p300_pop_banner_ad",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "BN81-28760D",
+    "source": "Samsung TV User Guide BN81-28760D (BN81-28760D-160_EUG_ROPDVBAAH_ASIA_ENG)",
+    "page": 300,
+    "content": "A POP (TV’s internal banner ad) appears on the screen. 1. Change Usage Mode to Home Mode. 2. Settings > All Settings > General & Privacy > Usage Mode > Home Mode 3. This function may not be supported depending on the model or geographical area.",
+    "metadata": {
+      "symptom": "A POP (TV’s internal banner ad) appears on the screen.",
+      "possible_cause": null,
+      "solution": "1. Change Usage Mode to Home Mode.\n2. Settings > All Settings > General & Privacy > Usage Mode > Home Mode\n3. This function may not be supported depending on the model or geographical area.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_BN81_28760D_p300_screen_off_noise",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "BN81-28760D",
+    "source": "Samsung TV User Guide BN81-28760D (BN81-28760D-160_EUG_ROPDVBAAH_ASIA_ENG)",
+    "page": 300,
+    "content": "The screen is off, but I hear noise. 1. Even when the screen is off, noise may be heard if the product performs tasks in the background. Noise will not be heard after the tasks are completed. 2. For example, noise may be heard when SmartThings is operating or the network is reconnected through Wi-Fi",
+    "metadata": {
+      "symptom": "The screen is off, but I hear noise.",
+      "possible_cause": null,
+      "solution": "1. Even when the screen is off, noise may be heard if the product performs tasks in the background. Noise will not be heard after the tasks are completed.\n2. For example, noise may be heard when SmartThings is operating or the network is reconnected through Wi-Fi",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_BN81_28760D_p300_popping_noise",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "BN81-28760D",
+    "source": "Samsung TV User Guide BN81-28760D (BN81-28760D-160_EUG_ROPDVBAAH_ASIA_ENG)",
+    "page": 300,
+    "content": "The TV is making a popping noise. 1. The expansion and contraction of the TV's outer casing may cause a popping noise. 2. This does not indicate a product malfunction. 3. The TV is safe to use.",
+    "metadata": {
+      "symptom": "The TV is making a popping noise.",
+      "possible_cause": null,
+      "solution": "1. The expansion and contraction of the TV's outer casing may cause a popping noise.\n2. This does not indicate a product malfunction.\n3. The TV is safe to use.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_BN81_28760D_p301_humming_noise",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "BN81-28760D",
+    "source": "Samsung TV User Guide BN81-28760D (BN81-28760D-160_EUG_ROPDVBAAH_ASIA_ENG)",
+    "page": 301,
+    "content": "The TV is making a humming noise. 1. Your TV utilises high-speed switching circuits and high levels of electrical current. Depending on the TV's brightness level, the TV may seem slightly noisier than a conventional TV. 2. Your TV has undergone strict quality control procedures that meet our demanding performance and reliability requirements. 3. Some noise coming from the TV is considered normal and is not an acceptable cause for an exchange or refund.",
+    "metadata": {
+      "symptom": "The TV is making a humming noise.",
+      "possible_cause": null,
+      "solution": "1. Your TV utilises high-speed switching circuits and high levels of electrical current. Depending on the TV's brightness level, the TV may seem slightly noisier than a conventional TV.\n2. Your TV has undergone strict quality control procedures that meet our demanding performance and reliability requirements.\n3. Some noise coming from the TV is considered normal and is not an acceptable cause for an exchange or refund.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_BN81_28760D_p303_cannot_select_broadcast_signal",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "BN81-28760D",
+    "source": "Samsung TV User Guide BN81-28760D (BN81-28760D-160_EUG_ROPDVBAAH_ASIA_ENG)",
+    "page": 303,
+    "content": "Cannot select Broadcast Signal in Self Diagnosis. 1. Verify that the current channel is a digital channel. 2. Broadcast Signal is only available for digital channels. 3. Settings > Support > Device Care > Self Diagnosis > Broadcast Signal 4. This function may not be supported depending on the model or geographical area.",
+    "metadata": {
+      "symptom": "Cannot select Broadcast Signal in Self Diagnosis.",
+      "possible_cause": null,
+      "solution": "1. Verify that the current channel is a digital channel.\n2. Broadcast Signal is only available for digital channels.\n3. Settings > Support > Device Care > Self Diagnosis > Broadcast Signal\n4. This function may not be supported depending on the model or geographical area.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  }
+]

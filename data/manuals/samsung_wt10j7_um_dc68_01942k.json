@@ -1,0 +1,505 @@
+{
+  "schema_version": 2,
+  "manual_id": "samsung_wt10j7_um_dc68_01942k",
+  "device_category": "Washing Machine",
+  "brand": "Samsung",
+  "model_pattern": "WT10J7",
+  "source_manual": "Samsung Washing Machine (Twin Tub) User Manual WT10J7 (WT10J7_DC68-01942K-03_TH_20170316)",
+  "count": 6,
+  "graphs": [
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_wt10j7_um_does_not_run",
+      "device_category": "Washing Machine",
+      "brand": "Samsung",
+      "model_pattern": "WT10J7",
+      "entry_symptom": "เครื่องซักผ้าไม่ทำงาน",
+      "entry_symptom_th": "เครื่องซักผ้าไม่ทำงาน",
+      "entry_symptom_aliases": [
+        "เครื่องซักผ้าไม่ติด",
+        "เครื่องไม่ทำงาน",
+        "เปิดไม่ติด",
+        "washing machine won't start"
+      ],
+      "source": "Samsung Washing Machine (Twin Tub) User Manual WT10J7 (WT10J7_DC68-01942K-03_TH_20170316)",
+      "page_range": [
+        7,
+        7
+      ],
+      "source_chunk_id": "manual_Samsung_WashingMachine_WT10J7_p7_does_not_run",
+      "severity": "medium",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "เสียบสายไฟเข้ากับเต้าเสียบดีแล้วใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2",
+          "on_no": "n1f"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "เสียบสายไฟให้แน่นเข้ากับเต้าเสียบ (คู่มือหน้า 4 และ 7)",
+          "safety_critical": true,
+          "safety_warning": "ถอดปลั๊กไฟออกหลังเสร็จการใช้งาน ต่อสายดินกับท่อโลหะ ห้ามต่อสายดินเข้ากับท่อแก๊สและสายโทรศัพท์ และไม่ควรทำให้แผงควบคุมด้านบนของเครื่องเปียกน้ำ ถ้าสายไฟของเครื่องเสียหาย ต้องให้ร้านซ่อมหรือศูนย์บริการเปลี่ยนเท่านั้น (คู่มือหน้า 1)",
+          "author_note": "หน้า 7 เป็นคำถามตรวจ วิธีเสียบอ้างจากหน้า 4 ข้อ 1 ('เสียบสายไฟเข้ากับเต้าเสียบ') ส่วนคำเตือนมาจากหน้า 1",
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "ปุ่มเลือกผ้าอยู่ที่ 'ซักปกติ' หรือ 'ผ้าสกปรก' อย่างใดอย่างหนึ่งใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n3",
+          "on_no": "n2f"
+        },
+        {
+          "node_id": "n2f",
+          "type": "instruction",
+          "content": "บิดปุ่ม เลือกผ้า (ระดับการซัก) ไปที่ 'ซักปกติ' หรือ 'ผ้าสกปรก' อย่างใดอย่างหนึ่งเท่านั้น มิฉะนั้นเครื่องจะไม่ทำงาน (คู่มือหน้า 2 และ 4)",
+          "safety_critical": false,
+          "author_note": "หน้า 7 เป็นคำถามตรวจ รายละเอียดวิธีเลือกมาจากหน้า 4 ข้อ 2 และหน้า 2 (ปุ่มหมายเลข 3)",
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "node_id": "n3",
+          "type": "checkpoint",
+          "question": "ตั้งเวลาซักไว้เกิน 15 นาที และเครื่องหยุดอยู่ในช่วงแช่ผ้าใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n3n",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n3n",
+          "type": "resolution",
+          "content": "ถ้าตั้งเวลาซักมากกว่า 15 นาที เครื่องจะแช่ผ้าและซักสลับกันไป ถ้าเครื่องหยุดไปนานกว่า 5 นาที ไม่ได้หมายความว่าเครื่องเสีย แต่กำลังอยู่ในขั้นตอนการแช่ผ้า (คู่มือหน้า 2, 4 และ 7)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "เครื่องซักผ้าทำงานแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์ลูกค้าสัมพันธ์ Samsung ประเทศไทย โทร 1800-29-3232 (โทรฟรี-ใช้เบอร์บ้าน) หรือ 02-689-3232 (คู่มือหน้า 7) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_wt10j7_um_clothes_not_rotating",
+      "device_category": "Washing Machine",
+      "brand": "Samsung",
+      "model_pattern": "WT10J7",
+      "entry_symptom": "เสื้อผ้าไม่หมุนหรือหมุนไม่สะดวก",
+      "entry_symptom_th": "เสื้อผ้าไม่หมุนหรือหมุนไม่สะดวก",
+      "entry_symptom_aliases": [
+        "ผ้าไม่หมุน",
+        "ถังซักหมุนช้า",
+        "ผ้าแน่นถัง",
+        "clothes not rotating"
+      ],
+      "source": "Samsung Washing Machine (Twin Tub) User Manual WT10J7 (WT10J7_DC68-01942K-03_TH_20170316)",
+      "page_range": [
+        7,
+        7
+      ],
+      "source_chunk_id": "manual_Samsung_WashingMachine_WT10J7_p7_clothes_not_rotating",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "ปริมาณผ้าในถังซักไม่มากเกินไปใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_escalate",
+          "on_no": "n1f"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "ลดจำนวนผ้าในถังซักให้ไม่เกินจำนวนที่แนะนำตามระดับน้ำ (ต่ำ / ปานกลาง / สูง): เสื้อเชิ้ต (ผ้าสังเคราะห์) 22 / 29 / 35 ชิ้น, กระโปรง (ผ้าฝ้าย) 38 / 48 / 58 ชิ้น, ชุดทำงาน (ผ้าฝ้าย) 16 / 20 / 25 ชิ้น (คู่มือหน้า 6)",
+          "safety_critical": false,
+          "author_note": "หน้า 7 ให้ตรวจเพียงว่าซักผ้ามากเกินไปหรือไม่ ไม่ได้ระบุเกณฑ์ ผู้พัฒนาใช้ตารางปริมาณผ้าในหน้า 6 เป็นเกณฑ์อ้างอิง ควรให้ผู้ตรวจยืนยัน",
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "เสื้อผ้าหมุนได้ตามปกติแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์ลูกค้าสัมพันธ์ Samsung ประเทศไทย โทร 1800-29-3232 (โทรฟรี-ใช้เบอร์บ้าน) หรือ 02-689-3232 (คู่มือหน้า 7) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_wt10j7_um_abnormal_spin",
+      "device_category": "Washing Machine",
+      "brand": "Samsung",
+      "model_pattern": "WT10J7",
+      "entry_symptom": "การปั่นแห้งผิดปกติ (เครื่องสั่นอย่างรุนแรงหรือไม่สมดุลย์)",
+      "entry_symptom_th": "ปั่นแห้งผิดปกติ เครื่องสั่นรุนแรงหรือไม่สมดุล",
+      "entry_symptom_aliases": [
+        "เครื่องสั่น",
+        "ปั่นแห้งสั่นมาก",
+        "เครื่องสั่นสะเทือน",
+        "spin vibrates"
+      ],
+      "source": "Samsung Washing Machine (Twin Tub) User Manual WT10J7 (WT10J7_DC68-01942K-03_TH_20170316)",
+      "page_range": [
+        7,
+        7
+      ],
+      "source_chunk_id": "manual_Samsung_WashingMachine_WT10J7_p7_abnormal_spin",
+      "severity": "medium",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "จัดเสื้อผ้าในถังปั่นแห้งให้เสมอกันแล้วใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2",
+          "on_no": "n1f"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "ย้ายผ้าเข้าถังปั่นแห้งและจัดผ้าให้เสมอกัน โดยกดผ้าลงให้เสมอกัน (ส่วนด้านล่างต้องเสมอกันตามภาพ ○) แล้วใส่แผ่นพลาสติกตามลงไปและปิดฝาด้านใน (คู่มือหน้า 5 และ 6) จากนั้นลองปั่นแห้งอีกครั้ง",
+          "safety_critical": true,
+          "safety_warning": "ขณะเครื่องกำลังปั่นแห้ง ไม่ควรยื่นมือลงไปในถัง เพราะถังปั่นแห้งหมุนด้วยความเร็วสูงและอาจทำให้บาดเจ็บ (คู่มือหน้า 1) เมื่อเปิดฝาถังปั่นแห้งขณะปั่น ถังจะหยุดหมุนทันทีด้วยระบบเบรก (คู่มือหน้า 2)",
+          "author_note": "วิธีจัดผ้ามาจากหน้า 5 (ข้อ 1–2) และหน้า 6 ('เมื่อทำการใส่ผ้าลงในถังปั่น') ส่วนประโยค 'จากนั้นลองปั่นแห้งอีกครั้ง' และการรอให้ถังหยุดหมุนก่อนจัดผ้าผู้พัฒนาเพิ่มเอง",
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "เครื่องตั้งบนพื้นที่เรียบไม่เอียงใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_escalate",
+          "on_no": "n2f"
+        },
+        {
+          "node_id": "n2f",
+          "type": "instruction",
+          "content": "ย้ายเครื่องไปตั้งบนพื้นที่เรียบไม่เอียง และวางให้ห่างจากผนังโดยรอบอย่างน้อย 15 เซนติเมตร (คู่มือหน้า 3)",
+          "safety_critical": false,
+          "author_note": "หน้า 7 ไม่ได้ตรวจเรื่องพื้น ผู้พัฒนาเพิ่มจากหน้า 3 ซึ่งระบุว่าพื้นเอียงและไม่เรียบอาจทำให้เครื่องเสียงดังและสั่นสะเทือน คู่มือไม่ได้บอกวิธีปรับความสมดุลของตัวเครื่อง และข้อความ 'ความเอียงอย่างน้อย 2 องศา' ในหน้า 3 ไม่ชัดเจน จึงไม่ได้ใช้ตัวเลขนี้",
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "การปั่นแห้งปกติแล้ว เครื่องไม่สั่นรุนแรง",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์ลูกค้าสัมพันธ์ Samsung ประเทศไทย โทร 1800-29-3232 (โทรฟรี-ใช้เบอร์บ้าน) หรือ 02-689-3232 (คู่มือหน้า 7) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_wt10j7_um_water_not_draining",
+      "device_category": "Washing Machine",
+      "brand": "Samsung",
+      "model_pattern": "WT10J7",
+      "entry_symptom": "น้ำไม่ระบายออก",
+      "entry_symptom_th": "น้ำไม่ระบายออก",
+      "entry_symptom_aliases": [
+        "น้ำไม่ออก",
+        "เครื่องซักผ้าไม่ระบายน้ำ",
+        "น้ำค้างในถัง",
+        "water won't drain"
+      ],
+      "source": "Samsung Washing Machine (Twin Tub) User Manual WT10J7 (WT10J7_DC68-01942K-03_TH_20170316)",
+      "page_range": [
+        7,
+        7
+      ],
+      "source_chunk_id": "manual_Samsung_WashingMachine_WT10J7_p7_water_not_draining",
+      "severity": "medium",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "วางท่อน้ำทิ้งลงกับพื้นถูกต้องแล้วใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_escalate",
+          "on_no": "n1f"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "วางท่อน้ำทิ้ง (A) ลงกับพื้นตามภาพที่ถูกต้อง (○) อย่าวางยกโค้งหรือหักงอแบบภาพ ✕ (คู่มือหน้า 1 และ 4)",
+          "safety_critical": false,
+          "author_note": "หน้า 7 เป็นคำถามตรวจ ท่าวางที่ถูกต้องอ้างจากภาพ ○/✕ ในหน้า 1 และหน้า 4 ผู้ตรวจควรเปิดดูภาพประกอบเทียบกับข้อความนี้",
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "น้ำระบายออกได้แล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์ลูกค้าสัมพันธ์ Samsung ประเทศไทย โทร 1800-29-3232 (โทรฟรี-ใช้เบอร์บ้าน) หรือ 02-689-3232 (คู่มือหน้า 7) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_wt10j7_um_spin_not_working",
+      "device_category": "Washing Machine",
+      "brand": "Samsung",
+      "model_pattern": "WT10J7",
+      "entry_symptom": "การปั่นแห้งไม่ทำงาน",
+      "entry_symptom_th": "ปั่นแห้งไม่ทำงาน",
+      "entry_symptom_aliases": [
+        "ถังปั่นไม่หมุน",
+        "ปั่นหมาดไม่ทำงาน",
+        "ปั่นแห้งไม่หมุน",
+        "spin not working"
+      ],
+      "source": "Samsung Washing Machine (Twin Tub) User Manual WT10J7 (WT10J7_DC68-01942K-03_TH_20170316)",
+      "page_range": [
+        7,
+        7
+      ],
+      "source_chunk_id": "manual_Samsung_WashingMachine_WT10J7_p7_spin_not_working",
+      "severity": "medium",
+      "difficulty": "medium",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "ปิดฝาถังปั่นแห้งสนิทดีแล้วใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2",
+          "on_no": "n1f"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "ปิดฝาด้านในพร้อมแผ่นพลาสติก แล้วปิดฝาถังปั่นแห้งให้สนิท (คู่มือหน้า 5)",
+          "safety_critical": false,
+          "author_note": "หน้า 7 เป็นคำถามตรวจ วิธีปิดฝามาจากหน้า 5 (วิธีการปั่นแห้ง ข้อ 2–3)",
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "มีสิ่งแปลกปลอมหรือเสื้อผ้าตกลงไปในถังปั่นแล้วพันกับแกนใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2f",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n2f",
+          "type": "instruction",
+          "content": "ถอดปลั๊กไฟ > ถอดสกรู 2 ตัวออกจากฝาครอบถังปั่นแห้ง > ฝาครอบถังปั่นแห้งยึดล็อกอยู่กับขอบตัวถัง ให้ดึงออกตามภาพ > เก็บเสื้อผ้าที่ค้างอยู่ด้านในออกมา > ประกอบฝาครอบถังปั่นกลับเหมือนเดิม โดยกดฝาครอบลงให้แน่นและสังเกตให้ขอบเสมอกัน (คู่มือหน้า 6)",
+          "safety_critical": true,
+          "safety_warning": "ถอดปลั๊กไฟออกก่อนเก็บเสื้อผ้าที่ตกลงไปในถังปั่นแห้ง (คู่มือหน้า 6) และไม่ควรยื่นมือลงไปในถังขณะถังกำลังหมุน (คู่มือหน้า 1)",
+          "author_note": "หน้า 7 ถามถึงสิ่งแปลกปลอมพันกับแกน ส่วนขั้นตอนมาจากหัวข้อ 'การเก็บเสื้อผ้าที่อาจตกลงไปในถังปั่นแห้งกับตัวถัง' หน้า 6 ซึ่งพูดถึงเสื้อผ้า หากเป็นสิ่งของอื่นที่ไม่ใช่เสื้อผ้า คู่มือไม่ได้ระบุ",
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "การปั่นแห้งทำงานแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์ลูกค้าสัมพันธ์ Samsung ประเทศไทย โทร 1800-29-3232 (โทรฟรี-ใช้เบอร์บ้าน) หรือ 02-689-3232 (คู่มือหน้า 7) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_wt10j7_um_drains_continuously",
+      "device_category": "Washing Machine",
+      "brand": "Samsung",
+      "model_pattern": "WT10J7",
+      "entry_symptom": "น้ำไหลออกจากท่อน้ำทิ้งตลอดเวลา",
+      "entry_symptom_th": "น้ำไหลออกจากท่อน้ำทิ้งตลอดเวลา",
+      "entry_symptom_aliases": [
+        "น้ำไหลออกตลอด",
+        "น้ำทิ้งไหลไม่หยุด",
+        "น้ำไม่ขังในถัง",
+        "water drains constantly"
+      ],
+      "source": "Samsung Washing Machine (Twin Tub) User Manual WT10J7 (WT10J7_DC68-01942K-03_TH_20170316)",
+      "page_range": [
+        7,
+        7
+      ],
+      "source_chunk_id": "manual_Samsung_WashingMachine_WT10J7_p7_drains_continuously",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "ปุ่ม 'โปรแกรมซัก/น้ำทิ้ง' อยู่ที่ 'ปล่อยน้ำทิ้ง' (ระบายน้ำ) ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n1f",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "บิดปุ่ม 'โปรแกรมซัก/น้ำทิ้ง' ไปที่ 'ซัก/ล้างน้ำ' (คู่มือหน้า 2 และ 4)",
+          "safety_critical": false,
+          "author_note": "หน้า 7 เรียกตำแหน่งนี้ว่า 'ปล่อยน้ำทิ้ง' ส่วนบนหน้าปัดเขียนว่า 'ระบายน้ำ' (Drain) วิธีบิดปุ่มกลับมาจากหน้า 4 ข้อ 3",
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "ท่อน้ำทิ้งมีสิ่งสกปรกอุดตันใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2f",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n2f",
+          "type": "instruction",
+          "content": "แก้ท่อน้ำทิ้งอุดตัน: เติมน้ำลงในถังซักครึ่งถัง > วางท่อระบายไปกับพื้น > บิดปุ่ม 'โปรแกรมซัก/น้ำทิ้ง' ไปมาระหว่าง 'ซัก/ล้างน้ำ' และ 'ปล่อยน้ำทิ้ง' สลับไปมาหลายครั้ง (แรงดันน้ำจะช่วยกำจัดเศษสิ่งอุดตันออกมา) (คู่มือหน้า 7)",
+          "safety_critical": true,
+          "safety_warning": "เพื่อหลีกเลี่ยงน้ำล้นออกจากเครื่องซึ่งทำให้เครื่องเสียหายได้ ควรจ่ายน้ำในระดับที่เหมาะสม ไม่แรงจนเกินไป ลดแรงดันน้ำลงถ้าแรงดันมากเกินไป และไม่ควรทำให้น้ำกระเด็นโดนฝาถังซักหรือแผงควบคุมด้านบน (คู่มือหน้า 1)",
+          "author_note": "ขั้นตอนทั้งสามมาจากหน้า 7 ตามตัวอักษร วิธีเติมน้ำลงถังซักดูหน้า 4 (ข้อ 4 และ 6) ซึ่งคู่มือหน้า 7 ไม่ได้อธิบาย คำเตือนเรื่องน้ำล้นมาจากหน้า 1",
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "น้ำไม่ไหลออกจากท่อน้ำทิ้งตลอดเวลาแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์ลูกค้าสัมพันธ์ Samsung ประเทศไทย โทร 1800-29-3232 (โทรฟรี-ใช้เบอร์บ้าน) หรือ 02-689-3232 (คู่มือหน้า 7) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    }
+  ]
+}

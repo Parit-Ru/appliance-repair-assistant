@@ -1,0 +1,523 @@
+{
+  "schema_version": 2,
+  "manual_id": "samsung_me73md_um_de68_04091q",
+  "device_category": "Microwave Oven",
+  "brand": "Samsung",
+  "model_pattern": "ME73MD",
+  "source_manual": "Samsung Microwave Oven User Manual ME73MD (ME73MD_XST-DE68-04091Q-01_TH_EN)",
+  "count": 6,
+  "graphs": [
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_me73md_um_normal_conditions",
+      "device_category": "Microwave Oven",
+      "brand": "Samsung",
+      "model_pattern": "ME73MD",
+      "entry_symptom": "Condensation inside the oven. Air flow around the door and outer casing. Light reflection around the door and outer casing. Steam escaping from around the door or vents.",
+      "entry_symptom_th": "มีไอน้ำควบแน่นในเตา ลมออกรอบประตูและตัวเตา แสงสะท้อนรอบประตู หรือไอน้ำออกตามประตูหรือช่องระบายอากาศ",
+      "entry_symptom_aliases": [
+        "ไมโครเวฟมีไอน้ำ",
+        "ไมโครเวฟมีน้ำเกาะ",
+        "มีลมออกรอบประตูไมโครเวฟ",
+        "แสงลอดรอบประตูไมโครเวฟ",
+        "microwave condensation steam"
+      ],
+      "source": "Samsung Microwave Oven User Manual ME73MD (ME73MD_XST-DE68-04091Q-01_TH_EN)",
+      "page_range": [
+        20,
+        20
+      ],
+      "source_chunk_id": "manual_Samsung_Microwave_ME73MD_p20_normal_conditions",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "พบอาการอย่างใดอย่างหนึ่ง: ไอน้ำควบแน่นภายในเตา ลมไหลรอบประตูและตัวเตา แสงสะท้อนรอบประตูและตัวเตา หรือไอน้ำออกจากรอบประตูหรือช่องระบายอากาศ ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n1n",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n1n",
+          "type": "resolution",
+          "content": "เป็นเรื่องปกติ ไม่ใช่ความผิดปกติของเตา (คู่มือหน้า 20) ระวังไอร้อนเมื่อเปิดประตู โดยยืนห่างช่วงแขน (คู่มือหน้า 5)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ติดต่อตัวแทนจำหน่ายหรือบริการหลังการขายของ Samsung (คู่มือหน้า 20) โดยติดต่อ Samsung Customer Care ประเทศไทย โทร 0-2689-3232 หรือ 1800-29-3232 (โทรฟรี) หรือเว็บไซต์ www.samsung.com/th/support (คู่มือหน้า 24) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_me73md_um_not_start",
+      "device_category": "Microwave Oven",
+      "brand": "Samsung",
+      "model_pattern": "ME73MD",
+      "entry_symptom": "The oven does not start when you press the Start button.",
+      "entry_symptom_th": "กดปุ่ม Start แล้วเตาไม่เริ่มทำงาน",
+      "entry_symptom_aliases": [
+        "ไมโครเวฟไม่เริ่มทำงาน",
+        "กด start แล้วไม่ทำงาน",
+        "ไมโครเวฟกดเริ่มไม่ติด",
+        "microwave does not start"
+      ],
+      "source": "Samsung Microwave Oven User Manual ME73MD (ME73MD_XST-DE68-04091Q-01_TH_EN)",
+      "page_range": [
+        20,
+        20
+      ],
+      "source_chunk_id": "manual_Samsung_Microwave_ME73MD_p20_not_start",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "ประตูเตาปิดสนิทแล้วใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_escalate",
+          "on_no": "n1f"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "ปิดประตูให้สนิทแล้วกดปุ่ม Start อีกครั้ง (คู่มือหน้า 20) ต้องไม่มีสิ่งของหรือเศษอาหารขวางที่ประตูและซีลประตู (คู่มือหน้า 5)",
+          "safety_critical": true,
+          "safety_warning": "ห้ามใช้เตาถ้าประตูหรือซีลประตูชำรุด ต้องให้ผู้มีคุณสมบัติซ่อมก่อน (คู่มือหน้า 2 และ 5) ห้ามเปิดเตาขณะประตูเปิด ห้ามแก้ไขกลไกนิรภัยของประตูหรือสอดสิ่งใดเข้าไปในรูกลไกนิรภัย (คู่มือหน้า 5) ห้ามสอดนิ้วหรือสิ่งแปลกปลอมเข้าไปในเตา ถ้าสิ่งแปลกปลอมเข้าไปในเตาให้ถอดปลั๊กและติดต่อศูนย์บริการ (คู่มือหน้า 4)",
+          "author_note": "หน้า 20 ระบุเพียงคำถามว่าประตูปิดสนิทหรือไม่ ไม่ระบุวิธีแก้ ผู้พัฒนาเขียนวิธีแก้จากหลักเดียวกับข้อปิดประตูและซีลประตูของหน้า 5",
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "เตาเริ่มทำงานตามปกติแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ติดต่อตัวแทนจำหน่ายหรือบริการหลังการขายของ Samsung (คู่มือหน้า 20) โดยติดต่อ Samsung Customer Care ประเทศไทย โทร 0-2689-3232 หรือ 1800-29-3232 (โทรฟรี) หรือเว็บไซต์ www.samsung.com/th/support (คู่มือหน้า 24) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_me73md_um_not_cooked_at_all",
+      "device_category": "Microwave Oven",
+      "brand": "Samsung",
+      "model_pattern": "ME73MD",
+      "entry_symptom": "The food is not cooked at all.",
+      "entry_symptom_th": "อาหารไม่สุกเลย",
+      "entry_symptom_aliases": [
+        "ไมโครเวฟอาหารไม่สุก",
+        "อาหารไม่ร้อนเลย",
+        "ไมโครเวฟไม่ทำให้อาหารร้อน",
+        "food not cooked at all"
+      ],
+      "source": "Samsung Microwave Oven User Manual ME73MD (ME73MD_XST-DE68-04091Q-01_TH_EN)",
+      "page_range": [
+        20,
+        20
+      ],
+      "source_chunk_id": "manual_Samsung_Microwave_ME73MD_p20_not_cooked_at_all",
+      "severity": "medium",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "ตั้งเวลาถูกต้องและกดปุ่ม Start แล้วใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2",
+          "on_no": "n1f"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "ตั้งเวลาให้ถูกต้องและกดปุ่ม Start: กดปุ่ม Power Level เลือกระดับกำลังไฟ ตั้งเวลาปรุงด้วยปุ่ม 10 min, 1 min และ 10 s แล้วกดปุ่ม Start (คู่มือหน้า 10 และ 20)",
+          "safety_critical": true,
+          "safety_warning": "ห้ามเปิดเตาขณะไม่มีอาหาร (คู่มือหน้า 10) ใช้เวลาสั้นลงสำหรับอาหารปริมาณน้อยเพื่อป้องกันความร้อนเกินหรืออาหารไหม้ (คู่มือหน้า 5)",
+          "author_note": "หน้า 20 ระบุเพียงคำถาม ขั้นตอนกดปุ่มมาจากหน้า 10 ซึ่งอธิบายโหมดไมโครเวฟ ฟังก์ชันอัตโนมัติ (Quick meal, Rice, Soup, Auto power defrost) ตั้งค่าต่างกัน ดูหน้า 12–18",
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "ประตูเตาปิดสนิทแล้วใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n3",
+          "on_no": "n2f"
+        },
+        {
+          "node_id": "n2f",
+          "type": "instruction",
+          "content": "ปิดประตูให้สนิทแล้วเริ่มปรุงอีกครั้ง (คู่มือหน้า 20)",
+          "safety_critical": true,
+          "safety_warning": "ห้ามใช้เตาถ้าประตูหรือซีลประตูชำรุด ต้องให้ผู้มีคุณสมบัติซ่อมก่อน (คู่มือหน้า 2 และ 5) ห้ามเปิดเตาขณะประตูเปิด ห้ามแก้ไขกลไกนิรภัยของประตูหรือสอดสิ่งใดเข้าไปในรูกลไกนิรภัย (คู่มือหน้า 5) ห้ามสอดนิ้วหรือสิ่งแปลกปลอมเข้าไปในเตา ถ้าสิ่งแปลกปลอมเข้าไปในเตาให้ถอดปลั๊กและติดต่อศูนย์บริการ (คู่มือหน้า 4)",
+          "author_note": "หน้า 20 เป็นรายการตรวจแบบถามตอบ ไม่ได้อธิบายวิธีแก้โดยละเอียด ขั้นตอนที่เกินจากข้อความตรวจผู้พัฒนาเขียนเพิ่มจากหน้าที่อ้างอิง",
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "node_id": "n3",
+          "type": "checkpoint",
+          "question": "ใช้ไฟฟ้าเกินกำลังของวงจรทำให้ฟิวส์ขาดหรือเบรกเกอร์ตัดไฟ ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n3e",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n3e",
+          "type": "escalation",
+          "content": "คู่มือหน้า 20 ให้ตรวจว่าวงจรไฟฟ้าโหลดเกินจนฟิวส์ขาดหรือเบรกเกอร์ตัดหรือไม่ แต่ไม่ได้ระบุวิธีแก้ที่ผู้ใช้ทำเองได้ ห้ามซ่อมเตาเอง (คู่มือหน้า 8) ห้ามใช้ปลั๊กแปลงหลายทางหรือสายต่อพ่วง (คู่มือหน้า 4) ให้ติดต่อ Samsung Customer Care ประเทศไทย โทร 0-2689-3232 หรือ 1800-29-3232 (โทรฟรี) หรือเว็บไซต์ www.samsung.com/th/support (คู่มือหน้า 24)",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "อาหารสุกตามปกติแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ติดต่อตัวแทนจำหน่ายหรือบริการหลังการขายของ Samsung (คู่มือหน้า 20) โดยติดต่อ Samsung Customer Care ประเทศไทย โทร 0-2689-3232 หรือ 1800-29-3232 (โทรฟรี) หรือเว็บไซต์ www.samsung.com/th/support (คู่มือหน้า 24) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_me73md_um_over_under_cooked",
+      "device_category": "Microwave Oven",
+      "brand": "Samsung",
+      "model_pattern": "ME73MD",
+      "entry_symptom": "The food is either overcooked or undercooked.",
+      "entry_symptom_th": "อาหารสุกเกินไปหรือสุกไม่พอ",
+      "entry_symptom_aliases": [
+        "ไมโครเวฟอาหารไหม้",
+        "อาหารสุกไม่ทั่ว",
+        "อาหารไม่สุกพอ",
+        "food overcooked undercooked"
+      ],
+      "source": "Samsung Microwave Oven User Manual ME73MD (ME73MD_XST-DE68-04091Q-01_TH_EN)",
+      "page_range": [
+        20,
+        20
+      ],
+      "source_chunk_id": "manual_Samsung_Microwave_ME73MD_p20_over_under_cooked",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "ตั้งเวลาปรุงเหมาะสมกับชนิดอาหารแล้วใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2",
+          "on_no": "n1f"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "ตั้งเวลาปรุงให้เหมาะสมกับชนิดอาหาร: ใช้เวลาตามคำแนะนำของโปรแกรมหรือสูตรในคู่มือ เพิ่มเวลาปรุงได้โดยกดปุ่ม +30s หนึ่งครั้งต่อทุก 30 วินาทีที่ต้องการเพิ่ม แล้วกดปุ่ม Start (คู่มือหน้า 11) ใช้เวลาสั้นลงสำหรับอาหารปริมาณน้อย (คู่มือหน้า 5)",
+          "safety_critical": true,
+          "safety_warning": "ตัวเตา ภาชนะ และอาหารอาจร้อนจัด ใช้ถุงมือกันความร้อนเมื่อนำภาชนะออก และยืนห่างช่วงแขนเมื่อเปิดประตูเพื่อป้องกันไอร้อนหรือไอน้ำลวก ของเหลวที่อุ่นให้ตั้งทิ้งไว้อย่างน้อย 20 วินาทีก่อนหยิบ (คู่มือหน้า 5) ห้ามเปิดเตาขณะไม่มีอาหาร (คู่มือหน้า 10) ใช้เวลาสั้นลงสำหรับอาหารปริมาณน้อยเพื่อป้องกันความร้อนเกินหรืออาหารไหม้ (คู่มือหน้า 5)",
+          "author_note": "หน้า 20 ระบุเพียงคำถาม ผู้พัฒนาเขียนวิธีปรับเวลาจากหน้า 11 และ 5 คู่มือเล่มนี้ไม่มีตารางเวลาปรุงทั่วไป มีเฉพาะโปรแกรมอัตโนมัติ (หน้า 12–18)",
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "เลือกระดับกำลังไฟเหมาะสมแล้วใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_escalate",
+          "on_no": "n2f"
+        },
+        {
+          "node_id": "n2f",
+          "type": "instruction",
+          "content": "เลือกระดับกำลังไฟให้เหมาะสม: ถ้าเลือกกำลังไฟสูงขึ้นต้องลดเวลาปรุง ถ้าเลือกกำลังไฟต่ำลงต้องเพิ่มเวลาปรุง (คู่มือหน้า 10) เปลี่ยนระดับกำลังไฟโดยกดปุ่ม Power Level ซ้ำจนแสดงค่ากำลังไฟที่ต้องการ (คู่มือหน้า 10)",
+          "safety_critical": true,
+          "safety_warning": "ตัวเตา ภาชนะ และอาหารอาจร้อนจัด ใช้ถุงมือกันความร้อนเมื่อนำภาชนะออก และยืนห่างช่วงแขนเมื่อเปิดประตูเพื่อป้องกันไอร้อนหรือไอน้ำลวก ของเหลวที่อุ่นให้ตั้งทิ้งไว้อย่างน้อย 20 วินาทีก่อนหยิบ (คู่มือหน้า 5)",
+          "author_note": "หน้า 20 ระบุเพียงคำถาม ผู้พัฒนาเขียนวิธีจากหน้า 10",
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "อาหารสุกตามต้องการแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ติดต่อตัวแทนจำหน่ายหรือบริการหลังการขายของ Samsung (คู่มือหน้า 20) โดยติดต่อ Samsung Customer Care ประเทศไทย โทร 0-2689-3232 หรือ 1800-29-3232 (โทรฟรี) หรือเว็บไซต์ www.samsung.com/th/support (คู่มือหน้า 24) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_me73md_um_arcing",
+      "device_category": "Microwave Oven",
+      "brand": "Samsung",
+      "model_pattern": "ME73MD",
+      "entry_symptom": "Sparking and cracking occur inside the oven (arcing).",
+      "entry_symptom_th": "มีประกายไฟและเสียงแตกเปรี๊ยะภายในเตา (arcing)",
+      "entry_symptom_aliases": [
+        "ไมโครเวฟมีประกายไฟ",
+        "ไมโครเวฟเป็นไฟ",
+        "ไมโครเวฟมีสะเก็ดไฟ",
+        "microwave sparks",
+        "microwave arcing"
+      ],
+      "source": "Samsung Microwave Oven User Manual ME73MD (ME73MD_XST-DE68-04091Q-01_TH_EN)",
+      "page_range": [
+        20,
+        20
+      ],
+      "source_chunk_id": "manual_Samsung_Microwave_ME73MD_p20_arcing",
+      "severity": "medium",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "ใช้จานชามที่มีขอบโลหะ เช่น ขอบทองหรือเงิน หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n1f",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "เปิดประตูเพื่อหยุดชั่วคราว หรือกดปุ่ม Stop เพื่อหยุดทั้งหมด และกดปุ่ม Stop อีกครั้งเพื่อยกเลิกการตั้งค่า (คู่มือหน้า 11) แล้วนำภาชนะนั้นออก และเปลี่ยนเป็นภาชนะที่ใช้กับไมโครเวฟได้ ห้ามใช้จานชามขอบทองหรือเงิน (คู่มือหน้า 5 และ 20)",
+          "safety_critical": true,
+          "safety_warning": "ถ้ามีควันออกมา ให้ปิดเครื่องหรือถอดปลั๊กและปิดประตูเตาไว้เพื่อสกัดเปลวไฟ (คู่มือหน้า 3) ถ้าเตามีเสียงผิดปกติ กลิ่นไหม้ หรือควัน ให้ถอดปลั๊กทันทีและติดต่อศูนย์บริการที่ใกล้ที่สุด (คู่มือหน้า 4) ขณะเตากำลังทำงาน ไม่ควรปิดเตาด้วยการถอดปลั๊ก (คู่มือหน้า 4) ใช้เฉพาะภาชนะที่ใช้กับไมโครเวฟได้ ห้ามใช้ภาชนะโลหะ จานชามที่ขอบเป็นทองหรือเงิน ไม้เสียบ และต้องถอดลวดมัดถุงออก เพราะอาจเกิดประกายไฟ (คู่มือหน้า 5) ดูตารางภาชนะที่ใช้ได้หรือไม่ได้ในหน้า 19 ตัวเตา ภาชนะ และอาหารอาจร้อนจัด ใช้ถุงมือกันความร้อนเมื่อนำภาชนะออก และยืนห่างช่วงแขนเมื่อเปิดประตูเพื่อป้องกันไอร้อนหรือไอน้ำลวก ของเหลวที่อุ่นให้ตั้งทิ้งไว้อย่างน้อย 20 วินาทีก่อนหยิบ (คู่มือหน้า 5)",
+          "author_note": "หน้า 20 ระบุเพียงคำถาม วิธีแก้มาจากข้อห้ามของหน้า 5 ขั้นตอนหยุดเตามาจากหน้า 11",
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "ลืมส้อมหรือภาชนะโลหะอื่นไว้ในเตาหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2f",
+          "on_no": "n3"
+        },
+        {
+          "node_id": "n2f",
+          "type": "instruction",
+          "content": "เปิดประตูเพื่อหยุดชั่วคราว หรือกดปุ่ม Stop เพื่อหยุดทั้งหมด และกดปุ่ม Stop อีกครั้งเพื่อยกเลิกการตั้งค่า (คู่มือหน้า 11) แล้วนำส้อมหรือภาชนะโลหะออกจากเตา ห้ามใช้ภาชนะโลหะระหว่างปรุงด้วยไมโครเวฟ (คู่มือหน้า 3 และ 20)",
+          "safety_critical": true,
+          "safety_warning": "ถ้ามีควันออกมา ให้ปิดเครื่องหรือถอดปลั๊กและปิดประตูเตาไว้เพื่อสกัดเปลวไฟ (คู่มือหน้า 3) ถ้าเตามีเสียงผิดปกติ กลิ่นไหม้ หรือควัน ให้ถอดปลั๊กทันทีและติดต่อศูนย์บริการที่ใกล้ที่สุด (คู่มือหน้า 4) ขณะเตากำลังทำงาน ไม่ควรปิดเตาด้วยการถอดปลั๊ก (คู่มือหน้า 4) ใช้เฉพาะภาชนะที่ใช้กับไมโครเวฟได้ ห้ามใช้ภาชนะโลหะ จานชามที่ขอบเป็นทองหรือเงิน ไม้เสียบ และต้องถอดลวดมัดถุงออก เพราะอาจเกิดประกายไฟ (คู่มือหน้า 5) ดูตารางภาชนะที่ใช้ได้หรือไม่ได้ในหน้า 19 ตัวเตา ภาชนะ และอาหารอาจร้อนจัด ใช้ถุงมือกันความร้อนเมื่อนำภาชนะออก และยืนห่างช่วงแขนเมื่อเปิดประตูเพื่อป้องกันไอร้อนหรือไอน้ำลวก ของเหลวที่อุ่นให้ตั้งทิ้งไว้อย่างน้อย 20 วินาทีก่อนหยิบ (คู่มือหน้า 5)",
+          "author_note": "หน้า 20 ระบุเพียงคำถาม วิธีแก้มาจากข้อห้ามของหน้า 3 และ 5",
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "node_id": "n3",
+          "type": "checkpoint",
+          "question": "ฟอยล์อะลูมิเนียมอยู่ใกล้ผนังด้านในเตามากเกินไปหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n3f",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n3f",
+          "type": "instruction",
+          "content": "เปิดประตูเพื่อหยุดชั่วคราว หรือกดปุ่ม Stop เพื่อหยุดทั้งหมด และกดปุ่ม Stop อีกครั้งเพื่อยกเลิกการตั้งค่า (คู่มือหน้า 11) แล้วนำฟอยล์ออกหรือจัดให้อยู่ห่างจากผนังเตา คู่มือระบุว่าใช้ฟอยล์ได้ในปริมาณน้อยเพื่อป้องกันอาหารสุกเกิน และอาจเกิดประกายไฟถ้าฟอยล์อยู่ใกล้ผนังเตาหรือใช้ฟอยล์มากเกินไป (คู่มือหน้า 19 และ 20)",
+          "safety_critical": true,
+          "safety_warning": "ถ้ามีควันออกมา ให้ปิดเครื่องหรือถอดปลั๊กและปิดประตูเตาไว้เพื่อสกัดเปลวไฟ (คู่มือหน้า 3) ถ้าเตามีเสียงผิดปกติ กลิ่นไหม้ หรือควัน ให้ถอดปลั๊กทันทีและติดต่อศูนย์บริการที่ใกล้ที่สุด (คู่มือหน้า 4) ขณะเตากำลังทำงาน ไม่ควรปิดเตาด้วยการถอดปลั๊ก (คู่มือหน้า 4) ใช้เฉพาะภาชนะที่ใช้กับไมโครเวฟได้ ห้ามใช้ภาชนะโลหะ จานชามที่ขอบเป็นทองหรือเงิน ไม้เสียบ และต้องถอดลวดมัดถุงออก เพราะอาจเกิดประกายไฟ (คู่มือหน้า 5) ดูตารางภาชนะที่ใช้ได้หรือไม่ได้ในหน้า 19 ตัวเตา ภาชนะ และอาหารอาจร้อนจัด ใช้ถุงมือกันความร้อนเมื่อนำภาชนะออก และยืนห่างช่วงแขนเมื่อเปิดประตูเพื่อป้องกันไอร้อนหรือไอน้ำลวก ของเหลวที่อุ่นให้ตั้งทิ้งไว้อย่างน้อย 20 วินาทีก่อนหยิบ (คู่มือหน้า 5)",
+          "author_note": "หน้า 20 ระบุเพียงคำถาม วิธีแก้มาจากแถวฟอยล์อะลูมิเนียมในตารางภาชนะหน้า 19 ซึ่งไม่ระบุระยะห่างที่ปลอดภัย ผู้พัฒนาไม่ระบุตัวเลข",
+          "next": "n3v"
+        },
+        {
+          "node_id": "n3v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "ไม่มีประกายไฟภายในเตาแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ถ้าเตามีเสียงผิดปกติ กลิ่นไหม้ ควัน ประกายไฟ หรือรู้สึกว่ามีไฟฟ้าออกมาจากเตา ให้ถอดปลั๊กและหยุดใช้เตา (คู่มือหน้า 4) แล้วติดต่อ Samsung Customer Care ประเทศไทย โทร 0-2689-3232 หรือ 1800-29-3232 (โทรฟรี) หรือเว็บไซต์ www.samsung.com/th/support (คู่มือหน้า 24) พร้อมแจ้งรุ่นเครื่องและอาการ ห้ามซ่อมเตาเอง (คู่มือหน้า 8)",
+          "outcome_kind": "handoff_informed"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_me73md_um_radio_tv_interference",
+      "device_category": "Microwave Oven",
+      "brand": "Samsung",
+      "model_pattern": "ME73MD",
+      "entry_symptom": "The oven causes interference with radios or televisions.",
+      "entry_symptom_th": "เตาทำให้เกิดสัญญาณรบกวนโทรทัศน์หรือวิทยุ",
+      "entry_symptom_aliases": [
+        "ไมโครเวฟรบกวนทีวี",
+        "ไมโครเวฟรบกวนวิทยุ",
+        "ภาพทีวีสั่นตอนใช้ไมโครเวฟ",
+        "microwave interference tv radio"
+      ],
+      "source": "Samsung Microwave Oven User Manual ME73MD (ME73MD_XST-DE68-04091Q-01_TH_EN)",
+      "page_range": [
+        20,
+        20
+      ],
+      "source_chunk_id": "manual_Samsung_Microwave_ME73MD_p20_radio_tv_interference",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "เห็นสัญญาณรบกวนเล็กน้อยบนโทรทัศน์หรือวิทยุขณะเตาทำงานใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n1f",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "เป็นเรื่องปกติ หากต้องการแก้ปัญหา ให้ย้ายเตาไปติดตั้งให้ห่างจากโทรทัศน์ วิทยุ และเสาอากาศ (คู่มือหน้า 20)",
+          "safety_critical": true,
+          "safety_warning": "ห้ามวางเตาเหนือของเปราะบาง ห้ามวางเตาใกล้เครื่องทำความร้อนหรือบนพื้นผิวที่ไม่เรียบ และห้ามวางเตาในตู้ เตาออกแบบให้วางบนเคาน์เตอร์เท่านั้น (คู่มือหน้า 3 และ 4) ระวังอย่าให้สายไฟถูกหนีบหรือเสียหาย (คู่มือหน้า 4)",
+          "author_note": "หน้า 20 ระบุว่าเป็นเรื่องปกติ ข้อความเตือนการย้ายเตามาจากหน้า 3 และ 4",
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "จอแสดงผลของเตารีเซ็ตเองหรือเวลาหายไปใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2f",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n2f",
+          "type": "instruction",
+          "content": "ถอดปลั๊กไฟของเตาแล้วเสียบกลับ จากนั้นตั้งเวลาใหม่ (คู่มือหน้า 20) วิธีตั้งเวลา: กดปุ่ม Clock ตั้งชั่วโมงด้วยปุ่ม h และนาทีด้วยปุ่ม min แล้วกดปุ่ม Clock อีกครั้งเพื่อเริ่มนาฬิกา (คู่มือหน้า 9) ให้ทำขณะเตาไม่ได้ทำงาน เพราะไม่ควรปิดเตาด้วยการถอดปลั๊กขณะเตากำลังทำงาน (คู่มือหน้า 4)",
+          "safety_critical": true,
+          "safety_warning": "เสียบปลั๊กให้แน่นเข้ากับเต้ารับ ห้ามใช้ปลั๊กแปลงหลายทาง สายต่อพ่วง หรือหม้อแปลงไฟ ห้ามใช้ปลั๊ก สายไฟ หรือเต้ารับที่ชำรุดหรือหลวม ห้ามจับสายไฟด้วยมือเปียก ห้ามดึง งอมากเกินไป หรือวางของหนักทับสายไฟ ถ้าสายไฟชำรุด ต้องให้ผู้ผลิต ตัวแทนบริการ หรือผู้มีคุณสมบัติเทียบเท่าเป็นผู้เปลี่ยน (คู่มือหน้า 4) ถ้ามีควันออกมา ให้ปิดเครื่องหรือถอดปลั๊กและปิดประตูเตาไว้เพื่อสกัดเปลวไฟ (คู่มือหน้า 3) ถ้าเตามีเสียงผิดปกติ กลิ่นไหม้ หรือควัน ให้ถอดปลั๊กทันทีและติดต่อศูนย์บริการที่ใกล้ที่สุด (คู่มือหน้า 4) ขณะเตากำลังทำงาน ไม่ควรปิดเตาด้วยการถอดปลั๊ก (คู่มือหน้า 4)",
+          "author_note": "หน้า 20 ระบุให้ถอดปลั๊กแล้วเสียบใหม่และตั้งเวลาใหม่ ผู้พัฒนาเพิ่มข้อควรระวังจากหน้า 4 เรื่องไม่ถอดปลั๊กขณะเตาทำงาน และวิธีตั้งเวลาจากหน้า 9",
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "เตาและจอแสดงผลทำงานตามปกติแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ติดต่อตัวแทนจำหน่ายหรือบริการหลังการขายของ Samsung (คู่มือหน้า 20) โดยติดต่อ Samsung Customer Care ประเทศไทย โทร 0-2689-3232 หรือ 1800-29-3232 (โทรฟรี) หรือเว็บไซต์ www.samsung.com/th/support (คู่มือหน้า 24) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    }
+  ]
+}

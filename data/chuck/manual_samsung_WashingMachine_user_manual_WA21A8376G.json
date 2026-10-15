@@ -1,0 +1,563 @@
+[
+  {
+    "chunk_id": "manual_Samsung_WashingMachine_WA21A_p38_does_not_turn_on",
+    "device_category": "Washing Machine",
+    "brand": "Samsung",
+    "model": "WA21A8376G*/WA19A8376G*",
+    "source": "Samsung Washing Machine User Manual WA21A8376G*/WA19A8376G* (DC68-04154A-01_IB_A2_WA8800A_EN_TH_MY_231005)",
+    "page": 38,
+    "content": "Does not turn on. Power supply not matching the product's rating; power cord not completely plugged in; fuse blown or circuit breaker tripped. 1. Make sure you use rated power for the product. 2. Make sure the power cord is completely plugged in. 3. Check the fuse or reset the circuit breaker.",
+    "metadata": {
+      "symptom": "Does not turn on.",
+      "possible_cause": "Power supply not matching the product's rating; power cord not completely plugged in; fuse blown or circuit breaker tripped.",
+      "solution": "1. Make sure you use rated power for the product.\n2. Make sure the power cord is completely plugged in.\n3. Check the fuse or reset the circuit breaker.",
+      "severity": "medium",
+      "difficulty": "easy",
+      "safety_warning": "ไฟฟ้าที่จ่ายให้เครื่องต้องตรงกับพิกัดของเครื่อง (AC 220–240 V/50 Hz) และห้ามใช้หม้อแปลงไฟ เพราะอาจเกิดไฟฟ้าช็อกหรือไฟไหม้ (คู่มือหน้า 6 และ 45) | ห้ามใช้ปลั๊ก สายไฟ หรือเต้ารับที่ชำรุดหรือหลวม และห้ามแตะปลั๊กด้วยมือเปียก เพราะอาจเกิดไฟฟ้าช็อกหรือไฟไหม้ ใช้เต้ารับสำหรับเครื่องนี้เท่านั้น ไม่ใช้ปลั๊กพ่วงหรือรางปลั๊ก (คู่มือหน้า 5, 6 และ 7) | ห้ามใช้ฟิวส์ที่ไม่ใช่ฟิวส์มาตรฐาน (เช่น ลวดทองแดงหรือลวดเหล็ก) และห้ามซ่อมหรือดัดแปลงเครื่องเอง ถ้าเบรกเกอร์ตัดซ้ำหลังรีเซ็ต ให้หยุดใช้งานและติดต่อศูนย์บริการ (คู่มือหน้า 7)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_WashingMachine_WA21A_p38_does_not_start",
+    "device_category": "Washing Machine",
+    "brand": "Samsung",
+    "model": "WA21A8376G*/WA19A8376G*",
+    "source": "Samsung Washing Machine User Manual WA21A8376G*/WA19A8376G* (DC68-04154A-01_IB_A2_WA8800A_EN_TH_MY_231005)",
+    "page": 38,
+    "content": "Does not start. Door not closed; water taps closed; Hold to Start not pressed; Child Lock activated; door opened during the spinning cycle; fuse blown or circuit breaker tripped. Clicking noises before filling and a Standby or soaking cycle are normal. 1. Make sure the door is closed. 2. Make sure the water taps are open. 3. Make sure to press or tap Hold to Start to start the washing machine. 4. Make sure Child Lock is not activated. 5. Before the washing machine starts to fill, it will make a series of clicking noises to check the door lock and does a quick drain. 6. Was the door opened during the spinning cycle? Close the door, and press or tap Hold to Start to resume. 7. The machine enters Standby or is in a soaking cycle. Please wait. 8. Check the fuse or reset the circuit breaker.",
+    "metadata": {
+      "symptom": "Does not start.",
+      "possible_cause": "Door not closed; water taps closed; Hold to Start not pressed; Child Lock activated; door opened during the spinning cycle; fuse blown or circuit breaker tripped. Clicking noises before filling and a Standby or soaking cycle are normal.",
+      "solution": "1. Make sure the door is closed.\n2. Make sure the water taps are open.\n3. Make sure to press or tap Hold to Start to start the washing machine.\n4. Make sure Child Lock is not activated.\n5. Before the washing machine starts to fill, it will make a series of clicking noises to check the door lock and does a quick drain.\n6. Was the door opened during the spinning cycle? Close the door, and press or tap Hold to Start to resume.\n7. The machine enters Standby or is in a soaking cycle. Please wait.\n8. Check the fuse or reset the circuit breaker.",
+      "severity": "medium",
+      "difficulty": "easy",
+      "safety_warning": "ห้ามยื่นมือเข้าไปในถังขณะถังกำลังหมุนปั่นแห้ง ถ้าถังไม่หยุดหมุนภายใน 15 วินาทีหลังเปิดฝา ให้ติดต่อศูนย์บริการ Samsung และห้ามฝืนเปิดฝาด้วยแรง (คู่มือหน้า 7 และ 29) | ห้ามใช้ฟิวส์ที่ไม่ใช่ฟิวส์มาตรฐาน (เช่น ลวดทองแดงหรือลวดเหล็ก) และห้ามซ่อมหรือดัดแปลงเครื่องเอง ถ้าเบรกเกอร์ตัดซ้ำหลังรีเซ็ต ให้หยุดใช้งานและติดต่อศูนย์บริการ (คู่มือหน้า 7)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_WashingMachine_WA21A_p38_water_not_supplied",
+    "device_category": "Washing Machine",
+    "brand": "Samsung",
+    "model": "WA21A8376G*/WA19A8376G*",
+    "source": "Samsung Washing Machine User Manual WA21A8376G*/WA19A8376G* (DC68-04154A-01_IB_A2_WA8800A_EN_TH_MY_231005)",
+    "page": 38,
+    "content": "Water is not supplied. Hold to Start not pressed after selecting the water supply; water taps closed; filter net at the water supply hose connector clogged; water supply cut off; water supply hoses kinked; low water pressure. 1. Make sure you press or tap Hold to Start after selecting the water supply. 2. Make sure the water taps are open. 3. Is the filter net at the water supply hose connector clogged? Clean the filter net by brushing with a toothbrush. 4. Is the water supply cut off? If the water supply is cut off, close the tap and power off. 5. Straighten the water supply hoses. 6. Open and close the door, then press or tap Hold to Start. 7. If the water pressure is low, it takes longer to start washing. 8. If the water level is not as high as necessary or lower than expected, use the level selector to adjust the water level.",
+    "metadata": {
+      "symptom": "Water is not supplied.",
+      "possible_cause": "Hold to Start not pressed after selecting the water supply; water taps closed; filter net at the water supply hose connector clogged; water supply cut off; water supply hoses kinked; low water pressure.",
+      "solution": "1. Make sure you press or tap Hold to Start after selecting the water supply.\n2. Make sure the water taps are open.\n3. Is the filter net at the water supply hose connector clogged? Clean the filter net by brushing with a toothbrush.\n4. Is the water supply cut off? If the water supply is cut off, close the tap and power off.\n5. Straighten the water supply hoses.\n6. Open and close the door, then press or tap Hold to Start.\n7. If the water pressure is low, it takes longer to start washing.\n8. If the water level is not as high as necessary or lower than expected, use the level selector to adjust the water level.",
+      "severity": "medium",
+      "difficulty": "easy",
+      "safety_warning": "ถอดปลั๊กก่อนทำความสะอาดหรือบำรุงรักษา และปิดก๊อกน้ำก่อนถอดสายน้ำเข้า (คู่มือหน้า 8 และ 10)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_WashingMachine_WA21A_p38_detergent_remains_in_dispenser",
+    "device_category": "Washing Machine",
+    "brand": "Samsung",
+    "model": "WA21A8376G*/WA19A8376G*",
+    "source": "Samsung Washing Machine User Manual WA21A8376G*/WA19A8376G* (DC68-04154A-01_IB_A2_WA8800A_EN_TH_MY_231005)",
+    "page": 38,
+    "content": "After a cycle, detergent remains in the automatic dispenser. Insufficient water pressure; detergent drawer not properly inserted; detergent drawer dirty. 1. Make sure the washing machine is running with sufficient water pressure. 2. Make sure the detergent drawer is properly inserted. 3. Remove and clean the detergent drawer, and then try again.",
+    "metadata": {
+      "symptom": "After a cycle, detergent remains in the automatic dispenser.",
+      "possible_cause": "Insufficient water pressure; detergent drawer not properly inserted; detergent drawer dirty.",
+      "solution": "1. Make sure the washing machine is running with sufficient water pressure.\n2. Make sure the detergent drawer is properly inserted.\n3. Remove and clean the detergent drawer, and then try again.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": "ถอดปลั๊กก่อนทำความสะอาดหรือบำรุงรักษา และห้ามฉีดน้ำใส่เครื่องโดยตรง เพราะอาจเกิดไฟฟ้าช็อกหรือไฟไหม้ (คู่มือหน้า 8)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_WashingMachine_WA21A_p39_vibrates_makes_noise",
+    "device_category": "Washing Machine",
+    "brand": "Samsung",
+    "model": "WA21A8376G*/WA19A8376G*",
+    "source": "Samsung Washing Machine User Manual WA21A8376G*/WA19A8376G* (DC68-04154A-01_IB_A2_WA8800A_EN_TH_MY_231005)",
+    "page": 39,
+    "content": "Vibrates excessively or makes noise. Floor not level; washing machine contacting another object; unbalanced laundry; objects around the machine; coins or other objects in the machine. Humming during operation is normal. 1. Make sure the washing machine is set on a level floor. If the floor is not level, use the levelling feet to adjust the washing machine. 2. Make sure the washing machine is not contacting any other object. 3. Make sure the laundry load is balanced. 4. Make sure the laundry is spread evenly in the washing machine. Spread out the laundry evenly and start again. 5. Make sure the space around the washing machine is free of objects. 6. Humming is produced normally during operation. 7. Objects such as coins can cause noise. Remove these objects from the washing machine after washing is complete.",
+    "metadata": {
+      "symptom": "Vibrates excessively or makes noise.",
+      "possible_cause": "Floor not level; washing machine contacting another object; unbalanced laundry; objects around the machine; coins or other objects in the machine. Humming during operation is normal.",
+      "solution": "1. Make sure the washing machine is set on a level floor. If the floor is not level, use the levelling feet to adjust the washing machine.\n2. Make sure the washing machine is not contacting any other object.\n3. Make sure the laundry load is balanced.\n4. Make sure the laundry is spread evenly in the washing machine. Spread out the laundry evenly and start again.\n5. Make sure the space around the washing machine is free of objects.\n6. Humming is produced normally during operation.\n7. Objects such as coins can cause noise. Remove these objects from the washing machine after washing is complete.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": "ห้ามสอดมือหรือวัตถุโลหะเข้าใต้เครื่องขณะเครื่องกำลังทำงาน และห้ามยื่นมือเข้าไปในถังขณะปั่นแห้ง (คู่มือหน้า 7)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_WashingMachine_WA21A_p39_stops",
+    "device_category": "Washing Machine",
+    "brand": "Samsung",
+    "model": "WA21A8376G*/WA19A8376G*",
+    "source": "Samsung Washing Machine User Manual WA21A8376G*/WA19A8376G* (DC68-04154A-01_IB_A2_WA8800A_EN_TH_MY_231005)",
+    "page": 39,
+    "content": "Stops. Power cord not plugged into a live outlet; fuse blown or circuit breaker tripped; door not closed or Hold to Start not pressed; inlet hose screens at the taps clogged; low voltage. A pause or soak period in the cycle and clicking noises before filling are normal. 1. Plug the power cord into a live electrical outlet. 2. Check the fuse or reset the circuit breaker. 3. Close the door, and press or tap Hold to Start to start the washing machine. For your safety, the washing machine will not spin unless the door is closed. 4. Before the washing machine starts to fill, it will make a series of clicking noises to check the door lock and does a quick drain. 5. There may be a pause or soak period in the cycle. Wait briefly and the washing machine may start. 6. Make sure the inlet hose screens at the taps are not clogged. Periodically clean the screens. 7. This problem occurs temporarily due to low voltages, and will be solved when power recovers.",
+    "metadata": {
+      "symptom": "Stops.",
+      "possible_cause": "Power cord not plugged into a live outlet; fuse blown or circuit breaker tripped; door not closed or Hold to Start not pressed; inlet hose screens at the taps clogged; low voltage. A pause or soak period in the cycle and clicking noises before filling are normal.",
+      "solution": "1. Plug the power cord into a live electrical outlet.\n2. Check the fuse or reset the circuit breaker.\n3. Close the door, and press or tap Hold to Start to start the washing machine. For your safety, the washing machine will not spin unless the door is closed.\n4. Before the washing machine starts to fill, it will make a series of clicking noises to check the door lock and does a quick drain.\n5. There may be a pause or soak period in the cycle. Wait briefly and the washing machine may start.\n6. Make sure the inlet hose screens at the taps are not clogged. Periodically clean the screens.\n7. This problem occurs temporarily due to low voltages, and will be solved when power recovers.",
+      "severity": "medium",
+      "difficulty": "easy",
+      "safety_warning": "ห้ามใช้ปลั๊ก สายไฟ หรือเต้ารับที่ชำรุดหรือหลวม และห้ามแตะปลั๊กด้วยมือเปียก เพราะอาจเกิดไฟฟ้าช็อกหรือไฟไหม้ ใช้เต้ารับสำหรับเครื่องนี้เท่านั้น ไม่ใช้ปลั๊กพ่วงหรือรางปลั๊ก (คู่มือหน้า 5, 6 และ 7) | ห้ามใช้ฟิวส์ที่ไม่ใช่ฟิวส์มาตรฐาน (เช่น ลวดทองแดงหรือลวดเหล็ก) และห้ามซ่อมหรือดัดแปลงเครื่องเอง ถ้าเบรกเกอร์ตัดซ้ำหลังรีเซ็ต ให้หยุดใช้งานและติดต่อศูนย์บริการ (คู่มือหน้า 7) | ถอดปลั๊กก่อนทำความสะอาดหรือบำรุงรักษา และปิดก๊อกน้ำก่อนถอดสายน้ำเข้า (คู่มือหน้า 8 และ 10)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_WashingMachine_WA21A_p39_tub_clean_alarm",
+    "device_category": "Washing Machine",
+    "brand": "Samsung",
+    "model": "WA21A8376G*/WA19A8376G*",
+    "source": "Samsung Washing Machine User Manual WA21A8376G*/WA19A8376G* (DC68-04154A-01_IB_A2_WA8800A_EN_TH_MY_231005)",
+    "page": 39,
+    "content": "The ECO TUB CLEAN alarm does not turn off. The machine is diagnosed to be cleaned. This is normal, and not a system failure. When the machine is diagnosed to be cleaned, the ECO TUB CLEAN indicator blinks for an hour. This recurs 6 consecutive times until you run the ECO TUB CLEAN cycle. This is normal, and not a system failure. To keep the tub clean, it is recommended to run the cycle once every 1-3 months.",
+    "metadata": {
+      "symptom": "The ECO TUB CLEAN alarm does not turn off.",
+      "possible_cause": "The machine is diagnosed to be cleaned. This is normal, and not a system failure.",
+      "solution": "When the machine is diagnosed to be cleaned, the ECO TUB CLEAN indicator blinks for an hour. This recurs 6 consecutive times until you run the ECO TUB CLEAN cycle. This is normal, and not a system failure. To keep the tub clean, it is recommended to run the cycle once every 1-3 months.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": "ทำรอบ ECO TUB CLEAN เมื่อถังว่างเท่านั้น ถ้าใช้น้ำยาฟอกขาวคลอรีน 200 มล. ห้ามผสมกับสารอื่น เช่น น้ำส้มสายชู กรดซิตริก หรือสารฟอกขาวออกซิเจน เพราะเกิดก๊าซอันตราย และต้องระบายอากาศโดยรอบ (คู่มือหน้า 32)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_WashingMachine_WA21A_p40_wrong_water_temperature",
+    "device_category": "Washing Machine",
+    "brand": "Samsung",
+    "model": "WA21A8376G*/WA19A8376G*",
+    "source": "Samsung Washing Machine User Manual WA21A8376G*/WA19A8376G* (DC68-04154A-01_IB_A2_WA8800A_EN_TH_MY_231005)",
+    "page": 40,
+    "content": "Fills with the wrong temperature water. Water taps not fully open; wrong temperature selection; hoses connected to the wrong water taps; hose filter screens clogged. Temperature changes during filling are a normal function of the automatic temperature control. 1. Fully open both water taps. 2. Make sure the temperature selection is correct. 3. Make sure the hoses are connected to the correct water taps. Flush water lines. 4. Disconnect the hoses and clean the screens. The hose filter screens may be clogged. 5. While the washing machine fills, the water temperature may change as the automatic temperature control feature checks incoming water temperature. This is normal. 6. While the washing machine fills, you may notice just hot and/or just cold water going through the dispenser when cold or warm temperatures are selected. This is a normal function of the automatic temperature control feature as the washing machine determines the water temperature.",
+    "metadata": {
+      "symptom": "Fills with the wrong temperature water.",
+      "possible_cause": "Water taps not fully open; wrong temperature selection; hoses connected to the wrong water taps; hose filter screens clogged. Temperature changes during filling are a normal function of the automatic temperature control.",
+      "solution": "1. Fully open both water taps.\n2. Make sure the temperature selection is correct.\n3. Make sure the hoses are connected to the correct water taps. Flush water lines.\n4. Disconnect the hoses and clean the screens. The hose filter screens may be clogged.\n5. While the washing machine fills, the water temperature may change as the automatic temperature control feature checks incoming water temperature. This is normal.\n6. While the washing machine fills, you may notice just hot and/or just cold water going through the dispenser when cold or warm temperatures are selected. This is a normal function of the automatic temperature control feature as the washing machine determines the water temperature.",
+      "severity": "low",
+      "difficulty": "medium",
+      "safety_warning": "ถอดปลั๊กก่อนทำความสะอาดหรือบำรุงรักษา และปิดก๊อกน้ำก่อนถอดสายน้ำเข้า (คู่มือหน้า 8 และ 10)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_WashingMachine_WA21A_p40_door_locked",
+    "device_category": "Washing Machine",
+    "brand": "Samsung",
+    "model": "WA21A8376G*/WA19A8376G*",
+    "source": "Samsung Washing Machine User Manual WA21A8376G*/WA19A8376G* (DC68-04154A-01_IB_A2_WA8800A_EN_TH_MY_231005)",
+    "page": 40,
+    "content": "Door (Lid) locked or will not open. The door lock mechanism has not yet disengaged while the machine is operating; Child Lock activated. While the washing machine is operating, press or tap Hold to Start to stop the washing machine. It may take a few moments for the door lock mechanism to disengage.",
+    "metadata": {
+      "symptom": "Door (Lid) locked or will not open.",
+      "possible_cause": "The door lock mechanism has not yet disengaged while the machine is operating; Child Lock activated.",
+      "solution": "While the washing machine is operating, press or tap Hold to Start to stop the washing machine. It may take a few moments for the door lock mechanism to disengage.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": "ฟังก์ชัน Child Lock ล็อกฝาเครื่องเพื่อป้องกันเด็กปีนเข้าไปในถัง ห้ามฝืนเปิดฝาด้วยแรง เพราะอาจบาดเจ็บหรือเครื่องเสียหาย (คู่มือหน้า 28 และ 29) | ห้ามยื่นมือเข้าไปในถังขณะถังกำลังหมุนปั่นแห้ง ถ้าถังไม่หยุดหมุนภายใน 15 วินาทีหลังเปิดฝา ให้ติดต่อศูนย์บริการ Samsung และห้ามฝืนเปิดฝาด้วยแรง (คู่มือหน้า 7 และ 29)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_WashingMachine_WA21A_p40_does_not_drain_or_spin",
+    "device_category": "Washing Machine",
+    "brand": "Samsung",
+    "model": "WA21A8376G*/WA19A8376G*",
+    "source": "Samsung Washing Machine User Manual WA21A8376G*/WA19A8376G* (DC68-04154A-01_IB_A2_WA8800A_EN_TH_MY_231005)",
+    "page": 40,
+    "content": "Does not drain and/or spin. Fuse blown or circuit breaker tripped; abnormal electrical voltage; power cord not completely plugged in; drain hose not pointed downward, clogged or kinked; door not closed. 1. Check the fuse or reset the circuit breaker. 2. Make sure the electrical voltage is normal. 3. Make sure the washing machine is plugged in. 4. Make sure the drain hose is pointed downward. (Natural drain models only) 5. Make sure the drain hose is not clogged. 6. Make sure the drain hose is not kinked. 7. Straighten the drain hose. If there is a drain restriction, call for service. 8. Close the door, and press or tap Hold to Start. For your safety, the washing machine will not spin unless the door is closed.",
+    "metadata": {
+      "symptom": "Does not drain and/or spin.",
+      "possible_cause": "Fuse blown or circuit breaker tripped; abnormal electrical voltage; power cord not completely plugged in; drain hose not pointed downward, clogged or kinked; door not closed.",
+      "solution": "1. Check the fuse or reset the circuit breaker.\n2. Make sure the electrical voltage is normal.\n3. Make sure the washing machine is plugged in.\n4. Make sure the drain hose is pointed downward. (Natural drain models only)\n5. Make sure the drain hose is not clogged.\n6. Make sure the drain hose is not kinked.\n7. Straighten the drain hose. If there is a drain restriction, call for service.\n8. Close the door, and press or tap Hold to Start. For your safety, the washing machine will not spin unless the door is closed.",
+      "severity": "medium",
+      "difficulty": "medium",
+      "safety_warning": "ห้ามใช้ฟิวส์ที่ไม่ใช่ฟิวส์มาตรฐาน (เช่น ลวดทองแดงหรือลวดเหล็ก) และห้ามซ่อมหรือดัดแปลงเครื่องเอง ถ้าเบรกเกอร์ตัดซ้ำหลังรีเซ็ต ให้หยุดใช้งานและติดต่อศูนย์บริการ (คู่มือหน้า 7) | ไฟฟ้าที่จ่ายให้เครื่องต้องตรงกับพิกัดของเครื่อง (AC 220–240 V/50 Hz) และห้ามใช้หม้อแปลงไฟ เพราะอาจเกิดไฟฟ้าช็อกหรือไฟไหม้ (คู่มือหน้า 6 และ 45) | ห้ามใช้ปลั๊ก สายไฟ หรือเต้ารับที่ชำรุดหรือหลวม และห้ามแตะปลั๊กด้วยมือเปียก เพราะอาจเกิดไฟฟ้าช็อกหรือไฟไหม้ ใช้เต้ารับสำหรับเครื่องนี้เท่านั้น ไม่ใช้ปลั๊กพ่วงหรือรางปลั๊ก (คู่มือหน้า 5, 6 และ 7)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_WashingMachine_WA21A_p40_load_wet_end_of_cycle",
+    "device_category": "Washing Machine",
+    "brand": "Samsung",
+    "model": "WA21A8376G*/WA19A8376G*",
+    "source": "Samsung Washing Machine User Manual WA21A8376G*/WA19A8376G* (DC68-04154A-01_IB_A2_WA8800A_EN_TH_MY_231005)",
+    "page": 40,
+    "content": "Load is wet at the end of the cycle. Spin speed too low; non-HE detergent causing oversudsing; load too small (one or two items) and unbalanced. 1. Use the High or Extra High spin speed. (Applicable model only) 2. Use high efficiency (HE) detergent to reduce oversudsing. 3. Load is too small. Small loads (one or two items) may become unbalanced and not spin completely.",
+    "metadata": {
+      "symptom": "Load is wet at the end of the cycle.",
+      "possible_cause": "Spin speed too low; non-HE detergent causing oversudsing; load too small (one or two items) and unbalanced.",
+      "solution": "1. Use the High or Extra High spin speed. (Applicable model only)\n2. Use high efficiency (HE) detergent to reduce oversudsing.\n3. Load is too small. Small loads (one or two items) may become unbalanced and not spin completely.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_WashingMachine_WA21A_p41_leaks_water",
+    "device_category": "Washing Machine",
+    "brand": "Samsung",
+    "model": "WA21A8376G*/WA19A8376G*",
+    "source": "Samsung Washing Machine User Manual WA21A8376G*/WA19A8376G* (DC68-04154A-01_IB_A2_WA8800A_EN_TH_MY_231005)",
+    "page": 41,
+    "content": "Leaks water. Hose connections loose; water supply hose rubber packing out of position; drain hose end not correctly inserted and secured; overloading; non-HE detergent causing oversudsing; water supply hose kinked; water supply too strong; leak from the water tap. 1. Make sure all hose connections are tight. 2. Make sure the water supply hose's rubber packing is in the correct position. Screw tightly again. 3. Make sure the end of the drain hose is correctly inserted and secured to the drain system. 4. Avoid overloading. 5. Use high efficiency (HE) detergent to prevent oversudsing. 6. Make sure the water supply hose is not kinked. 7. If the water supply is too strong, water may leak. Close the water tap a little. 8. Make sure water is not leaking from the water tap. If so, repair the water tap.",
+    "metadata": {
+      "symptom": "Leaks water.",
+      "possible_cause": "Hose connections loose; water supply hose rubber packing out of position; drain hose end not correctly inserted and secured; overloading; non-HE detergent causing oversudsing; water supply hose kinked; water supply too strong; leak from the water tap.",
+      "solution": "1. Make sure all hose connections are tight.\n2. Make sure the water supply hose's rubber packing is in the correct position. Screw tightly again.\n3. Make sure the end of the drain hose is correctly inserted and secured to the drain system.\n4. Avoid overloading.\n5. Use high efficiency (HE) detergent to prevent oversudsing.\n6. Make sure the water supply hose is not kinked.\n7. If the water supply is too strong, water may leak. Close the water tap a little.\n8. Make sure water is not leaking from the water tap. If so, repair the water tap.",
+      "severity": "medium",
+      "difficulty": "easy",
+      "safety_warning": "ถ้ามีน้ำรั่ว ให้หยุดใช้เครื่องและติดต่อศูนย์บริการ Samsung มิฉะนั้นอาจเกิดไฟฟ้าช็อก (คู่มือหน้า 15) | ความยาวรวมของสายระบายน้ำที่ต่อเพิ่มต้องไม่เกิน 3 ม. ห้ามให้สายระบายพาดผ่านธรณีประตูที่สูงตั้งแต่ 5 ซม. และห้ามเดินสายใต้ฐานเครื่อง (คู่มือหน้า 16)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_WashingMachine_WA21A_p41_excessive_suds",
+    "device_category": "Washing Machine",
+    "brand": "Samsung",
+    "model": "WA21A8376G*/WA19A8376G*",
+    "source": "Samsung Washing Machine User Manual WA21A8376G*/WA19A8376G* (DC68-04154A-01_IB_A2_WA8800A_EN_TH_MY_231005)",
+    "page": 41,
+    "content": "Excessive suds. Non-high-efficiency (non-HE) detergent used; too much detergent for soft water, small loads or lightly soiled loads. 1. Use high efficiency (HE) detergent to prevent oversudsing. 2. Reduce the detergent amount for soft water, small loads, or lightly soiled loads. 3. Non-HE detergent is not recommended.",
+    "metadata": {
+      "symptom": "Excessive suds.",
+      "possible_cause": "Non-high-efficiency (non-HE) detergent used; too much detergent for soft water, small loads or lightly soiled loads.",
+      "solution": "1. Use high efficiency (HE) detergent to prevent oversudsing.\n2. Reduce the detergent amount for soft water, small loads, or lightly soiled loads.\n3. Non-HE detergent is not recommended.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_WashingMachine_WA21A_p41_frozen",
+    "device_category": "Washing Machine",
+    "brand": "Samsung",
+    "model": "WA21A8376G*/WA19A8376G*",
+    "source": "Samsung Washing Machine User Manual WA21A8376G*/WA19A8376G* (DC68-04154A-01_IB_A2_WA8800A_EN_TH_MY_231005)",
+    "page": 41,
+    "content": "The spin basket or drain/supply hose is frozen. Spin basket or drain/supply hose is frozen. 1. Use warm water to disconnect the water supply hose and drain hose. Soak them in warm water. 2. Fill the spin basket with warm water, and then wait for about 10 minutes. 3. Put a hot towel on the drain hose connector. 4. Reconnect the water supply hose and drain hose, and check if water is supplied properly.",
+    "metadata": {
+      "symptom": "The spin basket or drain/supply hose is frozen.",
+      "possible_cause": "Spin basket or drain/supply hose is frozen.",
+      "solution": "1. Use warm water to disconnect the water supply hose and drain hose. Soak them in warm water.\n2. Fill the spin basket with warm water, and then wait for about 10 minutes.\n3. Put a hot towel on the drain hose connector.\n4. Reconnect the water supply hose and drain hose, and check if water is supplied properly.",
+      "severity": "medium",
+      "difficulty": "medium",
+      "safety_warning": "ห้ามใช้น้ำร้อนเกิน 50 °C เพราะชิ้นส่วนพลาสติกอาจผิดรูปหรือเสียหาย และถอดปลั๊กก่อนทำงานกับสายน้ำหรือสายระบาย อย่าติดตั้งเครื่องในที่อุณหภูมิต่ำเพราะน้ำค้างแข็งอาจทำให้ท่อแตก (คู่มือหน้า 6 และ 8)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_WashingMachine_WA21A_p41_water_drains_out_immediately",
+    "device_category": "Washing Machine",
+    "brand": "Samsung",
+    "model": "WA21A8376G*/WA19A8376G*",
+    "source": "Samsung Washing Machine User Manual WA21A8376G*/WA19A8376G* (DC68-04154A-01_IB_A2_WA8800A_EN_TH_MY_231005)",
+    "page": 41,
+    "content": "Water drains out immediately. Drain hose clogged or not hung over the drain hose hook; end of the drain hose not held up; drain hose not installed correctly. 1. Make sure the drain hose is not clogged, and is hung over the drain hose hook. Fill the spin basket halfway with water, and try spinning again. 2. Lift the end of the drain hose to prevent water from draining. Fill the spin basket halfway with water, and then run spinning after releasing the drain hose. 3. Make sure the drain hose is installed correctly. See the installation section of this user manual and adjust the position of the drain hose as instructed.",
+    "metadata": {
+      "symptom": "Water drains out immediately.",
+      "possible_cause": "Drain hose clogged or not hung over the drain hose hook; end of the drain hose not held up; drain hose not installed correctly.",
+      "solution": "1. Make sure the drain hose is not clogged, and is hung over the drain hose hook. Fill the spin basket halfway with water, and try spinning again.\n2. Lift the end of the drain hose to prevent water from draining. Fill the spin basket halfway with water, and then run spinning after releasing the drain hose.\n3. Make sure the drain hose is installed correctly. See the installation section of this user manual and adjust the position of the drain hose as instructed.",
+      "severity": "low",
+      "difficulty": "medium",
+      "safety_warning": "ความยาวรวมของสายระบายน้ำที่ต่อเพิ่มต้องไม่เกิน 3 ม. ห้ามให้สายระบายพาดผ่านธรณีประตูที่สูงตั้งแต่ 5 ซม. และห้ามเดินสายใต้ฐานเครื่อง (คู่มือหน้า 16)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_WashingMachine_WA21A_p41_stains_on_clothes",
+    "device_category": "Washing Machine",
+    "brand": "Samsung",
+    "model": "WA21A8376G*/WA19A8376G*",
+    "source": "Samsung Washing Machine User Manual WA21A8376G*/WA19A8376G* (DC68-04154A-01_IB_A2_WA8800A_EN_TH_MY_231005)",
+    "page": 41,
+    "content": "Stains on clothes. Filter dirty. Clean the filter.",
+    "metadata": {
+      "symptom": "Stains on clothes.",
+      "possible_cause": "Filter dirty.",
+      "solution": "Clean the filter.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": "ถอดปลั๊กก่อนทำความสะอาดหรือบำรุงรักษา และห้ามฉีดน้ำใส่เครื่องโดยตรง เพราะอาจเกิดไฟฟ้าช็อกหรือไฟไหม้ (คู่มือหน้า 8)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_WashingMachine_WA21A_p41_has_odours",
+    "device_category": "Washing Machine",
+    "brand": "Samsung",
+    "model": "WA21A8376G*/WA19A8376G*",
+    "source": "Samsung Washing Machine User Manual WA21A8376G*/WA19A8376G* (DC68-04154A-01_IB_A2_WA8800A_EN_TH_MY_231005)",
+    "page": 41,
+    "content": "Has odours. Excessive suds collect in recesses and can cause foul odours; the machine is not cleaned periodically; interior not dried after a cycle. 1. Excessive suds collect in recesses and can cause foul odours. 2. Run cleansing cycles to sanitise periodically. 3. Dry the washing machine interior after a cycle has finished.",
+    "metadata": {
+      "symptom": "Has odours.",
+      "possible_cause": "Excessive suds collect in recesses and can cause foul odours; the machine is not cleaned periodically; interior not dried after a cycle.",
+      "solution": "1. Excessive suds collect in recesses and can cause foul odours.\n2. Run cleansing cycles to sanitise periodically.\n3. Dry the washing machine interior after a cycle has finished.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": "ทำรอบ ECO TUB CLEAN เมื่อถังว่างเท่านั้น ถ้าใช้น้ำยาฟอกขาวคลอรีน 200 มล. ห้ามผสมกับสารอื่น เช่น น้ำส้มสายชู กรดซิตริก หรือสารฟอกขาวออกซิเจน เพราะเกิดก๊าซอันตราย และต้องระบายอากาศโดยรอบ (คู่มือหน้า 32)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_WashingMachine_WA21A_p42_code_1c",
+    "device_category": "Washing Machine",
+    "brand": "Samsung",
+    "model": "WA21A8376G*/WA19A8376G*",
+    "source": "Samsung Washing Machine User Manual WA21A8376G*/WA19A8376G* (DC68-04154A-01_IB_A2_WA8800A_EN_TH_MY_231005)",
+    "page": 42,
+    "content": "Information code 1C: The Water Level sensor is not working properly. The Water Level sensor is not working properly. 1. Check Water Level Sensor wire harness. 2. If the information code remains, contact a customer service centre. 3. When the washing machine displays “1C”, the washing machine drains for 3 minutes and the POWER button is inoperative during this time.",
+    "metadata": {
+      "symptom": "Information code 1C: The Water Level sensor is not working properly.",
+      "possible_cause": "The Water Level sensor is not working properly.",
+      "solution": "1. Check Water Level Sensor wire harness.\n2. If the information code remains, contact a customer service centre.\n3. When the washing machine displays “1C”, the washing machine drains for 3 minutes and the POWER button is inoperative during this time.",
+      "severity": "medium",
+      "difficulty": "medium",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_WashingMachine_WA21A_p42_code_3c",
+    "device_category": "Washing Machine",
+    "brand": "Samsung",
+    "model": "WA21A8376G*/WA19A8376G*",
+    "source": "Samsung Washing Machine User Manual WA21A8376G*/WA19A8376G* (DC68-04154A-01_IB_A2_WA8800A_EN_TH_MY_231005)",
+    "page": 42,
+    "content": "Information code 3C: Check the motor for operation. Check the motor for operation. 1. Try restarting the cycle. 2. If the problem continues, call for service.",
+    "metadata": {
+      "symptom": "Information code 3C: Check the motor for operation.",
+      "possible_cause": "Check the motor for operation.",
+      "solution": "1. Try restarting the cycle.\n2. If the problem continues, call for service.",
+      "severity": "medium",
+      "difficulty": "medium",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_WashingMachine_WA21A_p42_code_4c",
+    "device_category": "Washing Machine",
+    "brand": "Samsung",
+    "model": "WA21A8376G*/WA19A8376G*",
+    "source": "Samsung Washing Machine User Manual WA21A8376G*/WA19A8376G* (DC68-04154A-01_IB_A2_WA8800A_EN_TH_MY_231005)",
+    "page": 42,
+    "content": "Information code 4C: Water is not supplied. Water is not supplied. 1. Make sure the water taps are open. 2. Make sure the water hoses are not clogged. 3. Make sure the water taps are not frozen. 4. Make sure the washing machine is operating with sufficient water pressure. 5. Make sure that the cold water tap and the hot water tap are properly connected. 6. Clean the mesh filter as it may be clogged. 7. When the washing machine displays “4C”, the washing machine drains for 3 minutes and the POWER button is inoperative during this time.",
+    "metadata": {
+      "symptom": "Information code 4C: Water is not supplied.",
+      "possible_cause": "Water is not supplied.",
+      "solution": "1. Make sure the water taps are open.\n2. Make sure the water hoses are not clogged.\n3. Make sure the water taps are not frozen.\n4. Make sure the washing machine is operating with sufficient water pressure.\n5. Make sure that the cold water tap and the hot water tap are properly connected.\n6. Clean the mesh filter as it may be clogged.\n7. When the washing machine displays “4C”, the washing machine drains for 3 minutes and the POWER button is inoperative during this time.",
+      "severity": "medium",
+      "difficulty": "medium",
+      "safety_warning": "ห้ามใช้น้ำร้อนเกิน 50 °C เพราะชิ้นส่วนพลาสติกอาจผิดรูปหรือเสียหาย และถอดปลั๊กก่อนทำงานกับสายน้ำหรือสายระบาย อย่าติดตั้งเครื่องในที่อุณหภูมิต่ำเพราะน้ำค้างแข็งอาจทำให้ท่อแตก (คู่มือหน้า 6 และ 8) | ถอดปลั๊กก่อนทำความสะอาดหรือบำรุงรักษา และปิดก๊อกน้ำก่อนถอดสายน้ำเข้า (คู่มือหน้า 8 และ 10)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_WashingMachine_WA21A_p42_code_4c2",
+    "device_category": "Washing Machine",
+    "brand": "Samsung",
+    "model": "WA21A8376G*/WA19A8376G*",
+    "source": "Samsung Washing Machine User Manual WA21A8376G*/WA19A8376G* (DC68-04154A-01_IB_A2_WA8800A_EN_TH_MY_231005)",
+    "page": 42,
+    "content": "Information code 4C2. Make sure the cold water supply hose is firmly connected to the cold water tap. If it is connected to the hot water tap, the laundry may be deformed with some cycles.",
+    "metadata": {
+      "symptom": "Information code 4C2.",
+      "possible_cause": null,
+      "solution": "Make sure the cold water supply hose is firmly connected to the cold water tap. If it is connected to the hot water tap, the laundry may be deformed with some cycles.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": "ถอดปลั๊กก่อนทำความสะอาดหรือบำรุงรักษา และปิดก๊อกน้ำก่อนถอดสายน้ำเข้า (คู่มือหน้า 8 และ 10)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_WashingMachine_WA21A_p42_code_5c",
+    "device_category": "Washing Machine",
+    "brand": "Samsung",
+    "model": "WA21A8376G*/WA19A8376G*",
+    "source": "Samsung Washing Machine User Manual WA21A8376G*/WA19A8376G* (DC68-04154A-01_IB_A2_WA8800A_EN_TH_MY_231005)",
+    "page": 42,
+    "content": "Information code 5C: Water is not draining. Water is not draining. 1. Make sure the drain hose is not frozen or clogged. 2. Make sure the drain hose is positioned correctly, depending on the connection type. 3. Clean the debris filter as it may be clogged. 4. Make sure the drain hose is straightened all the way to the drain system. 5. If the information code remains, contact a customer service centre.",
+    "metadata": {
+      "symptom": "Information code 5C: Water is not draining.",
+      "possible_cause": "Water is not draining.",
+      "solution": "1. Make sure the drain hose is not frozen or clogged.\n2. Make sure the drain hose is positioned correctly, depending on the connection type.\n3. Clean the debris filter as it may be clogged.\n4. Make sure the drain hose is straightened all the way to the drain system.\n5. If the information code remains, contact a customer service centre.",
+      "severity": "medium",
+      "difficulty": "medium",
+      "safety_warning": "ห้ามใช้น้ำร้อนเกิน 50 °C เพราะชิ้นส่วนพลาสติกอาจผิดรูปหรือเสียหาย และถอดปลั๊กก่อนทำงานกับสายน้ำหรือสายระบาย อย่าติดตั้งเครื่องในที่อุณหภูมิต่ำเพราะน้ำค้างแข็งอาจทำให้ท่อแตก (คู่มือหน้า 6 และ 8) | ความยาวรวมของสายระบายน้ำที่ต่อเพิ่มต้องไม่เกิน 3 ม. ห้ามให้สายระบายพาดผ่านธรณีประตูที่สูงตั้งแต่ 5 ซม. และห้ามเดินสายใต้ฐานเครื่อง (คู่มือหน้า 16) | ถอดปลั๊กก่อนทำความสะอาดหรือบำรุงรักษา และห้ามฉีดน้ำใส่เครื่องโดยตรง เพราะอาจเกิดไฟฟ้าช็อกหรือไฟไหม้ (คู่มือหน้า 8)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_WashingMachine_WA21A_p42_code_8c",
+    "device_category": "Washing Machine",
+    "brand": "Samsung",
+    "model": "WA21A8376G*/WA19A8376G*",
+    "source": "Samsung Washing Machine User Manual WA21A8376G*/WA19A8376G* (DC68-04154A-01_IB_A2_WA8800A_EN_TH_MY_231005)",
+    "page": 42,
+    "content": "Information code 8C: Check the MEMS sensor. Check the MEMS sensor. 1. Power off the washing machine. Wait 2-3 minutes, power on the washing machine, and then try again. 2. If the problem continues, call for service.",
+    "metadata": {
+      "symptom": "Information code 8C: Check the MEMS sensor.",
+      "possible_cause": "Check the MEMS sensor.",
+      "solution": "1. Power off the washing machine. Wait 2-3 minutes, power on the washing machine, and then try again.\n2. If the problem continues, call for service.",
+      "severity": "medium",
+      "difficulty": "medium",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_WashingMachine_WA21A_p43_code_9c1",
+    "device_category": "Washing Machine",
+    "brand": "Samsung",
+    "model": "WA21A8376G*/WA19A8376G*",
+    "source": "Samsung Washing Machine User Manual WA21A8376G*/WA19A8376G* (DC68-04154A-01_IB_A2_WA8800A_EN_TH_MY_231005)",
+    "page": 43,
+    "content": "Information code 9C1: The electronic control needs to be checked (Over Voltage Error). The electronic control needs to be checked (Over Voltage Error). 1. Check the PCB and wire harness. 2. Check if power is supplied properly. 3. If the information code remains, contact a customer service centre.",
+    "metadata": {
+      "symptom": "Information code 9C1: The electronic control needs to be checked (Over Voltage Error).",
+      "possible_cause": "The electronic control needs to be checked (Over Voltage Error).",
+      "solution": "1. Check the PCB and wire harness.\n2. Check if power is supplied properly.\n3. If the information code remains, contact a customer service centre.",
+      "severity": "medium",
+      "difficulty": "medium",
+      "safety_warning": "ไฟฟ้าที่จ่ายให้เครื่องต้องตรงกับพิกัดของเครื่อง (AC 220–240 V/50 Hz) และห้ามใช้หม้อแปลงไฟ เพราะอาจเกิดไฟฟ้าช็อกหรือไฟไหม้ (คู่มือหน้า 6 และ 45)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_WashingMachine_WA21A_p43_code_9c2",
+    "device_category": "Washing Machine",
+    "brand": "Samsung",
+    "model": "WA21A8376G*/WA19A8376G*",
+    "source": "Samsung Washing Machine User Manual WA21A8376G*/WA19A8376G* (DC68-04154A-01_IB_A2_WA8800A_EN_TH_MY_231005)",
+    "page": 43,
+    "content": "Information code 9C2: Low voltage detected. Low voltage detected. 1. Check if the power cord is plugged in. 2. If the information code remains, contact a customer service centre.",
+    "metadata": {
+      "symptom": "Information code 9C2: Low voltage detected.",
+      "possible_cause": "Low voltage detected.",
+      "solution": "1. Check if the power cord is plugged in.\n2. If the information code remains, contact a customer service centre.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": "ห้ามใช้ปลั๊ก สายไฟ หรือเต้ารับที่ชำรุดหรือหลวม และห้ามแตะปลั๊กด้วยมือเปียก เพราะอาจเกิดไฟฟ้าช็อกหรือไฟไหม้ ใช้เต้ารับสำหรับเครื่องนี้เท่านั้น ไม่ใช้ปลั๊กพ่วงหรือรางปลั๊ก (คู่มือหน้า 5, 6 และ 7)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_WashingMachine_WA21A_p43_code_ac6",
+    "device_category": "Washing Machine",
+    "brand": "Samsung",
+    "model": "WA21A8376G*/WA19A8376G*",
+    "source": "Samsung Washing Machine User Manual WA21A8376G*/WA19A8376G* (DC68-04154A-01_IB_A2_WA8800A_EN_TH_MY_231005)",
+    "page": 43,
+    "content": "Information code AC6: Inverter Communication problem. Inverter Communication problem. 1. Check the Inverter PCB and wire harness. 2. If the information code remains, contact a customer service centre.",
+    "metadata": {
+      "symptom": "Information code AC6: Inverter Communication problem.",
+      "possible_cause": "Inverter Communication problem.",
+      "solution": "1. Check the Inverter PCB and wire harness.\n2. If the information code remains, contact a customer service centre.",
+      "severity": "medium",
+      "difficulty": "medium",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_WashingMachine_WA21A_p43_code_dc",
+    "device_category": "Washing Machine",
+    "brand": "Samsung",
+    "model": "WA21A8376G*/WA19A8376G*",
+    "source": "Samsung Washing Machine User Manual WA21A8376G*/WA19A8376G* (DC68-04154A-01_IB_A2_WA8800A_EN_TH_MY_231005)",
+    "page": 43,
+    "content": "Information code dC, dC1: The washing machine did not properly lock the door. The washing machine did not properly lock the door. 1. Make sure the door is properly closed. 2. Make sure laundry is not caught in the door. 3. If the information code remains, contact a customer service centre.",
+    "metadata": {
+      "symptom": "Information code dC, dC1: The washing machine did not properly lock the door.",
+      "possible_cause": "The washing machine did not properly lock the door.",
+      "solution": "1. Make sure the door is properly closed.\n2. Make sure laundry is not caught in the door.\n3. If the information code remains, contact a customer service centre.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": "ห้ามยื่นมือเข้าไปในถังขณะถังกำลังหมุนปั่นแห้ง ถ้าถังไม่หยุดหมุนภายใน 15 วินาทีหลังเปิดฝา ให้ติดต่อศูนย์บริการ Samsung และห้ามฝืนเปิดฝาด้วยแรง (คู่มือหน้า 7 และ 29)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_WashingMachine_WA21A_p43_code_hc",
+    "device_category": "Washing Machine",
+    "brand": "Samsung",
+    "model": "WA21A8376G*/WA19A8376G*",
+    "source": "Samsung Washing Machine User Manual WA21A8376G*/WA19A8376G* (DC68-04154A-01_IB_A2_WA8800A_EN_TH_MY_231005)",
+    "page": 43,
+    "content": "Information code HC: High temperature heating check. High temperature heating check. If the information code remains, contact a customer service centre.",
+    "metadata": {
+      "symptom": "Information code HC: High temperature heating check.",
+      "possible_cause": "High temperature heating check.",
+      "solution": "If the information code remains, contact a customer service centre.",
+      "severity": "medium",
+      "difficulty": "medium",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_WashingMachine_WA21A_p43_code_lc",
+    "device_category": "Washing Machine",
+    "brand": "Samsung",
+    "model": "WA21A8376G*/WA19A8376G*",
+    "source": "Samsung Washing Machine User Manual WA21A8376G*/WA19A8376G* (DC68-04154A-01_IB_A2_WA8800A_EN_TH_MY_231005)",
+    "page": 43,
+    "content": "Information code LC: Check the drain hose. Check the drain hose. 1. Make sure the end of the drain hose is placed on the floor. 2. Make sure the drain hose is not clogged. 3. If the information code remains, contact a customer service centre. 4. When the washing machine displays “LC”, the washing machine drains for 3 minutes and the POWER button is inoperative during this time.",
+    "metadata": {
+      "symptom": "Information code LC: Check the drain hose.",
+      "possible_cause": "Check the drain hose.",
+      "solution": "1. Make sure the end of the drain hose is placed on the floor.\n2. Make sure the drain hose is not clogged.\n3. If the information code remains, contact a customer service centre.\n4. When the washing machine displays “LC”, the washing machine drains for 3 minutes and the POWER button is inoperative during this time.",
+      "severity": "medium",
+      "difficulty": "medium",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_WashingMachine_WA21A_p43_code_oc",
+    "device_category": "Washing Machine",
+    "brand": "Samsung",
+    "model": "WA21A8376G*/WA19A8376G*",
+    "source": "Samsung Washing Machine User Manual WA21A8376G*/WA19A8376G* (DC68-04154A-01_IB_A2_WA8800A_EN_TH_MY_231005)",
+    "page": 43,
+    "content": "Information code OC: Water is overflowed. Water is overflowed. 1. Restart after spinning. 2. If the information code remains on the display, contact a local Samsung service centre.",
+    "metadata": {
+      "symptom": "Information code OC: Water is overflowed.",
+      "possible_cause": "Water is overflowed.",
+      "solution": "1. Restart after spinning.\n2. If the information code remains on the display, contact a local Samsung service centre.",
+      "severity": "medium",
+      "difficulty": "medium",
+      "safety_warning": "ถ้าเครื่องถูกน้ำท่วม ให้ปิดน้ำและปิดไฟทันที แล้วติดต่อศูนย์บริการ Samsung และห้ามแตะปลั๊กด้วยมือเปียก (คู่มือหน้า 7)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_WashingMachine_WA21A_p43_code_pc",
+    "device_category": "Washing Machine",
+    "brand": "Samsung",
+    "model": "WA21A8376G*/WA19A8376G*",
+    "source": "Samsung Washing Machine User Manual WA21A8376G*/WA19A8376G* (DC68-04154A-01_IB_A2_WA8800A_EN_TH_MY_231005)",
+    "page": 43,
+    "content": "Information code PC: When position of the clutch can't be detected. When position of the clutch can't be detected. If the information code remains, contact a customer service centre.",
+    "metadata": {
+      "symptom": "Information code PC: When position of the clutch can't be detected.",
+      "possible_cause": "When position of the clutch can't be detected.",
+      "solution": "If the information code remains, contact a customer service centre.",
+      "severity": "medium",
+      "difficulty": "medium",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_WashingMachine_WA21A_p43_code_pc1",
+    "device_category": "Washing Machine",
+    "brand": "Samsung",
+    "model": "WA21A8376G*/WA19A8376G*",
+    "source": "Samsung Washing Machine User Manual WA21A8376G*/WA19A8376G* (DC68-04154A-01_IB_A2_WA8800A_EN_TH_MY_231005)",
+    "page": 43,
+    "content": "Information code PC1: After position of the clutch is detected, if the signal of the clutch hall goes wrong. After position of the clutch is detected, if the signal of the clutch hall goes wrong. If the information code remains, contact a customer service centre.",
+    "metadata": {
+      "symptom": "Information code PC1: After position of the clutch is detected, if the signal of the clutch hall goes wrong.",
+      "possible_cause": "After position of the clutch is detected, if the signal of the clutch hall goes wrong.",
+      "solution": "If the information code remains, contact a customer service centre.",
+      "severity": "medium",
+      "difficulty": "medium",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_WashingMachine_WA21A_p44_code_ub",
+    "device_category": "Washing Machine",
+    "brand": "Samsung",
+    "model": "WA21A8376G*/WA19A8376G*",
+    "source": "Samsung Washing Machine User Manual WA21A8376G*/WA19A8376G* (DC68-04154A-01_IB_A2_WA8800A_EN_TH_MY_231005)",
+    "page": 44,
+    "content": "Information code Ub: Spinning does not work. Spinning does not work. 1. Make sure laundry is spread out evenly. 2. Make sure the washing machine is on a flat, stable surface. 3. Redistribute the load. If only one item of clothing needs washing, such as a bathrobe or pair of jeans, the final spin result might be unsatisfactory, and an “Ub” check message will be shown in the display.",
+    "metadata": {
+      "symptom": "Information code Ub: Spinning does not work.",
+      "possible_cause": "Spinning does not work.",
+      "solution": "1. Make sure laundry is spread out evenly.\n2. Make sure the washing machine is on a flat, stable surface.\n3. Redistribute the load. If only one item of clothing needs washing, such as a bathrobe or pair of jeans, the final spin result might be unsatisfactory, and an “Ub” check message will be shown in the display.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  }
+]

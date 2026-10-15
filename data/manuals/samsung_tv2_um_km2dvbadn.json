@@ -1,0 +1,4011 @@
+{
+  "schema_version": 2,
+  "manual_id": "samsung_tv2_um_km2dvbadn",
+  "device_category": "Television",
+  "brand": "Samsung",
+  "model_pattern": "KM2DVBADN-2.1.5",
+  "source_manual": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+  "count": 56,
+  "graphs": [
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_tv2_um_flickering_dimming",
+      "device_category": "Television",
+      "brand": "Samsung",
+      "model_pattern": "KM2DVBADN-2.1.5",
+      "entry_symptom": "Flickering and Dimming",
+      "entry_symptom_th": "ภาพกะพริบหรือหรี่ลง",
+      "entry_symptom_aliases": [
+        "ทีวีจอกะพริบ",
+        "ทีวีจอมืดๆ สว่างๆ",
+        "ทีวีภาพวูบ",
+        "tv screen flickering",
+        "tv dimming"
+      ],
+      "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+      "page_range": [
+        131,
+        131
+      ],
+      "source_chunk_id": "manual_Samsung_Television_KM2DVBADN_p131_flickering_dimming",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "instruction",
+          "content": "ปิดฟังก์ชันประหยัดพลังงานที่อาจทำให้ภาพกะพริบหรือหรี่ลง: ไปที่ Settings > General > Eco Solution แล้วปิด Ambient Light Detection, Energy Saving Mode และ Motion Lighting (คู่มือหน้า 131)",
+          "safety_critical": false,
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n2",
+          "type": "instruction",
+          "content": "ทดสอบภาพด้วย Start Picture Test เพื่อตรวจว่าปัญหาเกิดจากทีวีหรือไม่: ไปที่ Settings > Support > Self Diagnosis > Start Picture Test (คู่มือหน้า 131)",
+          "safety_critical": false,
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "ภาพไม่กะพริบหรือหรี่แล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ถ้าผลทดสอบภาพไม่ปกติหรือมีสัญญาณรบกวนหรือภาพผิดเพี้ยน ทีวีอาจมีปัญหา ให้ติดต่อ Samsung Call Centre แต่ถ้าภาพทดสอบแสดงปกติ อาจเป็นปัญหาของอุปกรณ์ภายนอก ให้ตรวจการเชื่อมต่อ ตรวจความแรงของสัญญาณ หรือดูคู่มือของอุปกรณ์ภายนอก (คู่มือหน้า 133) หากต้องการขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 130) หรือเปิด Settings > Support > About This TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 130) หรือใช้ Settings > Support > Remote Management ให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่ออินเทอร์เน็ต) โดยโทรหา Samsung Contact Centre เพื่อขอบริการ Remote Support (คู่มือหน้า 129)",
+          "outcome_kind": "handoff_informed"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_tv2_um_component_screen_colour",
+      "device_category": "Television",
+      "brand": "Samsung",
+      "model_pattern": "KM2DVBADN-2.1.5",
+      "entry_symptom": "Component Connections/ Screen Colour",
+      "entry_symptom_th": "การต่อ Component หรือสีหน้าจอไม่ถูกต้อง",
+      "entry_symptom_aliases": [
+        "สีทีวีเพี้ยน",
+        "สีทีวีผิดปกติ",
+        "ต่อ component แล้วสีเพี้ยน",
+        "tv screen colour wrong",
+        "tv component colour"
+      ],
+      "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+      "page_range": [
+        131,
+        131
+      ],
+      "source_chunk_id": "manual_Samsung_Television_KM2DVBADN_p131_component_screen_colour",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "instruction",
+          "content": "เรียก Start Picture Test เพื่อตรวจสีภาพ: ไปที่ Settings > Support > Self Diagnosis > Start Picture Test (คู่มือหน้า 131)",
+          "safety_critical": false,
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "ขั้วต่อสัญญาณภาพเข้าของทีวีต่อกับขั้วต่อสัญญาณภาพออกของอุปกรณ์ภายนอกถูกขั้วแล้วใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n3",
+          "on_no": "n2f"
+        },
+        {
+          "node_id": "n2f",
+          "type": "instruction",
+          "content": "ตรวจว่าขั้วต่อสัญญาณภาพเข้าต่อกับขั้วต่อสัญญาณภาพออกของอุปกรณ์ภายนอกถูกขั้ว (คู่มือหน้า 131)",
+          "safety_critical": false,
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "node_id": "n3",
+          "type": "checkpoint",
+          "question": "ถ้าต่ออุปกรณ์ด้วยสาย component แจ็ค Pb, Pr และ Y เสียบถูกตำแหน่งแล้วใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_escalate",
+          "on_no": "n3f"
+        },
+        {
+          "node_id": "n3f",
+          "type": "instruction",
+          "content": "ตรวจว่าแจ็ค Pb, Pr และ Y เสียบเข้าขั้วต่อที่ถูกต้อง และตรวจการเชื่อมต่ออื่นๆ ด้วย (คู่มือหน้า 131)",
+          "safety_critical": false,
+          "next": "n3v"
+        },
+        {
+          "node_id": "n3v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "สีภาพกลับมาปกติแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ถ้าผลทดสอบภาพไม่ปกติหรือมีสัญญาณรบกวนหรือภาพผิดเพี้ยน ทีวีอาจมีปัญหา ให้ติดต่อ Samsung Call Centre แต่ถ้าภาพทดสอบแสดงปกติ อาจเป็นปัญหาของอุปกรณ์ภายนอก ให้ตรวจการเชื่อมต่อ ตรวจความแรงของสัญญาณ หรือดูคู่มือของอุปกรณ์ภายนอก (คู่มือหน้า 133) หากต้องการขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 130) หรือเปิด Settings > Support > About This TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 130) หรือใช้ Settings > Support > Remote Management ให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่ออินเทอร์เน็ต) โดยโทรหา Samsung Contact Centre เพื่อขอบริการ Remote Support (คู่มือหน้า 129)",
+          "outcome_kind": "handoff_informed"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_tv2_um_screen_brightness",
+      "device_category": "Television",
+      "brand": "Samsung",
+      "model_pattern": "KM2DVBADN-2.1.5",
+      "entry_symptom": "Screen Brightness",
+      "entry_symptom_th": "ความสว่างหน้าจอมืดหรือสว่างเกินไป",
+      "entry_symptom_aliases": [
+        "ทีวีภาพมืด",
+        "ทีวีภาพสว่างเกินไป",
+        "ปรับความสว่างทีวี",
+        "tv picture too dark",
+        "tv picture too bright"
+      ],
+      "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+      "page_range": [
+        131,
+        131
+      ],
+      "source_chunk_id": "manual_Samsung_Television_KM2DVBADN_p131_screen_brightness",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "instruction",
+          "content": "ปรับการตั้งค่าภาพที่ Settings > Picture > Expert Settings: ปรับ Backlight, Contrast, Brightness, Sharpness, Colour และ Tint (G/R) (คู่มือหน้า 131)",
+          "safety_critical": false,
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "ความสว่างของภาพเหมาะสมแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 130) หรือเปิด Settings > Support > About This TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 130) หรือใช้ Settings > Support > Remote Management ให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่ออินเทอร์เน็ต) โดยโทรหา Samsung Contact Centre เพื่อขอบริการ Remote Support (คู่มือหน้า 129) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_tv2_um_blurring_juddering",
+      "device_category": "Television",
+      "brand": "Samsung",
+      "model_pattern": "KM2DVBADN-2.1.5",
+      "entry_symptom": "Blurring, or Juddering",
+      "entry_symptom_th": "ภาพเบลอหรือกระตุก",
+      "entry_symptom_aliases": [
+        "ทีวีภาพเบลอ",
+        "ภาพทีวีกระตุก",
+        "tv picture blurry",
+        "tv picture juddering"
+      ],
+      "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+      "page_range": [
+        132,
+        132
+      ],
+      "source_chunk_id": "manual_Samsung_Television_KM2DVBADN_p132_blurring_juddering",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "instruction",
+          "content": "ใช้ Auto Motion Plus Settings แก้ภาพเบลอหรือกระตุก: ไปที่ Settings > Picture > Expert Settings > Auto Motion Plus Settings (คู่มือหน้า 132)",
+          "safety_critical": false,
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "ภาพไม่เบลอหรือกระตุกแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 130) หรือเปิด Settings > Support > About This TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 130) หรือใช้ Settings > Support > Remote Management ให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่ออินเทอร์เน็ต) โดยโทรหา Samsung Contact Centre เพื่อขอบริการ Remote Support (คู่มือหน้า 129) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_tv2_um_unwanted_powering_off",
+      "device_category": "Television",
+      "brand": "Samsung",
+      "model_pattern": "KM2DVBADN-2.1.5",
+      "entry_symptom": "Unwanted Powering Off",
+      "entry_symptom_th": "ทีวีปิดเอง",
+      "entry_symptom_aliases": [
+        "ทีวีดับเอง",
+        "ทีวีปิดเองอัตโนมัติ",
+        "ทีวีปิดเครื่องเอง",
+        "tv turns off by itself",
+        "tv shuts off"
+      ],
+      "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+      "page_range": [
+        132,
+        132
+      ],
+      "source_chunk_id": "manual_Samsung_Television_KM2DVBADN_p132_unwanted_powering_off",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "เปิด Sleep Timer ไว้ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n1f",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "ปิด Sleep Timer ที่ Settings > General > System Manager > Time > Sleep Timer ซึ่งจะสั่งปิดทีวีอัตโนมัติเมื่อครบเวลาที่ตั้งไว้ (คู่มือหน้า 132)",
+          "safety_critical": false,
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "เปิด Auto Power Off หรือ Off Timer ไว้ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2f",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n2f",
+          "type": "instruction",
+          "content": "ปิด Auto Power Off ที่ Settings > General > Eco Solution > Auto Power Off และปิด Off Timer ที่ Settings > General > System Manager > Time > Off Timer (คู่มือหน้า 132)",
+          "safety_critical": false,
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "ทีวีไม่ปิดเองแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 130) หรือเปิด Settings > Support > About This TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 130) หรือใช้ Settings > Support > Remote Management ให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่ออินเทอร์เน็ต) โดยโทรหา Samsung Contact Centre เพื่อขอบริการ Remote Support (คู่มือหน้า 129) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_tv2_um_problems_powering_on",
+      "device_category": "Television",
+      "brand": "Samsung",
+      "model_pattern": "KM2DVBADN-2.1.5",
+      "entry_symptom": "Problems Powering On",
+      "entry_symptom_th": "เปิดทีวีไม่ติด",
+      "entry_symptom_aliases": [
+        "ทีวีเปิดไม่ติด",
+        "ทีวีไม่ติด",
+        "ทีวีไม่มีไฟ",
+        "กดเปิดทีวีไม่ขึ้น",
+        "tv will not turn on",
+        "tv no power"
+      ],
+      "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+      "page_range": [
+        132,
+        132
+      ],
+      "source_chunk_id": "manual_Samsung_Television_KM2DVBADN_p132_problems_powering_on",
+      "severity": "medium",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "สายไฟของทีวีเสียบแน่นทั้งสองด้านและรีโมตทำงานปกติแล้วใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2",
+          "on_no": "n1f"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "เสียบสายไฟของทีวีให้แน่นทั้งสองด้าน (ที่ทีวีและที่เต้ารับ) และตรวจว่ารีโมตทำงานปกติ (คู่มือหน้า 132)",
+          "safety_critical": true,
+          "safety_warning": "ถอดหรือเสียบปลั๊กโดยจับที่หัวปลั๊ก ไม่ดึงที่สายไฟ และห้ามจับปลั๊กด้วยมือเปียก ถ้าสายไฟหรือปลั๊กชำรุด ให้หยุดใช้งานแล้วติดต่อศูนย์บริการ",
+          "author_note": "คู่มือเล่มนี้ไม่มีหัวข้อความปลอดภัยเรื่องปลั๊กไฟ ข้อความเตือนนี้ผู้พัฒนาเพิ่มตามหลักความปลอดภัยทั่วไปเกี่ยวกับไฟฟ้า",
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "สายอากาศหรือสายเคเบิลทีวีต่อแน่นแล้วใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n3",
+          "on_no": "n2f"
+        },
+        {
+          "node_id": "n2f",
+          "type": "instruction",
+          "content": "ต่อสายอากาศหรือสายเคเบิลทีวีให้แน่น (คู่มือหน้า 132)",
+          "safety_critical": false,
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "node_id": "n3",
+          "type": "checkpoint",
+          "question": "ถ้ามีกล่องเคเบิลหรือกล่องรับสัญญาณดาวเทียม เสียบปลั๊กและเปิดเครื่องแล้วใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_escalate",
+          "on_no": "n3f"
+        },
+        {
+          "node_id": "n3f",
+          "type": "instruction",
+          "content": "เสียบปลั๊กและเปิดกล่องเคเบิลหรือกล่องรับสัญญาณดาวเทียม (คู่มือหน้า 132)",
+          "safety_critical": true,
+          "safety_warning": "ถอดหรือเสียบปลั๊กโดยจับที่หัวปลั๊ก ไม่ดึงที่สายไฟ และห้ามจับปลั๊กด้วยมือเปียก ถ้าสายไฟหรือปลั๊กชำรุด ให้หยุดใช้งานแล้วติดต่อศูนย์บริการ",
+          "author_note": "คู่มือเล่มนี้ไม่มีหัวข้อความปลอดภัยเรื่องปลั๊กไฟ ข้อความเตือนนี้ผู้พัฒนาเพิ่มตามหลักความปลอดภัยทั่วไปเกี่ยวกับไฟฟ้า",
+          "next": "n3v"
+        },
+        {
+          "node_id": "n3v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "เปิดทีวีติดแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 130) หรือเปิด Settings > Support > About This TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 130) หรือใช้ Settings > Support > Remote Management ให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่ออินเทอร์เน็ต) โดยโทรหา Samsung Contact Centre เพื่อขอบริการ Remote Support (คู่มือหน้า 129) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_tv2_um_unable_find_channel",
+      "device_category": "Television",
+      "brand": "Samsung",
+      "model_pattern": "KM2DVBADN-2.1.5",
+      "entry_symptom": "Unable to find a Channel",
+      "entry_symptom_th": "หาช่องไม่เจอ",
+      "entry_symptom_aliases": [
+        "ทีวีหาช่องไม่เจอ",
+        "ทีวีไม่มีช่อง",
+        "ทีวีสแกนช่องไม่ได้",
+        "tv cannot find channel",
+        "tv no channels"
+      ],
+      "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+      "page_range": [
+        132,
+        132
+      ],
+      "source_chunk_id": "manual_Samsung_Television_KM2DVBADN_p132_unable_find_channel",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "instruction",
+          "content": "สแกนหาช่อง (ถ้าทีวีไม่ได้ต่อกับกล่องเคเบิลหรือกล่องรับสัญญาณดาวเทียม): ไปที่ Settings > Broadcasting (Auto Tuning Settings) > Auto Tuning เมนู Auto Tuning Settings อาจไม่ปรากฏในบางรุ่นหรือบางพื้นที่ (คู่มือหน้า 132)",
+          "safety_critical": false,
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "หาช่องเจอและรับชมได้แล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 130) หรือเปิด Settings > Support > About This TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 130) หรือใช้ Settings > Support > Remote Management ให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่ออินเทอร์เน็ต) โดยโทรหา Samsung Contact Centre เพื่อขอบริการ Remote Support (คู่มือหน้า 129) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_tv2_um_not_as_good_as_store",
+      "device_category": "Television",
+      "brand": "Samsung",
+      "model_pattern": "KM2DVBADN-2.1.5",
+      "entry_symptom": "The TV image does not look as good as it did in the store.",
+      "entry_symptom_th": "ภาพที่บ้านไม่สวยเท่าตอนอยู่ที่ร้าน",
+      "entry_symptom_aliases": [
+        "ภาพทีวีไม่สวยเหมือนที่ร้าน",
+        "ภาพทีวีไม่คมชัด",
+        "ภาพทีวีที่บ้านไม่ชัด",
+        "tv picture worse than store"
+      ],
+      "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+      "page_range": [
+        132,
+        132
+      ],
+      "source_chunk_id": "manual_Samsung_Television_KM2DVBADN_p132_not_as_good_as_store",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "ใช้กล่องเคเบิลหรือกล่องรับสัญญาณดาวเทียมแบบอนาล็อกใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n1f",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "เปลี่ยนเป็นกล่องเคเบิลหรือกล่องรับสัญญาณดาวเทียมแบบดิจิทัล เพราะทีวีที่ร้านปรับให้รับช่องดิจิทัลแบบ HD และใช้สาย HDMI หรือ Component เพื่อให้ได้ภาพคุณภาพ HD (คู่มือหน้า 132)",
+          "safety_critical": false,
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n2",
+          "type": "instruction",
+          "content": "หาช่องที่ออกอากาศเนื้อหา HD เพราะช่อง HD จำนวนมากเป็นเนื้อหา SD ที่ขยายภาพ ถ้าเป็นสมาชิกเคเบิลหรือดาวเทียมให้ลองช่อง HD จากรายการช่อง ถ้าใช้สายอากาศภาคพื้นดินหรือเคเบิล ให้ลองช่อง HD หลังสแกนช่องด้วย Settings > Broadcasting (Auto Tuning Settings) > Auto Tuning (คู่มือหน้า 132)",
+          "safety_critical": false,
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "node_id": "n3",
+          "type": "instruction",
+          "content": "ปรับความละเอียดเอาต์พุตของกล่องเคเบิลหรือกล่องรับสัญญาณดาวเทียมเป็น 1080i หรือ 720p (คู่มือหน้า 132)",
+          "safety_critical": false,
+          "next": "n3v"
+        },
+        {
+          "node_id": "n3v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "ภาพชัดขึ้นแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 130) หรือเปิด Settings > Support > About This TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 130) หรือใช้ Settings > Support > Remote Management ให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่ออินเทอร์เน็ต) โดยโทรหา Samsung Contact Centre เพื่อขอบริการ Remote Support (คู่มือหน้า 129) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_tv2_um_picture_distorted",
+      "device_category": "Television",
+      "brand": "Samsung",
+      "model_pattern": "KM2DVBADN-2.1.5",
+      "entry_symptom": "The picture is distorted.",
+      "entry_symptom_th": "ภาพผิดเพี้ยน",
+      "entry_symptom_aliases": [
+        "ภาพทีวีแตก",
+        "ภาพทีวีเป็นสี่เหลี่ยม",
+        "ภาพทีวีบิดเบี้ยว",
+        "tv picture distorted"
+      ],
+      "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+      "page_range": [
+        133,
+        133
+      ],
+      "source_chunk_id": "manual_Samsung_Television_KM2DVBADN_p133_picture_distorted",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "ภาพผิดเพี้ยนเฉพาะฉากเคลื่อนไหวเร็ว เช่น กีฬาหรือหนังแอ็กชันใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n1n",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n1n",
+          "type": "resolution",
+          "content": "การบีบอัดเนื้อหาวิดีโออาจทำให้ภาพผิดเพี้ยน โดยเฉพาะภาพเคลื่อนไหวเร็วของรายการกีฬาและหนังแอ็กชัน (คู่มือหน้า 133)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "สัญญาณที่รับได้อ่อนหรือไม่ดีใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2n",
+          "on_no": "n3"
+        },
+        {
+          "node_id": "n2n",
+          "type": "resolution",
+          "content": "ถ้าการรับสัญญาณอ่อนหรือไม่ดี อาจเห็นภาพผิดเพี้ยน แต่ไม่ใช่ความผิดปกติของทีวี (คู่มือหน้า 133)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "node_id": "n3",
+          "type": "checkpoint",
+          "question": "มีโทรศัพท์มือถืออยู่ใกล้ทีวี (ภายในหนึ่งเมตร) ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n3f",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n3f",
+          "type": "instruction",
+          "content": "ย้ายโทรศัพท์มือถือให้ห่างจากทีวี เพราะการใช้โทรศัพท์ใกล้ทีวี (ภายใน 1 เมตร) อาจทำให้เกิดสัญญาณรบกวนในช่องอนาล็อกและดิจิทัล (คู่มือหน้า 133)",
+          "safety_critical": false,
+          "next": "n3v"
+        },
+        {
+          "node_id": "n3v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "ภาพปกติแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ถ้าผลทดสอบภาพไม่ปกติหรือมีสัญญาณรบกวนหรือภาพผิดเพี้ยน ทีวีอาจมีปัญหา ให้ติดต่อ Samsung Call Centre แต่ถ้าภาพทดสอบแสดงปกติ อาจเป็นปัญหาของอุปกรณ์ภายนอก ให้ตรวจการเชื่อมต่อ ตรวจความแรงของสัญญาณ หรือดูคู่มือของอุปกรณ์ภายนอก (คู่มือหน้า 133) หากต้องการขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 130) หรือเปิด Settings > Support > About This TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 130) หรือใช้ Settings > Support > Remote Management ให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่ออินเทอร์เน็ต) โดยโทรหา Samsung Contact Centre เพื่อขอบริการ Remote Support (คู่มือหน้า 129)",
+          "outcome_kind": "handoff_informed"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_tv2_um_colour_wrong_or_missing",
+      "device_category": "Television",
+      "brand": "Samsung",
+      "model_pattern": "KM2DVBADN-2.1.5",
+      "entry_symptom": "The colour is wrong or missing.",
+      "entry_symptom_th": "สีผิดหรือไม่มีสี",
+      "entry_symptom_aliases": [
+        "สีทีวีหาย",
+        "ภาพทีวีไม่มีสี",
+        "ภาพทีวีสีผิด",
+        "tv colour missing",
+        "tv wrong colour"
+      ],
+      "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+      "page_range": [
+        133,
+        133
+      ],
+      "source_chunk_id": "manual_Samsung_Television_KM2DVBADN_p133_colour_wrong_or_missing",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "ใช้การเชื่อมต่อแบบ Component อยู่ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n1f",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "ตรวจว่าสาย Component เสียบเข้าแจ็คที่ถูกต้อง เพราะการต่อผิดหรือหลวมอาจทำให้สีเพี้ยนหรือหน้าจอไม่แสดงภาพ (คู่มือหน้า 133)",
+          "safety_critical": false,
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "สีภาพกลับมาปกติแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ถ้าผลทดสอบภาพไม่ปกติหรือมีสัญญาณรบกวนหรือภาพผิดเพี้ยน ทีวีอาจมีปัญหา ให้ติดต่อ Samsung Call Centre แต่ถ้าภาพทดสอบแสดงปกติ อาจเป็นปัญหาของอุปกรณ์ภายนอก ให้ตรวจการเชื่อมต่อ ตรวจความแรงของสัญญาณ หรือดูคู่มือของอุปกรณ์ภายนอก (คู่มือหน้า 133) หากต้องการขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 130) หรือเปิด Settings > Support > About This TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 130) หรือใช้ Settings > Support > Remote Management ให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่ออินเทอร์เน็ต) โดยโทรหา Samsung Contact Centre เพื่อขอบริการ Remote Support (คู่มือหน้า 129)",
+          "outcome_kind": "handoff_informed"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_tv2_um_colour_poor_not_bright",
+      "device_category": "Television",
+      "brand": "Samsung",
+      "model_pattern": "KM2DVBADN-2.1.5",
+      "entry_symptom": "The colour is poor or the picture is not bright enough.",
+      "entry_symptom_th": "สีไม่สวยหรือภาพไม่สว่างพอ",
+      "entry_symptom_aliases": [
+        "สีทีวีซีด",
+        "ภาพทีวีไม่สว่าง",
+        "ภาพทีวีมืด",
+        "tv colour poor",
+        "tv picture not bright"
+      ],
+      "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+      "page_range": [
+        133,
+        133
+      ],
+      "source_chunk_id": "manual_Samsung_Television_KM2DVBADN_p133_colour_poor_not_bright",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "instruction",
+          "content": "ปรับการตั้งค่าภาพ: ไปที่ Settings > Picture > Picture Mode และ Settings > Picture > Expert Settings แล้วปรับ Brightness, Sharpness และ Colour (คู่มือหน้า 133)",
+          "safety_critical": false,
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "เปิด Energy Saving Mode ไว้ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2f",
+          "on_no": "n3"
+        },
+        {
+          "node_id": "n2f",
+          "type": "instruction",
+          "content": "ปิด Energy Saving Mode ที่ Settings > General > Eco Solution > Energy Saving Mode (คู่มือหน้า 133)",
+          "safety_critical": false,
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "node_id": "n3",
+          "type": "instruction",
+          "content": "รีเซ็ตการตั้งค่าภาพ: ไปที่ Settings > Picture > Expert Settings > Reset Picture (คู่มือหน้า 133)",
+          "safety_critical": false,
+          "next": "n3v"
+        },
+        {
+          "node_id": "n3v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "สีและความสว่างของภาพดีขึ้นแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 130) หรือเปิด Settings > Support > About This TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 130) หรือใช้ Settings > Support > Remote Management ให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่ออินเทอร์เน็ต) โดยโทรหา Samsung Contact Centre เพื่อขอบริการ Remote Support (คู่มือหน้า 129) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_tv2_um_dotted_line_edge",
+      "device_category": "Television",
+      "brand": "Samsung",
+      "model_pattern": "KM2DVBADN-2.1.5",
+      "entry_symptom": "There is a dotted line on the edge of the screen.",
+      "entry_symptom_th": "มีเส้นประที่ขอบหน้าจอ",
+      "entry_symptom_aliases": [
+        "ขอบจอทีวีมีเส้นประ",
+        "ทีวีมีเส้นที่ขอบจอ",
+        "tv dotted line screen edge"
+      ],
+      "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+      "page_range": [
+        133,
+        133
+      ],
+      "source_chunk_id": "manual_Samsung_Television_KM2DVBADN_p133_dotted_line_edge",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "instruction",
+          "content": "เปลี่ยน Picture Size เป็น 16:9 Standard: ไปที่ Settings > Picture > Picture Size Settings > Picture Size > 16:9 Standard (คู่มือหน้า 133)",
+          "safety_critical": false,
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "เส้นประที่ขอบจอหายแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 130) หรือเปิด Settings > Support > About This TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 130) หรือใช้ Settings > Support > Remote Management ให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่ออินเทอร์เน็ต) โดยโทรหา Samsung Contact Centre เพื่อขอบริการ Remote Support (คู่มือหน้า 129) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_tv2_um_picture_black_white",
+      "device_category": "Television",
+      "brand": "Samsung",
+      "model_pattern": "KM2DVBADN-2.1.5",
+      "entry_symptom": "The picture is black and white.",
+      "entry_symptom_th": "ภาพเป็นขาวดำ",
+      "entry_symptom_aliases": [
+        "ทีวีภาพขาวดำ",
+        "ภาพทีวีไม่มีสี",
+        "tv picture black and white"
+      ],
+      "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+      "page_range": [
+        133,
+        133
+      ],
+      "source_chunk_id": "manual_Samsung_Television_KM2DVBADN_p133_picture_black_white",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "ใช้อุปกรณ์ AV หรืออนาล็อก โดยต่อผ่านช่อง Component (สีน้ำเงิน) ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n1f",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "ถอดอะแดปเตอร์ออกจากช่อง Component (สีน้ำเงิน) บนทีวี แล้วต่อเข้าช่อง AV (สีเหลือง) ช่อง Component หรือ AV อาจไม่มีในบางรุ่นหรือบางพื้นที่ (คู่มือหน้า 133)",
+          "safety_critical": false,
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "Greyscale ตั้งเป็น On อยู่ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2f",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n2f",
+          "type": "instruction",
+          "content": "ปิด Greyscale ที่ Settings > General > Accessibility > Greyscale (คู่มือหน้า 133)",
+          "safety_critical": false,
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "ภาพกลับมามีสีแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ถ้าผลทดสอบภาพไม่ปกติหรือมีสัญญาณรบกวนหรือภาพผิดเพี้ยน ทีวีอาจมีปัญหา ให้ติดต่อ Samsung Call Centre แต่ถ้าภาพทดสอบแสดงปกติ อาจเป็นปัญหาของอุปกรณ์ภายนอก ให้ตรวจการเชื่อมต่อ ตรวจความแรงของสัญญาณ หรือดูคู่มือของอุปกรณ์ภายนอก (คู่มือหน้า 133) หากต้องการขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 130) หรือเปิด Settings > Support > About This TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 130) หรือใช้ Settings > Support > Remote Management ให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่ออินเทอร์เน็ต) โดยโทรหา Samsung Contact Centre เพื่อขอบริการ Remote Support (คู่มือหน้า 129)",
+          "outcome_kind": "handoff_informed"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_tv2_um_no_sound_or_low",
+      "device_category": "Television",
+      "brand": "Samsung",
+      "model_pattern": "KM2DVBADN-2.1.5",
+      "entry_symptom": "There is no sound or the sound is too low at maximum volume.",
+      "entry_symptom_th": "ไม่มีเสียงหรือเสียงเบาแม้เปิดสุด",
+      "entry_symptom_aliases": [
+        "ทีวีไม่มีเสียง",
+        "ทีวีเสียงเบา",
+        "ทีวีเปิดเสียงสุดแล้วยังเบา",
+        "tv no sound",
+        "tv volume too low"
+      ],
+      "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+      "page_range": [
+        134,
+        134
+      ],
+      "source_chunk_id": "manual_Samsung_Television_KM2DVBADN_p134_no_sound_or_low",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "instruction",
+          "content": "ตรวจระดับเสียงของทีวี แล้วตรวจระดับเสียงของอุปกรณ์ภายนอกที่ต่อกับทีวี เช่น กล่องเคเบิล กล่องรับสัญญาณดาวเทียม DVD หรือ Blu-ray (คู่มือหน้า 134)",
+          "safety_critical": false,
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n2",
+          "type": "instruction",
+          "content": "ทดสอบเสียงด้วย Start Sound Test: ไปที่ Settings > Support > Self Diagnosis > Start Sound Test ถ้าทีวีเล่นเสียงทดสอบได้ไม่เพี้ยน อาจเป็นปัญหาของอุปกรณ์ภายนอกหรือความแรงของสัญญาณถ่ายทอด (คู่มือหน้า 134)",
+          "safety_critical": false,
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "มีเสียงและระดับเสียงปกติแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 130) หรือเปิด Settings > Support > About This TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 130) หรือใช้ Settings > Support > Remote Management ให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่ออินเทอร์เน็ต) โดยโทรหา Samsung Contact Centre เพื่อขอบริการ Remote Support (คู่มือหน้า 129) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_tv2_um_picture_good_no_sound",
+      "device_category": "Television",
+      "brand": "Samsung",
+      "model_pattern": "KM2DVBADN-2.1.5",
+      "entry_symptom": "The picture is good but there is no sound.",
+      "entry_symptom_th": "ภาพปกติแต่ไม่มีเสียง",
+      "entry_symptom_aliases": [
+        "ทีวีมีภาพแต่ไม่มีเสียง",
+        "ทีวีภาพดีแต่เงียบ",
+        "tv picture ok no sound"
+      ],
+      "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+      "page_range": [
+        134,
+        134
+      ],
+      "source_chunk_id": "manual_Samsung_Television_KM2DVBADN_p134_picture_good_no_sound",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "instruction",
+          "content": "ตั้ง Sound Output เป็น TV Speaker: ไปที่ Settings > Sound > Sound Output (คู่มือหน้า 134)",
+          "safety_critical": false,
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n2",
+          "type": "instruction",
+          "content": "ถ้าใช้อุปกรณ์ภายนอก ให้ตรวจตัวเลือกเอาต์พุตเสียงของอุปกรณ์ เช่น ถ้ากล่องเคเบิลต่อกับทีวีด้วยสาย HDMI อาจต้องเปลี่ยนตัวเลือกเสียงของกล่องเป็น HDMI และถ้าต้องการฟังเสียงจากคอมพิวเตอร์ ให้ต่อลำโพงภายนอกเข้ากับช่องเอาต์พุตเสียงของคอมพิวเตอร์ (คู่มือหน้า 134)",
+          "safety_critical": false,
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "node_id": "n3",
+          "type": "checkpoint",
+          "question": "ทีวีมีช่องเสียบหูฟังและมีอะไรเสียบค้างอยู่ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n3f",
+          "on_no": "n4"
+        },
+        {
+          "node_id": "n3f",
+          "type": "instruction",
+          "content": "ถอดสิ่งที่เสียบอยู่ที่ช่องหูฟังของทีวีออก (คู่มือหน้า 134)",
+          "safety_critical": false,
+          "next": "n3v"
+        },
+        {
+          "node_id": "n3v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n4"
+        },
+        {
+          "node_id": "n4",
+          "type": "instruction",
+          "content": "รีบูตอุปกรณ์ที่เชื่อมต่อโดยถอดสายไฟของอุปกรณ์แล้วเสียบกลับ (คู่มือหน้า 134)",
+          "safety_critical": true,
+          "safety_warning": "ถอดหรือเสียบปลั๊กโดยจับที่หัวปลั๊ก ไม่ดึงที่สายไฟ และห้ามจับปลั๊กด้วยมือเปียก ถ้าสายไฟหรือปลั๊กชำรุด ให้หยุดใช้งานแล้วติดต่อศูนย์บริการ",
+          "author_note": "คู่มือเล่มนี้ไม่มีหัวข้อความปลอดภัยเรื่องปลั๊กไฟ ข้อความเตือนนี้ผู้พัฒนาเพิ่มตามหลักความปลอดภัยทั่วไปเกี่ยวกับไฟฟ้า",
+          "next": "n4v"
+        },
+        {
+          "node_id": "n4v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "มีเสียงแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 130) หรือเปิด Settings > Support > About This TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 130) หรือใช้ Settings > Support > Remote Management ให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่ออินเทอร์เน็ต) โดยโทรหา Samsung Contact Centre เพื่อขอบริการ Remote Support (คู่มือหน้า 129) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_tv2_um_no_sound_is_heard",
+      "device_category": "Television",
+      "brand": "Samsung",
+      "model_pattern": "KM2DVBADN-2.1.5",
+      "entry_symptom": "No sound is heard.",
+      "entry_symptom_th": "ไม่ได้ยินเสียง (ตั้งรูปแบบเสียงดิจิทัลไม่ตรงกับเครื่องรับ)",
+      "entry_symptom_aliases": [
+        "ต่อเครื่องรับเสียงแล้วไม่มีเสียง",
+        "dolby digital+ ไม่มีเสียง",
+        "tv dolby digital plus no sound"
+      ],
+      "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+      "page_range": [
+        134,
+        134
+      ],
+      "source_chunk_id": "manual_Samsung_Television_KM2DVBADN_p134_no_sound_is_heard",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "Digital Output Audio Format ตั้งเป็น Dolby Digital+ และใช้เครื่องรับ (receiver) ที่ไม่รองรับ Dolby Digital Plus ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n1f",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "ตรวจ Digital Output Audio Format ที่ Settings > Sound > Expert Settings > Digital Output Audio Format เพราะถ้าเลือก Dolby Digital+ แต่ใช้เครื่องรับที่ไม่รองรับ Dolby Digital Plus จะไม่ได้ยินเสียง ให้เปลี่ยนไปใช้รูปแบบที่เครื่องรับรองรับ (คู่มือหน้า 134)",
+          "safety_critical": false,
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "มีเสียงแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 130) หรือเปิด Settings > Support > About This TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 130) หรือใช้ Settings > Support > Remote Management ให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่ออินเทอร์เน็ต) โดยโทรหา Samsung Contact Centre เพื่อขอบริการ Remote Support (คู่มือหน้า 129) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_tv2_um_speakers_odd_sound",
+      "device_category": "Television",
+      "brand": "Samsung",
+      "model_pattern": "KM2DVBADN-2.1.5",
+      "entry_symptom": "The speakers are making an odd sound.",
+      "entry_symptom_th": "ลำโพงมีเสียงแปลก",
+      "entry_symptom_aliases": [
+        "ลำโพงทีวีเสียงเพี้ยน",
+        "ทีวีเสียงแตก",
+        "ทีวีเสียงแปลก",
+        "tv speaker odd sound",
+        "tv sound distorted"
+      ],
+      "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+      "page_range": [
+        134,
+        134
+      ],
+      "source_chunk_id": "manual_Samsung_Television_KM2DVBADN_p134_speakers_odd_sound",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "instruction",
+          "content": "ทดสอบเสียงด้วย Start Sound Test: ไปที่ Settings > Support > Self Diagnosis > Start Sound Test (คู่มือหน้า 134)",
+          "safety_critical": false,
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n2",
+          "type": "instruction",
+          "content": "ตรวจว่าสายสัญญาณเสียงต่อเข้ากับช่องเอาต์พุตเสียงของอุปกรณ์ภายนอกถูกต้อง (คู่มือหน้า 134)",
+          "safety_critical": false,
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "node_id": "n3",
+          "type": "instruction",
+          "content": "ถ้าใช้สายอากาศหรือสายเคเบิล ให้ตรวจข้อมูลสัญญาณ (Signal Information ที่ Settings > Support > Self Diagnosis) เพราะระดับสัญญาณต่ำอาจทำให้เสียงเพี้ยน (คู่มือหน้า 134 และ 130)",
+          "safety_critical": false,
+          "next": "n3v"
+        },
+        {
+          "node_id": "n3v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "เสียงปกติแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 130) หรือเปิด Settings > Support > About This TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 130) หรือใช้ Settings > Support > Remote Management ให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่ออินเทอร์เน็ต) โดยโทรหา Samsung Contact Centre เพื่อขอบริการ Remote Support (คู่มือหน้า 129) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_tv2_um_weak_or_no_signal",
+      "device_category": "Television",
+      "brand": "Samsung",
+      "model_pattern": "KM2DVBADN-2.1.5",
+      "entry_symptom": "“Weak or No Signal” displayed in TV mode/cannot find channel.",
+      "entry_symptom_th": "ขึ้นข้อความ Weak or No Signal ในโหมด TV หรือหาช่องไม่เจอ",
+      "entry_symptom_aliases": [
+        "ทีวีขึ้น no signal",
+        "ทีวีไม่มีสัญญาณ",
+        "ทีวีขึ้นสัญญาณอ่อน",
+        "weak or no signal",
+        "tv no signal"
+      ],
+      "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+      "page_range": [
+        135,
+        135
+      ],
+      "source_chunk_id": "manual_Samsung_Television_KM2DVBADN_p135_weak_or_no_signal",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "ทีวีแสดงข้อความ Weak or No Signal หรือหาช่องไม่เจอใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2",
+          "on_no": "n_nomatch"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "สายอากาศต่อแน่นกับทีวีแล้วใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n3",
+          "on_no": "n2f"
+        },
+        {
+          "node_id": "n2f",
+          "type": "instruction",
+          "content": "ต่อสายอากาศเข้ากับทีวีให้แน่น (คู่มือหน้า 135)",
+          "safety_critical": false,
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "node_id": "n3",
+          "type": "checkpoint",
+          "question": "เลือกแหล่งสัญญาณ (Source) ถูกต้องแล้วใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n4",
+          "on_no": "n3f"
+        },
+        {
+          "node_id": "n3f",
+          "type": "instruction",
+          "content": "เลือก Source เพื่อยืนยันว่าเลือกแหล่งสัญญาณเข้าถูกต้อง (คู่มือหน้า 135)",
+          "safety_critical": false,
+          "next": "n3v"
+        },
+        {
+          "node_id": "n3v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n4"
+        },
+        {
+          "node_id": "n4",
+          "type": "instruction",
+          "content": "ถ้าทีวีไม่ได้ต่อกับกล่องเคเบิลหรือกล่องรับสัญญาณดาวเทียม ให้สแกนหาช่องด้วย Auto Tuning: ไปที่ Settings > Broadcasting (Auto Tuning Settings) > Auto Tuning เมนู Auto Tuning Settings อาจไม่ปรากฏในบางรุ่นหรือบางพื้นที่ (คู่มือหน้า 135)",
+          "safety_critical": false,
+          "next": "n4v"
+        },
+        {
+          "node_id": "n4v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "มีสัญญาณและรับชมได้แล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 130) หรือเปิด Settings > Support > About This TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 130) หรือใช้ Settings > Support > Remote Management ให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่ออินเทอร์เน็ต) โดยโทรหา Samsung Contact Centre เพื่อขอบริการ Remote Support (คู่มือหน้า 129) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        },
+        {
+          "node_id": "n_nomatch",
+          "type": "escalation",
+          "content": "ทีวีไม่ได้แสดง Weak or No Signal ให้เลือกอาการที่ตรงกับที่เห็น หรือขอรับบริการจาก Samsung ผ่าน Settings > Support > Request Support (คู่มือหน้า 130)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_tv2_um_not_receiving_all_channels",
+      "device_category": "Television",
+      "brand": "Samsung",
+      "model_pattern": "KM2DVBADN-2.1.5",
+      "entry_symptom": "The TV is not receiving all channels.",
+      "entry_symptom_th": "ทีวีรับช่องได้ไม่ครบ",
+      "entry_symptom_aliases": [
+        "ทีวีช่องหาย",
+        "ทีวีรับช่องไม่ครบ",
+        "ช่องทีวีหายไป",
+        "tv missing channels"
+      ],
+      "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+      "page_range": [
+        135,
+        135
+      ],
+      "source_chunk_id": "manual_Samsung_Television_KM2DVBADN_p135_not_receiving_all_channels",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "สายโคแอกเชียลต่อแน่นกับทีวีแล้วใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2",
+          "on_no": "n1f"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "ต่อสายโคแอกเชียลเข้ากับทีวีให้แน่น (คู่มือหน้า 135)",
+          "safety_critical": false,
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n2",
+          "type": "instruction",
+          "content": "สแกนช่องใหม่ด้วย Auto Tuning (หรือ Start Setup): ไปที่ Settings > Broadcasting (Auto Tuning Settings) > Auto Tuning เมนู Auto Tuning Settings อาจไม่ปรากฏในบางรุ่นหรือบางพื้นที่ (คู่มือหน้า 135)",
+          "safety_critical": false,
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "รับช่องได้ครบแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 130) หรือเปิด Settings > Support > About This TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 130) หรือใช้ Settings > Support > Remote Management ให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่ออินเทอร์เน็ต) โดยโทรหา Samsung Contact Centre เพื่อขอบริการ Remote Support (คู่มือหน้า 129) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_tv2_um_no_subtitles_digital",
+      "device_category": "Television",
+      "brand": "Samsung",
+      "model_pattern": "KM2DVBADN-2.1.5",
+      "entry_symptom": "There are no subtitles with digital channels.",
+      "entry_symptom_th": "ช่องดิจิทัลไม่มีคำบรรยาย",
+      "entry_symptom_aliases": [
+        "ช่องดิจิทัลไม่มีซับไตเติ้ล",
+        "ทีวีไม่มีคำบรรยาย",
+        "tv no subtitles digital channel"
+      ],
+      "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+      "page_range": [
+        135,
+        135
+      ],
+      "source_chunk_id": "manual_Samsung_Television_KM2DVBADN_p135_no_subtitles_digital",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "instruction",
+          "content": "เปลี่ยน Subtitle Mode: ไปที่ Settings > General > Accessibility > Subtitle Settings > Subtitle > Subtitle Mode บางช่องอาจไม่มีข้อมูลคำบรรยาย (คู่มือหน้า 135)",
+          "safety_critical": false,
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "มีคำบรรยายแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 130) หรือเปิด Settings > Support > About This TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 130) หรือใช้ Settings > Support > Remote Management ให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่ออินเทอร์เน็ต) โดยโทรหา Samsung Contact Centre เพื่อขอบริการ Remote Support (คู่มือหน้า 129) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_tv2_um_picture_quality_low",
+      "device_category": "Television",
+      "brand": "Samsung",
+      "model_pattern": "KM2DVBADN-2.1.5",
+      "entry_symptom": "The picture quality is low.",
+      "entry_symptom_th": "คุณภาพภาพต่ำ",
+      "entry_symptom_aliases": [
+        "ภาพทีวีไม่ชัด",
+        "ภาพทีวีคุณภาพต่ำ",
+        "tv picture quality low"
+      ],
+      "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+      "page_range": [
+        135,
+        135
+      ],
+      "source_chunk_id": "manual_Samsung_Television_KM2DVBADN_p135_picture_quality_low",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "instruction",
+          "content": "เลือกช่องหรือรายการแบบความละเอียดสูง (HD) (คู่มือหน้า 135)",
+          "safety_critical": false,
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "คุณภาพภาพดีขึ้นแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 130) หรือเปิด Settings > Support > About This TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 130) หรือใช้ Settings > Support > Remote Management ให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่ออินเทอร์เน็ต) โดยโทรหา Samsung Contact Centre เพื่อขอบริการ Remote Support (คู่มือหน้า 129) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_tv2_um_mode_not_supported",
+      "device_category": "Television",
+      "brand": "Samsung",
+      "model_pattern": "KM2DVBADN-2.1.5",
+      "entry_symptom": "The \"Mode Not Supported\" message appears.",
+      "entry_symptom_th": "ขึ้นข้อความ Mode Not Supported",
+      "entry_symptom_aliases": [
+        "ทีวีขึ้น mode not supported",
+        "ทีวีไม่รองรับความละเอียด",
+        "ต่อคอมแล้วขึ้น mode not supported",
+        "tv mode not supported"
+      ],
+      "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+      "page_range": [
+        136,
+        136
+      ],
+      "source_chunk_id": "manual_Samsung_Television_KM2DVBADN_p136_mode_not_supported",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "ทีวีแสดงข้อความ Mode Not Supported ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2",
+          "on_no": "n_nomatch"
+        },
+        {
+          "node_id": "n2",
+          "type": "instruction",
+          "content": "ตั้งความละเอียดเอาต์พุตของพีซีหรือเครื่องเล่นเกมให้ตรงกับความละเอียดที่ทีวีรองรับ (คู่มือหน้า 136) ดูความละเอียดที่รองรับของพีซีได้ที่หัวข้อ Read Before Connecting a Computer (Supported Resolutions) (คู่มือหน้า 156)",
+          "safety_critical": false,
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "ข้อความหายไปและแสดงภาพได้แล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 130) หรือเปิด Settings > Support > About This TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 130) หรือใช้ Settings > Support > Remote Management ให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่ออินเทอร์เน็ต) โดยโทรหา Samsung Contact Centre เพื่อขอบริการ Remote Support (คู่มือหน้า 129) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        },
+        {
+          "node_id": "n_nomatch",
+          "type": "escalation",
+          "content": "ทีวีไม่ได้แสดงข้อความ Mode Not Supported ให้เลือกอาการที่ตรงกับที่เห็น หรือขอรับบริการจาก Samsung ผ่าน Settings > Support > Request Support (คู่มือหน้า 130)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_tv2_um_video_ok_no_audio",
+      "device_category": "Television",
+      "brand": "Samsung",
+      "model_pattern": "KM2DVBADN-2.1.5",
+      "entry_symptom": "The video is OK but there is no audio.",
+      "entry_symptom_th": "ภาพปกติแต่ไม่มีเสียง (ต่อพีซี)",
+      "entry_symptom_aliases": [
+        "ต่อคอมแล้วไม่มีเสียง",
+        "ต่อ HDMI มีภาพแต่ไม่มีเสียง",
+        "tv hdmi pc no audio"
+      ],
+      "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+      "page_range": [
+        136,
+        136
+      ],
+      "source_chunk_id": "manual_Samsung_Television_KM2DVBADN_p136_video_ok_no_audio",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "ต่อพีซีผ่านสาย HDMI ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n1f",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "ตรวจการตั้งค่าเอาต์พุตเสียงบนพีซี (คู่มือหน้า 136)",
+          "safety_critical": false,
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "ใช้สาย HDMI-to-DVI ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2f",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n2f",
+          "type": "instruction",
+          "content": "ต้องใช้สายเสียงแยกต่างหาก การเชื่อมต่อ HDMI-to-DVI รองรับเฉพาะพอร์ต HDMI (DVI) และไม่ส่งสัญญาณเสียง ถ้าต้องการฟังเสียงจากคอมพิวเตอร์ ให้ต่อลำโพงภายนอกเข้ากับช่องเอาต์พุตเสียงของคอมพิวเตอร์ (คู่มือหน้า 136)",
+          "safety_critical": false,
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "มีเสียงแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 130) หรือเปิด Settings > Support > About This TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 130) หรือใช้ Settings > Support > Remote Management ให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่ออินเทอร์เน็ต) โดยโทรหา Samsung Contact Centre เพื่อขอบริการ Remote Support (คู่มือหน้า 129) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_tv2_um_cannot_connect_network_apps",
+      "device_category": "Television",
+      "brand": "Samsung",
+      "model_pattern": "KM2DVBADN-2.1.5",
+      "entry_symptom": "The TV cannot connect to your network or apps (for Internet compatible models only).",
+      "entry_symptom_th": "ทีวีเชื่อมต่อเครือข่ายหรือแอปไม่ได้",
+      "entry_symptom_aliases": [
+        "ทีวีต่อเน็ตไม่ได้",
+        "ทีวีเข้าแอปไม่ได้",
+        "ทีวีไม่มีอินเทอร์เน็ต",
+        "tv cannot connect network",
+        "tv cannot connect apps"
+      ],
+      "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+      "page_range": [
+        136,
+        136
+      ],
+      "source_chunk_id": "manual_Samsung_Television_KM2DVBADN_p136_cannot_connect_network_apps",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "instruction",
+          "content": "ตรวจว่าทีวีเชื่อมต่อเครือข่ายอยู่: ไปที่ Settings > General > Network > Network Status (คู่มือหน้า 136)",
+          "safety_critical": false,
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "ทีวีเชื่อมต่อเครือข่ายและแอปได้แล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ถ้าทีวีเชื่อมต่อเครือข่ายตามสถานะแล้วแต่ยังใช้ไม่ได้ ให้ติดต่อผู้ให้บริการอินเทอร์เน็ต (Internet service provider) ของคุณ (คู่มือหน้า 136) ถ้าตรวจฝั่งทีวีแล้วยังไม่หาย ให้ขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 130) หรือเปิด Settings > Support > About This TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 130) หรือใช้ Settings > Support > Remote Management ให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่ออินเทอร์เน็ต) โดยโทรหา Samsung Contact Centre เพื่อขอบริการ Remote Support (คู่มือหน้า 129)",
+          "outcome_kind": "handoff_informed"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_tv2_um_wireless_connection_failed",
+      "device_category": "Television",
+      "brand": "Samsung",
+      "model_pattern": "KM2DVBADN-2.1.5",
+      "entry_symptom": "The wireless network connection failed.",
+      "entry_symptom_th": "เชื่อมต่อเครือข่ายไร้สายไม่สำเร็จ",
+      "entry_symptom_aliases": [
+        "ทีวีต่อ wifi ไม่ได้",
+        "ทีวีไม่เจอ wifi",
+        "tv wifi not connecting"
+      ],
+      "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+      "page_range": [
+        136,
+        136
+      ],
+      "source_chunk_id": "manual_Samsung_Television_KM2DVBADN_p136_wireless_connection_failed",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "โมเด็มหรือเราเตอร์ไร้สายเปิดอยู่และเชื่อมต่ออินเทอร์เน็ตแล้วใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_escalate",
+          "on_no": "n1f"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "ตรวจว่าโมเด็มหรือเราเตอร์ไร้สายเปิดอยู่และเชื่อมต่ออินเทอร์เน็ต (คู่มือหน้า 136)",
+          "safety_critical": false,
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "เชื่อมต่อเครือข่ายไร้สายได้แล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ถ้าตั้งค่าเครือข่ายเสร็จแล้วแต่ยังเชื่อมต่ออินเทอร์เน็ตไม่ได้ ให้ติดต่อผู้ให้บริการอินเทอร์เน็ต (Internet Service Provider) ของคุณ (คู่มือหน้า 27) ถ้าตรวจฝั่งทีวีแล้วยังไม่หาย ให้ขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 130) หรือเปิด Settings > Support > About This TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 130) หรือใช้ Settings > Support > Remote Management ให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่ออินเทอร์เน็ต) โดยโทรหา Samsung Contact Centre เพื่อขอบริการ Remote Support (คู่มือหน้า 129)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_tv2_um_wireless_signal_weak",
+      "device_category": "Television",
+      "brand": "Samsung",
+      "model_pattern": "KM2DVBADN-2.1.5",
+      "entry_symptom": "The wireless network signal is too weak.",
+      "entry_symptom_th": "สัญญาณเครือข่ายไร้สายอ่อนเกินไป",
+      "entry_symptom_aliases": [
+        "wifi ทีวีสัญญาณอ่อน",
+        "ทีวีสัญญาณ wifi ไม่แรง",
+        "tv wifi signal weak"
+      ],
+      "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+      "page_range": [
+        136,
+        136
+      ],
+      "source_chunk_id": "manual_Samsung_Television_KM2DVBADN_p136_wireless_signal_weak",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "instruction",
+          "content": "วางเราเตอร์ไร้สาย โมเด็มเราเตอร์ หรือ access point ไว้ในตำแหน่งกลาง หลีกเลี่ยงการวางไว้ที่มุมห้อง (คู่มือหน้า 136)",
+          "safety_critical": false,
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n2",
+          "type": "instruction",
+          "content": "ใช้ตัวขยายสัญญาณไร้สาย (wireless repeater) เพื่อเพิ่มความแรงของสัญญาณทันที โดยวางตัวขยายไว้กึ่งกลางระหว่างเราเตอร์ไร้สายกับทีวี (คู่มือหน้า 136)",
+          "safety_critical": false,
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "สัญญาณไร้สายแรงขึ้นและเชื่อมต่อได้แล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ถ้าตั้งค่าเครือข่ายเสร็จแล้วแต่ยังเชื่อมต่ออินเทอร์เน็ตไม่ได้ ให้ติดต่อผู้ให้บริการอินเทอร์เน็ต (Internet Service Provider) ของคุณ (คู่มือหน้า 27) ถ้าตรวจฝั่งทีวีแล้วยังไม่หาย ให้ขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 130) หรือเปิด Settings > Support > About This TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 130) หรือใช้ Settings > Support > Remote Management ให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่ออินเทอร์เน็ต) โดยโทรหา Samsung Contact Centre เพื่อขอบริการ Remote Support (คู่มือหน้า 129)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_tv2_um_no_network_cable_found",
+      "device_category": "Television",
+      "brand": "Samsung",
+      "model_pattern": "KM2DVBADN-2.1.5",
+      "entry_symptom": "No network cable found",
+      "entry_symptom_th": "ไม่พบสายเครือข่าย",
+      "entry_symptom_aliases": [
+        "ทีวีขึ้น no network cable found",
+        "ทีวีไม่เจอสาย lan",
+        "tv no network cable found"
+      ],
+      "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+      "page_range": [
+        26,
+        26
+      ],
+      "source_chunk_id": "manual_Samsung_Television_KM2DVBADN_p26_no_network_cable_found",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "ทีวีแสดงข้อความ No network cable found ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2",
+          "on_no": "n_nomatch"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "สาย LAN เสียบแน่นทั้งสองด้านแล้วใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n3",
+          "on_no": "n2f"
+        },
+        {
+          "node_id": "n2f",
+          "type": "instruction",
+          "content": "เสียบสาย LAN ให้แน่นทั้งสองด้าน (คู่มือหน้า 26)",
+          "safety_critical": false,
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "node_id": "n3",
+          "type": "checkpoint",
+          "question": "เราเตอร์เปิดอยู่แล้วใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n4",
+          "on_no": "n3f"
+        },
+        {
+          "node_id": "n3f",
+          "type": "instruction",
+          "content": "เปิดเราเตอร์ (คู่มือหน้า 26)",
+          "safety_critical": false,
+          "next": "n3v"
+        },
+        {
+          "node_id": "n3v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n4"
+        },
+        {
+          "node_id": "n4",
+          "type": "instruction",
+          "content": "ถ้าเราเตอร์เปิดอยู่แล้ว ให้ลองปิดแล้วเปิดใหม่ (คู่มือหน้า 26)",
+          "safety_critical": false,
+          "next": "n4v"
+        },
+        {
+          "node_id": "n4v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "ทีวีพบสายเครือข่ายและเชื่อมต่อได้แล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ถ้าตั้งค่าเครือข่ายเสร็จแล้วแต่ยังเชื่อมต่ออินเทอร์เน็ตไม่ได้ ให้ติดต่อผู้ให้บริการอินเทอร์เน็ต (Internet Service Provider) ของคุณ (คู่มือหน้า 27) ถ้าตรวจฝั่งทีวีแล้วยังไม่หาย ให้ขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 130) หรือเปิด Settings > Support > About This TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 130) หรือใช้ Settings > Support > Remote Management ให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่ออินเทอร์เน็ต) โดยโทรหา Samsung Contact Centre เพื่อขอบริการ Remote Support (คู่มือหน้า 129)",
+          "outcome_kind": "handoff_unknown"
+        },
+        {
+          "node_id": "n_nomatch",
+          "type": "escalation",
+          "content": "ทีวีไม่ได้แสดงข้อความ No network cable found ให้เลือกอาการเครือข่ายที่ตรงกับที่เห็น หรือขอรับบริการจาก Samsung ผ่าน Settings > Support > Request Support (คู่มือหน้า 130)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_tv2_um_wireless_router_not_found",
+      "device_category": "Television",
+      "brand": "Samsung",
+      "model_pattern": "KM2DVBADN-2.1.5",
+      "entry_symptom": "Wireless network connection failed",
+      "entry_symptom_th": "เชื่อมต่อเครือข่ายไร้สายไม่สำเร็จ เพราะไม่พบเราเตอร์ที่เลือก",
+      "entry_symptom_aliases": [
+        "ทีวีไม่เจอเราเตอร์",
+        "ทีวีเลือกเราเตอร์ผิด",
+        "tv wireless router not found"
+      ],
+      "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+      "page_range": [
+        26,
+        26
+      ],
+      "source_chunk_id": "manual_Samsung_Television_KM2DVBADN_p26_wireless_router_not_found",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "instruction",
+          "content": "ถ้าไม่พบเราเตอร์ไร้สายที่เลือกไว้ ให้ไปที่ Open Network Settings แล้วเลือกเราเตอร์ที่ถูกต้อง: Settings > General > Network > Open Network Settings (คู่มือหน้า 26)",
+          "safety_critical": false,
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "เชื่อมต่อเราเตอร์ไร้สายได้แล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ถ้าตั้งค่าเครือข่ายเสร็จแล้วแต่ยังเชื่อมต่ออินเทอร์เน็ตไม่ได้ ให้ติดต่อผู้ให้บริการอินเทอร์เน็ต (Internet Service Provider) ของคุณ (คู่มือหน้า 27) ถ้าตรวจฝั่งทีวีแล้วยังไม่หาย ให้ขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 130) หรือเปิด Settings > Support > About This TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 130) หรือใช้ Settings > Support > Remote Management ให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่ออินเทอร์เน็ต) โดยโทรหา Samsung Contact Centre เพื่อขอบริการ Remote Support (คู่มือหน้า 129)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_tv2_um_unable_connect_wireless_router",
+      "device_category": "Television",
+      "brand": "Samsung",
+      "model_pattern": "KM2DVBADN-2.1.5",
+      "entry_symptom": "Unable to connect to a wireless router",
+      "entry_symptom_th": "เชื่อมต่อเราเตอร์ไร้สายไม่ได้",
+      "entry_symptom_aliases": [
+        "ทีวีต่อเราเตอร์ไม่ได้",
+        "ทีวีใส่รหัส wifi แล้วไม่ติด",
+        "tv unable to connect wireless router"
+      ],
+      "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+      "page_range": [
+        27,
+        27
+      ],
+      "source_chunk_id": "manual_Samsung_Television_KM2DVBADN_p27_unable_connect_wireless_router",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "instruction",
+          "content": "ตรวจว่าเราเตอร์เปิดอยู่ ถ้าเปิดอยู่ให้ปิดแล้วเปิดใหม่ (คู่มือหน้า 27)",
+          "safety_critical": false,
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n2",
+          "type": "instruction",
+          "content": "ใส่รหัสผ่านให้ถูกต้องถ้าเครือข่ายต้องใช้รหัสผ่าน (คู่มือหน้า 27)",
+          "safety_critical": false,
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "เชื่อมต่อเราเตอร์ไร้สายได้แล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ถ้าตั้งค่าเครือข่ายเสร็จแล้วแต่ยังเชื่อมต่ออินเทอร์เน็ตไม่ได้ ให้ติดต่อผู้ให้บริการอินเทอร์เน็ต (Internet Service Provider) ของคุณ (คู่มือหน้า 27) ถ้าตรวจฝั่งทีวีแล้วยังไม่หาย ให้ขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 130) หรือเปิด Settings > Support > About This TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 130) หรือใช้ Settings > Support > Remote Management ให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่ออินเทอร์เน็ต) โดยโทรหา Samsung Contact Centre เพื่อขอบริการ Remote Support (คู่มือหน้า 129)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_tv2_um_ip_auto_setting_failed",
+      "device_category": "Television",
+      "brand": "Samsung",
+      "model_pattern": "KM2DVBADN-2.1.5",
+      "entry_symptom": "IP auto setting failed",
+      "entry_symptom_th": "ตั้งค่า IP อัตโนมัติไม่สำเร็จ",
+      "entry_symptom_aliases": [
+        "ทีวีขึ้น ip auto setting failed",
+        "ทีวีรับ ip ไม่ได้",
+        "tv ip auto setting failed"
+      ],
+      "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+      "page_range": [
+        27,
+        27
+      ],
+      "source_chunk_id": "manual_Samsung_Television_KM2DVBADN_p27_ip_auto_setting_failed",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "ทีวีแสดงข้อความ IP auto setting failed ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2",
+          "on_no": "n_nomatch"
+        },
+        {
+          "node_id": "n2",
+          "type": "instruction",
+          "content": "ตั้งค่าใน IP Settings: ไปที่ Settings > General > Network > Network Status > IP Settings (คู่มือหน้า 27)",
+          "safety_critical": false,
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "node_id": "n3",
+          "type": "instruction",
+          "content": "ตรวจว่าเปิดใช้เซิร์ฟเวอร์ DHCP ที่เราเตอร์ แล้วถอดปลั๊กเราเตอร์และเสียบกลับ (คู่มือหน้า 27)",
+          "safety_critical": true,
+          "safety_warning": "ถอดหรือเสียบปลั๊กโดยจับที่หัวปลั๊ก ไม่ดึงที่สายไฟ และห้ามจับปลั๊กด้วยมือเปียก ถ้าสายไฟหรือปลั๊กชำรุด ให้หยุดใช้งานแล้วติดต่อศูนย์บริการ",
+          "author_note": "คู่มือเล่มนี้ไม่มีหัวข้อความปลอดภัยเรื่องปลั๊กไฟ ข้อความเตือนนี้ผู้พัฒนาเพิ่มตามหลักความปลอดภัยทั่วไปเกี่ยวกับไฟฟ้า",
+          "next": "n3v"
+        },
+        {
+          "node_id": "n3v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n4"
+        },
+        {
+          "node_id": "n4",
+          "type": "instruction",
+          "content": "รีเซ็ตเราเตอร์ถ้าจำเป็น และถ้าเป็นการเชื่อมต่อไร้สาย ให้ใส่รหัสผ่านให้ถูกต้อง (คู่มือหน้า 27)",
+          "safety_critical": false,
+          "next": "n4v"
+        },
+        {
+          "node_id": "n4v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "ตั้งค่า IP สำเร็จและเชื่อมต่อได้แล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ถ้าตั้งค่าเครือข่ายเสร็จแล้วแต่ยังเชื่อมต่ออินเทอร์เน็ตไม่ได้ ให้ติดต่อผู้ให้บริการอินเทอร์เน็ต (Internet Service Provider) ของคุณ (คู่มือหน้า 27) ถ้าตรวจฝั่งทีวีแล้วยังไม่หาย ให้ขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 130) หรือเปิด Settings > Support > About This TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 130) หรือใช้ Settings > Support > Remote Management ให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่ออินเทอร์เน็ต) โดยโทรหา Samsung Contact Centre เพื่อขอบริการ Remote Support (คู่มือหน้า 129)",
+          "outcome_kind": "handoff_unknown"
+        },
+        {
+          "node_id": "n_nomatch",
+          "type": "escalation",
+          "content": "ทีวีไม่ได้แสดงข้อความ IP auto setting failed ให้เลือกอาการเครือข่ายที่ตรงกับที่เห็น หรือขอรับบริการจาก Samsung ผ่าน Settings > Support > Request Support (คู่มือหน้า 130)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_tv2_um_unable_connect_network",
+      "device_category": "Television",
+      "brand": "Samsung",
+      "model_pattern": "KM2DVBADN-2.1.5",
+      "entry_symptom": "Unable to connect to the network",
+      "entry_symptom_th": "เชื่อมต่อเครือข่ายไม่ได้",
+      "entry_symptom_aliases": [
+        "ทีวีต่อเครือข่ายไม่ได้",
+        "ทีวีขึ้น unable to connect to the network",
+        "tv unable to connect network"
+      ],
+      "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+      "page_range": [
+        27,
+        27
+      ],
+      "source_chunk_id": "manual_Samsung_Television_KM2DVBADN_p27_unable_connect_network",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "instruction",
+          "content": "ตรวจการตั้งค่า IP ทั้งหมด: ไปที่ Settings > General > Network > Network Status > IP Settings (คู่มือหน้า 27)",
+          "safety_critical": false,
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n2",
+          "type": "instruction",
+          "content": "ตรวจสถานะเซิร์ฟเวอร์ DHCP ที่เราเตอร์ (ต้องเปิดทำงาน) แล้วถอดสาย LAN ออกและเสียบใหม่ ถ้าเป็นการเชื่อมต่อไร้สายให้ใส่รหัสผ่านให้ถูกต้อง (คู่มือหน้า 27)",
+          "safety_critical": false,
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "เชื่อมต่อเครือข่ายได้แล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ถ้าตั้งค่าเครือข่ายเสร็จแล้วแต่ยังเชื่อมต่ออินเทอร์เน็ตไม่ได้ ให้ติดต่อผู้ให้บริการอินเทอร์เน็ต (Internet Service Provider) ของคุณ (คู่มือหน้า 27) ถ้าตรวจฝั่งทีวีแล้วยังไม่หาย ให้ขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 130) หรือเปิด Settings > Support > About This TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 130) หรือใช้ Settings > Support > Remote Management ให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่ออินเทอร์เน็ต) โดยโทรหา Samsung Contact Centre เพื่อขอบริการ Remote Support (คู่มือหน้า 129)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_tv2_um_local_not_internet",
+      "device_category": "Television",
+      "brand": "Samsung",
+      "model_pattern": "KM2DVBADN-2.1.5",
+      "entry_symptom": "Connected to a local network, but not to the Internet",
+      "entry_symptom_th": "เชื่อมต่อเครือข่ายภายในได้ แต่ออกอินเทอร์เน็ตไม่ได้",
+      "entry_symptom_aliases": [
+        "ทีวีต่อ wifi ได้แต่เข้าเน็ตไม่ได้",
+        "ทีวีไม่มีอินเทอร์เน็ต",
+        "tv connected but no internet"
+      ],
+      "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+      "page_range": [
+        27,
+        27
+      ],
+      "source_chunk_id": "manual_Samsung_Television_KM2DVBADN_p27_local_not_internet",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "สาย LAN อินเทอร์เน็ตต่ออยู่กับพอร์ต LAN ภายนอก (external LAN port) ของเราเตอร์แล้วใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2",
+          "on_no": "n1f"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "ต่อสาย LAN อินเทอร์เน็ตเข้ากับพอร์ต LAN ภายนอกของเราเตอร์ (คู่มือหน้า 27)",
+          "safety_critical": false,
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n2",
+          "type": "instruction",
+          "content": "ตรวจค่า DNS ใน IP Settings: ไปที่ Settings > General > Network > Network Status > IP Settings (คู่มือหน้า 27)",
+          "safety_critical": false,
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "ออกอินเทอร์เน็ตได้แล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ถ้าตั้งค่าเครือข่ายเสร็จแล้วแต่ยังเชื่อมต่ออินเทอร์เน็ตไม่ได้ ให้ติดต่อผู้ให้บริการอินเทอร์เน็ต (Internet Service Provider) ของคุณ (คู่มือหน้า 27) ถ้าตรวจฝั่งทีวีแล้วยังไม่หาย ให้ขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 130) หรือเปิด Settings > Support > About This TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 130) หรือใช้ Settings > Support > Remote Management ให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่ออินเทอร์เน็ต) โดยโทรหา Samsung Contact Centre เพื่อขอบริการ Remote Support (คู่มือหน้า 129)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_tv2_um_setup_done_no_internet",
+      "device_category": "Television",
+      "brand": "Samsung",
+      "model_pattern": "KM2DVBADN-2.1.5",
+      "entry_symptom": "Network setup is complete, but unable to connect to the Internet",
+      "entry_symptom_th": "ตั้งค่าเครือข่ายเสร็จแล้วแต่ยังเชื่อมต่ออินเทอร์เน็ตไม่ได้",
+      "entry_symptom_aliases": [
+        "ตั้งค่าเน็ตเสร็จแล้วแต่ใช้ไม่ได้",
+        "ทีวีต่อเครือข่ายแล้วแต่ไม่มีเน็ต",
+        "tv network setup complete no internet"
+      ],
+      "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+      "page_range": [
+        27,
+        27
+      ],
+      "source_chunk_id": "manual_Samsung_Television_KM2DVBADN_p27_setup_done_no_internet",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "ตั้งค่าเครือข่ายเสร็จแล้วแต่ยังเชื่อมต่ออินเทอร์เน็ตไม่ได้ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n1e",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n1e",
+          "type": "escalation",
+          "content": "ให้ติดต่อผู้ให้บริการอินเทอร์เน็ต (Internet Service Provider) ของคุณ (คู่มือหน้า 27) ถ้าตรวจฝั่งทีวีแล้วยังไม่หาย ให้ขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 130) หรือเปิด Settings > Support > About This TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 130) หรือใช้ Settings > Support > Remote Management ให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่ออินเทอร์เน็ต) โดยโทรหา Samsung Contact Centre เพื่อขอบริการ Remote Support (คู่มือหน้า 129)",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ถ้าตั้งค่าเครือข่ายเสร็จแล้วแต่ยังเชื่อมต่ออินเทอร์เน็ตไม่ได้ ให้ติดต่อผู้ให้บริการอินเทอร์เน็ต (Internet Service Provider) ของคุณ (คู่มือหน้า 27) ถ้าตรวจฝั่งทีวีแล้วยังไม่หาย ให้ขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 130) หรือเปิด Settings > Support > About This TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 130) หรือใช้ Settings > Support > Remote Management ให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่ออินเทอร์เน็ต) โดยโทรหา Samsung Contact Centre เพื่อขอบริการ Remote Support (คู่มือหน้า 129)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_tv2_um_schedule_recording_cannot_use",
+      "device_category": "Television",
+      "brand": "Samsung",
+      "model_pattern": "KM2DVBADN-2.1.5",
+      "entry_symptom": "Schedule Recording cannot be used.",
+      "entry_symptom_th": "ใช้ Schedule Recording (อัดรายการตามเวลา) ไม่ได้",
+      "entry_symptom_aliases": [
+        "ทีวีอัดรายการไม่ได้",
+        "timeshift ไม่ทำงาน",
+        "บันทึกรายการทีวีไม่ได้",
+        "tv recording not working",
+        "tv schedule recording not working"
+      ],
+      "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+      "page_range": [
+        137,
+        137
+      ],
+      "source_chunk_id": "manual_Samsung_Television_KM2DVBADN_p137_schedule_recording_cannot_use",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "มีอุปกรณ์ USB ต่อกับทีวีแล้วใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2",
+          "on_no": "n1f"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "ต่ออุปกรณ์ USB เข้ากับทีวี (คู่มือหน้า 137)",
+          "safety_critical": false,
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "อุปกรณ์ USB มีพื้นที่ว่างเพียงพอแล้วใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n3",
+          "on_no": "n2f"
+        },
+        {
+          "node_id": "n2f",
+          "type": "instruction",
+          "content": "ตรวจพื้นที่ว่างบนอุปกรณ์ USB ฟังก์ชันจะใช้ไม่ได้ถ้าพื้นที่บนอุปกรณ์ USB ไม่พอ (คู่มือหน้า 137)",
+          "safety_critical": false,
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "node_id": "n3",
+          "type": "checkpoint",
+          "question": "การอัดหยุดเองเพราะสัญญาณอ่อนเกินไปใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n3n",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n3n",
+          "type": "resolution",
+          "content": "การอัดจะหยุดโดยอัตโนมัติถ้าสัญญาณอ่อนเกินไป (คู่มือหน้า 137)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "ใช้ฟังก์ชันอัดรายการได้แล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 130) หรือเปิด Settings > Support > About This TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 130) หรือใช้ Settings > Support > Remote Management ให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่ออินเทอร์เน็ต) โดยโทรหา Samsung Contact Centre เพื่อขอบริการ Remote Support (คู่มือหน้า 129) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_tv2_um_anynet_not_working",
+      "device_category": "Television",
+      "brand": "Samsung",
+      "model_pattern": "KM2DVBADN-2.1.5",
+      "entry_symptom": "Anynet+ does not work.",
+      "entry_symptom_th": "Anynet+ ใช้ไม่ได้",
+      "entry_symptom_aliases": [
+        "anynet+ ไม่ทำงาน",
+        "hdmi cec ไม่ทำงาน",
+        "tv anynet not working",
+        "tv hdmi cec not working"
+      ],
+      "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+      "page_range": [
+        137,
+        137
+      ],
+      "source_chunk_id": "manual_Samsung_Television_KM2DVBADN_p137_anynet_not_working",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "อุปกรณ์เป็นอุปกรณ์ Anynet+ ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2",
+          "on_no": "n1f"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "ตรวจว่าอุปกรณ์เป็นอุปกรณ์ Anynet+ เพราะระบบ Anynet+ รองรับเฉพาะอุปกรณ์ Anynet+ (คู่มือหน้า 137)",
+          "safety_critical": false,
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "สายไฟของอุปกรณ์ Anynet+ เสียบแน่นแล้วใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n3",
+          "on_no": "n2f"
+        },
+        {
+          "node_id": "n2f",
+          "type": "instruction",
+          "content": "เสียบสายไฟของอุปกรณ์ Anynet+ ให้แน่น (คู่มือหน้า 137)",
+          "safety_critical": true,
+          "safety_warning": "ถอดหรือเสียบปลั๊กโดยจับที่หัวปลั๊ก ไม่ดึงที่สายไฟ และห้ามจับปลั๊กด้วยมือเปียก ถ้าสายไฟหรือปลั๊กชำรุด ให้หยุดใช้งานแล้วติดต่อศูนย์บริการ",
+          "author_note": "คู่มือเล่มนี้ไม่มีหัวข้อความปลอดภัยเรื่องปลั๊กไฟ ข้อความเตือนนี้ผู้พัฒนาเพิ่มตามหลักความปลอดภัยทั่วไปเกี่ยวกับไฟฟ้า",
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "node_id": "n3",
+          "type": "checkpoint",
+          "question": "สายเชื่อมต่อของอุปกรณ์ Anynet+ ต่อแน่นดีแล้วใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n4",
+          "on_no": "n3f"
+        },
+        {
+          "node_id": "n3f",
+          "type": "instruction",
+          "content": "ตรวจการเชื่อมต่อสายของอุปกรณ์ Anynet+ ถ้าเคยถอดแล้วต่อสาย HDMI ใหม่ ให้สแกนหาอุปกรณ์อีกครั้งหรือปิดแล้วเปิดทีวีใหม่ (คู่มือหน้า 137)",
+          "safety_critical": false,
+          "next": "n3v"
+        },
+        {
+          "node_id": "n3v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n4"
+        },
+        {
+          "node_id": "n4",
+          "type": "checkpoint",
+          "question": "ฟีเจอร์ Anynet+ (HDMI-CEC) ที่ทีวีตั้งเป็น On แล้วใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n5",
+          "on_no": "n4f"
+        },
+        {
+          "node_id": "n4f",
+          "type": "instruction",
+          "content": "ตั้ง Anynet+ (HDMI-CEC) เป็น On ที่ Settings > General > External Device Manager > Anynet+ (HDMI-CEC) (คู่มือหน้า 137)",
+          "safety_critical": false,
+          "next": "n4v"
+        },
+        {
+          "node_id": "n4v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n5"
+        },
+        {
+          "node_id": "n5",
+          "type": "checkpoint",
+          "question": "ทีวีกำลังค้นหาช่อง ใช้ Smart Hub หรือตั้งค่าเริ่มต้น (Initial Setup) อยู่ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n5n",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n5n",
+          "type": "resolution",
+          "content": "Anynet+ อาจใช้งานไม่ได้เมื่อมีฟังก์ชันอื่นกำลังทำงาน เช่น Channel Search, Smart Hub และ Initial Setup (คู่มือหน้า 137)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "Anynet+ ทำงานแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 130) หรือเปิด Settings > Support > About This TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 130) หรือใช้ Settings > Support > Remote Management ให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่ออินเทอร์เน็ต) โดยโทรหา Samsung Contact Centre เพื่อขอบริการ Remote Support (คู่มือหน้า 129) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_tv2_um_anynet_connecting_message",
+      "device_category": "Television",
+      "brand": "Samsung",
+      "model_pattern": "KM2DVBADN-2.1.5",
+      "entry_symptom": "The message \"Connecting to Anynet+ device...\" or \"Disconnecting from Anynet+ device\" appears on the screen.",
+      "entry_symptom_th": "ขึ้นข้อความ Connecting to Anynet+ device หรือ Disconnecting from Anynet+ device",
+      "entry_symptom_aliases": [
+        "ทีวีขึ้น connecting to anynet+",
+        "รีโมตกดไม่ได้ตอนขึ้น anynet",
+        "tv connecting to anynet device"
+      ],
+      "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+      "page_range": [
+        138,
+        138
+      ],
+      "source_chunk_id": "manual_Samsung_Television_KM2DVBADN_p138_anynet_connecting_message",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "ทีวีกำลังตั้งค่า Anynet+ หรือกำลังสลับโหมดรับชมใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n1n",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n1n",
+          "type": "resolution",
+          "content": "ไม่สามารถใช้รีโมตได้ขณะทีวีกำลังตั้งค่า Anynet+ หรือกำลังสลับโหมดรับชม ให้ใช้รีโมตหลังทีวีตั้งค่า Anynet+ เสร็จหรือสลับโหมดรับชมแล้ว (คู่มือหน้า 138)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 130) หรือเปิด Settings > Support > About This TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 130) หรือใช้ Settings > Support > Remote Management ให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่ออินเทอร์เน็ต) โดยโทรหา Samsung Contact Centre เพื่อขอบริการ Remote Support (คู่มือหน้า 129) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_tv2_um_anynet_device_wont_play",
+      "device_category": "Television",
+      "brand": "Samsung",
+      "model_pattern": "KM2DVBADN-2.1.5",
+      "entry_symptom": "The Anynet+ device won't play.",
+      "entry_symptom_th": "อุปกรณ์ Anynet+ เล่นไม่ได้",
+      "entry_symptom_aliases": [
+        "อุปกรณ์ anynet+ เล่นไม่ได้",
+        "เครื่องเล่น hdmi cec ไม่เล่น",
+        "anynet device won't play"
+      ],
+      "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+      "page_range": [
+        138,
+        138
+      ],
+      "source_chunk_id": "manual_Samsung_Television_KM2DVBADN_p138_anynet_device_wont_play",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "ทีวีกำลังทำ Start Setup อยู่ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n1n",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n1n",
+          "type": "resolution",
+          "content": "ใช้ฟังก์ชันเล่น (play) ไม่ได้ขณะ Start Setup กำลังดำเนินการ ให้รอจนเสร็จก่อน (คู่มือหน้า 138)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 130) หรือเปิด Settings > Support > About This TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 130) หรือใช้ Settings > Support > Remote Management ให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่ออินเทอร์เน็ต) โดยโทรหา Samsung Contact Centre เพื่อขอบริการ Remote Support (คู่มือหน้า 129) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_tv2_um_anynet_device_not_displayed",
+      "device_category": "Television",
+      "brand": "Samsung",
+      "model_pattern": "KM2DVBADN-2.1.5",
+      "entry_symptom": "The connected device is not displayed.",
+      "entry_symptom_th": "ไม่แสดงอุปกรณ์ที่เชื่อมต่อ (Anynet+)",
+      "entry_symptom_aliases": [
+        "ทีวีไม่เจออุปกรณ์ hdmi",
+        "anynet+ ไม่เห็นอุปกรณ์",
+        "tv anynet device not displayed"
+      ],
+      "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+      "page_range": [
+        138,
+        138
+      ],
+      "source_chunk_id": "manual_Samsung_Television_KM2DVBADN_p138_anynet_device_not_displayed",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "อุปกรณ์รองรับ Anynet+ ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2",
+          "on_no": "n1f"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "ตรวจว่าอุปกรณ์รองรับ Anynet+ (คู่มือหน้า 138)",
+          "safety_critical": false,
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "สาย HDMI ต่อแน่นดีแล้วใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n3",
+          "on_no": "n2f"
+        },
+        {
+          "node_id": "n2f",
+          "type": "instruction",
+          "content": "ตรวจว่าสาย HDMI ต่อแน่น อุปกรณ์ Anynet+ ต้องต่อกับทีวีด้วยสาย HDMI และสาย HDMI บางเส้นอาจไม่รองรับ Anynet+ (คู่มือหน้า 138)",
+          "safety_critical": false,
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "node_id": "n3",
+          "type": "checkpoint",
+          "question": "ฟีเจอร์ Anynet+ (HDMI-CEC) ที่ทีวีตั้งเป็น On แล้วใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n4",
+          "on_no": "n3f"
+        },
+        {
+          "node_id": "n3f",
+          "type": "instruction",
+          "content": "ตั้ง Anynet+ (HDMI-CEC) เป็น On ที่ Settings > General > External Device Manager > Anynet+ (HDMI-CEC) (คู่มือหน้า 138)",
+          "safety_critical": false,
+          "next": "n3v"
+        },
+        {
+          "node_id": "n3v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n4"
+        },
+        {
+          "node_id": "n4",
+          "type": "instruction",
+          "content": "สแกนหาอุปกรณ์ Anynet+ อีกครั้ง โดยเฉพาะเมื่อการเชื่อมต่อขาดเพราะไฟดับหรือถอดสาย HDMI (คู่มือหน้า 138)",
+          "safety_critical": false,
+          "next": "n4v"
+        },
+        {
+          "node_id": "n4v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "แสดงอุปกรณ์ที่เชื่อมต่อแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 130) หรือเปิด Settings > Support > About This TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 130) หรือใช้ Settings > Support > Remote Management ให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่ออินเทอร์เน็ต) โดยโทรหา Samsung Contact Centre เพื่อขอบริการ Remote Support (คู่มือหน้า 129) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_tv2_um_audio_not_through_av_receiver",
+      "device_category": "Television",
+      "brand": "Samsung",
+      "model_pattern": "KM2DVBADN-2.1.5",
+      "entry_symptom": "The TV audio is not being played through the AV receiver.",
+      "entry_symptom_th": "เสียงทีวีไม่ออกที่ AV receiver",
+      "entry_symptom_aliases": [
+        "AV receiver ไม่มีเสียง",
+        "ทีวีไม่ส่งเสียงไป receiver",
+        "tv audio not through av receiver"
+      ],
+      "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+      "page_range": [
+        138,
+        138
+      ],
+      "source_chunk_id": "manual_Samsung_Television_KM2DVBADN_p138_audio_not_through_av_receiver",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "instruction",
+          "content": "ต่อสาย optical ระหว่างทีวีกับ AV receiver (คู่มือหน้า 138)",
+          "safety_critical": false,
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "ต้องการใช้ ARC ผ่านพอร์ต HDMI (ARC) ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2f",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n2f",
+          "type": "instruction",
+          "content": "ARC ทำให้ทีวีส่งเสียงดิจิทัลออกทางพอร์ต HDMI (ARC) ได้ แต่ใช้ได้เมื่อทีวีต่อกับ AV receiver ที่รองรับ ARC เท่านั้น (คู่มือหน้า 138)",
+          "safety_critical": false,
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "เสียงออกที่ AV receiver แล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 130) หรือเปิด Settings > Support > About This TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 130) หรือใช้ Settings > Support > Remote Management ให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่ออินเทอร์เน็ต) โดยโทรหา Samsung Contact Centre เพื่อขอบริการ Remote Support (คู่มือหน้า 129) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_tv2_um_app_in_other_language",
+      "device_category": "Television",
+      "brand": "Samsung",
+      "model_pattern": "KM2DVBADN-2.1.5",
+      "entry_symptom": "I launched an app, but it's in English. How can I change the language?",
+      "entry_symptom_th": "เปิดแอปแล้วเป็นภาษาอังกฤษ เปลี่ยนภาษาอย่างไร",
+      "entry_symptom_aliases": [
+        "แอปในทีวีเป็นภาษาอื่น",
+        "เปลี่ยนภาษาแอปในทีวี",
+        "tv app wrong language"
+      ],
+      "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+      "page_range": [
+        138,
+        138
+      ],
+      "source_chunk_id": "manual_Samsung_Television_KM2DVBADN_p138_app_in_other_language",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "แอปแสดงเป็นภาษาอังกฤษแม้ตั้งภาษาของทีวีเป็นภาษาอื่นใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n1n",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n1n",
+          "type": "resolution",
+          "content": "ภาษาที่แอปรองรับอาจต่างจากภาษาของส่วนติดต่อผู้ใช้ของทีวี และความสามารถในการเปลี่ยนภาษาขึ้นกับผู้ให้บริการแอป (คู่มือหน้า 138)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 130) หรือเปิด Settings > Support > About This TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 130) หรือใช้ Settings > Support > Remote Management ให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่ออินเทอร์เน็ต) โดยโทรหา Samsung Contact Centre เพื่อขอบริการ Remote Support (คู่มือหน้า 129) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_tv2_um_application_not_working",
+      "device_category": "Television",
+      "brand": "Samsung",
+      "model_pattern": "KM2DVBADN-2.1.5",
+      "entry_symptom": "My application is not working.",
+      "entry_symptom_th": "แอปใช้งานไม่ได้",
+      "entry_symptom_aliases": [
+        "แอปในทีวีค้าง",
+        "แอปทีวีใช้ไม่ได้",
+        "tv app not working"
+      ],
+      "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+      "page_range": [
+        138,
+        138
+      ],
+      "source_chunk_id": "manual_Samsung_Television_KM2DVBADN_p138_application_not_working",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "แอปใช้งานไม่ได้ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n1e",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n1e",
+          "type": "escalation",
+          "content": "ให้สอบถามผู้ให้บริการแอป และดูส่วน Help ในเว็บไซต์ของผู้ให้บริการแอป (คู่มือหน้า 138) ถ้าตรวจแล้วเป็นปัญหาของทีวี ให้ขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 130) หรือเปิด Settings > Support > About This TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 130) หรือใช้ Settings > Support > Remote Management ให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่ออินเทอร์เน็ต) โดยโทรหา Samsung Contact Centre เพื่อขอบริการ Remote Support (คู่มือหน้า 129)",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 130) หรือเปิด Settings > Support > About This TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 130) หรือใช้ Settings > Support > Remote Management ให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่ออินเทอร์เน็ต) โดยโทรหา Samsung Contact Centre เพื่อขอบริการ Remote Support (คู่มือหน้า 129) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_tv2_um_files_cannot_play",
+      "device_category": "Television",
+      "brand": "Samsung",
+      "model_pattern": "KM2DVBADN-2.1.5",
+      "entry_symptom": "Some files can't be played.",
+      "entry_symptom_th": "เล่นไฟล์บางไฟล์ไม่ได้",
+      "entry_symptom_aliases": [
+        "เล่นไฟล์ในทีวีไม่ได้",
+        "ทีวีเปิดวิดีโอจาก usb ไม่ขึ้น",
+        "tv file cannot play"
+      ],
+      "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+      "page_range": [
+        139,
+        139
+      ],
+      "source_chunk_id": "manual_Samsung_Television_KM2DVBADN_p139_files_cannot_play",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "ไฟล์ที่เล่นไม่ได้เป็นไฟล์ที่มีบิตเรตสูงใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n1n",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n1n",
+          "type": "resolution",
+          "content": "ปัญหานี้อาจเกิดกับไฟล์ที่มีบิตเรตสูง ไฟล์ส่วนใหญ่เล่นได้ แต่ไฟล์ที่มีบิตเรตสูงอาจมีปัญหา (คู่มือหน้า 139)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 130) หรือเปิด Settings > Support > About This TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 130) หรือใช้ Settings > Support > Remote Management ให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่ออินเทอร์เน็ต) โดยโทรหา Samsung Contact Centre เพื่อขอบริการ Remote Support (คู่มือหน้า 129) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_tv2_um_tv_is_hot",
+      "device_category": "Television",
+      "brand": "Samsung",
+      "model_pattern": "KM2DVBADN-2.1.5",
+      "entry_symptom": "The TV is hot.",
+      "entry_symptom_th": "ทีวีร้อน",
+      "entry_symptom_aliases": [
+        "ทีวีร้อนมาก",
+        "ตัวทีวีอุ่น",
+        "ทีวีมีความร้อน",
+        "tv is hot",
+        "tv overheating"
+      ],
+      "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+      "page_range": [
+        140,
+        140
+      ],
+      "source_chunk_id": "manual_Samsung_Television_KM2DVBADN_p140_tv_is_hot",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "ทีวีร้อนหลังเปิดดูต่อเนื่องเป็นเวลานานใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n1n",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n1n",
+          "type": "resolution",
+          "content": "การดูทีวีเป็นเวลานานทำให้แผงจอเกิดความร้อน ความร้อนจากแผงระบายออกทางช่องระบายอากาศภายในที่อยู่ด้านบนของทีวี ส่วนด้านล่างอาจร้อนเมื่อสัมผัสหลังใช้งานนาน ความร้อนนี้ไม่ใช่ข้อบกพร่องและไม่กระทบการทำงานของทีวี เด็กที่ดูทีวีต้องมีผู้ใหญ่ดูแลตลอดเวลาเพื่อไม่ให้สัมผัสทีวี (คู่มือหน้า 140)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ถ้าทีวีร้อนผิดปกติ ไม่ใช่เพียงร้อนหลังเปิดดูนาน ให้หยุดใช้และขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 130) หรือเปิด Settings > Support > About This TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 130) หรือใช้ Settings > Support > Remote Management ให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่ออินเทอร์เน็ต) โดยโทรหา Samsung Contact Centre เพื่อขอบริการ Remote Support (คู่มือหน้า 129)",
+          "outcome_kind": "handoff_informed"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_tv2_um_not_full_screen",
+      "device_category": "Television",
+      "brand": "Samsung",
+      "model_pattern": "KM2DVBADN-2.1.5",
+      "entry_symptom": "The picture won’t display in full screen.",
+      "entry_symptom_th": "ภาพไม่เต็มจอ",
+      "entry_symptom_aliases": [
+        "ภาพทีวีไม่เต็มจอ",
+        "ทีวีมีขอบดำ",
+        "ภาพทีวีมีแถบดำ",
+        "tv black bars",
+        "tv not full screen"
+      ],
+      "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+      "page_range": [
+        140,
+        140
+      ],
+      "source_chunk_id": "manual_Samsung_Television_KM2DVBADN_p140_not_full_screen",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "แถบดำอยู่สองข้างจอขณะดูเนื้อหา SD (4:3) ที่ขยายภาพ หรืออยู่บนและล่างขณะดูหนังที่สัดส่วนภาพต่างจากทีวีใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n1n",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n1n",
+          "type": "resolution",
+          "content": "ช่อง HD จะมีแถบดำสองข้างเมื่อแสดงเนื้อหา SD (4:3) ที่ขยายภาพ และจะมีแถบดำบนและล่างเมื่อดูหนังที่มีสัดส่วนภาพต่างจากทีวี (คู่มือหน้า 140)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "node_id": "n2",
+          "type": "instruction",
+          "content": "ปรับตัวเลือกขนาดภาพที่อุปกรณ์ภายนอก หรือตั้งทีวีให้เต็มจอ: Settings > Picture > Picture Size Settings (คู่มือหน้า 140)",
+          "safety_critical": false,
+          "next": "n2v"
+        },
+        {
+          "node_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "ภาพเต็มจอแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 130) หรือเปิด Settings > Support > About This TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 130) หรือใช้ Settings > Support > Remote Management ให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่ออินเทอร์เน็ต) โดยโทรหา Samsung Contact Centre เพื่อขอบริการ Remote Support (คู่มือหน้า 129) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_tv2_um_subtitles_greyed_out",
+      "device_category": "Television",
+      "brand": "Samsung",
+      "model_pattern": "KM2DVBADN-2.1.5",
+      "entry_symptom": "The Subtitles item in the TV is greyed out.",
+      "entry_symptom_th": "รายการ Subtitles ในทีวีเป็นสีเทา กดไม่ได้",
+      "entry_symptom_aliases": [
+        "ตั้งคำบรรยายในทีวีไม่ได้",
+        "ปุ่มคำบรรยายทีวีกดไม่ได้",
+        "tv subtitle menu greyed out"
+      ],
+      "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+      "page_range": [
+        140,
+        140
+      ],
+      "source_chunk_id": "manual_Samsung_Television_KM2DVBADN_p140_subtitles_greyed_out",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "instruction",
+          "content": "เมื่อต่ออุปกรณ์ภายนอกด้วยสาย HDMI หรือ Component ฟังก์ชัน Subtitle ของทีวีจะใช้ไม่ได้ ให้ปรับการตั้งค่าคำบรรยายที่อุปกรณ์ภายนอกแทน (คู่มือหน้า 140)",
+          "safety_critical": false,
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "ตั้งค่าคำบรรยายได้แล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 130) หรือเปิด Settings > Support > About This TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 130) หรือใช้ Settings > Support > Remote Management ให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่ออินเทอร์เน็ต) โดยโทรหา Samsung Contact Centre เพื่อขอบริการ Remote Support (คู่มือหน้า 129) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_tv2_um_smells_like_plastic",
+      "device_category": "Television",
+      "brand": "Samsung",
+      "model_pattern": "KM2DVBADN-2.1.5",
+      "entry_symptom": "The TV smells of plastic.",
+      "entry_symptom_th": "ทีวีมีกลิ่นพลาสติก",
+      "entry_symptom_aliases": [
+        "ทีวีมีกลิ่น",
+        "ทีวีใหม่มีกลิ่นพลาสติก",
+        "tv smells like plastic"
+      ],
+      "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+      "page_range": [
+        140,
+        140
+      ],
+      "source_chunk_id": "manual_Samsung_Television_KM2DVBADN_p140_smells_like_plastic",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "กลิ่นเป็นกลิ่นพลาสติกใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n1n",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n1n",
+          "type": "resolution",
+          "content": "กลิ่นนี้เป็นเรื่องปกติและจะจางลงเมื่อเวลาผ่านไป (คู่มือหน้า 140)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ถ้าเป็นกลิ่นไหม้หรือไม่ใช่กลิ่นพลาสติก ให้ถอดปลั๊กและหยุดใช้ทีวี แล้วขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 130) หรือเปิด Settings > Support > About This TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 130) หรือใช้ Settings > Support > Remote Management ให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่ออินเทอร์เน็ต) โดยโทรหา Samsung Contact Centre เพื่อขอบริการ Remote Support (คู่มือหน้า 129)",
+          "outcome_kind": "handoff_informed"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_tv2_um_signal_information_not_activated",
+      "device_category": "Television",
+      "brand": "Samsung",
+      "model_pattern": "KM2DVBADN-2.1.5",
+      "entry_symptom": "Signal Information under Self Diagnosis isn't activated.",
+      "entry_symptom_th": "เลือก Signal Information ใน Self Diagnosis ไม่ได้",
+      "entry_symptom_aliases": [
+        "เลือก signal information ไม่ได้",
+        "ตรวจสัญญาณช่องในทีวีไม่ได้",
+        "tv signal information greyed out"
+      ],
+      "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+      "page_range": [
+        140,
+        140
+      ],
+      "source_chunk_id": "manual_Samsung_Television_KM2DVBADN_p140_signal_information_not_activated",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "ช่องที่ดูอยู่เป็นช่องดิจิทัลแล้วใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_escalate",
+          "on_no": "n1f"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "เปลี่ยนไปดูช่องดิจิทัลก่อน เพราะ Signal Information ใช้ได้เฉพาะช่องดิจิทัล แล้วเปิดที่ Settings > Support > Self Diagnosis > Signal Information (คู่มือหน้า 140)",
+          "safety_critical": false,
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "เปิด Signal Information ได้แล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 130) หรือเปิด Settings > Support > About This TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 130) หรือใช้ Settings > Support > Remote Management ให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่ออินเทอร์เน็ต) โดยโทรหา Samsung Contact Centre เพื่อขอบริการ Remote Support (คู่มือหน้า 129) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_tv2_um_tilted_to_side",
+      "device_category": "Television",
+      "brand": "Samsung",
+      "model_pattern": "KM2DVBADN-2.1.5",
+      "entry_symptom": "The TV is tilted to the side.",
+      "entry_symptom_th": "ทีวีเอียงไปด้านข้าง",
+      "entry_symptom_aliases": [
+        "ทีวีเอียง",
+        "ทีวีตั้งไม่ตรง",
+        "ทีวีเอียงข้าง",
+        "tv tilted"
+      ],
+      "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+      "page_range": [
+        140,
+        140
+      ],
+      "source_chunk_id": "manual_Samsung_Television_KM2DVBADN_p140_tilted_to_side",
+      "severity": "medium",
+      "difficulty": "medium",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "instruction",
+          "content": "ถอดขาตั้งฐานออกจากทีวีแล้วประกอบใหม่ (คู่มือหน้า 140)",
+          "safety_critical": true,
+          "safety_warning": "ทีวีอาจล้มหรือตกขณะถอดและประกอบขาตั้ง ควรให้อีกคนช่วยจับทีวี วางทีวีบนพื้นผิวเรียบนุ่ม และระวังมือไม่ให้ถูกหนีบ",
+          "author_note": "คู่มือเล่มนี้ไม่มีหัวข้อความปลอดภัยเรื่องการยกหรือประกอบขาตั้ง ข้อความเตือนนี้ผู้พัฒนาเพิ่มเกี่ยวกับอันตรายทางกล",
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "ทีวีตั้งตรงแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 130) หรือเปิด Settings > Support > About This TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 130) หรือใช้ Settings > Support > Remote Management ให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่ออินเทอร์เน็ต) โดยโทรหา Samsung Contact Centre เพื่อขอบริการ Remote Support (คู่มือหน้า 129) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_tv2_um_stand_wobbly",
+      "device_category": "Television",
+      "brand": "Samsung",
+      "model_pattern": "KM2DVBADN-2.1.5",
+      "entry_symptom": "The stand is wobbly or crooked.",
+      "entry_symptom_th": "ขาตั้งโยกหรือเบี้ยว",
+      "entry_symptom_aliases": [
+        "ขาตั้งทีวีโยก",
+        "ขาตั้งทีวีเบี้ยว",
+        "ทีวีโยก",
+        "tv stand wobbly",
+        "tv stand crooked"
+      ],
+      "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+      "page_range": [
+        140,
+        140
+      ],
+      "source_chunk_id": "manual_Samsung_Television_KM2DVBADN_p140_stand_wobbly",
+      "severity": "medium",
+      "difficulty": "medium",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "instruction",
+          "content": "ตรวจว่าลูกศรบอกตำแหน่งบนขาตั้งและบนตัวยึดขาตั้งอยู่ตรงกัน (คู่มือหน้า 140)",
+          "safety_critical": true,
+          "safety_warning": "ทีวีอาจล้มหรือตกขณะถอดและประกอบขาตั้ง ควรให้อีกคนช่วยจับทีวี วางทีวีบนพื้นผิวเรียบนุ่ม และระวังมือไม่ให้ถูกหนีบ",
+          "author_note": "คู่มือเล่มนี้ไม่มีหัวข้อความปลอดภัยเรื่องการยกหรือประกอบขาตั้ง ข้อความเตือนนี้ผู้พัฒนาเพิ่มเกี่ยวกับอันตรายทางกล",
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "ขาตั้งมั่นคงแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 130) หรือเปิด Settings > Support > About This TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 130) หรือใช้ Settings > Support > Remote Management ให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่ออินเทอร์เน็ต) โดยโทรหา Samsung Contact Centre เพื่อขอบริการ Remote Support (คู่มือหน้า 129) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_tv2_um_remote_voice_not_work",
+      "device_category": "Television",
+      "brand": "Samsung",
+      "model_pattern": "KM2DVBADN-2.1.5",
+      "entry_symptom": "The remote control and/or voice control does not work.",
+      "entry_symptom_th": "รีโมตหรือการสั่งงานด้วยเสียงใช้ไม่ได้",
+      "entry_symptom_aliases": [
+        "รีโมตทีวีไม่ทำงาน",
+        "รีโมตทีวีกดไม่ติด",
+        "สั่งเสียงทีวีไม่ได้",
+        "tv remote not working",
+        "tv voice control not working"
+      ],
+      "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+      "page_range": [
+        140,
+        140
+      ],
+      "source_chunk_id": "manual_Samsung_Television_KM2DVBADN_p140_remote_voice_not_work",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "แกะสติกเกอร์ป้องกันที่ติดบนเซนเซอร์ของทีวีออกครบแล้วใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n_escalate",
+          "on_no": "n1f"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "แกะสติกเกอร์ป้องกันที่ติดมากับทีวีซึ่งปิดเซนเซอร์บางตัวอยู่ออกให้หมด (คู่มือหน้า 140)",
+          "safety_critical": false,
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "รีโมตหรือการสั่งงานด้วยเสียงใช้ได้แล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 130) หรือเปิด Settings > Support > About This TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 130) หรือใช้ Settings > Support > Remote Management ให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่ออินเทอร์เน็ต) โดยโทรหา Samsung Contact Centre เพื่อขอบริการ Remote Support (คู่มือหน้า 129) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_tv2_um_broadcasting_deactivated",
+      "device_category": "Television",
+      "brand": "Samsung",
+      "model_pattern": "KM2DVBADN-2.1.5",
+      "entry_symptom": "The Broadcasting function has been deactivated.",
+      "entry_symptom_th": "เมนู Broadcasting ใช้ไม่ได้",
+      "entry_symptom_aliases": [
+        "เข้าเมนู broadcasting ไม่ได้",
+        "เมนู broadcasting ถูกปิด",
+        "tv broadcasting menu disabled"
+      ],
+      "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+      "page_range": [
+        141,
+        141
+      ],
+      "source_chunk_id": "manual_Samsung_Television_KM2DVBADN_p141_broadcasting_deactivated",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "Source ไม่ได้ตั้งเป็น TV ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n1f",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n1f",
+          "type": "instruction",
+          "content": "เมนู Broadcasting ใช้ได้เมื่อตั้ง Source เป็น TV เท่านั้น ให้สลับ Source เป็น TV (คู่มือหน้า 141)",
+          "safety_critical": false,
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "กำลังดูทีวีผ่านกล่องเคเบิลหรือกล่องรับสัญญาณดาวเทียมใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2n",
+          "on_no": "n3"
+        },
+        {
+          "node_id": "n2n",
+          "type": "resolution",
+          "content": "ไม่สามารถเข้าเมนู Broadcasting ได้ขณะดูทีวีผ่านกล่องเคเบิลหรือกล่องรับสัญญาณดาวเทียม (คู่มือหน้า 141)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "node_id": "n3",
+          "type": "checkpoint",
+          "question": "กำลังบันทึกรายการหรือใช้ Timeshift อยู่ใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n3n",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n3n",
+          "type": "resolution",
+          "content": "ไม่สามารถเข้าเมนู Broadcasting ได้ขณะกำลังบันทึกหรือใช้ฟังก์ชัน Timeshift (คู่มือหน้า 141)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "เข้าเมนู Broadcasting ได้แล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 130) หรือเปิด Settings > Support > About This TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 130) หรือใช้ Settings > Support > Remote Management ให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่ออินเทอร์เน็ต) โดยโทรหา Samsung Contact Centre เพื่อขอบริการ Remote Support (คู่มือหน้า 129) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_tv2_um_settings_lost",
+      "device_category": "Television",
+      "brand": "Samsung",
+      "model_pattern": "KM2DVBADN-2.1.5",
+      "entry_symptom": "The settings are lost after 5 minutes or every time the TV is turned off.",
+      "entry_symptom_th": "ค่าที่ตั้งไว้หายหลัง 5 นาทีหรือทุกครั้งที่ปิดทีวี",
+      "entry_symptom_aliases": [
+        "ทีวีตั้งค่าแล้วหาย",
+        "ค่าภาพเสียงทีวีรีเซ็ตเอง",
+        "ทีวีรีเซ็ตทุก 5 นาที",
+        "tv settings reset",
+        "tv retail mode"
+      ],
+      "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+      "page_range": [
+        141,
+        141
+      ],
+      "source_chunk_id": "manual_Samsung_Television_KM2DVBADN_p141_settings_lost",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "instruction",
+          "content": "เปลี่ยน Usage Mode เป็น Home Mode: ไปที่ Settings > General > System Manager > Usage Mode เพราะถ้าตั้งเป็น Retail Mode การตั้งค่าเสียงและภาพของทีวีจะถูกรีเซ็ตอัตโนมัติทุก 5 นาที (คู่มือหน้า 141)",
+          "safety_critical": false,
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "ค่าที่ตั้งไว้ไม่หายแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 130) หรือเปิด Settings > Support > About This TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 130) หรือใช้ Settings > Support > Remote Management ให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่ออินเทอร์เน็ต) โดยโทรหา Samsung Contact Centre เพื่อขอบริการ Remote Support (คู่มือหน้า 129) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_tv2_um_pop_banner_ad",
+      "device_category": "Television",
+      "brand": "Samsung",
+      "model_pattern": "KM2DVBADN-2.1.5",
+      "entry_symptom": "A POP (TV’s internal banner ad) appears on the screen.",
+      "entry_symptom_th": "มี POP (แบนเนอร์โฆษณาของทีวี) ขึ้นบนหน้าจอ",
+      "entry_symptom_aliases": [
+        "ทีวีมีโฆษณาขึ้น",
+        "ทีวีมีแบนเนอร์โฆษณา",
+        "tv pop banner ad",
+        "tv retail mode banner"
+      ],
+      "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+      "page_range": [
+        141,
+        141
+      ],
+      "source_chunk_id": "manual_Samsung_Television_KM2DVBADN_p141_pop_banner_ad",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "instruction",
+          "content": "เปลี่ยน Usage Mode เป็น Home Mode: ไปที่ Settings > General > System Manager > Usage Mode (คู่มือหน้า 141)",
+          "safety_critical": false,
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "แบนเนอร์ POP ไม่ขึ้นแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 130) หรือเปิด Settings > Support > About This TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 130) หรือใช้ Settings > Support > Remote Management ให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่ออินเทอร์เน็ต) โดยโทรหา Samsung Contact Centre เพื่อขอบริการ Remote Support (คู่มือหน้า 129) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_tv2_um_popping_noise",
+      "device_category": "Television",
+      "brand": "Samsung",
+      "model_pattern": "KM2DVBADN-2.1.5",
+      "entry_symptom": "The TV is making a popping noise.",
+      "entry_symptom_th": "ทีวีมีเสียงดังแปะ",
+      "entry_symptom_aliases": [
+        "ทีวีมีเสียงเปาะแปะ",
+        "ทีวีมีเสียงป๊อป",
+        "tv popping noise"
+      ],
+      "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+      "page_range": [
+        141,
+        141
+      ],
+      "source_chunk_id": "manual_Samsung_Television_KM2DVBADN_p141_popping_noise",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "ได้ยินเสียงดังแปะจากตัวทีวีใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n1n",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n1n",
+          "type": "resolution",
+          "content": "การขยายและหดตัวของตัวเรือนด้านนอกของทีวีอาจทำให้เกิดเสียงดังแปะ ไม่ใช่ความผิดปกติของเครื่อง และทีวีใช้งานได้อย่างปลอดภัย (คู่มือหน้า 141)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 130) หรือเปิด Settings > Support > About This TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 130) หรือใช้ Settings > Support > Remote Management ให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่ออินเทอร์เน็ต) โดยโทรหา Samsung Contact Centre เพื่อขอบริการ Remote Support (คู่มือหน้า 129) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_tv2_um_humming_noise",
+      "device_category": "Television",
+      "brand": "Samsung",
+      "model_pattern": "KM2DVBADN-2.1.5",
+      "entry_symptom": "The TV is making a humming noise.",
+      "entry_symptom_th": "ทีวีมีเสียงหึ่ง",
+      "entry_symptom_aliases": [
+        "ทีวีมีเสียงฮัม",
+        "ทีวีมีเสียงหึ่งๆ",
+        "tv humming noise",
+        "tv buzzing"
+      ],
+      "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+      "page_range": [
+        141,
+        141
+      ],
+      "source_chunk_id": "manual_Samsung_Television_KM2DVBADN_p141_humming_noise",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "checkpoint",
+          "question": "ได้ยินเสียงหึ่งเบาๆ จากทีวีใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n1n",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n1n",
+          "type": "resolution",
+          "content": "ทีวีใช้วงจรสวิตชิ่งความเร็วสูงและกระแสไฟฟ้าระดับสูง ทีวีจึงอาจมีเสียงดังกว่าทีวีรุ่นเดิมเล็กน้อยตามระดับความสว่าง เสียงบางอย่างจากทีวีถือเป็นเรื่องปกติ (คู่มือหน้า 141)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ถ้าเสียงดังผิดปกติหรือมีกลิ่นไหม้ร่วมด้วย ให้ถอดปลั๊กและหยุดใช้ทีวี แล้วขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 130) หรือเปิด Settings > Support > About This TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 130) หรือใช้ Settings > Support > Remote Management ให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่ออินเทอร์เน็ต) โดยโทรหา Samsung Contact Centre เพื่อขอบริการ Remote Support (คู่มือหน้า 129)",
+          "outcome_kind": "handoff_informed"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "graph_id": "samsung_tv2_um_software_update_failed",
+      "device_category": "Television",
+      "brand": "Samsung",
+      "model_pattern": "KM2DVBADN-2.1.5",
+      "entry_symptom": "The software update over the Internet has failed.",
+      "entry_symptom_th": "อัปเดตซอฟต์แวร์ผ่านอินเทอร์เน็ตไม่สำเร็จ",
+      "entry_symptom_aliases": [
+        "ทีวีอัปเดตไม่ได้",
+        "อัปเดตซอฟต์แวร์ทีวีไม่สำเร็จ",
+        "tv software update failed"
+      ],
+      "source": "Samsung TV e-Manual KM2DVBADN-2.1.5 (KM2DVBADN-2.1.5_EM_Kant-M2_ASIA_ENG)",
+      "page_range": [
+        141,
+        141
+      ],
+      "source_chunk_id": "manual_Samsung_Television_KM2DVBADN_p141_software_update_failed",
+      "severity": "low",
+      "difficulty": "easy",
+      "entry_node": "n1",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "type": "instruction",
+          "content": "ตรวจสถานะการเชื่อมต่อเครือข่าย: ไปที่ Settings > General > Network > Network Status ถ้าทีวีไม่ได้เชื่อมต่อเครือข่ายให้เชื่อมต่อก่อน (คู่มือหน้า 141)",
+          "safety_critical": false,
+          "next": "n1v"
+        },
+        {
+          "node_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "safety_critical": false,
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "node_id": "n2",
+          "type": "checkpoint",
+          "question": "ทีวีใช้ซอฟต์แวร์เวอร์ชันล่าสุดอยู่แล้วใช่หรือไม่?",
+          "safety_critical": false,
+          "on_yes": "n2n",
+          "on_no": "n_escalate"
+        },
+        {
+          "node_id": "n2n",
+          "type": "resolution",
+          "content": "การอัปเกรดจะหยุดถ้าทีวีมีซอฟต์แวร์เวอร์ชันล่าสุดอยู่แล้ว (คู่มือหน้า 141)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "node_id": "n_resolved",
+          "type": "resolution",
+          "content": "อัปเดตซอฟต์แวร์สำเร็จหรือซอฟต์แวร์เป็นเวอร์ชันล่าสุดแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "node_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 130) หรือเปิด Settings > Support > About This TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 130) หรือใช้ Settings > Support > Remote Management ให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่ออินเทอร์เน็ต) โดยโทรหา Samsung Contact Centre เพื่อขอบริการ Remote Support (คู่มือหน้า 129) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    }
+  ]
+}

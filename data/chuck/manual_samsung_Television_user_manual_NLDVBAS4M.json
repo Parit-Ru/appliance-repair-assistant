@@ -1,0 +1,597 @@
+[
+  {
+    "chunk_id": "manual_Samsung_Television_NLDVBAS4M_p26_analogue_signal_weak",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "NLDVBAS4M-1005",
+    "source": "Samsung TV e-Manual NLDVBAS4M-1005 (NLDVBAS4M-1005-ENG-IR_170511.0)",
+    "page": 26,
+    "content": "Analogue channel signal is weak or distorted 1. Fine Tune (Analogue channels only): If the signal is weak or distorted, fine tune the channel manually. 2. Fine tuned channels are marked with an asterisk “*”. 3. To reset the fine-tuning, select Reset.",
+    "metadata": {
+      "symptom": "Analogue channel signal is weak or distorted",
+      "possible_cause": null,
+      "solution": "1. Fine Tune (Analogue channels only): If the signal is weak or distorted, fine tune the channel manually.\n2. Fine tuned channels are marked with an asterisk “*”.\n3. To reset the fine-tuning, select Reset.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_NLDVBAS4M_p43_digital_signal_weak_static_ghosting",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "NLDVBAS4M-1005",
+    "source": "Samsung TV e-Manual NLDVBAS4M-1005 (NLDVBAS4M-1005-ENG-IR_170511.0)",
+    "page": 43,
+    "content": "Broadcast signal is weak (static and ghosting on the screen) 1. Digital Clean View: If the broadcast signal received by your TV is weak, you can activate the Digital Clean View feature to reduce any static and ghosting that may appear on the screen. 2. When the signal is weak, try other options until the best picture is displayed.",
+    "metadata": {
+      "symptom": "Broadcast signal is weak (static and ghosting on the screen)",
+      "possible_cause": null,
+      "solution": "1. Digital Clean View: If the broadcast signal received by your TV is weak, you can activate the Digital Clean View feature to reduce any static and ghosting that may appear on the screen.\n2. When the signal is weak, try other options until the best picture is displayed.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_NLDVBAS4M_p44_screen_not_natural_film_mode",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "NLDVBAS4M-1005",
+    "source": "Samsung TV e-Manual NLDVBAS4M-1005 (NLDVBAS4M-1005-ENG-IR_170511.0)",
+    "page": 44,
+    "content": "The screen does not seem natural 1. Film Mode: Sets the TV to automatically sense and process film signals from all sources and adjust the picture for optimum quality. 2. Available in TV mode and external input mode which supports SD (480i / 576i) and HD (1080i) except in when connected to a PC. 3. If the screen does not seem natural, change its option to Off / Auto1 / Auto2 in Film Mode.",
+    "metadata": {
+      "symptom": "The screen does not seem natural",
+      "possible_cause": null,
+      "solution": "1. Film Mode: Sets the TV to automatically sense and process film signals from all sources and adjust the picture for optimum quality.\n2. Available in TV mode and external input mode which supports SD (480i / 576i) and HD (1080i) except in when connected to a PC.\n3. If the screen does not seem natural, change its option to Off / Auto1 / Auto2 in Film Mode.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_NLDVBAS4M_p106_digital_reception_poor",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "NLDVBAS4M-1005",
+    "source": "Samsung TV e-Manual NLDVBAS4M-1005 (NLDVBAS4M-1005-ENG-IR_170511.0)",
+    "page": 106,
+    "content": "Digital channel reception quality is imperfect or the channel is unavailable Signal Information (Digital channels only): The HDTV channel reception quality is either imperfect or the channel are unavailable. Adjust your aerial to increase signal strength.",
+    "metadata": {
+      "symptom": "Digital channel reception quality is imperfect or the channel is unavailable",
+      "possible_cause": null,
+      "solution": "Signal Information (Digital channels only): The HDTV channel reception quality is either imperfect or the channel are unavailable. Adjust your aerial to increase signal strength.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_NLDVBAS4M_p105_picture_problem_picture_test",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "NLDVBAS4M-1005",
+    "source": "Samsung TV e-Manual NLDVBAS4M-1005 (NLDVBAS4M-1005-ENG-IR_170511.0)",
+    "page": 105,
+    "content": "Picture problems 1. Self Diagnosis might take few seconds, this is part of the normal operation of the TV. 2. Picture Test: Use to check for picture problems.",
+    "metadata": {
+      "symptom": "Picture problems",
+      "possible_cause": null,
+      "solution": "1. Self Diagnosis might take few seconds, this is part of the normal operation of the TV.\n2. Picture Test: Use to check for picture problems.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_NLDVBAS4M_p105_no_sound_from_tv_speakers",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "NLDVBAS4M-1005",
+    "source": "Samsung TV e-Manual NLDVBAS4M-1005 (NLDVBAS4M-1005-ENG-IR_170511.0)",
+    "page": 105,
+    "content": "No sound from the TV’s speakers 1. Sound Test: Use the built-in melody sound to check for sound problems. 2. If you hear no sound from the TV’s speakers, before performing the sound test, make sure Sound Output is set to TV Speaker in the Sound menu. 3. The melody will be heard during the test even if the sound is muted by pressing the MUTE button.",
+    "metadata": {
+      "symptom": "No sound from the TV’s speakers",
+      "possible_cause": null,
+      "solution": "1. Sound Test: Use the built-in melody sound to check for sound problems.\n2. If you hear no sound from the TV’s speakers, before performing the sound test, make sure Sound Output is set to TV Speaker in the Sound menu.\n3. The melody will be heard during the test even if the sound is muted by pressing the MUTE button.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_NLDVBAS4M_p29_sound_echo_speaker_and_receiver",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "NLDVBAS4M-1005",
+    "source": "Samsung TV e-Manual NLDVBAS4M-1005 (NLDVBAS4M-1005-ENG-IR_170511.0)",
+    "page": 29,
+    "content": "A sound echo occurs when sound is emitted from both the main speaker and the audio receiver When sound is emitted from both the main speaker and the audio receiver, a sound echo may occur due to the decoding speed difference between the main speaker and the audio receiver. In this case, use the TV speaker function.",
+    "metadata": {
+      "symptom": "A sound echo occurs when sound is emitted from both the main speaker and the audio receiver",
+      "possible_cause": null,
+      "solution": "When sound is emitted from both the main speaker and the audio receiver, a sound echo may occur due to the decoding speed difference between the main speaker and the audio receiver. In this case, use the TV speaker function.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_NLDVBAS4M_p48_sound_mode_disabled",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "NLDVBAS4M-1005",
+    "source": "Samsung TV e-Manual NLDVBAS4M-1005 (NLDVBAS4M-1005-ENG-IR_170511.0)",
+    "page": 48,
+    "content": "Sound Mode is disabled If Sound Output is set to Audio Out/Optical, Sound Mode is disabled.",
+    "metadata": {
+      "symptom": "Sound Mode is disabled",
+      "possible_cause": null,
+      "solution": "If Sound Output is set to Audio Out/Optical, Sound Mode is disabled.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_NLDVBAS4M_p50_sound_effect_disabled",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "NLDVBAS4M-1005",
+    "source": "Samsung TV e-Manual NLDVBAS4M-1005 (NLDVBAS4M-1005-ENG-IR_170511.0)",
+    "page": 50,
+    "content": "Sound Effect is disabled 1. Equaliser: Use Equaliser to customise sound setting for each speaker. 2. If Sound Output is set to Audio Out/Optical, Sound Effect is disabled.",
+    "metadata": {
+      "symptom": "Sound Effect is disabled",
+      "possible_cause": null,
+      "solution": "1. Equaliser: Use Equaliser to customise sound setting for each speaker.\n2. If Sound Output is set to Audio Out/Optical, Sound Effect is disabled.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_NLDVBAS4M_p51_source_volume_not_applied",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "NLDVBAS4M-1005",
+    "source": "Samsung TV e-Manual NLDVBAS4M-1005 (NLDVBAS4M-1005-ENG-IR_170511.0)",
+    "page": 51,
+    "content": "A change to the volume control of the source device is not applied 1. Auto Volume: To equalise the volume level on each channel, set to Normal. 2. To use the volume control on the source device connected to the TV, set Auto Volume to Off on the TV. Otherwise, a change to the volume control of the source device may not be applied.",
+    "metadata": {
+      "symptom": "A change to the volume control of the source device is not applied",
+      "possible_cause": null,
+      "solution": "1. Auto Volume: To equalise the volume level on each channel, set to Normal.\n2. To use the volume control on the source device connected to the TV, set Auto Volume to Off on the TV. Otherwise, a change to the volume control of the source device may not be applied.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_NLDVBAS4M_p49_bluetooth_audio_unavailable",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "NLDVBAS4M-1005",
+    "source": "Samsung TV e-Manual NLDVBAS4M-1005 (NLDVBAS4M-1005-ENG-IR_170511.0)",
+    "page": 49,
+    "content": "Bluetooth Audio cannot be used 1. You can select which speakers the TV uses for audio output. (TV Speaker / Receiver / Audio Out/Optical / Bluetooth Audio) 2. Bluetooth Audio function is available when Sound Mirroring should be off.",
+    "metadata": {
+      "symptom": "Bluetooth Audio cannot be used",
+      "possible_cause": null,
+      "solution": "1. You can select which speakers the TV uses for audio output. (TV Speaker / Receiver / Audio Out/Optical / Bluetooth Audio)\n2. Bluetooth Audio function is available when Sound Mirroring should be off.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_NLDVBAS4M_p54_sound_menu_in_sound_mirroring",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "NLDVBAS4M-1005",
+    "source": "Samsung TV e-Manual NLDVBAS4M-1005 (NLDVBAS4M-1005-ENG-IR_170511.0)",
+    "page": 54,
+    "content": "The Sound menu cannot be used while in sound mirroring 1. Sound Mirroring: Share your mobile device's sound using your TV speakers. 2. When the Sound Mirroring is On, you can listen to audio sound on a mobile device through the TV speaker after connecting the device to the TV via Bluetooth. 3. While in sound mirroring, you cannot use the Sound menu.",
+    "metadata": {
+      "symptom": "The Sound menu cannot be used while in sound mirroring",
+      "possible_cause": null,
+      "solution": "1. Sound Mirroring: Share your mobile device's sound using your TV speakers.\n2. When the Sound Mirroring is On, you can listen to audio sound on a mobile device through the TV speaker after connecting the device to the TV via Bluetooth.\n3. While in sound mirroring, you cannot use the Sound menu.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_NLDVBAS4M_p122_bluetooth_tv_not_found",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "NLDVBAS4M-1005",
+    "source": "Samsung TV e-Manual NLDVBAS4M-1005 (NLDVBAS4M-1005-ENG-IR_170511.0)",
+    "page": 122,
+    "content": "The TV is not found when connecting a mobile device via Bluetooth 1. Activate Bluetooth on your mobile device. Then the device searches for available devices. 2. Select the TV from the searched list. Then a pop-up window prompts asking whether or not to connect the mobile device. 3. If the TV is not found, turn off and on both TV and mobile device. 4. Select Allow in the pop-up window. Then the TV is connected to the mobile device.",
+    "metadata": {
+      "symptom": "The TV is not found when connecting a mobile device via Bluetooth",
+      "possible_cause": null,
+      "solution": "1. Activate Bluetooth on your mobile device. Then the device searches for available devices.\n2. Select the TV from the searched list. Then a pop-up window prompts asking whether or not to connect the mobile device.\n3. If the TV is not found, turn off and on both TV and mobile device.\n4. Select Allow in the pop-up window. Then the TV is connected to the mobile device.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_NLDVBAS4M_p57_smart_view_not_available",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "NLDVBAS4M-1005",
+    "source": "Samsung TV e-Manual NLDVBAS4M-1005 (NLDVBAS4M-1005-ENG-IR_170511.0)",
+    "page": 57,
+    "content": "Mobile Device Screen on TV (Smart View) cannot be used 1. Mobile Device Screen on TV (Smart View): Wirelessly connect the TV to the mobile device with the mirroring function to view the mobile device's screen on the TV. 2. This option is available only with mobile devices that support mirroring. 3. To use the Smart View function, the mobile device must support the mirroring function such as AllShare Cast and Smart View. To check whether your mobile device supports the mirroring function, please visit the mobile device manufacturer's website.",
+    "metadata": {
+      "symptom": "Mobile Device Screen on TV (Smart View) cannot be used",
+      "possible_cause": null,
+      "solution": "1. Mobile Device Screen on TV (Smart View): Wirelessly connect the TV to the mobile device with the mirroring function to view the mobile device's screen on the TV.\n2. This option is available only with mobile devices that support mirroring.\n3. To use the Smart View function, the mobile device must support the mirroring function such as AllShare Cast and Smart View. To check whether your mobile device supports the mirroring function, please visit the mobile device manufacturer's website.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_NLDVBAS4M_p60_wireless_network_not_in_list",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "NLDVBAS4M-1005",
+    "source": "Samsung TV e-Manual NLDVBAS4M-1005 (NLDVBAS4M-1005-ENG-IR_170511.0)",
+    "page": 60,
+    "content": "The wireless network does not appear in the list 1. Make sure that you have the wireless router's SSID (name) and password settings before attempting to connect. 2. If the network you want doesn't appear in the list, select Add Network, and then enter the network's SSID (name) manually. 3. If your network is security enabled, enter the password. If your network is not security-enabled, the TV will bypass the on-screen keyboard and attempt to connect right away.",
+    "metadata": {
+      "symptom": "The wireless network does not appear in the list",
+      "possible_cause": null,
+      "solution": "1. Make sure that you have the wireless router's SSID (name) and password settings before attempting to connect.\n2. If the network you want doesn't appear in the list, select Add Network, and then enter the network's SSID (name) manually.\n3. If your network is security enabled, enter the password. If your network is not security-enabled, the TV will bypass the on-screen keyboard and attempt to connect right away.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_NLDVBAS4M_p63_wifi_direct_cannot_connect",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "NLDVBAS4M-1005",
+    "source": "Samsung TV e-Manual NLDVBAS4M-1005 (NLDVBAS4M-1005-ENG-IR_170511.0)",
+    "page": 63,
+    "content": "A mobile device cannot be connected with Wi-Fi Direct 1. When you place the mobile device closer to the TV with Wi-Fi Direct activated, the connection allowance confirmation window appears on the left bottom of the screen so that you can easily connect it. 2. To use Wi-Fi Direct, the Wi-Fi Direct function in the mobile device must be active.",
+    "metadata": {
+      "symptom": "A mobile device cannot be connected with Wi-Fi Direct",
+      "possible_cause": null,
+      "solution": "1. When you place the mobile device closer to the TV with Wi-Fi Direct activated, the connection allowance confirmation window appears on the left bottom of the screen so that you can easily connect it.\n2. To use Wi-Fi Direct, the Wi-Fi Direct function in the mobile device must be active.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_NLDVBAS4M_p66_clock_reset_after_power_cord",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "NLDVBAS4M-1005",
+    "source": "Samsung TV e-Manual NLDVBAS4M-1005 (NLDVBAS4M-1005-ENG-IR_170511.0)",
+    "page": 66,
+    "content": "The clock is reset after the power cord is disconnected 1. Clock: Setting the clock is for using various timer features of the TV. 2. If you disconnect the power cord, you have to set the clock again.",
+    "metadata": {
+      "symptom": "The clock is reset after the power cord is disconnected",
+      "possible_cause": null,
+      "solution": "1. Clock: Setting the clock is for using various timer features of the TV.\n2. If you disconnect the power cord, you have to set the clock again.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_NLDVBAS4M_p67_auto_clock_incorrect",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "NLDVBAS4M-1005",
+    "source": "Samsung TV e-Manual NLDVBAS4M-1005 (NLDVBAS4M-1005-ENG-IR_170511.0)",
+    "page": 67,
+    "content": "The automatically set time is not correct 1. Auto: Sets the current time automatically using the time from a digital channel. 2. The aerial must be connected in order to set the time automatically. 3. Depending on the broadcast station and signal, the auto time set up may not be correct. In this case, set the time manually.",
+    "metadata": {
+      "symptom": "The automatically set time is not correct",
+      "possible_cause": null,
+      "solution": "1. Auto: Sets the current time automatically using the time from a digital channel.\n2. The aerial must be connected in order to set the time automatically.\n3. Depending on the broadcast station and signal, the auto time set up may not be correct. In this case, set the time manually.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_NLDVBAS4M_p73_on_timer_usb_not_operating",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "NLDVBAS4M-1005",
+    "source": "Samsung TV e-Manual NLDVBAS4M-1005 (NLDVBAS4M-1005-ENG-IR_170511.0)",
+    "page": 73,
+    "content": "The On Timer does not operate correctly with a USB device 1. Music / Photo (When the Source is set to USB): Select a folder in the USB device containing music or photo files to be played when the TV is turned on automatically. 2. If there is no music file on the USB device or the folder containing a music file is not selected, the timer function does not operate correctly. 3. When there is only one photo file in the USB device, the slide show will not play. 4. If a folder name is too long, the folder cannot be selected. 5. Each USB you use is assigned its own folder. When using more than one of the same type of USB, make sure the folders assigned to each USB have different names.",
+    "metadata": {
+      "symptom": "The On Timer does not operate correctly with a USB device",
+      "possible_cause": null,
+      "solution": "1. Music / Photo (When the Source is set to USB): Select a folder in the USB device containing music or photo files to be played when the TV is turned on automatically.\n2. If there is no music file on the USB device or the folder containing a music file is not selected, the timer function does not operate correctly.\n3. When there is only one photo file in the USB device, the slide show will not play.\n4. If a folder name is too long, the folder cannot be selected.\n5. Each USB you use is assigned its own folder. When using more than one of the same type of USB, make sure the folders assigned to each USB have different names.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_NLDVBAS4M_p74_on_timer_usb_device_not_recognised",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "NLDVBAS4M-1005",
+    "source": "Samsung TV e-Manual NLDVBAS4M-1005 (NLDVBAS4M-1005-ENG-IR_170511.0)",
+    "page": 74,
+    "content": "The On Timer function may not work with some USB devices 1. It is recommended that you use a USB memory stick and a multi card reader when using On Timer. 2. The On Timer function may not work with USB devices with a built-in battery, MP3 players, or PMPs made by some manufacturers because these devices take a long time to be recognised.",
+    "metadata": {
+      "symptom": "The On Timer function may not work with some USB devices",
+      "possible_cause": null,
+      "solution": "1. It is recommended that you use a USB memory stick and a multi card reader when using On Timer.\n2. The On Timer function may not work with USB devices with a built-in battery, MP3 players, or PMPs made by some manufacturers because these devices take a long time to be recognised.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_NLDVBAS4M_p76_tv_turns_off_by_itself",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "NLDVBAS4M-1005",
+    "source": "Samsung TV e-Manual NLDVBAS4M-1005 (NLDVBAS4M-1005-ENG-IR_170511.0)",
+    "page": 76,
+    "content": "The TV turns off by itself 1. Auto Power Off: The TV will be automatically turned off when no user operation is received for 4 hours. 2. If the Auto Power Off option is set to Off, the TV will stay on even if no operations are performed on the TV. 3. No Signal Power Off: To avoid unnecessary energy consumption, set how long you want the TV to remain on if it’s not receiving a signal.",
+    "metadata": {
+      "symptom": "The TV turns off by itself",
+      "possible_cause": null,
+      "solution": "1. Auto Power Off: The TV will be automatically turned off when no user operation is received for 4 hours.\n2. If the Auto Power Off option is set to Off, the TV will stay on even if no operations are performed on the TV.\n3. No Signal Power Off: To avoid unnecessary energy consumption, set how long you want the TV to remain on if it’s not receiving a signal.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_NLDVBAS4M_p75_brightness_changes_eco_sensor",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "NLDVBAS4M-1005",
+    "source": "Samsung TV e-Manual NLDVBAS4M-1005 (NLDVBAS4M-1005-ENG-IR_170511.0)",
+    "page": 75,
+    "content": "The display brightness changes (becomes slightly darker or brighter) 1. Eco Sensor (Depending on the model): To enhance your power savings; the picture settings will automatically adapt to the light in the room. 2. If you adjust the Backlight, the Eco Sensor will be set to Off. 3. Min. Backlight: When Eco Sensor is On, the minimum screen brightness can be adjusted manually. 4. If Eco Sensor is On, the display brightness may change (become slightly darker or brighter) depending on the surrounding light intensity.",
+    "metadata": {
+      "symptom": "The display brightness changes (becomes slightly darker or brighter)",
+      "possible_cause": null,
+      "solution": "1. Eco Sensor (Depending on the model): To enhance your power savings; the picture settings will automatically adapt to the light in the room.\n2. If you adjust the Backlight, the Eco Sensor will be set to Off.\n3. Min. Backlight: When Eco Sensor is On, the minimum screen brightness can be adjusted manually.\n4. If Eco Sensor is On, the display brightness may change (become slightly darker or brighter) depending on the surrounding light intensity.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_NLDVBAS4M_p36_screen_fit_picture_off_centre",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "NLDVBAS4M-1005",
+    "source": "Samsung TV e-Manual NLDVBAS4M-1005 (NLDVBAS4M-1005-ENG-IR_170511.0)",
+    "page": 36,
+    "content": "The picture is off-centre after selecting Screen Fit 1. After selecting Screen Fit in HDMI (1080i / 1080p) or Component (1080i / 1080p) mode, you may need to centre the picture: 2. Select the Position. Press the ENTER button. 3. Press the ▲/▼/◄/► button to move the picture. 4. If you want to reset the position you adjusted, select Reset in the Position screen. The picture will be set to its default position.",
+    "metadata": {
+      "symptom": "The picture is off-centre after selecting Screen Fit",
+      "possible_cause": null,
+      "solution": "1. After selecting Screen Fit in HDMI (1080i / 1080p) or Component (1080i / 1080p) mode, you may need to centre the picture:\n2. Select the Position. Press the ENTER button.\n3. Press the ▲/▼/◄/► button to move the picture.\n4. If you want to reset the position you adjusted, select Reset in the Position screen. The picture will be set to its default position.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_NLDVBAS4M_p79_game_mode_screen_shakes",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "NLDVBAS4M-1005",
+    "source": "Samsung TV e-Manual NLDVBAS4M-1005 (NLDVBAS4M-1005-ENG-IR_170511.0)",
+    "page": 79,
+    "content": "The screen shakes slightly in Game Mode 1. Game Mode: When connecting to a game console such as PlayStation™ or Xbox™, you can enjoy a more realistic gaming experience by selecting game mode. 2. To disconnect the game console and connect another external device, set Game Mode to Off in the setup menu. 3. If you display the TV menu in Game Mode, the screen shakes slightly.",
+    "metadata": {
+      "symptom": "The screen shakes slightly in Game Mode",
+      "possible_cause": null,
+      "solution": "1. Game Mode: When connecting to a game console such as PlayStation™ or Xbox™, you can enjoy a more realistic gaming experience by selecting game mode.\n2. To disconnect the game console and connect another external device, set Game Mode to Off in the setup menu.\n3. If you display the TV menu in Game Mode, the screen shakes slightly.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_NLDVBAS4M_p80_game_mode_picture_quality",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "NLDVBAS4M-1005",
+    "source": "Samsung TV e-Manual NLDVBAS4M-1005 (NLDVBAS4M-1005-ENG-IR_170511.0)",
+    "page": 80,
+    "content": "Picture quality is reduced after setting Game Mode to On 1. Game Mode is not available in TV mode. 2. After connecting the game console, set Game Mode to On. Unfortunately, you may notice reduced picture quality. 3. If Game Mode is On: Picture Mode is set to Game and Sound Mode is set to Game.",
+    "metadata": {
+      "symptom": "Picture quality is reduced after setting Game Mode to On",
+      "possible_cause": null,
+      "solution": "1. Game Mode is not available in TV mode.\n2. After connecting the game console, set Game Mode to On. Unfortunately, you may notice reduced picture quality.\n3. If Game Mode is On: Picture Mode is set to Game and Sound Mode is set to Game.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_NLDVBAS4M_p107_settings_reset_after_software_update",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "NLDVBAS4M-1005",
+    "source": "Samsung TV e-Manual NLDVBAS4M-1005 (NLDVBAS4M-1005-ENG-IR_170511.0)",
+    "page": 107,
+    "content": "Video and audio settings return to their defaults after a software update 1. Software Update: The Software Update menu lets you upgrade your TV’s software to the latest version. 2. When software is upgraded, video and audio settings you have made will return to their default settings. We advise you to write down your settings so that you can easily reset them after the upgrade.",
+    "metadata": {
+      "symptom": "Video and audio settings return to their defaults after a software update",
+      "possible_cause": null,
+      "solution": "1. Software Update: The Software Update menu lets you upgrade your TV’s software to the latest version.\n2. When software is upgraded, video and audio settings you have made will return to their default settings. We advise you to write down your settings so that you can easily reset them after the upgrade.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_NLDVBAS4M_p109_screen_turns_on_auto_update",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "NLDVBAS4M-1005",
+    "source": "Samsung TV e-Manual NLDVBAS4M-1005 (NLDVBAS4M-1005-ENG-IR_170511.0)",
+    "page": 109,
+    "content": "The screen turns on slightly by itself during Auto Update 1. By Channel: Upgrades the software using the broadcasting signal. 2. Auto Update (Depending on the country and model): A manual upgrade will be automatically performed at selected time. Since the power of the unit is turned on internally, the screen may be turned on slightly for the product. This phenomenon may continue for more than 1 hour until the software upgrade is complete.",
+    "metadata": {
+      "symptom": "The screen turns on slightly by itself during Auto Update",
+      "possible_cause": null,
+      "solution": "1. By Channel: Upgrades the software using the broadcasting signal.\n2. Auto Update (Depending on the country and model): A manual upgrade will be automatically performed at selected time. Since the power of the unit is turned on internally, the screen may be turned on slightly for the product. This phenomenon may continue for more than 1 hour until the software upgrade is complete.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_NLDVBAS4M_p110_store_demo_picture_reset",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "NLDVBAS4M-1005",
+    "source": "Samsung TV e-Manual NLDVBAS4M-1005 (NLDVBAS4M-1005-ENG-IR_170511.0)",
+    "page": 110,
+    "content": "Picture settings are reset every 5 minutes (Store Demo) 1. Select the Use Mode suitable for your place. We strongly recommend you select Home Use. 2. Home Use: Home Use is the default setting. 3. Store Demo: Store Demo is for retail environments only. If you select Store Demo, some functions will not work, and the picture settings will be reset every 5 minutes.",
+    "metadata": {
+      "symptom": "Picture settings are reset every 5 minutes (Store Demo)",
+      "possible_cause": null,
+      "solution": "1. Select the Use Mode suitable for your place. We strongly recommend you select Home Use.\n2. Home Use: Home Use is the default setting.\n3. Store Demo: Store Demo is for retail environments only. If you select Store Demo, some functions will not work, and the picture settings will be reset every 5 minutes.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_NLDVBAS4M_p91_usb_not_recognised_files_not_played",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "NLDVBAS4M-1005",
+    "source": "Samsung TV e-Manual NLDVBAS4M-1005 (NLDVBAS4M-1005-ENG-IR_170511.0)",
+    "page": 91,
+    "content": "A USB device connected to the TV is not recognised, the list of files is corrupted, or a file is not played If a USB device connected to the TV is not recognised, the list of files on the device is corrupted, or a file in the list is not played, connect the USB device to the PC, format the device and check the connection.",
+    "metadata": {
+      "symptom": "A USB device connected to the TV is not recognised, the list of files is corrupted, or a file is not played",
+      "possible_cause": null,
+      "solution": "If a USB device connected to the TV is not recognised, the list of files on the device is corrupted, or a file in the list is not played, connect the USB device to the PC, format the device and check the connection.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_NLDVBAS4M_p91_deleted_file_still_listed",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "NLDVBAS4M-1005",
+    "source": "Samsung TV e-Manual NLDVBAS4M-1005 (NLDVBAS4M-1005-ENG-IR_170511.0)",
+    "page": 91,
+    "content": "A file deleted from the PC is still found when Media Contents is run If a file deleted from the PC is still found when Media Contents is run, use the “Empty the Recycle Bin” function on the PC to permanently delete the file.",
+    "metadata": {
+      "symptom": "A file deleted from the PC is still found when Media Contents is run",
+      "possible_cause": null,
+      "solution": "If a file deleted from the PC is still found when Media Contents is run, use the “Empty the Recycle Bin” function on the PC to permanently delete the file.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_NLDVBAS4M_p91_files_over_4000_not_shown",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "NLDVBAS4M-1005",
+    "source": "Samsung TV e-Manual NLDVBAS4M-1005 (NLDVBAS4M-1005-ENG-IR_170511.0)",
+    "page": 91,
+    "content": "Files and folders do not appear when more than about 4000 are saved on the USB device If the number of files and folders saved on a USB storage device is approximately over 4000, the files and folders may not appear and some folders may not be opened.",
+    "metadata": {
+      "symptom": "Files and folders do not appear when more than about 4000 are saved on the USB device",
+      "possible_cause": null,
+      "solution": "If the number of files and folders saved on a USB storage device is approximately over 4000, the files and folders may not appear and some folders may not be opened.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_NLDVBAS4M_p88_file_format_not_supported_message",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "NLDVBAS4M-1005",
+    "source": "Samsung TV e-Manual NLDVBAS4M-1005 (NLDVBAS4M-1005-ENG-IR_170511.0)",
+    "page": 88,
+    "content": "The “This file format is not supported.” message is displayed 1. The higher the resolution of the image, the longer it takes to display on the screen. 2. The maximum supported JPEG resolution is 15360 x 8640 pixels. 3. For unsupported or corrupted files, the “This file format is not supported.” message is displayed.",
+    "metadata": {
+      "symptom": "The “This file format is not supported.” message is displayed",
+      "possible_cause": null,
+      "solution": "1. The higher the resolution of the image, the longer it takes to display on the screen.\n2. The maximum supported JPEG resolution is 15360 x 8640 pixels.\n3. For unsupported or corrupted files, the “This file format is not supported.” message is displayed.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_NLDVBAS4M_p89_mp3_drm_cannot_play",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "NLDVBAS4M-1005",
+    "source": "Samsung TV e-Manual NLDVBAS4M-1005 (NLDVBAS4M-1005-ENG-IR_170511.0)",
+    "page": 89,
+    "content": "MP3 files with DRM cannot be played 1. MP3 files with DRM that have been downloaded from a non-free site cannot be played. 2. PTP connection mode is fully available only with digital cameras. When connecting a smartphone or tablet to the TV using PTP mode, it may not be recognised.",
+    "metadata": {
+      "symptom": "MP3 files with DRM cannot be played",
+      "possible_cause": null,
+      "solution": "1. MP3 files with DRM that have been downloaded from a non-free site cannot be played.\n2. PTP connection mode is fully available only with digital cameras. When connecting a smartphone or tablet to the TV using PTP mode, it may not be recognised.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_NLDVBAS4M_p101_music_sound_abnormal",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "NLDVBAS4M-1005",
+    "source": "Samsung TV e-Manual NLDVBAS4M-1005 (NLDVBAS4M-1005-ENG-IR_170511.0)",
+    "page": 101,
+    "content": "The sound is abnormal when playing music files 1. Only displays the files with supported music file extension. Other file extensions are not displayed, even if they are saved on the same USB device. 2. If the sound is abnormal when playing music files, adjust the Equaliser in the Sound menu. (An over-modulated music file may cause a sound problem.)",
+    "metadata": {
+      "symptom": "The sound is abnormal when playing music files",
+      "possible_cause": null,
+      "solution": "1. Only displays the files with supported music file extension. Other file extensions are not displayed, even if they are saved on the same USB device.\n2. If the sound is abnormal when playing music files, adjust the Equaliser in the Sound menu. (An over-modulated music file may cause a sound problem.)",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Television_NLDVBAS4M_p117_family_tv_mode_cannot_use",
+    "device_category": "Television",
+    "brand": "Samsung",
+    "model": "NLDVBAS4M-1005",
+    "source": "Samsung TV e-Manual NLDVBAS4M-1005 (NLDVBAS4M-1005-ENG-IR_170511.0)",
+    "page": 117,
+    "content": "Family TV Mode cannot be used or the captured or recorded file is not saved 1. A USB device must be connected to the TV in order to use it. 2. Family TV Mode can only be used if there is more than 5MB free space available on the USB device connected to the TV. 3. Do not turn off the TV or disconnect the USB device while using Family TV Mode. The file might not be saved or play if you do so. 4. If the strength of the broadcast signal decreases or the signal is dropped altogether while using Family TV Mode, the concerned file might not be saved or play.",
+    "metadata": {
+      "symptom": "Family TV Mode cannot be used or the captured or recorded file is not saved",
+      "possible_cause": null,
+      "solution": "1. A USB device must be connected to the TV in order to use it.\n2. Family TV Mode can only be used if there is more than 5MB free space available on the USB device connected to the TV.\n3. Do not turn off the TV or disconnect the USB device while using Family TV Mode. The file might not be saved or play if you do so.\n4. If the strength of the broadcast signal decreases or the signal is dropped altogether while using Family TV Mode, the concerned file might not be saved or play.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  }
+]
