@@ -1,23 +1,11 @@
 export type NodeType = 'checkpoint' | 'instruction' | 'input' | 'resolution' | 'escalation';
-
 export type InputType = 'error_code' | 'model_number' | 'number' | 'text';
 export type OutcomeKind = 'user_fixed' | 'normal_behavior' | 'handoff_informed' | 'handoff_unknown';
-
-interface ExternalReference {
-  document: string;
-  section: string;
-  page?: number;
-  in_knowledge_base: boolean;
-}
 
 interface BaseNode {
   node_id: string;
   safety_critical?: boolean;
   safety_warning?: string;
-  has_image?: boolean;
-  image_url?: string;
-  author_note?: string;
-  external_reference?: ExternalReference;
 }
 
 export interface CheckpointNode extends BaseNode {
@@ -69,9 +57,6 @@ export type DeviceCategory =
   | 'Washing Machine'
   | 'Television';
 
-export type Severity = 'low' | 'medium' | 'high' | 'critical';
-export type Difficulty = 'easy' | 'medium' | 'hard';
-
 export interface TroubleshootingGraph {
   schema_version: 2;
   graph_id: string;
@@ -85,9 +70,6 @@ export interface TroubleshootingGraph {
   source: string;
   page_range: [number, number];
   source_chunk_id: string;
-  severity?: Severity;
-  difficulty?: Difficulty;
-  config?: Record<string, unknown>;
   entry_node: string;
   nodes: TroubleshootingNode[];
 }

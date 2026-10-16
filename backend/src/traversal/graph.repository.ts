@@ -1,18 +1,8 @@
 import { Inject, Injectable, Logger, OnModuleInit } from '@nestjs/common';
 import type { Pool, RowDataPacket } from 'mysql2/promise';
-
 import { MYSQL_POOL } from '../database/database.constants';
-import {
-  DeviceCategory,
-  Difficulty,
-  InputType,
-  NodeType,
-  OutcomeKind,
-  Severity,
-  TroubleshootingGraph,
-  TroubleshootingNode,
-  UnsupportedSchemaVersionError,
-} from '../traversal-engine/types';
+import {DeviceCategory,InputType,NodeType,OutcomeKind,TroubleshootingGraph,
+  TroubleshootingNode,UnsupportedSchemaVersionError,} from '../traversal-engine/types';
 
 interface GraphRow extends RowDataPacket {
   graph_id: string;
@@ -24,9 +14,6 @@ interface GraphRow extends RowDataPacket {
   page_start: number;
   page_end: number;
   source_chunk_id: string;
-  severity: Severity | null;
-  difficulty: Difficulty | null;
-  config: unknown;
   entry_node: string;
   schema_version: number;
   device_category: DeviceCategory;
@@ -51,10 +38,6 @@ interface NodeRow extends RowDataPacket {
   outcome_kind: OutcomeKind | null;
   safety_critical: number;
   safety_warning: string | null;
-  has_image: number;
-  image_url: string | null;
-  author_note: string | null;
-  external_reference: unknown;
 }
 
 // GET /traversal/graphs
@@ -66,8 +49,6 @@ export interface GraphSummary {
   deviceCategory: DeviceCategory;
   brand: string;
   modelPattern: string;
-  severity?: Severity;
-  difficulty?: Difficulty;
 }
 
 // GET /traversal/manuals
@@ -115,8 +96,6 @@ export class GraphRepository implements OnModuleInit {
       deviceCategory: g.device_category,
       brand: g.brand,
       modelPattern: g.model_pattern,
-      severity: g.severity,
-      difficulty: g.difficulty,
     }));
   }
 
@@ -145,8 +124,7 @@ export class GraphRepository implements OnModuleInit {
     const [graphRows] = await this.pool.query<GraphRow[]>(
       `SELECT g.graph_id, g.manual_id, g.entry_symptom, g.entry_symptom_th,
               g.entry_symptom_aliases, g.source, g.page_start, g.page_end,
-              g.source_chunk_id, g.severity, g.difficulty, g.config,
-              g.entry_node, g.schema_version,
+              g.source_chunk_id, g.entry_node, g.schema_version,
               m.device_category, m.brand, m.model_pattern,
               m.display_name, m.model_aliases
          FROM graphs g
@@ -158,8 +136,7 @@ export class GraphRepository implements OnModuleInit {
       `SELECT graph_id, node_id, node_type, text_content,
               on_yes, on_no, next_node, on_invalid,
               input_type, input_pattern, store_as, outcome_kind,
-              safety_critical, safety_warning, has_image, image_url,
-              author_note, external_reference
+              safety_critical, safety_warning
          FROM nodes
         ORDER BY graph_id, display_order`,
     );
@@ -222,9 +199,6 @@ export class GraphRepository implements OnModuleInit {
       source: row.source,
       page_range: [row.page_start, row.page_end],
       source_chunk_id: row.source_chunk_id,
-      severity: row.severity ?? undefined,
-      difficulty: row.difficulty ?? undefined,
-      config: parseJsonColumn<Record<string, unknown>>(row.config),
       entry_node: row.entry_node,
       nodes,
     };
@@ -235,10 +209,6 @@ export class GraphRepository implements OnModuleInit {
       node_id: row.node_id,
       safety_critical: row.safety_critical === 1,
       safety_warning: row.safety_warning ?? undefined,
-      has_image: row.has_image === 1,
-      image_url: row.image_url ?? undefined,
-      author_note: row.author_note ?? undefined,
-      external_reference: parseJsonColumn<never>(row.external_reference),
     };
 
     switch (row.node_type) {

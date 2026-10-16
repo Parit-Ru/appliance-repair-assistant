@@ -9,8 +9,6 @@ export type {
 
 import type {
   DeviceCategory,
-  Severity,
-  Difficulty,
   NodeReference,
   OutcomeKind,
   SessionStatus,
@@ -29,8 +27,6 @@ export interface GraphSummary {
   deviceCategory: DeviceCategory
   brand: string
   modelPattern: string
-  severity?: Severity
-  difficulty?: Difficulty
 }
 
 // คู่มือ/รุ่น 1 รายการ ที่ GET /traversal/manuals ส่งกลับมาเป็น array
