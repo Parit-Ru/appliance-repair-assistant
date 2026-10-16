@@ -2,6 +2,8 @@ import { Inject, Injectable } from '@nestjs/common';
 import type { Pool, ResultSetHeader, RowDataPacket } from 'mysql2/promise';
 
 import { MYSQL_POOL } from '../database/database.constants';
+import { ownerColumns, ownerWhere } from '../auth/session-owner';
+import type { SessionOwner } from '../auth/session-owner';
 import type { ModelSelection } from './traversal.dto';
 import type {
   SessionHistoryEntry,
@@ -39,19 +41,26 @@ interface OutcomeRow extends RowDataPacket {
   outcome_text: string | null;
 }
 
+interface OwnerRow extends RowDataPacket {
+  user_id: string | null;
+}
+
 @Injectable()
 export class SessionStore {
   constructor(@Inject(MYSQL_POOL) private readonly pool: Pool) {}
 
   /**
-   * clientId (migration 008): เจ้าของ session สำหรับหน้า "ประวัติการซ่อม" ไม่ส่ง = NULL (ไม่ปรากฏในประวัติของใคร)
+   * owner (migration 008/011): เจ้าของ session สำหรับหน้า "ประวัติการซ่อม"
+   *   user  → เก็บ user_id (client_id เป็น NULL) · guest → เก็บ client_id (user_id เป็น NULL)
+   *   ไม่ส่ง = ทั้งคู่ NULL (ไม่ปรากฏในประวัติของใคร)
    * ไม่เกี่ยวกับการเดินขั้นตอน engine ไม่เห็นค่านี้
    */
-  async create(session: SessionState, modelSelection?: ModelSelection, clientId?: string): Promise<void> {
+  async create(session: SessionState, modelSelection?: ModelSelection, owner?: SessionOwner): Promise<void> {
+    const { userId, clientId } = ownerColumns(owner);
     await this.pool.query(
       `INSERT INTO sessions
-         (session_id, graph_id, current_node_id, status, variables, confidence, model_selection, client_id, expires_at)
-       VALUES (?, ?, ?, ?, ?, ?, ?, ?, NOW() + INTERVAL ? HOUR)`,
+         (session_id, graph_id, current_node_id, status, variables, confidence, model_selection, client_id, user_id, expires_at)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, NOW() + INTERVAL ? HOUR)`,
       [
         session.sessionId,
         session.graphId,
@@ -60,7 +69,8 @@ export class SessionStore {
         JSON.stringify(session.variables),
         session.confidence ?? null,
         modelSelection ?? null,
-        clientId ?? null,
+        clientId,
+        userId,
         SESSION_TTL_HOURS,
       ],
     );
@@ -153,18 +163,33 @@ export class SessionStore {
   }
 
   /**
-   * ลบ session ของ clientId นี้ (ทุกสถานะ — ยกเลิกระหว่างเดินคือ use case หลัก) คืน true เมื่อลบได้
-   * ไม่ใช่เจ้าของ / client_id เป็น NULL / ไม่มี / หมดอายุแล้ว → ไม่ลบอะไรและคืน false ทุกกรณี
+   * user_id ของเจ้าของ session (มีเฉพาะ session ที่เริ่มตอนล็อกอิน) · null = เป็นของ guest / ไม่มีเจ้าของ / ไม่มี session นี้
+   * ใช้ตัดสินว่า endpoint เดินขั้นตอน (GET/actions/outcome) ต้องมี token ของเจ้าของหรือไม่ — ดู TraversalService.authorize
+   */
+  async findUserId(sessionId: string): Promise<string | null> {
+    const [rows] = await this.pool.query<OwnerRow[]>(
+      `SELECT user_id
+         FROM sessions
+        WHERE session_id = ? AND expires_at > NOW()`,
+      [sessionId],
+    );
+    return rows[0]?.user_id ?? null;
+  }
+
+  /**
+   * ลบ session ของ owner นี้ (ทุกสถานะ — ยกเลิกระหว่างเดินคือ use case หลัก) คืน true เมื่อลบได้
+   * ไม่ใช่เจ้าของ / ไม่มีเจ้าของ / ไม่มี / หมดอายุแล้ว → ไม่ลบอะไรและคืน false ทุกกรณี
    * (ผู้เรียกแปลงเป็น 404 เหมือนกันหมด จึงไม่เปิดเผยว่า session นั้นมีอยู่จริง)
    *
    * คำสั่งเดียวตัดสินและลบพร้อมกัน ไม่ "find แล้วค่อย delete" เพื่อไม่ให้มีช่องว่างระหว่างตรวจกับลบ
    * session_history และ session_feedback ถูกลบตามด้วย ON DELETE CASCADE
    */
-  async delete(sessionId: string, clientId: string): Promise<boolean> {
+  async delete(sessionId: string, owner: SessionOwner): Promise<boolean> {
+    const where = ownerWhere(owner);
     const [result] = await this.pool.query<ResultSetHeader>(
       `DELETE FROM sessions
-        WHERE session_id = ? AND client_id = ? AND expires_at > NOW()`,
-      [sessionId, clientId],
+        WHERE session_id = ? AND ${where.sql} AND expires_at > NOW()`,
+      [sessionId, ...where.params],
     );
     return result.affectedRows === 1;
   }

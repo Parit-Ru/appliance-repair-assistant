@@ -17,6 +17,7 @@ import type { JwtModuleOptions } from '@nestjs/jwt';
 import { AuthController } from './auth.controller';
 import { AuthService } from './auth.service';
 import { JwtAuthGuard } from './jwt-auth.guard';
+import { OptionalJwtAuthGuard } from './optional-jwt-auth.guard';
 import { RolesGuard } from './roles.guard';
 import { UsersStore } from './users.store';
 
@@ -45,7 +46,7 @@ export function buildJwtOptions(env: NodeJS.ProcessEnv = process.env): JwtModule
 @Module({
   imports: [JwtModule.registerAsync({ useFactory: () => buildJwtOptions() })],
   controllers: [AuthController],
-  providers: [UsersStore, AuthService, JwtAuthGuard, RolesGuard],
-  exports: [JwtModule, JwtAuthGuard, RolesGuard],
+  providers: [UsersStore, AuthService, JwtAuthGuard, OptionalJwtAuthGuard, RolesGuard],
+  exports: [JwtModule, JwtAuthGuard, OptionalJwtAuthGuard, RolesGuard],
 })
 export class AuthModule {}

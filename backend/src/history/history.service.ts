@@ -16,6 +16,7 @@
 
 import { Injectable } from '@nestjs/common';
 
+import type { SessionOwner } from '../auth/session-owner';
 import { getCurrentNode, submitAction as engineSubmitAction } from '../traversal-engine/traversal-engine';
 import { TraversalError } from '../traversal-engine/types';
 import type {
@@ -48,7 +49,7 @@ import type { CompletedSession, CompletedSessionSummary } from './history.store'
  */
 export class HistoryNotFoundError extends Error {
   constructor(sessionId: string) {
-    super(`ไม่พบรายการประวัติ '${sessionId}' (อาจถูกลบ หมดอายุ หรือไม่ใช่ของเบราว์เซอร์นี้)`);
+    super(`ไม่พบรายการประวัติ '${sessionId}' (อาจถูกลบ หมดอายุ หรือไม่ใช่ของคุณ)`);
     this.name = this.constructor.name;
   }
 }
@@ -68,8 +69,8 @@ export class HistoryService {
   ) {}
 
   /** GET /history */
-  async list(clientId: string, query: HistoryQuery): Promise<HistoryListResponseDto> {
-    const summaries = await this.store.listCompleted(clientId);
+  async list(owner: SessionOwner, query: HistoryQuery): Promise<HistoryListResponseDto> {
+    const summaries = await this.store.listCompleted(owner);
     const manuals = this.manualsById();
 
     const entries = summaries.map((summary) => this.toListEntry(summary, manuals));
@@ -121,8 +122,8 @@ export class HistoryService {
   }
 
   /** GET /history/:id */
-  async detail(clientId: string, sessionId: string): Promise<HistoryDetailDto> {
-    const session = await this.requireOwned(sessionId, clientId);
+  async detail(owner: SessionOwner, sessionId: string): Promise<HistoryDetailDto> {
+    const session = await this.requireOwned(sessionId, owner);
     const feedback = await this.store.findFeedback(sessionId);
     const graph = this.graphRepository.findById(session.graphId);
     const steps = graph ? await this.store.findSteps(sessionId) : [];
@@ -131,8 +132,8 @@ export class HistoryService {
   }
 
   /** DELETE /history/:id — ลบทั้ง session (เจ้าของเท่านั้น) */
-  async remove(clientId: string, sessionId: string): Promise<void> {
-    const deleted = await this.store.deleteCompleted(sessionId, clientId);
+  async remove(owner: SessionOwner, sessionId: string): Promise<void> {
+    const deleted = await this.store.deleteCompleted(sessionId, owner);
     if (!deleted) {
       throw new HistoryNotFoundError(sessionId);
     }
@@ -140,11 +141,11 @@ export class HistoryService {
 
   /** POST /history/:id/feedback — 1 session 1 คะแนน ส่งซ้ำ = แก้ค่าเดิม */
   async saveFeedback(
-    clientId: string,
+    owner: SessionOwner,
     sessionId: string,
     body: FeedbackBody,
   ): Promise<HistoryFeedbackDto> {
-    await this.requireOwned(sessionId, clientId);
+    await this.requireOwned(sessionId, owner);
     await this.store.saveFeedback(sessionId, body);
     return { helpful: body.helpful, comment: body.comment };
   }
@@ -153,8 +154,8 @@ export class HistoryService {
   // ตัวช่วยภายใน
   // ============================================================
 
-  private async requireOwned(sessionId: string, clientId: string): Promise<CompletedSession> {
-    const session = await this.store.findCompleted(sessionId, clientId);
+  private async requireOwned(sessionId: string, owner: SessionOwner): Promise<CompletedSession> {
+    const session = await this.store.findCompleted(sessionId, owner);
     if (!session) throw new HistoryNotFoundError(sessionId);
     return session;
   }

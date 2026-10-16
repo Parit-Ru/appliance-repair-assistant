@@ -5,7 +5,8 @@
  * ไฟล์นี้อ่านตารางเดิม (sessions, session_history) + ตารางใหม่ session_feedback (migration 009)
  * และไม่เขียนอะไรลง sessions/session_history เลยนอกจากการลบทั้ง session ตามที่เจ้าของสั่ง
  *
- * ทุกคำสั่งที่แตะ session ระบุ client_id เสมอ → session ของคนอื่นไม่ถูกมองเห็นและไม่ถูกลบ
+ * ทุกคำสั่งที่แตะ session ระบุเจ้าของเสมอ (ownerWhere: user_id = ? หรือ client_id = ? AND user_id IS NULL)
+ * → session ของคนอื่นไม่ถูกมองเห็นและไม่ถูกลบ · guest มองไม่เห็น session ของ user แม้ใช้ client_id เดียวกัน
  * (ผลคือ "ไม่พบ" ซึ่ง service แปลงเป็น 404 ไม่ใช่ 403 เพื่อไม่บอกว่า id นั้นมีอยู่)
  * และเฉพาะ session ที่ status='completed' และยังไม่หมดอายุ (D3)
  */
@@ -13,6 +14,8 @@
 import { Inject, Injectable } from '@nestjs/common';
 import type { Pool, ResultSetHeader, RowDataPacket } from 'mysql2/promise';
 
+import { ownerWhere } from '../auth/session-owner';
+import type { SessionOwner } from '../auth/session-owner';
 import { MYSQL_POOL } from '../database/database.constants';
 import type { SessionHistoryEntry } from '../traversal-engine/types';
 import { parseVariables, rowToHistoryEntry } from '../traversal/session.store';
@@ -67,29 +70,31 @@ export interface StoredFeedback {
 export class HistoryStore {
   constructor(@Inject(MYSQL_POOL) private readonly pool: Pool) {}
 
-  /** session ที่จบแล้วของ clientId นี้ ใหม่สุดก่อน (เพดาน MAX_HISTORY_ROWS) */
-  async listCompleted(clientId: string): Promise<CompletedSessionSummary[]> {
+  /** session ที่จบแล้วของ owner นี้ ใหม่สุดก่อน (เพดาน MAX_HISTORY_ROWS) */
+  async listCompleted(owner: SessionOwner): Promise<CompletedSessionSummary[]> {
+    const where = ownerWhere(owner);
     const [rows] = await this.pool.query<SummaryRow[]>(
       `SELECT session_id, graph_id, current_node_id,
               UNIX_TIMESTAMP(created_at) AS created_epoch
          FROM sessions
-        WHERE client_id = ? AND status = 'completed' AND expires_at > NOW()
+        WHERE ${where.sql} AND status = 'completed' AND expires_at > NOW()
         ORDER BY created_at DESC
         LIMIT ?`,
-      [clientId, MAX_HISTORY_ROWS],
+      [...where.params, MAX_HISTORY_ROWS],
     );
     return rows.map(toSummary);
   }
 
-  /** session เดียว ถ้าเป็นของ clientId นี้ จบแล้ว และยังไม่หมดอายุ · ไม่ใช่ = undefined */
-  async findCompleted(sessionId: string, clientId: string): Promise<CompletedSession | undefined> {
+  /** session เดียว ถ้าเป็นของ owner นี้ จบแล้ว และยังไม่หมดอายุ · ไม่ใช่ = undefined */
+  async findCompleted(sessionId: string, owner: SessionOwner): Promise<CompletedSession | undefined> {
+    const where = ownerWhere(owner);
     const [rows] = await this.pool.query<DetailRow[]>(
       `SELECT session_id, graph_id, current_node_id, variables, confidence,
               model_selection, outcome_text,
               UNIX_TIMESTAMP(created_at) AS created_epoch
          FROM sessions
-        WHERE session_id = ? AND client_id = ? AND status = 'completed' AND expires_at > NOW()`,
-      [sessionId, clientId],
+        WHERE session_id = ? AND ${where.sql} AND status = 'completed' AND expires_at > NOW()`,
+      [sessionId, ...where.params],
     );
     const row = rows[0];
     if (!row) return undefined;
@@ -120,11 +125,12 @@ export class HistoryStore {
   }
 
   /** ลบทั้ง session (session_history/session_feedback ถูกลบตามด้วย CASCADE) · true = ลบได้ */
-  async deleteCompleted(sessionId: string, clientId: string): Promise<boolean> {
+  async deleteCompleted(sessionId: string, owner: SessionOwner): Promise<boolean> {
+    const where = ownerWhere(owner);
     const [result] = await this.pool.query<ResultSetHeader>(
       `DELETE FROM sessions
-        WHERE session_id = ? AND client_id = ? AND status = 'completed' AND expires_at > NOW()`,
-      [sessionId, clientId],
+        WHERE session_id = ? AND ${where.sql} AND status = 'completed' AND expires_at > NOW()`,
+      [sessionId, ...where.params],
     );
     return result.affectedRows === 1;
   }

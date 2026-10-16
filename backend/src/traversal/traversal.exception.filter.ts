@@ -18,7 +18,14 @@
  * ซึ่ง parseTraversalAction จับได้ตามปกติ)
  */
 
-import { ArgumentsHost, Catch, ExceptionFilter, Logger } from '@nestjs/common';
+import {
+  ArgumentsHost,
+  Catch,
+  ExceptionFilter,
+  ForbiddenException,
+  Logger,
+  UnauthorizedException,
+} from '@nestjs/common';
 import type { Response } from 'express';
 
 import { InvalidClientIdError, InvalidOutcomeError, InvalidRequestBodyError } from './traversal.dto';
@@ -57,6 +64,13 @@ export interface ApiErrorBody {
 export function toErrorBody(exception: unknown): ApiErrorBody {
   const message = exception instanceof Error ? exception.message : 'ไม่ทราบสาเหตุ';
 
+  if (exception instanceof UnauthorizedException) {
+    // จาก JwtAuthGuard / OptionalJwtAuthGuard (token เสีย/หมดอายุ) — ไม่แปลงจะกลายเป็น 500
+    return { statusCode: 401, code: 'UNAUTHENTICATED', message };
+  }
+  if (exception instanceof ForbiddenException) {
+    return { statusCode: 403, code: 'FORBIDDEN', message };
+  }
   if (exception instanceof SafetyConfirmationRequiredError) {
     return { statusCode: 400, code: 'SAFETY_CONFIRMATION_REQUIRED', message };
   }

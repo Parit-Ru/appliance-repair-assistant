@@ -14,6 +14,7 @@
 
 import { Injectable } from '@nestjs/common';
 
+import type { SessionOwner } from '../auth/session-owner';
 import { GraphRepository } from './graph.repository';
 import type { GraphSummary, ManualSummary } from './graph.repository';
 import { EquipmentRepository } from './equipment.repository';
@@ -117,7 +118,7 @@ export class TraversalService {
 
   /**
    * POST /traversal/sessions
-   * clientId: เจ้าของ session สำหรับหน้า "ประวัติการซ่อม" (ไม่ส่ง = ไม่ปรากฏในประวัติของใคร)
+   * owner: เจ้าของ session สำหรับหน้า "ประวัติการซ่อม" (user ที่ล็อกอิน → user_id · guest → client_id · ไม่ส่ง = ไม่ปรากฏในประวัติของใคร)
    * บันทึกอย่างเดียว ไม่มีผลต่อการตัดสินขั้นตอน
    */
   async startSession(
@@ -125,7 +126,7 @@ export class TraversalService {
     query?: string,
     manualId?: string,
     modelSelection?: ModelSelection,
-    clientId?: string,
+    owner?: SessionOwner,
   ): Promise<SessionResponseDto> {
     const graph = this.requireGraph(graphId);
     if (manualId !== undefined && graph.manual_id !== manualId) {
@@ -136,13 +137,14 @@ export class TraversalService {
     // ถ้า engine โยน error (เช่น entry_node หาไม่เจอ) create() จะไม่ถูกเรียก
     // จึงไม่มี session ค้างอยู่ครึ่งๆ กลางๆ
     const { session, node } = engineStartSession(graph, confidence);
-    await this.sessionStore.create(session, modelSelection, clientId);
+    await this.sessionStore.create(session, modelSelection, owner);
 
     return this.toResponse(session, node, graph);
   }
 
   /** GET /traversal/sessions/:id */
-  async getSession(sessionId: string): Promise<SessionResponseDto> {
+  async getSession(sessionId: string, requesterUserId?: string): Promise<SessionResponseDto> {
+    await this.authorize(sessionId, requesterUserId);
     const session = await this.requireSession(sessionId);
     const graph = this.requireGraph(session.graphId);
 
@@ -163,7 +165,12 @@ export class TraversalService {
    * ถ้ามันโยน error (เช่น SafetyConfirmationRequiredError) โค้ดออกจากฟังก์ชันทันที
    * sessionStore.update() ไม่ถูกรัน session ในฐานข้อมูลจึงไม่ขยับ
    */
-  async submitAction(sessionId: string, action: TraversalAction): Promise<SessionResponseDto> {
+  async submitAction(
+    sessionId: string,
+    action: TraversalAction,
+    requesterUserId?: string,
+  ): Promise<SessionResponseDto> {
+    await this.authorize(sessionId, requesterUserId);
     const session = await this.requireSession(sessionId);
     const graph = this.requireGraph(session.graphId);
 
@@ -182,16 +189,16 @@ export class TraversalService {
   /**
    * DELETE /traversal/sessions/:id
    *
-   * ลบได้เฉพาะเจ้าของ: clientId ต้องตรงกับ client_id ที่บันทึกไว้ตอนเริ่ม session
+   * ลบได้เฉพาะเจ้าของ: owner ต้องตรงกับที่บันทึกไว้ตอนเริ่ม session (user → user_id · guest → client_id และ session ต้องไม่ใช่ของ user)
    * ไม่มี session / ไม่ใช่เจ้าของ / session ไม่มีเจ้าของ (client_id เป็น NULL) / หมดอายุแล้ว
    * ล้วนได้ SessionNotFoundError (404) เหมือนกันหมด ไม่เปิดเผยว่า session นั้นมีอยู่จริง
    * ยกเลิกซ้ำครั้งที่สองจึงได้ 404 ไม่ใช่ 204 เงียบๆ
    *
    * ตรวจและลบในคำสั่ง SQL เดียว (sessionStore.delete) ไม่ find ก่อนแล้วค่อยลบ
-   * clientId ต้องผ่าน parseRequiredClientId() มาแล้ว (เหมือน /history)
+   * owner มาจาก resolveRequiredOwner() แล้ว (เหมือน /history)
    */
-  async abandonSession(sessionId: string, clientId: string): Promise<void> {
-    const deleted = await this.sessionStore.delete(sessionId, clientId);
+  async abandonSession(sessionId: string, owner: SessionOwner): Promise<void> {
+    const deleted = await this.sessionStore.delete(sessionId, owner);
     if (!deleted) throw new SessionNotFoundError(sessionId);
   }
 
@@ -213,7 +220,12 @@ export class TraversalService {
    *
    * text ต้องผ่าน parseOutcomeBody() มาแล้ว
    */
-  async submitOutcome(sessionId: string, text: string): Promise<SessionResponseDto> {
+  async submitOutcome(
+    sessionId: string,
+    text: string,
+    requesterUserId?: string,
+  ): Promise<SessionResponseDto> {
+    await this.authorize(sessionId, requesterUserId);
     const session = await this.requireSession(sessionId);
     const graph = this.requireGraph(session.graphId);
 
@@ -233,6 +245,21 @@ export class TraversalService {
   // ============================================================
   // ตัวช่วยภายใน
   // ============================================================
+
+  /**
+   * ด่านเจ้าของของ endpoint เดินขั้นตอน (GET / actions / outcome) — เรียกก่อนแตะ session เสมอ
+   *
+   * session ที่เริ่มตอนล็อกอิน (มี user_id) ต้องมี token ของเจ้าของนั้นเท่านั้น
+   * ไม่มี token / เป็นของ user คนอื่น → SessionNotFoundError (404 เหมือนไม่มี session ไม่บอกว่ามีอยู่)
+   * session ของ guest (user_id เป็น NULL) ยังใช้ session id เป็นกุญแจเหมือนเดิม ไม่เปลี่ยนพฤติกรรมของ guest
+   * ไม่มี session นี้เลย → ผ่านด่านนี้ไป แล้ว requireSession() ตอบ 404 เอง
+   */
+  private async authorize(sessionId: string, requesterUserId?: string): Promise<void> {
+    const ownerUserId = await this.sessionStore.findUserId(sessionId);
+    if (ownerUserId !== null && ownerUserId !== requesterUserId) {
+      throw new SessionNotFoundError(sessionId);
+    }
+  }
 
   /** คืนกราฟ หรือโยน GraphNotFoundError ให้ controller/filter แปลงเป็น 404 ต่อ */
   private requireGraph(graphId: string): TroubleshootingGraph {
