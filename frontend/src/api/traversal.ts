@@ -1,4 +1,4 @@
-import { getClientId } from '../lib/clientId'
+import { ownerHeaders } from '../lib/clientHeaders'
 import { request } from './http'
 import type {
   GraphSummary,
@@ -46,7 +46,7 @@ export async function startSession(graphId: string, options: StartSessionOptions
     method: 'POST',
     body: { graphId, ...options },
     // ผูก session กับเบราว์เซอร์นี้ ให้ไปปรากฏในหน้า "ประวัติการซ่อม" (ไม่มีผลต่อขั้นตอน)
-    headers: { 'X-Client-Id': getClientId() },
+    headers: ownerHeaders(),
   })
 }
 
@@ -83,6 +83,6 @@ export async function abandonSession(sessionId: string): Promise<void> {
   return request<void>(`/traversal/sessions/${encodeURIComponent(sessionId)}`, {
     method: 'DELETE',
     // เซิร์ฟเวอร์ลบเฉพาะ session ของเบราว์เซอร์นี้ (เจ้าของ = client_id ที่ส่งตอนเริ่ม) ไม่ตรง = 404 SESSION_NOT_FOUND
-    headers: { 'X-Client-Id': getClientId() },
+    headers: ownerHeaders(),
   })
 }

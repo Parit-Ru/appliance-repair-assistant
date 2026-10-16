@@ -34,6 +34,11 @@ export function HistoryErrorNotice({ error, onRetry }: HistoryErrorNoticeProps) 
             กลับไปประวัติการซ่อม
           </Link>
         )}
+        {described.recovery === 'login' && (
+          <Link to="/login" className={LINK_CLASSES}>
+            เข้าสู่ระบบ
+          </Link>
+        )}
         {described.recovery === 'back-to-symptoms' && (
           <Link to="/symptoms/all" className={LINK_CLASSES}>
             เลือกอาการใหม่

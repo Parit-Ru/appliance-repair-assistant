@@ -1,4 +1,6 @@
 import { keepPreviousData, useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
+import { useIdentity } from '../lib/authContext'
+import { getAdminFeedback, getAdminSummary } from './admin'
 import { deleteHistory, getHistory, listHistory, submitFeedback } from './history'
 import {
   abandonSession,
@@ -12,6 +14,7 @@ import {
   submitOutcome,
 } from './traversal'
 import type {
+  AdminFeedbackParams,
   HistoryDetail,
   HistoryFeedback,
   HistoryParams,
@@ -39,11 +42,18 @@ export const queryKeys = {
   graphs: ['graphs'] as const,
   graphsOf: (manualId: string) => ['graphs', manualId] as const,
   manuals: ['manuals'] as const,
-  session: (sessionId: string) => ['session', sessionId] as const,
+  // key ที่ขึ้นกับผู้ใช้ (session/ประวัติ/admin) มี identity (id ผู้ใช้ หรือ 'guest') ไว้ที่ตำแหน่งที่ 2 เสมอ
+  // ผู้ใช้คนละคนจึงไม่มีทางอ่านแคชของกันและกัน (นอกจากนี้ AuthProvider ล้างแคชทั้งหมดตอน login/logout ด้วย)
+  // identity เป็นอาร์กิวเมนต์สุดท้ายและมีค่าเริ่มต้น 'guest' = พฤติกรรมเดิมของ guest
+  session: (sessionId: string, identity = 'guest') => ['session', identity, sessionId] as const,
   // ประวัติการซ่อม: ทุก key ขึ้นต้นด้วย 'history' ไว้ invalidate ทีเดียว
   history: ['history'] as const,
-  historyList: (params: HistoryParams) => ['history', 'list', params] as const,
-  historyDetail: (sessionId: string) => ['history', 'detail', sessionId] as const,
+  historyLists: (identity = 'guest') => ['history', identity, 'list'] as const,
+  historyList: (params: HistoryParams, identity = 'guest') => ['history', identity, 'list', params] as const,
+  historyDetail: (sessionId: string, identity = 'guest') => ['history', identity, 'detail', sessionId] as const,
+  // หน้าผู้ดูแลระบบ
+  adminFeedback: (params: AdminFeedbackParams, identity = 'guest') => ['admin', identity, 'feedback', params] as const,
+  adminSummary: (days: number, identity = 'guest') => ['admin', identity, 'summary', days] as const,
 }
 
 // ============================================================
@@ -87,8 +97,9 @@ export function useManuals() {
  * จะเรียกจริงก็ต่อเมื่อเปิดลิงก์ตรงหรือกด F5 ซึ่งแคชว่างเปล่า
  */
 export function useSession(sessionId: string) {
+  const identity = useIdentity()
   return useQuery({
-    queryKey: queryKeys.session(sessionId),
+    queryKey: queryKeys.session(sessionId, identity),
     queryFn: () => getSession(sessionId),
   })
 }
@@ -100,8 +111,9 @@ export function useSession(sessionId: string) {
  * keepPreviousData: ตอนเปลี่ยนหน้า/ตัวกรอง รายการเดิมยังค้างอยู่จนผลใหม่มา (ไม่กะพริบเป็นหน้าว่าง)
  */
 export function useHistory(params: HistoryParams) {
+  const identity = useIdentity()
   return useQuery({
-    queryKey: queryKeys.historyList(params),
+    queryKey: queryKeys.historyList(params, identity),
     queryFn: () => listHistory(params),
     placeholderData: keepPreviousData,
   })
@@ -109,9 +121,34 @@ export function useHistory(params: HistoryParams) {
 
 /** รายละเอียดการตรวจย้อนหลัง 1 รายการ */
 export function useHistoryDetail(sessionId: string) {
+  const identity = useIdentity()
   return useQuery({
-    queryKey: queryKeys.historyDetail(sessionId),
+    queryKey: queryKeys.historyDetail(sessionId, identity),
     queryFn: () => getHistory(sessionId),
+  })
+}
+
+// ============================================================
+// หน้าผู้ดูแลระบบ (ใช้ได้เฉพาะ admin · หน้าเหล่านี้อยู่หลัง AdminRoute · backend ตรวจสิทธิ์จริง)
+// ============================================================
+
+/** รายการ feedback ทั้งหมด (ตัวกรอง/หน้า ตามที่ URL เก็บไว้) */
+export function useAdminFeedback(params: AdminFeedbackParams) {
+  const identity = useIdentity()
+  return useQuery({
+    queryKey: queryKeys.adminFeedback(params, identity),
+    queryFn: () => getAdminFeedback(params),
+    placeholderData: keepPreviousData,
+  })
+}
+
+/** สถิติรวมช่วง N วันล่าสุด */
+export function useAdminSummary(days: number) {
+  const identity = useIdentity()
+  return useQuery({
+    queryKey: queryKeys.adminSummary(days, identity),
+    queryFn: () => getAdminSummary(days),
+    placeholderData: keepPreviousData,
   })
 }
 
@@ -146,10 +183,11 @@ interface StartSessionVariables {
  */
 export function useStartSession() {
   const queryClient = useQueryClient()
+  const identity = useIdentity()
   return useMutation({
     mutationFn: ({ graphId, ...options }: StartSessionVariables) => startSession(graphId, options),
     onSuccess: (session: SessionResponse) => {
-      queryClient.setQueryData(queryKeys.session(session.sessionId), session)
+      queryClient.setQueryData(queryKeys.session(session.sessionId, identity), session)
     },
   })
 }
@@ -165,10 +203,11 @@ export function useStartSession() {
  */
 export function useSubmitAction(sessionId: string) {
   const queryClient = useQueryClient()
+  const identity = useIdentity()
   return useMutation({
     mutationFn: (action: TraversalAction) => submitAction(sessionId, action),
     onSuccess: (session: SessionResponse) => {
-      queryClient.setQueryData(queryKeys.session(sessionId), session)
+      queryClient.setQueryData(queryKeys.session(sessionId, identity), session)
     },
   })
 }
@@ -184,10 +223,11 @@ export function useSubmitAction(sessionId: string) {
  */
 export function useSubmitOutcome(sessionId: string) {
   const queryClient = useQueryClient()
+  const identity = useIdentity()
   return useMutation({
     mutationFn: (text: string) => submitOutcome(sessionId, text),
     onSuccess: (session: SessionResponse) => {
-      queryClient.setQueryData(queryKeys.session(sessionId), session)
+      queryClient.setQueryData(queryKeys.session(sessionId, identity), session)
     },
   })
 }
@@ -198,10 +238,11 @@ export function useSubmitOutcome(sessionId: string) {
  */
 export function useAbandonSession() {
   const queryClient = useQueryClient()
+  const identity = useIdentity()
   return useMutation({
     mutationFn: (sessionId: string) => abandonSession(sessionId),
     onSuccess: (_result: void, sessionId: string) => {
-      queryClient.removeQueries({ queryKey: queryKeys.session(sessionId) })
+      queryClient.removeQueries({ queryKey: queryKeys.session(sessionId, identity) })
     },
   })
 }
@@ -212,15 +253,16 @@ export function useAbandonSession() {
  */
 export function useDeleteHistory() {
   const queryClient = useQueryClient()
+  const identity = useIdentity()
   return useMutation({
     mutationFn: (sessionId: string) => deleteHistory(sessionId),
     onSuccess: (_result: void, sessionId: string) => {
-      queryClient.removeQueries({ queryKey: queryKeys.historyDetail(sessionId) })
-      queryClient.removeQueries({ queryKey: queryKeys.session(sessionId) })
+      queryClient.removeQueries({ queryKey: queryKeys.historyDetail(sessionId, identity) })
+      queryClient.removeQueries({ queryKey: queryKeys.session(sessionId, identity) })
     },
     // สำเร็จหรือไม่ก็โหลดรายการใหม่: ถ้า 404 แปลว่ารายการนั้นหายไปแล้ว (ลบจากแท็บอื่น) รายการบนหน้าจอต้องตรงกับเซิร์ฟเวอร์
     onSettled: () => {
-      void queryClient.invalidateQueries({ queryKey: [...queryKeys.history, 'list'] })
+      void queryClient.invalidateQueries({ queryKey: queryKeys.historyLists(identity) })
     },
   })
 }
@@ -231,10 +273,11 @@ export function useDeleteHistory() {
  */
 export function useSubmitFeedback(sessionId: string) {
   const queryClient = useQueryClient()
+  const identity = useIdentity()
   return useMutation({
     mutationFn: (feedback: HistoryFeedback) => submitFeedback(sessionId, feedback),
     onSuccess: (saved: HistoryFeedback) => {
-      queryClient.setQueryData<HistoryDetail>(queryKeys.historyDetail(sessionId), (previous) =>
+      queryClient.setQueryData<HistoryDetail>(queryKeys.historyDetail(sessionId, identity), (previous) =>
         previous === undefined ? previous : { ...previous, feedback: saved },
       )
     },

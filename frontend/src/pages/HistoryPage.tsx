@@ -8,6 +8,8 @@ import { Pagination } from '../components/history/Pagination'
 import { SlowServerNotice } from '../components/SlowServerNotice'
 import { Button } from '../components/ui/Button'
 import { Icon } from '../components/ui/Icon'
+import { Notice } from '../components/ui/Notice'
+import { useAuth } from '../lib/authContext'
 import { applyPatch, clearFilters, hasActiveFilters, parseHistoryParams, toSearchParams } from '../lib/historyParams'
 import { HISTORY_RETENTION_DAYS } from '../lib/historyView'
 import { useSlowWait } from '../lib/useSlowWait'
@@ -28,6 +30,8 @@ export function HistoryPage() {
   const [searchParams, setSearchParams] = useSearchParams()
   const params = parseHistoryParams(searchParams)
   const history = useHistory(params)
+  const { user } = useAuth()
+  const isLoggedIn = user !== undefined
 
   // รอนาน: เซิร์ฟเวอร์บน Render หลับเมื่อไม่มีคนใช้ ตื่นช้า
   const isSlow = useSlowWait(history.isPending)
@@ -47,11 +51,34 @@ export function HistoryPage() {
     <div className="space-y-6">
       <div className="space-y-1">
         <h1 className="text-2xl font-semibold">ประวัติการซ่อม</h1>
-        <p className="text-ink-soft">การตรวจอาการที่จบแล้วของเบราว์เซอร์เครื่องนี้ เปิดดูผลย้อนหลังหรือตรวจซ้ำได้</p>
-        <p className="text-sm text-ink-faint">
-          ประวัติผูกกับเบราว์เซอร์เครื่องนี้และเก็บไว้ {HISTORY_RETENTION_DAYS} วัน ถ้าล้างข้อมูลเบราว์เซอร์หรือเปลี่ยนเครื่องจะไม่เห็นประวัติเดิม
-        </p>
+        {isLoggedIn ? (
+          <>
+            <p className="text-ink-soft">การตรวจอาการที่จบแล้วในบัญชีของคุณ เปิดดูผลย้อนหลังหรือตรวจซ้ำได้</p>
+            <p className="text-sm text-ink-faint">
+              ประวัติผูกกับบัญชีและเก็บไว้ {HISTORY_RETENTION_DAYS} วัน เข้าสู่ระบบจากเครื่องอื่นก็เห็นประวัติเดียวกัน
+            </p>
+          </>
+        ) : (
+          <>
+            <p className="text-ink-soft">การตรวจอาการที่จบแล้วของเบราว์เซอร์เครื่องนี้ เปิดดูผลย้อนหลังหรือตรวจซ้ำได้</p>
+            <p className="text-sm text-ink-faint">
+              ประวัติผูกกับเบราว์เซอร์เครื่องนี้และเก็บไว้ {HISTORY_RETENTION_DAYS} วัน ถ้าล้างข้อมูลเบราว์เซอร์หรือเปลี่ยนเครื่องจะไม่เห็นประวัติเดิม
+            </p>
+            <p className="text-sm text-ink-faint">
+              <Link to="/login?next=%2Fhistory" className={LINK_CLASSES}>
+                เข้าสู่ระบบ
+              </Link>{' '}
+              เพื่อเก็บประวัติไว้กับบัญชี (การตรวจที่ทำก่อนเข้าสู่ระบบจะไม่ย้ายเข้าบัญชี)
+            </p>
+          </>
+        )}
       </div>
+
+      {isLoggedIn && (
+        <Notice tone="info" title="ประวัติที่ทำก่อนเข้าสู่ระบบอยู่ที่ไหน">
+          หน้านี้แสดงเฉพาะการตรวจที่ทำขณะเข้าสู่ระบบ ประวัติที่ทำก่อนเข้าสู่ระบบยังผูกกับเบราว์เซอร์นี้ ดูได้เมื่อออกจากระบบ
+        </Notice>
+      )}
 
       <HistoryFilters params={params} facets={data?.facets} hasFilters={hasFilters} onChange={update} onClear={clear} />
 

@@ -148,6 +148,89 @@ export interface HistoryStep {
   action: TraversalAction
 }
 
+// ============================================================
+// บัญชีผู้ใช้ (POST /auth/register, /auth/login, GET /auth/me)
+// ============================================================
+
+export type Role = 'user' | 'admin'
+
+/**
+ * ผู้ใช้ที่ล็อกอิน เฉพาะที่หน้าจอต้องใช้แสดงผล (ไม่เก็บอีเมล)
+ * role ใช้ซ่อน/แสดงเมนูเท่านั้น (UX) · สิทธิ์จริงตัดสินที่ backend จาก token
+ */
+export interface AuthUser {
+  id: string
+  displayName: string
+  role: Role
+}
+
+/** response ของ register / login */
+export interface AuthResponse {
+  accessToken: string
+  user: AuthUser & { email: string; createdAt: string }
+}
+
+// ============================================================
+// หน้าผู้ดูแลระบบ (GET /admin/feedback, /admin/analytics/summary)
+// ============================================================
+
+export type OwnerType = 'user' | 'guest' | 'none'
+
+export interface AdminFeedbackParams {
+  /** undefined = ทั้งหมด */
+  helpful?: boolean
+  /** YYYY-MM-DD (เวลาไทย) */
+  from?: string
+  to?: string
+  page: number
+}
+
+export interface AdminFeedbackItem {
+  sessionId: string
+  helpful: boolean
+  comment: string | null
+  createdAt: string
+  updatedAt: string
+  graphId: string
+  /** null = ผังนี้ไม่มีในระบบแล้ว */
+  deviceCategory: DeviceCategory | null
+  brand: string | null
+  ownerType: OwnerType
+}
+
+export interface AdminFeedbackResponse {
+  items: AdminFeedbackItem[]
+  total: number
+  page: number
+  pageSize: number
+  totalPages: number
+}
+
+export interface AdminSummary {
+  window: { days: number; from: string; to: string }
+  sessions: {
+    total: number
+    completed: number
+    inProgress: number
+    /** เดินค้างแล้วหมดอายุ — ไม่ใช่ "ยกเลิก" (การยกเลิกลบแถวทิ้ง นับไม่ได้) */
+    expiredUnfinished: number
+    byOwner: { user: number; guest: number; none: number }
+  }
+  feedback: {
+    total: number
+    helpful: number
+    notHelpful: number
+    /** null = ยังไม่มีคะแนน (ห้ามแสดงเป็น 0) */
+    satisfactionRate: number | null
+  }
+  /** average เป็น null เมื่อไม่มีตัวอย่าง (ห้ามแสดงเป็น 0) */
+  confidence: { average: number | null; sampleSize: number }
+  outcomes: Record<OutcomeKind | 'unknown', number>
+  topGraphs: Array<{ graphId: string; entrySymptomTh: string | null; count: number }>
+  topDevices: Array<{ deviceCategory: DeviceCategory | 'unknown'; count: number }>
+  perDay: Array<{ date: string; started: number; completed: number }>
+}
+
 export interface HistoryFeedback {
   helpful: boolean
   comment: string | null

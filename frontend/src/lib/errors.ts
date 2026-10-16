@@ -20,8 +20,9 @@ import { MAX_OUTCOME_LENGTH } from './outcome'
  * - back-to-symptoms กลับไปหน้าเลือกอาการ
  * - back-to-history  กลับไปหน้าประวัติการซ่อม
  * - stay             อยู่ขั้นเดิม ไม่ต้องทำอะไรเพิ่ม
+ * - login            เข้าสู่ระบบ (หรือเข้าใหม่) แล้วทำต่อ
  */
-export type ErrorRecovery = 'retry' | 'reload-session' | 'back-to-symptoms' | 'back-to-history' | 'stay'
+export type ErrorRecovery = 'retry' | 'reload-session' | 'back-to-symptoms' | 'back-to-history' | 'stay' | 'login'
 
 export interface ErrorDescription {
   title: string
@@ -173,8 +174,52 @@ export function describeError(error: unknown): ErrorDescription {
     case 'HISTORY_NOT_FOUND':
       return {
         title: 'ไม่พบรายการนี้ในประวัติ',
-        detail: `รายการอาจถูกลบแล้ว หมดอายุ (เก็บไว้ ${HISTORY_RETENTION_DAYS} วัน) หรือไม่ใช่ของเบราว์เซอร์นี้`,
+        detail: `รายการอาจถูกลบแล้ว หมดอายุ (เก็บไว้ ${HISTORY_RETENTION_DAYS} วัน) หรือไม่ใช่ของคุณ (ประวัติของผู้ใช้ที่เข้าสู่ระบบแยกจากประวัติของเบราว์เซอร์ที่ไม่ได้เข้าสู่ระบบ)`,
         recovery: 'back-to-history',
+      }
+
+    // บัญชีผู้ใช้ (POST /auth/register, /auth/login) และ guard ของ backend
+
+    case 'INVALID_CREDENTIALS':
+      return {
+        title: 'อีเมลหรือรหัสผ่านไม่ถูกต้อง',
+        detail: 'ตรวจอีเมลและรหัสผ่านอีกครั้ง (ระบบไม่บอกว่าผิดที่ช่องไหนเพื่อความปลอดภัย)',
+        recovery: 'stay',
+      }
+
+    case 'EMAIL_TAKEN':
+      return {
+        title: 'อีเมลนี้สมัครไว้แล้ว',
+        detail: 'ถ้าเป็นบัญชีของคุณ ให้ไปหน้าเข้าสู่ระบบ หรือใช้อีเมลอื่นสมัคร',
+        recovery: 'stay',
+      }
+
+    case 'INVALID_AUTH_REQUEST':
+      return {
+        title: 'ข้อมูลไม่ครบหรือรูปแบบไม่ถูกต้อง',
+        detail: 'ตรวจว่ากรอกอีเมลถูกรูปแบบ รหัสผ่านยาว 8–72 ตัวอักษร และชื่อที่แสดงยาว 1–100 ตัวอักษร',
+        recovery: 'stay',
+      }
+
+    case 'UNAUTHENTICATED':
+      return {
+        title: 'ต้องเข้าสู่ระบบ',
+        detail: 'การเข้าสู่ระบบหมดอายุหรือยังไม่ได้เข้าสู่ระบบ เข้าสู่ระบบอีกครั้งแล้วทำต่อ',
+        recovery: 'login',
+      }
+
+    case 'FORBIDDEN':
+      return {
+        title: 'ไม่มีสิทธิ์เข้าถึงส่วนนี้',
+        detail: 'ส่วนนี้สำหรับผู้ดูแลระบบเท่านั้น',
+        recovery: 'stay',
+      }
+
+    case 'INVALID_ADMIN_QUERY':
+      return {
+        title: 'ตัวกรองไม่ถูกต้อง',
+        detail: 'ตรวจช่วงวันที่ (วันเริ่มต้องไม่หลังวันสิ้นสุด และช่วงไม่เกิน 366 วัน) แล้วลองอีกครั้ง',
+        recovery: 'stay',
       }
 
     case 'GRAPH_NODE_MISSING':

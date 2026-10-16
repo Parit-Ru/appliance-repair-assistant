@@ -1,5 +1,7 @@
 import type { ReactNode } from 'react'
 import { NavLink } from 'react-router-dom'
+import { useAuth } from '../../lib/authContext'
+import { Button } from '../ui/Button'
 import { Icon } from '../ui/Icon'
 import { ServerStatus } from './ServerStatus'
 
@@ -32,11 +34,17 @@ const NAV_ITEMS = [
 const NAV_ACTIVE = 'rounded-lg bg-accent/10 px-3 py-2 text-sm font-semibold text-accent'
 const NAV_IDLE = 'rounded-lg px-3 py-2 text-sm text-ink-soft hover:bg-line hover:text-ink'
 
+/** เมนูเฉพาะผู้ดูแลระบบ — แสดงเมื่อ role = admin เท่านั้น (UX · สิทธิ์จริงอยู่ที่ backend) */
+const ADMIN_NAV_ITEM = { to: '/admin', label: 'ผู้ดูแลระบบ' }
+
 interface AppShellProps {
   children: ReactNode
 }
 
 export function AppShell({ children }: AppShellProps) {
+  const { status, user, logout } = useAuth()
+  const navItems = user?.role === 'admin' ? [...NAV_ITEMS, ADMIN_NAV_ITEM] : NAV_ITEMS
+
   return (
     <div className="flex min-h-screen flex-col md:flex-row">
       {/* มือถือ: แถบบน ขอบล่าง / จอใหญ่: sidebar ขอบขวา ติดอยู่กับที่ตอนเลื่อนหน้า */}
@@ -47,7 +55,7 @@ export function AppShell({ children }: AppShellProps) {
         </NavLink>
 
         <nav aria-label="เมนูหลัก" className="flex gap-1 md:flex-col">
-          {NAV_ITEMS.map((item) => (
+          {navItems.map((item) => (
             // end เฉพาะ "/" ไม่งั้นจะถูกนับว่าเลือกอยู่ในทุกหน้า เพราะทุก path ขึ้นต้นด้วย /
             // รายการอื่นไม่ใส่ end เพื่อให้ /history/:id ยังไฮไลต์เมนู "ประวัติการซ่อม"
             <NavLink key={item.to} to={item.to} end={item.to === '/'} className={({ isActive }) => (isActive ? NAV_ACTIVE : NAV_IDLE)}>
@@ -55,6 +63,30 @@ export function AppShell({ children }: AppShellProps) {
             </NavLink>
           ))}
         </nav>
+
+        {/* บัญชี: guest เห็นลิงก์เข้าสู่ระบบ/สมัคร (ไม่บังคับ) · ผู้ใช้เห็นชื่อ + ออกจากระบบ */}
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-1 md:flex-col md:items-stretch" aria-label="บัญชีผู้ใช้" role="group">
+          {user === undefined ? (
+            <>
+              <NavLink to="/login" className={({ isActive }) => (isActive ? NAV_ACTIVE : NAV_IDLE)}>
+                เข้าสู่ระบบ
+              </NavLink>
+              <NavLink to="/register" className={({ isActive }) => (isActive ? NAV_ACTIVE : NAV_IDLE)}>
+                สมัครสมาชิก
+              </NavLink>
+            </>
+          ) : (
+            <>
+              <p className="min-w-0 break-words px-3 text-sm text-ink" title={user.displayName}>
+                {status === 'verifying' ? `${user.displayName} (กำลังตรวจสอบ)` : user.displayName}
+                {user.role === 'admin' && <span className="ml-2 text-xs text-accent">ผู้ดูแลระบบ</span>}
+              </p>
+              <Button variant="text" onClick={logout} className="px-3 py-1 md:justify-start">
+                ออกจากระบบ
+              </Button>
+            </>
+          )}
+        </div>
 
         {/* md:mt-auto ดันป้ายสถานะไปอยู่ล่างสุดของ sidebar / มือถือ: w-full ทำให้ขึ้นบรรทัดใหม่เต็มแถว */}
         <div className="w-full md:mt-auto">
