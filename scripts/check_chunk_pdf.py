@@ -186,8 +186,6 @@ def check_chunk(chunk, pages, all_words, offset):
         result["status"] = "FAIL"
     elif cov < PASS_FROM or order < ORDER_FROM or nowhere:
         result["status"] = "WARN"
-        if cov < PASS_FROM:
-            result["reasons"].append(f"คำอยู่ในหน้า {cov:.0%} (ยังไม่ถึง {PASS_FROM:.0%})")
         if cov >= PASS_FROM and order < ORDER_FROM:
             result["reasons"].append(f"คำครบแต่เรียงลำดับตรงเพียง {order:.0%} (ตารางใน PDF มักสลับคอลัมน์)")
     return result

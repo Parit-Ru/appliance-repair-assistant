@@ -1,4 +1,5 @@
 import { Module } from '@nestjs/common';
+import { AuthModule } from './auth/auth.module';
 import { DatabaseModule } from './database/database.module';
 import { HealthModule } from './health/health.module';
 import { HistoryModule } from './history/history.module';
@@ -10,6 +11,7 @@ import { SymptomSearchModule } from './symptom-search/symptom-search.module';
     // DatabaseModule เป็น @Global() จึงต้องอยู่ก่อนโมดูลที่ใช้ฐานข้อมูล
     DatabaseModule,
     HealthModule,
+    AuthModule,
     TraversalModule,
     SymptomSearchModule,
     HistoryModule,
