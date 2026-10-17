@@ -1,5 +1,6 @@
 import { Module } from '@nestjs/common';
 import { AdminModule } from './admin/admin.module';
+import { AuthoringModule } from './authoring/authoring.module';
 import { AuthModule } from './auth/auth.module';
 import { DatabaseModule } from './database/database.module';
 import { HealthModule } from './health/health.module';
@@ -17,6 +18,7 @@ import { SymptomSearchModule } from './symptom-search/symptom-search.module';
     SymptomSearchModule,
     HistoryModule,
     AdminModule,
+    AuthoringModule,
   ],
 })
 export class AppModule {}

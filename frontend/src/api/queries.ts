@@ -1,6 +1,7 @@
 import { keepPreviousData, useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { useIdentity } from '../lib/authContext'
 import { getAdminFeedback, getAdminSummary } from './admin'
+import { DRAFT_POLL_MS, getDraft, listDrafts, publishDraft, rejectDraft, retryDraft, updateDraft, uploadDraft } from './drafts'
 import { deleteHistory, getHistory, listHistory, submitFeedback } from './history'
 import {
   abandonSession,
@@ -15,6 +16,9 @@ import {
 } from './traversal'
 import type {
   AdminFeedbackParams,
+  DraftDetail,
+  DraftGraph,
+  DraftUploadInput,
   HistoryDetail,
   HistoryFeedback,
   HistoryParams,
@@ -54,6 +58,9 @@ export const queryKeys = {
   // หน้าผู้ดูแลระบบ
   adminFeedback: (params: AdminFeedbackParams, identity = 'guest') => ['admin', identity, 'feedback', params] as const,
   adminSummary: (days: number, identity = 'guest') => ['admin', identity, 'summary', days] as const,
+  // ร่างแผนผังขั้นตอน (ทุก key ขึ้นต้น ['admin', identity, 'drafts'] ไว้ invalidate ทีเดียว)
+  adminDrafts: (identity = 'guest') => ['admin', identity, 'drafts'] as const,
+  adminDraft: (id: string, identity = 'guest') => ['admin', identity, 'drafts', id] as const,
 }
 
 // ============================================================
@@ -280,6 +287,99 @@ export function useSubmitFeedback(sessionId: string) {
       queryClient.setQueryData<HistoryDetail>(queryKeys.historyDetail(sessionId, identity), (previous) =>
         previous === undefined ? previous : { ...previous, feedback: saved },
       )
+    },
+  })
+}
+// ============================================================
+// ร่างแผนผังขั้นตอน (admin) — ถามสถานะทุก 3 วินาที "เฉพาะตอนที่มีร่างกำลังร่างอยู่"
+// ============================================================
+
+/** รายการร่าง · poll ต่อเมื่อมีร่างสถานะ drafting อย่างน้อย 1 รายการ */
+export function useAdminDrafts() {
+  const identity = useIdentity()
+  return useQuery({
+    queryKey: queryKeys.adminDrafts(identity),
+    queryFn: listDrafts,
+    refetchInterval: (query) => (query.state.data?.items.some((d) => d.status === 'drafting') ? DRAFT_POLL_MS : false),
+  })
+}
+
+/** รายละเอียดร่าง · poll ต่อเมื่อร่างนี้ยังเป็น drafting */
+export function useAdminDraft(id: string) {
+  const identity = useIdentity()
+  return useQuery({
+    queryKey: queryKeys.adminDraft(id, identity),
+    queryFn: () => getDraft(id),
+    refetchInterval: (query) => (query.state.data?.status === 'drafting' ? DRAFT_POLL_MS : false),
+  })
+}
+
+/** อัปโหลด PDF → เริ่มร่าง · สำเร็จแล้วโหลดรายการใหม่ (และเริ่ม poll เพราะมีร่าง drafting) */
+export function useUploadDraft() {
+  const queryClient = useQueryClient()
+  const identity = useIdentity()
+  return useMutation({
+    mutationFn: (input: DraftUploadInput) => uploadDraft(input),
+    onSuccess: () => {
+      void queryClient.invalidateQueries({ queryKey: queryKeys.adminDrafts(identity) })
+    },
+  })
+}
+
+/** ตัวช่วยของ mutation ที่ได้รายละเอียดร่างกลับมา: ใส่แคชรายละเอียด + โหลดรายการใหม่ */
+function useDraftCacheUpdate() {
+  const queryClient = useQueryClient()
+  const identity = useIdentity()
+  return (detail: DraftDetail) => {
+    queryClient.setQueryData(queryKeys.adminDraft(detail.id, identity), detail)
+    void queryClient.invalidateQueries({ queryKey: queryKeys.adminDrafts(identity), exact: true })
+  }
+}
+
+/** แก้แผนผังแล้วให้ backend ตรวจใหม่ ("ตรวจใหม่") */
+export function useUpdateDraft(id: string) {
+  const apply = useDraftCacheUpdate()
+  return useMutation({
+    mutationFn: (graphs: DraftGraph[]) => updateDraft(id, graphs),
+    onSuccess: apply,
+  })
+}
+
+export function useRejectDraft(id: string) {
+  const apply = useDraftCacheUpdate()
+  return useMutation({
+    mutationFn: (reason: string) => rejectDraft(id, reason),
+    onSuccess: apply,
+  })
+}
+
+/** ลองร่างใหม่ (ร่างที่ล้ม) → กลับเป็น drafting แล้ว poll ต่อ */
+export function useRetryDraft(id: string) {
+  const queryClient = useQueryClient()
+  const identity = useIdentity()
+  return useMutation({
+    mutationFn: () => retryDraft(id),
+    onSuccess: () => {
+      void queryClient.invalidateQueries({ queryKey: queryKeys.adminDrafts(identity) })
+    },
+  })
+}
+
+/**
+ * เผยแพร่ — ส่ง acknowledgedWarnings ตามช่องติ๊ก (backend ตรวจซ้ำเสมอ: error = 409 ไม่มี override)
+ * สำเร็จแล้ว: โหลดร่าง/รายการใหม่ และโหลดรายการรุ่น/อาการใหม่ (มีแผนผังขั้นตอนใหม่ในระบบแล้ว)
+ */
+export function usePublishDraft(id: string) {
+  const queryClient = useQueryClient()
+  const identity = useIdentity()
+  return useMutation({
+    mutationFn: (acknowledgedWarnings: boolean) => publishDraft(id, acknowledgedWarnings),
+    onSettled: () => {
+      void queryClient.invalidateQueries({ queryKey: queryKeys.adminDrafts(identity) })
+    },
+    onSuccess: () => {
+      void queryClient.invalidateQueries({ queryKey: queryKeys.graphs })
+      void queryClient.invalidateQueries({ queryKey: queryKeys.manuals })
     },
   })
 }

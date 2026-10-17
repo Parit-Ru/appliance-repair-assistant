@@ -256,3 +256,116 @@ export interface HistoryDetail {
   outcome: string | null
   feedback: HistoryFeedback | null
 }
+
+// ============================================================
+// ร่างแผนผังขั้นตอนจาก PDF (GET/POST/PUT /admin/drafts…) — ตรงกับ backend/src/authoring/drafts.dto.ts
+// ============================================================
+
+export type DraftStatus = 'drafting' | 'ready' | 'failed' | 'rejected' | 'published'
+
+export interface DraftMeta {
+  device_category: string
+  brand: string
+  model_pattern: string
+  source_manual: string
+  display_name?: string
+  page_from: number
+  page_to: number
+}
+
+/** โหนดในร่าง (รูปแบบเดียวกับผังใน data/manuals + source_page) */
+export interface DraftNode {
+  node_id: string
+  type: string
+  question?: string
+  content?: string
+  prompt?: string
+  on_yes?: string
+  on_no?: string
+  next?: string
+  on_invalid?: string
+  input_type?: string
+  pattern?: string
+  store_as?: string
+  outcome_kind?: string
+  safety_critical?: boolean
+  safety_warning?: string
+  source_page?: number
+}
+
+export interface DraftGraph {
+  graph_id: string
+  entry_symptom: string
+  entry_symptom_th?: string
+  entry_symptom_aliases?: string[]
+  severity?: string
+  difficulty?: string
+  entry_node: string
+  nodes: DraftNode[]
+}
+
+export interface ValidationIssue {
+  code: string
+  message: string
+  graphId?: string
+  nodeId?: string
+}
+
+export interface ValidationReport {
+  errors: ValidationIssue[]
+  warnings: ValidationIssue[]
+  stats: { graphs: number; nodes: number }
+  validatedAt: string
+}
+
+export interface DraftPage {
+  page: number
+  text: string
+}
+
+export interface DraftSummary {
+  id: string
+  status: DraftStatus
+  manualId: string
+  brand: string
+  modelPattern: string
+  sourceManual: string
+  pageFrom: number
+  pageTo: number
+  graphCount: number | null
+  progress: { done: number; total: number }
+  /** สาเหตุที่ร่างล้ม/ถูกปฏิเสธ (code เช่น LLM_TIMEOUT, REJECTED) */
+  error: { code: string; message: string } | null
+  validationCounts: { errors: number; warnings: number } | null
+  createdAt: string
+  updatedAt: string
+}
+
+export interface DraftDetail extends DraftSummary {
+  meta: DraftMeta
+  pages: DraftPage[]
+  graphs: DraftGraph[] | null
+  validation: ValidationReport | null
+  llm: { model: string | null; promptVersion: string | null }
+  reviewedAt: string | null
+  publishedAt: string | null
+}
+
+export interface DraftUploadInput {
+  file: File
+  manualId: string
+  deviceCategory: string
+  brand: string
+  modelPattern: string
+  sourceManual: string
+  displayName?: string
+  pageFrom: number
+  pageTo: number
+}
+
+export interface DraftPublishResult {
+  id: string
+  status: 'published'
+  graphIds: string[]
+  searchIndex: { indexed: boolean; reason?: string }
+}

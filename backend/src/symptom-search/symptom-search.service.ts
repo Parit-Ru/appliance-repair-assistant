@@ -128,6 +128,62 @@ export class SymptomSearchService implements OnApplicationBootstrap {
   }
 
   /**
+   * เพิ่มผังที่เพิ่ง publish เข้าดัชนีที่ทำงานอยู่ โดย embed เฉพาะข้อความของผังเหล่านั้น (ไม่ทำ 600+ ผังใหม่)
+   *
+   * เรียกหลัง GraphRepository.reload() แล้ว (findById ต้องเห็นผังใหม่)
+   * ไม่โยน error: ดัชนีไม่พร้อม/embed ล้ม → คืน indexed=false พร้อมเหตุผล และดัชนีเดิมไม่เปลี่ยน
+   * (ผังนั้นถูก publish ไปแล้ว ค้นหาด้วยข้อความจะเจอหลังรีสตาร์ต · เลือกจากรายการอาการเจอทันที)
+   * สลับดัชนีใหม่ในครั้งเดียวหลัง embed ครบ จึงไม่มีช่วงที่ค้นหาเห็นผังครึ่งๆ กลางๆ
+   */
+  async addGraphs(graphIds: string[]): Promise<{ indexed: boolean; addedTexts: number; reason?: string }> {
+    if (this.state !== 'ready') {
+      const reason =
+        this.state === 'disabled' ? 'ระบบค้นหาปิดอยู่ (SYMPTOM_SEARCH_ENABLED ไม่ใช่ true)' : `ดัชนียังไม่พร้อม (สถานะ ${this.state})`;
+      return { indexed: false, addedTexts: 0, reason };
+    }
+
+    try {
+      const wanted = new Set(graphIds);
+      const graphs: SymptomSource[] = [];
+      const info = new Map(this.graphInfo);
+      for (const id of wanted) {
+        const graph = this.graphs.findById(id);
+        if (!graph) continue;
+        graphs.push(graph);
+        info.set(graph.graph_id, {
+          entrySymptom: graph.entry_symptom,
+          entrySymptomTh: graph.entry_symptom_th,
+          deviceCategory: graph.device_category,
+          manualId: graph.manual_id,
+        });
+      }
+
+      // ข้อความเดิมที่ embed ไว้แล้วใช้เวกเตอร์ซ้ำได้ (ข้อความเดียวกัน = เวกเตอร์เดียวกัน)
+      const known = new Map<string, ArrayLike<number>>();
+      for (const item of this.index) known.set(item.text, item.vector);
+
+      const added: IndexedSymptom[] = [];
+      for (const item of buildSymptomTexts(graphs)) {
+        let vector = known.get(item.text);
+        if (vector === undefined) {
+          vector = await this.embedding.embed(item.text);
+          known.set(item.text, vector);
+        }
+        added.push({ ...item, vector });
+      }
+
+      this.index = [...this.index.filter((item) => !wanted.has(item.graphId)), ...added];
+      this.graphInfo = info;
+      this.logger.log(`เพิ่มผังเข้าดัชนีค้นหา ${graphs.length} ผัง (${added.length} ข้อความ)`);
+      return { indexed: true, addedTexts: added.length };
+    } catch (err) {
+      const reason = err instanceof Error ? err.message : String(err);
+      this.logger.error(`เพิ่มผังเข้าดัชนีค้นหาไม่สำเร็จ: ${reason}`);
+      return { indexed: false, addedTexts: 0, reason };
+    }
+  }
+
+  /**
    * ค้นหาผังขั้นตอนที่ตรงกับคำค้น
    * รับข้อความที่ผ่าน parseSearchBody แล้ว (ตัดช่องว่าง ตรวจความยาวแล้ว)
    * manualId (ไม่บังคับ): ค้นเฉพาะผังของคู่มือ/รุ่นนั้น โดยกรองดัชนีก่อนจัดอันดับ

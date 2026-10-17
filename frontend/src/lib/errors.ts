@@ -222,6 +222,101 @@ export function describeError(error: unknown): ErrorDescription {
         recovery: 'stay',
       }
 
+    // ร่างแผนผังขั้นตอนจาก PDF (/admin/drafts…) — ผู้ใช้คือผู้ดูแลระบบ
+    // บางรหัสใช้ข้อความจากเซิร์ฟเวอร์ประกอบ เพราะเป็นข้อความภาษาไทยที่เขียนให้ผู้ดูแลอ่าน และบอกจุดที่ผิดเจาะจง (เช่น ฟิลด์ไหน id ไหน)
+
+    case 'INVALID_DRAFT_REQUEST':
+      return {
+        title: 'ข้อมูลที่ส่งไม่ถูกต้อง',
+        detail: error.message || 'ตรวจข้อมูลคู่มือ ช่วงหน้า และไฟล์ แล้วลองอีกครั้ง',
+        recovery: 'stay',
+      }
+
+    case 'PDF_TOO_LARGE':
+      return {
+        title: 'ไฟล์ PDF ใหญ่เกินไป',
+        detail: 'ไฟล์ใหญ่เกินเพดานที่ตั้งไว้ (ค่าเริ่มต้น 10 MB) หรือเกิน 200 หน้า — ใช้ไฟล์ที่เล็กลง หรือผู้ดูแลเซิร์ฟเวอร์ปรับ AUTHORING_MAX_PDF_MB',
+        recovery: 'stay',
+      }
+
+    case 'PDF_UNSUPPORTED_TYPE':
+      return {
+        title: 'ไฟล์นี้ไม่ใช่ PDF',
+        detail: 'เลือกไฟล์คู่มือที่เป็น PDF (ระบบตรวจจากเนื้อไฟล์จริง ไม่ใช่จากนามสกุล)',
+        recovery: 'stay',
+      }
+
+    case 'PDF_NO_TEXT':
+      return {
+        title: 'ไม่พบข้อความใน PDF ช่วงหน้าที่เลือก',
+        detail: 'ไฟล์อาจเป็นภาพสแกน ซึ่งระบบไม่รองรับ (ไม่ทำ OCR) — ใช้ PDF ที่เลือกคัดลอกข้อความได้ หรือเลือกช่วงหน้าอื่น',
+        recovery: 'stay',
+      }
+
+    case 'PDF_UNREADABLE':
+      return {
+        title: 'อ่านไฟล์ PDF ไม่ได้',
+        detail: 'ไฟล์อาจเสียหรือมีรหัสผ่าน ลองดาวน์โหลดไฟล์ใหม่จากแหล่งเดิม',
+        recovery: 'stay',
+      }
+
+    case 'PDF_PAGE_TOO_LONG':
+      return {
+        title: 'มีหน้าที่ข้อความยาวเกินไป',
+        detail: error.message || 'ระบบไม่ตัดข้อความทิ้งให้เพราะอาจทำให้คำเตือนหาย — เลือกช่วงหน้าใหม่',
+        recovery: 'stay',
+      }
+
+    case 'DRAFT_NOT_FOUND':
+      return {
+        title: 'ไม่พบร่างแผนผังขั้นตอนนี้',
+        detail: 'ร่างอาจถูกลบออกจากฐานข้อมูลแล้ว กลับไปที่รายการร่าง',
+        recovery: 'stay',
+      }
+
+    case 'DRAFT_NOT_READY':
+      return {
+        title: 'ทำรายการนี้ไม่ได้ในสถานะปัจจุบันของร่าง',
+        detail: 'ร่างอาจถูกเผยแพร่ ปฏิเสธ หรือกำลังร่างอยู่ — ดึงข้อมูลล่าสุดมาดูสถานะจริง',
+        recovery: 'retry',
+      }
+
+    case 'DRAFT_BUSY':
+      return {
+        title: 'มีร่างอื่นกำลังถูกร่างอยู่',
+        detail: 'ระบบร่างได้ทีละ 1 งาน รอให้งานเดิมเสร็จก่อน แล้วลองอีกครั้ง',
+        recovery: 'retry',
+      }
+
+    case 'DRAFT_INVALID':
+      return {
+        title: 'ร่างยังไม่ผ่านการตรวจ เผยแพร่ไม่ได้',
+        detail: 'แก้ข้อผิดพลาดในรายงานการตรวจให้หมดก่อน — ไม่มีทางข้ามการตรวจนี้',
+        recovery: 'stay',
+      }
+
+    case 'DRAFT_WARNINGS_UNACKNOWLEDGED':
+      return {
+        title: 'ยังไม่ได้ยืนยันว่าอ่านคำเตือนแล้ว',
+        detail: 'อ่านคำเตือนในรายงานการตรวจ แล้วติ๊กรับทราบคำเตือนก่อนเผยแพร่',
+        recovery: 'stay',
+      }
+
+    case 'DRAFT_ID_CONFLICT':
+      return {
+        title: 'รหัสซ้ำกับข้อมูลที่ใช้งานอยู่',
+        detail: `${error.message ? `${error.message} ` : ''}ระบบไม่เขียนทับแผนผังขั้นตอนที่ใช้งานอยู่ — ใช้รหัสคู่มือใหม่`,
+        recovery: 'stay',
+      }
+
+    case 'PUBLISH_RELOAD_FAILED':
+      return {
+        title: 'เผยแพร่ลงฐานข้อมูลแล้ว แต่ระบบยังไม่โหลดแผนผังขั้นตอนใหม่',
+        detail: 'แผนผังขั้นตอนเดิมยังใช้งานได้ตามปกติ รีสตาร์ตเซิร์ฟเวอร์ (backend) เพื่อให้แผนผังขั้นตอนใหม่ปรากฏ',
+        recovery: 'stay',
+        code: error.code,
+      }
+
     case 'GRAPH_NODE_MISSING':
     case 'GRAPH_SCHEMA_UNSUPPORTED':
       return {

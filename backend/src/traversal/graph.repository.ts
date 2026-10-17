@@ -148,14 +148,17 @@ export class GraphRepository implements OnModuleInit {
       else nodesByGraph.set(row.graph_id, [row]);
     }
 
-    this.graphs.clear();
-    this.manualExtras.clear();
+    // สร้างผลลัพธ์ใน Map ใหม่ให้เสร็จก่อน แล้วค่อยสลับเข้า Map จริงในครั้งเดียว (ไม่มี await คั่น)
+    // ถ้าข้อมูลเสียจนบางผัง build ไม่ได้ (throw) ของเดิมยังอยู่ครบ ไม่ใช่ Map ที่ว่าง/ครึ่งๆ กลางๆ
+    // สำคัญเมื่อ reload() ถูกเรียกระหว่างระบบทำงาน (publish ผังใหม่) ต่างจากตอนบูตที่ throw แล้วแอปไม่ขึ้นอยู่แล้ว
+    const nextGraphs = new Map<string, TroubleshootingGraph>();
+    const nextExtras = new Map<string, { displayName?: string; modelAliases?: string[] }>();
     for (const graphRow of graphRows) {
       const rows = nodesByGraph.get(graphRow.graph_id) ?? [];
-      this.graphs.set(graphRow.graph_id, this.buildGraph(graphRow, rows));
+      nextGraphs.set(graphRow.graph_id, this.buildGraph(graphRow, rows));
 
       const aliases = parseJsonColumn<unknown>(graphRow.model_aliases);
-      this.manualExtras.set(graphRow.manual_id, {
+      nextExtras.set(graphRow.manual_id, {
         displayName: graphRow.display_name ?? undefined,
         modelAliases: Array.isArray(aliases)
           ? aliases.filter((a): a is string => typeof a === 'string')
@@ -163,7 +166,22 @@ export class GraphRepository implements OnModuleInit {
       });
     }
 
+    this.graphs.clear();
+    this.manualExtras.clear();
+    for (const [id, graph] of nextGraphs) this.graphs.set(id, graph);
+    for (const [id, extras] of nextExtras) this.manualExtras.set(id, extras);
+
     this.logger.log(`โหลดกราฟสำเร็จ ${this.graphs.size} กราฟ ${nodeRows.length} โหนด`);
+  }
+
+  /**
+   * โหลดผังจากฐานข้อมูลใหม่โดยไม่ต้องรีสตาร์ต — เรียกหลัง publish ผังใหม่ (โมดูล authoring)
+   * ล้มเหลว (ข้อมูลเสีย/ฐานข้อมูลล่ม) → โยน error และผังเดิมในหน่วยความจำไม่เปลี่ยน
+   * คืนจำนวนผังหลังโหลด
+   */
+  async reload(): Promise<number> {
+    await this.loadAll();
+    return this.graphs.size;
   }
 
   private buildGraph(row: GraphRow, nodeRows: NodeRow[]): TroubleshootingGraph {

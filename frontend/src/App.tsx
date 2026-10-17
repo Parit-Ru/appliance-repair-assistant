@@ -4,6 +4,8 @@ import { AdminRoute } from './components/auth/AdminRoute'
 import { AuthProvider } from './components/auth/AuthProvider'
 import { AppShell } from './components/layout/AppShell'
 import { AdminAnalyticsPage } from './pages/AdminAnalyticsPage'
+import { AdminDraftReviewPage } from './pages/AdminDraftReviewPage'
+import { AdminDraftsPage } from './pages/AdminDraftsPage'
 import { AdminFeedbackPage } from './pages/AdminFeedbackPage'
 import { AllSymptomsPage } from './pages/AllSymptomsPage'
 import { DevicesPage } from './pages/DevicesPage'
@@ -59,6 +61,22 @@ export default function App() {
                 element={
                   <AdminRoute>
                     <AdminFeedbackPage />
+                  </AdminRoute>
+                }
+              />
+              <Route
+                path="/admin/drafts"
+                element={
+                  <AdminRoute>
+                    <AdminDraftsPage />
+                  </AdminRoute>
+                }
+              />
+              <Route
+                path="/admin/drafts/:id"
+                element={
+                  <AdminRoute>
+                    <AdminDraftReviewPage />
                   </AdminRoute>
                 }
               />

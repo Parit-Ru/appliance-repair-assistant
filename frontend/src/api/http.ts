@@ -22,7 +22,8 @@ function getBaseUrl(): string {
 }
 
 export interface RequestOptions {
-  method?: 'GET' | 'POST' | 'DELETE'
+  method?: 'GET' | 'POST' | 'PUT' | 'DELETE'
+  /** object = ส่งเป็น JSON · FormData = ส่งแบบ multipart (อัปโหลดไฟล์) เบราว์เซอร์ใส่ Content-Type + boundary เอง */
   body?: unknown
   /** หัวข้อเพิ่มเติม เช่น X-Client-Id ของ guest (Content-Type ใส่ให้เองเมื่อมี body) */
   headers?: Record<string, string>
@@ -60,8 +61,10 @@ export async function request<T>(path: string, options: RequestOptions = {}): Pr
   const url = `${getBaseUrl()}${path}`
 
   const token = anonymous ? undefined : getStoredToken()
+  const isForm = typeof FormData !== 'undefined' && body instanceof FormData
   const mergedHeaders: Record<string, string> = {
-    ...(body === undefined ? {} : { 'Content-Type': 'application/json' }),
+    // FormData: ห้ามใส่ Content-Type เอง (เบราว์เซอร์ต้องใส่ boundary ของ multipart ให้)
+    ...(body === undefined || isForm ? {} : { 'Content-Type': 'application/json' }),
     ...headers,
     ...(token === undefined ? {} : { Authorization: `Bearer ${token}` }),
   }
@@ -71,7 +74,7 @@ export async function request<T>(path: string, options: RequestOptions = {}): Pr
     response = await fetch(url, {
       method,
       headers: Object.keys(mergedHeaders).length === 0 ? undefined : mergedHeaders,
-      body: body === undefined ? undefined : JSON.stringify(body),
+      body: body === undefined ? undefined : isForm ? (body as FormData) : JSON.stringify(body),
     })
   } catch {
     throw new ApiError(0, 'NETWORK_ERROR', 'เชื่อมต่อเซิร์ฟเวอร์ไม่ได้')
