@@ -5,7 +5,7 @@
  * (มาจากข้อมูลที่ผู้ดูแลกรอกตอนอัปโหลด + เลขหน้าของโหนด) LLM กำหนดสิ่งเหล่านี้ไม่ได้
  *
  * toDbRows คืนแถวที่ใช้คอลัมน์ชื่อเดียวกับตาราง manuals / graphs / nodes และต้องให้ GraphRepository โหลดกลับได้ตรงกับผังที่ตรวจ
- * (ดู draft-manual.spec.ts: round trip ผ่าน GraphRepository จริง) source_page ไม่ถูกเขียนลงตาราง nodes — เก็บในร่างเป็นหลักฐานเท่านั้น
+ * source_page ไม่ถูกเขียนลงตาราง nodes — เก็บในร่างเป็นหลักฐานเท่านั้น
  */
 
 import type { DraftGraph } from './draft-schema';

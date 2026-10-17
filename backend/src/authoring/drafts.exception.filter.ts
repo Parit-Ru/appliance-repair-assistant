@@ -2,7 +2,7 @@
  * drafts.exception.filter.ts — แปลง error ของ /admin/drafts เป็น HTTP response รูปแบบ {statusCode, code, message}
  *
  * ต้องติดที่ controller เสมอ (@UseFilters) ไม่งั้น 401/403 ของ guard และ 413 ของ multer กลายเป็น 500
- * (admin-http / drafts-http spec ยิงผ่าน pipeline จริงเพื่อยืนยัน) · error ที่ไม่รู้จักส่งต่อให้ตัวแปลงของ auth (→ 500 INTERNAL_ERROR)
+ * error ที่ไม่รู้จักส่งต่อให้ตัวแปลงของ auth (→ 500 INTERNAL_ERROR)
  */
 
 import { ArgumentsHost, BadRequestException, Catch, ExceptionFilter, Logger, PayloadTooLargeException } from '@nestjs/common';

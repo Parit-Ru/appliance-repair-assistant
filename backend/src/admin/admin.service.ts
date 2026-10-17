@@ -48,7 +48,7 @@ function outcomeKindOf(graph: TroubleshootingGraph | undefined, nodeId: string):
 
 @Injectable()
 export class AdminService {
-  /** นาฬิกา (วินาที) — เทสต์แทนที่ได้ · ไม่อยู่ใน constructor เพื่อไม่ให้ Nest พยายามฉีดเป็น dependency */
+  /** นาฬิกา (วินาที) — เป็น field ให้เทสต์เปลี่ยนเวลาได้ถ้ากู้เทสต์กลับมา · ไม่อยู่ใน constructor เพื่อไม่ให้ Nest พยายามฉีดเป็น dependency */
   nowEpoch: () => number = () => Math.floor(Date.now() / 1000);
 
   constructor(

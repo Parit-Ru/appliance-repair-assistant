@@ -43,7 +43,6 @@ export function maxPdfBytes(env: NodeJS.ProcessEnv = process.env): number {
 /** ไฟล์ที่ multer ส่งมา (ประกาศเท่าที่ใช้ — ไม่ต้องพึ่ง @types/multer) */
 interface UploadedPdf {
   buffer: Buffer;
-  size: number;
 }
 
 @Controller('admin/drafts')
@@ -62,7 +61,7 @@ export class DraftsController {
     @Body() body: unknown,
   ): Promise<{ id: string; status: 'drafting' }> {
     const fields = parseUploadFields(body);
-    const { id } = await this.draftsService.createFromUpload(file, fields, (request.user as { sub: string }).sub);
+    const { id } = await this.draftsService.createFromUpload(file, fields, request.user!.sub);
     return { id, status: 'drafting' };
   }
 
@@ -91,12 +90,12 @@ export class DraftsController {
   @Post(':id/reject')
   @HttpCode(200)
   reject(@Req() request: AuthenticatedRequest, @Param('id') id: string, @Body() body: unknown): Promise<DraftDetailDto> {
-    return this.draftsService.reject(id, (request.user as { sub: string }).sub, parseRejectBody(body).reason);
+    return this.draftsService.reject(id, request.user!.sub, parseRejectBody(body).reason);
   }
 
   @Post(':id/publish')
   @HttpCode(200)
   publish(@Req() request: AuthenticatedRequest, @Param('id') id: string, @Body() body: unknown): Promise<PublishResultDto> {
-    return this.draftsService.publish(id, (request.user as { sub: string }).sub, parsePublishBody(body).acknowledgedWarnings);
+    return this.draftsService.publish(id, request.user!.sub, parsePublishBody(body).acknowledgedWarnings);
   }
 }

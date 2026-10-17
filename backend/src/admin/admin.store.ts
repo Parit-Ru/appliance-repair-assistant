@@ -4,7 +4,7 @@
  * แยกจาก SessionStore / HistoryStore โดยตั้งใจ: store เหล่านั้นผูกกับเจ้าของ (ownerWhere) ส่วนที่นี่ "มองข้ามเจ้าของ"
  * ตามหน้าที่ของ admin จึงรวมไว้ไฟล์เดียวที่เข้าถึงได้ผ่าน guard Admin เท่านั้น (ดู admin.controller.ts)
  *
- * ความเป็นส่วนตัว (เทสต์ตรวจข้อความ SQL ทุกคำสั่งให้):
+ * ความเป็นส่วนตัว:
  *   - ไม่แตะตาราง users และไม่ SELECT คอลัมน์ email / password_hash / display_name / user_id / client_id
  *   - รู้เจ้าของแค่ 3 ชนิดผ่าน CASE ... AS owner_type (user | guest | none) — ใช้ user_id/client_id เฉพาะใน IS [NOT] NULL
  *

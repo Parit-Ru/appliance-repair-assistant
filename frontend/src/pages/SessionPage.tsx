@@ -39,8 +39,8 @@ function SessionView({ sessionId }: { sessionId: string }) {
   // undefined = ไม่ได้ผ่านหน้าเลือกรุ่น (เริ่มจากรายการทุกรุ่น) หรือไม่ทราบ — ห้ามเติมเป็น 'selected' เพราะจะบันทึกผิด
   const location = useLocation()
   const modelSelection = modelSelectionFromState(location.state)
-  const currentSummary = graphs.data?.find((graph) => graph.graphId === session.data?.graphId)
-  const otherSymptomPath = otherSymptomsPath(currentSummary?.manualId, modelSelection)
+  const summary = graphs.data?.find((graph) => graph.graphId === session.data?.graphId)
+  const otherSymptomPath = otherSymptomsPath(summary?.manualId, modelSelection)
 
   const [trail, setTrail] = useState<TrailEntry[]>([])
   const isSendingRef = useRef(false)
@@ -77,7 +77,7 @@ function SessionView({ sessionId }: { sessionId: string }) {
 
   function handleRestart(graphId: string) {
     restart.mutate(
-      restartVariables(graphId, currentSummary?.manualId, modelSelection),
+      restartVariables(graphId, summary?.manualId, modelSelection),
       {
         onSuccess: (next) => navigate(`/session/${next.sessionId}`, { replace: true, state: { modelSelection } }),
       },
@@ -125,11 +125,28 @@ function SessionView({ sessionId }: { sessionId: string }) {
   const canRephrase = !node.safetyCritical && !node.requiresSafetyConfirmation && !node.isTerminal
   const rephrased = canRephrase && displayText ? displayText : null
   const shownNode = rephrased === null ? node : { ...node, text: rephrased }
-  const summary = graphs.data?.find((graph) => graph.graphId === graphId)
   const manual = manuals.data?.find((m) => m.manualId === summary?.manualId)
   const modelName = manual && manualTitle(manual)
   const manualLabel = summary && `${summary.brand} ${modelName ?? summary.modelPattern}`
   const actionError = submit.error ?? restart.error
+
+  // ส่วนที่แสดงเฉพาะตอนถึงโหนดสิ้นสุด (StepView เลือกเองว่าจะแสดงหรือไม่)
+  const outcomeForm = (
+    <OutcomeForm
+      savedText={savedOutcome}
+      onSubmit={handleOutcome}
+      isSending={saveOutcome.isPending}
+      error={saveOutcome.error}
+      onRefresh={handleRefresh}
+    />
+  )
+  const outcomeActions = (
+    <TerminalActions
+      onOtherSymptom={() => navigate(otherSymptomPath)}
+      onRestart={() => handleRestart(graphId)}
+      isRestarting={restart.isPending}
+    />
+  )
 
   return (
     <div className="space-y-6">
@@ -146,7 +163,15 @@ function SessionView({ sessionId }: { sessionId: string }) {
 
       <PathRail entries={trail} current={node}>
         <div ref={stepRef}>
-          <StepView key={node.nodeId} node={shownNode} onAction={handleAction} isPending={submit.isPending} manualLabel={manualLabel} outcomeForm={<OutcomeForm savedText={savedOutcome} onSubmit={handleOutcome} isSending={saveOutcome.isPending} error={saveOutcome.error} onRefresh={handleRefresh} />} outcomeActions={<TerminalActions onOtherSymptom={() => navigate(otherSymptomPath)} onRestart={() => handleRestart(graphId)} isRestarting={restart.isPending} />} />
+          <StepView
+            key={node.nodeId}
+            node={shownNode}
+            onAction={handleAction}
+            isPending={submit.isPending}
+            manualLabel={manualLabel}
+            outcomeForm={outcomeForm}
+            outcomeActions={outcomeActions}
+          />
           {rephrased !== null && <RephraseNote original={node.text} />}
         </div>
       </PathRail>

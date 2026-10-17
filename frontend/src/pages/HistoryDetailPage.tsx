@@ -10,9 +10,10 @@ import { ReferenceLine } from '../components/step/ReferenceLine'
 import { Button } from '../components/ui/Button'
 import { Icon } from '../components/ui/Icon'
 import { Notice } from '../components/ui/Notice'
-import { formatStartedAt, GRAPH_CHANGED_MESSAGE, historyModelName, historyTitle, STATUS_BADGE_CLASSES } from '../lib/historyView'
+import { formatStartedAt, GRAPH_CHANGED_MESSAGE, historyTitle, STATUS_BADGE_CLASSES } from '../lib/historyView'
 import { DEVICE_CATEGORY_LABELS, HISTORY_STATUS_LABELS } from '../lib/labels'
 import { otherSymptomsPath } from '../lib/modelSelection'
+import { manualTitle } from '../lib/models'
 import { formatScore } from '../lib/search'
 import { toTrailEntry } from '../lib/trail'
 import { useSlowWait } from '../lib/useSlowWait'
@@ -106,7 +107,7 @@ function HistoryDetailView({ sessionId }: { sessionId: string }) {
         {graph !== null && (
           <p className="text-sm text-ink-soft">
             {DEVICE_CATEGORY_LABELS[graph.deviceCategory]} · {graph.brand}{' '}
-            <code className="font-mono">{historyModelName(graph)}</code>
+            <code className="font-mono">{manualTitle(graph)}</code>
           </p>
         )}
         <p className="text-sm text-ink-faint">
@@ -144,7 +145,7 @@ function HistoryDetailView({ sessionId }: { sessionId: string }) {
           {data.reference !== null && (
             <ReferenceLine
               reference={data.reference}
-              manualLabel={graph === null ? undefined : `${graph.brand} ${historyModelName(graph)}`}
+              manualLabel={graph === null ? undefined : `${graph.brand} ${manualTitle(graph)}`}
             />
           )}
         </section>

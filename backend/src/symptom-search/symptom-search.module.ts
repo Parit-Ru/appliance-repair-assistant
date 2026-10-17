@@ -4,8 +4,7 @@
  * imports GraphModule เพื่อขอยืม GraphRepository ตัวเดียวกัน
  * ไม่สร้าง repository ซ้ำ เพราะจะโหลดผังจาก MySQL สองรอบ และอาจได้ข้อมูลไม่ตรงกัน
  *
- * imports EmbeddingModule เพื่อขอยืม EmbeddingService ตัวเดียวกัน (โหลดโมเดลครั้งเดียว)
- * ต่างจาก FixStep ที่ provide EmbeddingService เองในโมดูลนี้ — โปรเจกต์นี้แยกเป็น src/embedding/
+ * imports EmbeddingModule (src/embedding/) เพื่อขอยืม EmbeddingService ตัวเดียวกัน (โหลดโมเดลครั้งเดียว)
  *
  * exports เฉพาะ SymptomSearchService ให้ TraversalModule ใช้
  */

@@ -260,5 +260,3 @@ export function parseVariables(value: unknown): Record<string, string> {
   }
   return (value ?? {}) as Record<string, string>;
 }
-
-//Need to read this again later

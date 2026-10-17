@@ -6,7 +6,7 @@
  *
  * เป็นการพอร์ตกฎจาก scripts/validate_graph.py (+ data/schemas/troubleshooting-graph.v2.schema.json และ
  * validateManual ใน backend/scripts/seed-graphs.js) มาเป็น TypeScript เพื่อให้ backend เรียกใช้ได้
- * ความถูกต้องของการพอร์ตพิสูจน์ด้วย graph-validator.spec.ts: ผังจริง 644 ผังใน data/manuals ต้องผ่านโดยไม่มี error
+ * ความถูกต้องของการพอร์ต: เคยรันกับผังจริง 644 ผังใน data/manuals แล้วผ่านโดยไม่มี error (เทสต์นั้นถูกลบไปแล้ว)
  * (ไฟล์ Python ยังคงไว้สำหรับงาน offline ไม่ได้แก้)
  *
  * สองโหมด:

@@ -2,7 +2,7 @@
   "name": "appliance-repair-backend",
   "version": "0.1.0",
   "private": true,
-  "description": "Appliance repair assistant backend — NestJS + raw MySQL, traversal engine + RAG",
+  "description": "Appliance repair assistant backend — NestJS + raw MySQL, traversal engine (state machine)",
   "scripts": {
     "build": "nest build",
     "start": "nest start",

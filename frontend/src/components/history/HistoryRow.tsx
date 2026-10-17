@@ -2,8 +2,9 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useDeleteHistory } from '../../api/queries'
 import type { HistoryListItem } from '../../api/types'
-import { formatStartedAt, historyModelName, historyTitle, STATUS_BADGE_CLASSES } from '../../lib/historyView'
+import { formatStartedAt, historyTitle, STATUS_BADGE_CLASSES } from '../../lib/historyView'
 import { DEVICE_CATEGORY_LABELS, HISTORY_STATUS_LABELS } from '../../lib/labels'
+import { manualTitle } from '../../lib/models'
 import { Button } from '../ui/Button'
 import { Icon } from '../ui/Icon'
 import { DeleteConfirm } from './DeleteConfirm'
@@ -38,7 +39,7 @@ export function HistoryRow({ item }: HistoryRowProps) {
             {graph !== null && (
               <span className="block text-sm text-ink-soft">
                 {DEVICE_CATEGORY_LABELS[graph.deviceCategory]} · {graph.brand}{' '}
-                <code className="font-mono">{historyModelName(graph)}</code>
+                <code className="font-mono">{manualTitle(graph)}</code>
               </span>
             )}
 

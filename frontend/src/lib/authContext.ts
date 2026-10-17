@@ -25,7 +25,7 @@ export interface AuthContextValue {
 }
 
 /**
- * ค่าเริ่มต้นเมื่อไม่มี AuthProvider (เช่น เทสต์ที่ render หน้าเดี่ยวๆ) = guest
+ * ค่าเริ่มต้นเมื่อไม่มี AuthProvider (เช่น render คอมโพเนนต์เดี่ยวๆ นอกแอป) = guest
  * จึงเหมือนพฤติกรรมก่อนมีระบบบัญชีทุกประการ
  */
 const GUEST_VALUE: AuthContextValue = {

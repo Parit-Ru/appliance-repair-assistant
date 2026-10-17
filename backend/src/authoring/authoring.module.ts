@@ -7,7 +7,7 @@
  *   SymptomSearchModule — SymptomSearchService.addGraphs (เพิ่มผังใหม่เข้าดัชนีค้นหา)
  * MYSQL_POOL มาจาก DatabaseModule ที่เป็น @Global()
  *
- * ตัวแยกข้อความ PDF และ LLM client ผูกผ่าน token เพื่อให้เทสต์สลับเป็นของปลอมได้
+ * ตัวแยกข้อความ PDF และ LLM client ผูกผ่าน token เพื่อให้สลับเป็นตัวอื่นได้โดยไม่ต้องแก้ DraftsService
  * LLM client เป็น null เมื่อยังไม่ตั้งค่า (GROQ_API_KEY + AUTHORING_LLM_MODEL) — ร่างจะล้มด้วย LLM_NOT_CONFIGURED
  */
 

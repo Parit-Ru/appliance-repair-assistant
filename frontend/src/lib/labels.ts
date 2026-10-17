@@ -1,6 +1,5 @@
 import type { DeviceCategory, InputType, OutcomeKind } from '../api/types'
 
-
 export const DEVICE_CATEGORY_LABELS: Record<DeviceCategory, string> = {
   'Air Conditioner': 'เครื่องปรับอากาศ',
   Microwave: 'เตาไมโครเวฟ',
@@ -15,7 +14,6 @@ export const OUTCOME_TITLES: Record<OutcomeKind, string> = {
   handoff_informed: 'ส่งต่อศูนย์บริการ พร้อมข้อมูลสำหรับช่าง',
   handoff_unknown: 'คู่มือไม่ครอบคลุมกรณีนี้',
 }
-
 
 /**
  * ป้ายสถานะในหน้า "ประวัติการซ่อม" ตัดสินจาก outcome_kind ของโหนดสุดท้ายเท่านั้น (ไม่มีเกณฑ์ confidence)
@@ -39,7 +37,6 @@ export const STEP_KIND_LABELS: Record<StepKind, string> = {
   safety_instruction: 'ขั้นตอนที่ต้องยืนยันคำเตือน',
   input: 'กรอกข้อมูล',
 }
-
 
 export const INPUT_SUBMIT_LABELS: Record<InputType, string> = {
   error_code: 'ส่งรหัส',

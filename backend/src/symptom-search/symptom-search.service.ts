@@ -75,7 +75,7 @@ export class SymptomSearchService implements OnApplicationBootstrap {
    * โหลดโมเดล แล้วแปลงข้อความอาการทุกข้อความเป็นเวกเตอร์เก็บในหน่วยความจำ
    *
    * ไม่โยน error ออกไป: ล้มเหลวแล้วสถานะเป็น 'failed' เซิร์ฟเวอร์ที่เหลือทำงานต่อได้
-   * (public เพื่อให้เทสเรียกและรอผลได้)
+   * (public: เดิมเปิดไว้ให้เทสต์เรียกและรอผล ตอนนี้ถูกเรียกจาก onApplicationBootstrap เท่านั้น)
    */
   async prepareIndex(): Promise<void> {
     this.state = 'loading';

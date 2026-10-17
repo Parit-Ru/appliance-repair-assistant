@@ -4,7 +4,7 @@
  * จุดสำคัญ: guard (JwtAuthGuard / RolesGuard) โยน UnauthorizedException / ForbiddenException ของ Nest
  * ถ้า controller ไม่ใส่ filter ที่รู้จักมัน (หรือใส่ filter ของโมดูลอื่น) จะกลายเป็น 500
  * ไฟล์นี้จึงส่งต่อให้ toAuthErrorBody ที่รู้จัก 401/403 อยู่แล้ว และเพิ่มเฉพาะ 400 ของ admin
- * (เทสต์ admin-http.spec.ts ยิงผ่าน pipeline จริงเพื่อยืนยันว่า 401/403 ไม่กลายเป็น 500)
+ * (ตอนนี้ไม่มีเทสต์อัตโนมัติยืนยันเรื่องนี้ — ตรวจด้วยมือ: ไม่มี token ต้องได้ 401, ไม่ใช่ admin ต้องได้ 403)
  */
 
 import { ArgumentsHost, Catch, ExceptionFilter, Logger } from '@nestjs/common';

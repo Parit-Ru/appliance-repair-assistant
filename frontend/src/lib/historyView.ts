@@ -1,5 +1,4 @@
 import type { HistoryGraphInfo, OutcomeKind } from '../api/types'
-import { manualTitle } from './models'
 import { symptomName } from './symptoms'
 
 /**
@@ -32,9 +31,4 @@ export function formatStartedAt(iso: string): string {
 /** ชื่ออาการของแถว/หัวหน้า · ผังหาย = ข้อความ "ข้อมูลผังเปลี่ยนไปแล้ว" (ไม่เดาชื่ออาการ) */
 export function historyTitle(graph: HistoryGraphInfo | null): string {
   return graph === null ? GRAPH_CHANGED_MESSAGE : symptomName(graph)
-}
-
-/** ชื่อรุ่นที่แสดง: displayName ถ้ามี ไม่งั้น modelPattern (ใช้กฎเดียวกับหน้าอื่น) */
-export function historyModelName(graph: HistoryGraphInfo): string {
-  return manualTitle(graph)
 }
