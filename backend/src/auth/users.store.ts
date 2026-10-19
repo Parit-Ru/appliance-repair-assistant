@@ -32,7 +32,7 @@ export interface UserRecord {
   createdAtEpoch: number;
 }
 
-export interface NewUser {
+interface NewUser {
   id: string;
   email: string;
   passwordHash: string;
@@ -40,7 +40,7 @@ export interface NewUser {
   role: Role;
 }
 
-/** อีเมลนี้มีบัญชีอยู่แล้ว (ชน UNIQUE uq_users_email) — AuthService แปลงเป็น EmailTakenError */
+/** อีเมลนี้มีบัญชีอยู่แล้ว (ชน UNIQUE uq_users_email) — AuthService แปลงเป็น ApiError 409 EMAIL_TAKEN */
 export class DuplicateEmailError extends Error {
   constructor(email: string) {
     super(`อีเมล ${email} มีบัญชีอยู่แล้ว`);

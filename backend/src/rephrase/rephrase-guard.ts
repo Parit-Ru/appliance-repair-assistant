@@ -1,4 +1,4 @@
-export type GuardResult = { ok: true } | { ok: false; reason: string };
+type GuardResult = { ok: true } | { ok: false; reason: string };
 
 const THAI_DIGITS = '๐๑๒๓๔๕๖๗๘๙';
 
@@ -6,16 +6,16 @@ function normalizeDigits(s: string): string {
   return s.replace(/[๐-๙]/g, (d) => String(THAI_DIGITS.indexOf(d)));
 }
 
-export function extractNumbers(s: string): string[] {
+function extractNumbers(s: string): string[] {
   return (normalizeDigits(s).match(/\d+(?:[.,]\d+)?/g) ?? []).map((n) => n.replace(',', '.')).sort();
 }
 
-export function extractLatinTokens(s: string): string[] {
+function extractLatinTokens(s: string): string[] {
   const m = s.match(/[A-Za-z][A-Za-z0-9\-]*/g) ?? [];
   return [...new Set(m)];
 }
 
-export function countNegations(s: string): number {
+function countNegations(s: string): number {
   return (s.replace(/หรือไม่/g, '').match(/ไม่/g) ?? []).length;
 }
 

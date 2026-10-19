@@ -1,27 +1,15 @@
 import { ownerHeaders } from '../lib/clientHeaders'
 import { request } from './http'
-import type { HistoryDetail, HistoryFeedback, HistoryListResponse, HistoryParams } from './types'
-
-/** จำนวนแถวต่อหน้าของรายการประวัติ (เซิร์ฟเวอร์รับ 1–50) */
-export const HISTORY_PAGE_SIZE = 10
+import type { HistoryDetail, HistoryFeedback, HistoryListResponse } from './types'
 
 /**
  * ทุกคำขอของหน้าประวัติบอกเจ้าของผ่าน ownerHeaders(): ล็อกอินอยู่ → token (แนบโดย http.ts) ไม่ส่ง X-Client-Id
  * guest → X-Client-Id ของเบราว์เซอร์นี้ · เซิร์ฟเวอร์ตอบเฉพาะ session ของเจ้าของนั้น
  */
 
-// GET /history
-export async function listHistory(params: HistoryParams): Promise<HistoryListResponse> {
-  const search = new URLSearchParams()
-  if (params.q !== '') search.set('q', params.q)
-  if (params.category !== undefined) search.set('category', params.category)
-  if (params.brand !== undefined) search.set('brand', params.brand)
-  if (params.status !== undefined) search.set('status', params.status)
-  search.set('sort', params.sort)
-  search.set('page', String(params.page))
-  search.set('pageSize', String(HISTORY_PAGE_SIZE))
-
-  return request<HistoryListResponse>(`/history?${search.toString()}`, { headers: ownerHeaders() })
+// GET /history?page= — ใหม่สุดก่อนเสมอ ครั้งละ 10 รายการ (ค่าเริ่มต้นของเซิร์ฟเวอร์)
+export async function listHistory(page: number): Promise<HistoryListResponse> {
+  return request<HistoryListResponse>(`/history?page=${page}`, { headers: ownerHeaders() })
 }
 
 // GET /history/:id

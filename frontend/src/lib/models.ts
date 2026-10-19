@@ -4,7 +4,7 @@ function normalizeModel(text: string): string {
   return text.toUpperCase().replace(/[\s\-_]/g, '')
 }
 
-export function matchesPattern(input: string, pattern: string): boolean {
+function matchesPattern(input: string, pattern: string): boolean {
   const a = normalizeModel(input)
   const p = normalizeModel(pattern)
   if (a === '' || p === '') return false
@@ -18,7 +18,7 @@ export function matchesPattern(input: string, pattern: string): boolean {
 
 type ModelFields = Pick<ManualSummary, 'modelPattern' | 'modelAliases'>
 
-export function patternsOf(manual: ModelFields): string[] {
+function patternsOf(manual: ModelFields): string[] {
   return [...manual.modelPattern.split('/'), ...(manual.modelAliases ?? [])].map((s) => s.trim()).filter((s) => s !== '')
 }
 

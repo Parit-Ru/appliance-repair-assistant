@@ -1,6 +1,6 @@
 import { barPercent, formatCount } from '../../lib/adminView'
 
-export interface BarItem {
+interface BarItem {
   key: string
   label: string
   value: number

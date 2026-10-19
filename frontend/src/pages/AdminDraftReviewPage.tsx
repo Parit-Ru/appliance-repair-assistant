@@ -7,14 +7,14 @@ import { DraftGraphCard } from '../components/admin/drafts/DraftGraphCard'
 import { DraftJsonEditor } from '../components/admin/drafts/DraftJsonEditor'
 import { DraftStatusBadge } from '../components/admin/drafts/DraftStatusBadge'
 import { ValidationReportPanel } from '../components/admin/drafts/ValidationReportPanel'
-import { HistoryErrorNotice } from '../components/history/HistoryErrorNotice'
+import { ErrorNotice } from '../components/ErrorNotice'
 import { Icon } from '../components/ui/Icon'
 import { Notice } from '../components/ui/Notice'
-import { canReject, canRetry, draftFailureLabel } from '../lib/draftView'
+import { LoadingText } from '../components/LoadingText'
+import { canReject, draftFailureLabel } from '../lib/draftView'
 import { formatStartedAt } from '../lib/historyView'
 
 const LINK_CLASSES = 'text-accent underline-offset-4 hover:underline'
-
 /**
  * หน้าตรวจร่าง (/admin/drafts/:id)
  *
@@ -41,12 +41,9 @@ export function AdminDraftReviewPage() {
       <AdminTabs />
 
       {draft.isPending && (
-        <p className="flex items-center gap-2 text-ink-soft">
-          <Icon name="spinner" className="h-5 w-5 animate-spin" />
-          กำลังโหลดร่าง
-        </p>
+        <LoadingText>กำลังโหลดร่าง</LoadingText>
       )}
-      {draft.isError && <HistoryErrorNotice error={draft.error} onRetry={() => void draft.refetch()} />}
+      {draft.isError && <ErrorNotice error={draft.error} onRetry={() => void draft.refetch()} />}
 
       {data !== undefined && <DraftBody draft={data} onRefresh={() => void draft.refetch()} />}
     </div>
@@ -111,7 +108,7 @@ function DraftBody({ draft, onRefresh }: { draft: DraftDetail; onRefresh: () => 
         </>
       )}
 
-      {(draft.status === 'ready' || canRetry(draft.status) || canReject(draft.status)) && <DraftActions draft={draft} onRefresh={onRefresh} />}
+      {(draft.status === 'ready' || canReject(draft.status)) && <DraftActions draft={draft} onRefresh={onRefresh} />}
     </div>
   )
 }

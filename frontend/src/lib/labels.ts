@@ -8,6 +8,9 @@ export const DEVICE_CATEGORY_LABELS: Record<DeviceCategory, string> = {
   Television: 'โทรทัศน์',
 }
 
+/** ประเภทเครื่องทั้งหมด เรียงตามลำดับในตารางป้ายด้านบน (แหล่งเดียวของรายการนี้) */
+export const DEVICE_CATEGORIES = Object.keys(DEVICE_CATEGORY_LABELS) as DeviceCategory[]
+
 export const OUTCOME_TITLES: Record<OutcomeKind, string> = {
   user_fixed: 'แก้ปัญหาได้แล้ว',
   normal_behavior: 'เครื่องทำงานปกติ ไม่ได้เสีย',
@@ -26,10 +29,7 @@ export const HISTORY_STATUS_LABELS: Record<OutcomeKind, string> = {
   normal_behavior: OUTCOME_TITLES.normal_behavior,
 }
 
-/** ลำดับตัวเลือกในตัวกรองสถานะ */
-export const HISTORY_STATUS_ORDER: OutcomeKind[] = ['user_fixed', 'handoff_informed', 'handoff_unknown', 'normal_behavior']
-
-export type StepKind = 'checkpoint' | 'instruction' | 'safety_instruction' | 'input'
+type StepKind = 'checkpoint' | 'instruction' | 'safety_instruction' | 'input'
 
 export const STEP_KIND_LABELS: Record<StepKind, string> = {
   checkpoint: 'คำถาม',

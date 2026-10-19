@@ -9,8 +9,8 @@
 export const MIN_PASSWORD_LENGTH = 8
 export const MAX_PASSWORD_LENGTH = 72
 /** bcrypt ใช้แค่ 72 ไบต์แรก อักษรไทย 1 ตัว = 3 ไบต์ จึงตรวจไบต์ด้วย */
-export const MAX_PASSWORD_BYTES = 72
-export const MAX_EMAIL_LENGTH = 255
+const MAX_PASSWORD_BYTES = 72
+const MAX_EMAIL_LENGTH = 255
 export const MAX_DISPLAY_NAME_LENGTH = 100
 
 /** เหมือน EMAIL_PATTERN ใน backend */

@@ -16,12 +16,12 @@ import type { DeviceCategory, GraphSummary } from '../api/types'
  */
 const thaiCollator = new Intl.Collator('th')
 
-export type SymptomLabel = Pick<GraphSummary, 'entrySymptom' | 'entrySymptomTh'>
+type SymptomLabel = Pick<GraphSummary, 'entrySymptom' | 'entrySymptomTh'>
 export function symptomName(summary: SymptomLabel): string {
   return summary.entrySymptomTh ?? summary.entrySymptom
 }
 
-export interface SymptomGroup {
+interface SymptomGroup {
   manualId: string
   deviceCategory: DeviceCategory
   brand: string

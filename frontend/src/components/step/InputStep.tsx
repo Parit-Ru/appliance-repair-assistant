@@ -4,7 +4,7 @@ import type { InputType } from '../../api/types'
 import { INPUT_SUBMIT_LABELS, STEP_KIND_LABELS } from '../../lib/labels'
 import { Button } from '../ui/Button'
 import { StepCard } from './StepCard'
-import type { StepProps } from './stepProps'
+import type { StepProps } from './StepView'
 
 const BASE_INPUT_CLASSES = 'w-full rounded-lg border border-line bg-canvas px-4 py-3 text-ink placeholder:text-ink-faint focus:border-accent focus:outline-none disabled:opacity-40'
 

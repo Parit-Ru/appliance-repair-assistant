@@ -8,8 +8,8 @@
  *   - คืนสิ่งที่ service ให้กลับมาตรงๆ
  *
  * error ทุกชนิดที่เกิดขึ้น (ไม่ว่าจาก parse* หรือจาก service) ไม่ได้ถูกจับที่นี่เลย
- * ปล่อยให้หลุดขึ้นไปให้ TraversalExceptionFilter ที่ติดไว้ระดับ controller
- * ด้านล่างเป็นคนแปลงเป็น HTTP response แทน
+ * ปล่อยให้หลุดขึ้นไปให้ AllExceptionsFilter (common/) ซึ่งเป็น filter กลางของทั้งแอป
+ * เป็นคนแปลงเป็น HTTP response แทน
  *
  * @Body() รับเป็น unknown เสมอ ไม่ประกาศเป็น DTO class ของ NestJS/class-validator
  * เพราะตัดสินใจไม่ใช้ class-validator — รูปร่างของ body ที่แท้จริง
@@ -17,38 +17,18 @@
  * parseTraversalAction / parseOutcomeBody เท่านั้น
  */
 
-import {
-  Body,
-  Controller,
-  Delete,
-  Get,
-  Headers,
-  HttpCode,
-  Param,
-  Post,
-  Query,
-  Req,
-  UseFilters,
-  UseGuards,
-} from '@nestjs/common';
+import { Body, Controller, Delete, Get, Headers, HttpCode, Param, Post, Query, Req, UseGuards } from '@nestjs/common';
 
 import type { AuthenticatedRequest } from '../auth/jwt-auth.guard';
 import { OptionalJwtAuthGuard } from '../auth/optional-jwt-auth.guard';
 import { resolveOptionalOwner, resolveRequiredOwner } from '../auth/session-owner';
 
-import {
-  parseOptionalManualId,
-  parseOutcomeBody,
-  parseStartSessionBody,
-  parseTraversalAction,
-} from './traversal.dto';
+import { parseOptionalManualId, parseOutcomeBody, parseStartSessionBody, parseTraversalAction } from './traversal.dto';
 import type { SessionResponseDto } from './traversal.dto';
-import { TraversalExceptionFilter } from './traversal.exception.filter';
 import { TraversalService } from './traversal.service';
 import type { GraphSummary, ManualSummary } from './graph.repository';
 
 @Controller('traversal')
-@UseFilters(TraversalExceptionFilter)
 export class TraversalController {
   constructor(private readonly traversalService: TraversalService) {}
 
@@ -83,7 +63,7 @@ export class TraversalController {
     @Body() body: unknown,
     @Headers('x-client-id') clientIdHeader?: unknown,
   ): Promise<SessionResponseDto> {
-    // parseStartSessionBody โยน InvalidRequestBodyError ทันทีถ้า body ผิดรูปแบบ
+    // parseStartSessionBody โยน ApiError 400 ทันทีถ้า body ผิดรูปแบบ
     // โค้ดจะไม่เดินไปถึง service เลยในกรณีนั้น (filter จับ error แล้วแปลงเป็น 400 แทน)
     const { graphId, query, manualId, modelSelection } = parseStartSessionBody(body);
     const owner = resolveOptionalOwner(request.user, clientIdHeader);

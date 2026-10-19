@@ -4,19 +4,12 @@ import type { FormEvent } from 'react'
 import { Link, Navigate, useNavigate, useSearchParams } from 'react-router-dom'
 import { ApiError } from '../api/http'
 import { TextField } from '../components/auth/TextField'
+import { ErrorNotice } from '../components/ErrorNotice'
 import { Button } from '../components/ui/Button'
-import { Notice } from '../components/ui/Notice'
 import { useAuth } from '../lib/authContext'
-import {
-  MAX_DISPLAY_NAME_LENGTH,
-  MAX_PASSWORD_LENGTH,
-  MIN_PASSWORD_LENGTH,
-  hasErrors,
-  validateRegister,
-} from '../lib/authForm'
+import { MAX_DISPLAY_NAME_LENGTH, MAX_PASSWORD_LENGTH, MIN_PASSWORD_LENGTH, hasErrors, validateRegister } from '../lib/authForm'
 import type { FormErrors } from '../lib/authForm'
 import { safeNext } from '../lib/authRedirect'
-import { describeError } from '../lib/errors'
 
 /**
  * หน้าสมัครสมาชิก (/register) — ทางเลือกเสริม สมัครสำเร็จแล้วเข้าสู่ระบบทันที
@@ -49,8 +42,6 @@ export function RegisterPage() {
     if (hasErrors(errors)) return
     submit.mutate()
   }
-
-  const described = submit.isError ? describeError(submit.error) : undefined
 
   return (
     <div className="mx-auto max-w-md space-y-6">
@@ -91,19 +82,16 @@ export function RegisterPage() {
           disabled={submit.isPending}
         />
 
-        {described !== undefined && (
-          <div role="alert">
-            <Notice tone="danger" title={described.title}>
-              <p>{described.detail}</p>
-              {submit.error instanceof ApiError && submit.error.code === 'EMAIL_TAKEN' && (
-                <p className="mt-2">
-                  <Link to="/login" className="text-accent underline-offset-4 hover:underline">
-                    ไปหน้าเข้าสู่ระบบ
-                  </Link>
-                </p>
-              )}
-            </Notice>
-          </div>
+        {submit.isError && (
+          <ErrorNotice error={submit.error}>
+            {submit.error instanceof ApiError && submit.error.code === 'EMAIL_TAKEN' && (
+              <p className="mt-2">
+                <Link to="/login" className="text-accent underline-offset-4 hover:underline">
+                  ไปหน้าเข้าสู่ระบบ
+                </Link>
+              </p>
+            )}
+          </ErrorNotice>
         )}
 
         <Button type="submit" isLoading={submit.isPending} className="w-full">

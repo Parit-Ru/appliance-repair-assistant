@@ -5,21 +5,16 @@ import { MYSQL_POOL } from '../database/database.constants';
 import { ownerColumns, ownerWhere } from '../auth/session-owner';
 import type { SessionOwner } from '../auth/session-owner';
 import type { ModelSelection } from './traversal.dto';
-import type {
-  SessionHistoryEntry,
-  SessionState,
-  SessionStatus,
-  TraversalAction,
-} from '../traversal-engine/types';
+import type { SessionHistoryEntry, SessionState, SessionStatus, TraversalAction } from '../traversal-engine/types';
 
 /** session ที่ยังเดินอยู่: ไม่มีการใช้งาน 24 ชั่วโมงแล้วหมดอายุ (ต่ออายุทุกครั้งที่ขยับ) */
 const SESSION_TTL_HOURS = 24;
 
 /**
- * session ที่จบแล้วเก็บไว้ให้ดูในหน้า "ประวัติการซ่อม" 90 วัน (docs/history-page.md, D2)
+ * session ที่จบแล้วเก็บไว้ให้ดูในหน้า "ประวัติการซ่อม" 90 วัน (docs/features/history-page.md, D2)
  * ตั้งตอน update() ที่ทำให้ status เป็น completed เท่านั้น — ไม่ได้ต่ออายุซ้ำเมื่อบันทึกผลลัพธ์/ให้คะแนน
  */
-export const COMPLETED_SESSION_TTL_DAYS = 90;
+const COMPLETED_SESSION_TTL_DAYS = 90;
 const COMPLETED_SESSION_TTL_HOURS = COMPLETED_SESSION_TTL_DAYS * 24;
 
 interface SessionRow extends RowDataPacket {

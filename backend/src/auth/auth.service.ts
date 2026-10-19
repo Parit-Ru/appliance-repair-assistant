@@ -1,11 +1,11 @@
 /**
  * auth.service.ts — สมัคร / เข้าสู่ระบบ / ดูข้อมูลตัวเอง + ออก JWT
  *
- * ตรรกะล้วน: ไม่รู้จัก HTTP (error เป็นคลาสของตัวเอง ให้ AuthExceptionFilter แปลง)
+ * ตรรกะล้วน: error เป็น ApiError (status + code + ข้อความ) ให้ AllExceptionsFilter แปลงเป็น response
  *
  * ความปลอดภัย:
  * - สมัครสาธารณะได้ role = user เท่านั้น (RegisterBody ไม่มี role) · admin สร้างได้ทางเดียวคือ scripts/seed-admin.js
- * - login ผิดทุกกรณี (ไม่พบอีเมล / รหัสผ่านผิด) ตอบ InvalidCredentialsError ข้อความเดียวกัน ไม่บอกว่าอีเมลมีอยู่หรือไม่
+ * - login ผิดทุกกรณี (ไม่พบอีเมล / รหัสผ่านผิด) ตอบ invalidCredentials ข้อความเดียวกัน ไม่บอกว่าอีเมลมีอยู่หรือไม่
  *   และเมื่อไม่พบอีเมลก็ยัง compare กับ hash หลอก เพื่อให้เวลาตอบใกล้เคียงกัน (กันการเดาอีเมลจากเวลา)
  * - JWT มีแค่ sub (user id) และ role · role ใน token เชื่อตามที่ตกลง (ไม่ query DB ทุกคำขอ)
  *   ผลคือเปลี่ยน role ของใครแล้วต้องรอ token เก่าหมดอายุ (JWT_EXPIRES_IN)
@@ -15,27 +15,19 @@ import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { compare, hash, hashSync } from 'bcryptjs';
 
+import { ApiError } from '../common/api-error';
+import { isoFromEpoch } from '../common/helpers';
 import type { AuthResponseDto, LoginBody, RegisterBody, UserDto } from './auth.dto';
 import { Role } from './role.enum';
 import { DuplicateEmailError, UsersStore } from './users.store';
 import type { UserRecord } from './users.store';
 
 /** ต้องเท่ากับ BCRYPT_ROUNDS ใน scripts/seed-admin.js (admin ที่ seed ต้องล็อกอินผ่านทางเดียวกับคนสมัคร) */
-export const BCRYPT_ROUNDS = 10;
+const BCRYPT_ROUNDS = 10;
 
-export class EmailTakenError extends Error {
-  constructor() {
-    super('อีเมลนี้ถูกใช้สมัครแล้ว');
-    this.name = this.constructor.name;
-  }
-}
+const emailTaken = () => new ApiError(409, 'EMAIL_TAKEN', 'อีเมลนี้ถูกใช้สมัครแล้ว');
 
-export class InvalidCredentialsError extends Error {
-  constructor() {
-    super('อีเมลหรือรหัสผ่านไม่ถูกต้อง');
-    this.name = this.constructor.name;
-  }
-}
+const invalidCredentials = () => new ApiError(401, 'INVALID_CREDENTIALS', 'อีเมลหรือรหัสผ่านไม่ถูกต้อง');
 
 function toUserDto(user: UserRecord): UserDto {
   return {
@@ -43,7 +35,7 @@ function toUserDto(user: UserRecord): UserDto {
     email: user.email,
     displayName: user.displayName,
     role: user.role,
-    createdAt: new Date(user.createdAtEpoch * 1000).toISOString(),
+    createdAt: isoFromEpoch(user.createdAtEpoch),
   };
 }
 
@@ -72,7 +64,7 @@ export class AuthService {
       });
     } catch (err) {
       if (err instanceof DuplicateEmailError) {
-        throw new EmailTakenError();
+        throw emailTaken();
       }
       throw err;
     }
@@ -85,7 +77,7 @@ export class AuthService {
 
     const matches = await compare(body.password, user ? user.passwordHash : this.dummyHash);
     if (!user || !matches) {
-      throw new InvalidCredentialsError();
+      throw invalidCredentials();
     }
 
     return this.issue(user);

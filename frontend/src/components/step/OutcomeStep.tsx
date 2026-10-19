@@ -4,7 +4,7 @@ import { OUTCOME_TITLES } from '../../lib/labels'
 import { Icon } from '../ui/Icon'
 import type { IconName } from '../ui/Icon'
 import { StepCard } from './StepCard'
-import type { StepProps } from './stepProps'
+import type { StepProps } from './StepView'
 
 interface OutcomeStepProps extends Pick<StepProps, 'node' | 'manualLabel'> {
   form?: ReactNode

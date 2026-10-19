@@ -1,20 +1,5 @@
-/**
- * draft-llm.client.ts — เรียก LLM (Groq, OpenAI-compatible) เพื่อ "ร่าง" ผังจากข้อความคู่มือ
- *
- * LLM ไม่มีอำนาจตัดสินอะไร: ผลที่ได้เป็นแค่ข้อความดิบ ต้องผ่าน draft-schema.ts (parse เข้ม) และ graph-validator.ts
- * แล้วคนอนุมัติจึงจะ publish ไฟล์นี้ไม่ตีความผล ไม่ซ่อม JSON ที่เสีย
- *
- * ใช้ fetch ตรงๆ เหมือน rephrase/groq-llm.client.ts (ไม่เพิ่ม SDK) แต่ config แยกจาก rephrase:
- *   GROQ_API_KEY            ใช้ร่วมกับ rephrase (กุญแจเดียวกัน)
- *   AUTHORING_LLM_MODEL     โมเดลที่ใช้ร่าง (ต้องรองรับ JSON mode) — ไม่มีค่าเริ่มต้น เพราะชื่อโมเดลเปลี่ยนได้
- *   AUTHORING_LLM_TIMEOUT_MS  เวลารอต่อการเรียก 1 ครั้ง (ค่าเริ่มต้น 60000)
- *   AUTHORING_LLM_MAX_TOKENS  เพดาน token ของคำตอบ (ค่าเริ่มต้น 6000)
- * ไม่มี REPHRASE_ENABLED เกี่ยว: ปิด rephrase ไม่ได้ปิดการร่างผัง
- */
-
 import type { DraftMeta } from './draft-manual';
 import type { PageText } from './pdf-text';
-
 export const DRAFT_LLM_CLIENT = 'DRAFT_LLM_CLIENT';
 /** เปลี่ยนเลขนี้ทุกครั้งที่แก้ prompt — เก็บใน graph_drafts.prompt_version ไว้ย้อนดูว่าร่างมาจาก prompt ไหน */
 export const PROMPT_VERSION = 'v1';
@@ -23,7 +8,7 @@ const ENDPOINT = 'https://api.groq.com/openai/v1/chat/completions';
 const DEFAULT_TIMEOUT_MS = 60_000;
 const DEFAULT_MAX_TOKENS = 6000;
 
-export type DraftLlmErrorCode = 'LLM_NOT_CONFIGURED' | 'LLM_TIMEOUT' | 'LLM_HTTP' | 'LLM_BAD_RESPONSE';
+type DraftLlmErrorCode = 'LLM_NOT_CONFIGURED' | 'LLM_TIMEOUT' | 'LLM_HTTP' | 'LLM_BAD_RESPONSE';
 
 export class DraftLlmError extends Error {
   constructor(
@@ -35,22 +20,16 @@ export class DraftLlmError extends Error {
   }
 }
 
-export interface DraftLlmInput {
+interface DraftLlmInput {
   manualId: string;
   meta: DraftMeta;
-  /** หน้าที่ส่งในการเรียกครั้งนี้ (1–2 หน้า) */
   pages: PageText[];
 }
 
 export interface DraftLlmClient {
   readonly model: string;
-  /** คืนข้อความดิบที่ LLM ตอบ (ควรเป็น JSON) หรือโยน DraftLlmError */
   draft(input: DraftLlmInput): Promise<string>;
 }
-
-// ============================================================
-// Prompt
-// ============================================================
 
 const SYSTEM_PROMPT = `You convert pages of a home-appliance user manual into troubleshooting decision graphs.
 You only DRAFT. A deterministic validator and a human reviewer check everything you write, so never guess.
@@ -83,7 +62,7 @@ Hard rules:
 7. If the pages contain no troubleshooting content, or a symptom is cut off at the page edge, omit it. Return {"graphs":[]} when nothing is usable.
 8. At most 12 graphs and 40 nodes per graph. Do not output any key not listed above.`;
 
-export function buildPrompt(input: DraftLlmInput): { system: string; user: string } {
+function buildPrompt(input: DraftLlmInput): { system: string; user: string } {
   const header = [
     `Manual: ${input.meta.source_manual}`,
     `Brand: ${input.meta.brand} | Model: ${input.meta.model_pattern} | Category: ${input.meta.device_category}`,
@@ -92,11 +71,7 @@ export function buildPrompt(input: DraftLlmInput): { system: string; user: strin
   return { system: SYSTEM_PROMPT, user: `${header}\n\n${pages}` };
 }
 
-// ============================================================
-// Groq
-// ============================================================
-
-export class GroqDraftLlmClient implements DraftLlmClient {
+class GroqDraftLlmClient implements DraftLlmClient {
   constructor(
     private readonly apiKey: string,
     readonly model: string,
@@ -160,7 +135,6 @@ export class GroqDraftLlmClient implements DraftLlmClient {
   }
 }
 
-/** null = ยังไม่ได้ตั้งค่า (ไม่มี GROQ_API_KEY หรือ AUTHORING_LLM_MODEL) — ร่างจะล้มด้วย LLM_NOT_CONFIGURED */
 export function createDraftLlmFromEnv(env: NodeJS.ProcessEnv = process.env): GroqDraftLlmClient | null {
   const apiKey = env.GROQ_API_KEY;
   const model = env.AUTHORING_LLM_MODEL;

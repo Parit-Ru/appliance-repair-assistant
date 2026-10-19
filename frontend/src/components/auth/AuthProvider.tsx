@@ -1,18 +1,18 @@
 import { useQueryClient } from '@tanstack/react-query'
-import { useCallback, useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import type { ReactNode } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { getMe, login as apiLogin, register as apiRegister } from '../../api/auth'
 import type { Session } from '../../api/auth'
 import { setUnauthorizedHandler } from '../../api/http'
 import { AuthContext } from '../../lib/authContext'
 import type { AuthContextValue, AuthStatus } from '../../lib/authContext'
-import { currentHashPath, loginUrl } from '../../lib/authRedirect'
+import { loginUrl } from '../../lib/authRedirect'
 import { clearStoredAuth, getStoredToken, readStoredAuth, storeAuth } from '../../lib/authStorage'
 import type { StoredAuth } from '../../lib/authStorage'
 
 /**
- * เก็บสถานะการเข้าสู่ระบบของทั้งแอป — ต้องอยู่ใน QueryClientProvider และ HashRouter
+ * เก็บสถานะการเข้าสู่ระบบของทั้งแอป — ต้องอยู่ใน QueryClientProvider และ BrowserRouter
  *
  * ลำดับเหตุการณ์:
  *  1. เปิดแอป: ถ้ามี token ที่จำไว้ → status = 'verifying' แล้วยิง GET /auth/me
@@ -27,6 +27,13 @@ import type { StoredAuth } from '../../lib/authStorage'
 export function AuthProvider({ children }: { children: ReactNode }) {
   const queryClient = useQueryClient()
   const navigate = useNavigate()
+  // path ปัจจุบันในแอป (ไม่รวม basename) เก็บใน ref เพื่อให้ตัวจัดการ 401 อ่านค่าล่าสุดโดยไม่ต้องลงทะเบียนใหม่ทุกครั้งที่เปลี่ยนหน้า
+  // อัปเดต ref หลัง render เสร็จ (ใน effect) ไม่ใช่ระหว่าง render
+  const location = useLocation()
+  const locationRef = useRef(location)
+  useEffect(() => {
+    locationRef.current = location
+  }, [location])
 
   const [initial] = useState<StoredAuth | null>(readStoredAuth)
   const [stored, setStored] = useState<StoredAuth | null>(initial)
@@ -43,7 +50,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       setVerifying(false)
       queryClient.clear()
       // กลับมาหน้าเดิมหลังล็อกอิน เช่น /session/:id ที่กำลังตรวจอยู่ (กรณี 'e')
-      navigate(loginUrl('expired', currentHashPath(window.location.hash)), { replace: true })
+      navigate(loginUrl('expired', locationRef.current.pathname + locationRef.current.search), { replace: true })
     })
     return () => setUnauthorizedHandler(undefined)
   }, [navigate, queryClient])

@@ -1,73 +1,36 @@
 /**
- * drafts.errors.ts — error ของโมดูล authoring (ตัวแปลงเป็น HTTP อยู่ที่ drafts.exception.filter.ts)
+ * drafts.errors.ts — error ของงานร่างผัง (ใช้ ApiError รหัสละตัว · AllExceptionsFilter แปลงเป็น response)
+ * ฟังก์ชันสร้างเหล่านี้มีไว้เพราะบางตัวถูกโยนจากหลายที่ (service / store) ข้อความจะได้เหมือนกันทุกที่
  */
 
-export class InvalidDraftRequestError extends Error {
-  constructor(message: string) {
-    super(message);
-    this.name = this.constructor.name;
-  }
-}
+import { ApiError } from '../common/api-error';
 
-/** ไฟล์ที่อัปโหลดไม่ใช่ PDF (ตรวจจากไบต์แรกของไฟล์ ไม่เชื่อ mimetype/นามสกุลที่ผู้ใช้ส่งมา) → 415 */
-export class PdfUnsupportedTypeError extends Error {
-  constructor() {
-    super('ไฟล์ที่อัปโหลดไม่ใช่ PDF');
-    this.name = this.constructor.name;
-  }
-}
+/** ข้อมูลที่ส่งมา (ฟอร์ม / body / ผังที่แก้) ผิดรูปแบบ */
+export const invalidDraftRequest = (message: string) => new ApiError(400, 'INVALID_DRAFT_REQUEST', message);
 
-export class DraftNotFoundError extends Error {
-  constructor(id: string) {
-    super(`ไม่พบร่างผัง '${id}'`);
-    this.name = this.constructor.name;
-  }
-}
+export const pdfUnsupportedType = () => new ApiError(415, 'PDF_UNSUPPORTED_TYPE', 'ไฟล์ที่อัปโหลดไม่ใช่ PDF');
 
-/** สถานะของร่างไม่อนุญาตการกระทำนี้ (เช่น publish ร่างที่ยังไม่ ready) → 409 */
-export class DraftNotReadyError extends Error {
-  constructor(action: string, status: string) {
-    super(`ทำ '${action}' ไม่ได้ในสถานะ '${status}'`);
-    this.name = this.constructor.name;
-  }
-}
+export const draftNotFound = (id: string) => new ApiError(404, 'DRAFT_NOT_FOUND', `ไม่พบร่างผัง '${id}'`);
 
-/** มีร่างกำลังถูก LLM ร่างอยู่ (ทีละ 1 งาน) → 409 */
-export class DraftBusyError extends Error {
-  constructor() {
-    super('มีร่างอื่นกำลังถูกร่างอยู่ รอให้เสร็จก่อนแล้วลองใหม่');
-    this.name = this.constructor.name;
-  }
-}
+/** สถานะของร่างไม่อนุญาตให้ทำการนี้ (action = edit / reject / publish) */
+export const draftNotReady = (action: string, status: string) =>
+  new ApiError(409, 'DRAFT_NOT_READY', `ทำ '${action}' ไม่ได้ในสถานะ '${status}'`);
 
-/** validator พบ error → publish ไม่ได้ ไม่มี override → 409 */
-export class DraftInvalidError extends Error {
-  constructor(readonly errorCount: number) {
-    super(`ร่างผังยังไม่ผ่านการตรวจ (${errorCount} error) แก้ให้ผ่านก่อนเผยแพร่ — ไม่มีทางข้ามการตรวจ`);
-    this.name = this.constructor.name;
-  }
-}
+export const draftBusy = () => new ApiError(409, 'DRAFT_BUSY', 'มีร่างอื่นกำลังถูกร่างอยู่ รอให้เสร็จก่อนแล้วลองใหม่');
 
-/** มี warning แต่ผู้ตรวจยังไม่ส่ง acknowledgedWarnings: true → 409 */
-export class WarningsNotAcknowledgedError extends Error {
-  constructor(readonly warningCount: number) {
-    super(`ร่างผังมีคำเตือน ${warningCount} ข้อ ต้องอ่านและส่ง acknowledgedWarnings: true ยืนยันก่อนเผยแพร่`);
-    this.name = this.constructor.name;
-  }
-}
+export const draftInvalid = (errorCount: number) =>
+  new ApiError(409, 'DRAFT_INVALID', `ร่างผังยังไม่ผ่านการตรวจ (${errorCount} error) แก้ให้ผ่านก่อนเผยแพร่ — ไม่มีทางข้ามการตรวจ`);
 
-/** manual_id หรือ graph_id ชนกับของที่มีอยู่แล้ว (ห้ามเขียนทับผังที่ใช้งานอยู่) → 409 */
-export class DraftIdConflictError extends Error {
-  constructor(readonly conflicts: string[]) {
-    super(`ชนกับข้อมูลที่มีอยู่แล้ว: ${conflicts.slice(0, 5).join(', ')}${conflicts.length > 5 ? ` (และอีก ${conflicts.length - 5})` : ''} — ไม่เขียนทับ`);
-    this.name = this.constructor.name;
-  }
-}
+export const warningsNotAcknowledged = (warningCount: number) =>
+  new ApiError(409, 'DRAFT_WARNINGS_UNACKNOWLEDGED', `ร่างผังมีคำเตือน ${warningCount} ข้อ ต้องอ่านและส่ง acknowledgedWarnings: true ยืนยันก่อนเผยแพร่`);
 
-/** เขียนผังลงฐานข้อมูลสำเร็จแล้ว แต่โหลดเข้าหน่วยความจำของ backend ไม่สำเร็จ → 500 (ผังเดิมยังทำงานปกติ) */
-export class PublishReloadError extends Error {
-  constructor() {
-    super('เผยแพร่ลงฐานข้อมูลแล้ว แต่โหลดผังเข้าระบบไม่สำเร็จ — ผังเดิมยังใช้งานได้ ให้รีสตาร์ต backend เพื่อโหลดผังใหม่');
-    this.name = this.constructor.name;
-  }
-}
+export const draftIdConflict = (conflicts: string[]) =>
+  new ApiError(
+    409,
+    'DRAFT_ID_CONFLICT',
+    `ชนกับข้อมูลที่มีอยู่แล้ว: ${conflicts.slice(0, 5).join(', ')}${conflicts.length > 5 ? ` (และอีก ${conflicts.length - 5})` : ''} — ไม่เขียนทับ`,
+  );
+
+/** เขียนลงฐานข้อมูลแล้ว แต่โหลดผังเข้าหน่วยความจำไม่สำเร็จ */
+export const publishReloadFailed = () =>
+  new ApiError(500, 'PUBLISH_RELOAD_FAILED', 'เผยแพร่ลงฐานข้อมูลแล้ว แต่โหลดผังเข้าระบบไม่สำเร็จ — ผังเดิมยังใช้งานได้ ให้รีสตาร์ต backend เพื่อโหลดผังใหม่');

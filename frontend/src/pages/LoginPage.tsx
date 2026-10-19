@@ -3,13 +3,13 @@ import { useState } from 'react'
 import type { FormEvent } from 'react'
 import { Link, Navigate, useNavigate, useSearchParams } from 'react-router-dom'
 import { TextField } from '../components/auth/TextField'
+import { ErrorNotice } from '../components/ErrorNotice'
 import { Button } from '../components/ui/Button'
 import { Notice } from '../components/ui/Notice'
 import { useAuth } from '../lib/authContext'
 import { hasErrors, validateLogin } from '../lib/authForm'
 import type { FormErrors } from '../lib/authForm'
 import { safeNext } from '../lib/authRedirect'
-import { describeError } from '../lib/errors'
 
 /**
  * หน้าเข้าสู่ระบบ (/login) — ทางเลือกเสริม ไม่จำเป็นต่อการตรวจอาการ (guest ใช้ได้เหมือนเดิม)
@@ -46,8 +46,6 @@ export function LoginPage() {
     if (hasErrors(errors)) return
     submit.mutate()
   }
-
-  const described = submit.isError ? describeError(submit.error) : undefined
 
   return (
     <div className="mx-auto max-w-md space-y-6">
@@ -87,13 +85,7 @@ export function LoginPage() {
           disabled={submit.isPending}
         />
 
-        {described !== undefined && (
-          <div role="alert">
-            <Notice tone="danger" title={described.title}>
-              <p>{described.detail}</p>
-            </Notice>
-          </div>
-        )}
+        {submit.isError && <ErrorNotice error={submit.error} />}
 
         <Button type="submit" isLoading={submit.isPending} className="w-full">
           เข้าสู่ระบบ

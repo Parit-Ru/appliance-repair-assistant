@@ -7,14 +7,7 @@ export type {
   RenderedNode,
 } from '../../../backend/src/traversal-engine/types'
 
-import type {
-  DeviceCategory,
-  NodeReference,
-  OutcomeKind,
-  SessionStatus,
-  RenderedNode,
-  TraversalAction,
-} from '../../../backend/src/traversal-engine/types'
+import type { DeviceCategory, NodeReference, OutcomeKind, SessionStatus, RenderedNode, TraversalAction } from '../../../backend/src/traversal-engine/types'
 
 
 //รายการอาการ 1 รายการ ที่ GET /traversal/graphs ส่งกลับมาเป็น array
@@ -45,7 +38,7 @@ export interface ManualSummary {
 export type ModelSelection = 'selected' | 'unknown'
 
 // ผังขั้นตอน 1 รายการที่ POST /symptom-search ส่งกลับมาในฟิลด์ matches
-export interface SymptomMatch {
+interface SymptomMatch {
   graphId: string
   entrySymptom: string
   entrySymptomTh?: string
@@ -94,20 +87,6 @@ export interface ApiErrorBody {
 // ประวัติการซ่อม (GET/DELETE/POST /history…) — รูปร่างตรงกับ backend/src/history/history.dto.ts
 // ============================================================
 
-export type HistorySort = 'newest' | 'oldest'
-
-/** ตัวกรอง/การเรียง/หน้า ของรายการประวัติ (ที่ URL เก็บไว้ ดู lib/historyParams.ts) */
-export interface HistoryParams {
-  /** ข้อความค้นหา ว่าง = ไม่ค้นหา */
-  q: string
-  category: DeviceCategory | undefined
-  brand: string | undefined
-  /** = outcome_kind ของโหนดสุดท้าย */
-  status: OutcomeKind | undefined
-  sort: HistorySort
-  page: number
-}
-
 // ข้อมูลผังของแถวประวัติ ใช้ symptomName() และ manualTitle() ตัวเดิมได้ (displayName ไม่มี = แสดง modelPattern)
 export interface HistoryGraphInfo {
   manualId: string
@@ -137,13 +116,9 @@ export interface HistoryListResponse {
   page: number
   pageSize: number
   totalPages: number
-  facets: {
-    categories: DeviceCategory[]
-    brands: string[]
-  }
 }
 
-export interface HistoryStep {
+interface HistoryStep {
   node: RenderedNode
   action: TraversalAction
 }
@@ -263,7 +238,7 @@ export interface HistoryDetail {
 
 export type DraftStatus = 'drafting' | 'ready' | 'failed' | 'rejected' | 'published'
 
-export interface DraftMeta {
+interface DraftMeta {
   device_category: string
   brand: string
   model_pattern: string
@@ -318,7 +293,7 @@ export interface ValidationReport {
   validatedAt: string
 }
 
-export interface DraftPage {
+interface DraftPage {
   page: number
   text: string
 }

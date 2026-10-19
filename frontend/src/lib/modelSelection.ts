@@ -47,15 +47,6 @@ export function startOptions(
   return { manualId: chosen.manualId, modelSelection: chosen.modelSelection }
 }
 
-/** ตัวแปรตอน "เริ่มอาการนี้ใหม่": พาค่า modelSelection เดิมไปตามเดิม (undefined ก็ยังเป็น undefined ไม่เปลี่ยนเป็น 'selected') */
-export function restartVariables(
-  graphId: string,
-  manualId: string | undefined,
-  modelSelection: ModelSelection | undefined,
-): { graphId: string; manualId: string | undefined; modelSelection: ModelSelection | undefined } {
-  return { graphId, manualId, modelSelection }
-}
-
 /**
  * ลิงก์ "ตรวจอาการอื่น"/หลังยกเลิก
  * - เริ่มจากรายการทุกรุ่น (ไม่มี modelSelection): กลับรายการทุกรุ่น ไม่พาไปหน้าของรุ่นที่จะกลายเป็น 'selected'

@@ -7,7 +7,7 @@
 // รัน: node scripts/backup-graph-tables.js          → backups/graph-tables-<เวลา>.sql
 //
 // กู้คืน (ถ้าจำเป็น): ไฟล์เป็น INSERT ล้วน ไม่ลบอะไร · ถ้าจะกู้ทั้งตารางต้องลบข้อมูลที่ต้องการแทนที่ก่อนเอง
-// (ผังที่ publish เพิ่มเข้าไปมี manual_id/graph_id ใหม่ ลบออกด้วย SQL ใน docs/authoring-b1-testing.md ได้โดยไม่ต้องกู้)
+// (ผังที่ publish เพิ่มเข้าไปมี manual_id/graph_id ใหม่ ลบออกด้วย SQL ใน docs/authoring/authoring-b1-testing.md ได้โดยไม่ต้องกู้)
 
 require('dotenv/config');
 

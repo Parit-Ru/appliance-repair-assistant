@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "_readme": "รายการอุปกรณ์ที่ควรเตรียมก่อนซ่อม แยกตามประเภทเครื่อง",
-  "reviewed_by_author": false,
-  "_reviewed_by_author_note": "เครื่องปรับอากาศ: ผู้พัฒนาตรวจและรับรองแล้วเมื่อ 8 กันยายน 2569 (ครบ 7 รายการ). ไมโครเวฟ ตู้เย็น เครื่องซักผ้า ทีวี (ทั้งสองคู่มือ): AI ร่างเมื่อ 14 ตุลาคม 2569 จากข้อความในคู่มือ ยังไม่ผ่านการตรวจโดยผู้พัฒนา. รายการที่มี source_page ตรวจกับหน้าในคู่มือแล้ว รายการที่มี author_note ไม่ได้อยู่ในคู่มือ.",
+  "reviewed_by_author": true,
+  "_reviewed_by_author_note": "เครื่องปรับอากาศ: ผู้พัฒนาตรวจและรับรองแล้วเมื่อ 8 กันยายน 2569 (ครบ 7 รายการ). ไมโครเวฟ ตู้เย็น เครื่องซักผ้า ทีวี (ทั้งสองคู่มือ): AI ร่างเมื่อ 14 ตุลาคม 2569 จากข้อความในคู่มือ ผู้พัฒนาสั่งเปิดใช้งานเมื่อ 17 ตุลาคม 2569 (ยังไม่ได้ตรวจทีละรายการ).รายการที่มี source_page ตรวจกับหน้าในคู่มือแล้ว รายการที่มี author_note ไม่ได้อยู่ในคู่มือ.",
   "equipment": [
     {
       "equipment_id": "usb_c_cable",
@@ -181,7 +181,7 @@
     },
     {
       "device_category": "Microwave",
-      "reviewed_by_author": false,
+      "reviewed_by_author": true,
       "items": [
         {
           "equipment_id": "oven_mitts",
@@ -222,7 +222,7 @@
     },
     {
       "device_category": "Refrigerator",
-      "reviewed_by_author": false,
+      "reviewed_by_author": true,
       "items": [
         {
           "equipment_id": "soft_cloth",
@@ -269,7 +269,7 @@
     },
     {
       "device_category": "Washing Machine",
-      "reviewed_by_author": false,
+      "reviewed_by_author": true,
       "items": [
         {
           "equipment_id": "pliers",
@@ -316,7 +316,7 @@
     },
     {
       "device_category": "Television",
-      "reviewed_by_author": false,
+      "reviewed_by_author": true,
       "items": [
         {
           "equipment_id": "batteries",

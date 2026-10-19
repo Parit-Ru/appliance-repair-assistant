@@ -2,23 +2,23 @@ import { Logger } from '@nestjs/common';
 
 import { checkRephrase } from './rephrase-guard';
 
-export type RephraseNodeType = 'checkpoint' | 'instruction' | 'input' | 'resolution' | 'escalation';
+type RephraseNodeType = 'checkpoint' | 'instruction' | 'input' | 'resolution' | 'escalation';
 
 export interface LlmClient {
   rephrase(text: string, signal: AbortSignal): Promise<string>;
 }
 
-export interface RephraseContext {
+interface RephraseContext {
   nodeType: RephraseNodeType;
   safetyCritical: boolean;
 }
 
-export interface RephraseResult {
+interface RephraseResult {
   text: string;
   rephrased: boolean;
 }
 
-export interface RephraseOptions {
+interface RephraseOptions {
   enabled: boolean;
   timeoutMs?: number;
 }

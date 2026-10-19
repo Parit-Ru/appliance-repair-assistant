@@ -15,6 +15,7 @@
 import { Injectable } from '@nestjs/common';
 
 import type { SessionOwner } from '../auth/session-owner';
+import { ApiError } from '../common/api-error';
 import { GraphRepository } from './graph.repository';
 import type { GraphSummary, ManualSummary } from './graph.repository';
 import { EquipmentRepository } from './equipment.repository';
@@ -22,71 +23,39 @@ import { SessionStore } from './session.store';
 import { SymptomSearchService } from '../symptom-search/symptom-search.service';
 import { RephraseService } from '../rephrase/rephrase.service';
 import type { ModelSelection, SessionResponseDto } from './traversal.dto';
-import {
-  getCurrentNode,
-  startSession as engineStartSession,
-  submitAction as engineSubmitAction,
-} from '../traversal-engine/traversal-engine';
-import type {
-  RenderedNode,
-  SessionState,
-  TraversalAction,
-  TroubleshootingGraph,
-} from '../traversal-engine/types';
+import { getCurrentNode, startSession as engineStartSession, submitAction as engineSubmitAction } from '../traversal-engine/traversal-engine';
+import type { RenderedNode, SessionState, TraversalAction, TroubleshootingGraph } from '../traversal-engine/types';
 
 // ============================================================
 // ข้อผิดพลาดของ service เอง
 //
-// ไม่ extends TraversalError เพราะไม่ได้มาจาก engine — engine ไม่รู้จัก "session"
-// หรือ "ผังที่ไม่มีอยู่" มันรับ SessionState + TroubleshootingGraph ที่มีอยู่แล้วมาทำงานเท่านั้น
-// การหาไม่เจอเป็นเรื่องของชั้นข้อมูล (repository/store คืน undefined)
-// service จึงเป็นคนแปลงเป็น error เอง
-// TraversalExceptionFilter จับด้วย instanceof แล้วแปลงเป็นรหัส HTTP
+// ไม่ใช่ error ของ engine — engine ไม่รู้จัก "session" หรือ "ผังที่ไม่มีอยู่" มันรับ SessionState + TroubleshootingGraph
+// ที่มีอยู่แล้วมาทำงานเท่านั้น การหาไม่เจอเป็นเรื่องของชั้นข้อมูล (repository/store คืน undefined)
+// service จึงเป็นคนสร้าง ApiError เอง (status + code + ข้อความ) · AllExceptionsFilter แปลงเป็น response
 // ============================================================
 
-export class GraphNotFoundError extends Error {
-  constructor(graphId: string) {
-    super(`ไม่พบผังขั้นตอน '${graphId}'`);
-    this.name = this.constructor.name;
-  }
-}
+const graphNotFound = (graphId: string) => new ApiError(404, 'GRAPH_NOT_FOUND', `ไม่พบผังขั้นตอน '${graphId}'`);
 
 /**
  * ผังที่ขอเริ่มตรวจไม่ใช่ของรุ่น/คู่มือที่ผู้ใช้เลือก → 400 GRAPH_MANUAL_MISMATCH
  * กันเริ่มตรวจด้วยขั้นตอนของรุ่นอื่นโดยไม่รู้ตัว (เช็กก่อนสร้าง session จึงไม่มีอะไรค้างในฐานข้อมูล)
  */
-export class GraphManualMismatchError extends Error {
-  constructor(graphId: string, manualId: string) {
-    super(`ผังขั้นตอน '${graphId}' ไม่ใช่ของคู่มือ '${manualId}'`);
-    this.name = this.constructor.name;
-  }
-}
+const graphManualMismatch = (graphId: string, manualId: string) =>
+  new ApiError(400, 'GRAPH_MANUAL_MISMATCH', `ผังขั้นตอน '${graphId}' ไม่ใช่ของคู่มือ '${manualId}'`);
 
-export class SessionNotFoundError extends Error {
-  constructor(sessionId: string) {
-    super(`ไม่พบ session '${sessionId}' (อาจไม่เคยมีอยู่ หรือหมดอายุแล้ว)`);
-    this.name = this.constructor.name;
-  }
-}
+const sessionNotFound = (sessionId: string) =>
+  new ApiError(404, 'SESSION_NOT_FOUND', `ไม่พบ session '${sessionId}' (อาจไม่เคยมีอยู่ หรือหมดอายุแล้ว)`);
 
 /**
  * บันทึกผลลัพธ์ให้ session ที่ยังเดินอยู่ (ยังไม่ถึงสถานะสิ้นสุด) → 409 SESSION_NOT_COMPLETED
  * ผลลัพธ์ที่ผู้ใช้กรอกมีความหมายเฉพาะตอนการตรวจจบแล้ว จึงรับเฉพาะ session ที่ status เป็น completed
  */
-export class SessionNotCompletedError extends Error {
-  constructor(sessionId: string) {
-    super(`session '${sessionId}' ยังไม่ถึงสถานะสิ้นสุด บันทึกผลลัพธ์ไม่ได้`);
-    this.name = this.constructor.name;
-  }
-}
+const sessionNotCompleted = (sessionId: string) =>
+  new ApiError(409, 'SESSION_NOT_COMPLETED', `session '${sessionId}' ยังไม่ถึงสถานะสิ้นสุด บันทึกผลลัพธ์ไม่ได้`);
 
 /** session นี้เคยบันทึกผลลัพธ์ไปแล้ว ส่งซ้ำหรือแก้ไขไม่ได้ → 409 OUTCOME_ALREADY_SUBMITTED */
-export class OutcomeAlreadySubmittedError extends Error {
-  constructor(sessionId: string) {
-    super(`session '${sessionId}' บันทึกผลลัพธ์ไปแล้ว ส่งซ้ำไม่ได้`);
-    this.name = this.constructor.name;
-  }
-}
+const outcomeAlreadySubmitted = (sessionId: string) =>
+  new ApiError(409, 'OUTCOME_ALREADY_SUBMITTED', `session '${sessionId}' บันทึกผลลัพธ์ไปแล้ว ส่งซ้ำไม่ได้`);
 
 @Injectable()
 export class TraversalService {
@@ -130,7 +99,7 @@ export class TraversalService {
   ): Promise<SessionResponseDto> {
     const graph = this.requireGraph(graphId);
     if (manualId !== undefined && graph.manual_id !== manualId) {
-      throw new GraphManualMismatchError(graphId, manualId);
+      throw graphManualMismatch(graphId, manualId);
     }
     const confidence = await this.computeConfidence(graphId, query);
 
@@ -191,7 +160,7 @@ export class TraversalService {
    *
    * ลบได้เฉพาะเจ้าของ: owner ต้องตรงกับที่บันทึกไว้ตอนเริ่ม session (user → user_id · guest → client_id และ session ต้องไม่ใช่ของ user)
    * ไม่มี session / ไม่ใช่เจ้าของ / session ไม่มีเจ้าของ (client_id เป็น NULL) / หมดอายุแล้ว
-   * ล้วนได้ SessionNotFoundError (404) เหมือนกันหมด ไม่เปิดเผยว่า session นั้นมีอยู่จริง
+   * ล้วนได้ sessionNotFound (404) เหมือนกันหมด ไม่เปิดเผยว่า session นั้นมีอยู่จริง
    * ยกเลิกซ้ำครั้งที่สองจึงได้ 404 ไม่ใช่ 204 เงียบๆ
    *
    * ตรวจและลบในคำสั่ง SQL เดียว (sessionStore.delete) ไม่ find ก่อนแล้วค่อยลบ
@@ -199,7 +168,7 @@ export class TraversalService {
    */
   async abandonSession(sessionId: string, owner: SessionOwner): Promise<void> {
     const deleted = await this.sessionStore.delete(sessionId, owner);
-    if (!deleted) throw new SessionNotFoundError(sessionId);
+    if (!deleted) throw sessionNotFound(sessionId);
   }
 
   /**
@@ -230,12 +199,12 @@ export class TraversalService {
     const graph = this.requireGraph(session.graphId);
 
     if (session.status !== 'completed') {
-      throw new SessionNotCompletedError(sessionId);
+      throw sessionNotCompleted(sessionId);
     }
 
     const saved = await this.sessionStore.saveOutcome(sessionId, text);
     if (!saved) {
-      throw new OutcomeAlreadySubmittedError(sessionId);
+      throw outcomeAlreadySubmitted(sessionId);
     }
 
     const node = getCurrentNode(session, graph);
@@ -250,28 +219,28 @@ export class TraversalService {
    * ด่านเจ้าของของ endpoint เดินขั้นตอน (GET / actions / outcome) — เรียกก่อนแตะ session เสมอ
    *
    * session ที่เริ่มตอนล็อกอิน (มี user_id) ต้องมี token ของเจ้าของนั้นเท่านั้น
-   * ไม่มี token / เป็นของ user คนอื่น → SessionNotFoundError (404 เหมือนไม่มี session ไม่บอกว่ามีอยู่)
+   * ไม่มี token / เป็นของ user คนอื่น → sessionNotFound (404 เหมือนไม่มี session ไม่บอกว่ามีอยู่)
    * session ของ guest (user_id เป็น NULL) ยังใช้ session id เป็นกุญแจเหมือนเดิม ไม่เปลี่ยนพฤติกรรมของ guest
    * ไม่มี session นี้เลย → ผ่านด่านนี้ไป แล้ว requireSession() ตอบ 404 เอง
    */
   private async authorize(sessionId: string, requesterUserId?: string): Promise<void> {
     const ownerUserId = await this.sessionStore.findUserId(sessionId);
     if (ownerUserId !== null && ownerUserId !== requesterUserId) {
-      throw new SessionNotFoundError(sessionId);
+      throw sessionNotFound(sessionId);
     }
   }
 
-  /** คืนกราฟ หรือโยน GraphNotFoundError ให้ controller/filter แปลงเป็น 404 ต่อ */
+  /** คืนกราฟ หรือโยน graphNotFound (404) */
   private requireGraph(graphId: string): TroubleshootingGraph {
     const graph = this.graphRepository.findById(graphId);
-    if (!graph) throw new GraphNotFoundError(graphId);
+    if (!graph) throw graphNotFound(graphId);
     return graph;
   }
 
-  /** คืน session หรือโยน SessionNotFoundError (ครอบคลุมทั้งไม่เคยมีและหมดอายุแล้ว) */
+  /** คืน session หรือโยน sessionNotFound (ครอบคลุมทั้งไม่เคยมีและหมดอายุแล้ว) */
   private async requireSession(sessionId: string): Promise<SessionState> {
     const session = await this.sessionStore.find(sessionId);
-    if (!session) throw new SessionNotFoundError(sessionId);
+    if (!session) throw sessionNotFound(sessionId);
     return session;
   }
 

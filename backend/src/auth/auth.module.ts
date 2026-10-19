@@ -21,12 +21,12 @@ import { OptionalJwtAuthGuard } from './optional-jwt-auth.guard';
 import { RolesGuard } from './roles.guard';
 import { UsersStore } from './users.store';
 
-export const MIN_JWT_SECRET_LENGTH = 32;
-export const DEFAULT_JWT_EXPIRES_IN = '7d';
+const MIN_JWT_SECRET_LENGTH = 32;
+const DEFAULT_JWT_EXPIRES_IN = '7d';
 /** จำนวน + หน่วย (s m h d w y) เช่น 7d — ไม่รับเลขเปล่า เพราะ jsonwebtoken ตีความเลขเปล่าเป็นมิลลิวินาที */
 const EXPIRES_IN_PATTERN = /^\d+(s|m|h|d|w|y)$/;
 
-export function buildJwtOptions(env: NodeJS.ProcessEnv = process.env): JwtModuleOptions {
+function buildJwtOptions(env: NodeJS.ProcessEnv = process.env): JwtModuleOptions {
   const secret = env.JWT_SECRET;
   if (!secret || secret.length < MIN_JWT_SECRET_LENGTH) {
     throw new Error(

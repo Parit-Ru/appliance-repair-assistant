@@ -1,58 +1,52 @@
+import { ApiError } from '../common/api-error';
+import { isPlainObject } from '../common/helpers';
 import type { DeviceCategory } from '../traversal-engine/types';
 export const MAX_QUERY_LENGTH = 200;
 export const MAX_MANUAL_ID_LENGTH = 80;
 
-export class InvalidSearchQueryError extends Error {
-  constructor(message: string) {
-    super(message);
-    this.name = this.constructor.name;
-  }
-}
+/** body ของ POST /symptom-search ผิดรูปแบบ → 400 INVALID_QUERY */
+const invalid = (message: string) => new ApiError(400, 'INVALID_QUERY', message);
 
-export interface SearchBody {
+interface SearchBody {
   query: string;
   manualId?: string;
 }
 
 export function parseSearchBody(body: unknown): SearchBody {
-  if (typeof body !== 'object' || body === null || Array.isArray(body)) {
-    throw new InvalidSearchQueryError('body ต้องเป็น JSON object');
+  if (!isPlainObject(body)) {
+    throw invalid('body ต้องเป็น JSON object');
   }
 
-  const raw = (body as Record<string, unknown>).query;
+  const raw = body.query;
   if (typeof raw !== 'string') {
-    throw new InvalidSearchQueryError('query ต้องเป็นข้อความ');
+    throw invalid('query ต้องเป็นข้อความ');
   }
 
   const query = raw.trim();
   if (query === '') {
-    throw new InvalidSearchQueryError('query ต้องไม่ว่าง');
+    throw invalid('query ต้องไม่ว่าง');
   }
   if (query.length > MAX_QUERY_LENGTH) {
-    throw new InvalidSearchQueryError(
-      `query ยาวเกิน ${MAX_QUERY_LENGTH} ตัวอักษร`,
-    );
+    throw invalid(`query ยาวเกิน ${MAX_QUERY_LENGTH} ตัวอักษร`);
   }
 
-  const rawManual = (body as Record<string, unknown>).manualId;
+  const rawManual = body.manualId;
   if (rawManual === undefined) {
     return { query };
   }
   if (typeof rawManual !== 'string') {
-    throw new InvalidSearchQueryError('manualId ต้องเป็นข้อความ');
+    throw invalid('manualId ต้องเป็นข้อความ');
   }
 
   const manualId = rawManual.trim();
   if (manualId === '' || manualId.length > MAX_MANUAL_ID_LENGTH) {
-    throw new InvalidSearchQueryError(
-      `manualId ต้องไม่ว่างและยาวไม่เกิน ${MAX_MANUAL_ID_LENGTH} ตัวอักษร`,
-    );
+    throw invalid(`manualId ต้องไม่ว่างและยาวไม่เกิน ${MAX_MANUAL_ID_LENGTH} ตัวอักษร`);
   }
 
   return { query, manualId };
 }
 
-export interface SymptomMatchDto {
+interface SymptomMatchDto {
   graphId: string;
   entrySymptom: string;
   entrySymptomTh?: string;
@@ -61,7 +55,7 @@ export interface SymptomMatchDto {
   matchedText: string;
 }
 
-// POST /symptom-search 
+// POST /symptom-search
 export interface SymptomSearchResponseDto {
   query: string;
   threshold: number;
@@ -71,7 +65,7 @@ export interface SymptomSearchResponseDto {
 
 export type SearchState = 'disabled' | 'loading' | 'ready' | 'failed';
 
-// GET /symptom-search/status 
+// GET /symptom-search/status
 export interface SearchStatusDto {
   state: SearchState;
   model: string;

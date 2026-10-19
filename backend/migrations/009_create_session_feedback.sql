@@ -1,5 +1,5 @@
 -- 009: ผู้ใช้ให้คะแนนผลการตรวจย้อนหลัง 👍/👎 + ข้อความ (ไม่บังคับ) จากหน้า "ประวัติการซ่อม"
--- (docs/history-page.md ข้อ D4)
+-- (docs/features/history-page.md ข้อ D4)
 --
 -- 1 session มีได้ 1 แถว (PRIMARY KEY = session_id) · ส่งซ้ำ = แก้ค่าเดิม (ON DUPLICATE KEY UPDATE ที่ฝั่ง backend)
 -- helpful = 1 → 👍 · 0 → 👎

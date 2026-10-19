@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { HashRouter, Navigate, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import { AdminRoute } from './components/auth/AdminRoute'
 import { AuthProvider } from './components/auth/AuthProvider'
 import { AppShell } from './components/layout/AppShell'
@@ -28,13 +28,13 @@ const queryClient = new QueryClient({
 })
 
 /**
- * AuthProvider อยู่ใน QueryClientProvider (ล้างแคชตอน login/logout) และใน HashRouter (พาไปหน้าเข้าสู่ระบบ)
+ * AuthProvider อยู่ใน QueryClientProvider (ล้างแคชตอน login/logout) และใน BrowserRouter (พาไปหน้าเข้าสู่ระบบ)
  * หน้าเดิมทั้งหมดไม่บังคับเข้าสู่ระบบ · เฉพาะ /admin/* ครอบด้วย AdminRoute (UX · backend ตรวจสิทธิ์จริง)
  */
 export default function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <HashRouter>
+      <BrowserRouter basename={import.meta.env.BASE_URL}>
         <AuthProvider>
           <AppShell>
             <Routes>
@@ -84,7 +84,7 @@ export default function App() {
             </Routes>
           </AppShell>
         </AuthProvider>
-      </HashRouter>
+      </BrowserRouter>
     </QueryClientProvider>
   )
 }

@@ -2,10 +2,10 @@ import { useId, useState } from 'react'
 import type { FormEvent, ReactNode } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useUploadDraft } from '../../../api/queries'
-import { DEVICE_CATEGORY_LABELS } from '../../../lib/labels'
-import { DRAFT_DEVICE_CATEGORIES, MAX_DRAFT_PAGES, isDemoManualId, validateUploadForm } from '../../../lib/draftView'
+import { DEVICE_CATEGORIES, DEVICE_CATEGORY_LABELS } from '../../../lib/labels'
+import { MAX_DRAFT_PAGES, isDemoManualId, validateUploadForm } from '../../../lib/draftView'
 import type { UploadFormErrors, UploadFormValues } from '../../../lib/draftView'
-import { HistoryErrorNotice } from '../../history/HistoryErrorNotice'
+import { ErrorNotice } from '../../ErrorNotice'
 import { Button } from '../../ui/Button'
 import { Notice } from '../../ui/Notice'
 
@@ -141,7 +141,7 @@ export function UploadDraftForm() {
         </Field>
         {values.manualId.trim().length >= 3 && !isDemoManualId(values.manualId) && (
           <Notice tone="info" title="รหัสไม่ได้ขึ้นต้นด้วย demo_">
-            ถ้าเป็นการทดสอบ แนะนำให้ขึ้นต้นด้วย demo_ เพราะคู่มือที่เผยแพร่แล้วลบได้ด้วย SQL เท่านั้น (ดู docs/authoring-step5.md)
+            ถ้าเป็นการทดสอบ แนะนำให้ขึ้นต้นด้วย demo_ เพราะคู่มือที่เผยแพร่แล้วลบได้ด้วย SQL เท่านั้น (ดู docs/authoring/authoring-step5.md)
           </Notice>
         )}
 
@@ -150,7 +150,7 @@ export function UploadDraftForm() {
             {(id, describedBy) => (
               <select id={id} value={values.deviceCategory} onChange={(e) => set('deviceCategory')(e.target.value)} aria-describedby={describedBy} disabled={upload.isPending} className={`${FIELD_CLASSES} ${border('deviceCategory')}`}>
                 <option value="">เลือกประเภทเครื่อง</option>
-                {DRAFT_DEVICE_CATEGORIES.map((category) => (
+                {DEVICE_CATEGORIES.map((category) => (
                   <option key={category} value={category}>
                     {DEVICE_CATEGORY_LABELS[category]}
                   </option>
@@ -181,7 +181,7 @@ export function UploadDraftForm() {
           )}
         </Field>
 
-        {upload.isError && <HistoryErrorNotice error={upload.error} />}
+        {upload.isError && <ErrorNotice error={upload.error} />}
 
         <Button type="submit" isLoading={upload.isPending}>
           อัปโหลดและเริ่มร่าง

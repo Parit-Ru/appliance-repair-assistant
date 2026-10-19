@@ -10,35 +10,21 @@
  *   - รายการ: แถวที่ผัง/โหนดหายไม่ทำให้ทั้งรายการล้ม ส่ง graph/outcomeKind เป็น null ให้หน้าจอแสดงแบบจำกัดข้อมูล
  *   - รายละเอียด: ตอบ available=false (200) ไม่ใช่ 500 — ดู buildDetail()
  *
- * การกรอง/เรียง/แบ่งหน้าทำในหน่วยความจำ เพราะประวัติของคนเดียวมีน้อย (เพดาน MAX_HISTORY_ROWS)
+ * การเรียง/แบ่งหน้าของรายการทำในหน่วยความจำ เพราะประวัติของคนเดียวมีน้อย (เพดาน MAX_HISTORY_ROWS)
  * และข้อมูลผังอยู่ในหน่วยความจำอยู่แล้ว (GraphRepository) ไม่ต้อง JOIN ใน SQL
  */
 
 import { Injectable } from '@nestjs/common';
 
 import type { SessionOwner } from '../auth/session-owner';
-import { getCurrentNode, submitAction as engineSubmitAction } from '../traversal-engine/traversal-engine';
+import { ApiError } from '../common/api-error';
+import { isoFromEpoch } from '../common/helpers';
+import { getCurrentNode, getOutcomeKind, submitAction as engineSubmitAction } from '../traversal-engine/traversal-engine';
 import { TraversalError } from '../traversal-engine/types';
-import type {
-  OutcomeKind,
-  RenderedNode,
-  SessionHistoryEntry,
-  SessionState,
-  TroubleshootingGraph,
-} from '../traversal-engine/types';
+import type { RenderedNode, SessionHistoryEntry, SessionState, TroubleshootingGraph } from '../traversal-engine/types';
 import { GraphRepository } from '../traversal/graph.repository';
 import type { ManualSummary } from '../traversal/graph.repository';
-import { DEVICE_CATEGORIES } from './history.dto';
-import type {
-  FeedbackBody,
-  HistoryDetailDto,
-  HistoryFeedbackDto,
-  HistoryGraphInfo,
-  HistoryListItemDto,
-  HistoryListResponseDto,
-  HistoryQuery,
-  HistoryStepDto,
-} from './history.dto';
+import type { HistoryDetailDto, HistoryFeedbackDto, HistoryGraphInfo, HistoryListItemDto, HistoryListResponseDto, HistoryQuery, HistoryStepDto } from './history.dto';
 import { HistoryStore } from './history.store';
 import type { CompletedSession, CompletedSessionSummary } from './history.store';
 
@@ -47,19 +33,8 @@ import type { CompletedSession, CompletedSessionSummary } from './history.store'
  * ครอบคลุมทั้ง: ไม่มี id นี้, เป็นของคนอื่น, ยังไม่จบ, หมดอายุแล้ว — ตอบเหมือนกันหมด
  * ไม่บอกว่า id นั้นมีอยู่จริงแต่เป็นของคนอื่น (ไม่ใช่ 403)
  */
-export class HistoryNotFoundError extends Error {
-  constructor(sessionId: string) {
-    super(`ไม่พบรายการประวัติ '${sessionId}' (อาจถูกลบ หมดอายุ หรือไม่ใช่ของคุณ)`);
-    this.name = this.constructor.name;
-  }
-}
-
-interface ListEntry {
-  epoch: number;
-  item: HistoryListItemDto;
-  /** ข้อความตัวพิมพ์เล็กรวมชื่ออาการ/ยี่ห้อ/รุ่น ไว้ค้นหา */
-  haystack: string;
-}
+const historyNotFound = (sessionId: string) =>
+  new ApiError(404, 'HISTORY_NOT_FOUND', `ไม่พบรายการประวัติ '${sessionId}' (อาจถูกลบ หมดอายุ หรือไม่ใช่ของคุณ)`);
 
 @Injectable()
 export class HistoryService {
@@ -68,56 +43,26 @@ export class HistoryService {
     private readonly graphRepository: GraphRepository,
   ) {}
 
-  /** GET /history */
+  /** GET /history — ใหม่สุดก่อน (เวลาเท่ากันเรียงตาม session id ย้อนกลับ ให้ลำดับคงที่) แล้วแบ่งหน้า */
   async list(owner: SessionOwner, query: HistoryQuery): Promise<HistoryListResponseDto> {
     const summaries = await this.store.listCompleted(owner);
     const manuals = this.manualsById();
 
-    const entries = summaries.map((summary) => this.toListEntry(summary, manuals));
-
-    // ตัวเลือกของตัวกรองนับจากประวัติทั้งหมด (ก่อนกรอง) เพื่อไม่ให้ตัวเลือกหายไปเมื่อกรองอยู่
-    const categories = new Set<string>();
-    const brands = new Set<string>();
-    for (const { item } of entries) {
-      if (item.graph) {
-        categories.add(item.graph.deviceCategory);
-        brands.add(item.graph.brand);
-      }
-    }
-
-    const terms = (query.q ?? '').toLowerCase().split(/\s+/).filter((t) => t !== '');
-    const brandFilter = query.brand?.toLowerCase();
-
-    const filtered = entries.filter(({ item, haystack }) => {
-      // แถวที่ผังหาย (graph/outcomeKind = null) ไม่ตรงตัวกรองที่ต้องรู้ข้อมูลนั้น จึงปรากฏเฉพาะตอนไม่กรองด้วยมัน
-      if (query.category !== undefined && item.graph?.deviceCategory !== query.category) return false;
-      if (brandFilter !== undefined && item.graph?.brand.toLowerCase() !== brandFilter) return false;
-      if (query.status !== undefined && item.outcomeKind !== query.status) return false;
-      return terms.every((term) => haystack.includes(term));
-    });
-
-    const direction = query.sort === 'oldest' ? 1 : -1;
-    filtered.sort(
-      (a, b) =>
-        direction * (a.epoch - b.epoch) ||
-        direction * a.item.sessionId.localeCompare(b.item.sessionId),
+    const sorted = [...summaries].sort(
+      (a, b) => b.startedAtEpoch - a.startedAtEpoch || b.sessionId.localeCompare(a.sessionId),
     );
 
-    const total = filtered.length;
+    const total = sorted.length;
     const totalPages = Math.max(1, Math.ceil(total / query.pageSize));
     const page = Math.min(query.page, totalPages);
     const start = (page - 1) * query.pageSize;
 
     return {
-      items: filtered.slice(start, start + query.pageSize).map((entry) => entry.item),
+      items: sorted.slice(start, start + query.pageSize).map((summary) => this.toListItem(summary, manuals)),
       total,
       page,
       pageSize: query.pageSize,
       totalPages,
-      facets: {
-        categories: DEVICE_CATEGORIES.filter((category) => categories.has(category)),
-        brands: [...brands].sort((a, b) => a.localeCompare(b)),
-      },
     };
   }
 
@@ -135,7 +80,7 @@ export class HistoryService {
   async remove(owner: SessionOwner, sessionId: string): Promise<void> {
     const deleted = await this.store.deleteCompleted(sessionId, owner);
     if (!deleted) {
-      throw new HistoryNotFoundError(sessionId);
+      throw historyNotFound(sessionId);
     }
   }
 
@@ -143,7 +88,7 @@ export class HistoryService {
   async saveFeedback(
     owner: SessionOwner,
     sessionId: string,
-    body: FeedbackBody,
+    body: HistoryFeedbackDto,
   ): Promise<HistoryFeedbackDto> {
     await this.requireOwned(sessionId, owner);
     await this.store.saveFeedback(sessionId, body);
@@ -156,7 +101,7 @@ export class HistoryService {
 
   private async requireOwned(sessionId: string, owner: SessionOwner): Promise<CompletedSession> {
     const session = await this.store.findCompleted(sessionId, owner);
-    if (!session) throw new HistoryNotFoundError(sessionId);
+    if (!session) throw historyNotFound(sessionId);
     return session;
   }
 
@@ -164,41 +109,20 @@ export class HistoryService {
     return new Map(this.graphRepository.listManuals().map((manual) => [manual.manualId, manual]));
   }
 
-  private toListEntry(
-    summary: CompletedSessionSummary,
-    manuals: Map<string, ManualSummary>,
-  ): ListEntry {
+  private toListItem(summary: CompletedSessionSummary, manuals: Map<string, ManualSummary>): HistoryListItemDto {
     const graph = this.graphRepository.findById(summary.graphId);
-    const graphInfo = graphInfoOf(graph, manuals);
 
     // รายการดูแค่โหนดสุดท้ายว่าเป็นโหนดสิ้นสุดชนิดไหน (ไม่ replay ขั้นตอนทั้งหมดเพราะต้องดึงประวัติทีละ session)
     // ตัวตรวจเข้มของการ replay อยู่ที่รายละเอียด (buildDetail)
-    const finalNode = graph ? renderNodeIfPresent(graph, summary.currentNodeId, {}) : undefined;
-    const outcomeKind: OutcomeKind | null =
-      finalNode?.isTerminal === true ? (finalNode.outcomeKind ?? null) : null;
+    const outcomeKind = graph ? getOutcomeKind(graph, summary.currentNodeId) : null;
 
-    const item: HistoryListItemDto = {
+    return {
       sessionId: summary.sessionId,
       graphId: summary.graphId,
-      startedAt: new Date(summary.startedAtEpoch * 1000).toISOString(),
+      startedAt: isoFromEpoch(summary.startedAtEpoch),
       outcomeKind,
-      graph: graphInfo,
+      graph: graphInfoOf(graph, manuals),
     };
-
-    const haystack = graphInfo
-      ? [
-          graphInfo.entrySymptomTh,
-          graphInfo.entrySymptom,
-          graphInfo.brand,
-          graphInfo.modelPattern,
-          graphInfo.displayName,
-        ]
-          .filter((part): part is string => typeof part === 'string')
-          .join(' ')
-          .toLowerCase()
-      : '';
-
-    return { epoch: summary.startedAtEpoch, item, haystack };
   }
 
   private buildDetail(
@@ -210,7 +134,7 @@ export class HistoryService {
     const base = {
       sessionId: session.sessionId,
       graphId: session.graphId,
-      startedAt: new Date(session.startedAtEpoch * 1000).toISOString(),
+      startedAt: isoFromEpoch(session.startedAtEpoch),
       modelSelection: session.modelSelection,
       confidence: session.confidence,
       graph: graphInfoOf(graph, this.manualsById()),

@@ -31,7 +31,7 @@ function isRole(value: unknown): value is Role {
 }
 
 /** ตรวจรูปร่างของข้อมูลที่อ่านจาก localStorage (อาจถูกแก้มือ/เสีย) */
-export function parseStoredAuth(raw: string | null): StoredAuth | null {
+function parseStoredAuth(raw: string | null): StoredAuth | null {
   if (raw === null) return null
   try {
     const value: unknown = JSON.parse(raw)
@@ -83,9 +83,4 @@ export function clearStoredAuth(): void {
   } catch {
     // ลบไม่ได้: สำเนาในหน่วยความจำถูกล้างแล้ว
   }
-}
-
-/** ใช้ในเทสต์เท่านั้น: ล้างสำเนาในหน่วยความจำให้อ่านจาก localStorage ใหม่ */
-export function resetAuthStorageForTests(): void {
-  memory = undefined
 }

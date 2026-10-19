@@ -3,7 +3,7 @@ import { STEP_KIND_LABELS } from '../../lib/labels'
 import { Button } from '../ui/Button'
 import { Notice } from '../ui/Notice'
 import { StepCard } from './StepCard'
-import type { StepProps } from './stepProps'
+import type { StepProps } from './StepView'
 
 export function SafetyGateStep({ node, onAction, isPending, manualLabel }: StepProps) {
   const [acknowledged, setAcknowledged] = useState(false)

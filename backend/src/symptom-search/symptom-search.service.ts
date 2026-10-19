@@ -1,29 +1,22 @@
 import {Injectable, Logger, type OnApplicationBootstrap } from '@nestjs/common';
+import { ApiError } from '../common/api-error';
+import { round3 } from '../common/helpers';
 import { GraphRepository } from '../traversal/graph.repository';
 import type { DeviceCategory } from '../traversal-engine/types';
 import {EMBEDDING_DTYPE,EMBEDDING_MODEL_ID,EmbeddingService,} from '../embedding/embedding.service'
-import {buildSymptomTexts,rankGraphs,selectMatches,
-  type IndexedSymptom,type SymptomSource, } from './symptom-matcher';
+import {buildSymptomTexts,rankGraphs,selectMatches, type IndexedSymptom,type SymptomSource } from './symptom-matcher';
 import type {SearchState,SearchStatusDto,SymptomSearchResponseDto,} from './symptom-search.dto';
 
 
-export const MATCH_THRESHOLD = 0.55;
+const MATCH_THRESHOLD = 0.55;
 const MAX_RESULTS = 3;
-export const ENABLE_ENV_NAME = 'SYMPTOM_SEARCH_ENABLED';
+const ENABLE_ENV_NAME = 'SYMPTOM_SEARCH_ENABLED';
 
-export class SearchNotReadyError extends Error {
-  constructor() {
-    super('ระบบค้นหากำลังเริ่มทำงาน');
-    this.name = this.constructor.name;
-  }
-}
+/** กำลังโหลดโมเดล ลองใหม่ได้ → 503 SEARCH_NOT_READY */
+const searchNotReady = () => new ApiError(503, 'SEARCH_NOT_READY', 'ระบบค้นหากำลังเริ่มทำงาน');
 
-export class SearchUnavailableError extends Error {
-  constructor() {
-    super('ระบบค้นหาไม่พร้อมใช้งาน');
-    this.name = this.constructor.name;
-  }
-}
+/** ปิดอยู่หรือโหลดไม่สำเร็จ → 503 SEARCH_UNAVAILABLE */
+const searchUnavailable = () => new ApiError(503, 'SEARCH_UNAVAILABLE', 'ระบบค้นหาไม่พร้อมใช้งาน');
 
 interface GraphInfo {
   entrySymptom: string;
@@ -31,8 +24,6 @@ interface GraphInfo {
   deviceCategory: DeviceCategory;
   manualId: string;
 }
-
-const round3 = (n: number): number => Math.round(n * 1000) / 1000;
 
 @Injectable()
 export class SymptomSearchService implements OnApplicationBootstrap {
@@ -75,9 +66,8 @@ export class SymptomSearchService implements OnApplicationBootstrap {
    * โหลดโมเดล แล้วแปลงข้อความอาการทุกข้อความเป็นเวกเตอร์เก็บในหน่วยความจำ
    *
    * ไม่โยน error ออกไป: ล้มเหลวแล้วสถานะเป็น 'failed' เซิร์ฟเวอร์ที่เหลือทำงานต่อได้
-   * (public: เดิมเปิดไว้ให้เทสต์เรียกและรอผล ตอนนี้ถูกเรียกจาก onApplicationBootstrap เท่านั้น)
    */
-  async prepareIndex(): Promise<void> {
+  private async prepareIndex(): Promise<void> {
     this.state = 'loading';
     this.lastError = null;
     const started = Date.now();
@@ -190,8 +180,8 @@ export class SymptomSearchService implements OnApplicationBootstrap {
    * (กรองหลังเลือก top-3 อาจเหลือ 0 ผัง) ไม่ส่ง = ค้นทุกรุ่นเหมือนเดิม · ไม่พบรุ่นนั้น = ไม่มีผลลัพธ์
    */
   async search(query: string, manualId?: string): Promise<SymptomSearchResponseDto> {
-    if (this.state === 'loading') throw new SearchNotReadyError();
-    if (this.state !== 'ready') throw new SearchUnavailableError();
+    if (this.state === 'loading') throw searchNotReady();
+    if (this.state !== 'ready') throw searchUnavailable();
 
     const queryVector = await this.embedding.embed(query);
     const candidates =

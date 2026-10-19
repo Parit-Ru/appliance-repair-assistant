@@ -1,15 +1,8 @@
 import { ownerHeaders } from '../lib/clientHeaders'
 import { request } from './http'
-import type {
-  GraphSummary,
-  ManualSummary,
-  ModelSelection,
-  SessionResponse,
-  SymptomSearchResponse,
-  TraversalAction,
-} from './types'
+import type { GraphSummary, ManualSummary, ModelSelection, SessionResponse, SymptomSearchResponse, TraversalAction } from './types'
 
-export interface HealthResponse {
+interface HealthResponse {
   status: 'ok' | 'degraded'
   service: string
   database: string
@@ -32,7 +25,7 @@ export async function listManuals(): Promise<ManualSummary[]> {
   return request<ManualSummary[]>('/traversal/manuals')
 }
 
-export interface StartSessionOptions {
+interface StartSessionOptions {
   /** ส่งเฉพาะตอนเริ่มจากผลค้นหา (ไว้คิดคะแนนความมั่นใจ) */
   query?: string
   /** รุ่นที่ผู้ใช้เลือก: ถ้าส่ง เซิร์ฟเวอร์ตรวจว่าผังเป็นของรุ่นนั้น (ไม่ใช่ → 400 GRAPH_MANUAL_MISMATCH) */

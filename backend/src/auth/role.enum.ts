@@ -10,7 +10,7 @@ export enum Role {
   Admin = 'admin',
 }
 
-export const ROLE_VALUES: readonly string[] = Object.values(Role);
+const ROLE_VALUES: readonly string[] = Object.values(Role);
 
 /** ตรวจค่าที่มาจากภายนอก (เช่น payload ของ JWT) ว่าเป็น Role จริง */
 export function isRole(value: unknown): value is Role {

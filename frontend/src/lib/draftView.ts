@@ -1,4 +1,5 @@
 import type { DraftDetail, DraftGraph, DraftNode, DraftStatus, ValidationIssue, ValidationReport } from '../api/types'
+import { DEVICE_CATEGORIES } from './labels'
 
 /**
  * ตัวช่วยแสดงผลของหน้า "ร่างแผนผังขั้นตอน" (ฟังก์ชันล้วน ไม่แตะ React และไม่เรียก API)
@@ -40,16 +41,11 @@ export function draftFailureLabel(code: string): string {
   return FAILURE_LABELS[code] ?? `ข้อผิดพลาดรหัส ${code}`
 }
 
-/** ร่างล้มแบบที่กด "ลองร่างใหม่" แล้วมีโอกาสสำเร็จ (ปฏิเสธแล้วลองใหม่ไม่ได้) */
-export function canRetry(status: DraftStatus): boolean {
-  return status === 'failed'
-}
-
 export function canReject(status: DraftStatus): boolean {
   return status === 'ready' || status === 'failed'
 }
 
-export const NODE_TYPE_LABELS: Record<string, string> = {
+const NODE_TYPE_LABELS: Record<string, string> = {
   checkpoint: 'คำถาม ใช่/ไม่ใช่',
   instruction: 'ขั้นตอนให้ผู้ใช้ทำ',
   input: 'ถามข้อมูล',
@@ -61,20 +57,12 @@ export function nodeTypeLabel(type: string): string {
   return NODE_TYPE_LABELS[type] ?? `ชนิดไม่รู้จัก (${type})`
 }
 
-/** ข้อความหลักของโหนด (คำถาม / เนื้อหา / คำถามขอข้อมูล) */
 export function nodeText(node: DraftNode): string {
   return node.question ?? node.content ?? node.prompt ?? ''
 }
-
-// ============================================================
-// เส้นทางแบบข้อความ
-// ============================================================
-
-export interface PathLine {
+interface PathLine {
   nodeId: string
-  /** ข้อความหนึ่งบรรทัด เช่น "n1 · คำถาม ใช่/ไม่ใช่ → ใช่: n2 · ไม่ใช่: n3" */
   text: string
-  /** เดินถึงไม่ได้จากจุดเริ่ม (validator จะรายงานเป็น error ด้วย) */
   unreachable: boolean
 }
 
@@ -98,10 +86,6 @@ function targetsOf(node: DraftNode): string[] {
   return [node.on_yes, node.on_no, node.next, node.on_invalid].filter((t): t is string => typeof t === 'string' && t !== '')
 }
 
-/**
- * แผนผังขั้นตอนเป็นข้อความทีละบรรทัด: เรียงตามลำดับที่เดินถึงจากจุดเริ่ม (กว้างก่อน)
- * แล้วต่อด้วยโหนดที่เดินถึงไม่ได้ (ทำเครื่องหมายไว้) — ให้ผู้ตรวจไล่เส้นทางได้โดยไม่ต้องอ่าน JSON
- */
 export function pathLines(graph: DraftGraph): PathLine[] {
   const byId = new Map(graph.nodes.map((n) => [n.node_id, n]))
   const order: string[] = []
@@ -127,18 +111,13 @@ export function pathLines(graph: DraftGraph): PathLine[] {
   ]
 }
 
-// ============================================================
-// รายงานการตรวจ
-// ============================================================
-
-/** คำเตือนเรื่องคำเสี่ยง (ข้อความโหนด/หน้าต้นฉบับพูดถึงไฟฟ้า แก๊ส ความร้อน ฯลฯ แต่ไม่มีด่านความปลอดภัย) */
-export const RISK_WARNING_CODES = ['W_NODE_RISK', 'W_PAGE_RISK']
+const RISK_WARNING_CODES = ['W_NODE_RISK', 'W_PAGE_RISK']
 
 export function riskWarnings(report: ValidationReport | null): ValidationIssue[] {
   return report === null ? [] : report.warnings.filter((w) => RISK_WARNING_CODES.includes(w.code))
 }
 
-export interface NodeIssues {
+interface NodeIssues {
   errors: ValidationIssue[]
   warnings: ValidationIssue[]
 }
@@ -155,26 +134,14 @@ export function issuesForGraph(report: ValidationReport | null, graphId: string)
   return { errors: report?.errors.filter(match) ?? [], warnings: report?.warnings.filter(match) ?? [] }
 }
 
-/** issue ระดับคู่มือ (ไม่ระบุแผนผังขั้นตอน) */
-export function manualIssues(report: ValidationReport | null): NodeIssues {
-  const match = (i: ValidationIssue) => i.graphId === undefined
-  return { errors: report?.errors.filter(match) ?? [], warnings: report?.warnings.filter(match) ?? [] }
-}
-
 export function issueLocation(issue: ValidationIssue): string {
   if (issue.graphId === undefined) return 'ทั้งคู่มือ'
   return issue.nodeId === undefined ? issue.graphId : `${issue.graphId} / ${issue.nodeId}`
 }
 
-// ============================================================
-// ปุ่มเผยแพร่ (UX เท่านั้น — backend ตรวจซ้ำและเป็นด่านจริง)
-// ============================================================
-
-export interface PublishGate {
+interface PublishGate {
   enabled: boolean
-  /** เหตุผลที่ยังกดไม่ได้ (แสดงใต้ปุ่ม) */
   reason: string | null
-  /** ค่าที่ส่งไป backend */
   acknowledgedWarnings: boolean
 }
 
@@ -193,11 +160,7 @@ export function publishGate(draft: Pick<DraftDetail, 'status' | 'validation'>, r
   return { enabled: reason === null, reason, acknowledgedWarnings: ack }
 }
 
-// ============================================================
 // ฟอร์มอัปโหลด (ตรวจฝั่งหน้าจอให้ตรงกับ backend/src/authoring/drafts.dto.ts — backend ตรวจซ้ำเสมอ)
-// ============================================================
-
-export const DRAFT_DEVICE_CATEGORIES = ['Air Conditioner', 'Microwave', 'Refrigerator', 'Washing Machine', 'Television'] as const
 export const MAX_DRAFT_PAGES = 10
 
 export interface UploadFormValues {
@@ -223,7 +186,7 @@ export function validateUploadForm(values: UploadFormValues): UploadFormErrors {
   const manualId = values.manualId.trim()
   if (!/^[a-z0-9_]{3,60}$/.test(manualId)) errors.manualId = 'ใช้ได้เฉพาะ a-z 0-9 และ _ ยาว 3–60 ตัว'
 
-  if (!(DRAFT_DEVICE_CATEGORIES as readonly string[]).includes(values.deviceCategory)) errors.deviceCategory = 'เลือกประเภทเครื่อง'
+  if (!(DEVICE_CATEGORIES as string[]).includes(values.deviceCategory)) errors.deviceCategory = 'เลือกประเภทเครื่อง'
 
   const required: Array<[keyof UploadFormValues, string, number]> = [
     ['brand', 'ยี่ห้อ', 40],
@@ -249,12 +212,10 @@ export function validateUploadForm(values: UploadFormValues): UploadFormErrors {
   return errors
 }
 
-/** รหัสคู่มือของการทดสอบควรขึ้นต้นด้วย demo_ (เพื่อลบทีหลังได้ปลอดภัย) — คำแนะนำ ไม่บังคับ */
 export function isDemoManualId(manualId: string): boolean {
   return manualId.trim().startsWith('demo_')
 }
 
-/** ข้อความหน้าต้นฉบับตามเลขหน้า (ไม่มี = ข้อความว่าง) */
 export function pageTextOf(draft: Pick<DraftDetail, 'pages'>, page: number | undefined): string | undefined {
   if (page === undefined) return undefined
   return draft.pages.find((p) => p.page === page)?.text

@@ -10,7 +10,7 @@ const SYSTEM_PROMPT = [
   'ตอบเฉพาะข้อความที่เรียบเรียงแล้ว เป็นข้อความเดียวต่อเนื่อง',
 ].join('\n');
 
-export class GroqLlmClient implements LlmClient {
+class GroqLlmClient implements LlmClient {
   constructor(
     private readonly apiKey: string,
     private readonly model: string,

@@ -1,5 +1,5 @@
 import type { GraphSummary } from '../api/types'
-import { formatScore } from '../lib/search'
+import { formatScore } from '../lib/textInput'
 import { symptomName } from '../lib/symptoms'
 import { Icon } from './ui/Icon'
 

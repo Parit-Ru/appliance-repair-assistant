@@ -14,13 +14,7 @@ export function safeNext(raw: string | null | undefined): string | undefined {
   return raw
 }
 
-/** path ปัจจุบันของ HashRouter จาก location.hash (เช่น '#/session/abc?x=1' → '/session/abc?x=1') */
-export function currentHashPath(hash: string): string {
-  const path = hash.startsWith('#') ? hash.slice(1) : hash
-  return path === '' ? '/' : path
-}
-
-export type LoginReason = 'expired' | 'login-required'
+type LoginReason = 'expired' | 'login-required'
 
 /** URL ของหน้าเข้าสู่ระบบ พร้อมเหตุผลและปลายทางที่จะกลับมา (path ที่ไม่ปลอดภัย/เป็นหน้าล็อกอินเองจะไม่ถูกใส่) */
 export function loginUrl(reason: LoginReason | undefined, next: string | undefined): string {

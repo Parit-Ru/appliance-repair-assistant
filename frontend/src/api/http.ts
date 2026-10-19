@@ -21,7 +21,7 @@ function getBaseUrl(): string {
   return baseUrl
 }
 
-export interface RequestOptions {
+interface RequestOptions {
   method?: 'GET' | 'POST' | 'PUT' | 'DELETE'
   /** object = ส่งเป็น JSON · FormData = ส่งแบบ multipart (อัปโหลดไฟล์) เบราว์เซอร์ใส่ Content-Type + boundary เอง */
   body?: unknown

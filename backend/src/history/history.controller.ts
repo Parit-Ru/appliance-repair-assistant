@@ -2,7 +2,7 @@
  * history.controller.ts — 4 endpoint ของหน้า "ประวัติการซ่อม"
  *
  * "โง่" เหมือน TraversalController: ตรวจรูปร่าง input → ส่งให้ HistoryService → คืนผลตรงๆ
- * error ปล่อยให้ HistoryExceptionFilter แปลงเป็น HTTP
+ * error ปล่อยให้ AllExceptionsFilter (common/) แปลงเป็น HTTP
  *
  * เจ้าของของคำขอ (resolveRequiredOwner):
  *   - ส่ง Authorization: Bearer <token> ที่ถูกต้อง → เป็น user (ไม่ต้องส่ง X-Client-Id และไม่ดูมันเลย)
@@ -13,40 +13,21 @@
  * หมายเหตุ: guest ไม่ใช่การยืนยันตัวตน — ใครรู้ client id ก็เห็นประวัติ guest ของ id นั้นได้
  */
 
-import {
-  Body,
-  Controller,
-  Delete,
-  Get,
-  Headers,
-  HttpCode,
-  Param,
-  Post,
-  Query,
-  Req,
-  UseFilters,
-  UseGuards,
-} from '@nestjs/common';
+import { Body, Controller, Delete, Get, Headers, HttpCode, Param, Post, Query, Req, UseGuards } from '@nestjs/common';
 
 import type { AuthenticatedRequest } from '../auth/jwt-auth.guard';
 import { OptionalJwtAuthGuard } from '../auth/optional-jwt-auth.guard';
 import { resolveRequiredOwner } from '../auth/session-owner';
 import { parseFeedbackBody, parseHistoryQuery } from './history.dto';
-import type {
-  HistoryDetailDto,
-  HistoryFeedbackDto,
-  HistoryListResponseDto,
-} from './history.dto';
-import { HistoryExceptionFilter } from './history.exception.filter';
+import type { HistoryDetailDto, HistoryFeedbackDto, HistoryListResponseDto } from './history.dto';
 import { HistoryService } from './history.service';
 
 @Controller('history')
-@UseFilters(HistoryExceptionFilter)
 @UseGuards(OptionalJwtAuthGuard)
 export class HistoryController {
   constructor(private readonly historyService: HistoryService) {}
 
-  /** GET /history?q=&category=&brand=&status=&sort=newest|oldest&page=&pageSize= */
+  /** GET /history?page=&pageSize= — ใหม่สุดก่อนเสมอ */
   @Get()
   async list(
     @Req() request: AuthenticatedRequest,

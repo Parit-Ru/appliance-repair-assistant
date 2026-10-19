@@ -6,19 +6,10 @@ import { AdminTabs } from '../components/admin/AdminTabs'
 import { BarList } from '../components/admin/BarList'
 import { DailyBars } from '../components/admin/DailyBars'
 import { StatCard } from '../components/admin/StatCard'
-import { HistoryErrorNotice } from '../components/history/HistoryErrorNotice'
+import { ErrorNotice } from '../components/ErrorNotice'
 import { SlowServerNotice } from '../components/SlowServerNotice'
-import { Icon } from '../components/ui/Icon'
-import {
-  EXPIRED_UNFINISHED_LABEL,
-  NONE_OWNER_NOTE,
-  OWNER_TYPE_LABELS,
-  deviceLabel,
-  formatConfidence,
-  formatCount,
-  formatPercent,
-  outcomeLabel,
-} from '../lib/adminView'
+import { LoadingText } from '../components/LoadingText'
+import { EXPIRED_UNFINISHED_LABEL, NONE_OWNER_NOTE, OWNER_TYPE_LABELS, deviceLabel, formatConfidence, formatCount, formatPercent, outcomeLabel } from '../lib/adminView'
 import { parseSummaryDays } from '../lib/adminParams'
 import { useSlowWait } from '../lib/useSlowWait'
 
@@ -74,13 +65,10 @@ export function AdminAnalyticsPage() {
       {isSlow && <SlowServerNotice />}
 
       {summary.isPending && (
-        <p className="flex items-center gap-2 text-ink-soft">
-          <Icon name="spinner" className="h-5 w-5 animate-spin" />
-          กำลังโหลดสถิติ
-        </p>
+        <LoadingText>กำลังโหลดสถิติ</LoadingText>
       )}
 
-      {summary.isError && <HistoryErrorNotice error={summary.error} onRetry={() => void summary.refetch()} />}
+      {summary.isError && <ErrorNotice error={summary.error} onRetry={() => void summary.refetch()} />}
 
       {data !== undefined && <SummaryBody data={data} dimmed={summary.isPlaceholderData} />}
     </div>

@@ -26,7 +26,7 @@ export type SessionOwner =
 
 /**
  * เจ้าของจาก request ที่ต้องมีเจ้าของเสมอ (ประวัติ, ยกเลิก session)
- * ล็อกอิน → user · ไม่ล็อกอิน → ต้องมี X-Client-Id ที่เป็น UUID ไม่งั้น InvalidClientIdError (400)
+ * ล็อกอิน → user · ไม่ล็อกอิน → ต้องมี X-Client-Id ที่เป็น UUID ไม่งั้น ApiError 400 INVALID_CLIENT_ID
  */
 export function resolveRequiredOwner(user: AuthUser | undefined, clientIdHeader: unknown): SessionOwner {
   if (user) {
@@ -37,7 +37,7 @@ export function resolveRequiredOwner(user: AuthUser | undefined, clientIdHeader:
 
 /**
  * เจ้าของตอนเริ่ม session: ไม่มีเลยก็ได้ (ไม่ล็อกอินและไม่ส่ง X-Client-Id = ใช้งานได้ แต่ไม่ปรากฏในประวัติของใคร)
- * ส่ง X-Client-Id ผิดรูปตอนเป็น guest → InvalidClientIdError (400) เหมือนเดิม
+ * ส่ง X-Client-Id ผิดรูปตอนเป็น guest → ApiError 400 INVALID_CLIENT_ID เหมือนเดิม
  */
 export function resolveOptionalOwner(
   user: AuthUser | undefined,

@@ -1,31 +1,27 @@
-/**
- * draft-schema.ts — แปลงข้อความที่ LLM ตอบ (และ JSON ที่ผู้ดูแลแก้) เป็นชนิดข้อมูลที่ปลอดภัย "อย่างเข้ม"
- *
- * ไม่เชื่อ JSON mode ของผู้ให้บริการ: ทุกครั้งที่ได้ข้อความจาก LLM ต้องผ่านที่นี่ก่อนถึง validator
- * - ฟิลด์ที่ไม่อยู่ในรายการ = ปฏิเสธทั้งก้อน (ไม่ตัดทิ้งเงียบๆ ไม่ซ่อม ไม่เดา)
- * - ค่าทุกค่าต้องเป็นข้อความ / true-false / จำนวนเต็ม เท่านั้น (ไม่รับ object/array ซ้อนที่ไม่คาด)
- * - LLM กำหนดได้แค่เนื้อหาของผัง (slug, อาการ, โหนด) · manual_id / ยี่ห้อ / รุ่น / source / graph_id / page_range /
- *   source_chunk_id เซิร์ฟเวอร์เป็นคนกำหนด (draft-manual.ts) LLM ใส่มาก็ถูกปฏิเสธ
- *
- * การตรวจความหมายของผัง (ลูกศร การเข้าถึง ความปลอดภัย ฯลฯ) เป็นหน้าที่ของ graph-validator.ts ไม่ใช่ไฟล์นี้
- */
-
+import { ApiError } from '../common/api-error';
+import { isPlainObject } from '../common/helpers';
 import { MAX_ALIASES, MAX_NODES_PER_GRAPH } from './graph-validator';
-
-export const MAX_GRAPHS_PER_CALL = 12;
-export const MAX_SLUG_LENGTH = 30;
+const MAX_GRAPHS_PER_CALL = 12;
+const MAX_SLUG_LENGTH = 30;
 const MAX_TEXT = 2000;
 const MAX_PROBLEMS_REPORTED = 8;
 
-export class DraftParseError extends Error {
+/**
+ * ข้อมูลร่างผังไม่ตรงรูปแบบ (ผลจาก LLM หรือผังที่ admin แก้) · เป็น ApiError 400 INVALID_DRAFT_REQUEST ในตัว
+ * แต่ยังเป็นคลาสของตัวเองเพราะ drafts.service.ts ใช้ instanceof แยกกรณี "LLM ตอบผิดรูป" ออกจาก error อื่น
+ */
+export class DraftParseError extends ApiError {
   constructor(readonly problems: string[]) {
-    super(`ผลจาก LLM/ข้อมูลร่างไม่ตรงรูปแบบ: ${problems.slice(0, MAX_PROBLEMS_REPORTED).join(' · ')}${problems.length > MAX_PROBLEMS_REPORTED ? ` (และอีก ${problems.length - MAX_PROBLEMS_REPORTED} จุด)` : ''}`);
-    this.name = this.constructor.name;
+    super(
+      400,
+      'INVALID_DRAFT_REQUEST',
+      `ผลจาก LLM/ข้อมูลร่างไม่ตรงรูปแบบ: ${problems.slice(0, MAX_PROBLEMS_REPORTED).join(' · ')}${problems.length > MAX_PROBLEMS_REPORTED ? ` (และอีก ${problems.length - MAX_PROBLEMS_REPORTED} จุด)` : ''}`,
+    );
   }
 }
 
 /** โหนดในร่าง: รูปแบบเดียวกับโหนดใน data/manuals + source_page */
-export type DraftNode = Record<string, string | boolean | number> & { node_id: string; type: string };
+type DraftNode = Record<string, string | boolean | number> & { node_id: string; type: string };
 
 export interface DraftGraph {
   graph_id: string;
@@ -38,7 +34,7 @@ export interface DraftGraph {
   nodes: DraftNode[];
 }
 
-/** ผังที่ LLM ร่างมา (ยังไม่มี graph_id: เซิร์ฟเวอร์สร้างจาก slug) */
+// ผังที่ LLM ร่างมา (ยังไม่มี graph_id: เซิร์ฟเวอร์สร้างจาก 
 export type LlmGraph = Omit<DraftGraph, 'graph_id'> & { slug: string };
 
 const NODE_KEYS = [
@@ -48,10 +44,6 @@ const NODE_KEYS = [
 const GRAPH_CONTENT_KEYS = ['entry_symptom', 'entry_symptom_th', 'severity', 'difficulty', 'entry_node', 'nodes'];
 
 type Obj = Record<string, unknown>;
-
-function isObj(value: unknown): value is Obj {
-  return typeof value === 'object' && value !== null && !Array.isArray(value);
-}
 
 function unknownKeys(obj: Obj, allowed: readonly string[]): string[] {
   return Object.keys(obj).filter((key) => !allowed.includes(key));
@@ -69,7 +61,7 @@ function parseNodes(raw: unknown, where: string, problems: string[]): DraftNode[
   const nodes: DraftNode[] = [];
   raw.forEach((item, index) => {
     const at = `${where}.nodes[${index}]`;
-    if (!isObj(item)) {
+    if (!isPlainObject(item)) {
       problems.push(`${at}: ต้องเป็น object`);
       return;
     }
@@ -79,7 +71,6 @@ function parseNodes(raw: unknown, where: string, problems: string[]): DraftNode[
     for (const key of NODE_KEYS) {
       const value = item[key];
       if (value === undefined) continue;
-      // ชนิดตามฟิลด์: safety_critical = true/false · source_page = จำนวนเต็ม · ที่เหลือ = ข้อความ
       const ok =
         key === 'safety_critical'
           ? typeof value === 'boolean'
@@ -138,9 +129,9 @@ function dropUndefined<T extends object>(value: T): T {
 }
 
 /**
- * ข้อความที่ LLM ตอบ → รายการผังร่าง
- * รูปแบบที่ต้องได้: { "graphs": [ { slug, entry_symptom, entry_symptom_th?, aliases?, severity?, difficulty?, entry_node, nodes } ] }
- * ไม่ใช่ JSON / ไม่ตรงรูปแบบ → DraftParseError (ผู้เรียกบันทึกเป็น draft 'failed' ไม่ซ่อมเอง)
+  ข้อความที่ LLM ตอบ → รายการผังร่าง
+  รูปแบบที่ต้องได้: { "graphs": [ { slug, entry_symptom, entry_symptom_th?, aliases?, severity?, difficulty?, entry_node, nodes } ] }
+  ไม่ใช่ JSON / ไม่ตรงรูปแบบ → DraftParseError (ผู้เรียกบันทึกเป็น draft 'failed' ไม่ซ่อมเอง)
  */
 export function parseLlmOutput(text: string): LlmGraph[] {
   let value: unknown;
@@ -150,7 +141,7 @@ export function parseLlmOutput(text: string): LlmGraph[] {
     throw new DraftParseError(['คำตอบของ LLM ไม่ใช่ JSON']);
   }
   const problems: string[] = [];
-  if (!isObj(value)) throw new DraftParseError(['คำตอบของ LLM ต้องเป็น JSON object']);
+  if (!isPlainObject(value)) throw new DraftParseError(['คำตอบของ LLM ต้องเป็น JSON object']);
   const extraTop = unknownKeys(value, ['graphs']);
   if (extraTop.length > 0) problems.push(`ฟิลด์ระดับบนที่ไม่อนุญาต ${extraTop.join(', ')}`);
   if (!Array.isArray(value.graphs)) throw new DraftParseError([...problems, "ต้องมี 'graphs' เป็นอาร์เรย์"]);
@@ -159,7 +150,7 @@ export function parseLlmOutput(text: string): LlmGraph[] {
   const graphs: LlmGraph[] = [];
   value.graphs.slice(0, MAX_GRAPHS_PER_CALL).forEach((item, index) => {
     const where = `graphs[${index}]`;
-    if (!isObj(item)) {
+    if (!isPlainObject(item)) {
       problems.push(`${where}: ต้องเป็น object`);
       return;
     }
@@ -191,7 +182,7 @@ export function parseDraftGraphs(raw: unknown): DraftGraph[] {
   const graphs: DraftGraph[] = [];
   raw.forEach((item, index) => {
     const where = `graphs[${index}]`;
-    if (!isObj(item)) {
+    if (!isPlainObject(item)) {
       problems.push(`${where}: ต้องเป็น object`);
       return;
     }

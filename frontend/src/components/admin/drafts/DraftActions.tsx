@@ -1,22 +1,21 @@
 import { useId, useState } from 'react'
-import { usePublishDraft, useRejectDraft, useRetryDraft } from '../../../api/queries'
+import { usePublishDraft, useRejectDraft } from '../../../api/queries'
 import type { DraftDetail } from '../../../api/types'
-import { canReject, canRetry, publishGate } from '../../../lib/draftView'
-import { HistoryErrorNotice } from '../../history/HistoryErrorNotice'
+import { canReject, publishGate } from '../../../lib/draftView'
+import { ErrorNotice } from '../../ErrorNotice'
 import { Button } from '../../ui/Button'
 import { Notice } from '../../ui/Notice'
 
 const CHECKBOX_CLASSES = 'mt-1 h-5 w-5 shrink-0 accent-accent'
 
 /**
- * ลองร่างใหม่ / ปฏิเสธ / เผยแพร่
+ * ปฏิเสธ / เผยแพร่ (ร่างที่ล้มเป็นสถานะสิ้นสุด ต้องอัปโหลดใหม่)
  *
  * การเผยแพร่: ต้องติ๊ก "ตรวจแล้ว" เสมอ และถ้ามีคำเตือนต้องติ๊กรับทราบคำเตือน (ส่ง acknowledgedWarnings: true)
  * ปุ่มปิดเมื่อมีข้อผิดพลาด — เป็น UX เท่านั้น: backend ตรวจซ้ำทุกครั้ง error = ปฏิเสธเด็ดขาด ไม่มี override
  */
 export function DraftActions({ draft, onRefresh }: { draft: DraftDetail; onRefresh: () => void }) {
   const reasonId = useId()
-  const retry = useRetryDraft(draft.id)
   const reject = useRejectDraft(draft.id)
   const publish = usePublishDraft(draft.id)
 
@@ -27,7 +26,7 @@ export function DraftActions({ draft, onRefresh }: { draft: DraftDetail; onRefre
 
   const warnings = draft.validation?.warnings.length ?? 0
   const gate = publishGate(draft, reviewed, warningsAcknowledged)
-  const busy = retry.isPending || reject.isPending || publish.isPending
+  const busy = reject.isPending || publish.isPending
 
   if (publish.isSuccess) {
     const result = publish.data
@@ -54,15 +53,7 @@ export function DraftActions({ draft, onRefresh }: { draft: DraftDetail; onRefre
     <section aria-label="ตัดสินร่าง" className="space-y-4 rounded-xl border border-line bg-panel p-5">
       <h2 className="text-lg font-semibold">ตัดสินร่าง</h2>
 
-      {canRetry(draft.status) && (
-        <div className="space-y-2">
-          <p className="text-sm text-ink-soft">ลองให้ AI ร่างใหม่จากข้อความหน้าเดิม (ไม่ต้องอัปโหลดไฟล์ซ้ำ)</p>
-          <Button variant="secondary" isLoading={retry.isPending} disabled={busy} onClick={() => retry.mutate(undefined, { onSuccess: onRefresh })}>
-            ลองร่างใหม่
-          </Button>
-          {retry.isError && <HistoryErrorNotice error={retry.error} onRetry={onRefresh} />}
-        </div>
-      )}
+      {draft.status === 'failed' && <p className="text-sm text-ink-soft">ร่างนี้ไม่สำเร็จ ถ้าต้องการร่างใหม่ ให้อัปโหลดคู่มือใหม่ที่หน้ารายการร่าง</p>}
 
       {draft.status === 'ready' && (
         <div className="space-y-3">
@@ -87,7 +78,7 @@ export function DraftActions({ draft, onRefresh }: { draft: DraftDetail; onRefre
             เผยแพร่ให้ผู้ใช้เห็น
           </Button>
           {gate.reason && <p className="text-sm text-ink-soft">{gate.reason}</p>}
-          {publish.isError && <HistoryErrorNotice error={publish.error} onRetry={onRefresh} />}
+          {publish.isError && <ErrorNotice error={publish.error} onRetry={onRefresh} />}
         </div>
       )}
 
@@ -121,7 +112,7 @@ export function DraftActions({ draft, onRefresh }: { draft: DraftDetail; onRefre
               </div>
             </>
           )}
-          {reject.isError && <HistoryErrorNotice error={reject.error} onRetry={onRefresh} />}
+          {reject.isError && <ErrorNotice error={reject.error} onRetry={onRefresh} />}
         </div>
       )}
     </section>

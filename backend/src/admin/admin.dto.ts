@@ -2,7 +2,7 @@
  * admin.dto.ts — ตัวตรวจ query string และรูปร่าง response ของ /admin/* (อ่านอย่างเดียวทั้งหมด)
  *
  * เหมือน history.dto.ts: ไม่ใช้ class-validator ตัวตรวจเป็นฟังก์ชัน parseXxx ที่คืนค่าที่ผ่านการตรวจแล้ว
- * หรือโยน InvalidAdminQueryError ให้ AdminExceptionFilter แปลงเป็น 400 INVALID_ADMIN_QUERY
+ * หรือโยน ApiError 400 INVALID_ADMIN_QUERY (AllExceptionsFilter แปลงเป็น response)
  *
  * เพดานทั้งหมดอยู่ที่นี่ที่เดียว (หน้า/จำนวนต่อหน้า/ช่วงวัน) และค่าที่ผ่านการตรวจเท่านั้นที่ไปถึง SQL
  *
@@ -10,49 +10,43 @@
  * (มี ownerType = 'user' | 'guest' | 'none' เท่านั้น) service ส่งเฉพาะช่องที่ประกาศไว้ ไม่ spread แถวจากฐานข้อมูล
  */
 
+import { ApiError } from '../common/api-error';
+import { isPlainObject } from '../common/helpers';
 import type { DeviceCategory, OutcomeKind } from '../traversal-engine/types';
 
 export const DEFAULT_PAGE_SIZE = 20;
 export const MAX_PAGE_SIZE = 100;
 /** เพดานเลขหน้า กัน OFFSET ใหญ่เกินจริง */
-export const MAX_PAGE = 10_000;
-export const DEFAULT_DAYS = 30;
-export const MAX_DAYS = 90;
+const MAX_PAGE = 10_000;
+const DEFAULT_DAYS = 30;
+const MAX_DAYS = 90;
 /** ช่วงวันที่ from..to ที่ขอได้ (รวมสองปลาย) */
-export const MAX_RANGE_DAYS = 366;
-export const MAX_GRAPH_ID_LENGTH = 120;
+const MAX_RANGE_DAYS = 366;
 export const TOP_LIMIT = 10;
 
 /** วันที่ของ admin นับตามเวลาไทย (UTC+7) ไม่ขึ้นกับเขตเวลาของ MySQL/เครื่อง */
-export const THAI_OFFSET_SECONDS = 7 * 3600;
+const THAI_OFFSET_SECONDS = 7 * 3600;
 const DAY_SECONDS = 86_400;
 
-export const SESSION_STATUSES = ['in_progress', 'completed'] as const;
-export type AdminSessionStatus = (typeof SESSION_STATUSES)[number];
+/** ชนิดเจ้าของ session ที่ admin เห็น (ไม่เห็น id ของเจ้าของ) */
+export type OwnerType = 'user' | 'guest' | 'none';
 
-export const OWNER_TYPES = ['user', 'guest', 'none'] as const;
-export type OwnerType = (typeof OWNER_TYPES)[number];
-
-export class InvalidAdminQueryError extends Error {
-  constructor(message: string) {
-    super(message);
-    this.name = this.constructor.name;
-  }
-}
+/** query ของ /admin/* ผิดรูปแบบ → 400 INVALID_ADMIN_QUERY */
+const invalid = (message: string) => new ApiError(400, 'INVALID_ADMIN_QUERY', message);
 
 // ============================================================
 // ตัวช่วยอ่าน query string
 // ============================================================
 
 function asRecord(raw: unknown): Record<string, unknown> {
-  return typeof raw === 'object' && raw !== null && !Array.isArray(raw) ? (raw as Record<string, unknown>) : {};
+  return isPlainObject(raw) ? raw : {};
 }
 
 /** ค่าที่เป็น "ข้อความเดียว" — ส่งซ้ำ (?a=1&a=2 → array) ถือว่าผิดรูปแบบ · ค่าว่างถือเหมือนไม่ส่ง */
 function optionalText(raw: unknown, name: string): string | undefined {
   if (raw === undefined) return undefined;
   if (typeof raw !== 'string') {
-    throw new InvalidAdminQueryError(`${name} ต้องเป็นข้อความเดียว`);
+    throw invalid(`${name} ต้องเป็นข้อความเดียว`);
   }
   const text = raw.trim();
   return text === '' ? undefined : text;
@@ -62,22 +56,13 @@ function optionalInt(raw: unknown, name: string, min: number, max: number): numb
   const text = optionalText(raw, name);
   if (text === undefined) return undefined;
   if (!/^\d+$/.test(text)) {
-    throw new InvalidAdminQueryError(`${name} ต้องเป็นจำนวนเต็มไม่ติดลบ`);
+    throw invalid(`${name} ต้องเป็นจำนวนเต็มไม่ติดลบ`);
   }
   const value = Number(text);
   if (value < min || value > max) {
-    throw new InvalidAdminQueryError(`${name} ต้องอยู่ระหว่าง ${min} ถึง ${max}`);
+    throw invalid(`${name} ต้องอยู่ระหว่าง ${min} ถึง ${max}`);
   }
   return value;
-}
-
-function optionalEnum<T extends string>(raw: unknown, name: string, allowed: readonly T[]): T | undefined {
-  const text = optionalText(raw, name);
-  if (text === undefined) return undefined;
-  if (!(allowed as readonly string[]).includes(text)) {
-    throw new InvalidAdminQueryError(`${name} ต้องเป็นหนึ่งใน ${allowed.join(', ')}`);
-  }
-  return text as T;
 }
 
 // ============================================================
@@ -88,13 +73,13 @@ function optionalEnum<T extends string>(raw: unknown, name: string, allowed: rea
 function parseCalendarDay(text: string, name: string): number {
   const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(text);
   if (!match) {
-    throw new InvalidAdminQueryError(`${name} ต้องเป็นวันที่รูปแบบ YYYY-MM-DD`);
+    throw invalid(`${name} ต้องเป็นวันที่รูปแบบ YYYY-MM-DD`);
   }
   const [year, month, day] = [Number(match[1]), Number(match[2]), Number(match[3])];
   const ms = Date.UTC(year, month - 1, day);
   const check = new Date(ms);
   if (check.getUTCFullYear() !== year || check.getUTCMonth() !== month - 1 || check.getUTCDate() !== day) {
-    throw new InvalidAdminQueryError(`${name} ไม่ใช่วันที่ที่มีอยู่จริง`);
+    throw invalid(`${name} ไม่ใช่วันที่ที่มีอยู่จริง`);
   }
   return ms;
 }
@@ -120,10 +105,10 @@ function parseDateRange(source: Record<string, unknown>): EpochRange {
 
   if (fromMs !== undefined && toMs !== undefined) {
     if (fromMs > toMs) {
-      throw new InvalidAdminQueryError('from ต้องไม่หลัง to');
+      throw invalid('from ต้องไม่หลัง to');
     }
     if ((toMs - fromMs) / (DAY_SECONDS * 1000) + 1 > MAX_RANGE_DAYS) {
-      throw new InvalidAdminQueryError(`ช่วงวันที่ยาวเกิน ${MAX_RANGE_DAYS} วัน`);
+      throw invalid(`ช่วงวันที่ยาวเกิน ${MAX_RANGE_DAYS} วัน`);
     }
   }
 
@@ -152,7 +137,7 @@ export function dayIndexToEpoch(dayIndex: number): number {
 // query ของแต่ละ endpoint
 // ============================================================
 
-export interface PageQuery {
+interface PageQuery {
   page: number;
   pageSize: number;
 }
@@ -171,35 +156,14 @@ export interface FeedbackQuery extends PageQuery, EpochRange {
 /** ?helpful=true|false&from=&to=&page=&pageSize= */
 export function parseFeedbackQuery(raw: unknown): FeedbackQuery {
   const source = asRecord(raw);
-  const helpful = optionalEnum(source.helpful, 'helpful', ['true', 'false'] as const);
-  return {
-    ...parsePage(source),
-    ...parseDateRange(source),
-    helpful: helpful === undefined ? undefined : helpful === 'true',
-  };
-}
-
-export interface SessionsQuery extends PageQuery, EpochRange {
-  status?: AdminSessionStatus;
-  ownerType?: OwnerType;
-  graphId?: string;
-}
-
-/** ?status=&ownerType=&graphId=&from=&to=&page=&pageSize= */
-export function parseSessionsQuery(raw: unknown): SessionsQuery {
-  const source = asRecord(raw);
-
-  const graphId = optionalText(source.graphId, 'graphId');
-  if (graphId !== undefined && graphId.length > MAX_GRAPH_ID_LENGTH) {
-    throw new InvalidAdminQueryError(`graphId ยาวเกิน ${MAX_GRAPH_ID_LENGTH} ตัวอักษร`);
+  const helpfulText = optionalText(source.helpful, 'helpful');
+  if (helpfulText !== undefined && helpfulText !== 'true' && helpfulText !== 'false') {
+    throw invalid('helpful ต้องเป็นหนึ่งใน true, false');
   }
-
   return {
     ...parsePage(source),
     ...parseDateRange(source),
-    status: optionalEnum(source.status, 'status', SESSION_STATUSES),
-    ownerType: optionalEnum(source.ownerType, 'ownerType', OWNER_TYPES),
-    graphId,
+    helpful: helpfulText === undefined ? undefined : helpfulText === 'true',
   };
 }
 
@@ -217,8 +181,8 @@ export function parseSummaryQuery(raw: unknown): SummaryQuery {
 // รูปร่าง response (ไม่มีช่อง email / password_hash / displayName / user_id / client_id)
 // ============================================================
 
-export interface PagedDto<T> {
-  items: T[];
+export interface AdminFeedbackPageDto {
+  items: AdminFeedbackItemDto[];
   total: number;
   page: number;
   pageSize: number;
@@ -236,23 +200,6 @@ export interface AdminFeedbackItemDto {
   deviceCategory: DeviceCategory | null;
   brand: string | null;
   ownerType: OwnerType;
-}
-
-export interface AdminSessionItemDto {
-  sessionId: string;
-  graphId: string;
-  deviceCategory: DeviceCategory | null;
-  brand: string | null;
-  status: AdminSessionStatus;
-  /** true = เลยเวลาหมดอายุแล้ว (แถวยังค้างอยู่ในฐานข้อมูล) */
-  expired: boolean;
-  confidence: number | null;
-  modelSelection: 'selected' | 'unknown' | null;
-  /** เฉพาะ session ที่จบแล้ว · null = หาไม่ได้ (ผัง/โหนดเปลี่ยนไปหลัง seed ใหม่) */
-  outcomeKind: OutcomeKind | null;
-  hasFeedback: boolean;
-  ownerType: OwnerType;
-  createdAt: string;
 }
 
 export interface AdminSummaryDto {

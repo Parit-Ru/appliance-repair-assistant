@@ -1,79 +1,57 @@
-import { keepPreviousData, useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
+import { keepPreviousData, queryOptions, useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { useIdentity } from '../lib/authContext'
 import { getAdminFeedback, getAdminSummary } from './admin'
-import { DRAFT_POLL_MS, getDraft, listDrafts, publishDraft, rejectDraft, retryDraft, updateDraft, uploadDraft } from './drafts'
+import { DRAFT_POLL_MS, getDraft, listDrafts, publishDraft, rejectDraft, updateDraft, uploadDraft } from './drafts'
 import { deleteHistory, getHistory, listHistory, submitFeedback } from './history'
-import {
-  abandonSession,
-  getHealth,
-  getSession,
-  listGraphs,
-  listManuals,
-  searchSymptoms,
-  startSession,
-  submitAction,
-  submitOutcome,
-} from './traversal'
-import type {
-  AdminFeedbackParams,
-  DraftDetail,
-  DraftGraph,
-  DraftUploadInput,
-  HistoryDetail,
-  HistoryFeedback,
-  HistoryParams,
-  ModelSelection,
-  SessionResponse,
-  SymptomSearchResponse,
-  TraversalAction,
-} from './types'
+import { abandonSession, getHealth, getSession, listGraphs, listManuals, searchSymptoms, startSession, submitAction, submitOutcome } from './traversal'
+import type { AdminFeedbackParams, DraftDetail, DraftGraph, DraftUploadInput, HistoryFeedback, ModelSelection, SessionResponse, SymptomSearchResponse, TraversalAction } from './types'
 
-/**
- * hook ของ React Query ที่หน้าจอเรียกใช้
- * หน้าจอทุกหน้าเรียกผ่านไฟล์นี้ ไม่เรียก traversal.ts ตรงๆ
- *
- * useQuery    = อ่านข้อมูล ทำงานเองเมื่อหน้าจอแสดง
- * useMutation = เปลี่ยนข้อมูล ทำงานเมื่อสั่ง .mutate() เท่านั้น
- */
+/*
+  hook ของ React Query ที่หน้าจอเรียกใช้ (หน้าจอทุกหน้าเรียกผ่านไฟล์นี้ ไม่เรียก traversal.ts ตรงๆ)
 
-/**
- * key ของแคช รวมไว้ที่เดียว
- * key ต้องตรงกันทุกตัวอักษรทั้งตอนอ่านและตอนเขียนแคช
- * ถ้าพิมพ์ต่างกัน แคชจะไม่เชื่อมกัน แล้วหน้าจอจะไม่อัปเดตโดยไม่มี error เตือน
- */
-export const queryKeys = {
-  health: ['health'] as const,
-  graphs: ['graphs'] as const,
-  graphsOf: (manualId: string) => ['graphs', manualId] as const,
-  manuals: ['manuals'] as const,
-  // key ที่ขึ้นกับผู้ใช้ (session/ประวัติ/admin) มี identity (id ผู้ใช้ หรือ 'guest') ไว้ที่ตำแหน่งที่ 2 เสมอ
-  // ผู้ใช้คนละคนจึงไม่มีทางอ่านแคชของกันและกัน (นอกจากนี้ AuthProvider ล้างแคชทั้งหมดตอน login/logout ด้วย)
-  // identity เป็นอาร์กิวเมนต์สุดท้ายและมีค่าเริ่มต้น 'guest' = พฤติกรรมเดิมของ guest
-  session: (sessionId: string, identity = 'guest') => ['session', identity, sessionId] as const,
-  // ประวัติการซ่อม: ทุก key ขึ้นต้นด้วย 'history' ไว้ invalidate ทีเดียว
-  history: ['history'] as const,
-  historyLists: (identity = 'guest') => ['history', identity, 'list'] as const,
-  historyList: (params: HistoryParams, identity = 'guest') => ['history', identity, 'list', params] as const,
-  historyDetail: (sessionId: string, identity = 'guest') => ['history', identity, 'detail', sessionId] as const,
-  // หน้าผู้ดูแลระบบ
-  adminFeedback: (params: AdminFeedbackParams, identity = 'guest') => ['admin', identity, 'feedback', params] as const,
-  adminSummary: (days: number, identity = 'guest') => ['admin', identity, 'summary', days] as const,
-  // ร่างแผนผังขั้นตอน (ทุก key ขึ้นต้น ['admin', identity, 'drafts'] ไว้ invalidate ทีเดียว)
-  adminDrafts: (identity = 'guest') => ['admin', identity, 'drafts'] as const,
-  adminDraft: (id: string, identity = 'guest') => ['admin', identity, 'drafts', id] as const,
-}
+  useQuery    = อ่านข้อมูล ทำงานเองเมื่อหน้าจอแสดง
+  useMutation = เปลี่ยนข้อมูล ทำงานเมื่อสั่ง .mutate() เท่านั้น
 
-// ============================================================
-// อ่านข้อมูล
-// ============================================================
+  key สาธารณะ (health, graphs, manuals) ไม่มี identity
+  key ที่ขึ้นกับผู้ใช้ (session/ประวัติ/admin) มี identity (id ผู้ใช้ หรือ 'guest') ไว้ที่ตำแหน่งที่ 2 เสมอ
+  ผู้ใช้คนละคนจึงไม่มีทางอ่านแคชของกันและกัน (นอกจากนี้ AuthProvider ล้างแคชทั้งหมดตอน login/logout ด้วย)
 
-/** สถานะเซิร์ฟเวอร์จริง */
-export function useHealth() {
-  return useQuery({
-    queryKey: queryKeys.health,
-    queryFn: getHealth,
-    staleTime: 30_000,
+  ตอน invalidate เป็นกลุ่ม เขียน prefix ตรงๆ เช่น ['history', identity, 'list'] (ตรงกับทุก key ที่ขึ้นต้นเหมือนกัน)
+
+  queryOptions ข้างล่างมีเฉพาะ key ที่ถูกใช้หลายที่ (อ่านด้วย useQuery และเขียนแคชด้วย setQueryData / removeQueries)
+  จึงใช้ตัวเดียวกัน ไม่มีทางพิมพ์ key ไม่ตรงกัน · key ที่ใช้ที่เดียวเขียนไว้ใน hook ของมันเลย
+*/
+
+const sessionQuery = (sessionId: string, identity = 'guest') =>
+  queryOptions({
+    queryKey: ['session', identity, sessionId] as const,
+    queryFn: () => getSession(sessionId),
   })
+
+const historyDetailQuery = (sessionId: string, identity = 'guest') =>
+  queryOptions({
+    queryKey: ['history', identity, 'detail', sessionId] as const,
+    queryFn: () => getHistory(sessionId),
+  })
+
+// ร่างแผนผังขั้นตอน: ทุก key ขึ้นต้น ['admin', identity, 'drafts'] ไว้ invalidate ทีเดียว
+// poll ทุก 3 วินาที "เฉพาะตอนที่มีร่างกำลังร่างอยู่" (สถานะ drafting) นอกนั้นไม่ poll
+const adminDraftsQuery = (identity = 'guest') =>
+  queryOptions({
+    queryKey: ['admin', identity, 'drafts'] as const,
+    queryFn: listDrafts,
+    refetchInterval: (query) => (query.state.data?.items.some((d) => d.status === 'drafting') ? DRAFT_POLL_MS : false),
+  })
+
+const adminDraftQuery = (id: string, identity = 'guest') =>
+  queryOptions({
+    queryKey: ['admin', identity, 'drafts', id] as const,
+    queryFn: () => getDraft(id),
+    refetchInterval: (query) => (query.state.data?.status === 'drafting' ? DRAFT_POLL_MS : false),
+  })
+
+export function useHealth() {
+  return useQuery({ queryKey: ['health'], queryFn: getHealth, staleTime: 30_000 })
 }
 
 /**
@@ -82,7 +60,7 @@ export function useHealth() {
  */
 export function useGraphs(manualId?: string) {
   return useQuery({
-    queryKey: manualId === undefined ? queryKeys.graphs : queryKeys.graphsOf(manualId),
+    queryKey: manualId === undefined ? ['graphs'] : ['graphs', manualId],
     queryFn: () => listGraphs(manualId),
     staleTime: Infinity,
   })
@@ -90,11 +68,7 @@ export function useGraphs(manualId?: string) {
 
 /** รายการคู่มือ/รุ่น (ให้ผู้ใช้เลือกรุ่นก่อนเลือกอาการ) เปลี่ยนเฉพาะตอน seed เหมือน useGraphs */
 export function useManuals() {
-  return useQuery({
-    queryKey: queryKeys.manuals,
-    queryFn: listManuals,
-    staleTime: Infinity,
-  })
+  return useQuery({ queryKey: ['manuals'], queryFn: listManuals, staleTime: Infinity })
 }
 
 /**
@@ -105,23 +79,20 @@ export function useManuals() {
  */
 export function useSession(sessionId: string) {
   const identity = useIdentity()
-  return useQuery({
-    queryKey: queryKeys.session(sessionId, identity),
-    queryFn: () => getSession(sessionId),
-  })
+  return useQuery(sessionQuery(sessionId, identity))
 }
 
 /**
- * รายการประวัติการซ่อมของเบราว์เซอร์นี้ (ตัวกรอง/เรียง/หน้า ตามที่ URL เก็บไว้)
+ * รายการประวัติการซ่อมของเบราว์เซอร์นี้ (ใหม่สุดก่อน · หน้าตามที่ URL เก็บไว้)
  *
  * ไม่ตั้ง staleTime: ผู้ใช้เพิ่งตรวจเสร็จแล้วเปิดหน้านี้ต้องเห็นรายการล่าสุดเสมอ
- * keepPreviousData: ตอนเปลี่ยนหน้า/ตัวกรอง รายการเดิมยังค้างอยู่จนผลใหม่มา (ไม่กะพริบเป็นหน้าว่าง)
+ * keepPreviousData: ตอนเปลี่ยนหน้า รายการเดิมยังค้างอยู่จนผลใหม่มา (ไม่กะพริบเป็นหน้าว่าง)
  */
-export function useHistory(params: HistoryParams) {
+export function useHistory(page: number) {
   const identity = useIdentity()
   return useQuery({
-    queryKey: queryKeys.historyList(params, identity),
-    queryFn: () => listHistory(params),
+    queryKey: ['history', identity, 'list', page],
+    queryFn: () => listHistory(page),
     placeholderData: keepPreviousData,
   })
 }
@@ -129,10 +100,7 @@ export function useHistory(params: HistoryParams) {
 /** รายละเอียดการตรวจย้อนหลัง 1 รายการ */
 export function useHistoryDetail(sessionId: string) {
   const identity = useIdentity()
-  return useQuery({
-    queryKey: queryKeys.historyDetail(sessionId, identity),
-    queryFn: () => getHistory(sessionId),
-  })
+  return useQuery(historyDetailQuery(sessionId, identity))
 }
 
 // ============================================================
@@ -143,7 +111,7 @@ export function useHistoryDetail(sessionId: string) {
 export function useAdminFeedback(params: AdminFeedbackParams) {
   const identity = useIdentity()
   return useQuery({
-    queryKey: queryKeys.adminFeedback(params, identity),
+    queryKey: ['admin', identity, 'feedback', params],
     queryFn: () => getAdminFeedback(params),
     placeholderData: keepPreviousData,
   })
@@ -153,7 +121,7 @@ export function useAdminFeedback(params: AdminFeedbackParams) {
 export function useAdminSummary(days: number) {
   const identity = useIdentity()
   return useQuery({
-    queryKey: queryKeys.adminSummary(days, identity),
+    queryKey: ['admin', identity, 'summary', days],
     queryFn: () => getAdminSummary(days),
     placeholderData: keepPreviousData,
   })
@@ -176,6 +144,21 @@ export function useSymptomSearch() {
   })
 }
 
+/**
+ * ใส่ session ที่เซิร์ฟเวอร์ตอบกลับลงแคชทันที (เริ่ม / เดินขั้นตอน / บันทึกผลลัพธ์ ใช้ร่วมกัน)
+ * หน้าจอจึงแสดงขั้นปัจจุบันได้เลยโดยไม่ต้องยิงไปขอซ้ำ
+ *
+ * ถ้าเซิร์ฟเวอร์ปฏิเสธ (เช่นด่านความปลอดภัย) onSuccess ไม่ทำงาน แคชจึงยังเป็นสถานะเดิม
+ * หน้าจอไม่ขยับ — ตรงกับสถานะจริงบนเซิร์ฟเวอร์
+ */
+function useCacheSession() {
+  const queryClient = useQueryClient()
+  const identity = useIdentity()
+  return (session: SessionResponse) => {
+    queryClient.setQueryData(sessionQuery(session.sessionId, identity).queryKey, session)
+  }
+}
+
 /** ตัวแปรของการเริ่ม session query ใส่เฉพาะเมื่อเลือกมาจากผลค้นหา */
 interface StartSessionVariables {
   graphId: string
@@ -184,58 +167,32 @@ interface StartSessionVariables {
   modelSelection?: ModelSelection
 }
 
-/**
- * เริ่มการตรวจ
- * เอาผลใส่แคชทันที หน้าตรวจอาการจะเปิดขึ้นมาพร้อมข้อมูล ไม่ต้องรอโหลดซ้ำ
- */
+/** เริ่มการตรวจ (ใส่ผลลงแคชทันที หน้าตรวจอาการจะเปิดขึ้นมาพร้อมข้อมูล) */
 export function useStartSession() {
-  const queryClient = useQueryClient()
-  const identity = useIdentity()
   return useMutation({
     mutationFn: ({ graphId, ...options }: StartSessionVariables) => startSession(graphId, options),
-    onSuccess: (session: SessionResponse) => {
-      queryClient.setQueryData(queryKeys.session(session.sessionId, identity), session)
-    },
+    onSuccess: useCacheSession(),
   })
 }
 
-/**
- * ส่งคำตอบหรือคำสั่งหนึ่งครั้ง
- *
- * เซิร์ฟเวอร์ตอบ session ใหม่พร้อมสถานะถัดไปกลับมา เอาใส่แคชเลย
- * หน้าจอจึงเปลี่ยนเป็นขั้นถัดไปทันที ไม่ต้องยิงไปขอซ้ำ
- *
- * ถ้าเซิร์ฟเวอร์ปฏิเสธ เช่นด่านความปลอดภัย onSuccess จะไม่ทำงาน
- * แคชจึงยังเป็นสถานะเดิม หน้าจอไม่ขยับ — ตรงกับสถานะจริงบนเซิร์ฟเวอร์
- */
+/** ส่งคำตอบหรือคำสั่งหนึ่งครั้ง เซิร์ฟเวอร์ตอบ session ใหม่พร้อมสถานะถัดไปกลับมา */
 export function useSubmitAction(sessionId: string) {
-  const queryClient = useQueryClient()
-  const identity = useIdentity()
   return useMutation({
     mutationFn: (action: TraversalAction) => submitAction(sessionId, action),
-    onSuccess: (session: SessionResponse) => {
-      queryClient.setQueryData(queryKeys.session(sessionId, identity), session)
-    },
+    onSuccess: useCacheSession(),
   })
 }
 
 /**
  * บันทึกข้อความผลลัพธ์ตอนการตรวจจบ
  *
- * เซิร์ฟเวอร์ตอบ session พร้อม outcome ที่บันทึกแล้ว เอาใส่แคชเลย
- * ฟอร์มจึงเปลี่ยนเป็นข้อความอ่านอย่างเดียวทันที และกด F5 แล้วยังเห็นเหมือนเดิม
- * เพราะ GET session ส่ง outcome กลับมาด้วย
- *
- * ถ้าเซิร์ฟเวอร์ปฏิเสธ onSuccess ไม่ทำงาน แคชไม่เปลี่ยน ฟอร์มยังอยู่พร้อมข้อความที่พิมพ์ไว้
+ * เซิร์ฟเวอร์ตอบ session พร้อม outcome ที่บันทึกแล้ว ฟอร์มจึงเปลี่ยนเป็นข้อความอ่านอย่างเดียวทันที
+ * และกด F5 แล้วยังเห็นเหมือนเดิม เพราะ GET session ส่ง outcome กลับมาด้วย
  */
 export function useSubmitOutcome(sessionId: string) {
-  const queryClient = useQueryClient()
-  const identity = useIdentity()
   return useMutation({
     mutationFn: (text: string) => submitOutcome(sessionId, text),
-    onSuccess: (session: SessionResponse) => {
-      queryClient.setQueryData(queryKeys.session(sessionId, identity), session)
-    },
+    onSuccess: useCacheSession(),
   })
 }
 
@@ -249,14 +206,14 @@ export function useAbandonSession() {
   return useMutation({
     mutationFn: (sessionId: string) => abandonSession(sessionId),
     onSuccess: (_result: void, sessionId: string) => {
-      queryClient.removeQueries({ queryKey: queryKeys.session(sessionId, identity) })
+      queryClient.removeQueries({ queryKey: sessionQuery(sessionId, identity).queryKey })
     },
   })
 }
 
 /**
  * ลบรายการออกจากประวัติ (ลบทั้ง session ที่เซิร์ฟเวอร์ ลบแล้วกู้คืนไม่ได้)
- * เอาแคชของรายการนั้นออก และทำให้ทุกรายการ (ทุกตัวกรอง/ทุกหน้า) โหลดใหม่ เพราะจำนวนรวมและการแบ่งหน้าเปลี่ยน
+ * เอาแคชของรายการนั้นออก และทำให้ทุกรายการ (ทุกหน้า) โหลดใหม่ เพราะจำนวนรวมและการแบ่งหน้าเปลี่ยน
  */
 export function useDeleteHistory() {
   const queryClient = useQueryClient()
@@ -264,12 +221,12 @@ export function useDeleteHistory() {
   return useMutation({
     mutationFn: (sessionId: string) => deleteHistory(sessionId),
     onSuccess: (_result: void, sessionId: string) => {
-      queryClient.removeQueries({ queryKey: queryKeys.historyDetail(sessionId, identity) })
-      queryClient.removeQueries({ queryKey: queryKeys.session(sessionId, identity) })
+      queryClient.removeQueries({ queryKey: historyDetailQuery(sessionId, identity).queryKey })
+      queryClient.removeQueries({ queryKey: sessionQuery(sessionId, identity).queryKey })
     },
     // สำเร็จหรือไม่ก็โหลดรายการใหม่: ถ้า 404 แปลว่ารายการนั้นหายไปแล้ว (ลบจากแท็บอื่น) รายการบนหน้าจอต้องตรงกับเซิร์ฟเวอร์
     onSettled: () => {
-      void queryClient.invalidateQueries({ queryKey: queryKeys.historyLists(identity) })
+      void queryClient.invalidateQueries({ queryKey: ['history', identity, 'list'] })
     },
   })
 }
@@ -284,12 +241,13 @@ export function useSubmitFeedback(sessionId: string) {
   return useMutation({
     mutationFn: (feedback: HistoryFeedback) => submitFeedback(sessionId, feedback),
     onSuccess: (saved: HistoryFeedback) => {
-      queryClient.setQueryData<HistoryDetail>(queryKeys.historyDetail(sessionId, identity), (previous) =>
+      queryClient.setQueryData(historyDetailQuery(sessionId, identity).queryKey, (previous) =>
         previous === undefined ? previous : { ...previous, feedback: saved },
       )
     },
   })
 }
+
 // ============================================================
 // ร่างแผนผังขั้นตอน (admin) — ถามสถานะทุก 3 วินาที "เฉพาะตอนที่มีร่างกำลังร่างอยู่"
 // ============================================================
@@ -297,21 +255,13 @@ export function useSubmitFeedback(sessionId: string) {
 /** รายการร่าง · poll ต่อเมื่อมีร่างสถานะ drafting อย่างน้อย 1 รายการ */
 export function useAdminDrafts() {
   const identity = useIdentity()
-  return useQuery({
-    queryKey: queryKeys.adminDrafts(identity),
-    queryFn: listDrafts,
-    refetchInterval: (query) => (query.state.data?.items.some((d) => d.status === 'drafting') ? DRAFT_POLL_MS : false),
-  })
+  return useQuery(adminDraftsQuery(identity))
 }
 
 /** รายละเอียดร่าง · poll ต่อเมื่อร่างนี้ยังเป็น drafting */
 export function useAdminDraft(id: string) {
   const identity = useIdentity()
-  return useQuery({
-    queryKey: queryKeys.adminDraft(id, identity),
-    queryFn: () => getDraft(id),
-    refetchInterval: (query) => (query.state.data?.status === 'drafting' ? DRAFT_POLL_MS : false),
-  })
+  return useQuery(adminDraftQuery(id, identity))
 }
 
 /** อัปโหลด PDF → เริ่มร่าง · สำเร็จแล้วโหลดรายการใหม่ (และเริ่ม poll เพราะมีร่าง drafting) */
@@ -321,7 +271,7 @@ export function useUploadDraft() {
   return useMutation({
     mutationFn: (input: DraftUploadInput) => uploadDraft(input),
     onSuccess: () => {
-      void queryClient.invalidateQueries({ queryKey: queryKeys.adminDrafts(identity) })
+      void queryClient.invalidateQueries({ queryKey: ['admin', identity, 'drafts'] })
     },
   })
 }
@@ -331,8 +281,8 @@ function useDraftCacheUpdate() {
   const queryClient = useQueryClient()
   const identity = useIdentity()
   return (detail: DraftDetail) => {
-    queryClient.setQueryData(queryKeys.adminDraft(detail.id, identity), detail)
-    void queryClient.invalidateQueries({ queryKey: queryKeys.adminDrafts(identity), exact: true })
+    queryClient.setQueryData(adminDraftQuery(detail.id, identity).queryKey, detail)
+    void queryClient.invalidateQueries({ queryKey: adminDraftsQuery(identity).queryKey, exact: true })
   }
 }
 
@@ -353,18 +303,6 @@ export function useRejectDraft(id: string) {
   })
 }
 
-/** ลองร่างใหม่ (ร่างที่ล้ม) → กลับเป็น drafting แล้ว poll ต่อ */
-export function useRetryDraft(id: string) {
-  const queryClient = useQueryClient()
-  const identity = useIdentity()
-  return useMutation({
-    mutationFn: () => retryDraft(id),
-    onSuccess: () => {
-      void queryClient.invalidateQueries({ queryKey: queryKeys.adminDrafts(identity) })
-    },
-  })
-}
-
 /**
  * เผยแพร่ — ส่ง acknowledgedWarnings ตามช่องติ๊ก (backend ตรวจซ้ำเสมอ: error = 409 ไม่มี override)
  * สำเร็จแล้ว: โหลดร่าง/รายการใหม่ และโหลดรายการรุ่น/อาการใหม่ (มีแผนผังขั้นตอนใหม่ในระบบแล้ว)
@@ -375,11 +313,11 @@ export function usePublishDraft(id: string) {
   return useMutation({
     mutationFn: (acknowledgedWarnings: boolean) => publishDraft(id, acknowledgedWarnings),
     onSettled: () => {
-      void queryClient.invalidateQueries({ queryKey: queryKeys.adminDrafts(identity) })
+      void queryClient.invalidateQueries({ queryKey: ['admin', identity, 'drafts'] })
     },
     onSuccess: () => {
-      void queryClient.invalidateQueries({ queryKey: queryKeys.graphs })
-      void queryClient.invalidateQueries({ queryKey: queryKeys.manuals })
+      void queryClient.invalidateQueries({ queryKey: ['graphs'] })
+      void queryClient.invalidateQueries({ queryKey: ['manuals'] })
     },
   })
 }

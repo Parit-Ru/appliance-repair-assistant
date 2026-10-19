@@ -1,9 +1,9 @@
 import { useId, useState } from 'react'
 import type { FormEvent } from 'react'
 import type { HistoryFeedback } from '../../api/types'
-import { MAX_FEEDBACK_COMMENT_LENGTH, checkComment, formatCommentCounter, isSameFeedback, toFeedback } from '../../lib/feedback'
+import { MAX_FEEDBACK_COMMENT_LENGTH, checkComment, formatCommentCounter, isSameFeedback, toFeedback } from '../../lib/textInput'
 import { Button } from '../ui/Button'
-import { HistoryErrorNotice } from './HistoryErrorNotice'
+import { ErrorNotice } from '../ErrorNotice'
 
 interface FeedbackButtonsProps {
   /** ค่าที่บันทึกไว้แล้ว (ถ้ามี) ฟอร์มขึ้นมาพร้อมค่านี้ และส่งซ้ำ = แก้ค่าเดิม */
@@ -72,7 +72,7 @@ export function FeedbackButtons({ saved, onSubmit, isSending, error }: FeedbackB
         </p>
       </div>
 
-      {error !== null && <HistoryErrorNotice error={error} />}
+      {error !== null && <ErrorNotice error={error} />}
 
       <div className="flex flex-wrap items-center gap-3">
         <Button type="submit" variant="secondary" isLoading={isSending} disabled={!canSubmit}>

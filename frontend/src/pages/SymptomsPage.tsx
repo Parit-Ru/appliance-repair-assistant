@@ -5,12 +5,12 @@ import { useManuals, useSymptomSearch } from '../api/queries'
 import { SlowServerNotice } from '../components/SlowServerNotice'
 import { SymptomSearchForm } from '../components/SymptomSearchForm'
 import { SymptomSearchResults } from '../components/SymptomSearchResults'
-import { SymptomsErrorNotice } from '../components/SymptomsErrorNotice'
+import { ErrorNotice } from '../components/ErrorNotice'
 import { Notice } from '../components/ui/Notice'
 import { describeError } from '../lib/errors'
 import { useChosenModel, symptomsPath } from '../lib/modelSelection'
 import { manualTitle } from '../lib/models'
-import { checkQuery, normalizeQuery } from '../lib/search'
+import { checkQuery, normalizeQuery } from '../lib/textInput'
 import { useSlowWait } from '../lib/useSlowWait'
 import { useStartSymptom } from '../lib/useStartSymptom'
 
@@ -83,7 +83,7 @@ export function SymptomsPage() {
         {search.isSuccess && <SymptomSearchResults result={search.data} startingId={startingId} isStarting={isStarting} onSelect={(graphId) => start(graphId, { query: search.data.query, manualId, modelSelection })} />}
       </div>
 
-      {startError && <SymptomsErrorNotice error={startError} />}
+      {startError && <ErrorNotice error={startError} />}
 
       <p className="text-sm text-ink-soft">
         ไม่เจออาการที่ตรง?{' '}

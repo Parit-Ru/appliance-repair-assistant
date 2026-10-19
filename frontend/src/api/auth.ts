@@ -1,5 +1,5 @@
 import { request } from './http'
-import type { AuthResponse, AuthUser, Role } from './types'
+import type { AuthResponse, AuthUser } from './types'
 
 /**
  * บัญชีผู้ใช้ — login/register ใช้ anonymous (ไม่แนบ token และ 401 = รหัสผ่านผิด ไม่ใช่ token เสีย)
@@ -11,9 +11,13 @@ export interface Session {
   user: AuthUser
 }
 
+/** หน้าจอเก็บเฉพาะ id / ชื่อที่แสดง / บทบาท (ไม่เก็บอีเมล) */
+function toAuthUser({ id, displayName, role }: AuthUser): AuthUser {
+  return { id, displayName, role }
+}
+
 function toSession(response: AuthResponse): Session {
-  const { id, displayName, role } = response.user
-  return { token: response.accessToken, user: { id, displayName, role } }
+  return { token: response.accessToken, user: toAuthUser(response.user) }
 }
 
 // POST /auth/login
@@ -36,14 +40,7 @@ export async function register(email: string, password: string, displayName: str
   return toSession(response)
 }
 
-interface MeResponse {
-  id: string
-  displayName: string
-  role: Role
-}
-
 // GET /auth/me — ยืนยัน token ที่เก็บไว้และอ่านข้อมูลล่าสุด (401 → http.ts ล้างการล็อกอินให้)
 export async function getMe(): Promise<AuthUser> {
-  const me = await request<MeResponse>('/auth/me')
-  return { id: me.id, displayName: me.displayName, role: me.role }
+  return toAuthUser(await request<AuthUser>('/auth/me'))
 }

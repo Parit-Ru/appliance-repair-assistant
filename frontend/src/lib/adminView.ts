@@ -8,7 +8,7 @@ import { DEVICE_CATEGORY_LABELS, HISTORY_STATUS_LABELS } from './labels'
  * ต้องแสดงเป็น "-" ห้ามแสดงเป็น 0 (0 เป็นค่าจริงที่มีความหมายอีกอย่าง)
  */
 
-export const EMPTY_VALUE = '-'
+const EMPTY_VALUE = '-'
 
 export const OWNER_TYPE_LABELS: Record<OwnerType, string> = {
   user: 'ผู้ใช้ที่เข้าสู่ระบบ',

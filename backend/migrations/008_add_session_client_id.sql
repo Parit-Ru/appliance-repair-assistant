@@ -1,4 +1,4 @@
--- 008: ผูก session กับเบราว์เซอร์ของผู้ใช้ เพื่อทำหน้า "ประวัติการซ่อม" (docs/history-page.md ข้อ D1)
+-- 008: ผูก session กับเบราว์เซอร์ของผู้ใช้ เพื่อทำหน้า "ประวัติการซ่อม" (docs/features/history-page.md ข้อ D1)
 --
 -- client_id = UUID ที่หน้าเว็บสุ่มสร้างเองแล้วเก็บไว้ใน localStorage ของเบราว์เซอร์
 --   ส่งมากับคำขอผ่านหัวข้อ X-Client-Id ตอนเริ่ม session และทุก endpoint ของ /history

@@ -1,11 +1,13 @@
 /**
  * drafts.dto.ts — ตัวตรวจ input ของ /admin/drafts (parseXxx เหมือน dto อื่นของโปรเจกต์) และรูปร่าง response
  *
+ * ผิดรูปแบบ → ApiError 400 INVALID_DRAFT_REQUEST
  * ค่าที่ผู้ดูแลกรอกตอนอัปโหลด (manual_id, ยี่ห้อ, รุ่น ฯลฯ) ถูกตรวจที่นี่ แล้วเซิร์ฟเวอร์ใช้ค่านี้ประกอบผัง — LLM กำหนดไม่ได้
  * ไม่มีฟิลด์ใดในรูปแบบ response ที่เป็น user id หรืออีเมล (audit เก็บใน DB เท่านั้น)
  */
 
-import { InvalidDraftRequestError } from './drafts.errors';
+import { isPlainObject } from '../common/helpers';
+import { invalidDraftRequest } from './drafts.errors';
 import { DEVICE_CATEGORIES } from './graph-validator';
 import type { ValidationReport } from './graph-validator';
 import { MAX_RANGE_PAGES } from './pdf-text';
@@ -13,10 +15,10 @@ import type { PageText } from './pdf-text';
 import type { DraftMeta } from './draft-manual';
 import type { DraftGraph } from './draft-schema';
 
-export const DRAFT_STATUSES = ['drafting', 'ready', 'failed', 'rejected', 'published'] as const;
+const DRAFT_STATUSES = ['drafting', 'ready', 'failed', 'rejected', 'published'] as const;
 export type DraftStatus = (typeof DRAFT_STATUSES)[number];
 
-export const MAX_MANUAL_ID_LENGTH = 60;
+const MAX_NEW_MANUAL_ID_LENGTH = 60;
 
 export interface UploadFields {
   manualId: string;
@@ -26,49 +28,49 @@ export interface UploadFields {
 type Obj = Record<string, unknown>;
 
 function asObject(body: unknown): Obj {
-  return typeof body === 'object' && body !== null && !Array.isArray(body) ? (body as Obj) : {};
+  return isPlainObject(body) ? body : {};
 }
 
 function text(source: Obj, key: string, max: number, required = true): string | undefined {
   const raw = source[key];
   if (raw === undefined || (typeof raw === 'string' && raw.trim() === '')) {
-    if (required) throw new InvalidDraftRequestError(`ต้องระบุ ${key}`);
+    if (required) throw invalidDraftRequest(`ต้องระบุ ${key}`);
     return undefined;
   }
-  if (typeof raw !== 'string') throw new InvalidDraftRequestError(`${key} ต้องเป็นข้อความ`);
+  if (typeof raw !== 'string') throw invalidDraftRequest(`${key} ต้องเป็นข้อความ`);
   const value = raw.trim();
-  if (value.length > max) throw new InvalidDraftRequestError(`${key} ยาวเกิน ${max} ตัวอักษร`);
+  if (value.length > max) throw invalidDraftRequest(`${key} ยาวเกิน ${max} ตัวอักษร`);
   return value;
 }
 
 function pageNumber(source: Obj, key: string): number {
   const raw = source[key];
-  if (typeof raw !== 'string' || !/^\d{1,4}$/.test(raw.trim())) throw new InvalidDraftRequestError(`${key} ต้องเป็นเลขหน้า (จำนวนเต็ม ≥ 1)`);
+  if (typeof raw !== 'string' || !/^\d{1,4}$/.test(raw.trim())) throw invalidDraftRequest(`${key} ต้องเป็นเลขหน้า (จำนวนเต็ม ≥ 1)`);
   const value = Number(raw.trim());
-  if (value < 1) throw new InvalidDraftRequestError(`${key} ต้องเป็นเลขหน้า (จำนวนเต็ม ≥ 1)`);
+  if (value < 1) throw invalidDraftRequest(`${key} ต้องเป็นเลขหน้า (จำนวนเต็ม ≥ 1)`);
   return value;
 }
 
-/**
- * ฟิลด์ข้อความของ multipart POST /admin/drafts:
- * manualId, deviceCategory, brand, modelPattern, sourceManual, displayName? (ไม่บังคับ), pageFrom, pageTo
- * manualId ใช้ได้เฉพาะ a-z 0-9 _ (ผังที่ publish ต้องเป็นคู่มือใหม่เท่านั้น: ชนของเดิมถูกปฏิเสธตอนอัปโหลด/เผยแพร่)
+/*
+  ฟิลด์ข้อความของ multipart POST /admin/drafts:
+  manualId, deviceCategory, brand, modelPattern, sourceManual, displayName? (ไม่บังคับ), pageFrom, pageTo
+  manualId ใช้ได้เฉพาะ a-z 0-9 _ (ผังที่ publish ต้องเป็นคู่มือใหม่เท่านั้น: ชนของเดิมถูกปฏิเสธตอนอัปโหลด/เผยแพร่)
  */
 export function parseUploadFields(body: unknown): UploadFields {
   const source = asObject(body);
 
-  const manualId = text(source, 'manualId', MAX_MANUAL_ID_LENGTH) as string;
-  if (!/^[a-z0-9_]{3,60}$/.test(manualId)) throw new InvalidDraftRequestError('manualId ใช้ได้เฉพาะ a-z 0-9 และ _ ยาว 3–60 ตัว');
+  const manualId = text(source, 'manualId', MAX_NEW_MANUAL_ID_LENGTH) as string;
+  if (!/^[a-z0-9_]{3,60}$/.test(manualId)) throw invalidDraftRequest('manualId ใช้ได้เฉพาะ a-z 0-9 และ _ ยาว 3–60 ตัว');
 
   const deviceCategory = text(source, 'deviceCategory', 40) as string;
   if (!(DEVICE_CATEGORIES as readonly string[]).includes(deviceCategory)) {
-    throw new InvalidDraftRequestError(`deviceCategory ต้องเป็นหนึ่งใน ${DEVICE_CATEGORIES.join(', ')}`);
+    throw invalidDraftRequest(`deviceCategory ต้องเป็นหนึ่งใน ${DEVICE_CATEGORIES.join(', ')}`);
   }
 
   const pageFrom = pageNumber(source, 'pageFrom');
   const pageTo = pageNumber(source, 'pageTo');
-  if (pageTo < pageFrom) throw new InvalidDraftRequestError('pageTo ต้องไม่น้อยกว่า pageFrom');
-  if (pageTo - pageFrom + 1 > MAX_RANGE_PAGES) throw new InvalidDraftRequestError(`เลือกได้ไม่เกิน ${MAX_RANGE_PAGES} หน้าต่อร่าง`);
+  if (pageTo < pageFrom) throw invalidDraftRequest('pageTo ต้องไม่น้อยกว่า pageFrom');
+  if (pageTo - pageFrom + 1 > MAX_RANGE_PAGES) throw invalidDraftRequest(`เลือกได้ไม่เกิน ${MAX_RANGE_PAGES} หน้าต่อร่าง`);
 
   const displayName = text(source, 'displayName', 120, false);
   return {
@@ -85,37 +87,32 @@ export function parseUploadFields(body: unknown): UploadFields {
   };
 }
 
-/** body ของ PUT /admin/drafts/:id → { graphs } (ตรวจรูปร่างจริงด้วย parseDraftGraphs ในชั้น service) */
+// body ของ PUT /admin/drafts/:id 
 export function parseUpdateBody(body: unknown): { graphs: unknown } {
   const source = asObject(body);
   const extra = Object.keys(source).filter((key) => key !== 'graphs');
-  if (extra.length > 0) throw new InvalidDraftRequestError(`ฟิลด์ที่ไม่อนุญาต: ${extra.join(', ')}`);
-  if (source.graphs === undefined) throw new InvalidDraftRequestError('ต้องมี graphs');
+  if (extra.length > 0) throw invalidDraftRequest(`ฟิลด์ที่ไม่อนุญาต: ${extra.join(', ')}`);
+  if (source.graphs === undefined) throw invalidDraftRequest('ต้องมี graphs');
   return { graphs: source.graphs };
 }
 
-/** body ของ POST /admin/drafts/:id/publish → { acknowledgedWarnings } (ไม่ส่ง = false) */
+// body ของ POST /admin/drafts/:id/publish → { acknowledgedWarnings }
 export function parsePublishBody(body: unknown): { acknowledgedWarnings: boolean } {
   const source = asObject(body);
   const extra = Object.keys(source).filter((key) => key !== 'acknowledgedWarnings');
-  if (extra.length > 0) throw new InvalidDraftRequestError(`ฟิลด์ที่ไม่อนุญาต: ${extra.join(', ')}`);
+  if (extra.length > 0) throw invalidDraftRequest(`ฟิลด์ที่ไม่อนุญาต: ${extra.join(', ')}`);
   const flag = source.acknowledgedWarnings;
-  if (flag !== undefined && typeof flag !== 'boolean') throw new InvalidDraftRequestError('acknowledgedWarnings ต้องเป็น true หรือ false');
+  if (flag !== undefined && typeof flag !== 'boolean') throw invalidDraftRequest('acknowledgedWarnings ต้องเป็น true หรือ false');
   return { acknowledgedWarnings: flag === true };
 }
 
-/** body ของ POST /admin/drafts/:id/reject → { reason? } */
+// body ของ POST /admin/drafts/:id/reject → { reason? } 
 export function parseRejectBody(body: unknown): { reason?: string } {
   const source = asObject(body);
   const extra = Object.keys(source).filter((key) => key !== 'reason');
-  if (extra.length > 0) throw new InvalidDraftRequestError(`ฟิลด์ที่ไม่อนุญาต: ${extra.join(', ')}`);
+  if (extra.length > 0) throw invalidDraftRequest(`ฟิลด์ที่ไม่อนุญาต: ${extra.join(', ')}`);
   return { reason: text(source, 'reason', 300, false) };
 }
-
-// ============================================================
-// รูปร่าง response
-// ============================================================
-
 export interface DraftSummaryDto {
   id: string;
   status: DraftStatus;
@@ -135,7 +132,6 @@ export interface DraftSummaryDto {
 
 export interface DraftDetailDto extends DraftSummaryDto {
   meta: DraftMeta;
-  /** ข้อความหน้าต้นฉบับของช่วงที่เลือก — ให้ผู้ตรวจเทียบกับแต่ละโหนด */
   pages: PageText[];
   graphs: DraftGraph[] | null;
   validation: ValidationReport | null;
@@ -148,6 +144,5 @@ export interface PublishResultDto {
   id: string;
   status: 'published';
   graphIds: string[];
-  /** ผลการเพิ่มผังเข้าดัชนีค้นหาด้วยข้อความ (เลือกจากรายการอาการได้ทันทีโดยไม่ขึ้นกับตัวนี้) */
   searchIndex: { indexed: boolean; reason?: string };
 }

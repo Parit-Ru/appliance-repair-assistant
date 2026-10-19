@@ -4,8 +4,9 @@ import type { DraftSummary } from '../api/types'
 import { AdminTabs } from '../components/admin/AdminTabs'
 import { DraftStatusBadge } from '../components/admin/drafts/DraftStatusBadge'
 import { UploadDraftForm } from '../components/admin/drafts/UploadDraftForm'
-import { HistoryErrorNotice } from '../components/history/HistoryErrorNotice'
+import { ErrorNotice } from '../components/ErrorNotice'
 import { Icon } from '../components/ui/Icon'
+import { LoadingText } from '../components/LoadingText'
 import { draftFailureLabel } from '../lib/draftView'
 import { formatStartedAt } from '../lib/historyView'
 
@@ -33,12 +34,9 @@ export function AdminDraftsPage() {
         <h2 className="text-lg font-semibold">ร่างทั้งหมด</h2>
 
         {drafts.isPending && (
-          <p className="flex items-center gap-2 text-ink-soft">
-            <Icon name="spinner" className="h-5 w-5 animate-spin" />
-            กำลังโหลดรายการร่าง
-          </p>
+          <LoadingText>กำลังโหลดรายการร่าง</LoadingText>
         )}
-        {drafts.isError && <HistoryErrorNotice error={drafts.error} onRetry={() => void drafts.refetch()} />}
+        {drafts.isError && <ErrorNotice error={drafts.error} onRetry={() => void drafts.refetch()} />}
 
         {items !== undefined && items.length === 0 && (
           <p className="rounded-xl border border-line bg-panel p-5 text-ink-soft">ยังไม่มีร่าง — อัปโหลดคู่มือด้านบนเพื่อเริ่ม</p>

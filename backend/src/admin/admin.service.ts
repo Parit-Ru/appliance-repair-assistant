@@ -8,56 +8,28 @@
  *   - outcome ของ session ที่จบ = outcome_kind ของโหนดสุดท้าย ณ ผังปัจจุบัน (เหมือนหน้าประวัติ)
  *     ผังถูก seed ใหม่จนหาโหนดไม่เจอ → นับเป็น 'unknown'
  *
- * ข้อจำกัดที่รู้ (บันทึกใน docs/auth-step3.md):
+ * ข้อจำกัดที่รู้ (บันทึกใน docs/auth/auth-step3.md):
  *   - ตาราง sessions/graphs ใช้ร่วมกับโปรเจกต์เก่า แยกด้วย graph_id ไม่ได้ ตัวเลขรวมจึงรวม session ของโปรเจกต์เก่าด้วย
  */
 
 import { Injectable } from '@nestjs/common';
 
-import type { OutcomeKind, TroubleshootingGraph } from '../traversal-engine/types';
+import { isoFromEpoch, round3 } from '../common/helpers';
+import { getOutcomeKind } from '../traversal-engine/traversal-engine';
 import { GraphRepository } from '../traversal/graph.repository';
-import {
-  dayIndexToDate,
-  dayIndexToEpoch,
-  thaiDayIndex,
-  TOP_LIMIT,
-  totalPagesOf,
-} from './admin.dto';
-import type {
-  AdminFeedbackItemDto,
-  AdminSessionItemDto,
-  AdminSummaryDto,
-  FeedbackQuery,
-  PagedDto,
-  SessionsQuery,
-  SummaryQuery,
-} from './admin.dto';
+import { dayIndexToDate, dayIndexToEpoch, thaiDayIndex, TOP_LIMIT, totalPagesOf } from './admin.dto';
+import type { AdminFeedbackItemDto, AdminFeedbackPageDto, AdminSummaryDto, FeedbackQuery, SummaryQuery } from './admin.dto';
 import { AdminStore } from './admin.store';
-
-const isoOf = (epochSeconds: number): string => new Date(epochSeconds * 1000).toISOString();
-const round3 = (value: number): number => Math.round(value * 1000) / 1000;
-
-/** outcome_kind ของโหนดสุดท้าย · null = ผัง/โหนดหาย หรือไม่ใช่โหนดสิ้นสุด */
-function outcomeKindOf(graph: TroubleshootingGraph | undefined, nodeId: string): OutcomeKind | null {
-  const node = graph?.nodes.find((candidate) => candidate.node_id === nodeId);
-  if (node && (node.type === 'resolution' || node.type === 'escalation')) {
-    return node.outcome_kind;
-  }
-  return null;
-}
 
 @Injectable()
 export class AdminService {
-  /** นาฬิกา (วินาที) — เป็น field ให้เทสต์เปลี่ยนเวลาได้ถ้ากู้เทสต์กลับมา · ไม่อยู่ใน constructor เพื่อไม่ให้ Nest พยายามฉีดเป็น dependency */
-  nowEpoch: () => number = () => Math.floor(Date.now() / 1000);
-
   constructor(
     private readonly store: AdminStore,
     private readonly graphRepository: GraphRepository,
   ) {}
 
   /** GET /admin/feedback */
-  async feedback(query: FeedbackQuery): Promise<PagedDto<AdminFeedbackItemDto>> {
+  async feedback(query: FeedbackQuery): Promise<AdminFeedbackPageDto> {
     const { rows, total } = await this.store.listFeedback(query, query.pageSize, (query.page - 1) * query.pageSize);
 
     const items = rows.map((row): AdminFeedbackItemDto => {
@@ -66,37 +38,12 @@ export class AdminService {
         sessionId: row.sessionId,
         helpful: row.helpful,
         comment: row.comment,
-        createdAt: isoOf(row.createdEpoch),
-        updatedAt: isoOf(row.updatedEpoch),
+        createdAt: isoFromEpoch(row.createdEpoch),
+        updatedAt: isoFromEpoch(row.updatedEpoch),
         graphId: row.graphId,
         deviceCategory: graph?.device_category ?? null,
         brand: graph?.brand ?? null,
         ownerType: row.ownerType,
-      };
-    });
-
-    return { items, total, page: query.page, pageSize: query.pageSize, totalPages: totalPagesOf(total, query.pageSize) };
-  }
-
-  /** GET /admin/sessions */
-  async sessions(query: SessionsQuery): Promise<PagedDto<AdminSessionItemDto>> {
-    const { rows, total } = await this.store.listSessions(query, query.pageSize, (query.page - 1) * query.pageSize);
-
-    const items = rows.map((row): AdminSessionItemDto => {
-      const graph = this.graphRepository.findById(row.graphId);
-      return {
-        sessionId: row.sessionId,
-        graphId: row.graphId,
-        deviceCategory: graph?.device_category ?? null,
-        brand: graph?.brand ?? null,
-        status: row.status,
-        expired: row.expired,
-        confidence: row.confidence,
-        modelSelection: row.modelSelection,
-        outcomeKind: row.status === 'completed' ? outcomeKindOf(graph, row.currentNodeId) : null,
-        hasFeedback: row.hasFeedback,
-        ownerType: row.ownerType,
-        createdAt: isoOf(row.createdEpoch),
       };
     });
 
@@ -105,7 +52,7 @@ export class AdminService {
 
   /** GET /admin/analytics/summary — ช่วง N วันล่าสุด (นับวันนี้เป็นวันที่ N) ตามเวลาไทย ใช้กับทุกส่วน */
   async summary(query: SummaryQuery): Promise<AdminSummaryDto> {
-    const todayIndex = thaiDayIndex(this.nowEpoch());
+    const todayIndex = thaiDayIndex(Math.floor(Date.now() / 1000));
     const firstIndex = todayIndex - (query.days - 1);
     const window = { fromEpoch: dayIndexToEpoch(firstIndex), toEpoch: dayIndexToEpoch(todayIndex + 1) };
 
@@ -126,7 +73,8 @@ export class AdminService {
       unknown: 0,
     };
     for (const end of endNodes) {
-      const kind = outcomeKindOf(this.graphRepository.findById(end.graphId), end.nodeId);
+      const graph = this.graphRepository.findById(end.graphId);
+      const kind = graph ? getOutcomeKind(graph, end.nodeId) : null;
       outcomes[kind ?? 'unknown'] += end.count;
     }
 

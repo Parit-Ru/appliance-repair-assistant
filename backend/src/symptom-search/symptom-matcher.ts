@@ -2,7 +2,7 @@ import type { TroubleshootingGraph } from '../traversal-engine/types';
 export type SymptomSource = Pick<TroubleshootingGraph,
   'graph_id' | 'entry_symptom' | 'entry_symptom_th' | 'entry_symptom_aliases'>;
 
-export interface SymptomText {
+interface SymptomText {
   graphId: string;
   text: string;
 }
@@ -11,13 +11,13 @@ export interface IndexedSymptom extends SymptomText {
   vector: ArrayLike<number>;
 }
 
-export interface RankedGraph {
+interface RankedGraph {
   graphId: string;
   score: number;
   matchedText: string;
 }
 
-export function cosineSimilarity(
+function cosineSimilarity(
   a: ArrayLike<number>,
   b: ArrayLike<number>,
 ): number {

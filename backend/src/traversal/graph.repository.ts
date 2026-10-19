@@ -1,8 +1,7 @@
 import { Inject, Injectable, Logger, OnModuleInit } from '@nestjs/common';
 import type { Pool, RowDataPacket } from 'mysql2/promise';
 import { MYSQL_POOL } from '../database/database.constants';
-import {DeviceCategory,InputType,NodeType,OutcomeKind,TroubleshootingGraph,
-  TroubleshootingNode,UnsupportedSchemaVersionError,} from '../traversal-engine/types';
+import {DeviceCategory,InputType,NodeType,OutcomeKind,TroubleshootingGraph, TroubleshootingNode,UnsupportedSchemaVersionError } from '../traversal-engine/types';
 
 interface GraphRow extends RowDataPacket {
   graph_id: string;

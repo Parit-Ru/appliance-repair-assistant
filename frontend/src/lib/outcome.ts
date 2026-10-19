@@ -4,7 +4,7 @@ export function normalizeOutcome(raw: string): string {
   return raw.trim()
 }
 
-export type OutcomeCheck = 'ok' | 'empty' | 'too-long'
+type OutcomeCheck = 'ok' | 'empty' | 'too-long'
 
 export function checkOutcome(raw: string): OutcomeCheck {
   const text = normalizeOutcome(raw)

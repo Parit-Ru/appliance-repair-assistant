@@ -5,15 +5,15 @@ import { useAbandonSession, useGraphs, useManuals, useSession, useStartSession, 
 import { EquipmentPanel } from '../components/EquipmentPanel'
 import { OutcomeForm } from '../components/OutcomeForm'
 import { RephraseNote } from '../components/RephraseNote'
-import { SessionErrorNotice } from '../components/SessionErrorNotice'
+import { ErrorNotice } from '../components/ErrorNotice'
 import { SessionHeader } from '../components/SessionHeader'
 import { SlowServerNotice } from '../components/SlowServerNotice'
 import { PathRail } from '../components/step/PathRail'
 import { StepView } from '../components/step/StepView'
 import { TerminalActions } from '../components/TerminalActions'
-import { Icon } from '../components/ui/Icon'
 import { Notice } from '../components/ui/Notice'
-import { modelSelectionFromState, otherSymptomsPath, restartVariables } from '../lib/modelSelection'
+import { LoadingText } from '../components/LoadingText'
+import { modelSelectionFromState, otherSymptomsPath } from '../lib/modelSelection'
 import { manualTitle } from '../lib/models'
 import { toTrailEntry } from '../lib/trail'
 import type { TrailEntry } from '../lib/trail'
@@ -76,8 +76,9 @@ function SessionView({ sessionId }: { sessionId: string }) {
   }
 
   function handleRestart(graphId: string) {
+    // พาค่า modelSelection เดิมไปตามเดิม: undefined ก็ยังเป็น undefined (ห้ามเปลี่ยนเป็น 'selected')
     restart.mutate(
-      restartVariables(graphId, summary?.manualId, modelSelection),
+      { graphId, manualId: summary?.manualId, modelSelection },
       {
         onSuccess: (next) => navigate(`/session/${next.sessionId}`, { replace: true, state: { modelSelection } }),
       },
@@ -104,10 +105,7 @@ function SessionView({ sessionId }: { sessionId: string }) {
     return (
       <div className="space-y-6">
         {slowNotice}
-        <p className="flex items-center gap-2 text-ink-soft">
-          <Icon name="spinner" className="h-5 w-5 animate-spin" />
-          กำลังโหลดขั้นตอน
-        </p>
+        <LoadingText>กำลังโหลดขั้นตอน</LoadingText>
       </div>
     )
   }
@@ -116,7 +114,7 @@ function SessionView({ sessionId }: { sessionId: string }) {
     return (
       <div className="space-y-6">
         <h1 className="text-2xl font-semibold">ตรวจอาการ</h1>
-        <SessionErrorNotice error={session.error} onRefresh={handleRefresh} />
+        <ErrorNotice error={session.error} onRetry={handleRefresh} reloadLabel="ดึงขั้นตอนล่าสุด" />
       </div>
     )
   }
@@ -159,7 +157,7 @@ function SessionView({ sessionId }: { sessionId: string }) {
       )}
 
       {slowNotice}
-      {actionError && <SessionErrorNotice error={actionError} onRefresh={handleRefresh} />}
+      {actionError && <ErrorNotice error={actionError} onRetry={handleRefresh} reloadLabel="ดึงขั้นตอนล่าสุด" />}
 
       <PathRail entries={trail} current={node}>
         <div ref={stepRef}>

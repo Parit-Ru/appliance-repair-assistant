@@ -2,7 +2,7 @@ import { request } from './http'
 import type { AdminFeedbackParams, AdminFeedbackResponse, AdminSummary } from './types'
 
 /** จำนวนแถวต่อหน้าของรายการ feedback (เซิร์ฟเวอร์รับ 1–100) */
-export const ADMIN_PAGE_SIZE = 20
+const ADMIN_PAGE_SIZE = 20
 
 /** ช่วงวันที่ของสถิติที่เลือกได้ (เซิร์ฟเวอร์รับ 1–90) */
 export const SUMMARY_DAY_OPTIONS = [7, 30, 90] as const

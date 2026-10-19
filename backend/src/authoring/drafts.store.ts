@@ -2,7 +2,7 @@
  * drafts.store.ts — SQL ทั้งหมดของ graph_drafts (migration 012) และการ publish ลง manuals / graphs / nodes
  *
  * ไฟล์นี้กับ migration 012 เป็นที่เดียวของระบบที่รู้จักตาราง graph_drafts — จุดอ่านผังของผู้ใช้ทั้งหมด (GraphRepository ฯลฯ)
- * ไม่แตะมัน ร่างจึงเข้าถึงไม่ได้จนกว่าจะ publish (draft-isolation.spec.ts ตรวจซอร์สโค้ดให้)
+ * ไม่แตะมัน ร่างจึงเข้าถึงไม่ได้จนกว่าจะ publish (ตรวจได้ด้วยการค้นคำว่า graph_drafts ใน backend/src)
  *
  * publish ทำใน transaction เดียว ล็อกแถวร่างด้วย SELECT … FOR UPDATE แล้วให้ callback `prepare` ตรวจ (validator) "ข้อมูลที่กำลังจะเขียนจริง"
  * ก่อน INSERT — จึงไม่มีช่องว่างให้ร่างถูกแก้ระหว่างตรวจกับเขียน · INSERT ล้วน ไม่มี ON DUPLICATE KEY UPDATE
@@ -11,13 +11,13 @@
 
 import { Inject, Injectable } from '@nestjs/common';
 import type { Pool, PoolConnection, ResultSetHeader, RowDataPacket } from 'mysql2/promise';
-
+import { numOrNull } from '../common/helpers';
 import { MYSQL_POOL } from '../database/database.constants';
 import { GRAPH_COLUMNS, MANUAL_COLUMNS, NODE_COLUMNS } from './draft-manual';
 import type { DbRows, DraftMeta } from './draft-manual';
 import type { DraftGraph } from './draft-schema';
 import type { DraftStatus } from './drafts.dto';
-import { DraftIdConflictError, DraftNotFoundError, DraftNotReadyError } from './drafts.errors';
+import { draftIdConflict, draftNotFound, draftNotReady } from './drafts.errors';
 import type { ValidationReport } from './graph-validator';
 import type { PageText } from './pdf-text';
 
@@ -41,7 +41,7 @@ export interface DraftRecord {
   publishedAtEpoch: number | null;
 }
 
-export interface DraftListRow {
+interface DraftListRow {
   id: string;
   status: DraftStatus;
   manualId: string;
@@ -57,7 +57,7 @@ export interface DraftListRow {
   updatedAtEpoch: number;
 }
 
-export interface NewDraft {
+interface NewDraft {
   id: string;
   manualId: string;
   meta: DraftMeta;
@@ -68,7 +68,6 @@ export interface NewDraft {
   createdBy: string;
 }
 
-/** สิ่งที่ callback prepare คืนให้ publish เขียนจริง */
 export interface PreparedPublish {
   rows: DbRows;
   report: ValidationReport;
@@ -85,14 +84,12 @@ const SELECT_DRAFT = `SELECT id, status, manual_id, meta, pages, graphs, validat
                               UNIX_TIMESTAMP(reviewed_at) AS reviewed_epoch, UNIX_TIMESTAMP(published_at) AS published_epoch
                          FROM graph_drafts`;
 
-/** คอลัมน์ JSON: mysql2 บางโหมดคืน object บางโหมดคืนข้อความ */
+
 function json<T>(value: unknown): T | null {
   if (value === null || value === undefined) return null;
   if (typeof value === 'string') return JSON.parse(value) as T;
   return value as T;
 }
-
-const numOrNull = (value: unknown): number | null => (value === null || value === undefined ? null : Number(value));
 
 function toRecord(row: Row): DraftRecord {
   return {
@@ -134,7 +131,6 @@ export class DraftsStore {
     return rows[0] ? toRecord(rows[0]) : undefined;
   }
 
-  /** ร่างล่าสุด 100 รายการ (ไม่ดึง pages/graphs ทั้งก้อน) */
   async list(): Promise<DraftListRow[]> {
     const [rows] = await this.pool.query<Row[]>(
       `SELECT id, status, manual_id, meta, progress_done, progress_total, error_code, error_message,
@@ -168,11 +164,10 @@ export class DraftsStore {
     return Number(rows[0]?.n ?? 0);
   }
 
-  /** ตอนบูต: ร่างที่ค้าง drafting แปลว่าเซิร์ฟเวอร์ดับกลางงาน → failed (ลองใหม่ได้) */
   async failInterrupted(): Promise<number> {
     const [result] = await this.pool.query<ResultSetHeader>(
       `UPDATE graph_drafts
-          SET status = 'failed', error_code = 'INTERRUPTED', error_message = 'งานถูกขัดจังหวะ (เซิร์ฟเวอร์เริ่มทำงานใหม่) ลองใหม่ได้'
+          SET status = 'failed', error_code = 'INTERRUPTED', error_message = 'งานถูกขัดจังหวะ (เซิร์ฟเวอร์เริ่มทำงานใหม่) ให้อัปโหลดคู่มือใหม่'
         WHERE status = 'drafting'`,
     );
     return result.affectedRows;
@@ -198,19 +193,6 @@ export class DraftsStore {
     );
   }
 
-  /** failed → drafting (ลองใหม่ด้วยข้อความหน้าเดิม) · true = เปลี่ยนสถานะได้ */
-  async restart(id: string, llmModel: string | null, promptVersion: string | null): Promise<boolean> {
-    const [result] = await this.pool.query<ResultSetHeader>(
-      `UPDATE graph_drafts
-          SET status = 'drafting', progress_done = 0, graphs = NULL, validation = NULL, error_code = NULL, error_message = NULL,
-              llm_model = ?, prompt_version = ?
-        WHERE id = ? AND status = 'failed'`,
-      [llmModel, promptVersion, id],
-    );
-    return result.affectedRows === 1;
-  }
-
-  /** ผู้ดูแลแก้ร่าง — เฉพาะสถานะ ready · true = บันทึกได้ */
   async saveEdit(id: string, graphs: DraftGraph[], validation: ValidationReport): Promise<boolean> {
     const [result] = await this.pool.query<ResultSetHeader>(
       `UPDATE graph_drafts SET graphs = ?, validation = ? WHERE id = ? AND status = 'ready'`,
@@ -219,7 +201,6 @@ export class DraftsStore {
     return result.affectedRows === 1;
   }
 
-  /** ปฏิเสธร่าง (ready หรือ failed) · true = ปฏิเสธได้ */
   async reject(id: string, userId: string, reason: string | undefined): Promise<boolean> {
     const [result] = await this.pool.query<ResultSetHeader>(
       `UPDATE graph_drafts
@@ -229,29 +210,15 @@ export class DraftsStore {
     );
     return result.affectedRows === 1;
   }
-
-  // ============================================================
-  // publish
-  // ============================================================
-
-  /**
-   * เผยแพร่ร่างเป็นผังจริง ใน transaction เดียว
-   *
-   * 1. ล็อกแถวร่าง (FOR UPDATE) ต้องเป็น 'ready'
-   * 2. prepare(draft): ตรวจด้วย validator กับข้อมูลที่ล็อกไว้ — โยน error = ไม่เขียนอะไรเลย
-   * 3. manual_id / graph_id ต้องไม่ชนของเดิม (ไม่เขียนทับ)
-   * 4. INSERT manuals → graphs → nodes → อัปเดตร่างเป็น published (เก็บรายงานตรวจล่าสุดและผู้อนุมัติ)
-   * ผิดพลาดตรงไหนก็ ROLLBACK ทั้งหมด
-   */
   async publish(id: string, userId: string, prepare: (draft: DraftRecord) => PreparedPublish): Promise<string[]> {
     const conn = await this.pool.getConnection();
     try {
       await conn.beginTransaction();
 
       const [rows] = await conn.query<Row[]>(`${SELECT_DRAFT} WHERE id = ? FOR UPDATE`, [id]);
-      if (!rows[0]) throw new DraftNotFoundError(id);
+      if (!rows[0]) throw draftNotFound(id);
       const draft = toRecord(rows[0]);
-      if (draft.status !== 'ready') throw new DraftNotReadyError('publish', draft.status);
+      if (draft.status !== 'ready') throw draftNotReady('publish', draft.status);
 
       const prepared = prepare(draft);
       await this.assertNoConflicts(conn, prepared);
@@ -273,8 +240,7 @@ export class DraftsStore {
       return prepared.graphIds;
     } catch (err) {
       await conn.rollback().catch(() => undefined);
-      // ชนกันตอน INSERT (มีคนอื่นเพิ่ม id เดียวกันพอดี) → แปลงเป็น conflict ชัดเจน
-      if ((err as { code?: string }).code === 'ER_DUP_ENTRY') throw new DraftIdConflictError(['มี id เดียวกันถูกเพิ่มระหว่างเผยแพร่']);
+      if ((err as { code?: string }).code === 'ER_DUP_ENTRY') throw draftIdConflict(['มี id เดียวกันถูกเพิ่มระหว่างเผยแพร่']);
       throw err;
     } finally {
       conn.release();
@@ -290,6 +256,6 @@ export class DraftsStore {
     const [graphs] = await conn.query<Row[]>(`SELECT graph_id FROM graphs WHERE graph_id IN (?)`, [prepared.graphIds]);
     for (const row of graphs) conflicts.push(`graph_id '${String(row.graph_id)}'`);
 
-    if (conflicts.length > 0) throw new DraftIdConflictError(conflicts);
+    if (conflicts.length > 0) throw draftIdConflict(conflicts);
   }
 }

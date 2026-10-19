@@ -1,7 +1,5 @@
-import type {TroubleshootingGraph,TroubleshootingNode, ResolutionNode,EscalationNode,SessionState,
-  SessionStatus,TraversalAction,RenderedNode,NodeReference,} from './types';
-import {NodeNotFoundError,InvalidActionError,SafetyConfirmationRequiredError,
-  SessionAlreadyCompletedError,UnsupportedSchemaVersionError,} from './types';
+import type {TroubleshootingGraph,TroubleshootingNode, ResolutionNode,EscalationNode,OutcomeKind,SessionState, SessionStatus,TraversalAction,RenderedNode,NodeReference } from './types';
+import {NodeNotFoundError,InvalidActionError,SafetyConfirmationRequiredError, SessionAlreadyCompletedError,UnsupportedSchemaVersionError } from './types';
 
 export function startSession(
   graph: TroubleshootingGraph,
@@ -36,6 +34,12 @@ export function getCurrentNode(session: SessionState, graph: TroubleshootingGrap
   }
 
   return renderNode(node, graph, session.variables);
+}
+
+/** outcome_kind ของโหนดสิ้นสุด (resolution/escalation) · null = ไม่มีโหนดนี้ในผัง หรือไม่ใช่โหนดสิ้นสุด */
+export function getOutcomeKind(graph: TroubleshootingGraph, nodeId: string): OutcomeKind | null {
+  const node = graph.nodes.find((n) => n.node_id === nodeId);
+  return node !== undefined && isTerminalNode(node) ? node.outcome_kind : null;
 }
 
 export function submitAction(

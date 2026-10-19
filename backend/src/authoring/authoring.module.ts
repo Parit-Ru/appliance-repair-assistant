@@ -1,18 +1,4 @@
-/**
- * authoring.module.ts — อัปโหลด PDF → LLM ร่างผัง → ตรวจ → เผยแพร่ (Step 5)
- *
- * imports:
- *   AuthModule          — JwtAuthGuard / RolesGuard
- *   GraphModule         — GraphRepository (reload หลัง publish · ตรวจ id ชน)
- *   SymptomSearchModule — SymptomSearchService.addGraphs (เพิ่มผังใหม่เข้าดัชนีค้นหา)
- * MYSQL_POOL มาจาก DatabaseModule ที่เป็น @Global()
- *
- * ตัวแยกข้อความ PDF และ LLM client ผูกผ่าน token เพื่อให้สลับเป็นตัวอื่นได้โดยไม่ต้องแก้ DraftsService
- * LLM client เป็น null เมื่อยังไม่ตั้งค่า (GROQ_API_KEY + AUTHORING_LLM_MODEL) — ร่างจะล้มด้วย LLM_NOT_CONFIGURED
- */
-
 import { Module } from '@nestjs/common';
-
 import { AuthModule } from '../auth/auth.module';
 import { SymptomSearchModule } from '../symptom-search/symptom-search.module';
 import { GraphModule } from '../traversal/graph.module';

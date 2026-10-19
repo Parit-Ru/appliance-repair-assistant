@@ -4,23 +4,24 @@
  * imports GraphModule เพื่อขอยืม GraphRepository ตัวเดียวกัน
  * ไม่สร้าง repository ซ้ำ เพราะจะโหลดผังจาก MySQL สองรอบ และอาจได้ข้อมูลไม่ตรงกัน
  *
- * imports EmbeddingModule (src/embedding/) เพื่อขอยืม EmbeddingService ตัวเดียวกัน (โหลดโมเดลครั้งเดียว)
+ * EmbeddingService (src/embedding/) ประกาศเป็น provider ที่นี่ที่เดียว จึงมีตัวเดียวทั้งแอป (โหลดโมเดลครั้งเดียว)
  *
- * exports เฉพาะ SymptomSearchService ให้ TraversalModule ใช้
+ * exports เฉพาะ SymptomSearchService ให้ TraversalModule และ AuthoringModule ใช้
  */
 
 import { Module } from '@nestjs/common';
 
-import { EmbeddingModule } from '../embedding/embedding.module';
+import { EmbeddingService } from '../embedding/embedding.service';
 import { GraphModule } from '../traversal/graph.module';
 import { SymptomSearchController } from './symptom-search.controller';
 import { SymptomSearchService } from './symptom-search.service';
 
 @Module({
-  imports: [GraphModule, EmbeddingModule],
+  imports: [GraphModule],
   // export ให้ TraversalModule ยืม SymptomSearchService ไปคิดคะแนนความมั่นใจของ session
+  // และ AuthoringModule ใช้เพิ่มผังที่เพิ่ง publish เข้าดัชนีค้นหา
   exports: [SymptomSearchService],
   controllers: [SymptomSearchController],
-  providers: [SymptomSearchService],
+  providers: [EmbeddingService, SymptomSearchService],
 })
 export class SymptomSearchModule {}

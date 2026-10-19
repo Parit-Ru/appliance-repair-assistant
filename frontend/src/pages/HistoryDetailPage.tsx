@@ -4,17 +4,17 @@ import { useDeleteHistory, useHistoryDetail, useSubmitFeedback } from '../api/qu
 import type { HistoryDetail } from '../api/types'
 import { DeleteConfirm } from '../components/history/DeleteConfirm'
 import { FeedbackButtons } from '../components/history/FeedbackButtons'
-import { HistoryErrorNotice } from '../components/history/HistoryErrorNotice'
+import { ErrorNotice } from '../components/ErrorNotice'
 import { SlowServerNotice } from '../components/SlowServerNotice'
 import { ReferenceLine } from '../components/step/ReferenceLine'
 import { Button } from '../components/ui/Button'
-import { Icon } from '../components/ui/Icon'
 import { Notice } from '../components/ui/Notice'
+import { LoadingText } from '../components/LoadingText'
 import { formatStartedAt, GRAPH_CHANGED_MESSAGE, historyTitle, STATUS_BADGE_CLASSES } from '../lib/historyView'
 import { DEVICE_CATEGORY_LABELS, HISTORY_STATUS_LABELS } from '../lib/labels'
 import { otherSymptomsPath } from '../lib/modelSelection'
 import { manualTitle } from '../lib/models'
-import { formatScore } from '../lib/search'
+import { formatScore } from '../lib/textInput'
 import { toTrailEntry } from '../lib/trail'
 import { useSlowWait } from '../lib/useSlowWait'
 import { useStartSymptom } from '../lib/useStartSymptom'
@@ -62,10 +62,7 @@ function HistoryDetailView({ sessionId }: { sessionId: string }) {
       <div className="space-y-6">
         <BackLink />
         {isSlow && <SlowServerNotice />}
-        <p className="flex items-center gap-2 text-ink-soft">
-          <Icon name="spinner" className="h-5 w-5 animate-spin" />
-          กำลังโหลดรายละเอียด
-        </p>
+        <LoadingText>กำลังโหลดรายละเอียด</LoadingText>
       </div>
     )
   }
@@ -74,7 +71,7 @@ function HistoryDetailView({ sessionId }: { sessionId: string }) {
     return (
       <div className="space-y-6">
         <BackLink />
-        <HistoryErrorNotice error={detail.error} onRetry={() => void detail.refetch()} />
+        <ErrorNotice error={detail.error} onRetry={() => void detail.refetch()} />
       </div>
     )
   }
@@ -201,7 +198,7 @@ function HistoryDetailView({ sessionId }: { sessionId: string }) {
         />
       )}
 
-      {startError !== null && <HistoryErrorNotice error={startError} />}
+      {startError !== null && <ErrorNotice error={startError} />}
 
       <div className="space-y-3">
         {graph !== null && (

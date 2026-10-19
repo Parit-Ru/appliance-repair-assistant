@@ -1,50 +1,46 @@
 import { Link, useSearchParams } from 'react-router-dom'
 import { useHistory } from '../api/queries'
-import type { HistoryParams } from '../api/types'
-import { HistoryErrorNotice } from '../components/history/HistoryErrorNotice'
-import { HistoryFilters } from '../components/history/HistoryFilters'
+import { ErrorNotice } from '../components/ErrorNotice'
 import { HistoryRow } from '../components/history/HistoryRow'
 import { Pagination } from '../components/history/Pagination'
 import { SlowServerNotice } from '../components/SlowServerNotice'
-import { Button } from '../components/ui/Button'
-import { Icon } from '../components/ui/Icon'
 import { Notice } from '../components/ui/Notice'
+import { LoadingText } from '../components/LoadingText'
 import { useAuth } from '../lib/authContext'
-import { applyPatch, clearFilters, hasActiveFilters, parseHistoryParams, toSearchParams } from '../lib/historyParams'
 import { HISTORY_RETENTION_DAYS } from '../lib/historyView'
 import { useSlowWait } from '../lib/useSlowWait'
 
 /**
- * หน้าประวัติการซ่อม (/history) — รายการการตรวจที่จบแล้วของเบราว์เซอร์นี้
+ * หน้าประวัติการซ่อม (/history) — รายการการตรวจที่จบแล้วของเบราว์เซอร์นี้ เรียงใหม่สุดก่อน แบ่งหน้าละ 10 รายการ
  *
- * ตัวกรอง/คำค้น/การเรียง/หน้า เก็บใน URL (?q=&category=&brand=&status=&sort=&page=) อ่านผ่าน parseHistoryParams
+ * เลขหน้าเก็บใน URL (?page=) เพื่อให้กดย้อนกลับ รีเฟรช หรือแชร์ลิงก์ แล้วยังอยู่หน้าเดิม · ค่าที่ไม่ใช่จำนวนเต็มบวกถือเป็นหน้า 1
  * ทุกอย่างที่แสดงมาจากที่เซิร์ฟเวอร์ส่งมา ไม่แต่งชื่ออาการ สถานะ หรือวันที่เอง
  *
  * สามสถานะของรายการ: กำลังโหลด / ผิดพลาด (ลองอีกครั้งได้) / ว่าง
- * ว่างมี 2 แบบ: ยังไม่มีประวัติเลย (ไม่มีตัวกรอง) กับ ไม่พบตามตัวกรอง (ล้างตัวกรองได้)
  */
 
 const LINK_CLASSES = 'text-accent underline-offset-4 hover:underline'
 
+function pageFromUrl(raw: string | null): number {
+  if (raw === null || !/^\d+$/.test(raw)) return 1
+  const page = Number(raw)
+  return Number.isSafeInteger(page) && page >= 1 ? page : 1
+}
+
 export function HistoryPage() {
   const [searchParams, setSearchParams] = useSearchParams()
-  const params = parseHistoryParams(searchParams)
-  const history = useHistory(params)
+  const history = useHistory(pageFromUrl(searchParams.get('page')))
   const { user } = useAuth()
   const isLoggedIn = user !== undefined
 
   // รอนาน: เซิร์ฟเวอร์บน Render หลับเมื่อไม่มีคนใช้ ตื่นช้า
   const isSlow = useSlowWait(history.isPending)
 
-  const hasFilters = hasActiveFilters(params)
   const data = history.data
 
-  function update(patch: Partial<HistoryParams>) {
-    setSearchParams(toSearchParams(applyPatch(params, patch)))
-  }
-
-  function clear() {
-    setSearchParams(toSearchParams(clearFilters(params)))
+  // หน้า 1 ไม่ต้องใส่ใน URL (ลิงก์สั้น และ /history เฉยๆ = หน้าแรก)
+  function goToPage(page: number) {
+    setSearchParams(page === 1 ? {} : { page: String(page) })
   }
 
   return (
@@ -80,20 +76,15 @@ export function HistoryPage() {
         </Notice>
       )}
 
-      <HistoryFilters params={params} facets={data?.facets} hasFilters={hasFilters} onChange={update} onClear={clear} />
-
       {isSlow && <SlowServerNotice />}
 
       {history.isPending && (
-        <p className="flex items-center gap-2 text-ink-soft">
-          <Icon name="spinner" className="h-5 w-5 animate-spin" />
-          กำลังโหลดประวัติ
-        </p>
+        <LoadingText>กำลังโหลดประวัติ</LoadingText>
       )}
 
-      {history.isError && <HistoryErrorNotice error={history.error} onRetry={() => void history.refetch()} />}
+      {history.isError && <ErrorNotice error={history.error} onRetry={() => void history.refetch()} />}
 
-      {data !== undefined && data.total === 0 && !hasFilters && (
+      {data !== undefined && data.total === 0 && (
         <div className="space-y-3 rounded-xl border border-line bg-panel p-5">
           <p className="font-semibold">ยังไม่มีประวัติการซ่อม</p>
           <p className="text-ink-soft">เมื่อตรวจอาการจนจบ รายการจะมาอยู่ที่นี่</p>
@@ -105,34 +96,18 @@ export function HistoryPage() {
         </div>
       )}
 
-      {data !== undefined && data.total === 0 && hasFilters && (
-        <div className="space-y-3 rounded-xl border border-line bg-panel p-5">
-          <p className="font-semibold">ไม่พบรายการที่ตรงกับที่ค้นหา</p>
-          <Button variant="secondary" onClick={clear}>
-            ล้างตัวกรอง
-          </Button>
-        </div>
-      )}
-
       {data !== undefined && data.total > 0 && (
         <section aria-label="รายการประวัติ" className="space-y-4">
-          <p className="text-sm text-ink-soft">
-            {hasFilters ? `พบ ${data.total} รายการ` : `ทั้งหมด ${data.total} รายการ`}
-          </p>
+          <p className="text-sm text-ink-soft">ทั้งหมด {data.total} รายการ</p>
 
-          {/* รายการเดิมยังค้างอยู่ระหว่างโหลดหน้า/ตัวกรองใหม่ (keepPreviousData) จางลงให้รู้ว่ากำลังโหลด */}
+          {/* รายการเดิมยังค้างอยู่ระหว่างโหลดหน้าใหม่ (keepPreviousData) จางลงให้รู้ว่ากำลังโหลด */}
           <ul className={`border-t border-line ${history.isPlaceholderData ? 'opacity-60' : ''}`}>
             {data.items.map((item) => (
               <HistoryRow key={item.sessionId} item={item} />
             ))}
           </ul>
 
-          <Pagination
-            page={data.page}
-            totalPages={data.totalPages}
-            onChange={(page) => update({ page })}
-            disabled={history.isPlaceholderData}
-          />
+          <Pagination page={data.page} totalPages={data.totalPages} onChange={goToPage} disabled={history.isPlaceholderData} />
         </section>
       )}
     </div>

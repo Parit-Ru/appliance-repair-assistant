@@ -1,5 +1,5 @@
 /**
- * admin.module.ts — endpoint อ่านอย่างเดียวสำหรับ admin (feedback, สถิติ, รายการ session)
+ * admin.module.ts — endpoint อ่านอย่างเดียวสำหรับ admin (feedback, สถิติ)
  *
  * imports:
  *   AuthModule  — JwtAuthGuard / RolesGuard หา JwtService เจอ

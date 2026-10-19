@@ -1,46 +1,33 @@
+import { ApiError } from '../common/api-error';
+import { isPlainObject, UUID_PATTERN } from '../common/helpers';
 import type {RenderedNode,SessionStatus,TraversalAction,} from '../traversal-engine/types';
 import { MAX_MANUAL_ID_LENGTH, MAX_QUERY_LENGTH } from '../symptom-search/symptom-search.dto';
 const MAX_INPUT_LENGTH = 255;
-export const MAX_OUTCOME_LENGTH = 1000;
+const MAX_OUTCOME_LENGTH = 1000;
 
-export class InvalidRequestBodyError extends Error {
-  constructor(message: string) {
-    super(message);
-    this.name = this.constructor.name;
-  }
-}
+// error ของการตรวจ input (400) — ApiError รหัสละตัว · AllExceptionsFilter แปลงเป็น response
+// body ผิดรูปแบบ ใช้ code เดียวกับ INVALID_ACTION เพราะผู้ใช้เห็นข้อความไทยเดียวกัน (ต่างกันแค่ "ผิดตอนไหน")
+const invalidRequestBody = (message: string) => new ApiError(400, 'INVALID_ACTION', message);
 
-//body ของ POST /traversal/sessions/:id/outcome
-export class InvalidOutcomeError extends Error {
-  constructor(message: string) {
-    super(message);
-    this.name = this.constructor.name;
-  }
-}
+// body ของ POST /traversal/sessions/:id/outcome
+const invalidOutcome = (message: string) => new ApiError(400, 'INVALID_OUTCOME', message);
 
 /** หัวข้อ X-Client-Id ไม่ใช่ UUID หรือไม่ได้ส่งมาในที่ที่บังคับ (หน้า "ประวัติการซ่อม") → 400 INVALID_CLIENT_ID */
-export class InvalidClientIdError extends Error {
-  constructor(message: string) {
-    super(message);
-    this.name = this.constructor.name;
-  }
-}
-
-const CLIENT_ID_PATTERN = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+const invalidClientId = (message: string) => new ApiError(400, 'INVALID_CLIENT_ID', message);
 
 /**
  * client id จากหัวข้อ X-Client-Id (UUID ที่เบราว์เซอร์สุ่มสร้างเอง ดู migration 008)
  * ไม่ส่ง = undefined · ส่งมาแล้วต้องเป็นรูป UUID ไม่งั้น 400 (เก็บเป็นตัวพิมพ์เล็กเสมอ)
  * ใช้ตอนเริ่ม session: ไม่ส่ง = ใช้งานได้ตามปกติ แค่ไม่ปรากฏในประวัติของใคร
  *
- * ไม่ใช่การยืนยันตัวตน — ใครรู้ id ก็เห็นประวัติของ id นั้นได้ (ระบบไม่มีล็อกอิน)
+ * ไม่ใช่การยืนยันตัวตน — ใช้กับ guest เท่านั้น ใครรู้ id ก็เห็นประวัติของ guest id นั้นได้ (ผู้ล็อกอินใช้ token แทน ดู auth/session-owner.ts)
  */
 export function parseOptionalClientId(raw: unknown): string | undefined {
   if (raw === undefined) {
     return undefined;
   }
-  if (typeof raw !== 'string' || !CLIENT_ID_PATTERN.test(raw.trim())) {
-    throw new InvalidClientIdError('X-Client-Id ต้องเป็น UUID');
+  if (typeof raw !== 'string' || !UUID_PATTERN.test(raw.trim())) {
+    throw invalidClientId('X-Client-Id ต้องเป็น UUID');
   }
   return raw.trim().toLowerCase();
 }
@@ -49,7 +36,7 @@ export function parseOptionalClientId(raw: unknown): string | undefined {
 export function parseRequiredClientId(raw: unknown): string {
   const clientId = parseOptionalClientId(raw);
   if (clientId === undefined) {
-    throw new InvalidClientIdError('ต้องส่งหัวข้อ X-Client-Id');
+    throw invalidClientId('ต้องส่งหัวข้อ X-Client-Id');
   }
   return clientId;
 }
@@ -57,7 +44,7 @@ export function parseRequiredClientId(raw: unknown): string {
 /** ผู้ใช้ระบุรุ่นเอง (selected) หรือบอกว่าไม่ทราบรุ่นแล้วเลือกรุ่นใกล้เคียงเอง (unknown) — ดู migration 007 */
 export type ModelSelection = 'selected' | 'unknown';
 
-export interface StartSessionBody {
+interface StartSessionBody {
   graphId: string;
   query?: string;
   manualId?: string;
@@ -65,10 +52,10 @@ export interface StartSessionBody {
 }
 
 function asObject(body: unknown): Record<string, unknown> {
-  if (typeof body !== 'object' || body === null || Array.isArray(body)) {
-    throw new InvalidRequestBodyError('body ต้องเป็น JSON object');
+  if (!isPlainObject(body)) {
+    throw invalidRequestBody('body ต้องเป็น JSON object');
   }
-  return body as Record<string, unknown>;
+  return body;
 }
 
 /**
@@ -81,11 +68,11 @@ export function parseOptionalManualId(raw: unknown): string | undefined {
     return undefined;
   }
   if (typeof raw !== 'string') {
-    throw new InvalidRequestBodyError('manualId ต้องเป็นข้อความ');
+    throw invalidRequestBody('manualId ต้องเป็นข้อความ');
   }
   const manualId = raw.trim();
   if (manualId === '' || manualId.length > MAX_MANUAL_ID_LENGTH) {
-    throw new InvalidRequestBodyError(
+    throw invalidRequestBody(
       `manualId ต้องไม่ว่างและยาวไม่เกิน ${MAX_MANUAL_ID_LENGTH} ตัวอักษร`,
     );
   }
@@ -97,7 +84,7 @@ function parseModelSelection(raw: unknown): ModelSelection | undefined {
     return undefined;
   }
   if (raw !== 'selected' && raw !== 'unknown') {
-    throw new InvalidRequestBodyError("modelSelection ต้องเป็น 'selected' หรือ 'unknown'");
+    throw invalidRequestBody("modelSelection ต้องเป็น 'selected' หรือ 'unknown'");
   }
   return raw;
 }
@@ -107,7 +94,7 @@ export function parseStartSessionBody(body: unknown): StartSessionBody {
   const graphId = obj.graphId;
 
   if (typeof graphId !== 'string' || graphId.trim() === '') {
-    throw new InvalidRequestBodyError('graphId ต้องเป็นข้อความที่ไม่ว่าง');
+    throw invalidRequestBody('graphId ต้องเป็นข้อความที่ไม่ว่าง');
   }
 
   const manualId = parseOptionalManualId(obj.manualId);
@@ -117,14 +104,14 @@ export function parseStartSessionBody(body: unknown): StartSessionBody {
     return { graphId, manualId, modelSelection };
   }
   if (typeof obj.query !== 'string') {
-    throw new InvalidRequestBodyError('query ต้องเป็นข้อความ');
+    throw invalidRequestBody('query ต้องเป็นข้อความ');
   }
   const query = obj.query.trim();
   if (query === '') {
-    throw new InvalidRequestBodyError('query ต้องไม่ว่าง');
+    throw invalidRequestBody('query ต้องไม่ว่าง');
   }
   if (query.length > MAX_QUERY_LENGTH) {
-    throw new InvalidRequestBodyError(`query ยาวเกิน ${MAX_QUERY_LENGTH} ตัวอักษร`);
+    throw invalidRequestBody(`query ยาวเกิน ${MAX_QUERY_LENGTH} ตัวอักษร`);
   }
   return { graphId, query, manualId, modelSelection };
 }
@@ -136,7 +123,7 @@ export function parseTraversalAction(body: unknown): TraversalAction {
     case 'answer': {
       const value = obj.value;
       if (value !== 'yes' && value !== 'no') {
-        throw new InvalidRequestBodyError(
+        throw invalidRequestBody(
           "action 'answer' ต้องมี value เป็น 'yes' หรือ 'no'",
         );
       }
@@ -152,12 +139,12 @@ export function parseTraversalAction(body: unknown): TraversalAction {
     case 'input': {
       const value = obj.value;
       if (typeof value !== 'string') {
-        throw new InvalidRequestBodyError(
+        throw invalidRequestBody(
           "action 'input' ต้องมี value เป็นข้อความ",
         );
       }
       if (value.length > MAX_INPUT_LENGTH) {
-        throw new InvalidRequestBodyError(
+        throw invalidRequestBody(
           `action 'input' ยาวเกิน ${MAX_INPUT_LENGTH} ตัวอักษร`,
         );
       }
@@ -165,33 +152,33 @@ export function parseTraversalAction(body: unknown): TraversalAction {
     }
 
     default:
-      throw new InvalidRequestBodyError(
+      throw invalidRequestBody(
         "type ต้องเป็น 'answer', 'continue', 'confirm_safety' หรือ 'input'",
       );
   }
 }
 
-export interface OutcomeBody {
+interface OutcomeBody {
   text: string;
 }
 
 
 export function parseOutcomeBody(body: unknown): OutcomeBody {
-  if (typeof body !== 'object' || body === null || Array.isArray(body)) {
-    throw new InvalidOutcomeError('body ต้องเป็น JSON object');
+  if (!isPlainObject(body)) {
+    throw invalidOutcome('body ต้องเป็น JSON object');
   }
 
-  const raw = (body as Record<string, unknown>).text;
+  const raw = body.text;
   if (typeof raw !== 'string') {
-    throw new InvalidOutcomeError('text ต้องเป็นข้อความ');
+    throw invalidOutcome('text ต้องเป็นข้อความ');
   }
 
   const text = raw.trim();
   if (text === '') {
-    throw new InvalidOutcomeError('text ต้องไม่ว่าง');
+    throw invalidOutcome('text ต้องไม่ว่าง');
   }
   if (text.length > MAX_OUTCOME_LENGTH) {
-    throw new InvalidOutcomeError(`text ยาวเกิน ${MAX_OUTCOME_LENGTH} ตัวอักษร`);
+    throw invalidOutcome(`text ยาวเกิน ${MAX_OUTCOME_LENGTH} ตัวอักษร`);
   }
 
   return { text };

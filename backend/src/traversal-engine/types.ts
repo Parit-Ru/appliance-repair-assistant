@@ -8,20 +8,20 @@ interface BaseNode {
   safety_warning?: string;
 }
 
-export interface CheckpointNode extends BaseNode {
+interface CheckpointNode extends BaseNode {
   type: 'checkpoint';
   question: string;
   on_yes: string;
   on_no: string;
 }
 
-export interface InstructionNode extends BaseNode {
+interface InstructionNode extends BaseNode {
   type: 'instruction';
   content: string;
   next: string;
 }
 
-export interface InputNode extends BaseNode {
+interface InputNode extends BaseNode {
   type: 'input';
   prompt: string;
   input_type: InputType;

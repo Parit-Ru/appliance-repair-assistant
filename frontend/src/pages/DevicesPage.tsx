@@ -3,11 +3,12 @@ import { useNavigate, useSearchParams } from 'react-router-dom'
 import { useManuals } from '../api/queries'
 import type { DeviceCategory, ManualSummary } from '../api/types'
 import { SlowServerNotice } from '../components/SlowServerNotice'
-import { SymptomsErrorNotice } from '../components/SymptomsErrorNotice'
+import { ErrorNotice } from '../components/ErrorNotice'
 import { Button } from '../components/ui/Button'
 import { Icon } from '../components/ui/Icon'
 import { Notice } from '../components/ui/Notice'
-import { DEVICE_CATEGORY_LABELS } from '../lib/labels'
+import { LoadingText } from '../components/LoadingText'
+import { DEVICE_CATEGORIES, DEVICE_CATEGORY_LABELS } from '../lib/labels'
 import { MODEL_MATCH_HINT, symptomsPath } from '../lib/modelSelection'
 import { manualMatches, manualTitle } from '../lib/models'
 import { useSlowWait } from '../lib/useSlowWait'
@@ -24,9 +25,6 @@ import { useSlowWait } from '../lib/useSlowWait'
 
 const CARD_CLASSES = 'flex min-h-14 w-full items-center gap-3 rounded-lg border border-line bg-panel px-4 py-3 text-left transition hover:border-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent'
 
-/** เรียงตามลำดับของป้ายชื่อ ไม่ใช่ลำดับที่ผังมาจากเซิร์ฟเวอร์ */
-const CATEGORY_ORDER = Object.keys(DEVICE_CATEGORY_LABELS) as DeviceCategory[]
-
 export function DevicesPage() {
   const manuals = useManuals()
   const [params, setParams] = useSearchParams()
@@ -34,7 +32,7 @@ export function DevicesPage() {
 
   const rawCategory = params.get('category') as DeviceCategory | null
   // ค่า category ที่ไม่รู้จัก (เช่นพิมพ์ URL เอง) ถือว่าไม่ได้เลือก แล้วกลับไปขั้น 1
-  const category = rawCategory !== null && CATEGORY_ORDER.includes(rawCategory) ? rawCategory : null
+  const category = rawCategory !== null && DEVICE_CATEGORIES.includes(rawCategory) ? rawCategory : null
 
   return (
     <div className="space-y-6">
@@ -50,18 +48,11 @@ export function DevicesPage() {
       {isSlow && <SlowServerNotice />}
 
       {manuals.isPending && (
-        <p className="flex items-center gap-2 text-ink-soft">
-          <Icon name="spinner" className="h-5 w-5 animate-spin" />
-          กำลังโหลดรายการเครื่อง
-        </p>
+        <LoadingText>กำลังโหลดรายการเครื่อง</LoadingText>
       )}
 
       {manuals.isError && (
-        <SymptomsErrorNotice error={manuals.error}>
-          <Button variant="secondary" className="mt-3" onClick={() => manuals.refetch()}>
-            ลองอีกครั้ง
-          </Button>
-        </SymptomsErrorNotice>
+        <ErrorNotice error={manuals.error} onRetry={() => void manuals.refetch()} />
       )}
 
       {manuals.isSuccess && manuals.data.length === 0 && <p className="text-ink-soft">ยังไม่มีเครื่องให้เลือก</p>}
@@ -79,7 +70,7 @@ export function DevicesPage() {
 
 function CategoryStep({ manuals, onPick }: { manuals: ManualSummary[]; onPick: (category: DeviceCategory) => void }) {
   const present = new Set(manuals.map((m) => m.deviceCategory))
-  const categories = CATEGORY_ORDER.filter((c) => present.has(c))
+  const categories = DEVICE_CATEGORIES.filter((c) => present.has(c))
 
   return (
     <ul className="space-y-3">

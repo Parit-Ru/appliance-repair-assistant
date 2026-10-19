@@ -1,7 +1,7 @@
 import { useId, useState } from 'react'
 import { useUpdateDraft } from '../../../api/queries'
 import type { DraftGraph } from '../../../api/types'
-import { HistoryErrorNotice } from '../../history/HistoryErrorNotice'
+import { ErrorNotice } from '../../ErrorNotice'
 import { Button } from '../../ui/Button'
 
 interface DraftJsonEditorProps {
@@ -73,7 +73,7 @@ export function DraftJsonEditor({ draftId, graphs }: DraftJsonEditorProps) {
           {localError}
         </p>
       )}
-      {update.isError && <HistoryErrorNotice error={update.error} />}
+      {update.isError && <ErrorNotice error={update.error} />}
       {saved && !update.isPending && (
         <p role="status" className="text-sm text-success">
           ตรวจใหม่แล้ว — ดูผลในรายงานการตรวจด้านบน

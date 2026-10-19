@@ -21,6 +21,7 @@ import type { SessionHistoryEntry } from '../traversal-engine/types';
 import { parseVariables, rowToHistoryEntry } from '../traversal/session.store';
 import type { HistoryRow } from '../traversal/session.store';
 import type { ModelSelection } from '../traversal/traversal.dto';
+import type { HistoryFeedbackDto } from './history.dto';
 
 /** เพดานจำนวนแถวที่ดึงต่อผู้ใช้ — กันผู้ใช้ที่มีประวัติมหาศาลทำให้คำขอเดียวหนัก (ใหม่สุดก่อน) */
 export const MAX_HISTORY_ROWS = 500;
@@ -59,11 +60,6 @@ export interface CompletedSession extends CompletedSessionSummary {
   confidence: number | null;
   modelSelection: ModelSelection | null;
   outcomeText: string | null;
-}
-
-export interface StoredFeedback {
-  helpful: boolean;
-  comment: string | null;
 }
 
 @Injectable()
@@ -136,7 +132,7 @@ export class HistoryStore {
   }
 
   /** บันทึก/แก้คะแนน — 1 session 1 แถว ส่งซ้ำ = เขียนทับ ผู้เรียกต้องตรวจเจ้าของมาก่อน */
-  async saveFeedback(sessionId: string, feedback: StoredFeedback): Promise<void> {
+  async saveFeedback(sessionId: string, feedback: HistoryFeedbackDto): Promise<void> {
     await this.pool.query(
       `INSERT INTO session_feedback (session_id, helpful, \`comment\`)
        VALUES (?, ?, ?)
@@ -145,7 +141,7 @@ export class HistoryStore {
     );
   }
 
-  async findFeedback(sessionId: string): Promise<StoredFeedback | undefined> {
+  async findFeedback(sessionId: string): Promise<HistoryFeedbackDto | undefined> {
     const [rows] = await this.pool.query<FeedbackRow[]>(
       `SELECT helpful, \`comment\`
          FROM session_feedback

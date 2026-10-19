@@ -3,18 +3,13 @@ import { useSearchParams } from 'react-router-dom'
 import { useAdminFeedback } from '../api/queries'
 import type { AdminFeedbackItem, AdminFeedbackParams } from '../api/types'
 import { AdminTabs } from '../components/admin/AdminTabs'
-import { HistoryErrorNotice } from '../components/history/HistoryErrorNotice'
+import { ErrorNotice } from '../components/ErrorNotice'
 import { Pagination } from '../components/history/Pagination'
 import { SlowServerNotice } from '../components/SlowServerNotice'
 import { Button } from '../components/ui/Button'
-import { Icon } from '../components/ui/Icon'
+import { LoadingText } from '../components/LoadingText'
 import { OWNER_TYPE_LABELS, deviceLabel } from '../lib/adminView'
-import {
-  feedbackToSearchParams,
-  hasFeedbackFilters,
-  parseFeedbackParams,
-  patchFeedbackParams,
-} from '../lib/adminParams'
+import { feedbackToSearchParams, hasFeedbackFilters, parseFeedbackParams, patchFeedbackParams } from '../lib/adminParams'
 import { formatStartedAt } from '../lib/historyView'
 import { useSlowWait } from '../lib/useSlowWait'
 
@@ -105,13 +100,10 @@ export function AdminFeedbackPage() {
       {isSlow && <SlowServerNotice />}
 
       {feedback.isPending && (
-        <p className="flex items-center gap-2 text-ink-soft">
-          <Icon name="spinner" className="h-5 w-5 animate-spin" />
-          กำลังโหลดความเห็น
-        </p>
+        <LoadingText>กำลังโหลดความเห็น</LoadingText>
       )}
 
-      {feedback.isError && <HistoryErrorNotice error={feedback.error} onRetry={() => void feedback.refetch()} />}
+      {feedback.isError && <ErrorNotice error={feedback.error} onRetry={() => void feedback.refetch()} />}
 
       {data !== undefined && data.total === 0 && (
         <div className="space-y-2 rounded-xl border border-line bg-panel p-5">

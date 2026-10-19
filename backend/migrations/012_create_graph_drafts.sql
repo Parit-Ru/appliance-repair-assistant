@@ -1,4 +1,4 @@
--- 012: ร่างผังขั้นตอนที่ LLM ช่วยร่างจาก PDF (Step 5 · docs/PLAN-STEP5-AUTHORING.md)
+-- 012: ร่างผังขั้นตอนที่ LLM ช่วยร่างจาก PDF (Step 5 · docs/authoring/PLAN-STEP5-AUTHORING.md)
 --
 -- หลักการ: ร่างเก็บ "แยกจาก" manuals / graphs / nodes โดยสิ้นเชิง
 --   - ไม่มีจุดอ่านผังของผู้ใช้ (traversal, ค้นอาการ, ประวัติ, รายการเครื่อง) แตะตารางนี้ ร่างจึงเข้าถึงไม่ได้จนกว่าจะ publish

@@ -1,5 +1,5 @@
 import { Button } from '../ui/Button'
-import { HistoryErrorNotice } from './HistoryErrorNotice'
+import { ErrorNotice } from '../ErrorNotice'
 
 interface DeleteConfirmProps {
   onConfirm: () => void
@@ -11,7 +11,7 @@ interface DeleteConfirmProps {
 /**
  * ขั้นยืนยันก่อนลบรายการประวัติ (ลบทั้ง session บนเซิร์ฟเวอร์ กู้คืนไม่ได้)
  * ใช้ร่วมกันทั้งแถวในรายการและหน้ารายละเอียด · แสดงในหน้าเอง ไม่ใช้ window.confirm
- * เพื่อให้ปุ่มอยู่ในโฟลว์ของหน้า อ่านได้ด้วยโปรแกรมอ่านหน้าจอ และทดสอบได้
+ * เพื่อให้ปุ่มอยู่ในโฟลว์ของหน้า และอ่านได้ด้วยโปรแกรมอ่านหน้าจอ
  */
 export function DeleteConfirm({ onConfirm, onCancel, isDeleting, error }: DeleteConfirmProps) {
   return (
@@ -25,7 +25,7 @@ export function DeleteConfirm({ onConfirm, onCancel, isDeleting, error }: Delete
           ยกเลิก
         </Button>
       </div>
-      {error !== null && <HistoryErrorNotice error={error} />}
+      {error !== null && <ErrorNotice error={error} />}
     </div>
   )
 }

@@ -8,8 +8,8 @@ export class HealthController {
   /**
    * ขอยืม connection pool จาก DatabaseModule
    *
-   * ไม่ได้ import DatabaseModule ในไฟล์ health.module.ts เลย
-   * แต่ขอได้เพราะ DatabaseModule ประกาศตัวเองเป็น @Global()
+   * ไม่ต้อง import DatabaseModule เพราะ DatabaseModule ประกาศตัวเองเป็น @Global()
+   * (HealthController ถูกลงทะเบียนใน AppModule ตรงๆ ไม่มีโมดูลของตัวเอง)
    */
   constructor(@Inject(MYSQL_POOL) private readonly pool: Pool) {}
 

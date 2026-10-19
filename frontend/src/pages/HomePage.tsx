@@ -1,7 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom'
 import { useManuals } from '../api/queries'
 import { Button } from '../components/ui/Button'
-import { Icon } from '../components/ui/Icon'
+import { LoadingText } from '../components/LoadingText'
 import { DEVICE_CATEGORY_LABELS } from '../lib/labels'
 import { symptomsPath } from '../lib/modelSelection'
 import { manualTitle } from '../lib/models'
@@ -31,10 +31,7 @@ export function HomePage() {
           <h2 className="font-semibold">รองรับตอนนี้</h2>
 
           {manuals.isPending && (
-            <p className="flex items-center gap-2 text-ink-soft">
-              <Icon name="spinner" className="h-5 w-5 animate-spin" />
-              กำลังโหลด
-            </p>
+            <LoadingText>กำลังโหลด</LoadingText>
           )}
 
           <ul className="space-y-3">

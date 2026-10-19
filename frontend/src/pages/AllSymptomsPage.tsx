@@ -2,9 +2,8 @@ import { Link } from 'react-router-dom'
 import { useGraphs, useManuals } from '../api/queries'
 import { SlowServerNotice } from '../components/SlowServerNotice'
 import { SymptomRow } from '../components/SymptomRow'
-import { SymptomsErrorNotice } from '../components/SymptomsErrorNotice'
-import { Button } from '../components/ui/Button'
-import { Icon } from '../components/ui/Icon'
+import { ErrorNotice } from '../components/ErrorNotice'
+import { LoadingText } from '../components/LoadingText'
 import { DEVICE_CATEGORY_LABELS } from '../lib/labels'
 import { MODEL_MATCH_HINT, startOptions, symptomsPath, useChosenModel } from '../lib/modelSelection'
 import { manualTitle } from '../lib/models'
@@ -64,22 +63,15 @@ export function AllSymptomsPage() {
 
       {/* เริ่มไม่สำเร็จ: แสดงเหนือรายการ ทุกแถวกดได้อีกครั้งเพราะ isStarting กลับเป็น false
           วางนอกส่วนรายการ เพราะรายการอาจยังโหลดไม่เสร็จหรือโหลดไม่ได้ */}
-      {startError && <SymptomsErrorNotice error={startError} />}
+      {startError && <ErrorNotice error={startError} />}
 
       <section className="space-y-6">
         {graphs.isPending && (
-          <p className="flex items-center gap-2 text-ink-soft">
-            <Icon name="spinner" className="h-5 w-5 animate-spin" />
-            กำลังโหลดรายการอาการ
-          </p>
+          <LoadingText>กำลังโหลดรายการอาการ</LoadingText>
         )}
 
         {graphs.isError && (
-          <SymptomsErrorNotice error={graphs.error}>
-            <Button variant="secondary" className="mt-3" onClick={() => graphs.refetch()}>
-              ลองอีกครั้ง
-            </Button>
-          </SymptomsErrorNotice>
+          <ErrorNotice error={graphs.error} onRetry={() => void graphs.refetch()} />
         )}
 
         {graphs.isSuccess && graphs.data.length === 0 && <p className="text-ink-soft">ยังไม่มีอาการให้เลือก</p>}

@@ -2,7 +2,7 @@ import { DEFAULT_SUMMARY_DAYS, SUMMARY_DAY_OPTIONS } from '../api/admin'
 import type { AdminFeedbackParams } from '../api/types'
 
 /**
- * พารามิเตอร์ของหน้าผู้ดูแลระบบที่เก็บใน URL (ฟังก์ชันล้วน เหมือน historyParams.ts)
+ * พารามิเตอร์ของหน้าผู้ดูแลระบบที่เก็บใน URL (ฟังก์ชันล้วน ไม่แตะ React)
  * อ่านแบบผ่อนปรน: ค่าที่ผิดรูปแบบถูกเมินแทนที่จะทำให้หน้าล้ม (backend ตรวจเข้มอีกชั้นและตอบ 400 ถ้าผิด)
  */
 
@@ -44,7 +44,9 @@ export function patchFeedbackParams(
   patch: Partial<AdminFeedbackParams>,
 ): AdminFeedbackParams {
   const changesFilter = 'helpful' in patch || 'from' in patch || 'to' in patch
-  return { ...current, ...patch, page: changesFilter && !('page' in patch) ? 1 : (patch.page ?? current.page) }
+  const merged = { ...current, ...patch }
+  if (changesFilter && !('page' in patch)) merged.page = 1
+  return merged
 }
 
 export function hasFeedbackFilters(params: AdminFeedbackParams): boolean {

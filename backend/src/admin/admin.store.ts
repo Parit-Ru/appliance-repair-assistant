@@ -16,8 +16,9 @@
 import { Inject, Injectable } from '@nestjs/common';
 import type { Pool, RowDataPacket } from 'mysql2/promise';
 
+import { numOrNull } from '../common/helpers';
 import { MYSQL_POOL } from '../database/database.constants';
-import type { AdminSessionStatus, EpochRange, OwnerType } from './admin.dto';
+import type { EpochRange, OwnerType } from './admin.dto';
 
 /** ชนิดเจ้าของจาก user_id / client_id โดยไม่ดึงค่า id ออกมา */
 const OWNER_TYPE_SQL = `CASE
@@ -26,35 +27,9 @@ const OWNER_TYPE_SQL = `CASE
            ELSE 'none'
          END`;
 
-const OWNER_FILTER_SQL: Record<OwnerType, string> = {
-  user: 's.user_id IS NOT NULL',
-  guest: 's.user_id IS NULL AND s.client_id IS NOT NULL',
-  none: 's.user_id IS NULL AND s.client_id IS NULL',
-};
-
-interface Where {
-  sql: string;
-  params: unknown[];
-}
-
-function joinWhere(clauses: string[], params: unknown[]): Where {
-  return { sql: clauses.length === 0 ? '' : `WHERE ${clauses.join(' AND ')}`, params };
-}
-
-function timeClauses(column: string, range: EpochRange, clauses: string[], params: unknown[]): void {
-  if (range.fromEpoch !== undefined) {
-    clauses.push(`UNIX_TIMESTAMP(${column}) >= ?`);
-    params.push(range.fromEpoch);
-  }
-  if (range.toEpoch !== undefined) {
-    clauses.push(`UNIX_TIMESTAMP(${column}) < ?`);
-    params.push(range.toEpoch);
-  }
-}
-
 // ---------- แถวที่ store คืน (ไม่มี id ของเจ้าของ ไม่มี email) ----------
 
-export interface FeedbackRecord {
+interface FeedbackRecord {
   sessionId: string;
   helpful: boolean;
   comment: string | null;
@@ -64,20 +39,7 @@ export interface FeedbackRecord {
   ownerType: OwnerType;
 }
 
-export interface SessionRecord {
-  sessionId: string;
-  graphId: string;
-  currentNodeId: string;
-  status: AdminSessionStatus;
-  expired: boolean;
-  confidence: number | null;
-  modelSelection: 'selected' | 'unknown' | null;
-  hasFeedback: boolean;
-  ownerType: OwnerType;
-  createdEpoch: number;
-}
-
-export interface SessionTotals {
+interface SessionTotals {
   total: number;
   completed: number;
   inProgress: number;
@@ -89,12 +51,12 @@ export interface SessionTotals {
   confidenceSamples: number;
 }
 
-export interface FeedbackTotals {
+interface FeedbackTotals {
   total: number;
   helpful: number;
 }
 
-export interface Window {
+interface Window {
   /** รวมปลายนี้ */
   fromEpoch: number;
   /** ไม่รวมปลายนี้ */
@@ -106,7 +68,6 @@ interface Row extends RowDataPacket {
 }
 
 const num = (value: unknown): number => Number(value ?? 0);
-const numOrNull = (value: unknown): number | null => (value === null || value === undefined ? null : Number(value));
 
 @Injectable()
 export class AdminStore {
@@ -127,15 +88,22 @@ export class AdminStore {
       clauses.push('f.helpful = ?');
       params.push(filter.helpful ? 1 : 0);
     }
-    timeClauses('f.created_at', filter, clauses, params);
-    const where = joinWhere(clauses, params);
+    if (filter.fromEpoch !== undefined) {
+      clauses.push('UNIX_TIMESTAMP(f.created_at) >= ?');
+      params.push(filter.fromEpoch);
+    }
+    if (filter.toEpoch !== undefined) {
+      clauses.push('UNIX_TIMESTAMP(f.created_at) < ?');
+      params.push(filter.toEpoch);
+    }
+    const whereSql = clauses.length === 0 ? '' : `WHERE ${clauses.join(' AND ')}`;
 
     const [countRows] = await this.pool.query<Row[]>(
       `SELECT COUNT(*) AS total
          FROM session_feedback f
          JOIN sessions s ON s.session_id = f.session_id
-         ${where.sql}`,
-      where.params,
+         ${whereSql}`,
+      params,
     );
 
     const [rows] = await this.pool.query<Row[]>(
@@ -146,10 +114,10 @@ export class AdminStore {
               ${OWNER_TYPE_SQL} AS owner_type
          FROM session_feedback f
          JOIN sessions s ON s.session_id = f.session_id
-         ${where.sql}
+         ${whereSql}
         ORDER BY f.created_at DESC, f.session_id
         LIMIT ? OFFSET ?`,
-      [...where.params, limit, offset],
+      [...params, limit, offset],
     );
 
     return {
@@ -162,68 +130,6 @@ export class AdminStore {
         updatedEpoch: num(row.updated_epoch),
         graphId: String(row.graph_id),
         ownerType: row.owner_type as OwnerType,
-      })),
-    };
-  }
-
-  // ============================================================
-  // GET /admin/sessions
-  // ============================================================
-
-  async listSessions(
-    filter: EpochRange & { status?: AdminSessionStatus; ownerType?: OwnerType; graphId?: string },
-    limit: number,
-    offset: number,
-  ): Promise<{ rows: SessionRecord[]; total: number }> {
-    const clauses: string[] = [];
-    const params: unknown[] = [];
-    if (filter.status !== undefined) {
-      clauses.push('s.status = ?');
-      params.push(filter.status);
-    }
-    if (filter.ownerType !== undefined) {
-      clauses.push(OWNER_FILTER_SQL[filter.ownerType]);
-    }
-    if (filter.graphId !== undefined) {
-      clauses.push('s.graph_id = ?');
-      params.push(filter.graphId);
-    }
-    timeClauses('s.created_at', filter, clauses, params);
-    const where = joinWhere(clauses, params);
-
-    const [countRows] = await this.pool.query<Row[]>(
-      `SELECT COUNT(*) AS total FROM sessions s ${where.sql}`,
-      where.params,
-    );
-
-    const [rows] = await this.pool.query<Row[]>(
-      `SELECT s.session_id, s.graph_id, s.current_node_id, s.status,
-              (s.expires_at <= NOW()) AS expired,
-              s.confidence, s.model_selection,
-              UNIX_TIMESTAMP(s.created_at) AS created_epoch,
-              (f.session_id IS NOT NULL) AS has_feedback,
-              ${OWNER_TYPE_SQL} AS owner_type
-         FROM sessions s
-         LEFT JOIN session_feedback f ON f.session_id = s.session_id
-         ${where.sql}
-        ORDER BY s.created_at DESC, s.session_id
-        LIMIT ? OFFSET ?`,
-      [...where.params, limit, offset],
-    );
-
-    return {
-      total: num(countRows[0]?.total),
-      rows: rows.map((row) => ({
-        sessionId: String(row.session_id),
-        graphId: String(row.graph_id),
-        currentNodeId: String(row.current_node_id),
-        status: row.status as AdminSessionStatus,
-        expired: num(row.expired) === 1,
-        confidence: numOrNull(row.confidence),
-        modelSelection: (row.model_selection ?? null) as 'selected' | 'unknown' | null,
-        hasFeedback: num(row.has_feedback) === 1,
-        ownerType: row.owner_type as OwnerType,
-        createdEpoch: num(row.created_epoch),
       })),
     };
   }
