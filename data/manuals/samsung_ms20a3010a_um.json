@@ -1,5 +1,4 @@
 {
-  "schema_version": 2,
   "manual_id": "samsung_ms20a3010a_um",
   "device_category": "Microwave",
   "brand": "Samsung",
@@ -8,7 +7,6 @@
   "count": 20,
   "graphs": [
     {
-      "schema_version": 2,
       "graph_id": "samsung_ms20a3010a_um_power_off",
       "device_category": "Microwave",
       "brand": "Samsung",
@@ -164,7 +162,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_ms20a3010a_um_popping",
       "device_category": "Microwave",
       "brand": "Samsung",
@@ -228,7 +225,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_ms20a3010a_um_exterior_hot",
       "device_category": "Microwave",
       "brand": "Samsung",
@@ -318,7 +314,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_ms20a3010a_um_door_cannot_open",
       "device_category": "Microwave",
       "brand": "Samsung",
@@ -382,7 +377,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_ms20a3010a_um_heating_not_working",
       "device_category": "Microwave",
       "brand": "Samsung",
@@ -492,7 +486,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_ms20a3010a_um_thaw",
       "device_category": "Microwave",
       "brand": "Samsung",
@@ -556,7 +549,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_ms20a3010a_um_light_dim",
       "device_category": "Microwave",
       "brand": "Samsung",
@@ -620,7 +612,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_ms20a3010a_um_not_level",
       "device_category": "Microwave",
       "brand": "Samsung",
@@ -684,7 +675,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_ms20a3010a_um_sparks",
       "device_category": "Microwave",
       "brand": "Samsung",
@@ -748,7 +738,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_ms20a3010a_um_starts_immediately",
       "device_category": "Microwave",
       "brand": "Samsung",
@@ -837,7 +826,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_ms20a3010a_um_electricity",
       "device_category": "Microwave",
       "brand": "Samsung",
@@ -900,7 +888,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_ms20a3010a_um_water_steam",
       "device_category": "Microwave",
       "brand": "Samsung",
@@ -946,7 +933,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_ms20a3010a_um_turntable_out",
       "device_category": "Microwave",
       "brand": "Samsung",
@@ -1010,7 +996,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_ms20a3010a_um_turntable_drags",
       "device_category": "Microwave",
       "brand": "Samsung",
@@ -1100,7 +1085,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_ms20a3010a_um_turntable_noisy",
       "device_category": "Microwave",
       "brand": "Samsung",
@@ -1164,7 +1148,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_ms20a3010a_um_not_cook_properly",
       "device_category": "Microwave",
       "brand": "Samsung",
@@ -1278,7 +1261,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_ms20a3010a_um_not_heat",
       "device_category": "Microwave",
       "brand": "Samsung",
@@ -1341,7 +1323,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_ms20a3010a_um_smoke_preheat",
       "device_category": "Microwave",
       "brand": "Samsung",
@@ -1427,7 +1408,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_ms20a3010a_um_burning_smell",
       "device_category": "Microwave",
       "brand": "Samsung",
@@ -1491,7 +1471,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_ms20a3010a_um_bad_smell",
       "device_category": "Microwave",
       "brand": "Samsung",

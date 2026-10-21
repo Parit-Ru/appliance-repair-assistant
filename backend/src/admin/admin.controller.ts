@@ -5,7 +5,7 @@
  *   GET /admin/analytics/summary   สถิติรวมช่วง N วันล่าสุด
  *
  * ป้องกันที่ระดับ class (ครอบทุก endpoint ที่จะเพิ่มทีหลังด้วย):
- *   @UseGuards(JwtAuthGuard, RolesGuard) + @Roles(Role.Admin)
+ *   @UseGuards(JwtAuthGuard, AdminGuard)
  *     ไม่มี token/token เสีย → 401 · ล็อกอินแล้วไม่ใช่ admin → 403 · ตรวจก่อน parse query เสมอ
  *   401/403 ของ guard แปลงเป็น {statusCode, code, message} โดย AllExceptionsFilter (common/) ที่ติดทั้งแอป
  *
@@ -15,16 +15,13 @@
 import { Controller, Get, Query, UseGuards } from '@nestjs/common';
 
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
-import { Role } from '../auth/role.enum';
-import { Roles } from '../auth/roles.decorator';
-import { RolesGuard } from '../auth/roles.guard';
+import { AdminGuard } from '../auth/admin.guard';
 import { parseFeedbackQuery, parseSummaryQuery } from './admin.dto';
 import type { AdminFeedbackPageDto, AdminSummaryDto } from './admin.dto';
 import { AdminService } from './admin.service';
 
 @Controller('admin')
-@UseGuards(JwtAuthGuard, RolesGuard)
-@Roles(Role.Admin)
+@UseGuards(JwtAuthGuard, AdminGuard)
 export class AdminController {
   constructor(private readonly adminService: AdminService) {}
 

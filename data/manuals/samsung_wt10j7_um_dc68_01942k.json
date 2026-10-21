@@ -1,5 +1,4 @@
 {
-  "schema_version": 2,
   "manual_id": "samsung_wt10j7_um_dc68_01942k",
   "device_category": "Washing Machine",
   "brand": "Samsung",
@@ -8,7 +7,6 @@
   "count": 6,
   "graphs": [
     {
-      "schema_version": 2,
       "graph_id": "samsung_wt10j7_um_does_not_run",
       "device_category": "Washing Machine",
       "brand": "Samsung",
@@ -111,7 +109,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_wt10j7_um_clothes_not_rotating",
       "device_category": "Washing Machine",
       "brand": "Samsung",
@@ -173,7 +170,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_wt10j7_um_abnormal_spin",
       "device_category": "Washing Machine",
       "brand": "Samsung",
@@ -262,7 +258,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_wt10j7_um_water_not_draining",
       "device_category": "Washing Machine",
       "brand": "Samsung",
@@ -325,7 +320,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_wt10j7_um_spin_not_working",
       "device_category": "Washing Machine",
       "brand": "Samsung",
@@ -414,7 +408,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_wt10j7_um_drains_continuously",
       "device_category": "Washing Machine",
       "brand": "Samsung",

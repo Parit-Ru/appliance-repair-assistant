@@ -1,5 +1,4 @@
 {
-  "schema_version": 2,
   "manual_id": "samsung_ww_um_dc68_04382a",
   "device_category": "Washing Machine",
   "brand": "Samsung",
@@ -8,7 +7,6 @@
   "count": 35,
   "graphs": [
     {
-      "schema_version": 2,
       "graph_id": "samsung_ww_um_does_not_start",
       "device_category": "Washing Machine",
       "brand": "Samsung",
@@ -204,7 +202,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_ww_um_water_supply_insufficient",
       "device_category": "Washing Machine",
       "brand": "Samsung",
@@ -351,7 +348,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_ww_um_detergent_remains_in_drawer",
       "device_category": "Washing Machine",
       "brand": "Samsung",
@@ -486,7 +482,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_ww_um_excessive_vibration_noise",
       "device_category": "Washing Machine",
       "brand": "Samsung",
@@ -671,7 +666,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_ww_um_does_not_drain",
       "device_category": "Washing Machine",
       "brand": "Samsung",
@@ -848,7 +842,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_ww_um_spin_not_working",
       "device_category": "Washing Machine",
       "brand": "Samsung",
@@ -957,7 +950,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_ww_um_door_does_not_open",
       "device_category": "Washing Machine",
       "brand": "Samsung",
@@ -1084,7 +1076,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_ww_um_excessive_suds",
       "device_category": "Washing Machine",
       "brand": "Samsung",
@@ -1190,7 +1181,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_ww_um_cannot_apply_additional_detergent",
       "device_category": "Washing Machine",
       "brand": "Samsung",
@@ -1251,7 +1241,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_ww_um_stops",
       "device_category": "Washing Machine",
       "brand": "Samsung",
@@ -1431,7 +1420,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_ww_um_wrong_water_temperature",
       "device_category": "Washing Machine",
       "brand": "Samsung",
@@ -1604,7 +1592,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_ww_um_load_wet_end_of_cycle",
       "device_category": "Washing Machine",
       "brand": "Samsung",
@@ -1734,7 +1721,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_ww_um_leaks_water",
       "device_category": "Washing Machine",
       "brand": "Samsung",
@@ -1888,7 +1874,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_ww_um_has_odours",
       "device_category": "Washing Machine",
       "brand": "Samsung",
@@ -2022,7 +2007,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_ww_um_no_bubbles",
       "device_category": "Washing Machine",
       "brand": "Samsung",
@@ -2097,7 +2081,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_ww_um_addwash_door",
       "device_category": "Washing Machine",
       "brand": "Samsung",
@@ -2200,7 +2183,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_ww_um_increased_washing_time",
       "device_category": "Washing Machine",
       "brand": "Samsung",
@@ -2245,7 +2227,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_ww_um_recovery_from_freezing",
       "device_category": "Washing Machine",
       "brand": "Samsung",
@@ -2349,7 +2330,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_ww_um_code_4c",
       "device_category": "Washing Machine",
       "brand": "Samsung",
@@ -2530,7 +2510,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_ww_um_code_4c2",
       "device_category": "Washing Machine",
       "brand": "Samsung",
@@ -2608,7 +2587,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_ww_um_code_5c",
       "device_category": "Washing Machine",
       "brand": "Samsung",
@@ -2750,7 +2728,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_ww_um_code_dc",
       "device_category": "Washing Machine",
       "brand": "Samsung",
@@ -2852,7 +2829,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_ww_um_code_oc",
       "device_category": "Washing Machine",
       "brand": "Samsung",
@@ -2923,7 +2899,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_ww_um_code_lc",
       "device_category": "Washing Machine",
       "brand": "Samsung",
@@ -3026,7 +3001,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_ww_um_code_3c",
       "device_category": "Washing Machine",
       "brand": "Samsung",
@@ -3096,7 +3070,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_ww_um_code_uc",
       "device_category": "Washing Machine",
       "brand": "Samsung",
@@ -3202,7 +3175,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_ww_um_code_hc",
       "device_category": "Washing Machine",
       "brand": "Samsung",
@@ -3264,7 +3236,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_ww_um_code_1c",
       "device_category": "Washing Machine",
       "brand": "Samsung",
@@ -3335,7 +3306,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_ww_um_code_ac",
       "device_category": "Washing Machine",
       "brand": "Samsung",
@@ -3405,7 +3375,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_ww_um_code_ddc",
       "device_category": "Washing Machine",
       "brand": "Samsung",
@@ -3499,7 +3468,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_ww_um_code_8c",
       "device_category": "Washing Machine",
       "brand": "Samsung",
@@ -3569,7 +3537,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_ww_um_code_ac6",
       "device_category": "Washing Machine",
       "brand": "Samsung",
@@ -3653,7 +3620,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_ww_um_code_dc1",
       "device_category": "Washing Machine",
       "brand": "Samsung",
@@ -3723,7 +3689,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_ww_um_code_dc3",
       "device_category": "Washing Machine",
       "brand": "Samsung",
@@ -3793,7 +3758,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_ww_um_code_0",
       "device_category": "Washing Machine",
       "brand": "Samsung",

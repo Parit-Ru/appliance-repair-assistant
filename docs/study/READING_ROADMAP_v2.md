@@ -93,7 +93,7 @@
 | Auth ฝั่ง backend | `@nestjs/jwt` (HS256) + `bcryptjs` (cost 10) · **ไม่ใช้ passport** | `auth/auth.module.ts:29-44` · `auth/jwt-auth.guard.ts:65` · `auth/auth.service.ts:24` |
 | Upload | multer ผ่าน `FileInterceptor` ของ `@nestjs/platform-express` (เก็บในหน่วยความจำ) | `authoring/drafts.controller.ts:58` |
 | แยกข้อความ PDF | `unpdf ^1.9.0` (pdf.js) เรียกด้วย `require` · **ต้องการ Node `>=22`** | `authoring/pdf-text.ts:88` · `node_modules/unpdf/package.json` (`engines`) |
-| Embedding | `@huggingface/transformers 4.3.0` ONNX q8 · โมเดล `Xenova/paraphrase-multilingual-MiniLM-L12-v2` จาก `backend/model-slim` · `allowRemoteModels = false` | `embedding/embedding.service.ts:5-8, 34-35` |
+| Embedding | `@huggingface/transformers 4.3.0` ONNX q8 · โมเดล `Xenova/paraphrase-multilingual-MiniLM-L12-v2` จาก `backend/model` · `allowRemoteModels = false` | `embedding/embedding.service.ts:5-8, 34-35` |
 | LLM | Groq (`fetch` ตรง ไม่มี SDK) 2 จุด: rephrase และร่างผัง | `rephrase/groq-llm.client.ts:3` · `authoring/draft-llm.client.ts:22` |
 | Test | `jest`/`ts-jest`/`vitest` ยังอยู่ใน devDependencies และ script `test` · **ไม่มีไฟล์เทสต์แล้ว** | `backend/package.json`, `frontend/package.json` |
 | Deploy | backend: Render free (`render.yaml`) · frontend: GitHub Pages (`gh-pages`, branch `origin/gh-pages`) · **อาจารย์ต้องการแค่ demo บน localhost** | `render.yaml` · `frontend/package.json` (`deploy`) |
@@ -706,7 +706,7 @@ modelPattern=MS23K3513  sourceManual=MS23K3513_UM  pageFrom=30  pageTo=31
 | MySQL `manuals`/`graphs`/`nodes` | ผังที่ใช้จริง (จาก seed **และ** จาก publish) | ถาวร | `migrations/001…` |
 | ไฟล์ `data/manuals/*.json` | ต้นทางของ seed (ไม่รวมผังที่ publish จาก PDF) | ใน git | — |
 | ไฟล์ `data/chuck/*.json`, `data/pdf/` | chunk และ PDF ต้นฉบับ (อ้างอิง/ตรวจด้วยสคริปต์) | ใน git | `scripts/check_chunk_pdf.py` |
-| ไฟล์ `backend/model-slim/` | โมเดล embedding ที่ย่อแล้ว | ใน git | `embedding.service.ts:8` |
+| ไฟล์ `backend/model/` | โมเดล embedding ที่ย่อแล้ว | ใน git | `embedding.service.ts:8` |
 | ไฟล์ dump: `backup/`, `backend/backup_before_012.sql`, `backend/backups/` และประวัติ git | สำเนาตาราง รวม `sessions`, `users` | ถาวรจนลบ · **บางไฟล์อยู่บน GitHub แล้ว** | หัวข้อ 12 R1 |
 
 ### 5.9 ข้อมูลที่ออกไปนอกระบบ
@@ -758,7 +758,7 @@ appliance-repair-assistant/
 │  │  └─ health/                     GET /health
 │  ├─ migrations/                    001–012 (.sql)
 │  ├─ scripts/                       run-migrations, seed-graphs, seed-equipment, seed-admin (ใหม่), backup-graph-tables (ใหม่), try-rephrase
-│  ├─ model-slim/                    โมเดล ONNX ที่ย่อแล้ว
+│  ├─ model/                    โมเดล ONNX ที่ย่อแล้ว
 │  └─ backups/, backup_before_012.sql   ⚠ dump ฐานข้อมูล (ไม่ควรอยู่ใน repo)
 ├─ frontend/src/
 │  ├─ api/                           http.ts, traversal.ts, history.ts, auth.ts (ใหม่), admin.ts (ใหม่), drafts.ts (ใหม่), queries.ts, types.ts
@@ -846,7 +846,7 @@ appliance-repair-assistant/
 | `database/database.constants.ts`, `health/health.module.ts`, `embedding/embedding.module.ts`, `traversal/graph.module.ts` | 1–9 บรรทัด |
 | `docs/archive/HANDOFF.md`, `draft/`, `check/`, `scripts/old/` | ประวัติการทำงาน / งานร่าง |
 | `authoring/graph-validator.ts` ส่วนกฎละเอียด (`:120-160`, `:480-583`) | อ่านเฉพาะตอนต้องอธิบายกฎตรวจข้อใดข้อหนึ่ง |
-| `data/pdf/`, `backend/model-slim/`, `backend/dist`, `frontend/dist` | ไม่ใช่โค้ด |
+| `data/pdf/`, `backend/model/`, `backend/dist`, `frontend/dist` | ไม่ใช่โค้ด |
 
 ---
 

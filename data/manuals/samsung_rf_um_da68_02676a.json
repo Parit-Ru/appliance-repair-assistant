@@ -1,5 +1,4 @@
 {
-  "schema_version": 2,
   "manual_id": "samsung_rf_um_da68_02676a",
   "device_category": "Refrigerator",
   "brand": "Samsung",
@@ -8,7 +7,6 @@
   "count": 9,
   "graphs": [
     {
-      "schema_version": 2,
       "graph_id": "samsung_rf_um_not_operating_or_warm",
       "device_category": "Refrigerator",
       "brand": "Samsung",
@@ -142,7 +140,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_rf_um_food_frozen",
       "device_category": "Refrigerator",
       "brand": "Samsung",
@@ -218,7 +215,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_rf_um_unusual_noises",
       "device_category": "Refrigerator",
       "brand": "Samsung",
@@ -357,7 +353,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_rf_um_front_warm_condensation",
       "device_category": "Refrigerator",
       "brand": "Samsung",
@@ -402,7 +397,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_rf_um_liquid_bubbling",
       "device_category": "Refrigerator",
       "brand": "Samsung",
@@ -447,7 +441,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_rf_um_bad_smell",
       "device_category": "Refrigerator",
       "brand": "Samsung",
@@ -532,7 +525,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_rf_um_frost_on_walls",
       "device_category": "Refrigerator",
       "brand": "Samsung",
@@ -617,7 +609,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_rf_um_condensation_inside",
       "device_category": "Refrigerator",
       "brand": "Samsung",
@@ -679,7 +670,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_rf_um_led_lamp_out",
       "device_category": "Refrigerator",
       "brand": "Samsung",

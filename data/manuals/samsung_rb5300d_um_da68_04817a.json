@@ -1,5 +1,4 @@
 {
-  "schema_version": 2,
   "manual_id": "samsung_rb5300d_um_da68_04817a",
   "device_category": "Refrigerator",
   "brand": "Samsung",
@@ -8,7 +7,6 @@
   "count": 26,
   "graphs": [
     {
-      "schema_version": 2,
       "graph_id": "samsung_rb5300d_um_not_cooling",
       "device_category": "Refrigerator",
       "brand": "Samsung",
@@ -202,7 +200,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_rb5300d_um_over_cooling",
       "device_category": "Refrigerator",
       "brand": "Samsung",
@@ -266,7 +263,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_rb5300d_um_interior_wall_hot",
       "device_category": "Refrigerator",
       "brand": "Samsung",
@@ -312,7 +308,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_rb5300d_um_odours",
       "device_category": "Refrigerator",
       "brand": "Samsung",
@@ -401,7 +396,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_rb5300d_um_frost_vents",
       "device_category": "Refrigerator",
       "brand": "Samsung",
@@ -464,7 +458,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_rb5300d_um_frost_walls",
       "device_category": "Refrigerator",
       "brand": "Samsung",
@@ -553,7 +546,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_rb5300d_um_fruit_frozen",
       "device_category": "Refrigerator",
       "brand": "Samsung",
@@ -617,7 +609,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_rb5300d_um_condensation",
       "device_category": "Refrigerator",
       "brand": "Samsung",
@@ -705,7 +696,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_rb5300d_um_alarm",
       "device_category": "Refrigerator",
       "brand": "Samsung",
@@ -785,7 +775,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_rb5300d_um_sound_start_stop",
       "device_category": "Refrigerator",
       "brand": "Samsung",
@@ -832,7 +821,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_rb5300d_um_sound_fan",
       "device_category": "Refrigerator",
       "brand": "Samsung",
@@ -878,7 +866,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_rb5300d_um_sound_defrost",
       "device_category": "Refrigerator",
       "brand": "Samsung",
@@ -925,7 +912,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_rb5300d_um_sound_bubbling",
       "device_category": "Refrigerator",
       "brand": "Samsung",
@@ -971,7 +957,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_rb5300d_um_sound_cracking",
       "device_category": "Refrigerator",
       "brand": "Samsung",
@@ -1018,7 +1003,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_rb5300d_um_sound_ice_maker",
       "device_category": "Refrigerator",
       "brand": "Samsung",
@@ -1063,7 +1047,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_rb5300d_um_sound_whoosh",
       "device_category": "Refrigerator",
       "brand": "Samsung",
@@ -1108,7 +1091,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_rb5300d_um_st_app_not_found",
       "device_category": "Refrigerator",
       "brand": "Samsung",
@@ -1154,7 +1136,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_rb5300d_um_st_fails_to_operate",
       "device_category": "Refrigerator",
       "brand": "Samsung",
@@ -1230,7 +1211,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_rb5300d_um_st_not_connected",
       "device_category": "Refrigerator",
       "brand": "Samsung",
@@ -1340,7 +1320,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_rb5300d_um_st_login",
       "device_category": "Refrigerator",
       "brand": "Samsung",
@@ -1402,7 +1381,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_rb5300d_um_st_register_error",
       "device_category": "Refrigerator",
       "brand": "Samsung",
@@ -1456,7 +1434,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_rb5300d_um_st_connected_not_run",
       "device_category": "Refrigerator",
       "brand": "Samsung",
@@ -1528,7 +1505,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_rb5300d_um_st_wifi_blinking",
       "device_category": "Refrigerator",
       "brand": "Samsung",
@@ -1613,7 +1589,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_rb5300d_um_sg_requirements",
       "device_category": "Refrigerator",
       "brand": "Samsung",
@@ -1722,7 +1697,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_rb5300d_um_sg_em_not_working",
       "device_category": "Refrigerator",
       "brand": "Samsung",
@@ -1807,7 +1781,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_rb5300d_um_sg_delay_defrost",
       "device_category": "Refrigerator",
       "brand": "Samsung",

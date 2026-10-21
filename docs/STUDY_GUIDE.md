@@ -85,8 +85,8 @@ backend/src/
 ### `traversal-engine/` — เครื่องสถานะของผัง (หัวใจ ไม่รู้จัก HTTP/ฐานข้อมูลเลย)
 | ไฟล์ | ทำอะไร |
 |---|---|
-| `types.ts` (152) | ชนิดของผัง/โหนด/session (`NodeType` = checkpoint, instruction, input, resolution, escalation · `OutcomeKind` = user_fixed, normal_behavior, handoff_informed, handoff_unknown) + คลาส error ของ engine 5 ชนิด (`TraversalError` และลูก) |
-| `traversal-engine.ts` (183) | ฟังก์ชันล้วน `startSession`, `getCurrentNode`, `submitAction`, `getOutcomeKind` (หาชนิดจุดจบของโหนด — รอบ 2 รวมมาไว้ที่เดียว) — รับ session+ผัง คืน session ใหม่+โหนดถัดไป **รวมด่าน safety_critical** (`SafetyConfirmationRequiredError`) |
+| `types.ts` (144) | ชนิดของผัง/โหนด/session (`NodeType` = checkpoint, instruction, input, resolution, escalation · `OutcomeKind` = user_fixed, normal_behavior, handoff_informed, handoff_unknown) + คลาส error ของ engine 4 ชนิด (`TraversalError` และลูก) |
+| `traversal-engine.ts` (172) | ฟังก์ชันล้วน `startSession`, `getCurrentNode`, `submitAction`, `getOutcomeKind` (หาชนิดจุดจบของโหนด — รอบ 2 รวมมาไว้ที่เดียว) — รับ session+ผัง คืน session ใหม่+โหนดถัดไป **รวมด่าน safety_critical** (`SafetyConfirmationRequiredError`) |
 
 ### `traversal/` — ต่อ engine เข้ากับข้อมูลจริง (API เดินผัง)
 | ไฟล์ | ทำอะไร |
@@ -94,7 +94,7 @@ backend/src/
 | `traversal.controller.ts` (135) | 7 endpoint: `GET /traversal/graphs`, `GET /traversal/manuals`, `POST /traversal/sessions`, `GET /traversal/sessions/:id`, `POST …/actions`, `POST …/outcome`, `DELETE …/sessions/:id` |
 | `traversal.service.ts` (300) | หาผัง/ session → เรียก engine → บันทึก → (ถ้าเปิด) rephrase · **ห้ามมีตรรกะเปลี่ยนสถานะเอง** (คอมเมนต์หัวไฟล์) · ด่าน safety บังคับตรงที่เรียก engine ก่อนบันทึกเสมอ |
 | `traversal.dto.ts` (203) | `parseStartSessionBody`, `parseTraversalAction`, `parseOutcomeBody`, `parseOptionalClientId`/`parseRequiredClientId` |
-| `graph.repository.ts` (305) | โหลดผังทั้งหมดจาก MySQL **เข้าหน่วยความจำตอนบูต** (`OnModuleInit`) + `reload()` หลัง publish · เป็นตัวโหลดผังที่ใช้ตอนเดินผัง (`loadAll` บรรทัด 122–174; ตาราง manuals/graphs/nodes ถูก **เขียน** โดย `authoring/drafts.store.ts` ตอน publish และถูกอ่านโดยสคริปต์ seed/backup ด้วย) |
+| `graph.repository.ts` (305) | โหลดผังทั้งหมดจาก MySQL **เข้าหน่วยความจำตอนบูต** (`OnModuleInit`) + `reload()` หลัง publish · เป็นตัวโหลดผังที่ใช้ตอนเดินผัง (`loadAll` บรรทัด 121–173; ตาราง manuals/graphs/nodes ถูก **เขียน** โดย `authoring/drafts.store.ts` ตอน publish และถูกอ่านโดยสคริปต์ seed/backup ด้วย) |
 | `session.store.ts` (257) | SQL ของ `sessions` / `session_history` · session ที่เดินอยู่หมดอายุ 24 ชม. · ที่จบแล้วเก็บ 90 วัน (ค่าคงที่ `SESSION_TTL_HOURS`, `COMPLETED_SESSION_TTL_DAYS`) |
 | `equipment.repository.ts` (60) | อ่านรายการอุปกรณ์ที่ต้องใช้ตามหมวดเครื่อง เก็บใน Map ในหน่วยความจำ |
 | `graph.module.ts` (7) | โมดูลเล็กที่ export `GraphRepository` ให้โมดูลอื่นใช้ร่วมกัน |
@@ -102,7 +102,7 @@ backend/src/
 ### `symptom-search/` + `embedding/` — ค้นอาการ
 | ไฟล์ | ทำอะไร |
 |---|---|
-| `embedding.service.ts` (56) | โหลดโมเดล embedding (cache ที่ `backend/model-slim`) แล้วแปลงข้อความ→เวกเตอร์ (mean pooling + normalize) |
+| `embedding.service.ts` (56) | โหลดโมเดล embedding (cache ที่ `backend/model`) แล้วแปลงข้อความ→เวกเตอร์ (mean pooling + normalize) |
 | `symptom-matcher.ts` (95) | **คณิตศาสตร์ล้วน** `cosineSimilarity`, `buildSymptomTexts`, `rankGraphs`, `selectMatches` |
 | `symptom-search.service.ts` (245) | ตอนบูต (`OnApplicationBootstrap`) **เฉพาะเมื่อตั้ง `SYMPTOM_SEARCH_ENABLED=true`** (ค่าเริ่มต้นปิด — `render.yaml` ตั้งเป็น true) แปลงอาการทุกผังเป็นเวกเตอร์เก็บในหน่วยความจำ · ตอนค้น: แปลงคำค้น → จัดอันดับ → ตัดด้วยเกณฑ์ `MATCH_THRESHOLD = 0.55` และ `MAX_RESULTS = 3` |
 | `symptom-search.controller.ts` | `POST /symptom-search`, `GET /symptom-search/status` |
@@ -124,7 +124,7 @@ backend/src/
 | `auth.service.ts` (99) | สมัคร (role = user เสมอ) / login (ข้อความ error เดียวกันทุกกรณี + compare hash หลอกเมื่อไม่พบอีเมล) / ออก JWT ด้วย `@nestjs/jwt` + `bcryptjs` |
 | `jwt-auth.guard.ts` | บังคับล็อกอิน (401) · `verifyBearer()` ตรวจ HS256 · ไม่ใช้ passport |
 | `optional-jwt-auth.guard.ts` | "ล็อกอินหรือ guest ก็ได้" — ไม่มี token = guest · token เสีย = 401 (ไม่แอบเป็น guest) |
-| `roles.guard.ts`, `roles.decorator.ts`, `role.enum.ts` | จำกัดบทบาท `@Roles(Role.Admin)` |
+| `admin.guard.ts`, `role.enum.ts` | `AdminGuard` ด่านต้องเป็น admin (ไม่ import อะไรจาก NestJS; ใช้ `ApiError` โยน 401/403) · `@Roles`/`RolesGuard` เดิมถูกแทนที่แล้ว |
 | `session-owner.ts` (69) | **จุดเดียว** ที่ตัดสินว่า "ใครเป็นเจ้าของ session" (user → `user_id`, guest → `client_id` + `user_id IS NULL`) และสร้างเงื่อนไข SQL |
 | `users.store.ts` (101) | SQL ตาราง `users` |
 
@@ -139,7 +139,7 @@ backend/src/
 ### `admin/` — สถิติ (อ่านอย่างเดียว)
 | ไฟล์ | ทำอะไร |
 |---|---|
-| `admin.controller.ts` | `GET /admin/feedback`, `GET /admin/analytics/summary` (ต้อง `JwtAuthGuard` + `RolesGuard` + Admin) |
+| `admin.controller.ts` | `GET /admin/feedback`, `GET /admin/analytics/summary` (ต้อง `JwtAuthGuard` + `AdminGuard`) |
 | `admin.store.ts` (226) | SELECT ล้วน ไม่แตะตาราง `users` ไม่ดึง email/ชื่อ/id เจ้าของออกมา (รู้แค่ชนิด user/guest/none) |
 | `admin.service.ts`, `admin.dto.ts` | ประกอบตัวเลข (ตัวหาร 0 → null) / ตรวจ query |
 
@@ -151,8 +151,8 @@ backend/src/
 | `pdf-text.ts` (113) | ดึงข้อความจาก PDF ด้วย `unpdf` ในหน่วยความจำ (ไม่เขียนดิสก์) · จำกัด 200 หน้า/ช่วงเลือกได้ ≤ 10 หน้า/ต่อหน้า ≤ 12,000 ตัวอักษร |
 | `draft-llm.client.ts` (150) | เรียก Groq ให้ร่างผัง (`PROMPT_VERSION = 'v1'` เก็บไว้ในร่าง) |
 | `draft-schema.ts` (212) | ตรวจรูปแบบคำตอบ LLM แบบ "ไม่เชื่อ JSON mode" — ฟิลด์เกิน/ชนิดผิด → ปฏิเสธทั้งก้อน (`DraftParseError`) |
-| `graph-validator.ts` (503) | **ผู้ตัดสินว่าผังผ่านไหม** — พอร์ตกฎจาก `scripts/validate_graph.py` · ตรวจแบบร่างอย่างเดียว (รอบ 2 ลบโหมด `existing` ที่ไม่มีใครเรียก) · error = กัน publish, warning = ต้อง acknowledge |
-| `draft-manual.ts` (126) | แปลงร่างเป็นแถวของ manuals/graphs/nodes ที่พร้อม INSERT |
+| `graph-validator.ts` (502) | **ผู้ตัดสินว่าผังผ่านไหม** — พอร์ตกฎจาก `scripts/validate_graph.py` · ตรวจแบบร่างอย่างเดียว (รอบ 2 ลบโหมด `existing` ที่ไม่มีใครเรียก) · error = กัน publish, warning = ต้อง acknowledge |
+| `draft-manual.ts` (123) | แปลงร่างเป็นแถวของ manuals/graphs/nodes ที่พร้อม INSERT |
 | `drafts.store.ts` (261) | SQL ของ `graph_drafts` + publish ใน transaction เดียว (`SELECT … FOR UPDATE`, id ชน = ปฏิเสธ ไม่เขียนทับ) |
 | `drafts.errors.ts` (36) | ฟังก์ชันสร้าง `ApiError` ของโมดูลนี้ (`draftBusy`, `draftInvalid` ฯลฯ) |
 | `drafts.dto.ts` | parse ฟอร์มอัปโหลด / PUT / publish / reject |
@@ -174,7 +174,7 @@ backend/src/
 | `backend/scripts/seed-equipment.js`, `seed-admin.js` | seed อุปกรณ์ / สร้างบัญชี admin (admin สร้างได้ทางนี้ทางเดียว สมัครสาธารณะได้แค่ user) |
 | `backend/scripts/backup-graph-tables.js` | สำรองตารางผังเป็น SQL ลง `backend/backups/` |
 | `backend/scripts/try-rephrase.js` | ลองเรียก rephrase ด้วยมือ |
-| `backend/model-slim/` | ไฟล์โมเดล embedding ที่เตรียมไว้ในโปรเจกต์ (`MODEL_CACHE_DIR`) |
+| `backend/model/` | ไฟล์โมเดล embedding ที่เตรียมไว้ในโปรเจกต์ (`MODEL_CACHE_DIR`) |
 | `backend/dist/` | ผล build (`nest build`) — ไม่ต้องอ่าน |
 | `backend/jest.config.js` | มีตั้งค่า jest และ `npm test` แต่ **ค้นแล้วไม่พบไฟล์ `*.spec.*` / `*.test.*` ในทั้ง backend และ frontend** (frontend ก็มี vitest ตั้งไว้แต่ไม่มีไฟล์เทสต์) — ไม่มีชุดเทสต์อัตโนมัติในรีโปตอนนี้ |
 
@@ -225,7 +225,7 @@ PDF คู่มือ ──(แยก chunk)──▶ data/chuck/*.json ──
 | `scripts/validate_graph.py` | ตัวตรวจผังฉบับ Python (ต้นแบบของ `graph-validator.ts`) |
 | `scripts/convert_chunks_to_graphs.py` | แปลง chunk → ผัง |
 | `scripts/simulate_paths.py`, `inspect_vocab.py`, `check_chunk_pdf.py` | จำลองการเดินผัง / ตรวจคำศัพท์ / ตรวจ chunk เทียบ PDF (**ไม่แน่ใจรายละเอียดภายใน — ยังไม่ได้เปิดอ่านทีละไฟล์ในรอบนี้**) |
-| `scripts/slim_model.py` | ชื่อบ่งว่าเกี่ยวกับการทำโมเดลให้เล็ก (เชื่อมกับ `backend/model-slim`) — **ไม่แน่ใจ ยังไม่ได้เปิดอ่าน** |
+| `scripts/slim_model.py` | ชื่อบ่งว่าเกี่ยวกับการทำโมเดลให้เล็ก (เชื่อมกับ `backend/model`) — **ไม่แน่ใจ ยังไม่ได้เปิดอ่าน** |
 
 ## 1.7 ตารางฐานข้อมูล (จาก migrations)
 
@@ -302,7 +302,7 @@ PDF คู่มือ ──(แยก chunk)──▶ data/chuck/*.json ──
 | 1 | หน้าแรกกด "เลือกเครื่องที่มีปัญหา" (หรือกดลิงก์รุ่นที่รองรับ) | `HomePage.tsx:26` → `/devices` · ลิงก์รุ่นตรง `HomePage.tsx:40` |
 | 2 | หน้า `/devices` โหลดรายการรุ่นด้วย `useManuals()` | `DevicesPage.tsx:29` · hook `queries.ts:70-72` |
 | 3 | frontend ยิง `GET /traversal/manuals` | `api/traversal.ts:24-26` |
-| 4 | backend: controller → service → repository (อ่านจาก **หน่วยความจำ** ไม่ยิง SQL) | `traversal.controller.ts:42-46` → `traversal.service.ts:84-86` → `graph.repository.ts:101-120` (`listManuals` รวมผังเป็นรายรุ่น + `graphCount`) |
+| 4 | backend: controller → service → repository (อ่านจาก **หน่วยความจำ** ไม่ยิง SQL) | `traversal.controller.ts:42-46` → `traversal.service.ts:84-86` → `graph.repository.ts:100-119` (`listManuals` รวมผังเป็นรายรุ่น + `graphCount`) |
 | 5 | ผู้ใช้เลือกประเภทเครื่อง (ขั้น 1) แล้วเลือกรุ่น (ขั้น 2) หรือกด "ฉันไม่ทราบรุ่น" | `DevicesPage.tsx:60-66` (สองขั้น) · เลือกแล้ว navigate ที่ `DevicesPage.tsx:105` |
 | 6 | รุ่นที่เลือกเก็บ **ใน URL** (`?manual=…&unknown=1`) ไม่ใช่ใน state/DB | `lib/modelSelection.ts:9-14` (`useChosenModel`), `:17-21` (`symptomsPath`) |
 
@@ -337,7 +337,7 @@ PDF คู่มือ ──(แยก chunk)──▶ data/chuck/*.json ──
 - ตอนแอปบูต ถ้า `SYMPTOM_SEARCH_ENABLED=true` จึงโหลดโมเดล (**คืน `void` โดยตั้งใจ** ไม่ให้ Nest รอโหลดโมเดลก่อนเปิดรับ request): `symptom-search.service.ts:43-63`
 - `prepareIndex` ไล่ทุกผังจากหน่วยความจำ → `buildSymptomTexts` → embed ทีละข้อความ (ไม่ขนาน; ข้อความซ้ำใช้เวกเตอร์ร่วมกัน): `:70-118`
 - ข้อความต่อผังที่ถูกนำมา embed = `entry_symptom_th`, `entry_symptom` และ `entry_symptom_aliases` ทุกคำ: `symptom-matcher.ts:43-62`
-- โมเดล: `Xenova/paraphrase-multilingual-MiniLM-L12-v2` (q8) โหลดจากโฟลเดอร์ `backend/model-slim` และ **ห้ามดาวน์โหลดจากเน็ต** (`allowRemoteModels = false`): `embedding.service.ts:5-6, 33-41`
+- โมเดล: `Xenova/paraphrase-multilingual-MiniLM-L12-v2` (q8) โหลดจากโฟลเดอร์ `backend/model` และ **ห้ามดาวน์โหลดจากเน็ต** (`allowRemoteModels = false`): `embedding.service.ts:5-6, 33-41`
 
 ### ฝั่งหน้าจอแสดงผล
 - ไม่มีผังผ่านเกณฑ์ → กล่องฟ้า "ไม่พบอาการที่ใกล้เคียง ... **ระบบไม่เดาอาการให้**": `SymptomSearchResults.tsx:13-19`
@@ -345,7 +345,7 @@ PDF คู่มือ ──(แยก chunk)──▶ data/chuck/*.json ──
 - error 503/400 ของการค้นหาแสดงกล่อง **สีฟ้า** (ไม่ใช่แดง) เพราะไม่ใช่ความล้มเหลวของระบบ ผู้ใช้เลือกจาก "อาการทั้งหมด" ต่อได้: `SymptomsPage.tsx:28-31, 102-110`
 
 ### ทางเลือกที่ไม่ต้องใช้การค้นหา (ทางสำรองเสมอ)
-หน้า `/symptoms/all` (`AllSymptomsPage.tsx`) → `GET /traversal/graphs?manualId=` (`api/traversal.ts:19-22` → `traversal.service.ts:78-81` → `graph.repository.ts:89-99`) → กดแถวใดแถวหนึ่งเริ่ม session ได้เลย **โดยไม่ส่ง `query`** จึง **ไม่มีคะแนนความมั่นใจ** (`AllSymptomsPage.tsx:22`)
+หน้า `/symptoms/all` (`AllSymptomsPage.tsx`) → `GET /traversal/graphs?manualId=` (`api/traversal.ts:19-22` → `traversal.service.ts:78-81` → `graph.repository.ts:88-98`) → กดแถวใดแถวหนึ่งเริ่ม session ได้เลย **โดยไม่ส่ง `query`** จึง **ไม่มีคะแนนความมั่นใจ** (`AllSymptomsPage.tsx:22`)
 
 ---
 
@@ -362,7 +362,7 @@ PDF คู่มือ ──(แยก chunk)──▶ data/chuck/*.json ──
 | 6.1 | หาผังจาก **หน่วยความจำ** ไม่เจอ → 404 `GRAPH_NOT_FOUND` | `:100`, `:234-238` |
 | 6.2 | ถ้าส่ง `manualId` มา แต่ผังไม่ใช่ของรุ่นนั้น → 400 `GRAPH_MANUAL_MISMATCH` (เช็กก่อนสร้าง จึงไม่มี session ค้าง) | `:101-103` |
 | 6.3 | คิด **confidence**: ไม่มี query → `null` · มี query → `symptomSearch.scoreGraph(query, graphId)` (คะแนน cosine ของผังนั้น) · ระบบค้นหาไม่พร้อม/ล้ม → `null` (ไม่แต่งเลข ไม่ทำให้เริ่มไม่ได้) | `:104`, `:293-300` · `symptom-search.service.ts:224-230` |
-| 6.4 | `engineStartSession(graph, confidence)`: ตรวจ `schema_version === 2` → หาโหนด `entry_node` → สร้าง `sessionId` (UUID) สถานะ `in_progress` `variables = {}` `history = []` → render โหนดแรก | `traversal-engine.ts:4-26`, `:180-184` |
+| 6.4 | `engineStartSession(graph, confidence)`: หาโหนด `entry_node` → สร้าง `sessionId` (UUID) สถานะ `in_progress` `variables = {}` `history = []` → render โหนดแรก | `traversal-engine.ts:4-24` |
 | 6.5 | `sessionStore.create` — INSERT ลง `sessions` พร้อม owner, `model_selection`, `expires_at = NOW() + 24 ชม.` | `session.store.ts:53-72` (TTL ค่าคงที่ `:11`) |
 | 6.6 | `toResponse`: ประกอบ `{sessionId, graphId, status, node, equipment, confidence, outcome, displayText}` | `traversal.service.ts:251-269` · ชนิด `traversal.dto.ts:195-204` |
 | 7 | frontend ใส่ผลลง cache ทันที แล้ว `navigate('/session/:id')` (ไม่ต้อง GET ซ้ำ) | `queries.ts:154-160`, `useStartSymptom.ts:31` |
@@ -383,8 +383,8 @@ PDF คู่มือ ──(แยก chunk)──▶ data/chuck/*.json ──
 | 2 | backend `GET /traversal/sessions/:id` (`OptionalJwtAuthGuard`) | `traversal.controller.ts:73-81` |
 | 3 | `authorize()`: ถ้า session นี้เป็นของ **user** (มี `user_id`) ต้องมี token ของเจ้าของ ไม่งั้น 404 `SESSION_NOT_FOUND` (ไม่บอกว่ามีอยู่) · session ของ guest ใช้ session id เป็นกุญแจเหมือนเดิม | `traversal.service.ts:115-116`, `:226-231` · `session.store.ts:164-172` |
 | 4 | โหลด session จาก DB เฉพาะที่ **ยังไม่หมดอายุ** (`expires_at > NOW()`) พร้อมประวัติ `session_history` เรียงตาม `step_order` | `session.store.ts:74-102` |
-| 5 | `getCurrentNode` → render โหนดปัจจุบัน; ถ้า `completed` อ่านข้อความผลลัพธ์ที่ผู้ใช้เคยกรอกมาด้วย | `traversal.service.ts:117-127` · `traversal-engine.ts:28-37` |
-| 6 | **render โหนด**: `{nodeId, type, text, safetyCritical, safetyWarning, requiresSafetyConfirmation, inputType, isTerminal, outcomeKind, reference:{source,pageRange}}` — เติมตัวแปร `{{ชื่อ}}` ด้วยค่าที่ผู้ใช้เคยกรอก | `traversal-engine.ts:132-154`, `:174-178` · ชนิด `types.ts:105-116` |
+| 5 | `getCurrentNode` → render โหนดปัจจุบัน; ถ้า `completed` อ่านข้อความผลลัพธ์ที่ผู้ใช้เคยกรอกมาด้วย | `traversal.service.ts:117-127` · `traversal-engine.ts:26-35` |
+| 6 | **render โหนด**: `{nodeId, type, text, safetyCritical, safetyWarning, requiresSafetyConfirmation, inputType, isTerminal, outcomeKind, reference:{source,pageRange}}` — เติมตัวแปร `{{ชื่อ}}` ด้วยค่าที่ผู้ใช้เคยกรอก | `traversal-engine.ts:126-148`, `:168-172` · ชนิด `types.ts:104-115` |
 | 7 | frontend เลือกหน้าตาตามชนิดโหนด (ลำดับตรวจ: จบ → ด่านความปลอดภัย → checkpoint → input → instruction) | `StepView.tsx:24-44` |
 
 | ชนิดโหนด | หน้าตา | action ที่ส่งกลับ | ไฟล์:บรรทัด |
@@ -410,23 +410,23 @@ PDF คู่มือ ──(แยก chunk)──▶ data/chuck/*.json ──
 | 2 | `useSubmitAction` ยิง `POST /traversal/sessions/:id/actions` (body = action ตรงๆ) | `queries.ts:179-184` → `api/traversal.ts:58-66` |
 | 3 | `parseTraversalAction` ตรวจรูปร่าง (type ต้องเป็น answer/continue/confirm_safety/input · input ยาวไม่เกิน 255) | `traversal.controller.ts:84-93` · `traversal.dto.ts:119-159` |
 | 4 | `TraversalService.submitAction`: `authorize` → `requireSession` → `requireGraph` | `traversal.service.ts:137-144` |
-| 5 | **`engineSubmitAction(session, graph, action)`** ตัดสินทุกอย่าง | `:146` → `traversal-engine.ts:45-78` |
+| 5 | **`engineSubmitAction(session, graph, action)`** ตัดสินทุกอย่าง | `:146` → `traversal-engine.ts:41-72` |
 | 6 | ถ้า engine ไม่โยน error → `sessionStore.update` (transaction: UPDATE `sessions` + INSERT `session_history`) | `traversal.service.ts:148-153` · `session.store.ts:104-158` |
 | 7 | ตอบ `SessionResponseDto` ของโหนดใหม่ | `traversal.service.ts:155` |
 | 8 | frontend ใส่ผลลง cache → หน้าเปลี่ยนเป็นขั้นถัดไป · เพิ่มรอยทางใน `trail` | `queries.ts:154-160` · `SessionPage.tsx:56` · `lib/trail.ts:12-31` |
 
-### engine ตัดสิน "ขั้นถัดไป" อย่างไร (`traversal-engine.ts:80-131` `resolveNextNode`)
+### engine ตัดสิน "ขั้นถัดไป" อย่างไร (`traversal-engine.ts:74-125` `resolveNextNode`)
 | โหนดปัจจุบัน | action ที่รับ | ไปโหนด | ผิด action |
 |---|---|---|---|
-| `checkpoint` | `answer` | `yes` → `on_yes` · `no` → `on_no` (`:86-94`) | `InvalidActionError` |
-| `instruction` (ไม่ safety) | `continue` | `next` (`:104-107`) | `InvalidActionError` |
-| `instruction` (safety_critical) | **เฉพาะ** `confirm_safety` | `next` (`:96-107`) | ดูหัวข้อ 2.6 |
-| `input` | `input` | ผ่าน `pattern` (regex) → เก็บค่าลงตัวแปร `store_as` แล้วไป `next` · ไม่ผ่าน → ไป `on_invalid` (ถ้าไม่มี ก็อยู่โหนดเดิม) (`:110-125`) | `InvalidActionError` |
-| `resolution` / `escalation` | — ส่ง action อะไรก็ผิด | — (`:127-129`) | `InvalidActionError` |
+| `checkpoint` | `answer` | `yes` → `on_yes` · `no` → `on_no` (`:80-88`) | `InvalidActionError` |
+| `instruction` (ไม่ safety) | `continue` | `next` (`:98-101`) | `InvalidActionError` |
+| `instruction` (safety_critical) | **เฉพาะ** `confirm_safety` | `next` (`:90-101`) | ดูหัวข้อ 2.6 |
+| `input` | `input` | ผ่าน `pattern` (regex) → เก็บค่าลงตัวแปร `store_as` แล้วไป `next` · ไม่ผ่าน → ไป `on_invalid` (ถ้าไม่มี ก็อยู่โหนดเดิม) (`:104-119`) | `InvalidActionError` |
+| `resolution` / `escalation` | — ส่ง action อะไรก็ผิด | — (`:121-123`) | `InvalidActionError` |
 
-- ถึงโหนด resolution/escalation → `status = 'completed'` (`:67`) · ถ้า session จบแล้วยังส่ง action → `SessionAlreadyCompletedError` (`:52-54`)
-- engine **ไม่แก้ session เดิม** สร้าง session ใหม่คืนกลับ (`...session` + ประวัติต่อท้าย `:69-75`)
-- แปลง error ของ engine เป็น HTTP: `SafetyConfirmationRequiredError` 400 · `InvalidActionError` 400 `INVALID_ACTION` · `SessionAlreadyCompletedError` 409 `SESSION_COMPLETED` · `NodeNotFoundError` 500 `GRAPH_NODE_MISSING` · `UnsupportedSchemaVersionError` 500 `GRAPH_SCHEMA_UNSUPPORTED` — ที่ `common/all-exceptions.filter.ts:39-45` (engine เองไม่รู้จัก HTTP)
+- ถึงโหนด resolution/escalation → `status = 'completed'` (`:61`) · ถ้า session จบแล้วยังส่ง action → `SessionAlreadyCompletedError` (`:46-48`)
+- engine **ไม่แก้ session เดิม** สร้าง session ใหม่คืนกลับ (`...session` + ประวัติต่อท้าย `:63-69`)
+- แปลง error ของ engine เป็น HTTP: `SafetyConfirmationRequiredError` 400 · `InvalidActionError` 400 `INVALID_ACTION` · `SessionAlreadyCompletedError` 409 `SESSION_COMPLETED` · `NodeNotFoundError` 500 `GRAPH_NODE_MISSING` — ที่ `common/all-exceptions.filter.ts:38-43` (engine เองไม่รู้จัก HTTP)
 
 ### ข้อสังเกต (ไม่ใช่ข้อสรุป)
 - trail (รอยทางที่แสดง) อยู่ใน `useState` ของหน้า (`SessionPage.tsx:45`) → **รีเฟรชหน้าแล้วรอยทางหาย** แต่ขั้นปัจจุบันยังอยู่ เพราะมาจาก DB (ประวัติจริงอยู่ใน `session_history`)
@@ -435,8 +435,8 @@ PDF คู่มือ ──(แยก chunk)──▶ data/chuck/*.json ──
   - **มี transaction** เฉพาะตอนเขียน: `session.store.ts:118-157` (`getConnection` → `beginTransaction` → `UPDATE sessions` → `INSERT session_history` → `commit` / `rollback`) แต่ transaction นี้เริ่มหลังจากอ่านไปแล้ว จึงไม่ได้กันการอ่านซ้อน
   - **ตัวกันจริงคือข้อจำกัด UNIQUE ของฐานข้อมูล:** `migrations/002_create_session_tables.sql:36` `UNIQUE KEY uq_history_step (session_id, step_order)` และ `step_order = session.history.length - 1` คิดจากสถานะที่อ่านมา (`session.store.ts:113`)
   - **ลำดับเหตุการณ์ที่คาดจากโค้ด** (คำขอ A, B อ่านสถานะเดียวกัน ประวัติยาว N): ทั้งคู่ผ่าน engine และได้ `step_order` เท่ากัน → A `UPDATE` ได้ล็อกแถว `sessions` และ `INSERT` ผ่าน → `commit` · B ที่ `UPDATE` รออยู่จะวิ่งต่อหลัง A commit แล้ว `INSERT` ชน UNIQUE (`ER_DUP_ENTRY`) → เข้า `catch` ที่ `session.store.ts:152-154` → `rollback` (การ `UPDATE` ของ B ถูกย้อนด้วย) → โยน error ต่อ
-  - **ผลที่ผู้ใช้เห็น:** A สำเร็จ · B ได้ **500 `INTERNAL_ERROR`** (error ของ mysql2 ไม่ใช่ `ApiError` จึงตกที่ `common/all-exceptions.filter.ts:94` และถูก log เป็น 5xx) · ข้อมูลใน DB ยังสอดคล้อง (ไม่มีประวัติซ้ำ ไม่มีสถานะครึ่งๆ กลางๆ) — ไม่มีกรณีที่สองคำขอ "ชนะทั้งคู่"
-  - **ความปลอดภัย (safety) ไม่เสีย:** ทั้งสองคำขอถูก engine ตรวจกับสถานะเดิมเดียวกัน จึงข้ามด่าน `confirm_safety` ไม่ได้ด้วยการยิงซ้อน (`traversal-engine.ts:96-103`)
+  - **ผลที่ผู้ใช้เห็น:** A สำเร็จ · B ได้ **500 `INTERNAL_ERROR`** (error ของ mysql2 ไม่ใช่ `ApiError` จึงตกที่ `common/all-exceptions.filter.ts:92` และถูก log เป็น 5xx) · ข้อมูลใน DB ยังสอดคล้อง (ไม่มีประวัติซ้ำ ไม่มีสถานะครึ่งๆ กลางๆ) — ไม่มีกรณีที่สองคำขอ "ชนะทั้งคู่"
+  - **ความปลอดภัย (safety) ไม่เสีย:** ทั้งสองคำขอถูก engine ตรวจกับสถานะเดิมเดียวกัน จึงข้ามด่าน `confirm_safety` ไม่ได้ด้วยการยิงซ้อน (`traversal-engine.ts:90-97`)
   - **ข้อจำกัดของข้อสรุปนี้:** (1) ยังไม่ได้ทดสอบกับ MySQL จริง (2) ไม่ทราบว่า DB ที่ใช้งานจริงมี UNIQUE KEY นี้อยู่จริงหรือไม่ ซึ่งมาจาก migration 002 ที่เขียนด้วย `CREATE TABLE IF NOT EXISTS` — ตารางนี้ใช้ร่วมกับโปรเจกต์เก่า ถ้าถูกสร้างไว้ก่อนด้วย schema อื่น ค่า UNIQUE อาจไม่มี (ตรวจด้วย `SHOW CREATE TABLE session_history`) (3) ฝั่งหน้าจอกันกดซ้ำในแท็บเดียวด้วย `isSendingRef` (`SessionPage.tsx:46-52`) ดังนั้นกรณีนี้เกิดได้จริงเฉพาะสองแท็บ/สองอุปกรณ์/ยิง API ตรง
   - **ตอบกรรมการ:** "ไม่ได้ล็อกแถว แต่มีข้อจำกัด UNIQUE (session_id, step_order) กับ transaction ทำให้ได้ผู้ชนะคนเดียว อีกคำขอได้ error และไม่มีข้อมูลเสีย — ข้อบกพร่องคือผู้แพ้ได้ 500 แทนที่จะเป็น 409"
 - `session.store.ts:127`: ทุกขั้นที่ยังไม่จบต่ออายุ session เป็น 24 ชม. นับจากขั้นล่าสุด
@@ -449,12 +449,12 @@ PDF คู่มือ ──(แยก chunk)──▶ data/chuck/*.json ──
 
 | ชั้น | กลไก | ไฟล์:บรรทัด |
 |---|---|---|
-| 1. ข้อมูล | ตัวตรวจผังฝั่ง backend (ใช้ตอน publish ร่างผังจาก PDF — ส่วนที่ 4; สคริปต์ seed มีตัวตรวจของตัวเองซึ่งยังไม่ได้เปิดอ่านจึง ⚠️ ไม่แน่ใจว่ากฎเดียวกันหรือไม่): `safety_critical` ใช้ได้เฉพาะโหนด `instruction` และต้องมี `safety_warning` · ถ้ามี `safety_warning` แต่ไม่ตั้งธง → error | `authoring/graph-validator.ts:331-338` |
-| 2. ตอนโหลด | แปลงคอลัมน์ DB เป็นธง | `graph.repository.ts:227-228` |
-| 3. engine | โหนด instruction ที่ `safety_critical`: ส่ง `continue` → **`SafetyConfirmationRequiredError`** · รับเฉพาะ `confirm_safety` | `traversal-engine.ts:96-103` · ข้อความ error `types.ts:143-147` |
+| 1. ข้อมูล | ตัวตรวจผังฝั่ง backend (ใช้ตอน publish ร่างผังจาก PDF — ส่วนที่ 4; สคริปต์ seed มีตัวตรวจของตัวเองซึ่งยังไม่ได้เปิดอ่านจึง ⚠️ ไม่แน่ใจว่ากฎเดียวกันหรือไม่): `safety_critical` ใช้ได้เฉพาะโหนด `instruction` และต้องมี `safety_warning` · ถ้ามี `safety_warning` แต่ไม่ตั้งธง → error | `authoring/graph-validator.ts:330-337` |
+| 2. ตอนโหลด | แปลงคอลัมน์ DB เป็นธง | `graph.repository.ts:221-222` |
+| 3. engine | โหนด instruction ที่ `safety_critical`: ส่ง `continue` → **`SafetyConfirmationRequiredError`** · รับเฉพาะ `confirm_safety` | `traversal-engine.ts:90-97` · ข้อความ error `types.ts:135-139` |
 | 4. ลำดับใน service | เรียก engine **ก่อน** บันทึกเสมอ ถ้า engine โยน error บรรทัด `update()` ไม่ถูกรัน → session ใน DB ไม่ขยับ ไม่ต้องมีโค้ด "ย้อนสถานะ" | `traversal.service.ts:10-12`, `:133-136`, `:146` เทียบ `:150` |
-| 5. HTTP | แปลงเป็น 400 `SAFETY_CONFIRMATION_REQUIRED` | `all-exceptions.filter.ts:40` |
-| 6. หน้าจอ | `requiresSafetyConfirmation` = (instruction ∧ safety_critical) → แสดง `SafetyGateStep` ที่ปุ่มกดไม่ได้จนกว่าจะติ๊ก | `traversal-engine.ts:148` · `StepView.tsx:31-33` · `SafetyGateStep.tsx:25-32` |
+| 5. HTTP | แปลงเป็น 400 `SAFETY_CONFIRMATION_REQUIRED` | `all-exceptions.filter.ts:39` |
+| 6. หน้าจอ | `requiresSafetyConfirmation` = (instruction ∧ safety_critical) → แสดง `SafetyGateStep` ที่ปุ่มกดไม่ได้จนกว่าจะติ๊ก | `traversal-engine.ts:142` · `StepView.tsx:31-33` · `SafetyGateStep.tsx:25-32` |
 | 7. ข้อความ error ฝั่งผู้ใช้ | "เซิร์ฟเวอร์ไม่ให้ข้ามขั้นตอนนี้ — อ่านคำเตือนและติ๊กยืนยันก่อน" | `lib/errors.ts:51-55` |
 
 **ประเด็นที่ต้องตอบให้ถูก:** หน้าจอ **ไม่ใช่ตัวบังคับจริง** ตัวบังคับจริงคือ engine ถ้ามีคนยิง API ตรงด้วย `continue` ก็ถูกปฏิเสธ (ชั้น 3–5) แต่ **การติ๊กช่อง "ฉันอ่านแล้ว" เป็นแค่ UI** — ระบบไม่ได้พิสูจน์ว่าผู้ใช้อ่านจริง (ตามโค้ด `confirm_safety` ไม่มีข้อมูลประกอบ `traversal.dto.ts:136-137`)
@@ -467,9 +467,9 @@ PDF คู่มือ ──(แยก chunk)──▶ data/chuck/*.json ──
 
 | # | เกิดอะไร | ไฟล์:บรรทัด |
 |---|---|---|
-| 1 | engine ตั้ง `status = 'completed'` เมื่อโหนดถัดไปเป็น resolution/escalation | `traversal-engine.ts:67`, `:170-172` |
+| 1 | engine ตั้ง `status = 'completed'` เมื่อโหนดถัดไปเป็น resolution/escalation | `traversal-engine.ts:61`, `:164-166` |
 | 2 | `session.store.update` ตั้ง `expires_at` = **90 วัน** (ไม่ใช่ 24 ชม.) เพื่อให้ดูย้อนหลังในหน้าประวัติ | `session.store.ts:114-116` (ค่าคงที่ `:17-18`) |
-| 3 | node ที่ส่งกลับมี `isTerminal: true` และ `outcomeKind` (`user_fixed` / `normal_behavior` / `handoff_informed` / `handoff_unknown`) | `traversal-engine.ts:150-151` · `types.ts:3` |
+| 3 | node ที่ส่งกลับมี `isTerminal: true` และ `outcomeKind` (`user_fixed` / `normal_behavior` / `handoff_informed` / `handoff_unknown`) | `traversal-engine.ts:144-145` · `types.ts:3` |
 | 4 | หน้าจอแสดง `OutcomeStep`: หัวข้อ/ไอคอน/สีตาม `outcomeKind` + ข้อความโหนด (ถ้าไม่มี `outcomeKind` ใช้ `handoff_unknown`) | `OutcomeStep.tsx:14-31`, `:43` · หัวข้อไทย `lib/labels.ts:14-19` |
 | 5 | ใต้ผลมีฟอร์ม "ผลลัพธ์" (`OutcomeForm`) และปุ่ม "ตรวจอาการอื่น / เริ่มใหม่" (`TerminalActions`) | `SessionPage.tsx:132-147` |
 | 6 | ปุ่มยกเลิกกลางทาง (`SessionHeader`) แสดงเฉพาะตอนยังไม่จบ (`canAbandon={!node.isTerminal}`) → `DELETE /traversal/sessions/:id` | `SessionPage.tsx:151`, `:74-76` · `traversal.service.ts:169-172` |
@@ -532,7 +532,7 @@ PDF คู่มือ ──(แยก chunk)──▶ data/chuck/*.json ──
 ไม่มีผังที่คะแนน ≥ 0.55 → `matches` ว่าง → หน้าจอแสดง "ไม่พบอาการที่ใกล้เคียง ระบบไม่เดาอาการให้" พร้อมทางไป "อาการทั้งหมด" (`symptom-matcher.ts:95`, `SymptomSearchResults.tsx:13-19`) ระบบไม่บังคับเสนอผังที่ไม่ตรง
 
 **Q3. ใครการันตีว่าผู้ใช้ไม่ข้ามคำเตือนความปลอดภัย?**
-การบังคับจริงอยู่ที่ **backend engine** ไม่ใช่หน้าจอ: instruction ที่ `safety_critical` รับเฉพาะ `confirm_safety` ถ้าส่ง `continue` ได้ 400 `SAFETY_CONFIRMATION_REQUIRED` และ service เรียก engine ก่อนบันทึกเสมอ session ใน DB จึงไม่ขยับ (`traversal-engine.ts:96-103`, `traversal.service.ts:146-150`) · ข้อจำกัดที่ควรยอมรับตรงๆ: ระบบพิสูจน์ไม่ได้ว่าผู้ใช้ "อ่านจริง" แค่บังคับให้กดยืนยัน
+การบังคับจริงอยู่ที่ **backend engine** ไม่ใช่หน้าจอ: instruction ที่ `safety_critical` รับเฉพาะ `confirm_safety` ถ้าส่ง `continue` ได้ 400 `SAFETY_CONFIRMATION_REQUIRED` และ service เรียก engine ก่อนบันทึกเสมอ session ใน DB จึงไม่ขยับ (`traversal-engine.ts:90-97`, `traversal.service.ts:146-150`) · ข้อจำกัดที่ควรยอมรับตรงๆ: ระบบพิสูจน์ไม่ได้ว่าผู้ใช้ "อ่านจริง" แค่บังคับให้กดยืนยัน
 
 **Q4. LLM เข้ามาเกี่ยวตอนเดินผังตรงไหน และกันไม่ให้ตอบมั่วอย่างไร?**
 เฉพาะ rephrase ข้อความโหนดที่ไม่ใช่ safety และไม่ใช่โหนดจบ (`rephrase.service.ts:38-40`) คำสั่งถึง LLM ห้ามเพิ่ม/เปลี่ยนความหมาย (`groq-llm.client.ts:5-11`) และผลต้องผ่าน guard: ตัวเลข ชื่อรุ่น/รหัส และจำนวนคำปฏิเสธ "ไม่" เท่าเดิม ความยาวไม่ผิดปกติ ถ้าไม่ผ่าน/ช้าเกิน 3 วินาที/ล้ม → แสดงข้อความคู่มือเดิม และหน้าจอมีปุ่มดูต้นฉบับเสมอ (`RephraseNote.tsx`)
@@ -564,7 +564,7 @@ PDF คู่มือ ──(แยก chunk)──▶ data/chuck/*.json ──
 | เรื่อง | ค่าที่ใช้ | หลักฐาน |
 |---|---|---|
 | โมเดล | `Xenova/paraphrase-multilingual-MiniLM-L12-v2` ชนิด `q8` (ย่อขนาดเป็น 8 บิต) | `embedding/embedding.service.ts:5-6` |
-| ไฟล์โมเดล | โหลดจาก `backend/model-slim` เท่านั้น **ห้ามดึงจากอินเทอร์เน็ต** | `embedding.service.ts:8`, `:34-35` (`cacheDir`, `allowRemoteModels = false`) |
+| ไฟล์โมเดล | โหลดจาก `backend/model` เท่านั้น **ห้ามดึงจากอินเทอร์เน็ต** | `embedding.service.ts:8`, `:34-35` (`cacheDir`, `allowRemoteModels = false`) |
 | ขนาดเวกเตอร์ | 384 ตัวเลขต่อข้อความ | คอมเมนต์ `embedding.service.ts:46` · 🔬 **[วัดจริง]** `dim = 384` |
 | ปรับความยาวเป็น 1 | `normalize: true` (ทุกเวกเตอร์ยาว 1 พอดี) | `embedding.service.ts:51-54` · 🔬 **[วัดจริง]** norm = 1.0000 |
 | รวมคำเป็นเวกเตอร์เดียว | `pooling: 'mean'` (เฉลี่ยเวกเตอร์ของทุกคำในประโยค) | `embedding.service.ts:52` |
@@ -649,10 +649,10 @@ PDF คู่มือ ──(แยก chunk)──▶ data/chuck/*.json ──
 **ภาษาคน:** ผังขั้นตอนคือ "แผนที่ทางแยก": แต่ละ **โหนด** คือจุดหนึ่ง (ถามคำถาม / ให้ทำอะไร / ขอให้กรอกค่า / จบ) แต่ละ **ปุ่มที่ผู้ใช้กด** คือเส้นทางที่ออกจากจุดนั้นไปจุดถัดไป ระบบจำแค่ว่า "ตอนนี้อยู่จุดไหน" และ "เคยตอบอะไร" — ไม่มีส่วนไหนเดาเอง
 
 **นิยามในโค้ด:**
-- **สถานะ** `SessionState` = `{ sessionId, graphId, currentNodeId, status: 'in_progress'|'completed', variables, confidence, history }` — `traversal-engine/types.ts:77-92`
+- **สถานะ** `SessionState` = `{ sessionId, graphId, currentNodeId, status: 'in_progress'|'completed', variables, confidence, history }` — `traversal-engine/types.ts:76-90`
 - **ชนิดโหนด 5 แบบ:** `checkpoint` (ใช่/ไม่ใช่ → `on_yes`/`on_no`), `instruction` (ไป `next`), `input` (กรอกค่า → `next`/`on_invalid`), `resolution` และ `escalation` (โหนดจบ) — `types.ts:1-51`
-- **การเปลี่ยนสถานะ** `submitAction(สถานะเดิม, ผัง, action) → สถานะใหม่` เป็นฟังก์ชันล้วน ไม่แก้ของเดิม ไม่ยุ่งกับ DB/HTTP — `traversal-engine.ts:45-78`, กฎเลือกโหนดถัดไป `:80-131`
-- **action 4 แบบ:** `answer(yes|no)`, `continue`, `confirm_safety`, `input(value)` — `types.ts:94-98`
+- **การเปลี่ยนสถานะ** `submitAction(สถานะเดิม, ผัง, action) → สถานะใหม่` เป็นฟังก์ชันล้วน ไม่แก้ของเดิม ไม่ยุ่งกับ DB/HTTP — `traversal-engine.ts:41-72`, กฎเลือกโหนดถัดไป `:80-131`
+- **action 4 แบบ:** `answer(yes|no)`, `continue`, `confirm_safety`, `input(value)` — `types.ts:93-97`
 
 ### ตัวอย่างผังจริง 🔬 (`samsung_ge83mdt_um_not_cooked_at_all` — "อาหารไม่สุกเลย" หน้าคู่มือ 37; 10 โหนด)
 ```
@@ -685,7 +685,7 @@ n_resolved [resolution · user_fixed] อาหารสุกตามปกต
 | 8 | ส่ง action อีกหลังจบ | ❌ `SessionAlreadyCompletedError: … จบไปแล้ว ส่ง action เพิ่มไม่ได้อีก` |
 
 ประวัติที่ engine สะสม: `n1:answer yes → n2:answer no → n2f:confirm_safety → n2v:answer yes` (ตรงกับที่ `session.store.ts:104-149` เขียนเป็นแถวใน `session_history` ทีละขั้น: `step_order` 0,1,2,3)
-→ ใน **ระบบจริง** error ข้อ 2, 4, 5, 8 ถูกแปลงเป็น HTTP 400/400/400/409 โดย `common/all-exceptions.filter.ts:39-45` และ **`update()` ไม่ถูกเรียก** (`traversal.service.ts:146` ก่อน `:150`)
+→ ใน **ระบบจริง** error ข้อ 2, 4, 5, 8 ถูกแปลงเป็น HTTP 400/400/400/409 โดย `common/all-exceptions.filter.ts:38-43` และ **`update()` ไม่ถูกเรียก** (`traversal.service.ts:146` ก่อน `:150`)
 
 **ทำไมถึงเรียก "state machine":** มีชุดสถานะจำกัด (โหนด) การเปลี่ยนสถานะเกิดจาก action ที่กำหนดไว้ล่วงหน้าเท่านั้น และจบเมื่อถึงสถานะสิ้นสุด — ทำให้ **ทดสอบได้ ทำซ้ำได้ และไม่มีสถานะที่ไม่คาดคิด** (ต่างจากให้ LLM ตัดสินว่าจะไปไหน)
 
@@ -697,11 +697,11 @@ n_resolved [resolution · user_fixed] อาหารสุกตามปกต
 
 🔬 **ตัวอย่างจริงจากผังข้างบน:** โหนด `n2f` ("ปิดประตูให้สนิทแล้วเริ่มปรุงอีกครั้ง") มี `safety_warning` ว่า "ห้ามใช้เตาถ้าประตูหรือซีลประตูชำรุด ต้องให้ผู้มีคุณสมบัติซ่อมก่อน … ห้ามสอดนิ้วหรือสิ่งแปลกปลอมเข้าไปในเตา ถ้าสิ่งแปลกปลอมเข้าไปในเตาให้ถอดปลั๊กและติดต่อศูนย์บริการ (คู่มือหน้า 9)" — ข้อความมาจากคู่มือ ไม่ใช่ที่ AI แต่ง · ผล 🔬 ตอนส่ง `continue` = ถูกปฏิเสธ (ตาราง 3.4 ข้อ 4)
 
-**ชั้นป้องกัน** (รายละเอียดและบรรทัดอยู่ในส่วนที่ 2 หัวข้อ 2.6): ข้อมูลผัง (validator บังคับว่า `safety_critical` ต้องอยู่บน instruction และต้องมี `safety_warning` — `graph-validator.ts:335-336`) → engine (`traversal-engine.ts:96-103`) → service เรียก engine ก่อนบันทึก (`traversal.service.ts:146-150`) → HTTP 400 `SAFETY_CONFIRMATION_REQUIRED` → หน้าจอบังคับติ๊กก่อน (`SafetyGateStep.tsx:30`)
+**ชั้นป้องกัน** (รายละเอียดและบรรทัดอยู่ในส่วนที่ 2 หัวข้อ 2.6): ข้อมูลผัง (validator บังคับว่า `safety_critical` ต้องอยู่บน instruction และต้องมี `safety_warning` — `graph-validator.ts:334-335`) → engine (`traversal-engine.ts:90-97`) → service เรียก engine ก่อนบันทึก (`traversal.service.ts:146-150`) → HTTP 400 `SAFETY_CONFIRMATION_REQUIRED` → หน้าจอบังคับติ๊กก่อน (`SafetyGateStep.tsx:30`)
 
 **ข้อจำกัดที่ต้องบอกตรงๆ:**
 - ระบบพิสูจน์ไม่ได้ว่าผู้ใช้ "อ่านจริง" แค่บังคับให้กดยืนยัน (`traversal.dto.ts:136-137` — `confirm_safety` ไม่มีข้อมูลประกอบ)
-- ด่านนี้ครอบเฉพาะโหนดที่ผู้เขียนผังทำเครื่องหมายไว้ ถ้าผังไม่ได้ติดธงที่ขั้นอันตราย ระบบไม่ได้ตรวจเอง — มีเพียงคำเตือนตอน admin ตรวจร่างผัง (`graph-validator.ts:417-425` เตือนเมื่อข้อความมีคำที่บ่งชี้อันตรายแต่ไม่ได้ตั้งธง; **รายละเอียดอยู่ส่วนที่ 4**)
+- ด่านนี้ครอบเฉพาะโหนดที่ผู้เขียนผังทำเครื่องหมายไว้ ถ้าผังไม่ได้ติดธงที่ขั้นอันตราย ระบบไม่ได้ตรวจเอง — มีเพียงคำเตือนตอน admin ตรวจร่างผัง (`graph-validator.ts:416-424` เตือนเมื่อข้อความมีคำที่บ่งชี้อันตรายแต่ไม่ได้ตั้งธง; **รายละเอียดอยู่ส่วนที่ 4**)
 
 ---
 
@@ -747,8 +747,8 @@ n_resolved [resolution · user_fixed] อาหารสุกตามปกต
 | cosine | วัดมุมระหว่างพิกัด 2 จุด ใกล้ 1 = ใกล้กัน | `symptom-matcher.ts:20-41` |
 | 0.55 | ตัวกรองหยาบ ไม่ใช่ความแม่นยำ | `symptom-search.service.ts:11` · ไม่ทราบเหตุผลจากโค้ด |
 | top 3 | เสนอให้เลือก ไม่ตัดสินแทน | `symptom-search.service.ts:12` · ไม่ทราบเหตุผล |
-| state machine | โหนด + action ที่กำหนดล่วงหน้า ตัดสินในโค้ดล้วน | `traversal-engine.ts:45-131` |
-| safety_critical | ต้อง `confirm_safety` ไม่งั้น engine ปฏิเสธ | `traversal-engine.ts:96-103` |
+| state machine | โหนด + action ที่กำหนดล่วงหน้า ตัดสินในโค้ดล้วน | `traversal-engine.ts:41-125` |
+| safety_critical | ต้อง `confirm_safety` ไม่งั้น engine ปฏิเสธ | `traversal-engine.ts:90-97` |
 | rephrase + guard | LLM ปรับถ้อยคำเท่านั้น ผ่าน guard หรือใช้ข้อความคู่มือ | `rephrase.service.ts:35-62`, `rephrase-guard.ts:26-61` |
 
 ## 3.8 จุดที่ต้องระวังตอนสอบ (ส่วนที่ 3)
@@ -856,7 +856,7 @@ node scripts/study-measure.js search --out x.json "สวัสดี@samsung_ge
 |---|---|---|---|
 | `JwtAuthGuard` | ต้องมี `Authorization: Bearer …` ที่ถูกต้อง ไม่งั้น 401 · ตรวจ HS256 เท่านั้น · เชื่อ payload เฉพาะ `sub` เป็นข้อความไม่ว่าง และ `role` เป็นบทบาทจริง · ข้อความ 401 เหมือนกันทุกสาเหตุ | `jwt-auth.guard.ts:49-75`, `:77-92` | `/auth/me`, `/admin/*` |
 | `OptionalJwtAuthGuard` | ไม่มี Authorization = ผ่านเป็น guest · **มีแต่ใช้ไม่ได้ = 401** (ไม่แอบลดเป็น guest เพื่อไม่ให้ประวัติหายเงียบๆ) | `optional-jwt-auth.guard.ts` (หัวไฟล์ + `canActivate`) | `/traversal/sessions*`, `/history*` (`history.controller.ts:25-26`, `traversal.controller.ts:59-61`) |
-| `RolesGuard` + `@Roles(Role.Admin)` | บทบาทไม่พอ → 403 · ไม่มี user → 401 | `roles.guard.ts:23-42` | `/admin/*`, `/admin/drafts*` (`admin.controller.ts:25-28`, `drafts.controller.ts:76-78`) |
+| `AdminGuard` | ไม่ใช่ admin → 403 · ไม่มี user → 401 | `admin.guard.ts:22-33` | `/admin/*`, `/admin/drafts*` (`admin.controller.ts:24-25`, `drafts.controller.ts:75-76`) |
 
 หมายเหตุ: **ไม่พบ rate limit / การล็อกผู้ใช้หลังใส่รหัสผิดซ้ำ** ในโค้ด backend (ค้น `throttle|rate.?limit` ใน `backend/src` ไม่พบ) → ถ้ากรรมการถามเรื่อง brute-force ให้ตอบว่า "ยังไม่มีกลไกจำกัดจำนวนครั้ง" (ข้อจำกัดที่ทราบ ไม่ได้ทดสอบเพิ่ม)
 
@@ -914,7 +914,7 @@ node scripts/study-measure.js search --out x.json "สวัสดี@samsung_ge
 | 1 คะแนนต่อ 1 session | `PRIMARY KEY (session_id)` + FK `ON DELETE CASCADE` (ลบ session = ลบ feedback) | `migrations/009_create_session_feedback.sql:8-13` |
 | หน้าจอหลังบันทึก | ใส่ค่าที่เซิร์ฟเวอร์ตอบลงแคช → ขึ้น "บันทึกแล้ว" ทันที | `queries.ts:234-249` |
 
-**admin อ่าน feedback ได้อย่างไร:** `GET /admin/feedback` (`JwtAuthGuard` + `RolesGuard` + Admin: `admin.controller.ts:25-35`) → `AdminStore` JOIN `session_feedback` กับ `sessions` (`admin.store.ts:101-121`) · ความเป็นส่วนตัว: store **ไม่ SELECT email / ชื่อ / user_id / client_id** รู้เจ้าของแค่ชนิด user/guest/none (คอมเมนต์หัวไฟล์ `admin.store.ts:1-14`) — อ่านเฉพาะหัวไฟล์และรายการ query ไม่ได้อ่านทุกบรรทัด
+**admin อ่าน feedback ได้อย่างไร:** `GET /admin/feedback` (`JwtAuthGuard` + `AdminGuard`: `admin.controller.ts:24-34`) → `AdminStore` JOIN `session_feedback` กับ `sessions` (`admin.store.ts:101-121`) · ความเป็นส่วนตัว: store **ไม่ SELECT email / ชื่อ / user_id / client_id** รู้เจ้าของแค่ชนิด user/guest/none (คอมเมนต์หัวไฟล์ `admin.store.ts:1-14`) — อ่านเฉพาะหัวไฟล์และรายการ query ไม่ได้อ่านทุกบรรทัด
 
 **ข้อสังเกต:** ไม่มีตัวกรองคำหยาบ/ข้อมูลส่วนตัวฝั่งเซิร์ฟเวอร์ — มีแค่คำเตือนบนหน้าจอและตัดช่องว่าง/จำกัดความยาว (`history.dto.ts:181-185`)
 
@@ -974,7 +974,7 @@ node scripts/study-measure.js search --out x.json "สวัสดี@samsung_ge
 | ขั้น | ทำอะไร | ไฟล์:บรรทัด |
 |---|---|---|
 | ฟอร์ม | เลือก PDF + กรอก manualId (เริ่มต้นเติม `demo_` ให้) หมวดเครื่อง ยี่ห้อ รุ่น ชื่อคู่มือ ชื่อที่แสดง (ไม่บังคับ) หน้าเริ่ม–สุดท้าย · ตรวจฝั่งหน้าจอก่อนส่ง แล้วไปหน้าตรวจของร่างที่ได้ | `UploadDraftForm.tsx:15-24`, `:73-93` |
-| ด่านสิทธิ์ | `JwtAuthGuard` → `RolesGuard` (Admin) **ก่อน** รับไฟล์ จึงคนนอกยัดไฟล์ใส่ RAM ไม่ได้ | `drafts.controller.ts:76-78`, `:82-85` |
+| ด่านสิทธิ์ | `JwtAuthGuard` → `AdminGuard` **ก่อน** รับไฟล์ จึงคนนอกยัดไฟล์ใส่ RAM ไม่ได้ | `drafts.controller.ts:75-76`, `:81-84` |
 | รับไฟล์ | multer ในหน่วยความจำ: ไฟล์เดียว ฟิลด์ข้อความ ≤ 12 ฟิลด์ ฟิลด์ละ ≤ 1,024 ไบต์ ขนาดไฟล์ ≤ 10 MB (ปรับด้วย `AUTHORING_MAX_PDF_MB`) | `drafts.controller.ts:47-51`, `:85` |
 | error ของ multer | `UploadErrorsFilter` เล็กๆ เฉพาะ route นี้ → 413 `PDF_TOO_LARGE` / 400 `INVALID_DRAFT_REQUEST` | `drafts.controller.ts:57-74` |
 | ตรวจฟิลด์ | manualId `a-z0-9_` 3–60 · หมวดเครื่องต้องอยู่ใน 5 หมวด · ช่วงหน้า ≤ 10 หน้า | `drafts.dto.ts:54-88` |
@@ -994,14 +994,14 @@ node scripts/study-measure.js search --out x.json "สวัสดี@samsung_ge
 | เรียก API | Groq · `temperature: 0` · `max_tokens` เริ่มต้น 6,000 · timeout เริ่มต้น 60 วินาที · ขอ `json_object` | `draft-llm.client.ts:8-9`, `:94-103` |
 | parse เข้ม | **ไม่เชื่อ JSON mode** — ไม่ใช่ JSON/มีฟิลด์เกิน/ชนิดผิด/เกินเพดาน → **ปฏิเสธทั้งก้อน** (`DraftParseError` → ร่าง `failed` รหัส `LLM_PARSE_ERROR`) | `draft-schema.ts:136-174` · `drafts.service.ts:124-128` |
 | ตั้งรหัสผัง | `graph_id = <manualId>_<slug>` (ซ้ำต่อท้าย `_2`, `_3`) — **เซิร์ฟเวอร์สร้างเอง** ไม่รับจาก LLM | `draft-schema.ts:204-212` · `drafts.service.ts:111` |
-| ตรวจ | ประกอบเป็นรูปแบบคู่มือแล้วรัน `validateManual(manual, pages)` + เพิ่ม error `E_ID_CONFLICT` ถ้าชนผัง/คู่มือที่ใช้งานอยู่ → เก็บเป็น `ready` พร้อมรายงาน | `drafts.service.ts:111-114`, `:242-255` · `draft-manual.ts:18-49` |
+| ตรวจ | ประกอบเป็นรูปแบบคู่มือแล้วรัน `validateManual(manual, pages)` + เพิ่ม error `E_ID_CONFLICT` ถ้าชนผัง/คู่มือที่ใช้งานอยู่ → เก็บเป็น `ready` พร้อมรายงาน | `drafts.service.ts:111-114`, `:242-255` · `draft-manual.ts:18-47` |
 | รีสตาร์ตกลางทาง | ตอนบูต ร่างที่ค้าง `drafting` ถูกเปลี่ยนเป็น `failed` (`INTERRUPTED`) | `drafts.service.ts:44-51` · `drafts.store.ts:167-174` |
 
 ### 4.6.3 ตัวตรวจผัง (validator) — "ผู้ตัดสิน"
-- `validateManual(manual, pages)` (`graph-validator.ts:117-119`) ตรวจ **แบบร่างจาก LLM อย่างเดียว** (เข้ม: ทุกโหนดต้องมี `source_page` อยู่ในช่วงหน้า `:344-346`, ห้ามฟิลด์ที่ไม่มีแหล่งตรวจ เช่น `config`/`external_reference`/รูป/`author_note` — คอมเมนต์หัวไฟล์ `:12-15`) · **★ รอบ 2:** เดิมมีโหมดที่สองชื่อ `existing` (ตรวจผังที่ใช้งานอยู่) แต่ไม่มีโค้ดส่วนไหนเรียก จึงลบออกพร้อมพารามิเตอร์ `mode` — ผังที่ใช้งานอยู่ตรวจด้วย `scripts/validate_graph.py` แบบ offline ตามที่หัวไฟล์บอก
+- `validateManual(manual, pages)` (`graph-validator.ts:117-119`) ตรวจ **แบบร่างจาก LLM อย่างเดียว** (เข้ม: ทุกโหนดต้องมี `source_page` อยู่ในช่วงหน้า `:343-345`, ห้ามฟิลด์ที่ไม่มีแหล่งตรวจ เช่น `config`/`external_reference`/รูป/`author_note` — คอมเมนต์หัวไฟล์ `:12-15`) · **★ รอบ 2:** เดิมมีโหมดที่สองชื่อ `existing` (ตรวจผังที่ใช้งานอยู่) แต่ไม่มีโค้ดส่วนไหนเรียก จึงลบออกพร้อมพารามิเตอร์ `mode` — ผังที่ใช้งานอยู่ตรวจด้วย `scripts/validate_graph.py` แบบ offline ตามที่หัวไฟล์บอก
 - **error = กัน publish · warning = ต้องรับทราบก่อน** (`acknowledgedWarnings`) — หัวไฟล์ `graph-validator.ts`
-- ตัวอย่างกฎ error (ใน validator มี 29 รหัส `E_*` และ 5 รหัส `W_*` ตามที่นับจาก grep): ทางออกทุกเส้นต้องถึงโหนดจบ (`E_NO_TERMINAL` `:373`, `E_NO_EXIT` `:394`), โหนดที่เข้าไม่ถึง (`E_UNREACHABLE` `:393`), เส้นชี้ไปโหนดที่ไม่มี (`E_EDGE_TARGET_MISSING` `:367`), ตัวแปร `{{x}}` ต้องถูกกำหนดก่อนใช้ (`E_VAR_UNDEFINED`/`E_VAR_NOT_GUARANTEED` `:447-449`), `safety_critical` ต้องอยู่บน instruction และมี warning (`E_SAFETY_PLACEMENT`/`E_SAFETY_NO_WARNING` `:335-336`), `source_page` ต้องอยู่ในช่วงหน้าที่เลือก (`E_SOURCE_PAGE_OUTSIDE` `:346`)
-- ตัวอย่าง warning: วนลูป (`W_CYCLE`), ไม่มี escalation (`W_NO_ESCALATION`), ข้อความพูดถึงอันตรายแต่ไม่ตั้ง `safety_critical` (`W_NODE_RISK` `:417-419`), หน้าต้นฉบับมีคำเตือนแต่ผังไม่มีด่านความปลอดภัยเลย (`W_PAGE_RISK` `:421-425`) — **คำเตือนเหล่านี้คือสิ่งที่ผู้ตรวจต้องอ่านก่อนกดเผยแพร่**
+- ตัวอย่างกฎ error (ใน validator มี 29 รหัส `E_*` และ 5 รหัส `W_*` ตามที่นับจาก grep): ทางออกทุกเส้นต้องถึงโหนดจบ (`E_NO_TERMINAL` `:372`, `E_NO_EXIT` `:393`), โหนดที่เข้าไม่ถึง (`E_UNREACHABLE` `:392`), เส้นชี้ไปโหนดที่ไม่มี (`E_EDGE_TARGET_MISSING` `:366`), ตัวแปร `{{x}}` ต้องถูกกำหนดก่อนใช้ (`E_VAR_UNDEFINED`/`E_VAR_NOT_GUARANTEED` `:446-448`), `safety_critical` ต้องอยู่บน instruction และมี warning (`E_SAFETY_PLACEMENT`/`E_SAFETY_NO_WARNING` `:334-335`), `source_page` ต้องอยู่ในช่วงหน้าที่เลือก (`E_SOURCE_PAGE_OUTSIDE` `:345`)
+- ตัวอย่าง warning: วนลูป (`W_CYCLE`), ไม่มี escalation (`W_NO_ESCALATION`), ข้อความพูดถึงอันตรายแต่ไม่ตั้ง `safety_critical` (`W_NODE_RISK` `:416-418`), หน้าต้นฉบับมีคำเตือนแต่ผังไม่มีด่านความปลอดภัยเลย (`W_PAGE_RISK` `:420-424`) — **คำเตือนเหล่านี้คือสิ่งที่ผู้ตรวจต้องอ่านก่อนกดเผยแพร่**
 - เพดาน: ≤ 60 โหนด/ผัง, เส้นทางยาว ≤ 40, ข้อความ ≤ 2,000 (`graph-validator.ts:43-46`)
 - ที่มา: พอร์ตจาก `scripts/validate_graph.py` มาเป็น TypeScript และทดสอบกับผังจริง 644 ผัง (คอมเมนต์หัวไฟล์) · **ไม่ทราบ** ว่ากฎทุกข้อตรงกับตัวตรวจใน `seed-graphs.js` หรือไม่ (ไม่ได้เทียบ)
 
@@ -1030,13 +1030,13 @@ node scripts/study-measure.js search --out x.json "สวัสดี@samsung_ge
 **✅ ปิดข้อ "ไม่แน่ใจ" ตามที่ขอ — เมื่อ reload ล้มเหลวเกิดอะไรขึ้น (อ่านจากโค้ด ไม่ได้ทดสอบกับ DB จริง):**
 - ร่างถูก **commit เป็น `published` และผังเข้า DB แล้ว** (ขั้น 5 เสร็จก่อนขั้น 6) — ไม่มีการ rollback
 - API ตอบ **500 `PUBLISH_RELOAD_FAILED`** (ไม่ใช่ 2xx) ทั้งที่ข้อมูลเผยแพร่ลง DB แล้ว · หน้าจอแสดง "เผยแพร่ลงฐานข้อมูลแล้ว แต่ระบบยังไม่โหลดแผนผังขั้นตอนใหม่ — รีสตาร์ตเซิร์ฟเวอร์เพื่อให้แผนผังใหม่ปรากฏ" (`frontend/src/lib/errors.ts:243-249`)
-- **ผังใหม่ยังไม่ปรากฏ** ในหน่วยความจำ และ **ไม่ถูกเพิ่มเข้าดัชนีค้นหา** (เพราะ `addGraphs` อยู่หลัง reload) · ผังเดิมยังใช้ได้ เพราะ `GraphRepository` สร้างชุดใหม่ให้เสร็จก่อนค่อยสลับ ถ้า build ไม่ได้ของเดิมคงอยู่ (`graph.repository.ts:150-152`, `:181-184`)
-- กด publish ซ้ำจะได้ 409 `DRAFT_NOT_READY` เพราะสถานะเป็น `published` แล้ว (`drafts.store.ts:221`) → ต้อง **รีสตาร์ต backend**: ตอนบูต `GraphRepository.onModuleInit` โหลดผังทั้งหมดจาก DB (`graph.repository.ts:81-83`) และ `SymptomSearchService` สร้างดัชนีใหม่ทั้งหมด (`symptom-search.service.ts:54-63`) ผังใหม่จึงปรากฏทั้งในรายการและการค้น
+- **ผังใหม่ยังไม่ปรากฏ** ในหน่วยความจำ และ **ไม่ถูกเพิ่มเข้าดัชนีค้นหา** (เพราะ `addGraphs` อยู่หลัง reload) · ผังเดิมยังใช้ได้ เพราะ `GraphRepository` สร้างชุดใหม่ให้เสร็จก่อนค่อยสลับ ถ้า build ไม่ได้ของเดิมคงอยู่ (`graph.repository.ts:149-151`, `:180-183`)
+- กด publish ซ้ำจะได้ 409 `DRAFT_NOT_READY` เพราะสถานะเป็น `published` แล้ว (`drafts.store.ts:221`) → ต้อง **รีสตาร์ต backend**: ตอนบูต `GraphRepository.onModuleInit` โหลดผังทั้งหมดจาก DB (`graph.repository.ts:80-82`) และ `SymptomSearchService` สร้างดัชนีใหม่ทั้งหมด (`symptom-search.service.ts:54-63`) ผังใหม่จึงปรากฏทั้งในรายการและการค้น
 - **ความกำกวมของคอมเมนต์:** `drafts.service.ts:193` เขียนว่า "ล้มเหลวไม่ทำให้ publish ที่สำเร็จแล้วกลายเป็นล้ม" — ใช้จริงกับ **ขั้นดัชนีค้นหา** เท่านั้น (`addGraphs` ไม่โยน error: `symptom-search.service.ts:128-174` คืน `{indexed:false, reason}`) ส่วน **reload ล้มเหลว API ยังตอบ 500** ตามข้างบน
-- **ความเสี่ยงที่เกี่ยวเนื่อง (อ่านจากโค้ด ไม่ได้ทดสอบ):** คอมเมนต์ `graph.repository.ts:152` ระบุว่าตอนบูตถ้าข้อมูลเสียจน build ผังไม่ได้ จะ throw และแอปไม่ขึ้น → หน้าที่ของ validator + ตรวจซ้ำตอน publish คือกันไม่ให้ผังที่ build ไม่ได้เข้า DB (ด่านเหล่านี้ลดความเสี่ยงแต่ไม่ได้พิสูจน์ว่าเป็นศูนย์)
+- **ความเสี่ยงที่เกี่ยวเนื่อง (อ่านจากโค้ด ไม่ได้ทดสอบ):** คอมเมนต์ `graph.repository.ts:151` ระบุว่าตอนบูตถ้าข้อมูลเสียจน build ผังไม่ได้ จะ throw และแอปไม่ขึ้น → หน้าที่ของ validator + ตรวจซ้ำตอน publish คือกันไม่ให้ผังที่ build ไม่ได้เข้า DB (ด่านเหล่านี้ลดความเสี่ยงแต่ไม่ได้พิสูจน์ว่าเป็นศูนย์)
 
 ### 4.6.6 ผังที่ publish แล้วเหมือนผังเดิมแค่ไหน
-ประกอบด้วย `assembleManual` (`schema_version: 2`, `source_chunk_id = draft:<draftId>:<graphId>`, `page_range` คำนวณจาก `source_page` ของโหนด) → `toDbRows` แปลงเป็นแถว `manuals/graphs/nodes` — `draft-manual.ts:14-49`, คอลัมน์ `:52-60` · หลัง publish ผู้ใช้เลือกผังนั้นได้จาก "อาการทั้งหมด" ทันที และค้นด้วยข้อความได้ (ถ้าดัชนีค้นหาเปิดและ reload สำเร็จ)
+ประกอบด้วย `assembleManual` (`source_chunk_id = draft:<draftId>:<graphId>`, `page_range` คำนวณจาก `source_page` ของโหนด) → `toDbRows` แปลงเป็นแถว `manuals/graphs/nodes` — `draft-manual.ts:14-47`, คอลัมน์ `:50-58` · หลัง publish ผู้ใช้เลือกผังนั้นได้จาก "อาการทั้งหมด" ทันที และค้นด้วยข้อความได้ (ถ้าดัชนีค้นหาเปิดและ reload สำเร็จ)
 
 ---
 
@@ -1046,9 +1046,9 @@ node scripts/study-measure.js search --out x.json "สวัสดี@samsung_ge
 
 **ไล่ตามเส้นทางของ error ตัวหนึ่ง** (ตัวอย่าง: ผู้ใช้ส่ง action ผิดชนิด)
 1. จุดที่เกิดปัญหาโยน error: ถ้าเป็น error ของแอป โยน `ApiError` พร้อม status+code+ข้อความเลย (เช่น `invalidRequestBody` → 400 `INVALID_ACTION` `traversal.dto.ts:10`) · `ApiError` คือคลาสที่เก็บ `status`, `code`, `message` — `common/api-error.ts:10-19`
-2. error ของ **engine** (5 ชนิด) ยังเป็นคลาสธรรมดาที่ไม่รู้จัก HTTP (`types.ts:118-153`) filter กลางแปลงเอง ด้วยตาราง `ENGINE_ERRORS` — `all-exceptions.filter.ts:39-45`
+2. error ของ **engine** (4 ชนิด) ยังเป็นคลาสธรรมดาที่ไม่รู้จัก HTTP (`types.ts:116-144`) filter กลางแปลงเอง ด้วยตาราง `ENGINE_ERRORS` — `all-exceptions.filter.ts:38-43`
 3. ไม่ถูกจับที่ controller เลย ลอยขึ้นไปถึง `AllExceptionsFilter` ที่ลงทะเบียนทั้งแอปด้วย `APP_FILTER` — `app.module.ts:26-27`
-4. `toBody()` ตัดสินตามลำดับ (`all-exceptions.filter.ts:76-95`):
+4. `toBody()` ตัดสินตามลำดับ (`all-exceptions.filter.ts:74-93`):
    1. `ApiError` → ใช้ status/code/message ตามที่โยน
    2. error ของ engine → ตาราง `ENGINE_ERRORS`
    3. `UnauthorizedException` → 401 `UNAUTHENTICATED` · `ForbiddenException` → 403 `FORBIDDEN` (จาก guard)
@@ -1062,7 +1062,7 @@ node scripts/study-measure.js search --out x.json "สวัสดี@samsung_ge
 **หลักฐานว่าการรวมไม่เปลี่ยนพฤติกรรม (ตอนทำงาน B3+C1):** ส่ง HTTP 120 กรณีผ่าน `AppModule` ที่ build แล้ว (DB จำลอง) เทียบกับ baseline ก่อนแก้: ตรงครบ 120/120 · ส่ง error 35 ชนิดจากโค้ดจริงผ่าน filter กลางเทียบกับ filter เดิมของโมดูลเจ้าของ: ตรง 35/35 — **สคริปต์ชุดนี้อยู่นอก repo (โฟลเดอร์ชั่วคราว) และไม่ได้ทดสอบกับ MySQL/LLM จริง/เบราว์เซอร์** (ดูส่วนที่ 5)
 
 **ข้อจำกัดที่ต้องรู้:**
-- error 500 ส่ง `message` ของ error ภายในออกไปด้วย (`all-exceptions.filter.ts:81`, `:94`) — เช่นข้อความจาก mysql2 อาจหลุดถึงผู้เรียก (สังเกตจากโค้ด เอกสาร `docs/study/READING_ROADMAP_v2.md` ก็บันทึกไว้เป็นความเสี่ยง R6)
+- error 500 ส่ง `message` ของ error ภายในออกไปด้วย (`all-exceptions.filter.ts:79`, `:92`) — เช่นข้อความจาก mysql2 อาจหลุดถึงผู้เรียก (สังเกตจากโค้ด เอกสาร `docs/study/READING_ROADMAP_v2.md` ก็บันทึกไว้เป็นความเสี่ยง R6)
 - **ผู้แพ้ในการส่ง action ซ้อนกัน** ได้ 500 แทน 409 (ดูส่วนที่ 2 หัวข้อ 2.5) เพราะเป็น error ของ MySQL ที่ไม่ได้ห่อเป็น `ApiError`
 
 ---
@@ -1249,7 +1249,7 @@ node scripts/study-measure.js search --out x.json "สวัสดี@samsung_ge
 | รายการ | ทำอะไร | ตรวจอย่างไร |
 |---|---|---|
 | ฟังก์ชันซ้ำใน backend | รวม `isPlainObject`, `round3`, `numOrNull`, `isoFromEpoch`, `UUID_PATTERN` ไว้ที่ `common/helpers.ts` แล้วให้ dto/service/store ของ admin, auth, authoring, history, symptom-search, traversal import ไปใช้ | tsc (`--noUnusedLocals`) + ชุดเทียบ HTTP 120 / error 35 / filter 27 เหมือน baseline |
-| `getOutcomeKind` | ฟังก์ชันหา `outcome_kind` ของโหนดจบ เคยเขียนซ้ำใน history.service กับ admin.service → รวมไว้ใน `traversal-engine.ts:39-43` | เทียบกับโค้ดเดิม 5,478 คู่ (ผัง × โหนด) ไม่ต่างแม้คู่เดียว |
+| `getOutcomeKind` | ฟังก์ชันหา `outcome_kind` ของโหนดจบ เคยเขียนซ้ำใน history.service กับ admin.service → รวมไว้ใน `traversal-engine.ts:35-38` | เทียบกับโค้ดเดิม 5,478 คู่ (ผัง × โหนด) ไม่ต่างแม้คู่เดียว |
 | validator เหลือโหมดเดียว (F2) | ลบโหมด `existing` และพารามิเตอร์ `mode` — ไม่มีโค้ดส่วนใดเรียกโหมดนั้น (`validateManual(manual, pages)` — `graph-validator.ts:117-119`) | เทียบกับตัวตรวจเดิมแบบ `draft` 10,976 กรณี ไม่ต่างกัน · **ไม่ได้ลองกับร่างจาก LLM จริง** |
 | ข้อความ "กำลังโหลด…" | ไอคอนหมุน + ข้อความ ที่เคยเขียนซ้ำ 10 หน้า → `components/LoadingText.tsx` | tsc + build + eslint (ไม่ได้เปิดดูด้วยตา) |
 | `errors.ts` ฝั่งหน้าจอ | `describeError` จาก `switch` ยาว เป็นตาราง `MESSAGES` (code → ข้อความ) + ส่วนตัดสินสั้นๆ (`lib/errors.ts:43-279`) | เทียบกับ `errors.ts` เดิม 456 กรณี (ทุก code × รูปแบบ error) ข้อความ/recovery/code ตรงกันทั้งหมด |
@@ -1300,11 +1300,11 @@ node scripts/study-measure.js search --out x.json "สวัสดี@samsung_ge
 
 **ข้อ 2. ทำไมแยก `traversal-engine` ออกจาก service และ controller?**
 engine เป็นฟังก์ชันล้วน (รับ session+ผัง+action คืน session ใหม่) ไม่รู้จัก HTTP/DB จึงเป็นที่เดียวที่ตัดสินขั้นถัดไปและด่านความปลอดภัย ทั้งหน้าเดินผัง และหน้าประวัติ (ใช้ replay ตรวจ) ใช้ตัวเดียวกัน ผลคือกฎไม่ซ้ำและอธิบายได้ที่เดียว · เหตุผลที่คอมเมนต์เขียนไว้คือ "การตัดสินว่าขั้นถัดไปคืออะไรต้องมาจาก engine เท่านั้น" ส่วนแรงจูงใจอื่นของผู้พัฒนา **ไม่ทราบ**
-หลักฐาน: `traversal-engine.ts:45-78`, `types.ts:118-153` (error ของ engine ไม่รู้จัก HTTP) · `history.service.ts:234-260` · §3.4
+หลักฐาน: `traversal-engine.ts:41-72`, `types.ts:116-144` (error ของ engine ไม่รู้จัก HTTP) · `history.service.ts:234-260` · §3.4
 
 **ข้อ 3. ทำไมโหลดผังทั้งหมดเข้าหน่วยความจำตอนบูต?**
 ผลที่เห็นในโค้ด: `listGraphs`/`listManuals` และการหาผังตอนเดินไม่ต้อง query SQL และการสลับชุดข้อมูลทำทีเดียวหลังสร้างเสร็จ (ถ้าโหลดพังของเดิมยังอยู่) ข้อแลกเปลี่ยน: ผังใหม่ต้อง `reload()` หลัง publish (ถ้า reload ล้ม ต้องรีสตาร์ต — §4.6.5) · **เหตุผลที่ผู้พัฒนาตัดสินใจเลือกแนวนี้ ไม่มีบันทึกตรงๆ** (คอมเมนต์ใน `history.service.ts` แค่ใช้ข้อเท็จจริงนี้เป็นเหตุผลให้จัดหน้าในหน่วยความจำ)
-หลักฐาน: `graph.repository.ts:81-83`, `:122-174`, `:150-152`, `:181-184` · §1.9 ข้อ 5
+หลักฐาน: `graph.repository.ts:80-82`, `:122-174`, `:150-152`, `:181-184` · §1.9 ข้อ 5
 
 **ข้อ 4. deploy ที่ไหน และมีข้อจำกัดอะไร?**
 backend บน Render (แผน free) ผ่าน `render.yaml` มี health check `/health` · frontend บน GitHub Pages (`npm run deploy` ใช้ `gh-pages`) · ฐานข้อมูล Aiven MySQL ใช้ร่วมกับโปรเจกต์เก่า · ข้อจำกัดที่โค้ดรับรู้: Render free หลับเมื่อไม่มีคนใช้ ตื่นช้า — หน้าจอแสดงข้อความเตือนหลังรอ 4 วินาที และการค้นอาการตอบ 503 ระหว่างโหลดโมเดล · **ไม่ได้ทดสอบบน Render จริงในการเขียนเอกสารนี้** (ภาคผนวกข้อ 7)
@@ -1312,7 +1312,7 @@ backend บน Render (แผน free) ผ่าน `render.yaml` มี health 
 
 **ข้อ 5. จัดการ error อย่างไร และการรวม filter เป็นตัวเดียวช่วยอะไร?**
 จุดที่เกิดปัญหาโยน `ApiError(status, code, message)` → `AllExceptionsFilter` ตัวเดียวแปลงเป็น `{statusCode, code, message}` ส่วน error ของ engine แปลงด้วยตารางในไฟล์เดียว หน้าจอตัดสินจาก `code` ไม่ใช่ `message` · ข้อดีคือไม่ต้องจำว่า controller ไหนติด filter ตัวไหน (เดิมถ้าลืม 401/403 กลายเป็น 500) · ข้อจำกัด: error ภายในที่ไม่ใช่ `ApiError` (เช่นของ mysql2) กลายเป็น 500 พร้อม `message` ภายในออกไปด้วย
-หลักฐาน: §4.7 · `all-exceptions.filter.ts:76-95`, `:94` · `app.module.ts:26-27` · `lib/errors.ts:251-279`
+หลักฐาน: §4.7 · `all-exceptions.filter.ts:74-93`, `:94` · `app.module.ts:26-27` · `lib/errors.ts:251-279`
 
 ---
 
@@ -1331,7 +1331,7 @@ backend บน Render (แผน free) ผ่าน `render.yaml` มี health 
 หลักฐาน: `SymptomSearchResults.tsx:13-24` · `traversal.service.ts:101-103`, `:291` · `SessionHeader.tsx:34-36` · §2.2
 
 **ข้อ 9. ทำไมรันโมเดล embedding ในเครื่องเอง ไม่เรียก API ภายนอก และเลือกโมเดลนี้เพราะอะไร?**
-ข้อเท็จจริงในโค้ด: โหลดจากโฟลเดอร์ `backend/model-slim` และตั้ง `allowRemoteModels = false` (ไม่ดึงจากอินเทอร์เน็ตตอนรัน) ผลคือข้อความค้นไม่ออกนอกระบบ · ข้อแลกเปลี่ยน: ใช้หน่วยความจำและบูตช้า (ตอบ 503 ระหว่างโหลด) · **ไม่ทราบเหตุผลที่เลือกโมเดล `paraphrase-multilingual-MiniLM-L12-v2` เทียบกับตัวอื่น** (ไม่มีบันทึก/ผลเทียบ) ที่ทราบคือเป็นโมเดลหลายภาษา (ชื่อโมเดลระบุ multilingual)
+ข้อเท็จจริงในโค้ด: โหลดจากโฟลเดอร์ `backend/model` และตั้ง `allowRemoteModels = false` (ไม่ดึงจากอินเทอร์เน็ตตอนรัน) ผลคือข้อความค้นไม่ออกนอกระบบ · ข้อแลกเปลี่ยน: ใช้หน่วยความจำและบูตช้า (ตอบ 503 ระหว่างโหลด) · **ไม่ทราบเหตุผลที่เลือกโมเดล `paraphrase-multilingual-MiniLM-L12-v2` เทียบกับตัวอื่น** (ไม่มีบันทึก/ผลเทียบ) ที่ทราบคือเป็นโมเดลหลายภาษา (ชื่อโมเดลระบุ multilingual)
 หลักฐาน: `embedding.service.ts:5-8`, `:34-35` · `symptom-search.service.ts:54-63`
 
 **ข้อ 10. ผังที่ admin เพิ่งเผยแพร่ ค้นเจอทันทีไหม?**
@@ -1344,11 +1344,11 @@ backend บน Render (แผน free) ผ่าน `render.yaml` มี health 
 
 **ข้อ 11. ผู้ใช้ข้ามคำเตือนความปลอดภัยได้ไหม?**
 ผ่านหน้าจอไม่ได้ และยิง API ตรงก็ไม่ได้: ขั้น `safety_critical` รับเฉพาะ `confirm_safety` ถ้าส่ง `continue` ได้ 400 และ service เรียก engine **ก่อน** บันทึก ดังนั้น DB ไม่ขยับ · ข้อจำกัด: ระบบพิสูจน์ไม่ได้ว่าผู้ใช้ "อ่านจริง" ด่านนี้ครอบเฉพาะโหนดที่ผู้เขียนผังทำเครื่องหมายไว้ (validator มีคำเตือนเมื่อข้อความดูอันตรายแต่ไม่ได้ติดธง)
-หลักฐาน: §2.6, §3.5 · `traversal-engine.ts:96-103` · `traversal.service.ts:146-150` · `graph-validator.ts:335-336`, `:417-425` · ผลรันจริง: `study-measure.js engine`
+หลักฐาน: §2.6, §3.5 · `traversal-engine.ts:90-97` · `traversal.service.ts:146-150` · `graph-validator.ts:334-335`, `:417-425` · ผลรันจริง: `study-measure.js engine`
 
 **ข้อ 12. ระบบล็อกอิน/สิทธิ์ปลอดภัยแค่ไหน? สมัครเป็น admin เองได้ไหม?**
 สมัครได้เป็น `user` เท่านั้น (role ตั้งในโค้ด ไม่รับจากผู้ใช้) · admin สร้างได้ทางสคริปต์ seed ทางเดียว · รหัสผ่านเก็บเป็น bcrypt (10 rounds) · ล็อกอินผิดทุกกรณีตอบข้อความเดียว + เทียบ hash หลอก · token HS256 หมดอายุ 7 วัน · endpoint admin ตรวจ token และ role ที่ backend (หน้าจอซ่อนเมนูเป็นแค่ UX)
-หลักฐาน: §4.1 · `auth.service.ts:52-84`, `:63`, `:45`, `:78` · `auth.module.ts:24-44` · `roles.guard.ts:23-42` · `migrations/010…:12-13`
+หลักฐาน: §4.1 · `auth.service.ts:52-84`, `:63`, `:45`, `:78` · `auth.module.ts:24-44` · `admin.guard.ts:22-33` · `migrations/010…:12-13`
 
 **ข้อ 13. ป้องกัน SQL injection และการเห็นข้อมูลข้ามผู้ใช้อย่างไร?**
 ค่าจากผู้ใช้ไปทางพารามิเตอร์ `?` ของ mysql2 ทุก store ที่ผมอ่าน · ส่วนที่ต่อสตริงเป็น SQL ค่าคงที่ในไฟล์ (เช่น `ownerWhere`) · การแยกเจ้าของ: user → `user_id = ?`, guest → `client_id = ? AND user_id IS NULL` และไม่ใช่เจ้าของได้ 404 (ไม่บอกว่ามี session นั้น) · ข้อจำกัดที่ต้องรู้: guest ไม่ได้ยืนยันตัวตน ใครรู้ UUID ของ guest เห็นประวัติของ guest นั้นได้ · ⚠️ ผมไม่ได้ตรวจทุก query ทีละบรรทัด (อ่านหลัก: session/history/users/drafts/admin store)
@@ -1466,7 +1466,7 @@ admin อัปโหลด PDF (≤ 10 MB เลือกได้ ≤ 10 ห�
 1. **คืออะไร:** เลือกรุ่น → พิมพ์อาการ → embedding หาผังใกล้เคียง (≤ 3) → ผู้ใช้เลือก → เดินผังด้วยเครื่องสถานะ (engine) จนถึงโหนดจบ **ไม่ใช่ chatbot / ไม่ใช่ RAG แบบให้ LLM เขียนคำตอบ** (§1.0, §2.0)
 2. **ตัวเลขที่ต้องจำ:** 22 คู่มือ · 644 ผัง · 5 หมวดเครื่อง · เวกเตอร์ 384 มิติ · เกณฑ์ 0.55 · top 3 · session เดิน 24 ชม./จบแล้วเก็บ 90 วัน (§3, §2.3)
 3. **LLM ทำ 2 อย่างเท่านั้น:** ปรับถ้อยคำบางโหนด (ข้ามโหนด safety/โหนดจบ มี guard + ปุ่มดูต้นฉบับ) และร่างผังจาก PDF ให้ admin ตรวจ (§3.6, §4.6)
-4. **ด่านความปลอดภัยอยู่ที่ backend:** `safety_critical` รับเฉพาะ `confirm_safety`; service เรียก engine ก่อนบันทึกเสมอ (`traversal-engine.ts:96-103`, §2.6)
+4. **ด่านความปลอดภัยอยู่ที่ backend:** `safety_critical` รับเฉพาะ `confirm_safety`; service เรียก engine ก่อนบันทึกเสมอ (`traversal-engine.ts:90-97`, §2.6)
 5. **เจ้าของข้อมูล:** ล็อกอิน = `user_id` · guest = UUID ในเบราว์เซอร์ (`client_id` + `user_id IS NULL`) · ไม่ใช่เจ้าของ = 404 · ไม่มีการย้ายประวัติ guest (§4.1)
 6. **publish ผังใหม่:** transaction + `FOR UPDATE` + ตรวจซ้ำ + INSERT ล้วน ไม่เขียนทับ; reload ล้ม = 500 `PUBLISH_RELOAD_FAILED` ทั้งที่ลง DB แล้ว ต้องรีสตาร์ต (§4.6.5)
 7. **error:** `ApiError(status, code, message)` + `AllExceptionsFilter` ตัวเดียว; หน้าจอตัดสินจาก `code` (§4.7)

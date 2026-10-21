@@ -1,5 +1,4 @@
 {
-  "schema_version": 2,
   "manual_id": "samsung_rs5000fc_um_da68_04852n",
   "device_category": "Refrigerator",
   "brand": "Samsung",
@@ -8,7 +7,6 @@
   "count": 30,
   "graphs": [
     {
-      "schema_version": 2,
       "graph_id": "samsung_rs5000fc_um_not_cooling",
       "device_category": "Refrigerator",
       "brand": "Samsung",
@@ -176,7 +174,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_rs5000fc_um_too_cold",
       "device_category": "Refrigerator",
       "brand": "Samsung",
@@ -239,7 +236,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_rs5000fc_um_inner_wall_warm",
       "device_category": "Refrigerator",
       "brand": "Samsung",
@@ -285,7 +281,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_rs5000fc_um_panel_not_together",
       "device_category": "Refrigerator",
       "brand": "Samsung",
@@ -352,7 +347,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_rs5000fc_um_odor",
       "device_category": "Refrigerator",
       "brand": "Samsung",
@@ -453,7 +447,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_rs5000fc_um_frost_vents",
       "device_category": "Refrigerator",
       "brand": "Samsung",
@@ -515,7 +508,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_rs5000fc_um_frost_inner_wall",
       "device_category": "Refrigerator",
       "brand": "Samsung",
@@ -603,7 +595,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_rs5000fc_um_condensation",
       "device_category": "Refrigerator",
       "brand": "Samsung",
@@ -690,7 +681,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_rs5000fc_um_water_flow_weak",
       "device_category": "Refrigerator",
       "brand": "Samsung",
@@ -767,7 +757,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_rs5000fc_um_icemaker_noisy",
       "device_category": "Refrigerator",
       "brand": "Samsung",
@@ -828,7 +817,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_rs5000fc_um_icemaker_no_ice",
       "device_category": "Refrigerator",
       "brand": "Samsung",
@@ -955,7 +943,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_rs5000fc_um_ice_not_dispensed",
       "device_category": "Refrigerator",
       "brand": "Samsung",
@@ -1069,7 +1056,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_rs5000fc_um_water_not_dispensed",
       "device_category": "Refrigerator",
       "brand": "Samsung",
@@ -1182,7 +1168,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_rs5000fc_um_filter_icon",
       "device_category": "Refrigerator",
       "brand": "Samsung",
@@ -1319,7 +1304,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_rs5000fc_um_door_not_open_wide",
       "device_category": "Refrigerator",
       "brand": "Samsung",
@@ -1433,7 +1417,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_rs5000fc_um_door_opens_too_wide",
       "device_category": "Refrigerator",
       "brand": "Samsung",
@@ -1495,7 +1478,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_rs5000fc_um_sound_startup",
       "device_category": "Refrigerator",
       "brand": "Samsung",
@@ -1543,7 +1525,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_rs5000fc_um_sound_fan",
       "device_category": "Refrigerator",
       "brand": "Samsung",
@@ -1591,7 +1572,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_rs5000fc_um_sound_defrost_sizzle",
       "device_category": "Refrigerator",
       "brand": "Samsung",
@@ -1639,7 +1619,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_rs5000fc_um_sound_refrigerant_flow",
       "device_category": "Refrigerator",
       "brand": "Samsung",
@@ -1687,7 +1666,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_rs5000fc_um_sound_cracking",
       "device_category": "Refrigerator",
       "brand": "Samsung",
@@ -1735,7 +1713,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_rs5000fc_um_sound_ice_valve",
       "device_category": "Refrigerator",
       "brand": "Samsung",
@@ -1782,7 +1759,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_rs5000fc_um_sound_pressure_water",
       "device_category": "Refrigerator",
       "brand": "Samsung",
@@ -1829,7 +1805,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_rs5000fc_um_app_not_found",
       "device_category": "Refrigerator",
       "brand": "Samsung",
@@ -1874,7 +1849,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_rs5000fc_um_app_not_working",
       "device_category": "Refrigerator",
       "brand": "Samsung",
@@ -1919,7 +1893,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_rs5000fc_um_installed_not_connected",
       "device_category": "Refrigerator",
       "brand": "Samsung",
@@ -2026,7 +1999,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_rs5000fc_um_cannot_login",
       "device_category": "Refrigerator",
       "brand": "Samsung",
@@ -2086,7 +2058,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_rs5000fc_um_registration_error",
       "device_category": "Refrigerator",
       "brand": "Samsung",
@@ -2140,7 +2111,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_rs5000fc_um_connected_not_working",
       "device_category": "Refrigerator",
       "brand": "Samsung",
@@ -2211,7 +2181,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_rs5000fc_um_wifi_icon_blinking",
       "device_category": "Refrigerator",
       "brand": "Samsung",

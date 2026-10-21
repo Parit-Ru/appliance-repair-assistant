@@ -1,5 +1,4 @@
 {
-  "schema_version": 2,
   "manual_id": "samsung_tv3_um_jzdvbadk",
   "device_category": "Television",
   "brand": "Samsung",
@@ -8,7 +7,6 @@
   "count": 62,
   "graphs": [
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv3_um_flickering_dimming",
       "device_category": "Television",
       "brand": "Samsung",
@@ -78,7 +76,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv3_um_component_screen_colour",
       "device_category": "Television",
       "brand": "Samsung",
@@ -180,7 +177,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv3_um_screen_brightness",
       "device_category": "Television",
       "brand": "Samsung",
@@ -235,7 +231,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv3_um_ghosting_blurring_juddering",
       "device_category": "Television",
       "brand": "Samsung",
@@ -291,7 +286,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv3_um_unwanted_powering_off",
       "device_category": "Television",
       "brand": "Samsung",
@@ -378,7 +372,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv3_um_problems_powering_on",
       "device_category": "Television",
       "brand": "Samsung",
@@ -494,7 +487,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv3_um_unable_find_channel",
       "device_category": "Television",
       "brand": "Samsung",
@@ -549,7 +541,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv3_um_not_as_good_as_store",
       "device_category": "Television",
       "brand": "Samsung",
@@ -643,7 +634,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv3_um_picture_distorted",
       "device_category": "Television",
       "brand": "Samsung",
@@ -733,7 +723,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv3_um_colour_wrong_or_missing",
       "device_category": "Television",
       "brand": "Samsung",
@@ -796,7 +785,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv3_um_colour_poor_not_bright",
       "device_category": "Television",
       "brand": "Samsung",
@@ -891,7 +879,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv3_um_dotted_line_edge",
       "device_category": "Television",
       "brand": "Samsung",
@@ -960,7 +947,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv3_um_picture_black_white",
       "device_category": "Television",
       "brand": "Samsung",
@@ -1021,7 +1007,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv3_um_no_sound_or_low",
       "device_category": "Television",
       "brand": "Samsung",
@@ -1091,7 +1076,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv3_um_picture_good_no_sound",
       "device_category": "Television",
       "brand": "Samsung",
@@ -1202,7 +1186,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv3_um_speakers_odd_sound",
       "device_category": "Television",
       "brand": "Samsung",
@@ -1288,7 +1271,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv3_um_weak_or_no_signal",
       "device_category": "Television",
       "brand": "Samsung",
@@ -1381,7 +1363,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv3_um_not_receiving_all_channels",
       "device_category": "Television",
       "brand": "Samsung",
@@ -1459,7 +1440,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv3_um_no_subtitles_digital",
       "device_category": "Television",
       "brand": "Samsung",
@@ -1526,7 +1506,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv3_um_picture_quality_low",
       "device_category": "Television",
       "brand": "Samsung",
@@ -1579,7 +1558,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv3_um_mode_not_supported",
       "device_category": "Television",
       "brand": "Samsung",
@@ -1647,7 +1625,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv3_um_video_ok_no_audio",
       "device_category": "Television",
       "brand": "Samsung",
@@ -1732,7 +1709,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv3_um_cannot_connect_network_apps",
       "device_category": "Television",
       "brand": "Samsung",
@@ -1787,7 +1763,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv3_um_wireless_connection_failed",
       "device_category": "Television",
       "brand": "Samsung",
@@ -1848,7 +1823,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv3_um_wireless_signal_weak",
       "device_category": "Television",
       "brand": "Samsung",
@@ -1933,7 +1907,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv3_um_software_update_failed",
       "device_category": "Television",
       "brand": "Samsung",
@@ -2000,7 +1973,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv3_um_schedule_recording_cannot_use",
       "device_category": "Television",
       "brand": "Samsung",
@@ -2101,7 +2073,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv3_um_anynet_not_working",
       "device_category": "Television",
       "brand": "Samsung",
@@ -2299,7 +2270,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv3_um_anynet_connecting_message",
       "device_category": "Television",
       "brand": "Samsung",
@@ -2344,7 +2314,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv3_um_anynet_device_wont_play",
       "device_category": "Television",
       "brand": "Samsung",
@@ -2389,7 +2358,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv3_um_anynet_device_not_displayed",
       "device_category": "Television",
       "brand": "Samsung",
@@ -2514,7 +2482,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv3_um_audio_not_through_receiver",
       "device_category": "Television",
       "brand": "Samsung",
@@ -2591,7 +2558,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv3_um_app_in_other_language",
       "device_category": "Television",
       "brand": "Samsung",
@@ -2636,7 +2602,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv3_um_application_not_working",
       "device_category": "Television",
       "brand": "Samsung",
@@ -2681,7 +2646,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv3_um_files_cannot_play",
       "device_category": "Television",
       "brand": "Samsung",
@@ -2726,7 +2690,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv3_um_tv_is_hot",
       "device_category": "Television",
       "brand": "Samsung",
@@ -2773,7 +2736,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv3_um_not_full_screen",
       "device_category": "Television",
       "brand": "Samsung",
@@ -2842,7 +2804,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv3_um_subtitles_greyed_out",
       "device_category": "Television",
       "brand": "Samsung",
@@ -2895,7 +2856,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv3_um_smells_like_plastic",
       "device_category": "Television",
       "brand": "Samsung",
@@ -2940,7 +2900,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv3_um_signal_information_not_activated",
       "device_category": "Television",
       "brand": "Samsung",
@@ -3001,7 +2960,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv3_um_tilted_to_side",
       "device_category": "Television",
       "brand": "Samsung",
@@ -3057,7 +3015,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv3_um_stand_wobbly",
       "device_category": "Television",
       "brand": "Samsung",
@@ -3114,7 +3071,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv3_um_remote_voice_not_work",
       "device_category": "Television",
       "brand": "Samsung",
@@ -3177,7 +3133,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv3_um_broadcasting_deactivated",
       "device_category": "Television",
       "brand": "Samsung",
@@ -3266,7 +3221,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv3_um_settings_lost",
       "device_category": "Television",
       "brand": "Samsung",
@@ -3321,7 +3275,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv3_um_intermittent_loss_audio_video",
       "device_category": "Television",
       "brand": "Samsung",
@@ -3399,7 +3352,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv3_um_particles_on_bezel",
       "device_category": "Television",
       "brand": "Samsung",
@@ -3444,7 +3396,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv3_um_pip_not_available",
       "device_category": "Television",
       "brand": "Samsung",
@@ -3519,7 +3470,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv3_um_pop_banner_ad",
       "device_category": "Television",
       "brand": "Samsung",
@@ -3573,7 +3523,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv3_um_popping_noise",
       "device_category": "Television",
       "brand": "Samsung",
@@ -3618,7 +3567,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv3_um_humming_noise",
       "device_category": "Television",
       "brand": "Samsung",
@@ -3664,7 +3612,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv3_um_wired_no_network_cable_found",
       "device_category": "Television",
       "brand": "Samsung",
@@ -3779,7 +3726,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv3_um_wired_ip_auto_setting_failed",
       "device_category": "Television",
       "brand": "Samsung",
@@ -3862,7 +3808,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv3_um_wired_unable_connect_network",
       "device_category": "Television",
       "brand": "Samsung",
@@ -3931,7 +3876,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv3_um_wired_local_not_internet",
       "device_category": "Television",
       "brand": "Samsung",
@@ -4008,7 +3952,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv3_um_wired_setup_done_no_internet",
       "device_category": "Television",
       "brand": "Samsung",
@@ -4053,7 +3996,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv3_um_wireless_router_not_found",
       "device_category": "Television",
       "brand": "Samsung",
@@ -4106,7 +4048,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv3_um_wireless_unable_connect_router",
       "device_category": "Television",
       "brand": "Samsung",
@@ -4175,7 +4116,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv3_um_wireless_ip_auto_setting_failed",
       "device_category": "Television",
       "brand": "Samsung",
@@ -4276,7 +4216,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv3_um_wireless_unable_connect_network",
       "device_category": "Television",
       "brand": "Samsung",
@@ -4345,7 +4284,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv3_um_wireless_local_not_internet",
       "device_category": "Television",
       "brand": "Samsung",
@@ -4422,7 +4360,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv3_um_wireless_setup_done_no_internet",
       "device_category": "Television",
       "brand": "Samsung",

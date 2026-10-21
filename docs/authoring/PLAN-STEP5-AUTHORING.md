@@ -66,7 +66,7 @@ validator (โค้ดล้วน) ตรวจ → คนอนุมัต�
 
 ## 5. Embedding ของผังใหม่
 
-- คำนวณ **ในหน่วยความจำตอนบูต** (`@huggingface/transformers` + `model-slim/`) จาก `entry_symptom`, `entry_symptom_th`, aliases ของทุกผัง · ไม่มีตารางเวกเตอร์ · เปิดด้วย `SYMPTOM_SEARCH_ENABLED=true`
+- คำนวณ **ในหน่วยความจำตอนบูต** (`@huggingface/transformers` + `model/`) จาก `entry_symptom`, `entry_symptom_th`, aliases ของทุกผัง · ไม่มีตารางเวกเตอร์ · เปิดด้วย `SYMPTOM_SEARCH_ENABLED=true`
 - ผังใหม่ที่ publish ต้อง: (1) `GraphRepository.reload()` (2) เพิ่ม `SymptomSearchService.addGraphs(ids)` embed เฉพาะข้อความใหม่ (ไม่ทำ 644 ผังใหม่) · search ปิดอยู่ = ข้าม (บูตครั้งถัดไปรวมเอง)
 
 ## 6. Pipeline ที่เสนอ (A-lite)

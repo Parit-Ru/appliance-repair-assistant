@@ -12,10 +12,7 @@ const MATCH_THRESHOLD = 0.55;
 const MAX_RESULTS = 3;
 const ENABLE_ENV_NAME = 'SYMPTOM_SEARCH_ENABLED';
 
-/** กำลังโหลดโมเดล ลองใหม่ได้ → 503 SEARCH_NOT_READY */
 const searchNotReady = () => new ApiError(503, 'SEARCH_NOT_READY', 'ระบบค้นหากำลังเริ่มทำงาน');
-
-/** ปิดอยู่หรือโหลดไม่สำเร็จ → 503 SEARCH_UNAVAILABLE */
 const searchUnavailable = () => new ApiError(503, 'SEARCH_UNAVAILABLE', 'ระบบค้นหาไม่พร้อมใช้งาน');
 
 interface GraphInfo {
@@ -40,17 +37,6 @@ export class SymptomSearchService implements OnApplicationBootstrap {
     private readonly graphs: GraphRepository,
   ) {}
 
-  /**
-   * NestJS เรียกตอนแอปบูตเสร็จ
-   *
-   * ⚠️ คืน void ไม่ใช่ Promise โดยตั้งใจ
-   * ถ้าคืน Promise NestJS จะรอโหลดโมเดลเสร็จก่อนเปิดรับ request
-   * ระหว่างนั้น /health และด่านความปลอดภัยจะตอบไม่ได้ (Render free โหลดช้ามาก)
-   * จึงสั่งโหลดแบบไม่รอ แล้วให้ /symptom-search/status บอกความคืบหน้าแทน
-   *
-   * ปิดไว้เป็นค่าเริ่มต้น: ต้องตั้ง SYMPTOM_SEARCH_ENABLED=true จึงโหลดโมเดล
-   * กันกรณีหน่วยความจำเกินแล้วเซิร์ฟเวอร์ล่มทั้งตัว
-   */
   onApplicationBootstrap(): void {
     if (process.env[ENABLE_ENV_NAME] !== 'true') {
       this.state = 'disabled';
@@ -62,11 +48,6 @@ export class SymptomSearchService implements OnApplicationBootstrap {
     void this.prepareIndex();
   }
 
-  /**
-   * โหลดโมเดล แล้วแปลงข้อความอาการทุกข้อความเป็นเวกเตอร์เก็บในหน่วยความจำ
-   *
-   * ไม่โยน error ออกไป: ล้มเหลวแล้วสถานะเป็น 'failed' เซิร์ฟเวอร์ที่เหลือทำงานต่อได้
-   */
   private async prepareIndex(): Promise<void> {
     this.state = 'loading';
     this.lastError = null;
@@ -75,7 +56,6 @@ export class SymptomSearchService implements OnApplicationBootstrap {
     try {
       await this.embedding.load();
 
-      // listAll() ไม่มีคำพ้อง จึงเอา id มาเรียก findById() เพื่อได้ผังเต็ม
       const fullGraphs: SymptomSource[] = [];
       const info = new Map<string, GraphInfo>();
       for (const summary of this.graphs.listAll()) {
@@ -90,7 +70,6 @@ export class SymptomSearchService implements OnApplicationBootstrap {
         });
       }
 
-      // ทีละข้อความ (ไม่ขนาน) เพราะ CPU มีน้อยและอยากให้ใช้หน่วยความจำคงที่
       // ข้อความเดียวกันจากหลายคู่มือ (เช่น "ทีวีปิดเอง") ทำเวกเตอร์ครั้งเดียวแล้วใช้ร่วมกัน
       const vectors = new Map<string, Float32Array>();
       const index: IndexedSymptom[] = [];
@@ -173,12 +152,6 @@ export class SymptomSearchService implements OnApplicationBootstrap {
     }
   }
 
-  /**
-   * ค้นหาผังขั้นตอนที่ตรงกับคำค้น
-   * รับข้อความที่ผ่าน parseSearchBody แล้ว (ตัดช่องว่าง ตรวจความยาวแล้ว)
-   * manualId (ไม่บังคับ): ค้นเฉพาะผังของคู่มือ/รุ่นนั้น โดยกรองดัชนีก่อนจัดอันดับ
-   * (กรองหลังเลือก top-3 อาจเหลือ 0 ผัง) ไม่ส่ง = ค้นทุกรุ่นเหมือนเดิม · ไม่พบรุ่นนั้น = ไม่มีผลลัพธ์
-   */
   async search(query: string, manualId?: string): Promise<SymptomSearchResponseDto> {
     if (this.state === 'loading') throw searchNotReady();
     if (this.state !== 'ready') throw searchUnavailable();
@@ -208,19 +181,10 @@ export class SymptomSearchService implements OnApplicationBootstrap {
     return {
       query,
       threshold: MATCH_THRESHOLD,
-      // ส่งเสมอแม้ไม่มีผังผ่านเกณฑ์ (null = ไม่มีผังให้เทียบเลย)
       bestScore: ranked.length > 0 ? round3(ranked[0].score) : null,
       matches,
     };
   }
-
-  /**
-   * คะแนนความคล้ายระหว่างคำค้นกับผัง "ที่ระบุ" (ปัด 3 ตำแหน่ง) ไว้เป็นคะแนนความมั่นใจของ session
-   *
-   * คืน null (ไม่โยน error) เมื่อระบบค้นหาไม่พร้อม หรือผังนี้ไม่อยู่ในดัชนี
-   * เพราะคะแนนเป็นข้อมูลเสริมที่แสดงผลอย่างเดียว ห้ามทำให้การเริ่ม session ล้มเหลว
-   * ไม่แต่งตัวเลขแทน: ไม่มีค่าที่วัดได้ = null
-   */
   async scoreGraph(query: string, graphId: string): Promise<number | null> {
     if (this.state !== 'ready') return null;
 
@@ -228,8 +192,6 @@ export class SymptomSearchService implements OnApplicationBootstrap {
     const hit = ranked.find((r) => r.graphId === graphId);
     return hit ? round3(hit.score) : null;
   }
-
-  /** สถานะของระบบค้นหา (ไว้ตรวจหน่วยความจำและความคืบหน้าบน Render) */
   getStatus(): SearchStatusDto {
     return {
       state: this.state,

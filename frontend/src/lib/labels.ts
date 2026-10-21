@@ -1,7 +1,6 @@
 import type { DeviceCategory, InputType, OutcomeKind } from '../api/types'
 
 export const DEVICE_CATEGORY_LABELS: Record<DeviceCategory, string> = {
-  'Air Conditioner': 'เครื่องปรับอากาศ',
   Microwave: 'เตาไมโครเวฟ',
   Refrigerator: 'ตู้เย็น',
   'Washing Machine': 'เครื่องซักผ้า',

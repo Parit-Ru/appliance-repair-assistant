@@ -5,7 +5,7 @@ import { Injectable, Logger } from '@nestjs/common';
 export const EMBEDDING_MODEL_ID = 'Xenova/paraphrase-multilingual-MiniLM-L12-v2';
 export const EMBEDDING_DTYPE = 'q8';
 
-const MODEL_CACHE_DIR = path.resolve(__dirname, '../../model-slim');
+const MODEL_CACHE_DIR = path.resolve(__dirname, '../../model');
 
 type FeatureExtractor = (
   text: string,

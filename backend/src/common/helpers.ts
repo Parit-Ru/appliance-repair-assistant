@@ -1,11 +1,11 @@
-/** ฟังก์ชัน/ค่าเล็กๆ ที่หลายโมดูลใช้ร่วมกัน */
+
 
 /** เป็น object ธรรมดา (ไม่ใช่ null และไม่ใช่ array) — ใช้ตรวจ body/ข้อมูลที่รับเข้ามาก่อนอ่านฟิลด์ */
 export function isPlainObject(value: unknown): value is Record<string, unknown> {
   return typeof value === 'object' && value !== null && !Array.isArray(value);
 }
 
-/** ปัดเศษ 3 ตำแหน่ง (คะแนนความคล้าย, อัตราส่วนในสถิติ) */
+
 export const round3 = (value: number): number => Math.round(value * 1000) / 1000;
 
 /** ค่าจากแถว MySQL (อาจเป็นข้อความหรือ null) → ตัวเลข · null/undefined คงเป็น null ไม่กลายเป็น 0 */

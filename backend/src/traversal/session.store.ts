@@ -7,13 +7,7 @@ import type { SessionOwner } from '../auth/session-owner';
 import type { ModelSelection } from './traversal.dto';
 import type { SessionHistoryEntry, SessionState, SessionStatus, TraversalAction } from '../traversal-engine/types';
 
-/** session ที่ยังเดินอยู่: ไม่มีการใช้งาน 24 ชั่วโมงแล้วหมดอายุ (ต่ออายุทุกครั้งที่ขยับ) */
 const SESSION_TTL_HOURS = 24;
-
-/**
- * session ที่จบแล้วเก็บไว้ให้ดูในหน้า "ประวัติการซ่อม" 90 วัน (docs/features/history-page.md, D2)
- * ตั้งตอน update() ที่ทำให้ status เป็น completed เท่านั้น — ไม่ได้ต่ออายุซ้ำเมื่อบันทึกผลลัพธ์/ให้คะแนน
- */
 const COMPLETED_SESSION_TTL_DAYS = 90;
 const COMPLETED_SESSION_TTL_HOURS = COMPLETED_SESSION_TTL_DAYS * 24;
 
@@ -44,12 +38,6 @@ interface OwnerRow extends RowDataPacket {
 export class SessionStore {
   constructor(@Inject(MYSQL_POOL) private readonly pool: Pool) {}
 
-  /**
-   * owner (migration 008/011): เจ้าของ session สำหรับหน้า "ประวัติการซ่อม"
-   *   user  → เก็บ user_id (client_id เป็น NULL) · guest → เก็บ client_id (user_id เป็น NULL)
-   *   ไม่ส่ง = ทั้งคู่ NULL (ไม่ปรากฏในประวัติของใคร)
-   * ไม่เกี่ยวกับการเดินขั้นตอน engine ไม่เห็นค่านี้
-   */
   async create(session: SessionState, modelSelection?: ModelSelection, owner?: SessionOwner): Promise<void> {
     const { userId, clientId } = ownerColumns(owner);
     await this.pool.query(
@@ -111,7 +99,6 @@ export class SessionStore {
       );
     }
     const stepOrder = session.history.length - 1;
-    // ขั้นที่ทำให้จบ → เก็บ 90 วันให้ดูย้อนหลังได้ · ขั้นอื่นยัง 24 ชั่วโมงเหมือนเดิม
     const ttlHours =
       session.status === 'completed' ? COMPLETED_SESSION_TTL_HOURS : SESSION_TTL_HOURS;
 
@@ -156,11 +143,6 @@ export class SessionStore {
       conn.release();
     }
   }
-
-  /**
-   * user_id ของเจ้าของ session (มีเฉพาะ session ที่เริ่มตอนล็อกอิน) · null = เป็นของ guest / ไม่มีเจ้าของ / ไม่มี session นี้
-   * ใช้ตัดสินว่า endpoint เดินขั้นตอน (GET/actions/outcome) ต้องมี token ของเจ้าของหรือไม่ — ดู TraversalService.authorize
-   */
   async findUserId(sessionId: string): Promise<string | null> {
     const [rows] = await this.pool.query<OwnerRow[]>(
       `SELECT user_id

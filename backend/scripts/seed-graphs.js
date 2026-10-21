@@ -4,7 +4,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const mysql = require('mysql2/promise');
 
-const DEFAULT_MANUAL = path.resolve(__dirname, '../../data/manuals/samsung_ac_ar70h.json');
+const DEFAULT_MANUAL = path.resolve(__dirname, '../../data/manuals/samsung_ge83mdt_um_de68_04111e.json');
 function connectionConfig() {
   return {
     host: process.env.DB_HOST,
@@ -19,10 +19,6 @@ function connectionConfig() {
 
 function validateManual(manual) {
   const problems = [];
-
-  if (manual.schema_version !== 2) {
-    problems.push(`schema_version เป็น ${manual.schema_version} ไม่ใช่ 2`);
-  }
 
   // ชื่อรุ่นที่ผู้ใช้รู้จัก (migration 006) ไม่บังคับ ไม่มี = หน้าเว็บแสดง model_pattern แทน
   if (
@@ -148,8 +144,8 @@ async function seedManual(conn, manual) {
       `INSERT INTO graphs
          (graph_id, manual_id, entry_symptom, entry_symptom_th, entry_symptom_aliases,
           source, page_start, page_end, source_chunk_id,
-          severity, difficulty, config, entry_node, schema_version)
-       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+          severity, difficulty, config, entry_node)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
        ON DUPLICATE KEY UPDATE
          entry_symptom         = VALUES(entry_symptom),
          entry_symptom_th      = VALUES(entry_symptom_th),
@@ -176,7 +172,6 @@ async function seedManual(conn, manual) {
         graph.difficulty ?? null,
         graph.config ? JSON.stringify(graph.config) : null,
         graph.entry_node,
-        graph.schema_version ?? manual.schema_version,
       ],
     );
     await conn.execute('DELETE FROM nodes WHERE graph_id = ?', [graph.graph_id]);

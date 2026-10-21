@@ -37,9 +37,7 @@ import type { Response } from 'express';
 
 import type { AuthenticatedRequest } from '../auth/jwt-auth.guard';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
-import { Role } from '../auth/role.enum';
-import { Roles } from '../auth/roles.decorator';
-import { RolesGuard } from '../auth/roles.guard';
+import { AdminGuard } from '../auth/admin.guard';
 import { parsePublishBody, parseRejectBody, parseUpdateBody, parseUploadFields } from './drafts.dto';
 import type { DraftDetailDto, DraftSummaryDto, PublishResultDto } from './drafts.dto';
 import { DraftsService } from './drafts.service';
@@ -74,8 +72,7 @@ class UploadErrorsFilter implements ExceptionFilter {
 }
 
 @Controller('admin/drafts')
-@UseGuards(JwtAuthGuard, RolesGuard)
-@Roles(Role.Admin)
+@UseGuards(JwtAuthGuard, AdminGuard)
 export class DraftsController {
   constructor(private readonly draftsService: DraftsService) {}
 

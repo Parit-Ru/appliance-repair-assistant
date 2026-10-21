@@ -1,5 +1,4 @@
 {
-  "schema_version": 2,
   "manual_id": "samsung_wa21a_um_dc68_04154a",
   "device_category": "Washing Machine",
   "brand": "Samsung",
@@ -8,7 +7,6 @@
   "count": 33,
   "graphs": [
     {
-      "schema_version": 2,
       "graph_id": "samsung_wa21a_um_does_not_turn_on",
       "device_category": "Washing Machine",
       "brand": "Samsung",
@@ -123,7 +121,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_wa21a_um_does_not_start",
       "device_category": "Washing Machine",
       "brand": "Samsung",
@@ -334,7 +331,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_wa21a_um_water_not_supplied",
       "device_category": "Washing Machine",
       "brand": "Samsung",
@@ -535,7 +531,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_wa21a_um_detergent_remains_in_dispenser",
       "device_category": "Washing Machine",
       "brand": "Samsung",
@@ -627,7 +622,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_wa21a_um_vibrates_makes_noise",
       "device_category": "Washing Machine",
       "brand": "Samsung",
@@ -822,7 +816,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_wa21a_um_stops",
       "device_category": "Washing Machine",
       "brand": "Samsung",
@@ -1003,7 +996,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_wa21a_um_tub_clean_alarm",
       "device_category": "Washing Machine",
       "brand": "Samsung",
@@ -1087,7 +1079,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_wa21a_um_wrong_water_temperature",
       "device_category": "Washing Machine",
       "brand": "Samsung",
@@ -1236,7 +1227,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_wa21a_um_door_locked",
       "device_category": "Washing Machine",
       "brand": "Samsung",
@@ -1324,7 +1314,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_wa21a_um_does_not_drain_or_spin",
       "device_category": "Washing Machine",
       "brand": "Samsung",
@@ -1524,7 +1513,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_wa21a_um_load_wet_end_of_cycle",
       "device_category": "Washing Machine",
       "brand": "Samsung",
@@ -1632,7 +1620,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_wa21a_um_leaks_water",
       "device_category": "Washing Machine",
       "brand": "Samsung",
@@ -1826,7 +1813,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_wa21a_um_excessive_suds",
       "device_category": "Washing Machine",
       "brand": "Samsung",
@@ -1909,7 +1895,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_wa21a_um_frozen",
       "device_category": "Washing Machine",
       "brand": "Samsung",
@@ -1999,7 +1984,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_wa21a_um_water_drains_out_immediately",
       "device_category": "Washing Machine",
       "brand": "Samsung",
@@ -2101,7 +2085,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_wa21a_um_stains_on_clothes",
       "device_category": "Washing Machine",
       "brand": "Samsung",
@@ -2155,7 +2138,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_wa21a_um_has_odours",
       "device_category": "Washing Machine",
       "brand": "Samsung",
@@ -2266,7 +2248,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_wa21a_um_code_1c",
       "device_category": "Washing Machine",
       "brand": "Samsung",
@@ -2314,7 +2295,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_wa21a_um_code_3c",
       "device_category": "Washing Machine",
       "brand": "Samsung",
@@ -2383,7 +2363,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_wa21a_um_code_4c",
       "device_category": "Washing Machine",
       "brand": "Samsung",
@@ -2564,7 +2543,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_wa21a_um_code_4c2",
       "device_category": "Washing Machine",
       "brand": "Samsung",
@@ -2642,7 +2620,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_wa21a_um_code_5c",
       "device_category": "Washing Machine",
       "brand": "Samsung",
@@ -2809,7 +2786,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_wa21a_um_code_8c",
       "device_category": "Washing Machine",
       "brand": "Samsung",
@@ -2878,7 +2854,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_wa21a_um_code_9c1",
       "device_category": "Washing Machine",
       "brand": "Samsung",
@@ -2958,7 +2933,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_wa21a_um_code_9c2",
       "device_category": "Washing Machine",
       "brand": "Samsung",
@@ -3039,7 +3013,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_wa21a_um_code_ac6",
       "device_category": "Washing Machine",
       "brand": "Samsung",
@@ -3087,7 +3060,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_wa21a_um_code_dc",
       "device_category": "Washing Machine",
       "brand": "Samsung",
@@ -3214,7 +3186,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_wa21a_um_code_hc",
       "device_category": "Washing Machine",
       "brand": "Samsung",
@@ -3262,7 +3233,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_wa21a_um_code_lc",
       "device_category": "Washing Machine",
       "brand": "Samsung",
@@ -3364,7 +3334,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_wa21a_um_code_oc",
       "device_category": "Washing Machine",
       "brand": "Samsung",
@@ -3435,7 +3404,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_wa21a_um_code_pc",
       "device_category": "Washing Machine",
       "brand": "Samsung",
@@ -3483,7 +3451,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_wa21a_um_code_pc1",
       "device_category": "Washing Machine",
       "brand": "Samsung",
@@ -3531,7 +3498,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_wa21a_um_code_ub",
       "device_category": "Washing Machine",
       "brand": "Samsung",

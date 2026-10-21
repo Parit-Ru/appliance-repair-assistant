@@ -1,12 +1,10 @@
 import type {TroubleshootingGraph,TroubleshootingNode, ResolutionNode,EscalationNode,OutcomeKind,SessionState, SessionStatus,TraversalAction,RenderedNode,NodeReference } from './types';
-import {NodeNotFoundError,InvalidActionError,SafetyConfirmationRequiredError, SessionAlreadyCompletedError,UnsupportedSchemaVersionError } from './types';
+import {NodeNotFoundError,InvalidActionError,SafetyConfirmationRequiredError, SessionAlreadyCompletedError } from './types';
 
 export function startSession(
   graph: TroubleshootingGraph,
   confidence: number | null = null,
 ): { session: SessionState; node: RenderedNode } {
-  assertSupportedSchema(graph);
-
   const entryNode = graph.nodes.find((n) => n.node_id === graph.entry_node);
   if (!entryNode) {
     throw new NodeNotFoundError(graph.entry_node, graph.graph_id);
@@ -26,8 +24,6 @@ export function startSession(
 }
 
 export function getCurrentNode(session: SessionState, graph: TroubleshootingGraph): RenderedNode {
-  assertSupportedSchema(graph);
-
   const node = graph.nodes.find((n) => n.node_id === session.currentNodeId);
   if (!node) {
     throw new NodeNotFoundError(session.currentNodeId, graph.graph_id);
@@ -47,8 +43,6 @@ export function submitAction(
   graph: TroubleshootingGraph,
   action: TraversalAction,
 ): { session: SessionState; node: RenderedNode } {
-  assertSupportedSchema(graph);
-
   if (session.status === 'completed') {
     throw new SessionAlreadyCompletedError(session.sessionId);
   }
@@ -175,10 +169,4 @@ function interpolate(text: string, variables: Record<string, string>): string {
   return text.replace(/\{\{(\w+)\}\}/g, (match, key: string) => {
     return Object.prototype.hasOwnProperty.call(variables, key) ? variables[key] : match;
   });
-}
-
-function assertSupportedSchema(graph: TroubleshootingGraph): void {
-  if (graph.schema_version !== 2) {
-    throw new UnsupportedSchemaVersionError(graph.schema_version, graph.graph_id);
-  }
 }

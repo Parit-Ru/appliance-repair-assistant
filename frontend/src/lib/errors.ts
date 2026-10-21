@@ -84,12 +84,6 @@ const MESSAGES: Record<string, ErrorDescription> = {
     recovery: 'back-to-symptoms',
     code: 'GRAPH_NODE_MISSING',
   },
-  GRAPH_SCHEMA_UNSUPPORTED: {
-    title: 'ข้อมูลขั้นตอนของอาการนี้ไม่สมบูรณ์',
-    detail: 'ระบบหยุดการตรวจไว้เพื่อไม่ให้แสดงขั้นตอนที่ผิด แจ้งรหัสด้านล่างให้ผู้ดูแลระบบ แล้วเลือกอาการอื่นไปก่อน',
-    recovery: 'back-to-symptoms',
-    code: 'GRAPH_SCHEMA_UNSUPPORTED',
-  },
 
   // ---- ค้นอาการ (POST /symptom-search) ----
   INVALID_QUERY: {

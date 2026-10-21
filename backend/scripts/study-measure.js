@@ -221,7 +221,6 @@ function runEngine(out) {
   const source = manual.graphs.find((g) => g.graph_id.endsWith('not_cooked_at_all'));
   const graph = {
     ...source,
-    schema_version: 2,
     manual_id: manual.manual_id,
     device_category: manual.device_category,
     brand: manual.brand ?? source.brand,

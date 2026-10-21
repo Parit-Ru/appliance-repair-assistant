@@ -1,5 +1,4 @@
 {
-  "schema_version": 2,
   "manual_id": "samsung_rf_sm2009",
   "device_category": "Refrigerator",
   "brand": "Samsung",
@@ -8,7 +7,6 @@
   "count": 13,
   "graphs": [
     {
-      "schema_version": 2,
       "graph_id": "samsung_rf_sm2009_glass_shelf_stuck",
       "device_category": "Refrigerator",
       "brand": "Samsung",
@@ -68,7 +66,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_rf_sm2009_moving_tray_stuck",
       "device_category": "Refrigerator",
       "brand": "Samsung",
@@ -128,7 +125,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_rf_sm2009_remove_vegetable_fruit_drawers",
       "device_category": "Refrigerator",
       "brand": "Samsung",
@@ -210,7 +206,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_rf_sm2009_remove_door_bin",
       "device_category": "Refrigerator",
       "brand": "Samsung",
@@ -261,7 +256,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_rf_sm2009_refrigerator_light",
       "device_category": "Refrigerator",
       "brand": "Samsung",
@@ -361,7 +355,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_rf_sm2009_freezer_light",
       "device_category": "Refrigerator",
       "brand": "Samsung",
@@ -461,7 +454,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_rf_sm2009_compressor_delay",
       "device_category": "Refrigerator",
       "brand": "Samsung",
@@ -521,7 +513,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_rf_sm2009_fan_delayed_start",
       "device_category": "Refrigerator",
       "brand": "Samsung",
@@ -581,7 +572,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_rf_sm2009_door_alarm_continuous",
       "device_category": "Refrigerator",
       "brand": "Samsung",
@@ -664,7 +654,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_rf_sm2009_beep_continuous_test_mode",
       "device_category": "Refrigerator",
       "brand": "Samsung",
@@ -735,7 +724,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_rf_sm2009_no_power",
       "device_category": "Refrigerator",
       "brand": "Samsung",
@@ -811,7 +799,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_rf_sm2009_exhibition_mode",
       "device_category": "Refrigerator",
       "brand": "Samsung",
@@ -873,7 +860,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_rf_sm2009_sensor_led_blinking",
       "device_category": "Refrigerator",
       "brand": "Samsung",

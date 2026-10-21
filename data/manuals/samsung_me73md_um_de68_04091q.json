@@ -1,5 +1,4 @@
 {
-  "schema_version": 2,
   "manual_id": "samsung_me73md_um_de68_04091q",
   "device_category": "Microwave",
   "brand": "Samsung",
@@ -8,7 +7,6 @@
   "count": 6,
   "graphs": [
     {
-      "schema_version": 2,
       "graph_id": "samsung_me73md_um_normal_conditions",
       "device_category": "Microwave",
       "brand": "Samsung",
@@ -55,7 +53,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_me73md_um_not_start",
       "device_category": "Microwave",
       "brand": "Samsung",
@@ -119,7 +116,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_me73md_um_not_cooked_at_all",
       "device_category": "Microwave",
       "brand": "Samsung",
@@ -223,7 +219,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_me73md_um_over_under_cooked",
       "device_category": "Microwave",
       "brand": "Samsung",
@@ -313,7 +308,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_me73md_um_arcing",
       "device_category": "Microwave",
       "brand": "Samsung",
@@ -430,7 +424,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_me73md_um_radio_tv_interference",
       "device_category": "Microwave",
       "brand": "Samsung",

@@ -17,7 +17,6 @@ function sourceChunkId(draftId: string, graphId: string): string {
 
 export function assembleManual(manualId: string, meta: DraftMeta, graphs: DraftGraph[], draftId: string): Json {
   return {
-    schema_version: 2,
     manual_id: manualId,
     device_category: meta.device_category,
     brand: meta.brand,
@@ -28,7 +27,6 @@ export function assembleManual(manualId: string, meta: DraftMeta, graphs: DraftG
       const pages = graph.nodes.map((n) => n.source_page).filter((p): p is number => typeof p === 'number');
       const range = pages.length > 0 ? [Math.min(...pages), Math.max(...pages)] : [meta.page_from, meta.page_from];
       return {
-        schema_version: 2,
         graph_id: graph.graph_id,
         device_category: meta.device_category,
         brand: meta.brand,
@@ -52,7 +50,7 @@ export function assembleManual(manualId: string, meta: DraftMeta, graphs: DraftG
 export const MANUAL_COLUMNS = ['manual_id', 'device_category', 'brand', 'model_pattern', 'source_manual', 'graph_count', 'display_name', 'model_aliases'] as const;
 export const GRAPH_COLUMNS = [
   'graph_id', 'manual_id', 'entry_symptom', 'entry_symptom_th', 'entry_symptom_aliases', 'source', 'page_start', 'page_end',
-  'source_chunk_id', 'severity', 'difficulty', 'config', 'entry_node', 'schema_version',
+  'source_chunk_id', 'severity', 'difficulty', 'config', 'entry_node',
 ] as const;
 export const NODE_COLUMNS = [
   'graph_id', 'node_id', 'node_type', 'text_content', 'on_yes', 'on_no', 'next_node', 'on_invalid', 'input_type', 'input_pattern',
@@ -97,7 +95,6 @@ export function toDbRows(manual: Json): DbRows {
       difficulty: graph.difficulty ?? null,
       config: null,
       entry_node: graph.entry_node,
-      schema_version: 2,
     })),
     nodes: graphs.flatMap((graph) =>
       (graph.nodes as Json[]).map((node, order) => ({

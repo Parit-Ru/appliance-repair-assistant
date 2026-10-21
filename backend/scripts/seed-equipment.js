@@ -6,7 +6,6 @@ const mysql = require('mysql2/promise');
 
 const DEFAULT_FILE = path.resolve(__dirname, '../../data/equipment/equipment.json');
 const VALID_CATEGORIES = [
-  'Air Conditioner',
   'Microwave',
   'Refrigerator',
   'Television',

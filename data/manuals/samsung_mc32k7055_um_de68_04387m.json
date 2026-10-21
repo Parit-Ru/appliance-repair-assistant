@@ -1,5 +1,4 @@
 {
-  "schema_version": 2,
   "manual_id": "samsung_mc32k7055_um_de68_04387m",
   "device_category": "Microwave",
   "brand": "Samsung",
@@ -8,7 +7,6 @@
   "count": 31,
   "graphs": [
     {
-      "schema_version": 2,
       "graph_id": "samsung_mc32k7055_um_buttons_cannot_press",
       "device_category": "Microwave",
       "brand": "Samsung",
@@ -122,7 +120,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_mc32k7055_um_time_not_displayed",
       "device_category": "Microwave",
       "brand": "Samsung",
@@ -185,7 +182,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_mc32k7055_um_does_not_work",
       "device_category": "Microwave",
       "brand": "Samsung",
@@ -301,7 +297,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_mc32k7055_um_stops_in_operation",
       "device_category": "Microwave",
       "brand": "Samsung",
@@ -365,7 +360,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_mc32k7055_um_power_off",
       "device_category": "Microwave",
       "brand": "Samsung",
@@ -521,7 +515,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_mc32k7055_um_popping",
       "device_category": "Microwave",
       "brand": "Samsung",
@@ -585,7 +578,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_mc32k7055_um_exterior_hot",
       "device_category": "Microwave",
       "brand": "Samsung",
@@ -689,7 +681,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_mc32k7055_um_door_cannot_open",
       "device_category": "Microwave",
       "brand": "Samsung",
@@ -753,7 +744,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_mc32k7055_um_heating_not_working",
       "device_category": "Microwave",
       "brand": "Samsung",
@@ -863,7 +853,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_mc32k7055_um_thaw",
       "device_category": "Microwave",
       "brand": "Samsung",
@@ -927,7 +916,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_mc32k7055_um_light_dim",
       "device_category": "Microwave",
       "brand": "Samsung",
@@ -1016,7 +1004,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_mc32k7055_um_beeping",
       "device_category": "Microwave",
       "brand": "Samsung",
@@ -1094,7 +1081,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_mc32k7055_um_not_level",
       "device_category": "Microwave",
       "brand": "Samsung",
@@ -1158,7 +1144,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_mc32k7055_um_sparks",
       "device_category": "Microwave",
       "brand": "Samsung",
@@ -1222,7 +1207,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_mc32k7055_um_starts_immediately",
       "device_category": "Microwave",
       "brand": "Samsung",
@@ -1285,7 +1269,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_mc32k7055_um_electricity",
       "device_category": "Microwave",
       "brand": "Samsung",
@@ -1348,7 +1331,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_mc32k7055_um_water_steam",
       "device_category": "Microwave",
       "brand": "Samsung",
@@ -1394,7 +1376,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_mc32k7055_um_brightness_varies",
       "device_category": "Microwave",
       "brand": "Samsung",
@@ -1440,7 +1421,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_mc32k7055_um_fan_still_running",
       "device_category": "Microwave",
       "brand": "Samsung",
@@ -1486,7 +1466,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_mc32k7055_um_turntable_out",
       "device_category": "Microwave",
       "brand": "Samsung",
@@ -1550,7 +1529,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_mc32k7055_um_turntable_drags",
       "device_category": "Microwave",
       "brand": "Samsung",
@@ -1640,7 +1618,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_mc32k7055_um_turntable_noisy",
       "device_category": "Microwave",
       "brand": "Samsung",
@@ -1704,7 +1681,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_mc32k7055_um_grill_smoke",
       "device_category": "Microwave",
       "brand": "Samsung",
@@ -1839,7 +1815,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_mc32k7055_um_oven_not_heat",
       "device_category": "Microwave",
       "brand": "Samsung",
@@ -1903,7 +1878,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_mc32k7055_um_smoke_preheat",
       "device_category": "Microwave",
       "brand": "Samsung",
@@ -1988,7 +1962,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_mc32k7055_um_burning_smell",
       "device_category": "Microwave",
       "brand": "Samsung",
@@ -2052,7 +2025,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_mc32k7055_um_bad_smell",
       "device_category": "Microwave",
       "brand": "Samsung",
@@ -2108,7 +2080,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_mc32k7055_um_not_cook_properly",
       "device_category": "Microwave",
       "brand": "Samsung",
@@ -2248,7 +2219,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_mc32k7055_um_code_c20",
       "device_category": "Microwave",
       "brand": "Samsung",
@@ -2336,7 +2306,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_mc32k7055_um_code_c21",
       "device_category": "Microwave",
       "brand": "Samsung",
@@ -2409,7 +2378,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_mc32k7055_um_code_cd0",
       "device_category": "Microwave",
       "brand": "Samsung",

@@ -1,7 +1,7 @@
 import { Inject, Injectable, Logger, OnModuleInit } from '@nestjs/common';
 import type { Pool, RowDataPacket } from 'mysql2/promise';
 import { MYSQL_POOL } from '../database/database.constants';
-import {DeviceCategory,InputType,NodeType,OutcomeKind,TroubleshootingGraph, TroubleshootingNode,UnsupportedSchemaVersionError } from '../traversal-engine/types';
+import {DeviceCategory,InputType,NodeType,OutcomeKind,TroubleshootingGraph, TroubleshootingNode } from '../traversal-engine/types';
 
 interface GraphRow extends RowDataPacket {
   graph_id: string;
@@ -14,7 +14,6 @@ interface GraphRow extends RowDataPacket {
   page_end: number;
   source_chunk_id: string;
   entry_node: string;
-  schema_version: number;
   device_category: DeviceCategory;
   brand: string;
   model_pattern: string;
@@ -123,7 +122,7 @@ export class GraphRepository implements OnModuleInit {
     const [graphRows] = await this.pool.query<GraphRow[]>(
       `SELECT g.graph_id, g.manual_id, g.entry_symptom, g.entry_symptom_th,
               g.entry_symptom_aliases, g.source, g.page_start, g.page_end,
-              g.source_chunk_id, g.entry_node, g.schema_version,
+              g.source_chunk_id, g.entry_node,
               m.device_category, m.brand, m.model_pattern,
               m.display_name, m.model_aliases
          FROM graphs g
@@ -184,10 +183,6 @@ export class GraphRepository implements OnModuleInit {
   }
 
   private buildGraph(row: GraphRow, nodeRows: NodeRow[]): TroubleshootingGraph {
-    if (row.schema_version !== 2) {
-      throw new UnsupportedSchemaVersionError(row.schema_version, row.graph_id);
-    }
-
     if (nodeRows.length === 0) {
       throw new GraphDataIntegrityError(
         `กราฟ '${row.graph_id}' ไม่มีโหนดเลยในตาราง nodes`,
@@ -204,7 +199,6 @@ export class GraphRepository implements OnModuleInit {
     }
 
     return {
-      schema_version: 2,
       graph_id: row.graph_id,
       manual_id: row.manual_id,
       device_category: row.device_category,

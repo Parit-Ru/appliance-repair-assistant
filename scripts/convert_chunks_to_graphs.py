@@ -297,7 +297,6 @@ def build_graph(chunk: dict, brand: str) -> dict:
         )
 
     return {
-        'schema_version': 2,
         'graph_id': f"{slugify(chunk.get('model', ''), 3)}_{slugify(symptom)}",
         'device_category': chunk.get('device_category'),
         'brand': chunk.get('brand'),
@@ -333,7 +332,6 @@ def convert_file(input_path: Path, output_path: Path) -> dict:
     graphs = [build_graph(c, brand) for c in chunks]
 
     manual = {
-        'schema_version': 2,
         'manual_id': slugify(f"{first.get('brand','')} {first.get('model','')}", 4),
         'device_category': first.get('device_category'),
         'brand': brand,

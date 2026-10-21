@@ -1,11 +1,20 @@
--- manuals 1 แถวต่อคู่มือ 1 เล่ม
+-- 002_graphs: ผังขั้นตอน (manuals → graphs → nodes)
+-- ไม่พึ่งตารางอื่น · sessions จะอ้างถึง graphs
+-- ทุกตาราง: InnoDB, utf8mb4, utf8mb4_unicode_ci (ต้องตรงกันทั้งหมด ไม่งั้น FOREIGN KEY สร้างไม่ได้)
+-- รายละเอียดว่าแต่ละตารางเก็บอะไร ดู docs/reference/DATABASE.md
+
+-- manuals: 1 แถวต่อคู่มือ 1 เล่ม (ใช้ทำรายการ "เลือกเครื่อง/รุ่น")
+--   display_name  = ชื่อรุ่นที่ผู้ใช้รู้จัก เติมโดยผู้พัฒนาจากคู่มือ NULL = หน้าเว็บแสดง model_pattern แทน
+--   model_aliases = เลขรุ่น/ชื่อขายอื่นที่ใช้คู่มือเล่มเดียวกัน (JSON array ของข้อความ)
 CREATE TABLE IF NOT EXISTS manuals (
   manual_id        VARCHAR(80)  NOT NULL,
-  device_category  VARCHAR(40)  NOT NULL,
+  device_category  ENUM('Microwave','Refrigerator','Television','Washing Machine') NOT NULL,
   brand            VARCHAR(40)  NOT NULL,
   model_pattern    VARCHAR(60)  NOT NULL,
   source_manual    VARCHAR(200) NOT NULL COMMENT 'ชื่อไฟล์คู่มือต้นฉบับ ใช้สร้างการอ้างอิง',
   graph_count      SMALLINT UNSIGNED NOT NULL DEFAULT 0,
+  display_name     VARCHAR(120) NULL COMMENT 'ชื่อรุ่นที่ผู้ใช้รู้จัก เติมโดยผู้พัฒนาจากคู่มือ NULL = แสดง model_pattern แทน',
+  model_aliases    JSON NULL COMMENT 'เลขรุ่น/ชื่อขายอื่นที่ใช้คู่มือเล่มนี้ (อาร์เรย์ของข้อความ) NULL = ไม่มี',
   created_at       TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   updated_at       TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 
@@ -13,7 +22,7 @@ CREATE TABLE IF NOT EXISTS manuals (
   INDEX idx_manuals_category (device_category)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- graphs 1 แถวต่ออาการ 1 อาการ
+-- graphs: 1 แถวต่ออาการ 1 อาการ = ผังขั้นตอน 1 ชุด (หัวผัง; โหนดอยู่ในตาราง nodes)
 CREATE TABLE IF NOT EXISTS graphs (
   graph_id           VARCHAR(120) NOT NULL,
   manual_id          VARCHAR(80)  NOT NULL,
@@ -28,7 +37,6 @@ CREATE TABLE IF NOT EXISTS graphs (
   difficulty         ENUM('easy','medium','hard') NULL,
   config             JSON NULL,
   entry_node         VARCHAR(60) NOT NULL,
-  schema_version     TINYINT UNSIGNED NOT NULL DEFAULT 2,
   created_at         TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   updated_at         TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 
@@ -42,6 +50,7 @@ CREATE TABLE IF NOT EXISTS graphs (
   INDEX idx_graphs_manual (manual_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+-- nodes: โหนดของผัง (1 แถวต่อโหนด) ชนิด checkpoint / instruction / input / resolution / escalation
 CREATE TABLE IF NOT EXISTS nodes (
   graph_id        VARCHAR(120) NOT NULL,
   node_id         VARCHAR(60)  NOT NULL,

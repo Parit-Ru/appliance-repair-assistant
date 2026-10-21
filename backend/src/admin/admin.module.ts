@@ -2,7 +2,7 @@
  * admin.module.ts — endpoint อ่านอย่างเดียวสำหรับ admin (feedback, สถิติ)
  *
  * imports:
- *   AuthModule  — JwtAuthGuard / RolesGuard หา JwtService เจอ
+ *   AuthModule  — JwtAuthGuard หา JwtService เจอ
  *   GraphModule — GraphRepository ตัวเดียวกับโมดูลอื่น ใช้แปลง graph_id เป็นประเภทเครื่อง/outcome
  * MYSQL_POOL มาจาก DatabaseModule ที่เป็น @Global()
  */

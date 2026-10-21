@@ -33,7 +33,7 @@ export interface ValidationReport {
 }
 
 
-export const DEVICE_CATEGORIES = ['Air Conditioner', 'Microwave', 'Refrigerator', 'Washing Machine', 'Television'] as const;
+export const DEVICE_CATEGORIES = ['Microwave', 'Refrigerator', 'Washing Machine', 'Television'] as const;
 const NODE_TYPES = ['checkpoint', 'instruction', 'input', 'resolution', 'escalation'] as const;
 const OUTCOME_KINDS = ['user_fixed', 'normal_behavior', 'handoff_informed', 'handoff_unknown'] as const;
 const INPUT_TYPES = ['error_code', 'model_number', 'number', 'text'] as const;
@@ -63,9 +63,9 @@ const NODE_SPEC: Record<NodeType, { required: string[]; optional?: string[] }> =
   escalation: { required: ['content', 'outcome_kind'] },
 };
 
-const MANUAL_KEYS = ['schema_version', 'manual_id', 'device_category', 'brand', 'model_pattern', 'source_manual', 'count', 'display_name', 'model_aliases', 'graphs'];
+const MANUAL_KEYS = ['manual_id', 'device_category', 'brand', 'model_pattern', 'source_manual', 'count', 'display_name', 'model_aliases', 'graphs'];
 const GRAPH_KEYS = [
-  'schema_version', 'graph_id', 'device_category', 'brand', 'model_pattern', 'entry_symptom', 'entry_symptom_th',
+  'graph_id', 'device_category', 'brand', 'model_pattern', 'entry_symptom', 'entry_symptom_th',
   'entry_symptom_aliases', 'source', 'page_range', 'source_chunk_id', 'severity', 'difficulty', 'entry_node', 'nodes',
 ];
 const NODE_KEYS = [
@@ -135,7 +135,6 @@ class Validator {
     }
 
     this.unknownKeys(manual, MANUAL_KEYS);
-    if (manual.schema_version !== 2) this.error('E_SCHEMA_VERSION', `schema_version ต้องเป็น 2 (พบ ${JSON.stringify(manual.schema_version)})`);
 
     this.field(manual, 'manual_id', idRule(80));
     this.field(manual, 'device_category', { oneOf: DEVICE_CATEGORIES });

@@ -1,5 +1,4 @@
 {
-  "schema_version": 2,
   "manual_id": "samsung_ge83mdt_um_de68_04111e",
   "device_category": "Microwave",
   "brand": "Samsung",
@@ -8,7 +7,6 @@
   "count": 9,
   "graphs": [
     {
-      "schema_version": 2,
       "graph_id": "samsung_ge83mdt_um_normal_conditions",
       "device_category": "Microwave",
       "brand": "Samsung",
@@ -55,7 +53,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_ge83mdt_um_not_start",
       "device_category": "Microwave",
       "brand": "Samsung",
@@ -144,7 +141,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_ge83mdt_um_not_cooked_at_all",
       "device_category": "Microwave",
       "brand": "Samsung",
@@ -248,7 +244,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_ge83mdt_um_over_under_cooked",
       "device_category": "Microwave",
       "brand": "Samsung",
@@ -338,7 +333,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_ge83mdt_um_light_not_working",
       "device_category": "Microwave",
       "brand": "Samsung",
@@ -401,7 +395,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_ge83mdt_um_radio_tv_interference",
       "device_category": "Microwave",
       "brand": "Samsung",
@@ -491,7 +484,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_ge83mdt_um_smoke_smell_initial",
       "device_category": "Microwave",
       "brand": "Samsung",
@@ -537,7 +529,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_ge83mdt_um_arcing",
       "device_category": "Microwave",
       "brand": "Samsung",
@@ -654,7 +645,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_ge83mdt_um_code_se",
       "device_category": "Microwave",
       "brand": "Samsung",

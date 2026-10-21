@@ -111,7 +111,7 @@ backend/
 │  └─ rephrase/        rephrase-guard.ts · rephrase.service.ts · groq-llm.client.ts  ← ต่อเข้า TraversalModule แล้ว ปิดเป็นค่าเริ่มต้น
 ├─ scripts/            run-migrations.js · seed-graphs.js · seed-equipment.js
 ├─ migrations/         001–005 (.sql)
-├─ model-slim/         โมเดล ONNX ตัดแต่ง 57 MB (ยังไม่ได้ commit)
+├─ model/         โมเดล ONNX ตัดแต่ง 57 MB (ยังไม่ได้ commit)
 └─ package.json · tsconfig*.json · nest-cli.json · jest.config.js · .env.example · .gitignore
 
 data/                  ข้อมูลที่ seed เข้าฐานข้อมูล
@@ -290,7 +290,7 @@ data/                  ข้อมูลที่ seed เข้าฐานข
 
 #### `embedding.service.ts` (56 บรรทัด)
 - **ทำอะไร:** แปลงข้อความเป็นเวกเตอร์ 384 มิติ ด้วยโมเดล `Xenova/paraphrase-multilingual-MiniLM-L12-v2` ชนิด `q8` (ตัดทอนขนาด)
-- **ทำงานยังไง:** `load()` โหลดไลบรารี `@huggingface/transformers` แบบ dynamic import แล้วสร้าง pipeline `feature-extraction` โดยใช้ไฟล์ใน `backend/model-slim/` เท่านั้น (`allowRemoteModels = false` ไม่ดาวน์โหลดจากเน็ต) ใช้ thread เดียว; `embed(text)` คืน `Float32Array` ที่ normalize แล้ว (ต้องเรียก `load()` ก่อน)
+- **ทำงานยังไง:** `load()` โหลดไลบรารี `@huggingface/transformers` แบบ dynamic import แล้วสร้าง pipeline `feature-extraction` โดยใช้ไฟล์ใน `backend/model/` เท่านั้น (`allowRemoteModels = false` ไม่ดาวน์โหลดจากเน็ต) ใช้ thread เดียว; `embed(text)` คืน `Float32Array` ที่ normalize แล้ว (ต้องเรียก `load()` ก่อน)
 - **ข้อควรรู้:** `modelFilesFoundLocally` ตรวจว่ามี `onnx/model_quantized.onnx` ไหม เพื่อให้ `/symptom-search/status` บอกสาเหตุได้ถ้าโหลดไม่ขึ้น
 
 #### `embedding.module.ts`
@@ -366,7 +366,7 @@ data/                  ข้อมูลที่ seed เข้าฐานข
 | `.env.example` | แม่แบบตัวแปรสภาพแวดล้อม (ดูหัวข้อถัดไป) |
 | `.gitignore` | ไม่รวม `node_modules/`, `dist/`, `build/`, `.env`, `.env.local`, `.DS_Store`, `*.log` |
 | `.env` / `.env.local` | ค่าจริงของเครื่องนี้ (ไม่ commit) `.env.local` สร้างด้วยสคริปต์ช่วยตอน deploy มี `DB_PASSWORD` ควรลบเมื่อไม่ใช้ |
-| `model-slim/` | ไฟล์โมเดลตัดแต่ง 57 MB สถานะ git: **ยังไม่ได้ commit** ต้อง push ก่อนจึงเปิดระบบค้นหาบน Render ได้ |
+| `model/` | ไฟล์โมเดลตัดแต่ง 57 MB สถานะ git: **ยังไม่ได้ commit** ต้อง push ก่อนจึงเปิดระบบค้นหาบน Render ได้ |
 | `../render.yaml` | Blueprint ของ Render (บริการ web, ตัวแปร env, `healthCheckPath: /health`) |
 
 ### ตัวแปรสภาพแวดล้อม (ชื่ออย่างเดียว)

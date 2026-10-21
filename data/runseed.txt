@@ -1,4 +1,3 @@
-node .\scripts\seed-graphs.js ..\data\manuals\samsung_ac_ar70h.json
 node .\scripts\seed-graphs.js ..\data\manuals\samsung_ge83mdt_um_de68_04111e.json
 node .\scripts\seed-graphs.js ..\data\manuals\samsung_mc32k7055_um_de68_04387m.json
 node .\scripts\seed-graphs.js ..\data\manuals\samsung_me73md_um_de68_04091q.json

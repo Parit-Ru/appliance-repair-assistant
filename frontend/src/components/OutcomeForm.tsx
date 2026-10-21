@@ -61,7 +61,7 @@ export function OutcomeForm({ savedText, onSubmit, isSending, error, onRefresh }
       </div>
 
       <div className="space-y-1">
-        <textarea id={textareaId} value={value} onChange={(event) => setValue(event.target.value)} maxLength={MAX_OUTCOME_LENGTH} rows={4} placeholder="เช่น ทำตามขั้นตอนแล้วแอร์กลับมาทำงานปกติ หรือยังไม่หาย" disabled={isSending} aria-describedby={`${hintId} ${counterId}`} className={TEXTAREA_CLASSES} />
+        <textarea id={textareaId} value={value} onChange={(event) => setValue(event.target.value)} maxLength={MAX_OUTCOME_LENGTH} rows={4} placeholder="เช่น ทำตามขั้นตอนแล้วเครื่องกลับมาทำงานปกติ หรือยังไม่หาย" disabled={isSending} aria-describedby={`${hintId} ${counterId}`} className={TEXTAREA_CLASSES} />
         <p id={counterId} className="text-right text-xs text-ink-faint">
           {formatOutcomeCounter(value)}
         </p>

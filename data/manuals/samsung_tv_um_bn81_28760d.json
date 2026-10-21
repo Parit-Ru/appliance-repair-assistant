@@ -1,5 +1,4 @@
 {
-  "schema_version": 2,
   "manual_id": "samsung_tv_um_bn81_28760d",
   "device_category": "Television",
   "brand": "Samsung",
@@ -8,7 +7,6 @@
   "count": 73,
   "graphs": [
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv_um_screen_flashing_dark",
       "device_category": "Television",
       "brand": "Samsung",
@@ -93,7 +91,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv_um_picture_not_bright",
       "device_category": "Television",
       "brand": "Samsung",
@@ -165,7 +162,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv_um_picture_colours_wrong",
       "device_category": "Television",
       "brand": "Samsung",
@@ -291,7 +287,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv_um_turns_off_by_itself",
       "device_category": "Television",
       "brand": "Samsung",
@@ -378,7 +373,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv_um_cannot_turn_off",
       "device_category": "Television",
       "brand": "Samsung",
@@ -457,7 +451,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv_um_unable_power_on",
       "device_category": "Television",
       "brand": "Samsung",
@@ -597,7 +590,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv_um_remains_on_no_auto_on",
       "device_category": "Television",
       "brand": "Samsung",
@@ -666,7 +658,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv_um_unable_find_channel",
       "device_category": "Television",
       "brand": "Samsung",
@@ -753,7 +744,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv_um_not_as_good_as_store",
       "device_category": "Television",
       "brand": "Samsung",
@@ -847,7 +837,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv_um_video_blurry",
       "device_category": "Television",
       "brand": "Samsung",
@@ -902,7 +891,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv_um_picture_distorted",
       "device_category": "Television",
       "brand": "Samsung",
@@ -1010,7 +998,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv_um_dotted_line_edge",
       "device_category": "Television",
       "brand": "Samsung",
@@ -1079,7 +1066,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv_um_not_full_screen",
       "device_category": "Television",
       "brand": "Samsung",
@@ -1148,7 +1134,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv_um_subtitle_function_deactivated",
       "device_category": "Television",
       "brand": "Samsung",
@@ -1201,7 +1186,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv_um_subtitles_appear",
       "device_category": "Television",
       "brand": "Samsung",
@@ -1255,7 +1239,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv_um_hdr_turns_off",
       "device_category": "Television",
       "brand": "Samsung",
@@ -1309,7 +1292,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv_um_no_sound_or_low",
       "device_category": "Television",
       "brand": "Samsung",
@@ -1380,7 +1362,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv_um_picture_good_no_sound",
       "device_category": "Television",
       "brand": "Samsung",
@@ -1491,7 +1472,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv_um_hdmi_earc_no_sound",
       "device_category": "Television",
       "brand": "Samsung",
@@ -1553,7 +1533,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv_um_speakers_odd_sound",
       "device_category": "Television",
       "brand": "Samsung",
@@ -1639,7 +1618,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv_um_sound_interrupted",
       "device_category": "Television",
       "brand": "Samsung",
@@ -1726,7 +1704,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv_um_voice_over",
       "device_category": "Television",
       "brand": "Samsung",
@@ -1781,7 +1758,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv_um_not_through_soundbar",
       "device_category": "Television",
       "brand": "Samsung",
@@ -1891,7 +1867,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv_um_sound_not_clear",
       "device_category": "Television",
       "brand": "Samsung",
@@ -1961,7 +1936,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv_um_external_volume_cannot_adjust",
       "device_category": "Television",
       "brand": "Samsung",
@@ -2060,7 +2034,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv_um_weak_or_no_signal",
       "device_category": "Television",
       "brand": "Samsung",
@@ -2153,7 +2126,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv_um_not_receiving_all_channels",
       "device_category": "Television",
       "brand": "Samsung",
@@ -2248,7 +2220,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv_um_subtitles_digital_channel",
       "device_category": "Television",
       "brand": "Samsung",
@@ -2333,7 +2304,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv_um_broadcasting_deactivated",
       "device_category": "Television",
       "brand": "Samsung",
@@ -2422,7 +2392,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv_um_mode_not_supported",
       "device_category": "Television",
       "brand": "Samsung",
@@ -2490,7 +2459,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv_um_video_ok_no_audio",
       "device_category": "Television",
       "brand": "Samsung",
@@ -2591,7 +2559,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv_um_screen_mirroring",
       "device_category": "Television",
       "brand": "Samsung",
@@ -2693,7 +2660,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv_um_no_screen_external_device",
       "device_category": "Television",
       "brand": "Samsung",
@@ -2787,7 +2753,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv_um_pc_screen_flickers",
       "device_category": "Television",
       "brand": "Samsung",
@@ -2876,7 +2841,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv_um_wireless_failed",
       "device_category": "Television",
       "brand": "Samsung",
@@ -3028,7 +2992,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv_um_wired_failed",
       "device_category": "Television",
       "brand": "Samsung",
@@ -3105,7 +3068,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv_um_local_not_internet",
       "device_category": "Television",
       "brand": "Samsung",
@@ -3182,7 +3144,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv_um_woc_cannot_be_found",
       "device_category": "Television",
       "brand": "Samsung",
@@ -3291,7 +3252,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv_um_woc_disconnected",
       "device_category": "Television",
       "brand": "Samsung",
@@ -3384,7 +3344,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv_um_woc_signal_low",
       "device_category": "Television",
       "brand": "Samsung",
@@ -3451,7 +3410,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv_um_woc_not_auto_connect",
       "device_category": "Television",
       "brand": "Samsung",
@@ -3548,7 +3506,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv_um_anynet_not_working",
       "device_category": "Television",
       "brand": "Samsung",
@@ -3699,7 +3656,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv_um_anynet_connecting_message",
       "device_category": "Television",
       "brand": "Samsung",
@@ -3744,7 +3700,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv_um_anynet_device_wont_play",
       "device_category": "Television",
       "brand": "Samsung",
@@ -3789,7 +3744,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv_um_remote_not_work",
       "device_category": "Television",
       "brand": "Samsung",
@@ -3892,7 +3846,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv_um_mobile_remote_not_work",
       "device_category": "Television",
       "brand": "Samsung",
@@ -4012,7 +3965,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv_um_external_not_operated_by_remote",
       "device_category": "Television",
       "brand": "Samsung",
@@ -4089,7 +4041,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv_um_recording_cannot_use",
       "device_category": "Television",
       "brand": "Samsung",
@@ -4190,7 +4141,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv_um_cannot_record_external",
       "device_category": "Television",
       "brand": "Samsung",
@@ -4235,7 +4185,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv_um_format_device_message",
       "device_category": "Television",
       "brand": "Samsung",
@@ -4303,7 +4252,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv_um_recorded_not_play_on_pc",
       "device_category": "Television",
       "brand": "Samsung",
@@ -4370,7 +4318,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv_um_cannot_find_app",
       "device_category": "Television",
       "brand": "Samsung",
@@ -4440,7 +4387,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv_um_app_different_language",
       "device_category": "Television",
       "brand": "Samsung",
@@ -4493,7 +4439,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv_um_app_poor_quality",
       "device_category": "Television",
       "brand": "Samsung",
@@ -4564,7 +4509,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv_um_smart_hub_home_keeps_appearing",
       "device_category": "Television",
       "brand": "Samsung",
@@ -4617,7 +4561,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv_um_files_interrupted",
       "device_category": "Television",
       "brand": "Samsung",
@@ -4662,7 +4605,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv_um_files_cannot_play",
       "device_category": "Television",
       "brand": "Samsung",
@@ -4716,7 +4658,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv_um_microphone_off",
       "device_category": "Television",
       "brand": "Samsung",
@@ -4770,7 +4711,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv_um_voice_commands_poor",
       "device_category": "Television",
       "brand": "Samsung",
@@ -4824,7 +4764,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv_um_assistant_answers_uncalled",
       "device_category": "Television",
       "brand": "Samsung",
@@ -4878,7 +4817,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv_um_assistant_no_answer",
       "device_category": "Television",
       "brand": "Samsung",
@@ -4948,7 +4886,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv_um_voice_button_no_response",
       "device_category": "Television",
       "brand": "Samsung",
@@ -5050,7 +4987,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv_um_voice_heavy_load",
       "device_category": "Television",
       "brand": "Samsung",
@@ -5119,7 +5055,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv_um_tv_is_hot",
       "device_category": "Television",
       "brand": "Samsung",
@@ -5166,7 +5101,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv_um_smells_like_plastic",
       "device_category": "Television",
       "brand": "Samsung",
@@ -5211,7 +5145,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv_um_settings_lost",
       "device_category": "Television",
       "brand": "Samsung",
@@ -5266,7 +5199,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv_um_tilted_to_side",
       "device_category": "Television",
       "brand": "Samsung",
@@ -5322,7 +5254,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv_um_stand_wobbly",
       "device_category": "Television",
       "brand": "Samsung",
@@ -5379,7 +5310,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv_um_pop_banner_ad",
       "device_category": "Television",
       "brand": "Samsung",
@@ -5433,7 +5363,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv_um_screen_off_noise",
       "device_category": "Television",
       "brand": "Samsung",
@@ -5478,7 +5407,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv_um_popping_noise",
       "device_category": "Television",
       "brand": "Samsung",
@@ -5523,7 +5451,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv_um_humming_noise",
       "device_category": "Television",
       "brand": "Samsung",
@@ -5569,7 +5496,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv_um_cannot_select_broadcast_signal",
       "device_category": "Television",
       "brand": "Samsung",

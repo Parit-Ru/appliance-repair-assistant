@@ -2,8 +2,8 @@
  * auth.module.ts — บัญชีผู้ใช้ + JWT + guard ตามบทบาท
  *
  * MYSQL_POOL มาจาก DatabaseModule ที่เป็น @Global() ไม่ต้อง import
- * export JwtModule + JwtAuthGuard + RolesGuard ให้โมดูลอื่น (เช่น admin ใน Step 3) import AuthModule แล้วใช้
- * @UseGuards(JwtAuthGuard, RolesGuard) ได้ — guard ต้องหา JwtService เจอในโมดูลที่ใช้
+ * export JwtModule + JwtAuthGuard ให้โมดูลอื่น (เช่น admin ใน Step 3) import AuthModule แล้วใช้
+ * @UseGuards(JwtAuthGuard, AdminGuard) ได้ — JwtAuthGuard ต้องหา JwtService เจอในโมดูลที่ใช้ (AdminGuard ไม่มี dependency จึงไม่ต้อง export)
  *
  * ค่าตั้งต้นจาก env (อ่านตอนบูต ผิด = บูตไม่ขึ้นพร้อมข้อความบอกวิธีแก้ ไม่ปล่อยให้รันแบบไม่ปลอดภัย):
  *   JWT_SECRET      อย่างน้อย 32 ตัวอักษร (ไม่มีค่าเริ่มต้นโดยตั้งใจ)
@@ -18,7 +18,6 @@ import { AuthController } from './auth.controller';
 import { AuthService } from './auth.service';
 import { JwtAuthGuard } from './jwt-auth.guard';
 import { OptionalJwtAuthGuard } from './optional-jwt-auth.guard';
-import { RolesGuard } from './roles.guard';
 import { UsersStore } from './users.store';
 
 const MIN_JWT_SECRET_LENGTH = 32;
@@ -46,7 +45,7 @@ function buildJwtOptions(env: NodeJS.ProcessEnv = process.env): JwtModuleOptions
 @Module({
   imports: [JwtModule.registerAsync({ useFactory: () => buildJwtOptions() })],
   controllers: [AuthController],
-  providers: [UsersStore, AuthService, JwtAuthGuard, OptionalJwtAuthGuard, RolesGuard],
-  exports: [JwtModule, JwtAuthGuard, OptionalJwtAuthGuard, RolesGuard],
+  providers: [UsersStore, AuthService, JwtAuthGuard, OptionalJwtAuthGuard],
+  exports: [JwtModule, JwtAuthGuard, OptionalJwtAuthGuard],
 })
 export class AuthModule {}

@@ -1,5 +1,4 @@
 {
-  "schema_version": 2,
   "manual_id": "samsung_tv5_um_nldvbas4m",
   "device_category": "Television",
   "brand": "Samsung",
@@ -8,7 +7,6 @@
   "count": 35,
   "graphs": [
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv5_um_analogue_signal_weak",
       "device_category": "Television",
       "brand": "Samsung",
@@ -63,7 +61,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv5_um_digital_signal_weak_static_ghosting",
       "device_category": "Television",
       "brand": "Samsung",
@@ -119,7 +116,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv5_um_screen_not_natural_film_mode",
       "device_category": "Television",
       "brand": "Samsung",
@@ -173,7 +169,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv5_um_digital_reception_poor",
       "device_category": "Television",
       "brand": "Samsung",
@@ -243,7 +238,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv5_um_picture_problem_picture_test",
       "device_category": "Television",
       "brand": "Samsung",
@@ -297,7 +291,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv5_um_no_sound_from_tv_speakers",
       "device_category": "Television",
       "brand": "Samsung",
@@ -375,7 +368,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv5_um_sound_echo_speaker_and_receiver",
       "device_category": "Television",
       "brand": "Samsung",
@@ -431,7 +423,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv5_um_sound_mode_disabled",
       "device_category": "Television",
       "brand": "Samsung",
@@ -476,7 +467,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv5_um_sound_effect_disabled",
       "device_category": "Television",
       "brand": "Samsung",
@@ -521,7 +511,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv5_um_source_volume_not_applied",
       "device_category": "Television",
       "brand": "Samsung",
@@ -582,7 +571,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv5_um_bluetooth_audio_unavailable",
       "device_category": "Television",
       "brand": "Samsung",
@@ -643,7 +631,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv5_um_sound_menu_in_sound_mirroring",
       "device_category": "Television",
       "brand": "Samsung",
@@ -688,7 +675,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv5_um_bluetooth_tv_not_found",
       "device_category": "Television",
       "brand": "Samsung",
@@ -773,7 +759,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv5_um_smart_view_not_available",
       "device_category": "Television",
       "brand": "Samsung",
@@ -834,7 +819,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv5_um_wireless_network_not_in_list",
       "device_category": "Television",
       "brand": "Samsung",
@@ -921,7 +905,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv5_um_wifi_direct_cannot_connect",
       "device_category": "Television",
       "brand": "Samsung",
@@ -998,7 +981,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv5_um_clock_reset_after_power_cord",
       "device_category": "Television",
       "brand": "Samsung",
@@ -1053,7 +1035,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv5_um_auto_clock_incorrect",
       "device_category": "Television",
       "brand": "Samsung",
@@ -1132,7 +1113,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv5_um_on_timer_usb_not_operating",
       "device_category": "Television",
       "brand": "Samsung",
@@ -1266,7 +1246,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv5_um_on_timer_usb_device_not_recognised",
       "device_category": "Television",
       "brand": "Samsung",
@@ -1327,7 +1306,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv5_um_tv_turns_off_by_itself",
       "device_category": "Television",
       "brand": "Samsung",
@@ -1438,7 +1416,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv5_um_brightness_changes_eco_sensor",
       "device_category": "Television",
       "brand": "Samsung",
@@ -1506,7 +1483,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv5_um_screen_fit_picture_off_centre",
       "device_category": "Television",
       "brand": "Samsung",
@@ -1577,7 +1553,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv5_um_game_mode_screen_shakes",
       "device_category": "Television",
       "brand": "Samsung",
@@ -1622,7 +1597,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv5_um_game_mode_picture_quality",
       "device_category": "Television",
       "brand": "Samsung",
@@ -1681,7 +1655,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv5_um_settings_reset_after_software_update",
       "device_category": "Television",
       "brand": "Samsung",
@@ -1726,7 +1699,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv5_um_screen_turns_on_auto_update",
       "device_category": "Television",
       "brand": "Samsung",
@@ -1771,7 +1743,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv5_um_store_demo_picture_reset",
       "device_category": "Television",
       "brand": "Samsung",
@@ -1826,7 +1797,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv5_um_usb_not_recognised_files_not_played",
       "device_category": "Television",
       "brand": "Samsung",
@@ -1954,7 +1924,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv5_um_deleted_file_still_listed",
       "device_category": "Television",
       "brand": "Samsung",
@@ -2007,7 +1976,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv5_um_files_over_4000_not_shown",
       "device_category": "Television",
       "brand": "Samsung",
@@ -2052,7 +2020,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv5_um_file_format_not_supported_message",
       "device_category": "Television",
       "brand": "Samsung",
@@ -2111,7 +2078,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv5_um_mp3_drm_cannot_play",
       "device_category": "Television",
       "brand": "Samsung",
@@ -2171,7 +2137,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv5_um_music_sound_abnormal",
       "device_category": "Television",
       "brand": "Samsung",
@@ -2239,7 +2204,6 @@
       ]
     },
     {
-      "schema_version": 2,
       "graph_id": "samsung_tv5_um_family_tv_mode_cannot_use",
       "device_category": "Television",
       "brand": "Samsung",

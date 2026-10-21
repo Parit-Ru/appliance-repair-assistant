@@ -1,17 +1,8 @@
-import { Link, useNavigate } from 'react-router-dom'
-import { useManuals } from '../api/queries'
+import { useNavigate } from 'react-router-dom'
 import { Button } from '../components/ui/Button'
-import { LoadingText } from '../components/LoadingText'
-import { DEVICE_CATEGORY_LABELS } from '../lib/labels'
-import { symptomsPath } from '../lib/modelSelection'
-import { manualTitle } from '../lib/models'
 
 export function HomePage() {
-  const manuals = useManuals()
   const navigate = useNavigate()
-
-  const items = manuals.isSuccess ? manuals.data : []
-  const showSupported = manuals.isPending || items.length > 0
 
   return (
     <div className="space-y-10">
@@ -25,27 +16,6 @@ export function HomePage() {
 
         <Button onClick={() => navigate('/devices')}>เลือกเครื่องที่มีปัญหา</Button>
       </section>
-
-      {showSupported && (
-        <section className="space-y-3">
-          <h2 className="font-semibold">รองรับตอนนี้</h2>
-
-          {manuals.isPending && (
-            <LoadingText>กำลังโหลด</LoadingText>
-          )}
-
-          <ul className="space-y-3">
-            {items.map((manual) => (
-              <li key={manual.manualId}>
-                <Link to={symptomsPath(manual.manualId, 'selected')} className="block hover:text-accent">
-                  {DEVICE_CATEGORY_LABELS[manual.deviceCategory]} {manual.brand} <code className="font-mono">{manualTitle(manual)}</code>
-                </Link>
-                <p className="text-sm text-ink-soft">{manual.graphCount} อาการ</p>
-              </li>
-            ))}
-          </ul>
-        </section>
-      )}
     </div>
   )
 }

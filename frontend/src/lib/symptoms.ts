@@ -12,7 +12,7 @@ import type { DeviceCategory, GraphSummary } from '../api/types'
  *
  * ต้องใช้ Collator แทนการเทียบด้วย < > ธรรมดา
  * เพราะการเทียบธรรมดาดูแค่รหัสตัวอักษร ส่วน Collator เรียงตามพจนานุกรมไทย
- * (เช่น ไม่นับสระหน้า แ เ โ "แอร์" จึงเรียงตาม อ)
+ * (เช่น ไม่นับสระหน้า แ เ โ "เตา" จึงเรียงตาม ต)
  */
 const thaiCollator = new Intl.Collator('th')
 

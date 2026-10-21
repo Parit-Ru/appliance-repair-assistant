@@ -51,14 +51,12 @@ export type TroubleshootingNode =
   | EscalationNode;
 
 export type DeviceCategory =
-  | 'Air Conditioner'
   | 'Microwave'
   | 'Refrigerator'
   | 'Washing Machine'
   | 'Television';
 
 export interface TroubleshootingGraph {
-  schema_version: 2;
   graph_id: string;
   manual_id: string;
   device_category: DeviceCategory;
@@ -119,12 +117,6 @@ export class TraversalError extends Error {
   constructor(message: string) {
     super(message);
     this.name = this.constructor.name;
-  }
-}
-
-export class UnsupportedSchemaVersionError extends TraversalError {
-  constructor(received: unknown, graphId: string) {
-    super(`Graph '${graphId}' มี schema_version=${String(received)} แต่ engine รองรับเฉพาะ v2`);
   }
 }
 

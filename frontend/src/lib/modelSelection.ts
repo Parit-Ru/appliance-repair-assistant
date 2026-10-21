@@ -2,7 +2,7 @@ import { useSearchParams } from 'react-router-dom'
 import type { ModelSelection } from '../api/types'
 
 /**
- * รุ่นที่ผู้ใช้เลือก เก็บไว้ใน URL (เช่น /#/symptoms?manual=samsung_ac_ar70h)
+ * รุ่นที่ผู้ใช้เลือก เก็บไว้ใน URL (เช่น /#/symptoms?manual=samsung_ge83mdt_um_de68_04111e)
  * เพื่อให้กดย้อนกลับ รีเฟรช หรือแชร์ลิงก์ แล้วยังอยู่รุ่นเดิม
  * unknown=1 แปลว่าผู้ใช้บอกว่าไม่ทราบรุ่น แล้วเลือกรุ่นที่ใกล้เคียงเอง
  */
