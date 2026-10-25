@@ -1,5 +1,7 @@
 # Step 5: ผู้ดูแลระบบอัปโหลดคู่มือ PDF → AI ร่างแผนผังขั้นตอน → ตรวจ → เผยแพร่
 
+> ⚠️ **เอกสารนี้บันทึกตอน backend ยังเป็น NestJS** (ก่อน 21 ต.ค. 2569) — ชื่อ `*.controller.ts`, `*.module.ts`, guard, exception filter, decorator และเลขบรรทัดในนี้อาจไม่มีแล้ว เก็บไว้เป็นประวัติการตัดสินใจ · โค้ดปัจจุบันเป็น Express ดูตารางเทียบใน `docs/STUDY_GUIDE.md` §5.7
+
 สถานะ (16 ต.ค. 2569): B1 (backend) + B2 (หน้าจอ) เขียนครบ · ผ่านเทสต์อัตโนมัติทั้งหมด · **ยังไม่ได้ทดสอบกับ LLM จริง ฐานข้อมูลจริง และเบราว์เซอร์จริง** (หัวข้อ 8)
 แผนที่ตกลงไว้: `docs/authoring/PLAN-STEP5-AUTHORING.md` · รายละเอียดการทดสอบ backend ด้วย PowerShell: `docs/authoring/authoring-b1-testing.md`
 

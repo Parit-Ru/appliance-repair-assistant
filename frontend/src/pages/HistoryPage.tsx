@@ -10,15 +10,6 @@ import { useAuth } from '../lib/authContext'
 import { HISTORY_RETENTION_DAYS } from '../lib/historyView'
 import { useSlowWait } from '../lib/useSlowWait'
 
-/**
- * หน้าประวัติการซ่อม (/history) — รายการการตรวจที่จบแล้วของเบราว์เซอร์นี้ เรียงใหม่สุดก่อน แบ่งหน้าละ 10 รายการ
- *
- * เลขหน้าเก็บใน URL (?page=) เพื่อให้กดย้อนกลับ รีเฟรช หรือแชร์ลิงก์ แล้วยังอยู่หน้าเดิม · ค่าที่ไม่ใช่จำนวนเต็มบวกถือเป็นหน้า 1
- * ทุกอย่างที่แสดงมาจากที่เซิร์ฟเวอร์ส่งมา ไม่แต่งชื่ออาการ สถานะ หรือวันที่เอง
- *
- * สามสถานะของรายการ: กำลังโหลด / ผิดพลาด (ลองอีกครั้งได้) / ว่าง
- */
-
 const LINK_CLASSES = 'text-accent underline-offset-4 hover:underline'
 
 function pageFromUrl(raw: string | null): number {
@@ -33,12 +24,10 @@ export function HistoryPage() {
   const { user } = useAuth()
   const isLoggedIn = user !== undefined
 
-  // รอนาน: เซิร์ฟเวอร์บน Render หลับเมื่อไม่มีคนใช้ ตื่นช้า
   const isSlow = useSlowWait(history.isPending)
 
   const data = history.data
 
-  // หน้า 1 ไม่ต้องใส่ใน URL (ลิงก์สั้น และ /history เฉยๆ = หน้าแรก)
   function goToPage(page: number) {
     setSearchParams(page === 1 ? {} : { page: String(page) })
   }
@@ -100,7 +89,6 @@ export function HistoryPage() {
         <section aria-label="รายการประวัติ" className="space-y-4">
           <p className="text-sm text-ink-soft">ทั้งหมด {data.total} รายการ</p>
 
-          {/* รายการเดิมยังค้างอยู่ระหว่างโหลดหน้าใหม่ (keepPreviousData) จางลงให้รู้ว่ากำลังโหลด */}
           <ul className={`border-t border-line ${history.isPlaceholderData ? 'opacity-60' : ''}`}>
             {data.items.map((item) => (
               <HistoryRow key={item.sessionId} item={item} />

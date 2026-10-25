@@ -1,11 +1,3 @@
-/**
- * drafts.dto.ts — ตัวตรวจ input ของ /admin/drafts (parseXxx เหมือน dto อื่นของโปรเจกต์) และรูปร่าง response
- *
- * ผิดรูปแบบ → ApiError 400 INVALID_DRAFT_REQUEST
- * ค่าที่ผู้ดูแลกรอกตอนอัปโหลด (manual_id, ยี่ห้อ, รุ่น ฯลฯ) ถูกตรวจที่นี่ แล้วเซิร์ฟเวอร์ใช้ค่านี้ประกอบผัง — LLM กำหนดไม่ได้
- * ไม่มีฟิลด์ใดในรูปแบบ response ที่เป็น user id หรืออีเมล (audit เก็บใน DB เท่านั้น)
- */
-
 import { isPlainObject } from '../common/helpers';
 import { invalidDraftRequest } from './drafts.errors';
 import { DEVICE_CATEGORIES } from './graph-validator';

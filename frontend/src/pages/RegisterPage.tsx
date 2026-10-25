@@ -11,10 +11,6 @@ import { MAX_DISPLAY_NAME_LENGTH, MAX_PASSWORD_LENGTH, MIN_PASSWORD_LENGTH, hasE
 import type { FormErrors } from '../lib/authForm'
 import { safeNext } from '../lib/authRedirect'
 
-/**
- * หน้าสมัครสมาชิก (/register) — ทางเลือกเสริม สมัครสำเร็จแล้วเข้าสู่ระบบทันที
- * ส่งเฉพาะ อีเมล/รหัสผ่าน/ชื่อที่แสดง · บทบาทเป็น "ผู้ใช้" เสมอ (หน้าจอไม่มีทางขอบทบาทอื่น และ backend ไม่รับ)
- */
 export function RegisterPage() {
   const { status, register } = useAuth()
   const navigate = useNavigate()
@@ -59,8 +55,7 @@ export function RegisterPage() {
           autoComplete="nickname"
           maxLength={MAX_DISPLAY_NAME_LENGTH}
           error={fieldErrors.displayName}
-          disabled={submit.isPending}
-        />
+          disabled={submit.isPending}/>
         <TextField
           label="อีเมล"
           type="email"
@@ -68,8 +63,7 @@ export function RegisterPage() {
           onChange={setEmail}
           autoComplete="email"
           error={fieldErrors.email}
-          disabled={submit.isPending}
-        />
+          disabled={submit.isPending}/>
         <TextField
           label="รหัสผ่าน"
           type="password"
@@ -79,8 +73,7 @@ export function RegisterPage() {
           hint={`ยาว ${MIN_PASSWORD_LENGTH}–${MAX_PASSWORD_LENGTH} ตัวอักษร`}
           maxLength={MAX_PASSWORD_LENGTH}
           error={fieldErrors.password}
-          disabled={submit.isPending}
-        />
+          disabled={submit.isPending}/>
 
         {submit.isError && (
           <ErrorNotice error={submit.error}>

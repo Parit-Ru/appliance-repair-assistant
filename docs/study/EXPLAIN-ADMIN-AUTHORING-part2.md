@@ -1,5 +1,7 @@
 # อธิบายฟีเจอร์ร่างแผนผังขั้นตอนจาก PDF — ส่วนที่ 2: ฝั่ง backend จากอัปโหลดจนได้ร่าง
 
+> ⚠️ **เขียนตอน backend ยังเป็น NestJS** (ก่อน 21 ต.ค. 2569) — แนวคิดและลำดับการทำงานยังใช้ได้ แต่ชื่อ `*.controller.ts`, `*.module.ts`, guard (`JwtAuthGuard`/`RolesGuard`), filter, decorator และเลขบรรทัด **ไม่ตรงโค้ดแล้ว** · ตอนนี้: controller → `*.routes.ts` · guard → middleware `requireAuth`/`optionalAuth`/`requireAdmin` (`auth/auth.middleware.ts`) · filter → `errorHandler` (`common/error-handler.ts`) · module/DI → `app.ts` · ตารางเทียบเต็มและเลขบรรทัดปัจจุบันอยู่ใน `docs/STUDY_GUIDE.md` §5.7
+
 > path ย่อจาก `backend/src/` · อ้างแบบ `ไฟล์:ฟังก์ชัน` หรือ `ไฟล์:บรรทัด` · ตัวอย่างที่ติดป้าย "ตัวอย่างสมมติ" คือค่าที่ผมตั้งเองเพื่อให้เห็นภาพ ส่วนรูปร่างข้อมูลมาจาก type/โค้ดจริง
 > ศัพท์ใช้ตามส่วนที่ 1: graph = แผนผังขั้นตอน, node = ขั้นตอน, draft = ร่าง
 

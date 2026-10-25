@@ -11,13 +11,6 @@ import { hasErrors, validateLogin } from '../lib/authForm'
 import type { FormErrors } from '../lib/authForm'
 import { safeNext } from '../lib/authRedirect'
 
-/**
- * หน้าเข้าสู่ระบบ (/login) — ทางเลือกเสริม ไม่จำเป็นต่อการตรวจอาการ (guest ใช้ได้เหมือนเดิม)
- *
- * ?reason=expired        → บอกว่าการเข้าสู่ระบบหมดอายุ (มาจากการที่ token ถูกปฏิเสธ)
- * ?reason=login-required → มาจากหน้าที่ต้องเข้าสู่ระบบ (เช่น หน้าผู้ดูแลระบบ)
- * ?next=/path            → กลับไปหน้านั้นหลังสำเร็จ (เฉพาะ path ภายในแอป ดู safeNext)
- */
 export function LoginPage() {
   const { status, login } = useAuth()
   const navigate = useNavigate()
@@ -34,7 +27,7 @@ export function LoginPage() {
     onSuccess: () => navigate(next ?? '/', { replace: true }),
   })
 
-  // ล็อกอินอยู่แล้วเปิดหน้านี้ → ไปต่อเลย (ไม่ใช้ตอนกำลังส่งฟอร์ม เพราะ onSuccess พาไปเอง)
+  // ล็อกอินอยู่แล้วเปิดหน้านี้ 
   if (status === 'user' && !submit.isPending) {
     return <Navigate to={next ?? '/'} replace />
   }
@@ -73,8 +66,7 @@ export function LoginPage() {
           onChange={setEmail}
           autoComplete="email"
           error={fieldErrors.email}
-          disabled={submit.isPending}
-        />
+          disabled={submit.isPending}/>
         <TextField
           label="รหัสผ่าน"
           type="password"
@@ -82,8 +74,7 @@ export function LoginPage() {
           onChange={setPassword}
           autoComplete="current-password"
           error={fieldErrors.password}
-          disabled={submit.isPending}
-        />
+          disabled={submit.isPending}/>
 
         {submit.isError && <ErrorNotice error={submit.error} />}
 

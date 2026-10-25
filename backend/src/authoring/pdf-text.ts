@@ -1,13 +1,11 @@
 
-import { Injectable } from '@nestjs/common';
 import { ApiError } from '../common/api-error';
-export const PDF_TEXT_EXTRACTOR = 'PDF_TEXT_EXTRACTOR';
 const MAX_PDF_PAGES = 200;
 export const MAX_RANGE_PAGES = 10;
 const MAX_PAGE_CHARS = 12_000;
 const MIN_TOTAL_CHARS = 50;
 
-// error ของการอ่าน PDF (ApiError รหัสละตัว · AllExceptionsFilter แปลงเป็น response)
+// error ของการอ่าน PDF (ApiError รหัสละตัว · errorHandler (common/error-handler.ts) แปลงเป็น response)
 const pdfUnreadable = (detail?: string) =>
   new ApiError(422, 'PDF_UNREADABLE', `อ่านไฟล์ PDF ไม่ได้ (ไฟล์เสียหรือมีรหัสผ่าน)${detail ? `: ${detail}` : ''}`);
 
@@ -66,7 +64,6 @@ function normalizePageText(text: string): string {
     .trim();
 }
 
-@Injectable()
 export class UnpdfTextExtractor implements PdfTextExtractor {
   async extract(data: Uint8Array, pageFrom: number, pageTo: number): Promise<ExtractedPdf> {
     const { getDocumentProxy } = loadUnpdf();

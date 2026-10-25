@@ -45,8 +45,7 @@ export function TextField({ label, type, value, onChange, autoComplete, error, h
         disabled={disabled}
         aria-invalid={error !== undefined || undefined}
         aria-describedby={describedBy === '' ? undefined : describedBy}
-        className={`${FIELD_CLASSES} ${error !== undefined ? 'border-danger' : 'border-line'}`}
-      />
+        className={`${FIELD_CLASSES} ${error !== undefined ? 'border-danger' : 'border-line'}`}/>
       {error !== undefined && (
         <p id={errorId} className="text-sm text-danger">
           {error}

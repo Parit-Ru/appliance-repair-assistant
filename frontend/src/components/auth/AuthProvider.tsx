@@ -27,8 +27,6 @@ import type { StoredAuth } from '../../lib/authStorage'
 export function AuthProvider({ children }: { children: ReactNode }) {
   const queryClient = useQueryClient()
   const navigate = useNavigate()
-  // path ปัจจุบันในแอป (ไม่รวม basename) เก็บใน ref เพื่อให้ตัวจัดการ 401 อ่านค่าล่าสุดโดยไม่ต้องลงทะเบียนใหม่ทุกครั้งที่เปลี่ยนหน้า
-  // อัปเดต ref หลัง render เสร็จ (ใน effect) ไม่ใช่ระหว่าง render
   const location = useLocation()
   const locationRef = useRef(location)
   useEffect(() => {
@@ -39,38 +37,34 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [stored, setStored] = useState<StoredAuth | null>(initial)
   const [verifying, setVerifying] = useState(initial !== null)
 
-  // ---- token เสีย/หมดอายุ (คำขอที่แนบ token ได้ 401) ----
   useEffect(() => {
     setUnauthorizedHandler((usedToken) => {
-      // คำขอเก่าที่ตอบช้าหลังผู้ใช้ล็อกอินใหม่/ออกไปแล้ว → เมิน
+      // คำขอเก่าที่ตอบช้าหลังผู้ใช้ล็อกอินใหม่ออกไปแล้ว  เมิน
       if (getStoredToken() !== usedToken) return
 
       clearStoredAuth()
       setStored(null)
       setVerifying(false)
       queryClient.clear()
-      // กลับมาหน้าเดิมหลังล็อกอิน เช่น /session/:id ที่กำลังตรวจอยู่ (กรณี 'e')
+      // กลับมาหน้าเดิมหลังล็อกอิน เช่น /session/:id 
       navigate(loginUrl('expired', locationRef.current.pathname + locationRef.current.search), { replace: true })
     })
     return () => setUnauthorizedHandler(undefined)
   }, [navigate, queryClient])
 
-  // ---- ตอนเปิดแอป: ยืนยัน token ที่จำไว้ ----
+  //ตอนเปิดแอปยืนยัน token ที่จำไว้
   useEffect(() => {
     const token = getStoredToken()
     if (token === undefined) return
 
     let cancelled = false
-    getMe()
-      .then((user) => {
+    getMe().then((user) => {
         if (cancelled || getStoredToken() !== token) return
         const next = { token, user }
         storeAuth(next)
         setStored(next)
         setVerifying(false)
-      })
-      .catch(() => {
-        // 401 ถูกจัดการแล้วโดย http.ts · ข้อผิดพลาดอื่น (เครือข่าย) ใช้ค่าที่จำไว้ต่อ
+      }).catch(() => {
         if (!cancelled) setVerifying(false)
       })
     return () => {

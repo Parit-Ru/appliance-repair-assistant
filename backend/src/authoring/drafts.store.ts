@@ -9,10 +9,8 @@
  * (seed-graphs.js เดิมเขียนทับเงียบๆ · ที่นี่ id ชนของเดิม = ปฏิเสธ ไม่แตะผังที่ใช้งานอยู่)
  */
 
-import { Inject, Injectable } from '@nestjs/common';
 import type { Pool, PoolConnection, ResultSetHeader, RowDataPacket } from 'mysql2/promise';
 import { numOrNull } from '../common/helpers';
-import { MYSQL_POOL } from '../database/database.constants';
 import { GRAPH_COLUMNS, MANUAL_COLUMNS, NODE_COLUMNS } from './draft-manual';
 import type { DbRows, DraftMeta } from './draft-manual';
 import type { DraftGraph } from './draft-schema';
@@ -113,9 +111,8 @@ function toRecord(row: Row): DraftRecord {
   };
 }
 
-@Injectable()
 export class DraftsStore {
-  constructor(@Inject(MYSQL_POOL) private readonly pool: Pool) {}
+  constructor(private readonly pool: Pool) {}
 
   async insert(draft: NewDraft): Promise<void> {
     await this.pool.query(

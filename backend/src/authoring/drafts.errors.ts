@@ -1,18 +1,11 @@
-/**
- * drafts.errors.ts — error ของงานร่างผัง (ใช้ ApiError รหัสละตัว · AllExceptionsFilter แปลงเป็น response)
- * ฟังก์ชันสร้างเหล่านี้มีไว้เพราะบางตัวถูกโยนจากหลายที่ (service / store) ข้อความจะได้เหมือนกันทุกที่
- */
-
 import { ApiError } from '../common/api-error';
 
-/** ข้อมูลที่ส่งมา (ฟอร์ม / body / ผังที่แก้) ผิดรูปแบบ */
+
 export const invalidDraftRequest = (message: string) => new ApiError(400, 'INVALID_DRAFT_REQUEST', message);
-
 export const pdfUnsupportedType = () => new ApiError(415, 'PDF_UNSUPPORTED_TYPE', 'ไฟล์ที่อัปโหลดไม่ใช่ PDF');
-
 export const draftNotFound = (id: string) => new ApiError(404, 'DRAFT_NOT_FOUND', `ไม่พบร่างผัง '${id}'`);
 
-/** สถานะของร่างไม่อนุญาตให้ทำการนี้ (action = edit / reject / publish) */
+
 export const draftNotReady = (action: string, status: string) =>
   new ApiError(409, 'DRAFT_NOT_READY', `ทำ '${action}' ไม่ได้ในสถานะ '${status}'`);
 
@@ -31,6 +24,5 @@ export const draftIdConflict = (conflicts: string[]) =>
     `ชนกับข้อมูลที่มีอยู่แล้ว: ${conflicts.slice(0, 5).join(', ')}${conflicts.length > 5 ? ` (และอีก ${conflicts.length - 5})` : ''} — ไม่เขียนทับ`,
   );
 
-/** เขียนลงฐานข้อมูลแล้ว แต่โหลดผังเข้าหน่วยความจำไม่สำเร็จ */
 export const publishReloadFailed = () =>
   new ApiError(500, 'PUBLISH_RELOAD_FAILED', 'เผยแพร่ลงฐานข้อมูลแล้ว แต่โหลดผังเข้าระบบไม่สำเร็จ — ผังเดิมยังใช้งานได้ ให้รีสตาร์ต backend เพื่อโหลดผังใหม่');

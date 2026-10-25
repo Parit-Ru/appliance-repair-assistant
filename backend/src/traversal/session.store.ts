@@ -1,7 +1,5 @@
-import { Inject, Injectable } from '@nestjs/common';
 import type { Pool, ResultSetHeader, RowDataPacket } from 'mysql2/promise';
 
-import { MYSQL_POOL } from '../database/database.constants';
 import { ownerColumns, ownerWhere } from '../auth/session-owner';
 import type { SessionOwner } from '../auth/session-owner';
 import type { ModelSelection } from './traversal.dto';
@@ -34,9 +32,8 @@ interface OwnerRow extends RowDataPacket {
   user_id: string | null;
 }
 
-@Injectable()
 export class SessionStore {
-  constructor(@Inject(MYSQL_POOL) private readonly pool: Pool) {}
+  constructor(private readonly pool: Pool) {}
 
   async create(session: SessionState, modelSelection?: ModelSelection, owner?: SessionOwner): Promise<void> {
     const { userId, clientId } = ownerColumns(owner);

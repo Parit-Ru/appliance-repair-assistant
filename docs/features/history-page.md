@@ -1,5 +1,7 @@
 # หน้า "ประวัติการซ่อม" (Repair History)
 
+> ⚠️ **เอกสารนี้บันทึกตอน backend ยังเป็น NestJS** (ก่อน 21 ต.ค. 2569) — ชื่อ `*.controller.ts`, `*.module.ts`, guard, exception filter, decorator และเลขบรรทัดในนี้อาจไม่มีแล้ว เก็บไว้เป็นประวัติการตัดสินใจ · โค้ดปัจจุบันเป็น Express ดูตารางเทียบใน `docs/STUDY_GUIDE.md` §5.7
+
 ทำเมื่อ 15 ต.ค. 2569 · เส้นทาง `/#/history` และ `/#/history/:sessionId`
 ผ่านเครื่องตรวจ (tsc / eslint / jest / vitest / build) · **ยังไม่ได้ดูด้วยตาในเบราว์เซอร์ ยังไม่ได้รัน migration ยังไม่ได้ deploy**
 

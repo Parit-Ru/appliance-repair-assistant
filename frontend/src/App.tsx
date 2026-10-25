@@ -54,32 +54,28 @@ export default function App() {
                   <AdminRoute>
                     <AdminAnalyticsPage />
                   </AdminRoute>
-                }
-              />
+                }/>
               <Route
                 path="/admin/feedback"
                 element={
                   <AdminRoute>
                     <AdminFeedbackPage />
                   </AdminRoute>
-                }
-              />
+                }/>
               <Route
                 path="/admin/drafts"
                 element={
                   <AdminRoute>
                     <AdminDraftsPage />
                   </AdminRoute>
-                }
-              />
+                }/>
               <Route
                 path="/admin/drafts/:id"
                 element={
                   <AdminRoute>
                     <AdminDraftReviewPage />
                   </AdminRoute>
-                }
-              />
+                }/>
               <Route path="*" element={<NotFoundPage />} />
             </Routes>
           </AppShell>

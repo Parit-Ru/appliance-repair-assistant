@@ -1,8 +1,5 @@
-/**
-  traversal.service.ts — ต่อ GraphRepository, EquipmentRepository และ SessionStore เข้ากับเครื่องสถานะ (traversal-engine)
- */
+//traversal.service.ts — ต่อ GraphRepository, EquipmentRepository และ SessionStore เข้ากับเครื่องสถานะ (traversal-engine)
 
-import { Injectable } from '@nestjs/common';
 import type { SessionOwner } from '../auth/session-owner';
 import { ApiError } from '../common/api-error';
 import { GraphRepository } from './graph.repository';
@@ -30,7 +27,6 @@ const sessionNotCompleted = (sessionId: string) =>
 const outcomeAlreadySubmitted = (sessionId: string) =>
   new ApiError(409, 'OUTCOME_ALREADY_SUBMITTED', `session '${sessionId}' บันทึกผลลัพธ์ไปแล้ว ส่งซ้ำไม่ได้`);
 
-@Injectable()
 export class TraversalService {
   constructor(
     private readonly graphRepository: GraphRepository,

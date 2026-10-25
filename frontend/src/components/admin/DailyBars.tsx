@@ -32,8 +32,7 @@ export function DailyBars({ days }: DailyBarsProps) {
                 <div className="relative w-full overflow-hidden rounded-t-sm bg-accent/40" style={{ height: `${barPercent(day.started, max)}%` }}>
                   <div
                     className="absolute inset-x-0 bottom-0 bg-success"
-                    style={{ height: `${day.started === 0 ? 0 : Math.round((day.completed / day.started) * 100)}%` }}
-                  />
+                    style={{ height: `${day.started === 0 ? 0 : Math.round((day.completed / day.started) * 100)}%` }}/>
                 </div>
               </div>
             ))}

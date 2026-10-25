@@ -1,33 +1,12 @@
-/**
- * admin.store.ts — SQL ทั้งหมดของ /admin/* · อ่านอย่างเดียว (SELECT เท่านั้น ไม่มี INSERT/UPDATE/DELETE)
- *
- * แยกจาก SessionStore / HistoryStore โดยตั้งใจ: store เหล่านั้นผูกกับเจ้าของ (ownerWhere) ส่วนที่นี่ "มองข้ามเจ้าของ"
- * ตามหน้าที่ของ admin จึงรวมไว้ไฟล์เดียวที่เข้าถึงได้ผ่าน guard Admin เท่านั้น (ดู admin.controller.ts)
- *
- * ความเป็นส่วนตัว:
- *   - ไม่แตะตาราง users และไม่ SELECT คอลัมน์ email / password_hash / display_name / user_id / client_id
- *   - รู้เจ้าของแค่ 3 ชนิดผ่าน CASE ... AS owner_type (user | guest | none) — ใช้ user_id/client_id เฉพาะใน IS [NOT] NULL
- *
- * SQL ประกอบจากชิ้นคงที่ในไฟล์นี้เท่านั้น ค่าจากผู้ใช้ไปทางพารามิเตอร์ (?) ทั้งหมด
- * เวลา: เทียบด้วย UNIX_TIMESTAMP(คอลัมน์) กับ epoch ที่คำนวณใน Node (เวลาไทย) ไม่ขึ้นกับ time_zone ของ MySQL
- * ไม่ต้องมี index เพิ่ม (ข้อมูลระดับ demo) — ถ้าข้อมูลโตให้พิจารณา INDEX (created_at) ภายหลัง
- */
-
-import { Inject, Injectable } from '@nestjs/common';
 import type { Pool, RowDataPacket } from 'mysql2/promise';
-
 import { numOrNull } from '../common/helpers';
-import { MYSQL_POOL } from '../database/database.constants';
 import type { EpochRange, OwnerType } from './admin.dto';
 
-/** ชนิดเจ้าของจาก user_id / client_id โดยไม่ดึงค่า id ออกมา */
 const OWNER_TYPE_SQL = `CASE
            WHEN s.user_id IS NOT NULL THEN 'user'
            WHEN s.client_id IS NOT NULL THEN 'guest'
            ELSE 'none'
          END`;
-
-// ---------- แถวที่ store คืน (ไม่มี id ของเจ้าของ ไม่มี email) ----------
 
 interface FeedbackRecord {
   sessionId: string;
@@ -57,9 +36,7 @@ interface FeedbackTotals {
 }
 
 interface Window {
-  /** รวมปลายนี้ */
   fromEpoch: number;
-  /** ไม่รวมปลายนี้ */
   toEpoch: number;
 }
 
@@ -69,13 +46,8 @@ interface Row extends RowDataPacket {
 
 const num = (value: unknown): number => Number(value ?? 0);
 
-@Injectable()
 export class AdminStore {
-  constructor(@Inject(MYSQL_POOL) private readonly pool: Pool) {}
-
-  // ============================================================
-  // GET /admin/feedback
-  // ============================================================
+  constructor(private readonly pool: Pool) {}
 
   async listFeedback(
     filter: EpochRange & { helpful?: boolean },
@@ -134,9 +106,7 @@ export class AdminStore {
     };
   }
 
-  // ============================================================
-  // GET /admin/analytics/summary — ทุกคำสั่งใช้ช่วงเวลา window เดียวกัน
-  // ============================================================
+  // GET /admin/analytics/summary
 
   async sessionTotals(window: Window): Promise<SessionTotals> {
     const [rows] = await this.pool.query<Row[]>(
@@ -177,7 +147,6 @@ export class AdminStore {
     return { total: num(rows[0]?.total), helpful: num(rows[0]?.helpful_count) };
   }
 
-  /** จำนวน session ต่อผัง (ทุกผังที่มี session ในช่วง · service จัดอันดับและรวมเป็นประเภทเครื่องเอง) */
   async graphCounts(window: Window): Promise<Array<{ graphId: string; count: number }>> {
     const [rows] = await this.pool.query<Row[]>(
       `SELECT graph_id, COUNT(*) AS n
@@ -189,7 +158,6 @@ export class AdminStore {
     return rows.map((row) => ({ graphId: String(row.graph_id), count: num(row.n) }));
   }
 
-  /** โหนดสุดท้ายของ session ที่จบแล้ว (service แปลงเป็น outcome_kind จากผังปัจจุบัน) */
   async completedEndNodes(window: Window): Promise<Array<{ graphId: string; nodeId: string; count: number }>> {
     const [rows] = await this.pool.query<Row[]>(
       `SELECT graph_id, current_node_id, COUNT(*) AS n
@@ -206,7 +174,6 @@ export class AdminStore {
     }));
   }
 
-  /** จำนวนเริ่ม/จบต่อวัน · day_idx = เลขวันนับจาก 1970-01-01 ตามเวลาไทย (ไม่ขึ้นกับ time_zone ของ MySQL) */
   async perDay(window: Window): Promise<Array<{ dayIndex: number; started: number; completed: number }>> {
     const [rows] = await this.pool.query<Row[]>(
       `SELECT FLOOR((UNIX_TIMESTAMP(created_at) + 25200) / 86400) AS day_idx,

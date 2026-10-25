@@ -68,8 +68,7 @@ export function DraftActions({ draft, onRefresh }: { draft: DraftDetail; onRefre
                 className={CHECKBOX_CLASSES}
                 checked={warningsAcknowledged}
                 onChange={(e) => setWarningsAcknowledged(e.target.checked)}
-                disabled={busy}
-              />
+                disabled={busy}/>
               <span>ฉันอ่านคำเตือนทั้ง {warnings} ข้อในรายงานการตรวจแล้ว และยืนยันว่าเผยแพร่ได้</span>
             </label>
           )}
@@ -100,8 +99,7 @@ export function DraftActions({ draft, onRefresh }: { draft: DraftDetail; onRefre
                 rows={2}
                 onChange={(e) => setReason(e.target.value)}
                 disabled={busy}
-                className="w-full rounded-lg border border-line bg-canvas p-2 text-sm text-ink"
-              />
+                className="w-full rounded-lg border border-line bg-canvas p-2 text-sm text-ink"/>
               <div className="flex flex-wrap gap-3">
                 <Button variant="secondary" isLoading={reject.isPending} disabled={busy} onClick={() => reject.mutate(reason)}>
                   ยืนยันปฏิเสธ

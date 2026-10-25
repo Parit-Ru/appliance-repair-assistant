@@ -1,5 +1,7 @@
 # อธิบายฟีเจอร์ "อัปโหลด PDF → ร่างแผนผังขั้นตอน → ตรวจ → เผยแพร่" (ส่วนที่ 1: ภาพรวม)
 
+> ⚠️ **เขียนตอน backend ยังเป็น NestJS** (ก่อน 21 ต.ค. 2569) — แนวคิดและลำดับการทำงานยังใช้ได้ แต่ชื่อ `*.controller.ts`, `*.module.ts`, guard (`JwtAuthGuard`/`RolesGuard`), filter, decorator และเลขบรรทัด **ไม่ตรงโค้ดแล้ว** · ตอนนี้: controller → `*.routes.ts` · guard → middleware `requireAuth`/`optionalAuth`/`requireAdmin` (`auth/auth.middleware.ts`) · filter → `errorHandler` (`common/error-handler.ts`) · module/DI → `app.ts` · ตารางเทียบเต็มและเลขบรรทัดปัจจุบันอยู่ใน `docs/STUDY_GUIDE.md` §5.7
+
 > เขียนให้: นักศึกษาปี 4 ที่ต้องอธิบายฟีเจอร์นี้ให้กรรมการและตอบเมื่อถูกให้เปิดโค้ด
 > ทุกข้อความอ้างจากโค้ดจริง ใช้รูปแบบ `ไฟล์:ฟังก์ชัน` หรือ `ไฟล์:บรรทัด` (path ย่อจาก `backend/src/` และ `frontend/src/`)
 > ที่ไม่ได้ตรวจเอง ผมเขียนว่า "ไม่แน่ใจ" พร้อมบอกว่าให้ไปดูที่ไหน

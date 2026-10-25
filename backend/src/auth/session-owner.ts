@@ -1,5 +1,5 @@
 import { parseOptionalClientId, parseRequiredClientId } from '../traversal/traversal.dto';
-import type { AuthUser } from './jwt-auth.guard';
+import type { AuthUser } from './auth.middleware';
 export type SessionOwner =
   | { kind: 'user'; userId: string }
   | { kind: 'guest'; clientId: string };

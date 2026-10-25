@@ -26,11 +26,8 @@ export async function listManuals(): Promise<ManualSummary[]> {
 }
 
 interface StartSessionOptions {
-  /** ส่งเฉพาะตอนเริ่มจากผลค้นหา (ไว้คิดคะแนนความมั่นใจ) */
   query?: string
-  /** รุ่นที่ผู้ใช้เลือก: ถ้าส่ง เซิร์ฟเวอร์ตรวจว่าผังเป็นของรุ่นนั้น (ไม่ใช่ → 400 GRAPH_MANUAL_MISMATCH) */
   manualId?: string
-  /** ผู้ใช้ระบุรุ่นเอง หรือไม่ทราบรุ่น (บันทึกไว้แยกเคสตอนวัดผล) */
   modelSelection?: ModelSelection
 }
 
@@ -38,7 +35,6 @@ export async function startSession(graphId: string, options: StartSessionOptions
   return request<SessionResponse>('/traversal/sessions', {
     method: 'POST',
     body: { graphId, ...options },
-    // ผูก session กับเบราว์เซอร์นี้ ให้ไปปรากฏในหน้า "ประวัติการซ่อม" (ไม่มีผลต่อขั้นตอน)
     headers: ownerHeaders(),
   })
 }
@@ -75,7 +71,6 @@ export async function submitOutcome(sessionId: string, text: string): Promise<Se
 export async function abandonSession(sessionId: string): Promise<void> {
   return request<void>(`/traversal/sessions/${encodeURIComponent(sessionId)}`, {
     method: 'DELETE',
-    // เซิร์ฟเวอร์ลบเฉพาะ session ของเบราว์เซอร์นี้ (เจ้าของ = client_id ที่ส่งตอนเริ่ม) ไม่ตรง = 404 SESSION_NOT_FOUND
     headers: ownerHeaders(),
   })
 }

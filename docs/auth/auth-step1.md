@@ -1,5 +1,7 @@
 # Auth + Roles — Step 1 (backend)
 
+> ⚠️ **เอกสารนี้บันทึกตอน backend ยังเป็น NestJS** (ก่อน 21 ต.ค. 2569) — ชื่อ `*.controller.ts`, `*.module.ts`, guard, exception filter, decorator และเลขบรรทัดในนี้อาจไม่มีแล้ว เก็บไว้เป็นประวัติการตัดสินใจ · โค้ดปัจจุบันเป็น Express ดูตารางเทียบใน `docs/STUDY_GUIDE.md` §5.7
+
 สถานะ: เขียนครบ · คอมไพล์ผ่านด้วย type จำลอง · ยังไม่ได้ติดตั้งแพ็กเกจ/รัน migration/ทดสอบกับเซิร์ฟเวอร์จริง
 ยังไม่แตะ endpoint เดิม (traversal, history ยังใช้ `X-Client-Id`) การผูกประวัติกับ user อยู่ Step 2
 

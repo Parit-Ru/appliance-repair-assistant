@@ -1,7 +1,5 @@
-import { Inject, Injectable, Logger, OnModuleInit } from '@nestjs/common';
 import type { Pool, RowDataPacket } from 'mysql2/promise';
-
-import { MYSQL_POOL } from '../database/database.constants';
+import { createLogger } from '../common/logger';
 import type { DeviceCategory } from '../traversal-engine/types';
 import type { EquipmentItemDto } from './traversal.dto';
 
@@ -14,15 +12,15 @@ interface EquipmentRow extends RowDataPacket {
   author_note: string | null;
 }
 
-@Injectable()
-export class EquipmentRepository implements OnModuleInit {
-  private readonly logger = new Logger(EquipmentRepository.name);
+export class EquipmentRepository {
+  private readonly logger = createLogger('EquipmentRepository');
 
   private readonly byCategory = new Map<DeviceCategory, EquipmentItemDto[]>();
 
-  constructor(@Inject(MYSQL_POOL) private readonly pool: Pool) {}
+  constructor(private readonly pool: Pool) {}
 
-  async onModuleInit(): Promise<void> {
+  // โหลดรายการอุปกรณ์เข้าหน่วยความจำ — app.ts เรียกตอนบูต ก่อนเปิดรับคำขอ 
+  async load(): Promise<void> {
     await this.loadAll();
   }
   findByCategory(category: DeviceCategory): EquipmentItemDto[] {

@@ -1,32 +1,15 @@
-/**
- * auth.service.ts — สมัคร / เข้าสู่ระบบ / ดูข้อมูลตัวเอง + ออก JWT
- *
- * ตรรกะล้วน: error เป็น ApiError (status + code + ข้อความ) ให้ AllExceptionsFilter แปลงเป็น response
- *
- * ความปลอดภัย:
- * - สมัครสาธารณะได้ role = user เท่านั้น (RegisterBody ไม่มี role) · admin สร้างได้ทางเดียวคือ scripts/seed-admin.js
- * - login ผิดทุกกรณี (ไม่พบอีเมล / รหัสผ่านผิด) ตอบ invalidCredentials ข้อความเดียวกัน ไม่บอกว่าอีเมลมีอยู่หรือไม่
- *   และเมื่อไม่พบอีเมลก็ยัง compare กับ hash หลอก เพื่อให้เวลาตอบใกล้เคียงกัน (กันการเดาอีเมลจากเวลา)
- * - JWT มีแค่ sub (user id) และ role · role ใน token เชื่อตามที่ตกลง (ไม่ query DB ทุกคำขอ)
- *   ผลคือเปลี่ยน role ของใครแล้วต้องรอ token เก่าหมดอายุ (JWT_EXPIRES_IN)
- */
-
-import { Injectable, UnauthorizedException } from '@nestjs/common';
-import { JwtService } from '@nestjs/jwt';
 import { compare, hash, hashSync } from 'bcryptjs';
-
 import { ApiError } from '../common/api-error';
 import { isoFromEpoch } from '../common/helpers';
 import type { AuthResponseDto, LoginBody, RegisterBody, UserDto } from './auth.dto';
 import { Role } from './role.enum';
+import { TokenService } from './token';
 import { DuplicateEmailError, UsersStore } from './users.store';
 import type { UserRecord } from './users.store';
 
-/** ต้องเท่ากับ BCRYPT_ROUNDS ใน scripts/seed-admin.js (admin ที่ seed ต้องล็อกอินผ่านทางเดียวกับคนสมัคร) */
 const BCRYPT_ROUNDS = 10;
 
 const emailTaken = () => new ApiError(409, 'EMAIL_TAKEN', 'อีเมลนี้ถูกใช้สมัครแล้ว');
-
 const invalidCredentials = () => new ApiError(401, 'INVALID_CREDENTIALS', 'อีเมลหรือรหัสผ่านไม่ถูกต้อง');
 
 function toUserDto(user: UserRecord): UserDto {
@@ -39,14 +22,12 @@ function toUserDto(user: UserRecord): UserDto {
   };
 }
 
-@Injectable()
 export class AuthService {
-  /** hash หลอกสำหรับ compare ตอนไม่พบอีเมล (สร้างครั้งเดียวตอนบูต ไม่ตรงกับรหัสผ่านของใคร) */
   private readonly dummyHash = hashSync(globalThis.crypto.randomUUID(), BCRYPT_ROUNDS);
 
   constructor(
     private readonly usersStore: UsersStore,
-    private readonly jwtService: JwtService,
+    private readonly tokens: TokenService,
   ) {}
 
   async register(body: RegisterBody): Promise<AuthResponseDto> {
@@ -59,7 +40,6 @@ export class AuthService {
         email: body.email,
         passwordHash,
         displayName: body.displayName,
-        // ตั้งตายตัวที่นี่ ไม่รับจากผู้ใช้เด็ดขาด
         role: Role.User,
       });
     } catch (err) {
@@ -82,18 +62,17 @@ export class AuthService {
 
     return this.issue(user);
   }
-
-  /** ข้อมูลล่าสุดจากฐานข้อมูล · ผู้ใช้ถูกลบไปแล้วแต่ token ยังไม่หมดอายุ → 401 */
+  
   async me(userId: string): Promise<UserDto> {
     const user = await this.usersStore.findById(userId);
     if (!user) {
-      throw new UnauthorizedException('ไม่พบบัญชีนี้แล้ว กรุณาเข้าสู่ระบบใหม่');
+      throw new ApiError(401, 'UNAUTHENTICATED', 'ไม่พบบัญชีนี้แล้ว กรุณาเข้าสู่ระบบใหม่');
     }
     return toUserDto(user);
   }
 
-  private async issue(user: UserRecord): Promise<AuthResponseDto> {
-    const accessToken = await this.jwtService.signAsync({ sub: user.id, role: user.role });
+  private issue(user: UserRecord): AuthResponseDto {
+    const accessToken = this.tokens.sign({ sub: user.id, role: user.role });
     return { accessToken, user: toUserDto(user) };
   }
 }

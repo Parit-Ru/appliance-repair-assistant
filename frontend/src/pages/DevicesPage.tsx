@@ -12,17 +12,6 @@ import { DEVICE_CATEGORIES, DEVICE_CATEGORY_LABELS } from '../lib/labels'
 import { MODEL_MATCH_HINT, symptomsPath } from '../lib/modelSelection'
 import { manualMatches, manualTitle } from '../lib/models'
 import { useSlowWait } from '../lib/useSlowWait'
-
-/**
- * หน้าเลือกเครื่อง → เลือกรุ่น (ก่อนเลือกอาการ)
- *
- * ขั้น 1 (ไม่มี ?category=): การ์ดประเภทเครื่องที่มีคู่มืออยู่ในระบบ
- * ขั้น 2 (?category=...):   รายการรุ่นของประเภทนั้น พิมพ์เลขรุ่นกรองได้
- *
- * ผู้ใช้ที่ไม่ทราบรุ่นกด "ฉันไม่ทราบรุ่น" ได้ ระบบแสดงวิธีหาเลขรุ่นและคำเตือนว่าขั้นตอนอาจไม่ตรงกับเครื่อง
- * แล้วให้เลือกรุ่นที่ใกล้เคียงเอง ระบบ "ไม่เลือกให้" และบันทึกไว้ว่าไม่ทราบรุ่น (unknown=1)
- */
-
 const CARD_CLASSES = 'flex min-h-14 w-full items-center gap-3 rounded-lg border border-line bg-panel px-4 py-3 text-left transition hover:border-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent'
 
 export function DevicesPage() {
@@ -31,7 +20,7 @@ export function DevicesPage() {
   const isSlow = useSlowWait(manuals.isPending)
 
   const rawCategory = params.get('category') as DeviceCategory | null
-  // ค่า category ที่ไม่รู้จัก (เช่นพิมพ์ URL เอง) ถือว่าไม่ได้เลือก แล้วกลับไปขั้น 1
+  // ค่า category ที่ไม่รู้จัก
   const category = rawCategory !== null && DEVICE_CATEGORIES.includes(rawCategory) ? rawCategory : null
 
   return (

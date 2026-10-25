@@ -65,8 +65,7 @@ export function DraftJsonEditor({ draftId, graphs }: DraftJsonEditorProps) {
         spellCheck={false}
         rows={16}
         disabled={update.isPending}
-        className="w-full rounded-lg border border-line bg-canvas p-3 font-mono text-xs text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
-      />
+        className="w-full rounded-lg border border-line bg-canvas p-3 font-mono text-xs text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"/>
 
       {localError && (
         <p role="alert" className="text-sm text-danger">

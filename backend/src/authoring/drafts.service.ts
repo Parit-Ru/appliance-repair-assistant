@@ -1,10 +1,9 @@
 import { randomUUID } from 'node:crypto';
-import { Inject, Injectable, Logger, Optional } from '@nestjs/common';
-import type { OnApplicationBootstrap } from '@nestjs/common';
 import { isoFromEpoch, UUID_PATTERN } from '../common/helpers';
+import { createLogger } from '../common/logger';
 import { SymptomSearchService } from '../symptom-search/symptom-search.service';
 import { GraphRepository } from '../traversal/graph.repository';
-import { DRAFT_LLM_CLIENT, DraftLlmError, PROMPT_VERSION } from './draft-llm.client';
+import { DraftLlmError, PROMPT_VERSION } from './draft-llm.client';
 import type { DraftLlmClient } from './draft-llm.client';
 import { assembleManual, toDbRows } from './draft-manual';
 import { DraftParseError, assignGraphIds, parseDraftGraphs, parseLlmOutput } from './draft-schema';
@@ -15,7 +14,6 @@ import { DraftsStore } from './drafts.store';
 import type { DraftRecord, PreparedPublish } from './drafts.store';
 import { validateManual } from './graph-validator';
 import type { ValidationReport } from './graph-validator';
-import { PDF_TEXT_EXTRACTOR } from './pdf-text';
 import type { PageText, PdfTextExtractor } from './pdf-text';
 
 const PAGES_PER_LLM_CALL = 2;
@@ -28,20 +26,19 @@ function chunkPages(pages: PageText[], size: number = PAGES_PER_LLM_CALL): PageT
   return groups;
 }
 
-@Injectable()
-export class DraftsService implements OnApplicationBootstrap {
-  private readonly logger = new Logger(DraftsService.name);
+export class DraftsService {
+  private readonly logger = createLogger('DraftsService');
   private busy = false;
 
   constructor(
     private readonly store: DraftsStore,
     private readonly graphRepository: GraphRepository,
     private readonly symptomSearch: SymptomSearchService,
-    @Inject(PDF_TEXT_EXTRACTOR) private readonly extractor: PdfTextExtractor,
-    @Optional() @Inject(DRAFT_LLM_CLIENT) private readonly llm: DraftLlmClient | null = null,
+    private readonly extractor: PdfTextExtractor,
+    private readonly llm: DraftLlmClient | null = null,
   ) {}
 
-  async onApplicationBootstrap(): Promise<void> {
+  async failInterruptedDrafts(): Promise<void> {
     try {
       const interrupted = await this.store.failInterrupted();
       if (interrupted > 0) this.logger.warn(`ร่างที่ค้างสถานะ drafting ${interrupted} รายการ ถูกเปลี่ยนเป็น failed (เซิร์ฟเวอร์เริ่มใหม่)`);
@@ -49,9 +46,7 @@ export class DraftsService implements OnApplicationBootstrap {
       this.logger.error(`ตรวจร่างที่ค้างไม่สำเร็จ (รัน migration 012 แล้วหรือยัง?): ${err instanceof Error ? err.message : String(err)}`);
     }
   }
-  /*
-   POST /admin/drafts — รับ PDF (ในหน่วยความจำ) → แยกข้อความช่วงหน้าที่เลือก → บันทึกร่างสถานะ drafting → ร่างต่อเบื้องหลัง
-  ไฟล์ PDF ไม่ถูกเก็บ: เก็บเฉพาะข้อความของช่วงหน้าที่เลือก*/
+  //POST /admin/drafts — รับ PDF  แยกข้อความช่วงหน้าที่เลือก บันทึกร่างสถานะ drafting ร่างต่อเบื้องหลังไฟล์ PDF ไม่ถูกเก็บ
   async createFromUpload(file: { buffer: Buffer } | undefined, fields: UploadFields, userId: string): Promise<{ id: string }> {
     if (!file || file.buffer.length === 0) throw invalidDraftRequest('ต้องแนบไฟล์ PDF ในฟิลด์ file');
     if (!file.buffer.subarray(0, 1024).includes('%PDF-')) throw pdfUnsupportedType();
@@ -86,7 +81,7 @@ export class DraftsService implements OnApplicationBootstrap {
     }
   }
 
-  /** งานเบื้องหลัง: เรียก LLM ทีละช่วงหน้า → parse เข้ม → ประกอบ → ตรวจ → บันทึก (ไม่โยน error ออกนอก) */
+  //  เรียก LLM 
   private async runDrafting(id: string): Promise<void> {
     try {
       const draft = await this.requireDraft(id);
@@ -157,7 +152,7 @@ export class DraftsService implements OnApplicationBootstrap {
     return this.toDetail(await this.requireDraft(this.requireId(rawId)));
   }
 
-  /*PUT /admin/drafts/:id — ผู้ดูแลแก้ผัง (ready เท่านั้น) · ตรวจใหม่ทุกครั้ง ผลตรวจผู้ใช้แก้เองไม่ได้ */
+  //PUT /admin/drafts/:id 
   async update(rawId: string, graphsRaw: unknown): Promise<DraftDetailDto> {
     const id = this.requireId(rawId);
     const draft = await this.requireDraft(id);
@@ -184,14 +179,7 @@ export class DraftsService implements OnApplicationBootstrap {
   }
 
 
-  /*
-    POST /admin/drafts/:id/publish { acknowledgedWarnings }
-    ตรวจซ้ำในฝั่งเซิร์ฟเวอร์กับข้อมูลที่ล็อกไว้ใน transaction (ไม่เชื่อรายงานที่เก็บไว้):
-      error ≥ 1                         → draftInvalid (ไม่มี override)
-      warning ≥ 1 และไม่มี flag         → warningsNotAcknowledged
-      id ชนของเดิม                       → draftIdConflict (ไม่เขียนทับ)
-    สำเร็จแล้ว: reload GraphRepository → เพิ่มผังเข้าดัชนีค้นหา (ล้มเหลวไม่ทำให้ publish ที่สำเร็จแล้วกลายเป็นล้ม)
-   */
+  //POST /admin/drafts/:id/publish { acknowledgedWarnings }
   async publish(rawId: string, userId: string, acknowledgedWarnings: boolean): Promise<PublishResultDto> {
     const id = this.requireId(rawId);
 

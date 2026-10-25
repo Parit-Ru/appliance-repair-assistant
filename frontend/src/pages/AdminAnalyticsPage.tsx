@@ -13,13 +13,6 @@ import { EXPIRED_UNFINISHED_LABEL, NONE_OWNER_NOTE, OWNER_TYPE_LABELS, deviceLab
 import { parseSummaryDays } from '../lib/adminParams'
 import { useSlowWait } from '../lib/useSlowWait'
 
-/**
- * หน้าสถิติภาพรวมของผู้ดูแลระบบ (/admin/analytics) — อ่านอย่างเดียว
- *
- * ทุกตัวเลขมาจาก GET /admin/analytics/summary ตรงๆ ไม่คำนวณ/แต่งเอง ช่วงวันที่เดียวกันทั้งหน้า (?days=7|30|90)
- * ค่า null (อัตราความพอใจ ความมั่นใจเฉลี่ย) แสดงเป็น "-" ไม่ใช่ 0
- */
-
 const OUTCOME_ORDER = ['user_fixed', 'handoff_informed', 'handoff_unknown', 'normal_behavior', 'unknown'] as const
 
 const DAY_BUTTON = 'min-h-10 rounded-lg border px-3 py-1.5 text-sm'
@@ -50,8 +43,7 @@ export function AdminAnalyticsPage() {
             type="button"
             aria-pressed={option === days}
             className={option === days ? DAY_ACTIVE : DAY_IDLE}
-            onClick={() => setSearchParams(option === 30 ? {} : { days: String(option) })}
-          >
+            onClick={() => setSearchParams(option === 30 ? {} : { days: String(option) })}>
             {option} วัน
           </button>
         ))}
@@ -87,19 +79,16 @@ function SummaryBody({ data, dimmed }: { data: AdminSummary; dimmed: boolean }) 
         <StatCard
           label={EXPIRED_UNFINISHED_LABEL}
           value={formatCount(sessions.expiredUnfinished)}
-          hint="ผู้ใช้เลิกกลางทางจนหมดอายุ (การกดยกเลิกลบรายการทิ้ง จึงไม่อยู่ในตัวเลขนี้)"
-        />
+          hint="ผู้ใช้เลิกกลางทางจนหมดอายุ (การกดยกเลิกลบรายการทิ้ง จึงไม่อยู่ในตัวเลขนี้)"/>
         <StatCard
           label="ความเห็น 👍 / 👎"
           value={`${formatCount(feedback.helpful)} / ${formatCount(feedback.notHelpful)}`}
-          hint={`ให้คะแนนทั้งหมด ${formatCount(feedback.total)} ครั้ง`}
-        />
+          hint={`ให้คะแนนทั้งหมด ${formatCount(feedback.total)} ครั้ง`}/>
         <StatCard label="อัตราความพอใจ" value={formatPercent(feedback.satisfactionRate)} hint="สัดส่วน 👍 จากทุกคะแนน · - = ยังไม่มีคะแนน" />
         <StatCard
           label="ความมั่นใจเฉลี่ย"
           value={formatConfidence(confidence.average)}
-          hint={`จาก ${formatCount(confidence.sampleSize)} การตรวจที่มีคะแนน · - = ไม่มีข้อมูล`}
-        />
+          hint={`จาก ${formatCount(confidence.sampleSize)} การตรวจที่มีคะแนน · - = ไม่มีข้อมูล`}/>
       </section>
 
       <section aria-label="เจ้าของการตรวจ" className="space-y-2 rounded-xl border border-line bg-panel p-4">
@@ -120,16 +109,14 @@ function SummaryBody({ data, dimmed }: { data: AdminSummary; dimmed: boolean }) 
       <div className="grid gap-4 lg:grid-cols-2">
         <BarList
           title="ผลการตรวจที่จบแล้ว"
-          items={OUTCOME_ORDER.map((kind) => ({ key: kind, label: outcomeLabel(kind), value: data.outcomes[kind] }))}
-        />
+          items={OUTCOME_ORDER.map((kind) => ({ key: kind, label: outcomeLabel(kind), value: data.outcomes[kind] }))}/>
         <BarList
           title="ประเภทเครื่องที่ถูกตรวจมากสุด"
           items={data.topDevices.map((device) => ({
             key: device.deviceCategory,
             label: deviceLabel(device.deviceCategory),
             value: device.count,
-          }))}
-        />
+          }))}/>
       </div>
 
       <BarList
@@ -138,8 +125,7 @@ function SummaryBody({ data, dimmed }: { data: AdminSummary; dimmed: boolean }) 
           key: graph.graphId,
           label: graph.entrySymptomTh ?? graph.graphId,
           value: graph.count,
-        }))}
-      />
+        }))}/>
     </div>
   )
 }

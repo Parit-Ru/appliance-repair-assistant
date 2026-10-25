@@ -1,4 +1,4 @@
-import type { DraftGraph } from './draft-schema';7
+import type { DraftGraph } from './draft-schema';
 type Json = Record<string, any>;
 
 export interface DraftMeta {

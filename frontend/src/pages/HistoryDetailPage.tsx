@@ -19,23 +19,11 @@ import { toTrailEntry } from '../lib/trail'
 import { useSlowWait } from '../lib/useSlowWait'
 import { useStartSymptom } from '../lib/useStartSymptom'
 
-/**
- * หน้ารายละเอียดการตรวจย้อนหลัง (/history/:sessionId)
- *
- * แสดงเฉพาะสิ่งที่ API ส่งมา: ชื่ออาการ, ผลการตรวจ (ข้อความของโหนดสุดท้ายตามคู่มือ), คำเตือนความปลอดภัยตามโหนดที่ผ่าน
- * (กล่องแดง เฉพาะเมื่อมี), คะแนน, ขั้นตอนที่ผ่านมา, แหล่งอ้างอิง, ข้อความที่ผู้ใช้บันทึกเอง และคะแนนที่ผู้ใช้ให้
- *
- * ไม่มีหัวข้อ "สาเหตุที่เป็นไปได้" เพราะระบบไม่ได้เก็บข้อมูลนี้ไว้ (ไม่ใส่หัวข้อว่าง)
- * ไม่เขียนคำแนะนำศูนย์บริการเอง: กรณีหลักฐานไม่เพียงพอ ใช้ข้อความของโหนดสุดท้ายที่เซิร์ฟเวอร์ส่งมา
- * confidence เป็น null = "ไม่มีคะแนน" (ไม่แสดงเป็น 0 หรือ "ต่ำ")
- */
-
 const LINK_CLASSES = 'text-accent underline-offset-4 hover:underline'
 const SECTION_CLASSES = 'rounded-xl border border-line bg-panel p-5'
 
 export function HistoryDetailPage() {
   const { sessionId = '' } = useParams()
-  // key: เปลี่ยน id แล้วฟอร์ม/สถานะยืนยันลบเริ่มใหม่ ไม่ติดค่าของรายการก่อนหน้า
   return <HistoryDetailView key={sessionId} sessionId={sessionId} />
 }
 
@@ -84,14 +72,13 @@ function HistoryDetailView({ sessionId }: { sessionId: string }) {
     remove.mutate(sessionId, { onSuccess: () => navigate('/history', { replace: true }) })
   }
 
-  /** เริ่มอาการเดิมใหม่ พาค่ารุ่นเดิมไปตามเดิม: modelSelection เป็น null ก็ไม่ส่ง (เซิร์ฟเวอร์บันทึกเป็น NULL เหมือนเดิม) */
   function handleRestart() {
     if (graph === null) return
     start(data.graphId, { manualId: graph.manualId, modelSelection: data.modelSelection ?? undefined })
   }
 
-  // ไม่ทราบว่ามาจากหน้าเลือกรุ่น (modelSelection null) → กลับรายการทุกรุ่น ไม่พาไปหน้าของรุ่นที่จะถูกบันทึกเป็น 'selected'
-  // ตรงกับที่หน้าตรวจอาการทำ (otherSymptomsPath) ป้ายจึงไม่อ้างว่า "ของรุ่นนี้" ในกรณีนั้น
+  // ไม่ทราบว่ามาจากหน้าเลือกรุ่น (modelSelection null)  กลับรายการทุกรุ่น ไม่พาไปหน้าของรุ่นที่จะถูกบันทึกเป็น 'selected'
+  // ตรงกับที่หน้าตรวจอาการทำ (otherSymptomsPath) ป้ายจึงไม่อ้างว่า ของรุ่นนี ในกรณีนั้น
   const isModelScoped = data.modelSelection !== null && graph !== null
   const otherSymptomPath = otherSymptomsPath(graph?.manualId, data.modelSelection ?? undefined)
 
@@ -118,7 +105,6 @@ function HistoryDetailView({ sessionId }: { sessionId: string }) {
         </Notice>
       )}
 
-      {/* คำเตือนความปลอดภัย: มีเฉพาะเมื่อผังของโหนดที่ผ่านมีคำเตือนจริง (ข้อความมาจากผังตรงๆ) */}
       {data.available && data.safetyWarnings.length > 0 && (
         <Notice tone="danger" title="คำเตือนด้านความปลอดภัย">
           <ul className="list-inside list-disc space-y-1">
@@ -142,8 +128,7 @@ function HistoryDetailView({ sessionId }: { sessionId: string }) {
           {data.reference !== null && (
             <ReferenceLine
               reference={data.reference}
-              manualLabel={graph === null ? undefined : `${graph.brand} ${manualTitle(graph)}`}
-            />
+              manualLabel={graph === null ? undefined : `${graph.brand} ${manualTitle(graph)}`}/>
           )}
         </section>
       )}
@@ -194,8 +179,7 @@ function HistoryDetailView({ sessionId }: { sessionId: string }) {
           saved={data.feedback}
           onSubmit={(value) => feedback.mutate(value)}
           isSending={feedback.isPending}
-          error={feedback.error}
-        />
+          error={feedback.error}/>
       )}
 
       {startError !== null && <ErrorNotice error={startError} />}
@@ -220,8 +204,7 @@ function HistoryDetailView({ sessionId }: { sessionId: string }) {
               remove.reset()
             }}
             isDeleting={remove.isPending}
-            error={remove.error}
-          />
+            error={remove.error}/>
         ) : (
           <Button variant="text" onClick={() => setIsConfirmingDelete(true)}>
             ลบรายการนี้ออกจากประวัติ

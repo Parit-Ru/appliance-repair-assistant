@@ -6,20 +6,14 @@ import { Button } from '../ui/Button'
 import { ErrorNotice } from '../ErrorNotice'
 
 interface FeedbackButtonsProps {
-  /** ค่าที่บันทึกไว้แล้ว (ถ้ามี) ฟอร์มขึ้นมาพร้อมค่านี้ และส่งซ้ำ = แก้ค่าเดิม */
   saved: HistoryFeedback | null
   onSubmit: (feedback: HistoryFeedback) => void
   isSending: boolean
   error: Error | null
 }
 
-const TEXTAREA_CLASSES =
-  'w-full resize-y rounded-lg border border-line bg-canvas px-4 py-3 text-base text-ink placeholder:text-ink-faint focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent disabled:cursor-not-allowed disabled:opacity-50'
+const TEXTAREA_CLASSES ='w-full resize-y rounded-lg border border-line bg-canvas px-4 py-3 text-base text-ink placeholder:text-ink-faint focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent disabled:cursor-not-allowed disabled:opacity-50'
 
-/**
- * ให้คะแนนผลการตรวจย้อนหลัง: 👍/👎 (บังคับเลือก) + ข้อความ (ไม่บังคับ ไม่เกิน 500 ตัวอักษร ว่าง = ไม่ส่ง)
- * ไม่มีผลต่อขั้นตอนหรือการตัดสินใดๆ ของระบบ เป็นข้อมูลเก็บไว้ประเมินเท่านั้น
- */
 export function FeedbackButtons({ saved, onSubmit, isSending, error }: FeedbackButtonsProps) {
   const textareaId = useId()
   const hintId = useId()
@@ -65,8 +59,7 @@ export function FeedbackButtons({ saved, onSubmit, isSending, error }: FeedbackB
           rows={4}
           disabled={isSending}
           aria-describedby={`${hintId} ${counterId}`}
-          className={TEXTAREA_CLASSES}
-        />
+          className={TEXTAREA_CLASSES}/>
         <p id={counterId} className="text-right text-xs text-ink-faint">
           {formatCommentCounter(comment)}
         </p>

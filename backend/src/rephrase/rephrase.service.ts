@@ -1,4 +1,4 @@
-import { Logger } from '@nestjs/common';
+import { createLogger } from '../common/logger';
 
 import { checkRephrase } from './rephrase-guard';
 
@@ -25,7 +25,7 @@ interface RephraseOptions {
 
 export class RephraseService {
   private readonly cache = new Map<string, string>();
-  private readonly logger = new Logger(RephraseService.name);
+  private readonly logger = createLogger('RephraseService');
 
   constructor(
     private readonly llm: LlmClient | null,

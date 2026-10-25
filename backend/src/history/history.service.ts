@@ -14,7 +14,6 @@
  * และข้อมูลผังอยู่ในหน่วยความจำอยู่แล้ว (GraphRepository) ไม่ต้อง JOIN ใน SQL
  */
 
-import { Injectable } from '@nestjs/common';
 
 import type { SessionOwner } from '../auth/session-owner';
 import { ApiError } from '../common/api-error';
@@ -36,7 +35,6 @@ import type { CompletedSession, CompletedSessionSummary } from './history.store'
 const historyNotFound = (sessionId: string) =>
   new ApiError(404, 'HISTORY_NOT_FOUND', `ไม่พบรายการประวัติ '${sessionId}' (อาจถูกลบ หมดอายุ หรือไม่ใช่ของคุณ)`);
 
-@Injectable()
 export class HistoryService {
   constructor(
     private readonly store: HistoryStore,

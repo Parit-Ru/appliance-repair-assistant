@@ -6,22 +6,6 @@ import { deleteHistory, getHistory, listHistory, submitFeedback } from './histor
 import { abandonSession, getHealth, getSession, listGraphs, listManuals, searchSymptoms, startSession, submitAction, submitOutcome } from './traversal'
 import type { AdminFeedbackParams, DraftDetail, DraftGraph, DraftUploadInput, HistoryFeedback, ModelSelection, SessionResponse, SymptomSearchResponse, TraversalAction } from './types'
 
-/*
-  hook ของ React Query ที่หน้าจอเรียกใช้ (หน้าจอทุกหน้าเรียกผ่านไฟล์นี้ ไม่เรียก traversal.ts ตรงๆ)
-
-  useQuery    = อ่านข้อมูล ทำงานเองเมื่อหน้าจอแสดง
-  useMutation = เปลี่ยนข้อมูล ทำงานเมื่อสั่ง .mutate() เท่านั้น
-
-  key สาธารณะ (health, graphs, manuals) ไม่มี identity
-  key ที่ขึ้นกับผู้ใช้ (session/ประวัติ/admin) มี identity (id ผู้ใช้ หรือ 'guest') ไว้ที่ตำแหน่งที่ 2 เสมอ
-  ผู้ใช้คนละคนจึงไม่มีทางอ่านแคชของกันและกัน (นอกจากนี้ AuthProvider ล้างแคชทั้งหมดตอน login/logout ด้วย)
-
-  ตอน invalidate เป็นกลุ่ม เขียน prefix ตรงๆ เช่น ['history', identity, 'list'] (ตรงกับทุก key ที่ขึ้นต้นเหมือนกัน)
-
-  queryOptions ข้างล่างมีเฉพาะ key ที่ถูกใช้หลายที่ (อ่านด้วย useQuery และเขียนแคชด้วย setQueryData / removeQueries)
-  จึงใช้ตัวเดียวกัน ไม่มีทางพิมพ์ key ไม่ตรงกัน · key ที่ใช้ที่เดียวเขียนไว้ใน hook ของมันเลย
-*/
-
 const sessionQuery = (sessionId: string, identity = 'guest') =>
   queryOptions({
     queryKey: ['session', identity, sessionId] as const,
@@ -35,7 +19,6 @@ const historyDetailQuery = (sessionId: string, identity = 'guest') =>
   })
 
 // ร่างแผนผังขั้นตอน: ทุก key ขึ้นต้น ['admin', identity, 'drafts'] ไว้ invalidate ทีเดียว
-// poll ทุก 3 วินาที "เฉพาะตอนที่มีร่างกำลังร่างอยู่" (สถานะ drafting) นอกนั้นไม่ poll
 const adminDraftsQuery = (identity = 'guest') =>
   queryOptions({
     queryKey: ['admin', identity, 'drafts'] as const,
@@ -54,10 +37,7 @@ export function useHealth() {
   return useQuery({ queryKey: ['health'], queryFn: getHealth, staleTime: 30_000 })
 }
 
-/**
- * รายการอาการ: ไม่ส่ง manualId = ทุกรุ่น · ส่ง = เฉพาะผังของรุ่นนั้น (แคชแยกตามรุ่น)
- * staleTime ไม่มีวันเก่า เพราะเปลี่ยนเฉพาะตอน seed ข้อมูลใหม่ ไม่เปลี่ยนระหว่างใช้งาน
- */
+
 export function useGraphs(manualId?: string) {
   return useQuery({
     queryKey: manualId === undefined ? ['graphs'] : ['graphs', manualId],
@@ -66,28 +46,15 @@ export function useGraphs(manualId?: string) {
   })
 }
 
-/** รายการคู่มือ/รุ่น (ให้ผู้ใช้เลือกรุ่นก่อนเลือกอาการ) เปลี่ยนเฉพาะตอน seed เหมือน useGraphs */
 export function useManuals() {
   return useQuery({ queryKey: ['manuals'], queryFn: listManuals, staleTime: Infinity })
 }
 
-/**
- * session ปัจจุบันและสถานะที่กำลังอยู่
- *
- * ปกติไม่ต้องเรียกเซิร์ฟเวอร์เลย เพราะ useStartSession ใส่ค่าในแคชไว้ให้แล้ว
- * จะเรียกจริงก็ต่อเมื่อเปิดลิงก์ตรงหรือกด F5 ซึ่งแคชว่างเปล่า
- */
 export function useSession(sessionId: string) {
   const identity = useIdentity()
   return useQuery(sessionQuery(sessionId, identity))
 }
 
-/**
- * รายการประวัติการซ่อมของเบราว์เซอร์นี้ (ใหม่สุดก่อน · หน้าตามที่ URL เก็บไว้)
- *
- * ไม่ตั้ง staleTime: ผู้ใช้เพิ่งตรวจเสร็จแล้วเปิดหน้านี้ต้องเห็นรายการล่าสุดเสมอ
- * keepPreviousData: ตอนเปลี่ยนหน้า รายการเดิมยังค้างอยู่จนผลใหม่มา (ไม่กะพริบเป็นหน้าว่าง)
- */
 export function useHistory(page: number) {
   const identity = useIdentity()
   return useQuery({
@@ -97,17 +64,11 @@ export function useHistory(page: number) {
   })
 }
 
-/** รายละเอียดการตรวจย้อนหลัง 1 รายการ */
 export function useHistoryDetail(sessionId: string) {
   const identity = useIdentity()
   return useQuery(historyDetailQuery(sessionId, identity))
 }
 
-// ============================================================
-// หน้าผู้ดูแลระบบ (ใช้ได้เฉพาะ admin · หน้าเหล่านี้อยู่หลัง AdminRoute · backend ตรวจสิทธิ์จริง)
-// ============================================================
-
-/** รายการ feedback ทั้งหมด (ตัวกรอง/หน้า ตามที่ URL เก็บไว้) */
 export function useAdminFeedback(params: AdminFeedbackParams) {
   const identity = useIdentity()
   return useQuery({
@@ -117,7 +78,6 @@ export function useAdminFeedback(params: AdminFeedbackParams) {
   })
 }
 
-/** สถิติรวมช่วง N วันล่าสุด */
 export function useAdminSummary(days: number) {
   const identity = useIdentity()
   return useQuery({
@@ -127,16 +87,12 @@ export function useAdminSummary(days: number) {
   })
 }
 
-// ============================================================
-// เปลี่ยนข้อมูล
-// ============================================================
-
-/**
- * ค้นหาอาการด้วยข้อความที่ผู้ใช้พิมพ์
- *
- * ใช้ useMutation ไม่ใช่ useQuery เพราะค้นเฉพาะตอนผู้ใช้กดค้นหา ไม่ใช่ตอนหน้าจอแสดง
- * และไม่ใส่แคช: คำค้นเดียวกันค้นซ้ำได้ผลเดิมอยู่แล้ว แต่ผลขึ้นกับสถานะระบบค้นหาบนเซิร์ฟเวอร์
- * (เช่น ตอนแรกยังโหลดโมเดลอยู่ ตอบ SEARCH_NOT_READY) จึงไม่ควรจำผลเก่า
+/*
+  ค้นหาอาการด้วยข้อความที่ผู้ใช้พิมพ์
+ 
+  ใช้ useMutation ไม่ใช่ useQuery เพราะค้นเฉพาะตอนผู้ใช้กดค้นหา ไม่ใช่ตอนหน้าจอแสดง
+  และไม่ใส่แคช: คำค้นเดียวกันค้นซ้ำได้ผลเดิมอยู่แล้ว แต่ผลขึ้นกับสถานะระบบค้นหาบนเซิร์ฟเวอร์
+  (เช่น ตอนแรกยังโหลดโมเดลอยู่ ตอบ SEARCH_NOT_READY) จึงไม่ควรจำผลเก่า
  */
 export function useSymptomSearch() {
   return useMutation<SymptomSearchResponse, Error, { query: string; manualId?: string }>({
@@ -144,13 +100,6 @@ export function useSymptomSearch() {
   })
 }
 
-/**
- * ใส่ session ที่เซิร์ฟเวอร์ตอบกลับลงแคชทันที (เริ่ม / เดินขั้นตอน / บันทึกผลลัพธ์ ใช้ร่วมกัน)
- * หน้าจอจึงแสดงขั้นปัจจุบันได้เลยโดยไม่ต้องยิงไปขอซ้ำ
- *
- * ถ้าเซิร์ฟเวอร์ปฏิเสธ (เช่นด่านความปลอดภัย) onSuccess ไม่ทำงาน แคชจึงยังเป็นสถานะเดิม
- * หน้าจอไม่ขยับ — ตรงกับสถานะจริงบนเซิร์ฟเวอร์
- */
 function useCacheSession() {
   const queryClient = useQueryClient()
   const identity = useIdentity()
@@ -159,7 +108,6 @@ function useCacheSession() {
   }
 }
 
-/** ตัวแปรของการเริ่ม session query ใส่เฉพาะเมื่อเลือกมาจากผลค้นหา */
 interface StartSessionVariables {
   graphId: string
   query?: string
@@ -167,7 +115,6 @@ interface StartSessionVariables {
   modelSelection?: ModelSelection
 }
 
-/** เริ่มการตรวจ (ใส่ผลลงแคชทันที หน้าตรวจอาการจะเปิดขึ้นมาพร้อมข้อมูล) */
 export function useStartSession() {
   return useMutation({
     mutationFn: ({ graphId, ...options }: StartSessionVariables) => startSession(graphId, options),
@@ -175,7 +122,6 @@ export function useStartSession() {
   })
 }
 
-/** ส่งคำตอบหรือคำสั่งหนึ่งครั้ง เซิร์ฟเวอร์ตอบ session ใหม่พร้อมสถานะถัดไปกลับมา */
 export function useSubmitAction(sessionId: string) {
   return useMutation({
     mutationFn: (action: TraversalAction) => submitAction(sessionId, action),
@@ -183,12 +129,6 @@ export function useSubmitAction(sessionId: string) {
   })
 }
 
-/**
- * บันทึกข้อความผลลัพธ์ตอนการตรวจจบ
- *
- * เซิร์ฟเวอร์ตอบ session พร้อม outcome ที่บันทึกแล้ว ฟอร์มจึงเปลี่ยนเป็นข้อความอ่านอย่างเดียวทันที
- * และกด F5 แล้วยังเห็นเหมือนเดิม เพราะ GET session ส่ง outcome กลับมาด้วย
- */
 export function useSubmitOutcome(sessionId: string) {
   return useMutation({
     mutationFn: (text: string) => submitOutcome(sessionId, text),
@@ -196,10 +136,6 @@ export function useSubmitOutcome(sessionId: string) {
   })
 }
 
-/**
- * ยกเลิกการตรวจ
- * ลบออกจากแคชด้วย ไม่งั้นถ้ากดย้อนกลับมาจะเห็นขั้นตอนเก่าที่เซิร์ฟเวอร์ลบไปแล้ว
- */
 export function useAbandonSession() {
   const queryClient = useQueryClient()
   const identity = useIdentity()
@@ -211,10 +147,6 @@ export function useAbandonSession() {
   })
 }
 
-/**
- * ลบรายการออกจากประวัติ (ลบทั้ง session ที่เซิร์ฟเวอร์ ลบแล้วกู้คืนไม่ได้)
- * เอาแคชของรายการนั้นออก และทำให้ทุกรายการ (ทุกหน้า) โหลดใหม่ เพราะจำนวนรวมและการแบ่งหน้าเปลี่ยน
- */
 export function useDeleteHistory() {
   const queryClient = useQueryClient()
   const identity = useIdentity()
@@ -224,17 +156,13 @@ export function useDeleteHistory() {
       queryClient.removeQueries({ queryKey: historyDetailQuery(sessionId, identity).queryKey })
       queryClient.removeQueries({ queryKey: sessionQuery(sessionId, identity).queryKey })
     },
-    // สำเร็จหรือไม่ก็โหลดรายการใหม่: ถ้า 404 แปลว่ารายการนั้นหายไปแล้ว (ลบจากแท็บอื่น) รายการบนหน้าจอต้องตรงกับเซิร์ฟเวอร์
     onSettled: () => {
       void queryClient.invalidateQueries({ queryKey: ['history', identity, 'list'] })
     },
   })
 }
 
-/**
- * ให้คะแนน 👍/👎 + ข้อความสั้น (ส่งซ้ำ = แก้ค่าเดิม)
- * เซิร์ฟเวอร์ตอบค่าที่บันทึกแล้ว เอาใส่ในแคชรายละเอียดเลย ฟอร์มจึงขึ้น "บันทึกแล้ว" ทันที
- */
+
 export function useSubmitFeedback(sessionId: string) {
   const queryClient = useQueryClient()
   const identity = useIdentity()
@@ -248,9 +176,7 @@ export function useSubmitFeedback(sessionId: string) {
   })
 }
 
-// ============================================================
-// ร่างแผนผังขั้นตอน (admin) — ถามสถานะทุก 3 วินาที "เฉพาะตอนที่มีร่างกำลังร่างอยู่"
-// ============================================================
+
 
 /** รายการร่าง · poll ต่อเมื่อมีร่างสถานะ drafting อย่างน้อย 1 รายการ */
 export function useAdminDrafts() {

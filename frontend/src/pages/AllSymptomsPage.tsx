@@ -101,8 +101,7 @@ export function AllSymptomsPage() {
                     summary={summary}
                     isStarting={isStarting && startingId === summary.graphId}
                     disabled={isStarting && startingId !== summary.graphId}
-                    onSelect={(graphId) => start(graphId, startOptions({ manualId, modelSelection }, summary.manualId))}
-                  />
+                    onSelect={(graphId) => start(graphId, startOptions({ manualId, modelSelection }, summary.manualId))}/>
                 ))}
               </ul>
             </div>

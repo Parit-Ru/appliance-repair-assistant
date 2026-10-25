@@ -1,4 +1,4 @@
-import {Injectable, Logger, type OnApplicationBootstrap } from '@nestjs/common';
+import { createLogger } from '../common/logger';
 import { ApiError } from '../common/api-error';
 import { round3 } from '../common/helpers';
 import { GraphRepository } from '../traversal/graph.repository';
@@ -22,9 +22,8 @@ interface GraphInfo {
   manualId: string;
 }
 
-@Injectable()
-export class SymptomSearchService implements OnApplicationBootstrap {
-  private readonly logger = new Logger(SymptomSearchService.name);
+export class SymptomSearchService {
+  private readonly logger = createLogger('SymptomSearchService');
 
   private state: SearchState = 'disabled';
   private index: IndexedSymptom[] = [];
@@ -37,7 +36,13 @@ export class SymptomSearchService implements OnApplicationBootstrap {
     private readonly graphs: GraphRepository,
   ) {}
 
-  onApplicationBootstrap(): void {
+  /**
+   * เริ่มระบบค้นหา — app.ts เรียกตอนบูต
+   * คืน void (ไม่รอ) โดยตั้งใจ: โหลดโมเดลช้ามาก ถ้ารอ เซิร์ฟเวอร์จะเปิดรับคำขอไม่ได้ (/health ตอบไม่ได้)
+   * จึงสั่งโหลดเบื้องหลัง แล้วให้ /symptom-search/status บอกความคืบหน้าแทน
+   * ปิดเป็นค่าเริ่มต้น: ต้องตั้ง SYMPTOM_SEARCH_ENABLED=true จึงโหลดโมเดล
+   */
+  start(): void {
     if (process.env[ENABLE_ENV_NAME] !== 'true') {
       this.state = 'disabled';
       this.logger.log(`ระบบค้นหาอาการปิดอยู่ (ตั้ง ${ENABLE_ENV_NAME}=true เพื่อเปิด)`);

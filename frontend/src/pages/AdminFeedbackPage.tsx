@@ -13,14 +13,7 @@ import { feedbackToSearchParams, hasFeedbackFilters, parseFeedbackParams, patchF
 import { formatStartedAt } from '../lib/historyView'
 import { useSlowWait } from '../lib/useSlowWait'
 
-/**
- * หน้าความเห็นผู้ใช้ (/admin/feedback) — อ่านอย่างเดียว
- * ตัวกรอง (👍/👎, ช่วงวันที่ เวลาไทย) และหน้า เก็บใน URL · ไม่แสดงว่าใครเขียน (มีแค่ชนิดเจ้าของ)
- * ความเห็นเป็นข้อความที่ผู้ใช้พิมพ์เอง อาจมีข้อมูลส่วนตัวปนมา ใช้เท่าที่จำเป็น
- */
-
-const FIELD_CLASSES =
-  'min-h-12 w-full rounded-lg border border-line bg-canvas px-3 py-2 text-base text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent'
+const FIELD_CLASSES ='min-h-12 w-full rounded-lg border border-line bg-canvas px-3 py-2 text-base text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent'
 
 export function AdminFeedbackPage() {
   const [searchParams, setSearchParams] = useSearchParams()
@@ -73,8 +66,7 @@ export function AdminFeedbackPage() {
             value={params.from ?? ''}
             max={params.to}
             onChange={(event) => update({ from: event.target.value === '' ? undefined : event.target.value })}
-            className={FIELD_CLASSES}
-          />
+            className={FIELD_CLASSES}/>
         </div>
         <div className="space-y-1">
           <label htmlFor={toId} className="block text-sm text-ink-soft">
@@ -86,8 +78,7 @@ export function AdminFeedbackPage() {
             value={params.to ?? ''}
             min={params.from}
             onChange={(event) => update({ to: event.target.value === '' ? undefined : event.target.value })}
-            className={FIELD_CLASSES}
-          />
+            className={FIELD_CLASSES}/>
         </div>
       </div>
 
@@ -128,8 +119,7 @@ export function AdminFeedbackPage() {
             page={data.page}
             totalPages={data.totalPages}
             onChange={(page) => update({ page })}
-            disabled={feedback.isPlaceholderData}
-          />
+            disabled={feedback.isPlaceholderData}/>
         </section>
       )}
     </div>

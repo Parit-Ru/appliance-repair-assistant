@@ -5,7 +5,6 @@ import { Button } from './ui/Button'
 
 interface SessionHeaderProps {
   summary: GraphSummary | undefined
-  /** ชื่อรุ่นที่ผู้ใช้รู้จัก (displayName) ไม่ส่ง = แสดง modelPattern */
   modelName?: string
   confidence: number | null | undefined
   canAbandon: boolean

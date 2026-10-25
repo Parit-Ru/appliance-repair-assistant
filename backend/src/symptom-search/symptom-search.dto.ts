@@ -4,7 +4,6 @@ import type { DeviceCategory } from '../traversal-engine/types';
 export const MAX_QUERY_LENGTH = 200;
 export const MAX_MANUAL_ID_LENGTH = 80;
 
-/** body ของ POST /symptom-search ผิดรูปแบบ → 400 INVALID_QUERY */
 const invalid = (message: string) => new ApiError(400, 'INVALID_QUERY', message);
 
 interface SearchBody {

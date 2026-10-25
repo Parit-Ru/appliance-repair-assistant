@@ -1,36 +1,18 @@
-/**
- * history.store.ts — SQL ทั้งหมดของหน้า "ประวัติการซ่อม" (อ่านรายการ/รายละเอียด, ลบ, ให้คะแนน)
- *
- * แยกจาก SessionStore โดยตั้งใจ: SessionStore คือที่เก็บสถานะของการ "เดิน" ขั้นตอนและห้ามรู้เรื่องหน้าประวัติ
- * ไฟล์นี้อ่านตารางเดิม (sessions, session_history) + ตารางใหม่ session_feedback (migration 009)
- * และไม่เขียนอะไรลง sessions/session_history เลยนอกจากการลบทั้ง session ตามที่เจ้าของสั่ง
- *
- * ทุกคำสั่งที่แตะ session ระบุเจ้าของเสมอ (ownerWhere: user_id = ? หรือ client_id = ? AND user_id IS NULL)
- * → session ของคนอื่นไม่ถูกมองเห็นและไม่ถูกลบ · guest มองไม่เห็น session ของ user แม้ใช้ client_id เดียวกัน
- * (ผลคือ "ไม่พบ" ซึ่ง service แปลงเป็น 404 ไม่ใช่ 403 เพื่อไม่บอกว่า id นั้นมีอยู่)
- * และเฉพาะ session ที่ status='completed' และยังไม่หมดอายุ (D3)
- */
-
-import { Inject, Injectable } from '@nestjs/common';
 import type { Pool, ResultSetHeader, RowDataPacket } from 'mysql2/promise';
-
 import { ownerWhere } from '../auth/session-owner';
 import type { SessionOwner } from '../auth/session-owner';
-import { MYSQL_POOL } from '../database/database.constants';
 import type { SessionHistoryEntry } from '../traversal-engine/types';
 import { parseVariables, rowToHistoryEntry } from '../traversal/session.store';
 import type { HistoryRow } from '../traversal/session.store';
 import type { ModelSelection } from '../traversal/traversal.dto';
 import type { HistoryFeedbackDto } from './history.dto';
 
-/** เพดานจำนวนแถวที่ดึงต่อผู้ใช้ — กันผู้ใช้ที่มีประวัติมหาศาลทำให้คำขอเดียวหนัก (ใหม่สุดก่อน) */
-export const MAX_HISTORY_ROWS = 500;
+export const MAX_HISTORY_ROWS = 50;
 
 interface SummaryRow extends RowDataPacket {
   session_id: string;
   graph_id: string;
   current_node_id: string;
-  /** UNIX_TIMESTAMP(created_at) — เลขวินาทีไม่ขึ้นกับเขตเวลาของ Node/MySQL */
   created_epoch: string | number;
 }
 
@@ -46,11 +28,9 @@ interface FeedbackRow extends RowDataPacket {
   comment: string | null;
 }
 
-/** ข้อมูลที่รายการต้องใช้ (พอสำหรับหาผัง + โหนดสุดท้าย + วันที่) */
 export interface CompletedSessionSummary {
   sessionId: string;
   graphId: string;
-  /** โหนดสุดท้าย (โหนดสิ้นสุดของผัง ณ ตอนจบ) */
   currentNodeId: string;
   startedAtEpoch: number;
 }
@@ -62,11 +42,9 @@ export interface CompletedSession extends CompletedSessionSummary {
   outcomeText: string | null;
 }
 
-@Injectable()
 export class HistoryStore {
-  constructor(@Inject(MYSQL_POOL) private readonly pool: Pool) {}
+  constructor(private readonly pool: Pool) {}
 
-  /** session ที่จบแล้วของ owner นี้ ใหม่สุดก่อน (เพดาน MAX_HISTORY_ROWS) */
   async listCompleted(owner: SessionOwner): Promise<CompletedSessionSummary[]> {
     const where = ownerWhere(owner);
     const [rows] = await this.pool.query<SummaryRow[]>(
@@ -81,7 +59,6 @@ export class HistoryStore {
     return rows.map(toSummary);
   }
 
-  /** session เดียว ถ้าเป็นของ owner นี้ จบแล้ว และยังไม่หมดอายุ · ไม่ใช่ = undefined */
   async findCompleted(sessionId: string, owner: SessionOwner): Promise<CompletedSession | undefined> {
     const where = ownerWhere(owner);
     const [rows] = await this.pool.query<DetailRow[]>(
@@ -98,17 +75,12 @@ export class HistoryStore {
     return {
       ...toSummary(row),
       variables: parseVariables(row.variables),
-      // DECIMAL(4,3) มาเป็นข้อความ ("0.812") · NULL ต้องคงเป็น null ห้ามกลายเป็น 0
       confidence: row.confidence === null ? null : Number(row.confidence),
       modelSelection: row.model_selection,
       outcomeText: row.outcome_text,
     };
   }
 
-  /**
-   * ขั้นที่ผู้ใช้เคยผ่านตามลำดับ (เหมือนที่ SessionStore.find ใช้เดินขั้นตอน)
-   * เรียกหลังตรวจเจ้าของด้วย findCompleted แล้วเท่านั้น ฟังก์ชันนี้ไม่ตรวจเจ้าของเอง
-   */
   async findSteps(sessionId: string): Promise<SessionHistoryEntry[]> {
     const [rows] = await this.pool.query<HistoryRow[]>(
       `SELECT node_id, action_type, action_value
@@ -120,7 +92,6 @@ export class HistoryStore {
     return rows.map(rowToHistoryEntry);
   }
 
-  /** ลบทั้ง session (session_history/session_feedback ถูกลบตามด้วย CASCADE) · true = ลบได้ */
   async deleteCompleted(sessionId: string, owner: SessionOwner): Promise<boolean> {
     const where = ownerWhere(owner);
     const [result] = await this.pool.query<ResultSetHeader>(
@@ -131,7 +102,6 @@ export class HistoryStore {
     return result.affectedRows === 1;
   }
 
-  /** บันทึก/แก้คะแนน — 1 session 1 แถว ส่งซ้ำ = เขียนทับ ผู้เรียกต้องตรวจเจ้าของมาก่อน */
   async saveFeedback(sessionId: string, feedback: HistoryFeedbackDto): Promise<void> {
     await this.pool.query(
       `INSERT INTO session_feedback (session_id, helpful, \`comment\`)

@@ -5,7 +5,7 @@ import { MAX_MANUAL_ID_LENGTH, MAX_QUERY_LENGTH } from '../symptom-search/sympto
 const MAX_INPUT_LENGTH = 255;
 const MAX_OUTCOME_LENGTH = 1000;
 
-// error ของการตรวจ input (400) — ApiError รหัสละตัว · AllExceptionsFilter แปลงเป็น response
+// error ของการตรวจ input (400) — ApiError รหัสละตัว · errorHandler (common/error-handler.ts) แปลงเป็น response
 // body ผิดรูปแบบ ใช้ code เดียวกับ INVALID_ACTION เพราะผู้ใช้เห็นข้อความไทยเดียวกัน (ต่างกันแค่ "ผิดตอนไหน")
 const invalidRequestBody = (message: string) => new ApiError(400, 'INVALID_ACTION', message);
 

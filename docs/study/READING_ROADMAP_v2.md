@@ -1,5 +1,7 @@
 # READING_ROADMAP v2: แผนที่อ่านโค้ด appliance-repair-assistant
 
+> ⚠️ **เขียนตอน backend ยังเป็น NestJS** (ก่อน 21 ต.ค. 2569) — แนวคิดและลำดับการทำงานยังใช้ได้ แต่ชื่อ `*.controller.ts`, `*.module.ts`, guard (`JwtAuthGuard`/`RolesGuard`), filter, decorator และเลขบรรทัด **ไม่ตรงโค้ดแล้ว** · ตอนนี้: controller → `*.routes.ts` · guard → middleware `requireAuth`/`optionalAuth`/`requireAdmin` (`auth/auth.middleware.ts`) · filter → `errorHandler` (`common/error-handler.ts`) · module/DI → `app.ts` · ตารางเทียบเต็มและเลขบรรทัดปัจจุบันอยู่ใน `docs/STUDY_GUIDE.md` §5.7
+
 > สำรวจเมื่อ 17 ต.ค. 2569 เทียบกับฉบับเก่า `docs/archive/READING_ROADMAP.md` (เขียน 15 ต.ค. 2569 · commit ล่าสุดของไฟล์คือ `3294452`)
 > สถานะ repo ตอนสำรวจ: branch `main` **ahead origin/main 3 commit** (`358ec2d`, `f40061e`, `61c3fb0` ยังไม่ push) และมีไฟล์ที่ยังไม่ commit (ฟีเจอร์ร่างผังจาก PDF ทั้งชุด + การลบไฟล์เทสต์)
 >

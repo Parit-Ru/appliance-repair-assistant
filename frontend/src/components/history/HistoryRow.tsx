@@ -70,8 +70,7 @@ export function HistoryRow({ item }: HistoryRowProps) {
             remove.reset()
           }}
           isDeleting={remove.isPending}
-          error={remove.error}
-        />
+          error={remove.error}/>
       )}
     </li>
   )

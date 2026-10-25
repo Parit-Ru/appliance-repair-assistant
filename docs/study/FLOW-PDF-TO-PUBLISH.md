@@ -6,7 +6,7 @@
 
 | สถานะ | ไฟล์ |
 |---|---|
-| อ่านแล้ว | UploadDraftForm.tsx · api/queries.ts · api/drafts.ts · api/http.ts · drafts.controller.ts · drafts.service.ts · drafts.store.ts · pdf-text.ts · draft-llm.client.ts · draft-schema.ts · draft-manual.ts · graph-validator.ts · drafts.dto.ts · drafts.exception.filter.ts · authoring.module.ts · AdminDraftReviewPage.tsx · DraftActions.tsx · draftView.ts · DraftGraphCard.tsx · ValidationReportPanel.tsx · DraftJsonEditor.tsx · DraftStatusBadge.tsx · lib/errors.ts · HistoryErrorNotice.tsx (จบฝั่งหน้าจอ) · traversal/graph.repository.ts (loadAll / reload) · symptom-search.service.ts (addGraphs, prepareIndex, search) |
+| อ่านแล้ว | UploadDraftForm.tsx · api/queries.ts · api/drafts.ts · api/http.ts · drafts.controller.ts (ตอนนี้ drafts.routes.ts) · drafts.service.ts · drafts.store.ts · pdf-text.ts · draft-llm.client.ts · draft-schema.ts · draft-manual.ts · graph-validator.ts · drafts.dto.ts · drafts.exception.filter.ts · authoring.module.ts (สองไฟล์นี้ลบแล้ว) · AdminDraftReviewPage.tsx · DraftActions.tsx · draftView.ts · DraftGraphCard.tsx · ValidationReportPanel.tsx · DraftJsonEditor.tsx · DraftStatusBadge.tsx · lib/errors.ts · HistoryErrorNotice.tsx (จบฝั่งหน้าจอ) · traversal/graph.repository.ts (loadAll / reload) · symptom-search.service.ts (addGraphs, prepareIndex, search) |
 | 🔁 **ต้องกลับมาอ่าน graph-validator.ts อีกรอบ** | อ่านรอบแรกแบบภาพรวมแล้ว ให้กลับมาไล่ทีละกฎ (โดยเฉพาะ validateStructure, checkTemplateVariables, findBackEdges/longestPath) — **ถึงคิวแล้ว (จบเส้นทาง flow ครบ)** |
 | ถัดไป | graph-validator.ts อ่านซ้ำทีละกฎ |
 | หมายเหตุ | update/reject ใช้ setQueryData จากผลที่ backend ตอบ (useDraftCacheUpdate) ไม่ได้ refetch · upload ใช้ invalidate รายการ · publish ยังไม่ได้เปิดดู onSuccess |
@@ -41,8 +41,8 @@
   → useUploadDraft (queries.ts)  → api/drafts.ts uploadDraft(formData)
   → api/http.ts request(): Bearer + X-Client-Id, FormData (ไม่ตั้ง Content-Type เอง)
   ═══ POST /admin/drafts (multipart) ═══
-  drafts.controller.ts create():
-    1 JwtAuthGuard  2 RolesGuard(admin)  3 FileInterceptor (memory, ≤10MB, 1 ไฟล์, 12 ฟิลด์)  4 → service.create
+  drafts.routes.ts router.post('/'):
+    1 requireAuth  2 requireAdmin  3 uploadPdf() = multer (memory, ≤10MB, 1 ไฟล์, 12 ฟิลด์)  4 → drafts.createFromUpload
 ```
 
 ## ช่วง 2: ตรวจ + สร้างแถวร่าง

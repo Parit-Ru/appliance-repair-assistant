@@ -112,8 +112,7 @@ export function UploadDraftForm() {
               aria-describedby={describedBy}
               onChange={(event) => setFile(event.target.files?.[0] ?? null)}
               disabled={upload.isPending}
-              className="block w-full text-sm text-ink-soft file:mr-3 file:rounded-lg file:border file:border-line file:bg-canvas file:px-3 file:py-2 file:text-ink"
-            />
+              className="block w-full text-sm text-ink-soft file:mr-3 file:rounded-lg file:border file:border-line file:bg-canvas file:px-3 file:py-2 file:text-ink"/>
           )}
         </Field>
 

@@ -1,6 +1,6 @@
 import * as fs from 'fs';
 import * as path from 'path';
-import { Injectable, Logger } from '@nestjs/common';
+import { createLogger } from '../common/logger';
 
 export const EMBEDDING_MODEL_ID = 'Xenova/paraphrase-multilingual-MiniLM-L12-v2';
 export const EMBEDDING_DTYPE = 'q8';
@@ -12,9 +12,8 @@ type FeatureExtractor = (
   options: { pooling: 'mean'; normalize: boolean },
 ) => Promise<{ data: ArrayLike<number> }>;
 
-@Injectable()
 export class EmbeddingService {
-  private readonly logger = new Logger(EmbeddingService.name);
+  private readonly logger = createLogger('EmbeddingService');
   private extractor: FeatureExtractor | null = null;
   modelFilesFoundLocally = false;
 

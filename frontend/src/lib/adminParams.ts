@@ -1,11 +1,6 @@
 import { DEFAULT_SUMMARY_DAYS, SUMMARY_DAY_OPTIONS } from '../api/admin'
 import type { AdminFeedbackParams } from '../api/types'
 
-/**
- * พารามิเตอร์ของหน้าผู้ดูแลระบบที่เก็บใน URL (ฟังก์ชันล้วน ไม่แตะ React)
- * อ่านแบบผ่อนปรน: ค่าที่ผิดรูปแบบถูกเมินแทนที่จะทำให้หน้าล้ม (backend ตรวจเข้มอีกชั้นและตอบ 400 ถ้าผิด)
- */
-
 const DATE_PATTERN = /^\d{4}-\d{2}-\d{2}$/
 
 function validDate(raw: string | null): string | undefined {
@@ -13,9 +8,7 @@ function validDate(raw: string | null): string | undefined {
   return Number.isNaN(new Date(`${raw}T00:00:00Z`).getTime()) ? undefined : raw
 }
 
-// ---------- /admin/feedback ----------
-
-/** ?helpful=true|false&from=YYYY-MM-DD&to=YYYY-MM-DD&page= */
+// / ?helpful=true|false&from=YYYY-MM-DD&to=YYYY-MM-DD&page= 
 export function parseFeedbackParams(search: URLSearchParams): AdminFeedbackParams {
   const helpfulRaw = search.get('helpful')
   const page = Number(search.get('page'))
@@ -28,7 +21,7 @@ export function parseFeedbackParams(search: URLSearchParams): AdminFeedbackParam
   }
 }
 
-/** แปลงกลับเป็น query string ของ URL — ค่าเริ่มต้นไม่ใส่ เพื่อให้ URL สั้น */
+// แปลงกลับเป็น query string ของ URL — ค่าเริ่มต้นไม่ใส่ เพื่อให้ URL สั้น 
 export function feedbackToSearchParams(params: AdminFeedbackParams): URLSearchParams {
   const search = new URLSearchParams()
   if (params.helpful !== undefined) search.set('helpful', String(params.helpful))
@@ -38,7 +31,7 @@ export function feedbackToSearchParams(params: AdminFeedbackParams): URLSearchPa
   return search
 }
 
-/** เปลี่ยนตัวกรอง = กลับไปหน้า 1 เสมอ (เปลี่ยนหน้าอย่างเดียวไม่รีเซ็ต) */
+// เปลี่ยนตัวกรอง = กลับไปหน้า 1 เสมอ (เปลี่ยนหน้าอย่างเดียวไม่รีเซ็ต) 
 export function patchFeedbackParams(
   current: AdminFeedbackParams,
   patch: Partial<AdminFeedbackParams>,
@@ -53,9 +46,8 @@ export function hasFeedbackFilters(params: AdminFeedbackParams): boolean {
   return params.helpful !== undefined || params.from !== undefined || params.to !== undefined
 }
 
-// ---------- /admin/analytics ----------
 
-/** ?days=7|30|90 (ค่าอื่น/ไม่ส่ง = 30) */
+// / ?days=7|30|90 (ค่าอื่น/ไม่ส่ง = 30)
 export function parseSummaryDays(search: URLSearchParams): number {
   const days = Number(search.get('days'))
   return (SUMMARY_DAY_OPTIONS as readonly number[]).includes(days) ? days : DEFAULT_SUMMARY_DAYS

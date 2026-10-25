@@ -1,19 +1,10 @@
-/**
- * ตรวจฟอร์มเข้าสู่ระบบ/สมัครสมาชิกฝั่งหน้าจอ (ฟังก์ชันล้วน)
- *
- * ตรวจเพื่อบอกผู้ใช้ทันทีเท่านั้น (UX) · backend ตรวจซ้ำเสมอและเป็นฝ่ายตัดสิน
- * กฎต้องตรงกับ backend/src/auth/auth.dto.ts: อีเมลรูปแบบหลวม, รหัสผ่าน 8–72 ตัวอักษร และไม่เกิน 72 ไบต์,
- * ชื่อที่แสดง 1–100 ตัวอักษร
- */
-
 export const MIN_PASSWORD_LENGTH = 8
 export const MAX_PASSWORD_LENGTH = 72
-/** bcrypt ใช้แค่ 72 ไบต์แรก อักษรไทย 1 ตัว = 3 ไบต์ จึงตรวจไบต์ด้วย */
+// bcrypt ใช้แค่ 72 ไบต์แรก อักษรไทย 1 ตัว = 3 ไบต์ จึงตรวจไบต์ด้วย 
 const MAX_PASSWORD_BYTES = 72
 const MAX_EMAIL_LENGTH = 255
 export const MAX_DISPLAY_NAME_LENGTH = 100
 
-/** เหมือน EMAIL_PATTERN ใน backend */
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@.]+(\.[^\s@.]+)+$/
 
 export interface FormErrors {

@@ -12,7 +12,6 @@
  *   - ตาราง sessions/graphs ใช้ร่วมกับโปรเจกต์เก่า แยกด้วย graph_id ไม่ได้ ตัวเลขรวมจึงรวม session ของโปรเจกต์เก่าด้วย
  */
 
-import { Injectable } from '@nestjs/common';
 
 import { isoFromEpoch, round3 } from '../common/helpers';
 import { getOutcomeKind } from '../traversal-engine/traversal-engine';
@@ -21,7 +20,6 @@ import { dayIndexToDate, dayIndexToEpoch, thaiDayIndex, TOP_LIMIT, totalPagesOf 
 import type { AdminFeedbackItemDto, AdminFeedbackPageDto, AdminSummaryDto, FeedbackQuery, SummaryQuery } from './admin.dto';
 import { AdminStore } from './admin.store';
 
-@Injectable()
 export class AdminService {
   constructor(
     private readonly store: AdminStore,

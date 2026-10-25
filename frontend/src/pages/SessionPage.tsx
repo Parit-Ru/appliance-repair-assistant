@@ -135,15 +135,13 @@ function SessionView({ sessionId }: { sessionId: string }) {
       onSubmit={handleOutcome}
       isSending={saveOutcome.isPending}
       error={saveOutcome.error}
-      onRefresh={handleRefresh}
-    />
+      onRefresh={handleRefresh}/>
   )
   const outcomeActions = (
     <TerminalActions
       onOtherSymptom={() => navigate(otherSymptomPath)}
       onRestart={() => handleRestart(graphId)}
-      isRestarting={restart.isPending}
-    />
+      isRestarting={restart.isPending}/>
   )
 
   return (
@@ -168,8 +166,7 @@ function SessionView({ sessionId }: { sessionId: string }) {
             isPending={submit.isPending}
             manualLabel={manualLabel}
             outcomeForm={outcomeForm}
-            outcomeActions={outcomeActions}
-          />
+            outcomeActions={outcomeActions}/>
           {rephrased !== null && <RephraseNote original={node.text} />}
         </div>
       </PathRail>

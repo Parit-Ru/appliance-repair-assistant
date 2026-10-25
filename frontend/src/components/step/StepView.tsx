@@ -7,7 +7,6 @@ import { OutcomeStep } from './OutcomeStep'
 import { SafetyGateStep } from './SafetyGateStep'
 import { StepCard } from './StepCard'
 
-/** props ที่ทุกชนิดขั้นตอนรับ (InputStep / SafetyGateStep / OutcomeStep import ชนิดนี้จากไฟล์นี้) */
 export interface StepProps {
   node: RenderedNode
   onAction: (action: TraversalAction) => void
@@ -20,7 +19,6 @@ interface StepViewProps extends StepProps {
   outcomeForm?: ReactNode
 }
 
-/** เลือกหน้าตาของขั้นตอนตามชนิดโหนดที่เซิร์ฟเวอร์ส่งมา (ไม่ตัดสินขั้นถัดไปเอง แค่ส่ง action กลับไป) */
 export function StepView({ outcomeActions, outcomeForm, ...stepProps }: StepViewProps) {
   const { node } = stepProps
 
@@ -43,7 +41,6 @@ export function StepView({ outcomeActions, outcomeForm, ...stepProps }: StepView
   return <InstructionStep {...stepProps} />
 }
 
-/** คำถาม ใช่/ไม่ใช่ */
 function CheckpointStep({ node, onAction, isPending, manualLabel }: StepProps) {
   return (
     <StepCard label={STEP_KIND_LABELS.checkpoint} heading={node.text} reference={node.reference} manualLabel={manualLabel}>
@@ -59,7 +56,6 @@ function CheckpointStep({ node, onAction, isPending, manualLabel }: StepProps) {
   )
 }
 
-/** ขั้นตอนให้ผู้ใช้ทำ (ที่ไม่ต้องยืนยันความปลอดภัย) */
 function InstructionStep({ node, onAction, isPending, manualLabel }: StepProps) {
   return (
     <StepCard label={STEP_KIND_LABELS.instruction} heading={node.text} reference={node.reference} manualLabel={manualLabel}>

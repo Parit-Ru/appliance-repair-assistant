@@ -1,6 +1,5 @@
-import { Inject, Injectable, Logger, OnModuleInit } from '@nestjs/common';
 import type { Pool, RowDataPacket } from 'mysql2/promise';
-import { MYSQL_POOL } from '../database/database.constants';
+import { createLogger } from '../common/logger';
 import {DeviceCategory,InputType,NodeType,OutcomeKind,TroubleshootingGraph, TroubleshootingNode } from '../traversal-engine/types';
 
 interface GraphRow extends RowDataPacket {
@@ -67,17 +66,17 @@ class GraphDataIntegrityError extends Error {
   }
 }
 
-@Injectable()
-export class GraphRepository implements OnModuleInit {
-  private readonly logger = new Logger(GraphRepository.name);
+export class GraphRepository {
+  private readonly logger = createLogger('GraphRepository');
 
   private readonly graphs = new Map<string, TroubleshootingGraph>();
 
   // ชื่อรุ่นที่ผู้ใช้รู้จักของแต่ละคู่มือ (migration 006) ใช้ใน listManuals เท่านั้น ไม่ปนกับผังของ engine
   private readonly manualExtras = new Map<string, { displayName?: string; modelAliases?: string[] }>();
 
-  constructor(@Inject(MYSQL_POOL) private readonly pool: Pool) {}
-  async onModuleInit(): Promise<void> {
+  constructor(private readonly pool: Pool) {}
+  /** โหลดผังทั้งหมดเข้าหน่วยความจำ — app.ts เรียกตอนบูต ก่อนเปิดรับคำขอ (ข้อมูลเสีย = บูตไม่ขึ้น) */
+  async load(): Promise<void> {
     await this.loadAll();
   }
 

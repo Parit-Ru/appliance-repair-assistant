@@ -1,18 +1,17 @@
+/**
+ * main.ts — จุดเริ่มของ backend: โหลด .env → ประกอบแอป (app.ts) → เปิดรับคำขอที่ PORT
+ */
 import 'dotenv/config';
-import { NestFactory } from '@nestjs/core';
-import { AppModule } from './app.module';
 
-async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+import { createApp } from './app';
 
-  app.enableCors({
-    origin: process.env.CORS_ORIGIN ?? 'http://localhost:5173',
-    credentials: true,
-  });
+async function bootstrap(): Promise<void> {
+  const app = await createApp();
 
   const port = process.env.PORT ?? 3000;
-  await app.listen(port);
-  console.log(`Appliance repair backend running on port ${port}`);
+  app.listen(port, () => {
+    console.log(`Appliance repair backend running on port ${port}`);
+  });
 }
 
 bootstrap();
