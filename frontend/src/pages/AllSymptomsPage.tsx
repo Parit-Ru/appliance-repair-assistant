@@ -11,17 +11,6 @@ import { groupSymptoms } from '../lib/symptoms'
 import { useSlowWait } from '../lib/useSlowWait'
 import { useStartSymptom } from '../lib/useStartSymptom'
 
-/**
- * หน้าอาการทั้งหมด (เลือกจากรายการ จัดกลุ่มตามประเภทเครื่อง/ยี่ห้อ/รุ่น)
- *
- * ทางเดิมที่ใช้ได้เสมอ แม้ระบบค้นหา (หน้าเลือกอาการ) ใช้ไม่ได้
- * - มี ?manual=  : แสดงอาการของรุ่นนั้นรุ่นเดียว (มาจากหน้าเลือกรุ่น) ส่ง manualId + modelSelection ตามที่เลือก
- * - ไม่มี ?manual= : แสดงอาการของทุกรุ่น แยกกลุ่มตามรุ่น ให้ผู้ใช้เห็นหัวกลุ่มก่อนเลือก
- *   ส่งเฉพาะ manualId ของอาการที่กด **ไม่ส่ง modelSelection** เพราะผู้ใช้ไม่ได้ผ่านหน้าเลือกรุ่น
- *   (เซิร์ฟเวอร์บันทึกเป็น NULL ไว้แยกเคสตอนวัดผล) และไม่เดารุ่นให้
- * กดแถวไหน = เริ่ม session ของอาการนั้น (ไม่ส่ง query จึงไม่มีคะแนนความมั่นใจ) แล้วไปหน้าตรวจอาการ
- */
-
 const LINK_CLASSES = 'text-accent underline-offset-4 hover:underline'
 
 export function AllSymptomsPage() {
@@ -30,7 +19,6 @@ export function AllSymptomsPage() {
   const graphs = useGraphs(manualId)
   const { start, startingId, isStarting, error: startError } = useStartSymptom()
 
-  // ---------- รอนาน: เซิร์ฟเวอร์บน Render หลับเมื่อไม่มีคนใช้ ตื่นช้า ----------
   const isSlow = useSlowWait(graphs.isPending || isStarting)
 
   const groups = graphs.isSuccess ? groupSymptoms(graphs.data) : []
@@ -61,8 +49,6 @@ export function AllSymptomsPage() {
 
       {isSlow && <SlowServerNotice />}
 
-      {/* เริ่มไม่สำเร็จ: แสดงเหนือรายการ ทุกแถวกดได้อีกครั้งเพราะ isStarting กลับเป็น false
-          วางนอกส่วนรายการ เพราะรายการอาจยังโหลดไม่เสร็จหรือโหลดไม่ได้ */}
       {startError && <ErrorNotice error={startError} />}
 
       <section className="space-y-6">
@@ -101,7 +87,8 @@ export function AllSymptomsPage() {
                     summary={summary}
                     isStarting={isStarting && startingId === summary.graphId}
                     disabled={isStarting && startingId !== summary.graphId}
-                    onSelect={(graphId) => start(graphId, startOptions({ manualId, modelSelection }, summary.manualId))}/>
+                    onSelect={(graphId) => start(graphId, startOptions({ manualId, modelSelection }, summary.manualId))}
+                  />
                 ))}
               </ul>
             </div>

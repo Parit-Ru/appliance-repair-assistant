@@ -13,13 +13,6 @@ interface HistoryRowProps {
   item: HistoryListItem
 }
 
-/**
- * 1 แถวของรายการประวัติ: ชื่ออาการ · ประเภท/ยี่ห้อ/รุ่น · วันเวลา · สถานะ
- * กดแถว = เปิดรายละเอียด · กด "ลบ" = ขึ้นขั้นยืนยันในแถวนั้น (ลบจริงเมื่อกด "ยืนยันลบ")
- *
- * ผังของแถวนี้หายไป (graph = null) หรืออ่านโหนดสุดท้ายไม่ได้ (outcomeKind = null):
- * แสดงเท่าที่มี ไม่เดาชื่ออาการหรือสถานะ แต่ยังเปิดดู/ลบได้
- */
 export function HistoryRow({ item }: HistoryRowProps) {
   const [isConfirming, setIsConfirming] = useState(false)
   const remove = useDeleteHistory()

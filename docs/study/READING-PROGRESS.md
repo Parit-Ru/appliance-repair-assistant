@@ -60,7 +60,7 @@
 
 ไม่มีไฟล์ที่ยังไม่ได้อ่านแล้ว (อ่านครบ 46 ไฟล์) · ที่เหลือคือไฟล์ที่ **ข้ามไว้ก่อน 4 ไฟล์**: `authoring/graph-validator.ts` (⭐⭐ สำคัญมาก ต้องอ่านเยอะ 502 บรรทัด) และ `rephrase/*` 3 ไฟล์ · อ่านล่าสุด: `traversal/graph.repository.ts` (อธิบายละเอียด 21 ต.ค.)
 
-frontend/src (87 ไฟล์) ยังไม่เริ่ม
+frontend/src (86 ไฟล์ / 5,935 บรรทัด ตรวจจากดิสก์ 26 ต.ค.) ยังไม่เริ่ม
 
 ## User Journey walkthrough (เดินตาม docs/USER_JOURNEY_WALKTHROUGH.md ทีละช่วง)
 

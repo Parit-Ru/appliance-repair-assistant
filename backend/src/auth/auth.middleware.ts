@@ -14,6 +14,11 @@ export function currentUser(request: Request): AuthUser | undefined {
   return (request as AuthenticatedRequest).user;
 }
 
+/** ใช้อ่าน role ปัจจุบันจาก DB ตอนตรวจสิทธิ์ admin (UsersStore เข้ากันได้ · เทสต์ส่งตัวปลอมได้) */
+export interface RoleLookup {
+  findById(id: string): Promise<{ role: Role } | undefined>;
+}
+
 const UNAUTHENTICATED_MESSAGE = 'กรุณาเข้าสู่ระบบ';
 const unauthenticated = () => new ApiError(401, 'UNAUTHENTICATED', UNAUTHENTICATED_MESSAGE);
 
@@ -41,7 +46,7 @@ function readUser(request: Request, tokens: TokenService): AuthUser | undefined 
   return { sub: payload.sub, role: payload.role };
 }
 
-export function createAuthMiddleware(tokens: TokenService): {
+export function createAuthMiddleware(tokens: TokenService, users: RoleLookup): {
   optionalAuth: RequestHandler;
   requireAuth: RequestHandler;
   requireAdmin: RequestHandler;
@@ -67,13 +72,15 @@ export function createAuthMiddleware(tokens: TokenService): {
     }
   }
 
-  function requireAdmin(request: AuthenticatedRequest, _response: Response, next: NextFunction): void {
-    if (!request.user) {
-      next(unauthenticated());
-      return;
-    }
-    if (request.user.role !== Role.Admin) {
-      next(new ApiError(403, 'FORBIDDEN', 'ไม่มีสิทธิ์เข้าถึงส่วนนี้'));
+  async function requireAdmin(request: AuthenticatedRequest, _response: Response, next: NextFunction): Promise<void> {
+    try {
+      if (!request.user) throw unauthenticated();
+      const current = await users.findById(request.user.sub);
+      if (!current || current.role !== Role.Admin) {
+        throw new ApiError(403, 'FORBIDDEN', 'ไม่มีสิทธิ์เข้าถึงส่วนนี้');
+      }
+    } catch (err) {
+      next(err);
       return;
     }
     next();

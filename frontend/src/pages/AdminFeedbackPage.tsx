@@ -49,8 +49,7 @@ export function AdminFeedbackPage() {
             id={helpfulId}
             value={params.helpful === undefined ? '' : String(params.helpful)}
             onChange={(event) => update({ helpful: event.target.value === '' ? undefined : event.target.value === 'true' })}
-            className={FIELD_CLASSES}
-          >
+            className={FIELD_CLASSES}>
             <option value="">ทั้งหมด</option>
             <option value="true">👍 เป็นประโยชน์</option>
             <option value="false">👎 ไม่เป็นประโยชน์</option>
@@ -78,7 +77,7 @@ export function AdminFeedbackPage() {
             value={params.to ?? ''}
             min={params.from}
             onChange={(event) => update({ to: event.target.value === '' ? undefined : event.target.value })}
-            className={FIELD_CLASSES}/>
+            className={FIELD_CLASSES} />
         </div>
       </div>
 
@@ -119,7 +118,8 @@ export function AdminFeedbackPage() {
             page={data.page}
             totalPages={data.totalPages}
             onChange={(page) => update({ page })}
-            disabled={feedback.isPlaceholderData}/>
+            disabled={feedback.isPlaceholderData}
+          />
         </section>
       )}
     </div>
@@ -133,8 +133,7 @@ function FeedbackRow({ item }: { item: AdminFeedbackItem }) {
         <span
           className={`rounded-full border px-2.5 py-0.5 text-xs font-semibold ${
             item.helpful ? 'border-success/40 text-success' : 'border-danger/40 text-danger'
-          }`}
-        >
+          }`}>
           {item.helpful ? '👍 เป็นประโยชน์' : '👎 ไม่เป็นประโยชน์'}
         </span>
         <time dateTime={item.createdAt} className="text-sm text-ink-soft">

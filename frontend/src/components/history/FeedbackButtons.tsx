@@ -1,9 +1,10 @@
 import { useId, useState } from 'react'
 import type { FormEvent } from 'react'
 import type { HistoryFeedback } from '../../api/types'
-import { MAX_FEEDBACK_COMMENT_LENGTH, checkComment, formatCommentCounter, isSameFeedback, toFeedback } from '../../lib/textInput'
+import { MAX_FEEDBACK_COMMENT_LENGTH, checkText, formatCounter, isSameFeedback, toFeedback } from '../../lib/textInput'
 import { Button } from '../ui/Button'
 import { ErrorNotice } from '../ErrorNotice'
+import { TEXTAREA_CLASSES } from '../OutcomeForm'
 
 interface FeedbackButtonsProps {
   saved: HistoryFeedback | null
@@ -11,8 +12,6 @@ interface FeedbackButtonsProps {
   isSending: boolean
   error: Error | null
 }
-
-const TEXTAREA_CLASSES ='w-full resize-y rounded-lg border border-line bg-canvas px-4 py-3 text-base text-ink placeholder:text-ink-faint focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent disabled:cursor-not-allowed disabled:opacity-50'
 
 export function FeedbackButtons({ saved, onSubmit, isSending, error }: FeedbackButtonsProps) {
   const textareaId = useId()
@@ -23,7 +22,7 @@ export function FeedbackButtons({ saved, onSubmit, isSending, error }: FeedbackB
   const [comment, setComment] = useState(saved?.comment ?? '')
 
   const isSaved = isSameFeedback(saved, helpful, comment)
-  const canSubmit = helpful !== null && checkComment(comment) === 'ok' && !isSending && !isSaved
+  const canSubmit = helpful !== null && checkText(comment, MAX_FEEDBACK_COMMENT_LENGTH) !== 'too-long' && !isSending && !isSaved
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
@@ -61,7 +60,7 @@ export function FeedbackButtons({ saved, onSubmit, isSending, error }: FeedbackB
           aria-describedby={`${hintId} ${counterId}`}
           className={TEXTAREA_CLASSES}/>
         <p id={counterId} className="text-right text-xs text-ink-faint">
-          {formatCommentCounter(comment)}
+          {formatCounter(comment, MAX_FEEDBACK_COMMENT_LENGTH)}
         </p>
       </div>
 

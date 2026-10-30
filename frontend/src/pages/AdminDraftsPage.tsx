@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { LINK_CLASSES } from '../components/ui/Button'
 import { useAdminDrafts } from '../api/queries'
 import type { DraftSummary } from '../api/types'
 import { AdminTabs } from '../components/admin/AdminTabs'
@@ -10,11 +11,6 @@ import { LoadingText } from '../components/LoadingText'
 import { draftFailureLabel } from '../lib/draftView'
 import { formatStartedAt } from '../lib/historyView'
 
-/**
- * หน้า "ร่างแผนผังขั้นตอน" (/admin/drafts) — อัปโหลด PDF + รายการร่าง
- * รายการถามสถานะเองทุก 3 วินาทีเฉพาะตอนมีร่างกำลังร่างอยู่ (useAdminDrafts)
- * ร่างทุกรายการผู้ใช้ทั่วไปมองไม่เห็นจนกว่าจะเผยแพร่ (อยู่คนละตารางกับแผนผังขั้นตอนที่ใช้งานจริง)
- */
 export function AdminDraftsPage() {
   const drafts = useAdminDrafts()
   const items = drafts.data?.items
@@ -59,7 +55,7 @@ function DraftRow({ draft }: { draft: DraftSummary }) {
     <li className="space-y-1 border-b border-line py-4">
       <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
         <DraftStatusBadge status={draft.status} />
-        <Link to={`/admin/drafts/${draft.id}`} className="font-mono text-accent underline-offset-4 hover:underline">
+        <Link to={`/admin/drafts/${draft.id}`} className={`font-mono ${LINK_CLASSES}`}>
           {draft.manualId}
         </Link>
         <time dateTime={draft.createdAt} className="text-sm text-ink-faint">

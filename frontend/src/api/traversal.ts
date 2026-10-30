@@ -10,12 +10,12 @@ interface HealthResponse {
   environment: string
 }
 
-// GET /health
+/** GET /health */
 export function getHealth(): Promise<HealthResponse> {
   return request<HealthResponse>('/health')
 }
 
-// manualId ไม่ส่ง = ทุกผัง · ส่ง = เฉพาะผังของรุ่นนั้น
+/** manualId ไม่ส่ง = ทุกผัง · ส่ง = เฉพาะผังของรุ่นนั้น */
 export async function listGraphs(manualId?: string): Promise<GraphSummary[]> {
   const query = manualId === undefined ? '' : `?manualId=${encodeURIComponent(manualId)}`
   return request<GraphSummary[]>(`/traversal/graphs${query}`)
@@ -39,7 +39,7 @@ export async function startSession(graphId: string, options: StartSessionOptions
   })
 }
 
-// manualId ไม่ส่ง = ค้นทุกรุ่น · ส่ง = ค้นเฉพาะผังของรุ่นนั้น
+/** manualId ไม่ส่ง = ค้นทุกรุ่น · ส่ง = ค้นเฉพาะผังของรุ่นนั้น */
 export async function searchSymptoms(query: string, manualId?: string): Promise<SymptomSearchResponse> {
   return request<SymptomSearchResponse>('/symptom-search', {
     method: 'POST',

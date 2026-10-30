@@ -3,7 +3,6 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import type { ReactNode } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { getMe, login as apiLogin, register as apiRegister } from '../../api/auth'
-import type { Session } from '../../api/auth'
 import { setUnauthorizedHandler } from '../../api/http'
 import { AuthContext } from '../../lib/authContext'
 import type { AuthContextValue, AuthStatus } from '../../lib/authContext'
@@ -11,19 +10,6 @@ import { loginUrl } from '../../lib/authRedirect'
 import { clearStoredAuth, getStoredToken, readStoredAuth, storeAuth } from '../../lib/authStorage'
 import type { StoredAuth } from '../../lib/authStorage'
 
-/**
- * เก็บสถานะการเข้าสู่ระบบของทั้งแอป — ต้องอยู่ใน QueryClientProvider และ BrowserRouter
- *
- * ลำดับเหตุการณ์:
- *  1. เปิดแอป: ถ้ามี token ที่จำไว้ → status = 'verifying' แล้วยิง GET /auth/me
- *     ใช้ได้ → อัปเดตชื่อ/role จากเซิร์ฟเวอร์ · 401 → http.ts เรียกตัวจัดการด้านล่าง (ล้างแล้วเด้งไปล็อกอิน)
- *     เครือข่ายล่ม → ใช้ค่าที่จำไว้ต่อ (หน้า admin จะถูก backend ปฏิเสธเองถ้าไม่ใช่ admin จริง)
- *  2. login/register/logout/token หมดอายุ: ล้างแคชของ React Query ทั้งหมดเสมอ
- *     (ผู้ใช้คนก่อนต้องไม่เหลือข้อมูลในหน่วยความจำ · key ของแคชมี identity ด้วยอีกชั้น ดู api/queries.ts)
- *
- * token ถูกเก็บใน lib/authStorage.ts (http.ts อ่านจากที่นั่นทุกคำขอ) ไม่ผ่าน React state
- * จึงไม่มีช่วงที่คำขอยังใช้ token เก่าหลัง login/logout
- */
 export function AuthProvider({ children }: { children: ReactNode }) {
   const queryClient = useQueryClient()
   const navigate = useNavigate()
@@ -33,20 +19,17 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     locationRef.current = location
   }, [location])
 
-  const [initial] = useState<StoredAuth | null>(readStoredAuth)
-  const [stored, setStored] = useState<StoredAuth | null>(initial)
-  const [verifying, setVerifying] = useState(initial !== null)
+  const [stored, setStored] = useState<StoredAuth | null>(readStoredAuth)
+  const [verifying, setVerifying] = useState(stored !== null)
 
   useEffect(() => {
     setUnauthorizedHandler((usedToken) => {
-      // คำขอเก่าที่ตอบช้าหลังผู้ใช้ล็อกอินใหม่ออกไปแล้ว  เมิน
       if (getStoredToken() !== usedToken) return
 
       clearStoredAuth()
       setStored(null)
       setVerifying(false)
       queryClient.clear()
-      // กลับมาหน้าเดิมหลังล็อกอิน เช่น /session/:id 
       navigate(loginUrl('expired', locationRef.current.pathname + locationRef.current.search), { replace: true })
     })
     return () => setUnauthorizedHandler(undefined)
@@ -73,10 +56,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, [])
 
   const applySession = useCallback(
-    (session: Session) => {
-      const next = { token: session.token, user: session.user }
-      storeAuth(next)
-      setStored(next)
+    (session: StoredAuth) => {
+      storeAuth(session)
+      setStored(session)
       setVerifying(false)
       queryClient.clear()
     },
@@ -112,3 +94,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
 }
+
+
+ /* ลำดับเหตุการณ์:
+   1. เปิดแอป: ถ้ามี token ที่จำไว้ → status = 'verifying' แล้วยิง GET /auth/me
+      ใช้ได้ → อัปเดตชื่อ/role จากเซิร์ฟเวอร์ · 401 → http.ts เรียกตัวจัดการด้านล่าง (ล้างแล้วเด้งไปล็อกอิน)
+      เครือข่ายล่ม → ใช้ค่าที่จำไว้ต่อ (หน้า admin จะถูก backend ปฏิเสธเองถ้าไม่ใช่ admin จริง)
+   2. login/register/logout/token หมดอายุ: ล้างแคชของ React Query ทั้งหมดเสมอ
+      (ผู้ใช้คนก่อนต้องไม่เหลือข้อมูลในหน่วยความจำ · key ของแคชมี identity ด้วยอีกชั้น ดู api/queries.ts)
+ 
+  token ถูกเก็บใน lib/authStorage.ts (http.ts อ่านจากที่นั่นทุกคำขอ*/

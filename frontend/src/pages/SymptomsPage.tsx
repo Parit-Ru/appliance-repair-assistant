@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link, Navigate } from 'react-router-dom'
+import { LINK_CLASSES } from '../components/ui/Button'
 import { ApiError } from '../api/http'
 import { useManuals, useSymptomSearch } from '../api/queries'
 import { SlowServerNotice } from '../components/SlowServerNotice'
@@ -10,12 +11,11 @@ import { Notice } from '../components/ui/Notice'
 import { describeError } from '../lib/errors'
 import { useChosenModel, symptomsPath } from '../lib/modelSelection'
 import { manualTitle } from '../lib/models'
-import { checkQuery, normalizeQuery } from '../lib/textInput'
+import { MAX_QUERY_LENGTH, checkText } from '../lib/textInput'
 import { useSlowWait } from '../lib/useSlowWait'
 import { useStartSymptom } from '../lib/useStartSymptom'
 
 const SEARCH_INFO_CODES = new Set(['INVALID_QUERY', 'SEARCH_NOT_READY', 'SEARCH_UNAVAILABLE'])
-const LINK_CLASSES = 'text-accent underline-offset-4 hover:underline'
 
 export function SymptomsPage() {
   const { manualId, modelSelection } = useChosenModel()
@@ -26,8 +26,8 @@ export function SymptomsPage() {
   const [query, setQuery] = useState('')
 
   function handleSearch() {
-    if (checkQuery(query) !== 'ok') return
-    search.mutate({ query: normalizeQuery(query), manualId })
+    if (checkText(query, MAX_QUERY_LENGTH) !== 'ok') return
+    search.mutate({ query: query.trim(), manualId })
   }
 
   const isSlow = useSlowWait(isStarting || search.isPending)

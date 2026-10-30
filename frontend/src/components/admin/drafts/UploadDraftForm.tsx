@@ -5,12 +5,10 @@ import { useUploadDraft } from '../../../api/queries'
 import { DEVICE_CATEGORIES, DEVICE_CATEGORY_LABELS } from '../../../lib/labels'
 import { MAX_DRAFT_PAGES, isDemoManualId, validateUploadForm } from '../../../lib/draftView'
 import type { UploadFormErrors, UploadFormValues } from '../../../lib/draftView'
+import { FIELD_CLASSES } from '../../auth/TextField'
 import { ErrorNotice } from '../../ErrorNotice'
 import { Button } from '../../ui/Button'
 import { Notice } from '../../ui/Notice'
-
-const FIELD_CLASSES =
-  'min-h-12 w-full rounded-lg border bg-canvas px-3 py-2 text-base text-ink placeholder:text-ink-faint focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent'
 
 const EMPTY: Omit<UploadFormValues, 'file'> = {
   manualId: 'demo_',
@@ -55,11 +53,7 @@ function Field({ label, hint, error, children }: FieldProps) {
   )
 }
 
-/**
- * ฟอร์มอัปโหลด PDF เพื่อให้ AI ร่างแผนผังขั้นตอน
- * ตรวจฝั่งหน้าจอเพื่อบอกทันที (UX) · backend ตรวจซ้ำทุกฟิลด์และตรวจไฟล์จริง (ขนาด ชนิด ข้อความ)
- * สำเร็จแล้วไปหน้าตรวจของร่างนั้น (หน้านั้นถามสถานะเองทุก 3 วินาทีระหว่างร่าง)
- */
+
 export function UploadDraftForm() {
   const navigate = useNavigate()
   const upload = useUploadDraft()

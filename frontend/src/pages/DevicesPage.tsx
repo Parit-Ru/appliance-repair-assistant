@@ -20,7 +20,6 @@ export function DevicesPage() {
   const isSlow = useSlowWait(manuals.isPending)
 
   const rawCategory = params.get('category') as DeviceCategory | null
-  // ค่า category ที่ไม่รู้จัก
   const category = rawCategory !== null && DEVICE_CATEGORIES.includes(rawCategory) ? rawCategory : null
 
   return (
@@ -28,9 +27,7 @@ export function DevicesPage() {
       <div className="space-y-1">
         <h1 className="text-2xl font-semibold">{category ? `เลือกรุ่น${DEVICE_CATEGORY_LABELS[category] ?? ''}` : 'เลือกเครื่องที่มีปัญหา'}</h1>
         <p className="text-ink-soft">
-          {category
-            ? MODEL_MATCH_HINT
-            : 'เลือกประเภทเครื่องใช้ไฟฟ้า แล้วเลือกรุ่น จากนั้นจึงเลือกอาการ'}
+          {category ? MODEL_MATCH_HINT: 'เลือกประเภทเครื่องใช้ไฟฟ้า แล้วเลือกรุ่น จากนั้นจึงเลือกอาการ'}
         </p>
       </div>
 

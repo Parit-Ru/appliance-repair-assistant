@@ -18,7 +18,7 @@ const historyDetailQuery = (sessionId: string, identity = 'guest') =>
     queryFn: () => getHistory(sessionId),
   })
 
-// ร่างแผนผังขั้นตอน: ทุก key ขึ้นต้น ['admin', identity, 'drafts'] ไว้ invalidate ทีเดียว
+/** ร่างแผนผังขั้นตอน: ทุก key ขึ้นต้น ['admin', identity, 'drafts'] ไว้ invalidate ทีเดียว */
 const adminDraftsQuery = (identity = 'guest') =>
   queryOptions({
     queryKey: ['admin', identity, 'drafts'] as const,
@@ -87,13 +87,6 @@ export function useAdminSummary(days: number) {
   })
 }
 
-/*
-  ค้นหาอาการด้วยข้อความที่ผู้ใช้พิมพ์
- 
-  ใช้ useMutation ไม่ใช่ useQuery เพราะค้นเฉพาะตอนผู้ใช้กดค้นหา ไม่ใช่ตอนหน้าจอแสดง
-  และไม่ใส่แคช: คำค้นเดียวกันค้นซ้ำได้ผลเดิมอยู่แล้ว แต่ผลขึ้นกับสถานะระบบค้นหาบนเซิร์ฟเวอร์
-  (เช่น ตอนแรกยังโหลดโมเดลอยู่ ตอบ SEARCH_NOT_READY) จึงไม่ควรจำผลเก่า
- */
 export function useSymptomSearch() {
   return useMutation<SymptomSearchResponse, Error, { query: string; manualId?: string }>({
     mutationFn: ({ query, manualId }) => searchSymptoms(query, manualId),
@@ -176,21 +169,16 @@ export function useSubmitFeedback(sessionId: string) {
   })
 }
 
-
-
-/** รายการร่าง · poll ต่อเมื่อมีร่างสถานะ drafting อย่างน้อย 1 รายการ */
 export function useAdminDrafts() {
   const identity = useIdentity()
   return useQuery(adminDraftsQuery(identity))
 }
 
-/** รายละเอียดร่าง · poll ต่อเมื่อร่างนี้ยังเป็น drafting */
 export function useAdminDraft(id: string) {
   const identity = useIdentity()
   return useQuery(adminDraftQuery(id, identity))
 }
 
-/** อัปโหลด PDF → เริ่มร่าง · สำเร็จแล้วโหลดรายการใหม่ (และเริ่ม poll เพราะมีร่าง drafting) */
 export function useUploadDraft() {
   const queryClient = useQueryClient()
   const identity = useIdentity()
@@ -202,7 +190,6 @@ export function useUploadDraft() {
   })
 }
 
-/** ตัวช่วยของ mutation ที่ได้รายละเอียดร่างกลับมา: ใส่แคชรายละเอียด + โหลดรายการใหม่ */
 function useDraftCacheUpdate() {
   const queryClient = useQueryClient()
   const identity = useIdentity()
@@ -212,7 +199,6 @@ function useDraftCacheUpdate() {
   }
 }
 
-/** แก้แผนผังแล้วให้ backend ตรวจใหม่ ("ตรวจใหม่") */
 export function useUpdateDraft(id: string) {
   const apply = useDraftCacheUpdate()
   return useMutation({
@@ -229,10 +215,8 @@ export function useRejectDraft(id: string) {
   })
 }
 
-/**
- * เผยแพร่ — ส่ง acknowledgedWarnings ตามช่องติ๊ก (backend ตรวจซ้ำเสมอ: error = 409 ไม่มี override)
- * สำเร็จแล้ว: โหลดร่าง/รายการใหม่ และโหลดรายการรุ่น/อาการใหม่ (มีแผนผังขั้นตอนใหม่ในระบบแล้ว)
- */
+// เผยแพร่ — ส่ง acknowledgedWarnings สำเร็จแล้ว: โหลดร่าง/รายการใหม่ และโหลดรายการรุ่น/อาการใหม่ 
+
 export function usePublishDraft(id: string) {
   const queryClient = useQueryClient()
   const identity = useIdentity()

@@ -15,7 +15,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const mysql = require('mysql2/promise');
 
-// ลำดับตาม FK: manuals → graphs → nodes (กู้คืนต้องเรียงแบบนี้)
+/** ลำดับตาม FK: manuals → graphs → nodes (กู้คืนต้องเรียงแบบนี้) */
 const TABLES = ['manuals', 'graphs', 'nodes', 'graph_drafts'];
 
 function connectionConfig() {

@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
+import { LINK_CLASSES } from '../components/ui/Button'
 import { Icon } from '../components/ui/Icon'
 
-/** หน้า "ไม่มีสิทธิ์" — ล็อกอินแล้วแต่ไม่ใช่ผู้ดูแลระบบ (ไม่ปล่อยให้เป็นหน้าว่าง) */
 export function ForbiddenPage() {
   return (
     <div className="space-y-4">
@@ -9,10 +9,10 @@ export function ForbiddenPage() {
       <h1 className="text-2xl font-semibold">ไม่มีสิทธิ์เข้าถึงหน้านี้</h1>
       <p className="text-ink-soft">หน้านี้สำหรับผู้ดูแลระบบเท่านั้น บัญชีของคุณใช้งานส่วนอื่นของเว็บได้ตามปกติ</p>
       <div className="flex flex-wrap gap-x-6 gap-y-2">
-        <Link to="/" className="text-accent underline-offset-4 hover:underline">
+        <Link to="/" className={LINK_CLASSES}>
           กลับหน้าแรก
         </Link>
-        <Link to="/history" className="text-accent underline-offset-4 hover:underline">
+        <Link to="/history" className={LINK_CLASSES}>
           ไปประวัติการซ่อม
         </Link>
       </div>

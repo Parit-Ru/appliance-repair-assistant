@@ -265,7 +265,7 @@ PDF คู่มือ ──(แยก chunk)──▶ data/chuck/*.json ──
 4. **embedding รันในโปรเซส backend** ไม่ใช่เรียก API ภายนอก — ผลคือ Render free plan บูตช้า/ตอบ `503 SEARCH_NOT_READY` ช่วงโหลดโมเดล (มีรหัสนี้ใน `symptom-search.service.ts`)
 5. **ผังและเวกเตอร์ถูกโหลดเข้าหน่วยความจำตอนบูต** (`GraphRepository`, `SymptomSearchService`) — หลัง publish ผังใหม่ `drafts.service.ts` เรียก `GraphRepository.reload()` แล้วเพิ่มผังเข้าดัชนีค้นหาให้ (ถ้า reload ล้มเหลว การ publish ที่เขียน DB สำเร็จแล้วไม่ถูกยกเลิก แต่ API ตอบ 500 `PUBLISH_RELOAD_FAILED` และต้องรีสตาร์ต backend — **ยืนยันแล้วในส่วนที่ 4 หัวข้อ 4.6.5** จากการเปิดอ่าน `drafts.service.ts:193-223` และ `drafts.store.ts:210-245`)
 6. **เทสต์** — ในรีโปไม่มีไฟล์เทสต์อัตโนมัติเลย (ดูแถว `jest.config.js` ใน 1.4) อย่าอ้างว่ามีชุดเทสต์ ถ้ากรรมการถามให้ตอบตรงๆ ว่าตรวจด้วยสคริปต์เทียบผลและทดสอบมือ (เช่นตอนรวม error ใช้สคริปต์เทียบ 120 กรณี HTTP — ไฟล์สคริปต์อยู่นอกรีโป)
-7. **ตัวเลขขนาดโค้ดล่าสุด** (หลังงานรวม error): `backend/src` 59 ไฟล์ / 6,751 บรรทัด · `frontend/src` 87 ไฟล์ / 6,553 บรรทัด (นับหลัง simplify รอบ 2 — ก่อนรอบ 2 เป็น 58/6,789 และ 86/6,678 · ตัวเลขก่อน-หลังของงาน simplify อยู่ส่วนที่ 5)
+7. **ตัวเลขขนาดโค้ดล่าสุด** (หลังงานรวม error): `backend/src` 59 ไฟล์ / 6,751 บรรทัด · `frontend/src` 86 ไฟล์ / 5,935 บรรทัด (นับ 26 ต.ค. หลังรอบ simplify frontend กลุ่ม 1–3 ดูส่วน 5.8 · ตอน simplify รอบ 2 เมื่อ 20 ต.ค. เป็น 87/6,553 · ก่อนรอบ 2 เป็น 86/6,678 · ตัวเลขก่อน-หลังของงาน simplify อยู่ส่วนที่ 5)
 
 ---
 
@@ -322,8 +322,8 @@ PDF คู่มือ ──(แยก chunk)──▶ data/chuck/*.json ──
 | # | ทำอะไร | ไฟล์:บรรทัด |
 |---|---|---|
 | 1 | ถ้าไม่มี `?manual=` ในURL → เด้งกลับ `/devices` (ไม่เดารุ่นให้) | `SymptomsPage.tsx:52` |
-| 2 | ผู้ใช้พิมพ์ในช่อง (ไม่เกิน 200 ตัวอักษร) กด "ค้นหา" | `SymptomSearchForm.tsx:14-35` · `lib/textInput.ts:16` (`MAX_QUERY_LENGTH = 200`) · `:31-36` (`checkQuery`) |
-| 3 | `handleSearch` ตรวจ → `search.mutate({ query, manualId })` | `SymptomsPage.tsx:43-46` |
+| 2 | ผู้ใช้พิมพ์ในช่อง (ไม่เกิน 200 ตัวอักษร) กด "ค้นหา" | `SymptomSearchForm.tsx:14-35` · `lib/textInput.ts:3` (`MAX_QUERY_LENGTH = 200`) · `:10-15` (`checkText`) |
+| 3 | `handleSearch` ตรวจ → `search.mutate({ query, manualId })` | `SymptomsPage.tsx:28-31` |
 | 4 | ใช้ `useMutation` ไม่ใช่ `useQuery` และไม่แคชผล เพราะผลขึ้นกับสถานะระบบค้นหา | `queries.ts:141-145` |
 | 5 | ยิง `POST /symptom-search` body `{ query, manualId }` | `api/traversal.ts:47-52` |
 
@@ -347,7 +347,7 @@ PDF คู่มือ ──(แยก chunk)──▶ data/chuck/*.json ──
 
 ### ฝั่งหน้าจอแสดงผล
 - ไม่มีผังผ่านเกณฑ์ → กล่องฟ้า "ไม่พบอาการที่ใกล้เคียง ... **ระบบไม่เดาอาการให้**": `SymptomSearchResults.tsx:13-19`
-- มีผล → แถวละผัง แสดง "คะแนนความคล้าย 0.xxx · ใกล้กับ '<ข้อความที่ตรง>'" (`matchedText`): `SymptomRow.tsx:28-33` · ข้อความเตือนว่าคะแนน **ไม่ใช่โอกาสถูกต้อง**: `SymptomSearchResults.tsx:24` · ทศนิยม 3 ตำแหน่ง ไม่แปลงเป็น %: `textInput.ts:38-47`
+- มีผล → แถวละผัง แสดง "คะแนนความคล้าย 0.xxx · ใกล้กับ '<ข้อความที่ตรง>'" (`matchedText`): `SymptomRow.tsx:28-33` · ข้อความเตือนว่าคะแนน **ไม่ใช่โอกาสถูกต้อง**: `SymptomSearchResults.tsx:24` · ทศนิยม 3 ตำแหน่ง ไม่แปลงเป็น %: `textInput.ts:22-24`
 - error 503/400 ของการค้นหาแสดงกล่อง **สีฟ้า** (ไม่ใช่แดง) เพราะไม่ใช่ความล้มเหลวของระบบ ผู้ใช้เลือกจาก "อาการทั้งหมด" ต่อได้: `SymptomsPage.tsx:28-31, 102-110`
 
 ### ทางเลือกที่ไม่ต้องใช้การค้นหา (ทางสำรองเสมอ)
@@ -521,7 +521,7 @@ PDF คู่มือ ──(แยก chunk)──▶ data/chuck/*.json ──
 
 1. **"ระบบ AI ถามตอบ" ≠ ความจริง** — ทุกข้อความขั้นตอนมาจากฐานข้อมูล (ผังที่แปลงจากคู่มือ) LLM ทำได้แค่ปรับถ้อยคำบางโหนด และถ้า guard ไม่ผ่านก็ใช้ข้อความคู่มือเดิม
 2. **เกณฑ์ 0.55 / top 3 เป็นค่าที่ตั้งไว้ในโค้ด** (`symptom-search.service.ts:11-12`) — ถ้าถูกถามว่า "ทำไม 0.55" อย่าอ้างผลวิจัย ให้ตอบตามที่โค้ดบอก (ค่าคงที่ ไม่ได้ปรับตามข้อมูลอัตโนมัติ) · ⚠️ ไม่แน่ใจว่ามีเอกสารบันทึกการเลือกค่านี้ที่ไหน (อาจอยู่ใน `docs/` เก่า — ยังไม่ได้ค้น)
-3. **คะแนน cosine ไม่ใช่ความน่าจะเป็น** — หน้าจอแสดงทศนิยม 3 ตำแหน่งและบอกผู้ใช้ตรงๆ (`textInput.ts:38-47`, `SymptomSearchResults.tsx:24`)
+3. **คะแนน cosine ไม่ใช่ความน่าจะเป็น** — หน้าจอแสดงทศนิยม 3 ตำแหน่งและบอกผู้ใช้ตรงๆ (`textInput.ts:22-24`, `SymptomSearchResults.tsx:24`)
 4. **ค้นไม่ได้ ≠ ใช้ไม่ได้** — มีทาง "อาการทั้งหมด" เสมอ ถ้าระบบค้นหายังโหลดโมเดล (503) หรือปิดอยู่
 5. **ไม่มีการตรวจว่า "ผู้ใช้เลือกผังที่ถูกอาการ"** — ระบบแค่เสนอ ผู้ใช้เป็นคนเลือก (จึงมี confidence เป็นข้อมูลประกอบ ไม่ใช่เกณฑ์ตัดสิน: `traversal.service.ts:186`)
 6. **ถ้า TOR เขียนว่า "RAG / LLM ตอบ"** → ให้ชี้ `traversal-engine.ts` เป็นหลักฐานว่าการเดินผังเป็นโค้ดกำหนดตายตัว
@@ -882,9 +882,9 @@ node scripts/study-measure.js search --out x.json "สวัสดี@samsung_ge
 - **กันข้ามเจ้าของ:** `AND user_id IS NULL` ทำให้ guest ที่ใช้เบราว์เซอร์เดียวกับ user ก็มองไม่เห็นและลบ session ของ user ไม่ได้ (migration 011 บรรทัด 9-10) · และ endpoint เดินผัง (GET/actions/outcome) ของ session ที่เป็นของ user **ต้องมี token ของเจ้าของ** ไม่งั้น 404 เหมือนไม่มี session (`traversal.service.ts:138-143`) — ส่วน session ของ guest ใช้ session id เป็นกุญแจเหมือนเดิม
 
 ### 4.1.4 ฝั่งหน้าจอ (สถานะล็อกอิน)
-- เก็บ `{token, user:{id, displayName, role}}` ใน localStorage คีย์ `fixstep.auth` (`lib/authStorage.ts:19`, `:70-77`) พร้อมสำเนาในหน่วยความจำ ถ้า localStorage ใช้ไม่ได้ก็ใช้ในหน่วยความจำของแท็บ (`:50-58`) · **ข้อสังเกตทั่วไป** (ไม่ใช่ผลทดสอบ): token ใน localStorage ถูกอ่านได้ด้วย JavaScript ที่รันในหน้าเว็บ ถ้าเกิดช่องโหว่ XSS token อาจรั่ว
-- ตอนเปิดแอป: ถ้ามี token จำไว้ → เรียก `/auth/me` ยืนยัน (`AuthProvider.tsx:58-79`) ระหว่างนั้นสถานะ `verifying`; สถานะมี 3 แบบ `guest | verifying | user` (`:114-117`)
-- ได้ 401 พร้อม token → ล้าง token/แคช แล้วพาไปหน้า login พร้อมกลับมาหน้าเดิม (`api/http.ts:91-93` → `AuthProvider.tsx:42-56`) · login/สมัครสำเร็จล้างแคช query ทั้งหมด (`:81-90`) กันข้อมูลของตัวตนก่อนหน้าค้าง
+- เก็บ `{token, user:{id, displayName, role}}` ใน localStorage คีย์ `fixstep.auth` (`lib/authStorage.ts:3`, `:46-53`) พร้อมสำเนาในหน่วยความจำ ถ้า localStorage ใช้ไม่ได้ก็ใช้ในหน่วยความจำของแท็บ (`:46-53`) · **ข้อสังเกตทั่วไป** (ไม่ใช่ผลทดสอบ): token ใน localStorage ถูกอ่านได้ด้วย JavaScript ที่รันในหน้าเว็บ ถ้าเกิดช่องโหว่ XSS token อาจรั่ว
+- ตอนเปิดแอป: ถ้ามี token จำไว้ → เรียก `/auth/me` ยืนยัน (`AuthProvider.tsx:39-56`) ระหว่างนั้นสถานะ `verifying`; สถานะมี 3 แบบ `guest | verifying | user` (`:90-93`)
+- ได้ 401 พร้อม token → ล้าง token/แคช แล้วพาไปหน้า login พร้อมกลับมาหน้าเดิม (`api/http.ts:91-93` → `AuthProvider.tsx:25-36`) · login/สมัครสำเร็จล้างแคช query ทั้งหมด (`:58-66`) กันข้อมูลของตัวตนก่อนหน้าค้าง
 - `AdminRoute`: รอตรวจ → guest ไปหน้า login → ไม่ใช่ admin แสดง `ForbiddenPage` (`components/auth/AdminRoute.tsx:19-41`) · **เป็น UX เท่านั้น** ตัวบังคับจริงคือ `requireAdmin` ฝั่ง backend (`auth.middleware.ts:96-106`)
 
 ---
@@ -944,7 +944,7 @@ node scripts/study-measure.js search --out x.json "สวัสดี@samsung_ge
 **flow**
 | ขั้น | ทำอะไร | ไฟล์:บรรทัด |
 |---|---|---|
-| หน้าจอ | ที่โหนดสิ้นสุดมีกล่อง "ผลเป็นอย่างไรบ้าง? (ไม่บังคับ)" · บอกชัดว่า **บันทึกได้ครั้งเดียว แก้ไขไม่ได้** และไม่ให้ใส่ข้อมูลส่วนตัว · ≤ 1,000 ตัวอักษร | `components/OutcomeForm.tsx:55-60`, `:63-67` · `lib/outcome.ts:1`, `:9-14` · ฟอร์มถูกใส่ใน `OutcomeStep` (`SessionPage.tsx:132-140`) |
+| หน้าจอ | ที่โหนดสิ้นสุดมีกล่อง "ผลเป็นอย่างไรบ้าง? (ไม่บังคับ)" · บอกชัดว่า **บันทึกได้ครั้งเดียว แก้ไขไม่ได้** และไม่ให้ใส่ข้อมูลส่วนตัว · ≤ 1,000 ตัวอักษร | `components/OutcomeForm.tsx:55-60`, `:63-67` · `lib/textInput.ts:4`, `:10-15` · ฟอร์มถูกใส่ใน `OutcomeStep` (`SessionPage.tsx:132-140`) |
 | ส่ง | `POST /traversal/sessions/:id/outcome` body `{ text }` → ตอบ 200 (ไม่ใช่ 201) | `traversal.routes.ts:70-77` · `api/traversal.ts:68-73` |
 | ตรวจ body | text ต้องเป็นข้อความ ไม่ว่าง ≤ 1,000 → ไม่ผ่าน 400 `INVALID_OUTCOME` | `traversal.dto.ts:166-185` |
 | ลำดับตรวจ | (1) ไม่พบ session → 404 `SESSION_NOT_FOUND` (2) session ยังเดินอยู่ → 409 `SESSION_NOT_COMPLETED` (3) เคยบันทึกแล้ว → 409 `OUTCOME_ALREADY_SUBMITTED` | `traversal.service.ts:116-136` (404 `:122` · 409 `:125-127` · 409 `:129-132`) |
@@ -1233,7 +1233,7 @@ node scripts/study-measure.js search --out x.json "สวัสดี@samsung_ge
 | **unit ของ filter กลาง 27 กรณี** (เช่น `ApiError` ต้องชนะ error ที่มี `statusCode` ปน, error 413 จาก body-parser ต้องส่งต่อให้ Nest) | ลำดับตัดสินใน `toBody()` | 27/27 |
 | `tsc --noEmit` + `nest build` ของ backend | ชนิดข้อมูล/คอมไพล์ | ✅ ผ่าน (รันซ้ำตอนเขียนส่วนนี้) |
 | frontend: `npm run build` (tsc -b + vite) | ชนิดข้อมูล/คอมไพล์ | ✅ ผ่าน (รันซ้ำตอนเขียนส่วนนี้) |
-| frontend: `npx eslint .` | lint | ✅ **สะอาด** — error เดิม (`AuthProvider.tsx` react-hooks/refs) ถูกแก้ในรอบ 2 (F7) โดยย้ายการอัปเดต ref ไปไว้ใน `useEffect` (`AuthProvider.tsx:30-36`) |
+| frontend: `npx eslint .` | lint | ✅ **สะอาด** — error เดิม (`AuthProvider.tsx` react-hooks/refs) ถูกแก้ในรอบ 2 (F7) โดยย้ายการอัปเดต ref ไปไว้ใน `useEffect` (`AuthProvider.tsx:17-20`) |
 | สคริปต์เทียบผลเฉพาะจุด | ก่อนหน้านี้ใช้เทียบ `graph-validator.ts` (583 → 503 บรรทัด) และหน้าประวัติ (D3) | ตามที่รายงานในแต่ละรอบ |
 
 ### ที่ไม่ได้ทดสอบ (ต้องบอกกรรมการตรงๆ)
@@ -1268,12 +1268,12 @@ node scripts/study-measure.js search --out x.json "สวัสดี@samsung_ge
 | `queries.ts` | เขียนใหม่: hook ที่ใส่ session ลงแคช (เริ่ม/ตอบ/บันทึกผล) ใช้ `useCacheSession` ตัวเดียว (`:154-160`) · `queryOptions` เฉพาะ key ที่ใช้หลายที่ | tsc + build + ตรวจ queryKey ด้วยตาว่าไม่เปลี่ยน |
 | ชุดอื่นๆ ของ frontend | `DEVICE_CATEGORIES` เหลือชุดเดียวใน `lib/labels.ts` · `toAuthUser` ใน `api/auth.ts` · `patchFeedbackParams` ใน `lib/adminParams.ts` · เอา `export` ที่ไม่มีใครใช้ออก (`adminView`, `authStorage`, `models`, `textInput`) · คืนคอมเมนต์ของ `AdminDraftReviewPage` ที่หายไป (F3) | tsc (`noUnusedLocals`) + build + eslint |
 | Login/Register (F6) | ใช้ `ErrorNotice` ตัวเดียวกับหน้าอื่น (เพิ่ม `children` ให้ใส่ลิงก์ต่อท้ายได้ — กรณี `EMAIL_TAKEN` ที่มีลิงก์ไปหน้าเข้าสู่ระบบ) | ข้อความมาจาก `describeError` (ตัดสินจาก `code`) · ตอนทำตรวจแล้วว่าหัวข้อ/รายละเอียดตรงของเดิม และ `role="alert"` เหมือนเดิม แต่บาง code อาจมีปุ่ม/ลิงก์เพิ่มตาม `recovery` (เช่นลิงก์ "เข้าสู่ระบบ") · **ผู้ใช้ต้องดูด้วยตา** |
-| `AuthProvider` (F7) | แก้ error ของ eslint (react-hooks/refs): เดิมกำหนด `locationRef.current` ระหว่าง render → ย้ายไปอัปเดตใน `useEffect` (`AuthProvider.tsx:30-36`) · ผลคือ eslint สะอาด | eslint + tsc · **ต้องทดสอบมือ: ล็อกอิน/ออก/รีเฟรช/401** |
+| `AuthProvider` (F7) | แก้ error ของ eslint (react-hooks/refs): เดิมกำหนด `locationRef.current` ระหว่าง render → ย้ายไปอัปเดตใน `useEffect` (`AuthProvider.tsx:17-20`) · ผลคือ eslint สะอาด | eslint + tsc · **ต้องทดสอบมือ: ล็อกอิน/ออก/รีเฟรช/401** |
 
 ### ข้ามไว้ (พร้อมเหตุผล)
 | รายการ | เหตุผล |
 |---|---|
-| รวมค่าคลาสลิงก์ `LINK_CLASSES` (B9) | ประเมินไว้ได้ราว 4 บรรทัดเท่านั้น (รายงานรอบ 2 ตาราง B9) |
+| รวมค่าคลาสลิงก์ `LINK_CLASSES` (B9) | ประเมินไว้ได้ราว 4 บรรทัดเท่านั้น (รายงานรอบ 2 ตาราง B9) · **ภายหลังทำแล้ว** ในรอบ `FRONTEND_REVIEW` กลุ่ม 1 (ส่วน 5.8) เพื่อให้มีที่เดียว ไม่ได้ลดบรรทัด |
 | รวม `Field`/`TextField` (B10) | รายงานรอบ 2 ประเมินว่าเสี่ยงกลาง: `UploadDraftForm` มีทั้ง input/select/file ต้องดูว่ารวมแล้วไม่ซับซ้อนกว่าเดิม |
 | สร้าง query string ของ feedback ใช้ร่วมกัน (B13: `api/admin.ts` กับ `lib/adminParams.ts`) | รวมแล้วไฟล์ import วนกัน (circular import) |
 | รวมตัวแปลงของ `list()`/`toDetail()` ใน `drafts.service.ts` | ได้ราว 10 บรรทัด (รายงานรอบ 2) ไม่คุ้มกับการแตะโค้ดที่เป็นแกน authoring |
@@ -1329,6 +1329,33 @@ node scripts/study-measure.js search --out x.json "สวัสดี@samsung_ge
 
 ### ที่ยังไม่ได้ทดสอบ (ต้องทดสอบมือ)
 register/login/me/logout ผ่านหน้าเว็บจริง · อัปโหลด PDF จริงจนร่างผังเสร็จ (ต้องมี LLM) · publish แล้วรีสตาร์ต · rephrase กับ Groq จริง · หน้าเว็บ (GitHub Pages) เรียก backend ข้าม origin · deploy บน Render
+
+## 5.8 simplify frontend ตาม `docs/FRONTEND_REVIEW.md` (กลุ่ม 1–3, 26 ต.ค. 2569)
+
+รายงาน `docs/FRONTEND_REVIEW.md` ตรวจ `frontend/src` ทีละไฟล์แล้วเสนอสิ่งที่ลดได้ ผู้ใช้อนุมัติให้แก้ทีละกลุ่ม เรียงจากเสี่ยงต่ำก่อน · **ทำแล้ว 3 กลุ่มแรก** · พฤติกรรมที่ผู้ใช้เห็นต้องเหมือนเดิมทุกกลุ่ม
+
+### ทำแล้ว
+
+| กลุ่ม | สิ่งที่เปลี่ยน | ไฟล์ / บรรทัดของ `frontend/src` (ก่อน → หลัง) |
+|---|---|---|
+| 1 | แก้ eslint `no-empty` 2 จุดใน `authStorage.ts` (ใส่คอมเมนต์ในบล็อก `catch`) · `LINK_CLASSES` เหลือที่เดียวใน `components/ui/Button.tsx` (เดิมเขียนซ้ำ 14 จุดใน 11 ไฟล์) · `NAV_ACTIVE`/`NAV_IDLE` (`AppShell.tsx`) ใช้ร่วมกับ `AdminTabs.tsx` · `FIELD_CLASSES` (`TextField.tsx`) ใช้ร่วมกับ `UploadDraftForm.tsx` · `TEXTAREA_CLASSES` (`OutcomeForm.tsx`) ใช้ร่วมกับ `FeedbackButtons.tsx` | 87 ไฟล์ / 5,999 → 87 / 6,000 (บรรทัดไม่ลด เพราะแค่รวมค่าที่ซ้ำเป็นที่เดียวและเพิ่ม import) |
+| 2 | ลด type `Session` ใน `api/auth.ts` ใช้ `StoredAuth` (จาก `lib/authStorage.ts`) ตัวเดียว · `toSession` เปลี่ยนชื่อเป็น `toStoredAuth` · `readStoredAuth()` ที่เป็นแค่ wrapper ถูกลบ แล้วใช้ชื่อนี้กับฟังก์ชันอ่านจริง (เดิมชื่อ `load()`) · `AuthProvider` ตัด state `initial` และไม่สร้าง object `{token, user}` ซ้ำใน `applySession` | 87 / 6,000 → 87 / 5,989 (−11) |
+| 3 | `lib/outcome.ts` ถูกรวมเข้า `lib/textInput.ts` · "trim → ตรวจว่าง/ยาวเกิน → ตัวนับ" เหลือชุดเดียว: `checkText(raw, max)` และ `formatCounter(raw, max)` · ตัด `checkQuery`, `checkOutcome`, `checkComment`, `normalizeQuery/Outcome/Comment`, `formatOutcomeCounter`, `formatCommentCounter` | 87 / 5,982 → 86 / 5,950 (−32, −1 ไฟล์) |
+
+**ตัวเลขปัจจุบัน (นับด้วย `find src -type f` + `xargs cat | wc -l` ตอนอัปเดตเอกสารนี้): `frontend/src` 86 ไฟล์ / 5,935 บรรทัด** · ตัวเลขรอบ 2 ของ simplify (87 / 6,553) ในส่วน 5.1 เป็นภาพ ณ 20 ต.ค. ไม่ถูกแก้ · ส่วนต่างที่เหลือระหว่างตัวเลขเก่ากับปัจจุบันไม่ได้มาจากงาน 3 กลุ่มนี้ (กลุ่ม 1–3 รวมลดจริง 42 บรรทัดจากจุดเริ่มต้นของแต่ละกลุ่ม) เพราะมีไฟล์ถูกแก้นอกงานนี้ระหว่างทาง เช่นรายงานตรวจนับได้ 6,055 ตอนเริ่ม แต่ตอนเริ่มกลุ่ม 1 นับได้ 5,999 และจบกลุ่ม 3 นับได้ 5,950 ก่อนจะเหลือ 5,935 ตอนนี้ ผมไม่ทราบว่าแต่ละครั้งใครแก้ไฟล์ไหน
+
+### สิ่งที่ต้องอธิบายตอนสอบเพิ่ม
+- **ข้อความ 3 ช่องใช้ฟังก์ชันตรวจเดียวกัน** (`checkText` ใน `lib/textInput.ts`): ช่องค้นหา (≤200) และช่องบันทึกผล (≤1,000) ต้องไม่ว่าง ส่วนช่องความเห็น (≤500) **ไม่บังคับกรอก** จึงตรวจแค่ว่า `!== 'too-long'` (ถ้าเปลี่ยนเป็น `=== 'ok'` ปุ่มบันทึกจะกดไม่ได้เมื่อไม่พิมพ์ความเห็น)
+- **ผู้ล็อกอินเก็บด้วย type เดียว `StoredAuth`** `{ token, user }` ใช้ทั้งตอนตอบจาก API (`api/auth.ts`), ใน localStorage (`lib/authStorage.ts`) และใน state ของ `AuthProvider` · ฟังก์ชัน `toAuthUser` ยังอยู่เพื่อตัดฟิลด์ `email`/`createdAt` ที่ backend ส่งมา ไม่ให้ค้างใน localStorage
+
+### ที่ตัดสินใจไม่ทำ / หยุดไว้
+- **กลุ่ม 4 (ให้ `UploadDraftForm` ใช้ `TextField` แทน `Field` แบบ render-prop): ไม่ทำ** ต้องเพิ่ม prop ให้ `TextField` 3 ตัว (ขนาดคำใบ้, `inputMode`, `className` ของช่อง) และยังลบ `Field` ไม่ได้ เพราะช่องไฟล์กับ dropdown ใช้ `TextField` ไม่ได้ ผลประหยัดไม่ถึง 10 บรรทัด ในรายงานประเมินไว้ ~40 บรรทัด ซึ่งสูงเกินจริง
+- **หยุดไว้ก่อน:** กลุ่ม 5 (หัวหน้าหน้า admin 4 หน้า), รวม `SlowServerNotice` กับ `useSlowWait`, ข้อ C14 (ข้อความ "ตรวจใหม่แล้ว" ใน `DraftJsonEditor` น่าจะไม่ขึ้น — ผู้ใช้จะลองในเบราว์เซอร์ก่อน) และข้อที่รายงานไม่แนะนำ
+
+### ตรวจอย่างไร / ที่ไม่ได้ทดสอบ
+- ทุกกลุ่มรัน `tsc -b`, `vite build`, `eslint .` ผ่าน (eslint เหลือ 0 error จากเดิม 2 จุดใน `authStorage.ts`) · ตรวจ CRLF/LF ของไฟล์ที่แก้ให้เหมือนเดิม
+- **ไม่ได้เปิดเบราว์เซอร์** ผู้ใช้เป็นคนเปิดดูหน้าจอเอง (ลิงก์ในหน้า login/register/history/admin, เมนูซ้าย/แท็บ admin, ฟอร์มอัปโหลดร่าง, ช่องบันทึกผล/feedback/ค้นหา, flow auth: login → logout → รีเฟรช → token เสีย)
+- เลขบรรทัดของ `api/auth.ts`, `authStorage.ts`, `AuthProvider.tsx`, `textInput.ts` ที่อ้างในเอกสารส่วนอื่น (STUDY_GUIDE ส่วน 3–4, `USER_JOURNEY_WALKTHROUGH.md`, `docs/study/JOURNEY-*.md`, `jr.md`) ถูกปรับตามโค้ดปัจจุบันแล้วเฉพาะจุดที่อ้างสัญลักษณ์ที่เปลี่ยน · เลขบรรทัดอื่นในเอกสารเหล่านี้หลายจุดเลื่อนไปก่อนหน้านี้แล้วจากการลบคอมเมนต์ในโค้ด ยังไม่ได้เทียบใหม่ ให้เปิดไฟล์จริงก่อนอ้าง
 
 ---
 
@@ -1407,7 +1434,7 @@ backend บน Render (แผน free) ผ่าน `render.yaml` มี health 
 
 **ข้อ 14. มี rate limit กันเดารหัสผ่านไหม? token รั่ว/ขโมยได้ไหม?**
 **ไม่มี rate limit** (ค้น throttle/rate limit ใน backend ไม่พบ) และ logout ฝั่งเซิร์ฟเวอร์ไม่มี (ล้างแค่ token ในเบราว์เซอร์; token ยังใช้ได้จนหมดอายุ 7 วัน) · token เก็บใน localStorage ซึ่งสคริปต์ในหน้าเว็บอ่านได้ ถ้ามีช่องโหว่ XSS จะรั่ว · 🛠 ทางแก้: จำกัดจำนวนครั้งต่อ IP/อีเมล (ต้องเพิ่ม dependency หรือเขียนเอง ต้องขออนุมัติตามข้อตกลงโปรเจกต์), ย่น `JWT_EXPIRES_IN` (มี env อยู่แล้ว `token.ts:35`), ย้าย token ไปคุกกี้ `HttpOnly`
-หลักฐาน: §4.1.2, §4.1.4, §4.8 ข้อ 3 · `AuthProvider.tsx:106-112` · `authStorage.ts:19`, `:70-77`
+หลักฐาน: §4.1.2, §4.1.4, §4.8 ข้อ 3 · `AuthProvider.tsx:90-93` · `authStorage.ts:3`, `:46-53`
 
 **ข้อ 15. LLM ถูกใช้กับข้อมูลอะไร และมีความเสี่ยงอะไร (rephrase guard พอไหม)?**
 ส่งไป Groq: ข้อความโหนด (ถ้าเปิด rephrase) และข้อความหน้าคู่มือ (ตอน admin ร่างผัง) ไม่ส่งรหัสผู้ใช้ · rephrase ข้ามโหนด safety และโหนดจบ มี guard ตรวจตัวเลข/คำอังกฤษ/จำนวนคำ "ไม่"/ความยาว · **guard ไม่ใช่การรับประกันความหมาย** ผมทดสอบแล้ว "ถอดปลั๊ก" → "เสียบปลั๊ก" ผ่านได้ จึงมีปุ่มดูข้อความต้นฉบับทุกครั้งและปิดได้ด้วย env · 🛠 ทางแก้: จำกัด rephrase เฉพาะ checkpoint หรือเพิ่มรายการคำกริยาเสี่ยงให้ guard ปฏิเสธ

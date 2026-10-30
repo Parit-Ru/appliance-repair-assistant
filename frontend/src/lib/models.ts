@@ -26,7 +26,6 @@ export function manualMatches(manual: ModelFields, input: string): boolean {
   return patternsOf(manual).some((pattern) => matchesPattern(input, pattern))
 }
 
-/** ชื่อที่แสดงให้ผู้ใช้: displayName ถ้าผู้พัฒนาเติมแล้ว ไม่งั้น modelPattern (ไม่เดาชื่อ) */
 export function manualTitle(manual: Pick<ManualSummary, 'displayName' | 'modelPattern'>): string {
   return manual.displayName ?? manual.modelPattern
 }

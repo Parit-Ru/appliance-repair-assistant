@@ -88,7 +88,7 @@ SELECT graph_id, node_id, node_type, text_content, on_yes, on_no, next_node, on_
 ## ตอนที่ 1: หน้าจอค้นหา (Frontend)
 หน้า `pages/SymptomsPage.tsx`
 1. ถ้ายังไม่มีรุ่นใน URL → เด้งกลับ `/devices` (`:52` ไม่เดารุ่นให้)
-2. กรอกข้อความที่ `components/SymptomSearchForm.tsx` (ช่องพิมพ์ `:29` จำกัด 200 ตัว, ปุ่ม "ค้นหา" `:30-32` กดไม่ได้จนกว่า `checkQuery` จะ `ok` `lib/textInput.ts:31-36`)
+2. กรอกข้อความที่ `components/SymptomSearchForm.tsx` (ช่องพิมพ์ `:29` จำกัด 200 ตัว, ปุ่ม "ค้นหา" `:30-32` กดไม่ได้จนกว่า `checkText(value, MAX_QUERY_LENGTH)` จะ `ok` `lib/textInput.ts:10-15`)
 3. กดค้นหา → `handleSearch` (`SymptomsPage.tsx:43-46`) → `search.mutate({ query, manualId })` ผ่าน `useSymptomSearch` (`api/queries.ts:97`)
    - ใช้ `useMutation` ไม่ใช่ `useQuery` และไม่แคช เพราะผลขึ้นกับสถานะเซิร์ฟเวอร์ (เช่นตอนแรกยังโหลดโมเดลอยู่) ไม่ควรจำผลเก่า
 4. `api/traversal.ts:47-52` → **`POST /symptom-search`** body `{ "query": "ไมโครเวฟไม่ร้อน", "manualId": "samsung_..." }`
@@ -138,7 +138,7 @@ VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, NOW() + INTERVAL ? HOUR)   -- 24 ชั่ว
 - **ไม่มีการเก็บเวกเตอร์ใน DB** และ **ไม่ใช่ SQL filter** กรองด้วย `manualId` ในหน่วยความจำ
 
 ## ข้อสังเกต
-- "confidence" คือ **คะแนนความคล้ายของข้อความ ไม่ใช่ความน่าจะเป็นที่ถูก** หน้าจอบอกชัดและไม่แปลงเป็น % (`textInput.ts:38-47`)
+- "confidence" คือ **คะแนนความคล้ายของข้อความ ไม่ใช่ความน่าจะเป็นที่ถูก** หน้าจอบอกชัดและไม่แปลงเป็น % (`textInput.ts:22-24`)
 - `scoreGraph` แปลงคำค้นเป็นเวกเตอร์ **ซ้ำอีกครั้ง** ตอนเริ่ม session (ค้นหาทำไปแล้วหนึ่งรอบ) ทำงานซ้ำซ้อนเล็กน้อย
 - ข้อความ "ติดต่อศูนย์บริการ **Samsung**" ตายตัวในหน้าจอ (`SymptomSearchResults.tsx:16`)
 - ถ้า `SYMPTOM_SEARCH_ENABLED` ไม่ใช่ `true` ค้นหาตอบ 503 ผู้ใช้ยังเลือกจาก "อาการทั้งหมด" ได้

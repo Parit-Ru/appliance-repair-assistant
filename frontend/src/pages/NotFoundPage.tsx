@@ -1,4 +1,5 @@
 import { Link, useLocation } from 'react-router-dom'
+import { LINK_CLASSES } from '../components/ui/Button'
 import { Icon } from '../components/ui/Icon'
 
 export function NotFoundPage() {
@@ -12,10 +13,10 @@ export function NotFoundPage() {
         ไม่มีหน้า <code className="break-all font-mono text-ink">{pathname}</code> ในระบบ ลิงก์อาจพิมพ์ผิดหรือเลิกใช้แล้ว
       </p>
       <div className="flex flex-wrap gap-x-6 gap-y-2">
-        <Link to="/" className="text-accent underline-offset-4 hover:underline">
+        <Link to="/" className={LINK_CLASSES}>
           กลับหน้าแรก
         </Link>
-        <Link to="/symptoms" className="text-accent underline-offset-4 hover:underline">
+        <Link to="/symptoms" className={LINK_CLASSES}>
           ไปหน้าเลือกอาการ
         </Link>
       </div>

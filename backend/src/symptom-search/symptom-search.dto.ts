@@ -54,7 +54,7 @@ interface SymptomMatchDto {
   matchedText: string;
 }
 
-// POST /symptom-search
+/** POST /symptom-search */
 export interface SymptomSearchResponseDto {
   query: string;
   threshold: number;
@@ -64,7 +64,7 @@ export interface SymptomSearchResponseDto {
 
 export type SearchState = 'disabled' | 'loading' | 'ready' | 'failed';
 
-// GET /symptom-search/status
+/** GET /symptom-search/status */
 export interface SearchStatusDto {
   state: SearchState;
   model: string;

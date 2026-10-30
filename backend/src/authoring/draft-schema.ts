@@ -6,10 +6,6 @@ const MAX_SLUG_LENGTH = 30;
 const MAX_TEXT = 2000;
 const MAX_PROBLEMS_REPORTED = 8;
 
-/**
- * ข้อมูลร่างผังไม่ตรงรูปแบบ (ผลจาก LLM หรือผังที่ admin แก้) · เป็น ApiError 400 INVALID_DRAFT_REQUEST ในตัว
- * แต่ยังเป็นคลาสของตัวเองเพราะ drafts.service.ts ใช้ instanceof แยกกรณี "LLM ตอบผิดรูป" ออกจาก error อื่น
- */
 export class DraftParseError extends ApiError {
   constructor(readonly problems: string[]) {
     super(
@@ -20,7 +16,6 @@ export class DraftParseError extends ApiError {
   }
 }
 
-/** โหนดในร่าง: รูปแบบเดียวกับโหนดใน data/manuals + source_page */
 type DraftNode = Record<string, string | boolean | number> & { node_id: string; type: string };
 
 export interface DraftGraph {
@@ -34,7 +29,7 @@ export interface DraftGraph {
   nodes: DraftNode[];
 }
 
-// ผังที่ LLM ร่างมา (ยังไม่มี graph_id: เซิร์ฟเวอร์สร้างจาก 
+/** ผังที่ LLM ร่างมา */
 export type LlmGraph = Omit<DraftGraph, 'graph_id'> & { slug: string };
 
 const NODE_KEYS = [
@@ -131,7 +126,6 @@ function dropUndefined<T extends object>(value: T): T {
 /**
   ข้อความที่ LLM ตอบ → รายการผังร่าง
   รูปแบบที่ต้องได้: { "graphs": [ { slug, entry_symptom, entry_symptom_th?, aliases?, severity?, difficulty?, entry_node, nodes } ] }
-  ไม่ใช่ JSON / ไม่ตรงรูปแบบ → DraftParseError (ผู้เรียกบันทึกเป็น draft 'failed' ไม่ซ่อมเอง)
  */
 export function parseLlmOutput(text: string): LlmGraph[] {
   let value: unknown;

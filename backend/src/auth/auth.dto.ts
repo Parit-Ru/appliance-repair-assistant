@@ -85,7 +85,7 @@ function parseDisplayName(raw: unknown): string {
   return name;
 }
 
-// body ของ POST /auth/register: { email, password, displayName } 
+/** body ของ POST /auth/register: { email, password, displayName } */
 export function parseRegisterBody(body: unknown): RegisterBody {
   const obj = asObject(body);
   return {
@@ -95,7 +95,7 @@ export function parseRegisterBody(body: unknown): RegisterBody {
   };
 }
 
-//body ของ POST /auth/login: { email, password }
+/** body ของ POST /auth/login: { email, password } */
 export function parseLoginBody(body: unknown): LoginBody {
   const obj = asObject(body);
 

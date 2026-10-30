@@ -11,7 +11,7 @@ const VALID_CATEGORIES = [
   'Television',
   'Washing Machine',
 ];
-// การเชื่อมต่อ
+/** การเชื่อมต่อ */
 function connectionConfig() {
   return {
     host: process.env.DB_HOST,
@@ -51,7 +51,7 @@ function validate(data) {
     }
   }
 
-  // --- ตาราง equipment_usage ---
+  // ตาราง equipment_usage
   const seenCategories = new Set();
 
   for (const group of data.usage ?? []) {

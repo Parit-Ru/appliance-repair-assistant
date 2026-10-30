@@ -1,20 +1,3 @@
-/**
- * history.service.ts — หน้า "ประวัติการซ่อม": รายการ, รายละเอียด, ลบ, ให้คะแนน
- *
- * กฎเหมือน traversal.service.ts: ไฟล์นี้ไม่ตัดสินเรื่องขั้นตอนเอง
- *   - โหนด/ข้อความทุกอย่างมาจาก engine (getCurrentNode / submitAction) ตรงๆ ไม่ดัดแปลง ไม่แต่งเพิ่ม
- *   - ไม่เรียก LLM (ไม่มี displayText): ประวัติแสดงข้อความต้นฉบับของคู่มือเท่านั้น
- *   - ไม่คิดเกณฑ์ confidence ใหม่ และไม่เดา "สาเหตุที่เป็นไปได้" (ไม่มีข้อมูลนี้ในผัง)
- *
- * ผังที่ถูก seed ใหม่ (seed-graphs.js ลบ nodes แล้ว insert ใหม่) เป็นเรื่องที่คาดไว้:
- *   - รายการ: แถวที่ผัง/โหนดหายไม่ทำให้ทั้งรายการล้ม ส่ง graph/outcomeKind เป็น null ให้หน้าจอแสดงแบบจำกัดข้อมูล
- *   - รายละเอียด: ตอบ available=false (200) ไม่ใช่ 500 — ดู buildDetail()
- *
- * การเรียง/แบ่งหน้าของรายการทำในหน่วยความจำ เพราะประวัติของคนเดียวมีน้อย (เพดาน MAX_HISTORY_ROWS)
- * และข้อมูลผังอยู่ในหน่วยความจำอยู่แล้ว (GraphRepository) ไม่ต้อง JOIN ใน SQL
- */
-
-
 import type { SessionOwner } from '../auth/session-owner';
 import { ApiError } from '../common/api-error';
 import { isoFromEpoch } from '../common/helpers';
@@ -27,11 +10,7 @@ import type { HistoryDetailDto, HistoryFeedbackDto, HistoryGraphInfo, HistoryLis
 import { HistoryStore } from './history.store';
 import type { CompletedSession, CompletedSessionSummary } from './history.store';
 
-/**
- * ไม่พบ session ในประวัติของผู้ถามคนนี้ → 404 HISTORY_NOT_FOUND
- * ครอบคลุมทั้ง: ไม่มี id นี้, เป็นของคนอื่น, ยังไม่จบ, หมดอายุแล้ว — ตอบเหมือนกันหมด
- * ไม่บอกว่า id นั้นมีอยู่จริงแต่เป็นของคนอื่น (ไม่ใช่ 403)
- */
+
 const historyNotFound = (sessionId: string) =>
   new ApiError(404, 'HISTORY_NOT_FOUND', `ไม่พบรายการประวัติ '${sessionId}' (อาจถูกลบ หมดอายุ หรือไม่ใช่ของคุณ)`);
 
@@ -41,7 +20,7 @@ export class HistoryService {
     private readonly graphRepository: GraphRepository,
   ) {}
 
-  /** GET /history — ใหม่สุดก่อน (เวลาเท่ากันเรียงตาม session id ย้อนกลับ ให้ลำดับคงที่) แล้วแบ่งหน้า */
+  /** GET /history */
   async list(owner: SessionOwner, query: HistoryQuery): Promise<HistoryListResponseDto> {
     const summaries = await this.store.listCompleted(owner);
     const manuals = this.manualsById();
@@ -74,7 +53,7 @@ export class HistoryService {
     return this.buildDetail(session, graph, steps, feedback ?? null);
   }
 
-  /** DELETE /history/:id — ลบทั้ง session (เจ้าของเท่านั้น) */
+  /** DELETE /history/:id */
   async remove(owner: SessionOwner, sessionId: string): Promise<void> {
     const deleted = await this.store.deleteCompleted(sessionId, owner);
     if (!deleted) {
@@ -82,7 +61,7 @@ export class HistoryService {
     }
   }
 
-  /** POST /history/:id/feedback — 1 session 1 คะแนน ส่งซ้ำ = แก้ค่าเดิม */
+  /** POST /history/:id/feedback */
   async saveFeedback(
     owner: SessionOwner,
     sessionId: string,
@@ -92,10 +71,6 @@ export class HistoryService {
     await this.store.saveFeedback(sessionId, body);
     return { helpful: body.helpful, comment: body.comment };
   }
-
-  // ============================================================
-  // ตัวช่วยภายใน
-  // ============================================================
 
   private async requireOwned(sessionId: string, owner: SessionOwner): Promise<CompletedSession> {
     const session = await this.store.findCompleted(sessionId, owner);
@@ -109,9 +84,6 @@ export class HistoryService {
 
   private toListItem(summary: CompletedSessionSummary, manuals: Map<string, ManualSummary>): HistoryListItemDto {
     const graph = this.graphRepository.findById(summary.graphId);
-
-    // รายการดูแค่โหนดสุดท้ายว่าเป็นโหนดสิ้นสุดชนิดไหน (ไม่ replay ขั้นตอนทั้งหมดเพราะต้องดึงประวัติทีละ session)
-    // ตัวตรวจเข้มของการ replay อยู่ที่รายละเอียด (buildDetail)
     const outcomeKind = graph ? getOutcomeKind(graph, summary.currentNodeId) : null;
 
     return {
@@ -140,8 +112,6 @@ export class HistoryService {
       feedback,
     };
 
-    // อ่านขั้นตอนย้อนหลังไม่ได้ → ไม่โยน error (ไม่ใช่ 500) ส่งสถานะนี้ไปให้หน้าจอบอกผู้ใช้
-    // ไม่ปล่อยข้อมูลครึ่งๆ กลางๆ ออกไป: ไม่มี steps/finalNode/reference/คำเตือน มีแต่ของที่ผู้ใช้บันทึกเอง
     const unavailable: HistoryDetailDto = {
       ...base,
       outcomeKind: null,
@@ -168,7 +138,6 @@ export class HistoryService {
       steps.push({ node, action: entry.action });
     }
 
-    // คำเตือนเฉพาะที่ผังมีจริงตามโหนดที่ผ่าน ไม่มี = ไม่มีกล่อง (ไม่แต่งคำเตือนทั่วไปเพิ่ม)
     const safetyWarnings: string[] = [];
     for (const node of [...steps.map((step) => step.node), finalNode]) {
       const warning = node.safetyWarning?.trim();
@@ -203,10 +172,6 @@ function graphInfoOf(
   };
 }
 
-/**
- * render โหนดด้วย engine (getCurrentNode) ไม่ซ้ำตรรกะ — ไม่พบโหนด = undefined แทนการโยน NodeNotFoundError
- * เพราะ "โหนดหาย" เป็นสถานการณ์ปกติของข้อมูลย้อนหลัง ไม่ใช่ความผิดพลาดของระบบ
- */
 function renderNodeIfPresent(
   graph: TroubleshootingGraph,
   nodeId: string,
@@ -225,10 +190,9 @@ function renderNodeIfPresent(
   return getCurrentNode(session, graph);
 }
 
-/**
- * เดินตามขั้นที่บันทึกไว้ผ่าน submitAction ของ engine เริ่มจากโหนดแรกของผังปัจจุบัน
- * ผ่านเมื่อ: แต่ละขั้นอยู่ที่โหนดเดียวกับที่บันทึก, engine ยอมรับ action ทุกตัว, และจบที่โหนดสุดท้ายเดิมในสถานะ completed
- */
+/*
+ เดินตามขั้นที่บันทึกไว้ผ่าน submitAction ของ engine เริ่มจากโหนดแรกของผังปัจจุบัน
+ผ่านเมื่อ: แต่ละขั้นอยู่ที่โหนดเดียวกับที่บันทึก, engine ยอมรับ action ทุกตัว, และจบที่โหนดสุดท้ายเดิมในสถานะ completed*/
 function replayReaches(
   graph: TroubleshootingGraph,
   entries: SessionHistoryEntry[],
@@ -248,7 +212,6 @@ function replayReaches(
     try {
       state = engineSubmitAction(state, graph, entry.action).session;
     } catch (error) {
-      // ผังเปลี่ยนจน engine ไม่รับ action เดิม (InvalidAction / SafetyConfirmationRequired / NodeNotFound ฯลฯ)
       if (error instanceof TraversalError) return false;
       throw error;
     }

@@ -93,12 +93,12 @@ export function thaiDayIndex(epochSeconds: number): number {
   return Math.floor((epochSeconds + THAI_OFFSET_SECONDS) / DAY_SECONDS);
 }
 
-// เลขวัน  'YYYY-MM-DD' 
+/** เลขวัน  'YYYY-MM-DD' */
 export function dayIndexToDate(dayIndex: number): string {
   return new Date(dayIndex * DAY_SECONDS * 1000).toISOString().slice(0, 10);
 }
 
-// เลขวัน → epoch เที่ยงคืนเวลาไทยของวันนั้น
+/** เลขวัน → epoch เที่ยงคืนเวลาไทยของวันนั้น */
 export function dayIndexToEpoch(dayIndex: number): number {
   return dayIndex * DAY_SECONDS - THAI_OFFSET_SECONDS;
 }

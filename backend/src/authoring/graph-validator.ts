@@ -1,21 +1,3 @@
-/**
- * graph-validator.ts — ตัวตรวจผังขั้นตอน (schema v2) ด้วยโค้ดล้วน
- *
- * หลักการสำคัญของ Step 5: LLM "ร่าง" ผังได้ แต่ไม่มีอำนาจตัดสินว่าผังใช้ได้
- * ไฟล์นี้คือผู้ตัดสิน — LLM แก้ผล override ผล หรือขอข้ามกฎไม่ได้ และ publish ต้องไม่มี error เลย (ไม่มี override ของผู้ดูแล)
- *
- * เป็นการพอร์ตกฎจาก scripts/validate_graph.py (+ data/schemas/troubleshooting-graph.v2.schema.json และ
- * validateManual ใน backend/scripts/seed-graphs.js) มาเป็น TypeScript เพื่อให้ backend เรียกใช้ได้
- * ความถูกต้องของการพอร์ต: รันกับผังจริง 644 ผังใน data/manuals แล้วไม่มี error (ตรวจซ้ำด้วยสคริปต์เทียบผลตอนปรับโค้ด 19 ต.ค. 2569)
- * (ไฟล์ Python ยังคงไว้สำหรับงาน offline ไม่ได้แก้)
- *
- * ตรวจร่างจาก LLM อย่างเข้ม: ทุกโหนดต้องมี source_page ที่อยู่ในหน้าที่อัปโหลดจริง,
- * ห้ามมี config / external_reference / รูปภาพ / author_note (ไม่มีแหล่งอ้างอิงที่ตรวจได้)
- * (ผังที่ใช้งานอยู่แล้วตรวจด้วย scripts/validate_graph.py แบบ offline — ไฟล์นี้ตรวจเฉพาะร่างที่กำลังจะ publish)
- *
- * error  = กัน publish · warning = ผู้ตรวจต้องรับทราบ (acknowledgedWarnings) ก่อน publish
- */
-
 import { isPlainObject } from '../common/helpers';
 
 export interface ValidationIssue {
@@ -31,7 +13,6 @@ export interface ValidationReport {
   stats: { graphs: number; nodes: number };
   validatedAt: string;
 }
-
 
 export const DEVICE_CATEGORIES = ['Microwave', 'Refrigerator', 'Washing Machine', 'Television'] as const;
 const NODE_TYPES = ['checkpoint', 'instruction', 'input', 'resolution', 'escalation'] as const;
@@ -53,7 +34,6 @@ const TERMINAL_TYPES: readonly string[] = ['resolution', 'escalation'];
 
 type NodeType = (typeof NODE_TYPES)[number];
 
-/** ฟิลด์ที่ขึ้นกับชนิดโหนด: แต่ละชนิดมีได้เฉพาะที่ระบุใน required/optional (ตัวอื่นในรายการนี้ = ห้ามมี) */
 const TYPE_DEPENDENT_KEYS = ['question', 'content', 'prompt', 'on_yes', 'on_no', 'next', 'on_invalid', 'input_type', 'pattern', 'store_as', 'outcome_kind'];
 const NODE_SPEC: Record<NodeType, { required: string[]; optional?: string[] }> = {
   checkpoint: { required: ['question', 'on_yes', 'on_no'] },
@@ -72,20 +52,16 @@ const NODE_KEYS = [
   'node_id', 'type', 'question', 'content', 'prompt', 'on_yes', 'on_no', 'next', 'on_invalid', 'input_type', 'pattern',
   'store_as', 'outcome_kind', 'safety_critical', 'safety_warning', 'source_page',
 ];
-// คำที่บ่งชี้ว่าขั้นตอนเกี่ยวกับอันตราย (ไฟฟ้า แก๊ส ความร้อน การรื้อเครื่อง) — ใช้เตือนเมื่อไม่มีด่านความปลอดภัย 
-const RISK_PATTERN =
-  /\b(unplug\w*|power cord|power plug|plug(?:ged)? (?:in|out)|electric\w*|voltage|live wire|gas|flammable|boiling|hot water|refrigerant|short[- ]circuit\w*|disassembl\w*|remove the (?:rear|back|cover|panel))\b|ปลั๊ก|สายไฟ|ไฟฟ้า|ไฟดูด|ไฟรั่ว|แรงดัน|แก๊ส|ก๊าซ|ติดไฟ|ร้อนจัด|น้ำร้อน|สารทำความเย็น|ลัดวงจร|ถอดฝา|ฝาหลัง|แกะเครื่อง/i;
-
-/** manual_id / graph_id / store_as */
+const RISK_PATTERN =/\b(unplug\w*|power cord|power plug|plug(?:ged)? (?:in|out)|electric\w*|voltage|live wire|gas|flammable|boiling|hot water|refrigerant|short[- ]circuit\w*|disassembl\w*|remove the (?:rear|back|cover|panel))\b|ปลั๊ก|สายไฟ|ไฟฟ้า|ไฟดูด|ไฟรั่ว|แรงดัน|แก๊ส|ก๊าซ|ติดไฟ|ร้อนจัด|น้ำร้อน|สารทำความเย็น|ลัดวงจร|ถอดฝา|ฝาหลัง|แกะเครื่อง/i;
 const ID_PATTERN = /^[a-z0-9_]+$/;
 const ID_HINT = 'ใช้ได้เฉพาะ a-z 0-9 และ _';
-/** schema v2 กำหนด node_id ต้องเป็น ^n[a-z0-9_]+$ */
 const DRAFT_NODE_ID_PATTERN = /^n[a-z0-9_]+$/;
+
+
 
 
 type Obj = Record<string, unknown>;
 
-/** ข้อความที่ไม่ว่าง (ไม่ใช่ข้อความหรือว่าง = undefined) */
 function nonEmpty(value: unknown): string | undefined {
   return typeof value === 'string' && value.trim() !== '' ? value : undefined;
 }
@@ -94,13 +70,6 @@ function isPositiveInt(value: unknown): value is number {
   return typeof value === 'number' && Number.isInteger(value) && value >= 1;
 }
 
-/**
- * กฎของฟิลด์ข้อความ/ตัวเลือกหนึ่งตัว
- *   oneOf    → ต้องเป็นค่าในรายการ (E_ENUM)
- *   max / re → ข้อความไม่ว่าง (E_SHAPE) ยาวไม่เกิน max (E_TOO_LONG) ตรงรูปแบบ re (E_ID_FORMAT · อธิบายด้วย hint)
- *   optional → ไม่มีฟิลด์ได้ (ไม่ใส่ = ต้องมี · E_SHAPE)
- * ฟิลด์เดียวรายงานปัญหาเดียว: ยาวเกิน max แล้วไม่ตรวจรูปแบบต่อ
- */
 interface Rule {
   max?: number;
   oneOf?: readonly string[];
@@ -113,7 +82,6 @@ type Where = { graphId?: string; nodeId?: string };
 
 const idRule = (max: number): Rule => ({ max, re: ID_PATTERN, hint: ID_HINT });
 
-/** pages = หน้า → ข้อความ ของหน้าที่อัปโหลดจริง (ใช้ตรวจ source_page และคำเสี่ยงในหน้าต้นฉบับ) */
 export function validateManual(manual: unknown, pages: ReadonlyMap<number, string>): ValidationReport {
   return new Validator(pages).run(manual);
 }
@@ -246,7 +214,7 @@ class Validator {
       return 0; // ใหญ่เกินกำหนด หยุดตรวจผังนี้ (ผู้ตรวจต้องแบ่งผังก่อน)
     }
 
-    // ---- โหนดทีละตัว ----
+    // โหนดทีละตัว
     const nodes = new Map<string, Obj>();
     const sourcePages: number[] = [];
     for (const raw of rawNodes) {
@@ -289,14 +257,14 @@ class Validator {
       return;
     }
 
-    // ---- ฟิลด์ที่ต้องมี/ห้ามมี ตามชนิดโหนด (ตรงกับ allOf ใน schema v2) · ฟิลด์ที่ขึ้นกับชนิดแต่ไม่อยู่ใน required/optional = ห้ามมี ----
+    
     const { required, optional = [] } = NODE_SPEC[type as NodeType];
     for (const key of required) {
       if (node[key] === undefined || node[key] === null || node[key] === '') this.error('E_MISSING_FIELD', `โหนดชนิด ${type} ต้องมี '${key}'`, where);
     }
     for (const key of TYPE_DEPENDENT_KEYS) {
       if (node[key] === undefined || required.includes(key) || optional.includes(key)) continue;
-      // ปลายทาง (terminal) ห้ามมีขาออก — แยกรหัสให้อ่านรายงานง่าย
+      
       const terminalEdge = TERMINAL_TYPES.includes(type) && (EDGE_KEYS as readonly string[]).includes(key);
       this.error(terminalEdge ? 'E_TERMINAL_EDGE' : 'E_FORBIDDEN_FIELD', `โหนดชนิด ${type} ต้องไม่มี '${key}'`, where);
     }
@@ -326,7 +294,7 @@ class Validator {
       }
     }
 
-    // ---- ความปลอดภัย ----
+    // ความปลอดภัย
     const critical = node.safety_critical;
     if (critical !== undefined && typeof critical !== 'boolean') this.error('E_SHAPE', 'safety_critical ต้องเป็น true/false', where);
     this.field(node, 'safety_warning', { max: MAX_SAFETY_WARNING, optional: true }, where);
@@ -337,7 +305,7 @@ class Validator {
       this.error('E_SAFETY_WARNING_WITHOUT_FLAG', 'มี safety_warning แต่ไม่ได้ตั้ง safety_critical เป็น true (คำเตือนจะไม่ถูกบังคับให้ยืนยัน)', where);
     }
 
-    // ---- source_page ----
+    // source_page
     const page = node.source_page;
     if (!isPositiveInt(page)) {
         this.error('E_SOURCE_PAGE_MISSING', 'ทุกโหนดต้องระบุ source_page (เลขหน้าในคู่มือที่โหนดนี้มาจาก)', where);
@@ -348,15 +316,11 @@ class Validator {
     }
   }
 
-  // ============================================================
-  // โครงสร้างกราฟ: ลูกศร การเข้าถึง ทางออก วงวน ตัวแปร ความยาวเส้นทาง คำเตือนความปลอดภัย
-  // ============================================================
 
   private structure(graph: Obj, nodes: Map<string, Obj>, graphId: string | undefined, sourcePages: number[]): void {
     const g = { graphId };
     const entry = typeof graph.entry_node === 'string' ? graph.entry_node : undefined;
 
-    // ---- entry และลูกศรทุกเส้นต้องชี้โหนดที่มีอยู่ ----
     if (entry !== undefined && !nodes.has(entry)) this.error('E_ENTRY_MISSING', `entry_node '${entry}' ไม่มีอยู่ในผัง`, g);
     let edgesOk = true;
     for (const [id, node] of nodes) {
@@ -371,11 +335,9 @@ class Validator {
     const terminals = [...nodes.entries()].filter(([, n]) => typeof n.type === 'string' && TERMINAL_TYPES.includes(n.type)).map(([id]) => id);
     if (terminals.length === 0) this.error('E_NO_TERMINAL', 'ผังไม่มีโหนดสิ้นสุด (resolution/escalation) เลย', g);
 
-    if (entry === undefined || !nodes.has(entry) || !edgesOk) return; // โครงสร้างพังแล้ว ตรวจต่อไม่มีความหมาย
+    if (entry === undefined || !nodes.has(entry) || !edgesOk) return;
 
-    // ---- ทุกโหนดเดินถึงได้จาก entry ----
     const reachable = reach(entry, nodes);
-    // ---- ทุกโหนดไปถึง terminal ได้ (กันวนไม่รู้จบ) ----
     const canFinish = new Set<string>(terminals);
     let changed = true;
     while (changed) {
@@ -393,7 +355,7 @@ class Validator {
       if (!canFinish.has(id)) this.error('E_NO_EXIT', 'โหนดนี้ไปถึงโหนดสิ้นสุดไม่ได้ (อาจวนไม่รู้จบ)', { graphId, nodeId: id });
     }
 
-    // ---- วงวน (อนุญาตได้ถ้ามีทางออก · แจ้งเป็น warning ให้ผู้ตรวจยืนยันว่าตั้งใจ) + ความยาวเส้นทาง ----
+    // วงวน (อนุญาตได้ถ้ามีทางออก · แจ้งเป็น warning ให้ผู้ตรวจยืนยันว่าตั้งใจ) + ความยาวเส้นทาง
     const { back, longest } = analyzePaths(entry, nodes);
     if (back.length > 0) {
       this.warn('W_CYCLE', `มีวนกลับ ${back.map(([a, b]) => `${a} → ${b}`).join(', ')} (ตรวจว่าตั้งใจ เช่น ถามซ้ำ/ลองใหม่)`, g);
@@ -402,10 +364,10 @@ class Validator {
       this.error('E_PATH_TOO_LONG', `เส้นทางที่ยาวที่สุดมี ${longest} โหนด เกิน ${MAX_PATH_LENGTH}`, g);
     }
 
-    // ---- ตัวแปร {{var}} ต้องถูกเก็บโดย input node ก่อนใช้ ทุกเส้นทาง ----
+    // ตัวแปร {{var}} ต้องถูกเก็บโดย input node ก่อนใช้ ทุกเส้นทาง
     this.templateVariables(nodes, entry, graphId, reachable);
 
-    // ---- คำเตือน ----
+    // คำเตือน
     if (!terminals.some((id) => (nodes.get(id) as Obj).type === 'escalation')) {
       this.warn('W_NO_ESCALATION', 'ผังไม่มีโหนดส่งต่อช่าง (escalation) เลย — ผู้ใช้ที่แก้ไม่ได้จะไม่มีทางไปต่อ', g);
     }
@@ -430,9 +392,6 @@ class Validator {
       if (node.type === 'input' && typeof node.store_as === 'string') stored.add(node.store_as);
     }
 
-    // ตัวแปรหนึ่งตัว "การันตี" ที่โหนดหนึ่งก็ต่อเมื่อเดินจาก entry โดยตัดลูกศร next ของ input ที่เก็บตัวแปรนั้นแล้วยังเดินไม่ถึงโหนดนั้น
-    // (on_invalid ไม่นับว่าเก็บค่าแล้ว เพราะค่าไม่ผ่านการตรวจ)
-    // reachedWithout: ตัวแปร → โหนดที่เดินถึงได้โดยยังไม่ได้ถามค่านั้น
     const reachedWithout = new Map<string, Set<string>>();
     for (const variable of stored) {
       reachedWithout.set(variable, reach(entry, nodes, (node, key) => node.type === 'input' && key === 'next' && node.store_as === variable));
@@ -465,7 +424,6 @@ function textOf(node: Obj): string {
   return TEXT_KEYS.map((key) => (typeof node[key] === 'string' ? (node[key] as string) : '')).join(' ');
 }
 
-/** โหนดที่เดินถึงได้จาก entry (ข้ามลูกศรที่ skip ตอบว่าใช่) · ต้องแน่ใจก่อนว่าลูกศรทุกเส้นชี้โหนดที่มีอยู่ */
 function reach(entry: string, nodes: Map<string, Obj>, skip?: (node: Obj, key: string) => boolean): Set<string> {
   const seen = new Set<string>();
   const stack = [entry];
@@ -479,24 +437,26 @@ function reach(entry: string, nodes: Map<string, Obj>, skip?: (node: Obj, key: s
   return seen;
 }
 
-/**
- * DFS รอบเดียวจาก entry ได้ทั้งลูกศรย้อนกลับ (วงวน) และจำนวนโหนดในเส้นทางที่ยาวที่สุดโดยไม่นับลูกศรย้อนกลับ
- * ใช้ recursion ได้: ผังเกิน MAX_NODES_PER_GRAPH หยุดตรวจก่อนถึงตรงนี้ จึงลึกสุดไม่เกิน MAX_NODES_PER_GRAPH ชั้น
- */
 function analyzePaths(entry: string, nodes: Map<string, Obj>): { back: Array<[string, string]>; longest: number } {
-  const onPath = new Set<string>(); // โหนดที่กำลังเยี่ยมอยู่ (อยู่บนเส้นทางปัจจุบัน)
-  const longestFrom = new Map<string, number>(); // โหนดที่เยี่ยมเสร็จแล้ว → จำนวนโหนดในเส้นทางที่ยาวที่สุดจากโหนดนั้น
   const back: Array<[string, string]> = [];
-  const visit = (id: string): number => {
-    onPath.add(id);
-    let best = 0;
-    for (const [, to] of edgesOf(nodes.get(id) as Obj)) {
-      if (onPath.has(to)) back.push([id, to]);
-      else best = Math.max(best, longestFrom.get(to) ?? visit(to));
+  const inProgress = new Set<string>(); 
+  const lengthFrom = new Map<string, number>(); 
+
+  function longestFrom(id: string): number {
+    const known = lengthFrom.get(id);
+    if (known !== undefined) return known;
+
+    inProgress.add(id);
+    let longestAfter = 0;
+    for (const [, next] of edgesOf(nodes.get(id) as Obj)) {
+      if (inProgress.has(next)) back.push([id, next]);
+      else longestAfter = Math.max(longestAfter, longestFrom(next));
     }
-    onPath.delete(id);
-    longestFrom.set(id, 1 + best);
-    return 1 + best;
-  };
-  return { back, longest: visit(entry) };
+    inProgress.delete(id);
+
+    lengthFrom.set(id, 1 + longestAfter);
+    return 1 + longestAfter;
+  }
+
+  return { back, longest: longestFrom(entry) };
 }

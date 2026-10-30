@@ -1,35 +1,13 @@
 import { ApiError } from '../api/http'
-import { MAX_FEEDBACK_COMMENT_LENGTH } from './textInput'
+import { MAX_FEEDBACK_COMMENT_LENGTH, MAX_OUTCOME_LENGTH } from './textInput'
 import { HISTORY_RETENTION_DAYS } from './historyView'
-import { MAX_OUTCOME_LENGTH } from './outcome'
 
-/**
- * แปลงข้อผิดพลาดจากเซิร์ฟเวอร์เป็นข้อความที่ผู้ใช้อ่านแล้วรู้ว่าต้องทำอะไรต่อ
- *
- * ตัดสินจาก code เท่านั้น ไม่ใช้ message ที่เซิร์ฟเวอร์ส่งมา
- * เพราะ message ของกลไกควบคุมเครื่องสถานะเขียนไว้ให้นักพัฒนาอ่าน
- * เช่น มีรหัสสถานะภาษาอังกฤษปนอยู่ ผู้ใช้ทั่วไปอ่านไม่เข้าใจ
- * (ข้อยกเว้น: ร่างแผนผังของผู้ดูแลระบบ 3 รหัสใช้ message ประกอบ ดู describeError)
- *
- * ฟังก์ชันนี้ใช้แสดงผลอย่างเดียว ไม่ได้ตัดสินว่าขั้นตอนถัดไปคืออะไร
- */
-
-/**
- * สิ่งที่หน้าจอควรให้ผู้ใช้ทำต่อ
- * - retry            ลองส่งคำขอเดิมอีกครั้ง
- * - reload-session   ดึงสถานะล่าสุดของการตรวจจากเซิร์ฟเวอร์มาแสดงใหม่
- * - back-to-symptoms กลับไปหน้าเลือกอาการ
- * - back-to-history  กลับไปหน้าประวัติการซ่อม
- * - stay             อยู่ขั้นเดิม ไม่ต้องทำอะไรเพิ่ม
- * - login            เข้าสู่ระบบ (หรือเข้าใหม่) แล้วทำต่อ
- */
 type ErrorRecovery = 'retry' | 'reload-session' | 'back-to-symptoms' | 'back-to-history' | 'stay' | 'login'
 
 interface ErrorDescription {
   title: string
   detail: string
   recovery: ErrorRecovery
-  /** แสดงให้เห็นเฉพาะกรณีข้อมูลขั้นตอนไม่สมบูรณ์ (500) เพื่อให้ผู้ใช้แจ้งผู้ดูแลระบบได้ */
   code?: string
 }
 
@@ -39,15 +17,13 @@ const UNKNOWN_ERROR: ErrorDescription = {
   recovery: 'retry',
 }
 
-/** ข้อความของแต่ละ code ที่เซิร์ฟเวอร์ส่งมา (แถวละหนึ่ง code) */
+/** ข้อความของแต่ละ code ที่เซิร์ฟเวอร์ส่งมา */
 const MESSAGES: Record<string, ErrorDescription> = {
   NETWORK_ERROR: {
     title: 'เชื่อมต่อเซิร์ฟเวอร์ไม่ได้',
     detail: 'ตรวจการเชื่อมต่ออินเทอร์เน็ต แล้วลองอีกครั้ง ถ้าเพิ่งเปิดเว็บ เซิร์ฟเวอร์อาจใช้เวลาเริ่มทำงานสักครู่',
     recovery: 'retry',
   },
-
-  // ---- เดินขั้นตอน (/traversal…) ----
   SAFETY_CONFIRMATION_REQUIRED: {
     title: 'เซิร์ฟเวอร์ไม่ให้ข้ามขั้นตอนนี้',
     detail: 'อ่านคำเตือนและติ๊กยืนยันก่อน จึงจะไปขั้นถัดไปได้',
@@ -85,7 +61,6 @@ const MESSAGES: Record<string, ErrorDescription> = {
     code: 'GRAPH_NODE_MISSING',
   },
 
-  // ---- ค้นอาการ (POST /symptom-search) ----
   INVALID_QUERY: {
     title: 'ข้อความที่พิมพ์ใช้ค้นหาไม่ได้',
     detail: 'พิมพ์อาการที่พบให้ไม่ว่างและไม่ยาวเกิน 200 ตัวอักษร แล้วลองอีกครั้ง',
@@ -101,8 +76,6 @@ const MESSAGES: Record<string, ErrorDescription> = {
     detail: 'เลือกอาการจากหน้า "อาการทั้งหมด" แทน ระบบจะถามทีละข้อตามคู่มือเหมือนกัน',
     recovery: 'stay',
   },
-
-  // ---- ข้อความผลลัพธ์ (POST /traversal/sessions/:id/outcome) ----
   INVALID_OUTCOME: {
     title: 'ข้อความผลลัพธ์บันทึกไม่ได้',
     detail: `พิมพ์ข้อความให้ไม่ว่างและไม่ยาวเกิน ${MAX_OUTCOME_LENGTH} ตัวอักษร แล้วกดบันทึกอีกครั้ง`,
@@ -118,8 +91,6 @@ const MESSAGES: Record<string, ErrorDescription> = {
     detail: 'บันทึกผลได้ครั้งเดียวต่อการตรวจ ดึงข้อมูลล่าสุดมาแสดงเพื่อดูข้อความที่บันทึกไว้',
     recovery: 'reload-session',
   },
-
-  // ---- หน้าประวัติการซ่อม (GET/DELETE/POST /history…) ----
   INVALID_CLIENT_ID: {
     title: 'ระบบระบุเบราว์เซอร์นี้ไม่ได้',
     detail: 'รีเฟรชหน้าแล้วลองอีกครั้ง ถ้ายังเกิดซ้ำ ให้ล้างข้อมูลเว็บไซต์นี้ในเบราว์เซอร์',
@@ -140,8 +111,6 @@ const MESSAGES: Record<string, ErrorDescription> = {
     detail: `รายการอาจถูกลบแล้ว หมดอายุ (เก็บไว้ ${HISTORY_RETENTION_DAYS} วัน) หรือไม่ใช่ของคุณ (ประวัติของผู้ใช้ที่เข้าสู่ระบบแยกจากประวัติของเบราว์เซอร์ที่ไม่ได้เข้าสู่ระบบ)`,
     recovery: 'back-to-history',
   },
-
-  // ---- บัญชีผู้ใช้ (POST /auth/register, /auth/login) และ guard ของ backend ----
   INVALID_CREDENTIALS: {
     title: 'อีเมลหรือรหัสผ่านไม่ถูกต้อง',
     detail: 'ตรวจอีเมลและรหัสผ่านอีกครั้ง (ระบบไม่บอกว่าผิดที่ช่องไหนเพื่อความปลอดภัย)',
@@ -172,8 +141,6 @@ const MESSAGES: Record<string, ErrorDescription> = {
     detail: 'ตรวจช่วงวันที่ (วันเริ่มต้องไม่หลังวันสิ้นสุด และช่วงไม่เกิน 366 วัน) แล้วลองอีกครั้ง',
     recovery: 'stay',
   },
-
-  // ---- ร่างแผนผังขั้นตอนจาก PDF (/admin/drafts…) — ผู้ใช้คือผู้ดูแลระบบ ----
   INVALID_DRAFT_REQUEST: {
     title: 'ข้อมูลที่ส่งไม่ถูกต้อง',
     detail: 'ตรวจข้อมูลคู่มือ ช่วงหน้า และไฟล์ แล้วลองอีกครั้ง',
@@ -243,7 +210,6 @@ const MESSAGES: Record<string, ErrorDescription> = {
 }
 
 export function describeError(error: unknown): ErrorDescription {
-  // Error ธรรมดา string หรือ undefined ไม่มี code ให้อ่าน จึงถือว่าไม่รู้จักทั้งหมด
   if (!(error instanceof ApiError)) {
     return UNKNOWN_ERROR
   }

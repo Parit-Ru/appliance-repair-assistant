@@ -80,8 +80,8 @@ appliance-repair-assistant/
 - **หน้า:** `frontend/src/pages/RegisterPage.tsx` (route `/register` — `App.tsx:49`) ลิงก์เข้าจากเมนูซ้าย `components/layout/AppShell.tsx:74-76`
 - **ปุ่ม/ฟอร์ม:** `<form onSubmit={handleSubmit}>` `RegisterPage.tsx:53` · ปุ่ม "สมัครสมาชิก" `:97-99` (`Button type="submit"`)
 - **handler:** `handleSubmit` `RegisterPage.tsx:38-44` → `validateRegister(...)` (`lib/authForm.ts:44-62`) ถ้ามีข้อผิดพลาดแสดงใต้ช่องและไม่ส่ง → ไม่งั้น `submit.mutate()`
-- **hook:** `useMutation` ในหน้า `RegisterPage.tsx:29-32` (`mutationFn: () => register(email.trim(), password, displayName.trim())`, `onSuccess: navigate(next ?? '/history')`) · `register` มาจาก `useAuth()` = `AuthProvider.register` (`components/auth/AuthProvider.tsx:99-104`) → `applySession` (`:81-90`: `storeAuth`, `setStored`, `queryClient.clear()`)
-- **API client:** `frontend/src/api/auth.ts:34-41` `register()` → `request('/auth/register', { method:'POST', body:{ email, password, displayName }, anonymous:true })` (`anonymous` = ไม่แนบ token และ 401 ไม่ถือว่า token เสีย `api/http.ts:30-34`, `:63`)
+- **hook:** `useMutation` ในหน้า `RegisterPage.tsx:29-32` (`mutationFn: () => register(email.trim(), password, displayName.trim())`, `onSuccess: navigate(next ?? '/history')`) · `register` มาจาก `useAuth()` = `AuthProvider.register` (`components/auth/AuthProvider.tsx:75-80`) → `applySession` (`:58-66`: `storeAuth`, `setStored`, `queryClient.clear()`)
+- **API client:** `frontend/src/api/auth.ts:22-29` `register()` → `request('/auth/register', { method:'POST', body:{ email, password, displayName }, anonymous:true })` (`anonymous` = ไม่แนบ token และ 401 ไม่ถือว่า token เสีย `api/http.ts:30-34`, `:63`)
 - **method + URL:** `POST {VITE_API_URL}/auth/register` · body `{ "email": "...", "password": "...", "displayName": "..." }`
 - **State ที่เก็บ:** React Context `AuthProvider` (ไม่ใช่ Zustand) + token ใน `localStorage` (ดูช่วง 2)
 
@@ -110,7 +110,7 @@ SELECT id, email, password_hash, display_name, role, UNIX_TIMESTAMP(created_at) 
 // 201
 { "accessToken": "<JWT>", "user": { "id": "uuid", "email": "a@b.com", "displayName": "สมชาย", "role": "user", "createdAt": "2026-10-22T03:00:00.000Z" } }
 ```
-หน้าจอ: `api/auth.ts:15-21` เก็บเฉพาะ `{ token, user:{id, displayName, role} }` (**ไม่เก็บอีเมล**) → `navigate(next ?? '/history')` (`RegisterPage.tsx:31`) · error: `ErrorNotice` `:85-95` (ถ้า `EMAIL_TAKEN` มีลิงก์ไปหน้าเข้าสู่ระบบ `:87-93`)
+หน้าจอ: `api/auth.ts:9-11` เก็บเฉพาะ `{ token, user:{id, displayName, role} }` (**ไม่เก็บอีเมล**) → `navigate(next ?? '/history')` (`RegisterPage.tsx:31`) · error: `ErrorNotice` `:85-95` (ถ้า `EMAIL_TAKEN` มีลิงก์ไปหน้าเข้าสู่ระบบ `:87-93`)
 
 ### 6) ข้อสังเกต
 - ไม่มี rate limit กันสมัครรัว/เดารหัส (ค้นใน `backend/src` ไม่พบ) และไม่มียืนยันอีเมล
@@ -126,12 +126,12 @@ SELECT id, email, password_hash, display_name, role, UNIX_TIMESTAMP(created_at) 
 
 ### 2) Frontend
 - **หน้า:** `pages/LoginPage.tsx` (route `/login` — `App.tsx:48`) · ลิงก์ `AppShell.tsx:71-73`
-- **ปุ่ม/handler:** ปุ่ม "เข้าสู่ระบบ" `LoginPage.tsx:90-92` · `handleSubmit` `:42-48` (`validateLogin` `lib/authForm.ts:36-42`) → `useMutation` `:32-35` → `login` = `AuthProvider.login` `AuthProvider.tsx:92-97` → `apiLogin` → `applySession`
-- **API client:** `api/auth.ts:24-31` · `POST /auth/login` body `{ email, password }` (`anonymous:true`)
+- **ปุ่ม/handler:** ปุ่ม "เข้าสู่ระบบ" `LoginPage.tsx:90-92` · `handleSubmit` `:42-48` (`validateLogin` `lib/authForm.ts:36-42`) → `useMutation` `:32-35` → `login` = `AuthProvider.login` `AuthProvider.tsx:68-73` → `apiLogin` → `applySession`
+- **API client:** `api/auth.ts:13-20` · `POST /auth/login` body `{ email, password }` (`anonymous:true`)
 - **เก็บ token ที่ไหน:** `lib/authStorage.ts` — `localStorage['fixstep.auth']` (`:19`) = `{token, user}`, สำเนาในหน่วยความจำ (`:27`), `storeAuth` `:70-77`, `getStoredToken` `:66-68` · ห่อ `try/catch` เผื่อ localStorage ใช้ไม่ได้ (`:50-58`)
 - **แนบ token ทุกคำขอ:** `api/http.ts:63` (`getStoredToken()`), `:69` (`Authorization: Bearer ${token}`) ยกเว้นคำขอ `anonymous`
-- **ตอนเปิดแอป:** `AuthProvider.tsx:59-79` ถ้ามี token → `GET /auth/me` (`api/auth.ts:44-46`) ยืนยันและอัปเดตชื่อ/role
-- **token หมดอายุ/เสีย:** `http.ts:91-93` เรียก `unauthorizedHandler` → `AuthProvider.tsx:43-56` ล้างล็อกอิน + `queryClient.clear()` + พาไป `/login?reason=expired&next=...`
+- **ตอนเปิดแอป:** `AuthProvider.tsx:39-56` ถ้ามี token → `GET /auth/me` (`api/auth.ts:31-33`) ยืนยันและอัปเดตชื่อ/role
+- **token หมดอายุ/เสีย:** `http.ts:91-93` เรียก `unauthorizedHandler` → `AuthProvider.tsx:25-36` ล้างล็อกอิน + `queryClient.clear()` + พาไป `/login?reason=expired&next=...`
 - **ออกจากระบบ:** ปุ่ม `AppShell.tsx:84-86` → `AuthProvider.logout` `:106-112` (ล้าง localStorage, ล้างแคช, ไปหน้าแรก) · **ฝั่งเซิร์ฟเวอร์ไม่มีอะไรเกิดขึ้น**
 
 ### 3) Backend
@@ -235,8 +235,8 @@ SELECT graph_id, node_id, node_type, text_content, on_yes, on_no, next_node, on_
 
 ### 2) Frontend
 - **หน้า:** `pages/SymptomsPage.tsx` (route `/symptoms` — `App.tsx:43`)
-- **ฟอร์ม:** `components/SymptomSearchForm.tsx` `<form onSubmit>` `:24` · ช่องพิมพ์ `:29` (`maxLength` = `MAX_QUERY_LENGTH` 200) · ปุ่ม "ค้นหา" `:30-32` (ปิดเมื่อ `checkQuery(value) !== 'ok'` `lib/textInput.ts:31-36`)
-- **handler:** `handleSearch` `SymptomsPage.tsx:43-46` → `search.mutate({ query: normalizeQuery(query), manualId })`
+- **ฟอร์ม:** `components/SymptomSearchForm.tsx` `<form onSubmit>` `:24` · ช่องพิมพ์ `:29` (`maxLength` = `MAX_QUERY_LENGTH` 200) · ปุ่ม "ค้นหา" `:30-32` (ปิดเมื่อ `checkText(value, MAX_QUERY_LENGTH) !== 'ok'` `lib/textInput.ts:10-15`)
+- **handler:** `handleSearch` `SymptomsPage.tsx:28-31` → `search.mutate({ query: query.trim(), manualId })`
 - **hook:** `useSymptomSearch()` `api/queries.ts:141-145` (`useMutation` ไม่แคชโดยตั้งใจ `:134-140`)
 - **API client:** `api/traversal.ts:47-52` `searchSymptoms` · `POST /symptom-search` body `{ "query": "ไมโครเวฟไม่ร้อน", "manualId": "samsung_..." }`
 - **แสดงผลค้นหา:** `components/SymptomSearchResults.tsx` — ไม่มีผล (`matches.length===0`) `:13-19` แสดง "ไม่พบอาการที่ใกล้เคียง… แนะนำให้ติดต่อศูนย์บริการ Samsung" · มีผล `:21-32` แต่ละแถว `components/SymptomRow.tsx` (ชื่ออาการ `:25`, **คะแนนความคล้าย** `:28-33`)
@@ -290,7 +290,7 @@ VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, NOW() + INTERVAL ? HOUR)   -- 24 ชั่ว
 กรณี **confidence ต่ำ/ไม่พบ:** `matches: []` → หน้าจอแสดง "ไม่พบอาการที่ใกล้เคียง… ระบบไม่เดาอาการให้… แนะนำให้ติดต่อศูนย์บริการ Samsung" (`SymptomSearchResults.tsx:13-19`) พร้อมทางเลือก "ดูอาการทั้งหมด" `SymptomsPage.tsx:88-93`
 
 ### 6) ข้อสังเกต
-- "confidence" คือ **คะแนนความคล้ายของข้อความ ไม่ใช่ความน่าจะเป็นที่ถูกต้อง** หน้าจอบอกไว้ชัด (`SymptomSearchResults.tsx:24`, `SessionHeader.tsx:36`) และ `formatScore` ไม่แปลงเป็น % (`textInput.ts:38-47`)
+- "confidence" คือ **คะแนนความคล้ายของข้อความ ไม่ใช่ความน่าจะเป็นที่ถูกต้อง** หน้าจอบอกไว้ชัด (`SymptomSearchResults.tsx:24`, `SessionHeader.tsx:36`) และ `formatScore` ไม่แปลงเป็น % (`textInput.ts:22-24`)
 - เกณฑ์ 0.55 เป็น "ตัดสินรายการที่จะเสนอ" ไม่ใช่ตัวสั่งให้ตอบ/ไม่ตอบ ผู้ใช้ยังเลือกจาก "อาการทั้งหมด" ได้เสมอ (ตั้งใจ)
 - `scoreGraph` embed คำค้นซ้ำ (ครั้งที่สองหลังค้น) และ rank ทั้งดัชนีเพียงเพื่อดึงคะแนนผังเดียว ทำงานซ้ำซ้อน แต่เล็กน้อย (ข้อสังเกตจากโค้ด ไม่ได้วัด)
 - ข้อความ "ติดต่อศูนย์บริการ **Samsung**" ตายตัวในหน้าจอ `SymptomSearchResults.tsx:16` (ข้อมูลที่ seed ตอนนี้เป็น Samsung ตามชื่อไฟล์ `data/manuals/samsung_*.json` ถ้าเพิ่มยี่ห้ออื่นข้อความจะไม่ตรง)
@@ -479,7 +479,7 @@ DELETE FROM sessions WHERE session_id = ? AND ${where.sql} AND status = 'complet
 ### 2) Frontend
 - **ฟอร์ม:** `components/history/FeedbackButtons.tsx` ใช้ใน `HistoryDetailPage.tsx:192-199` (แสดงเมื่อ `data.available` เท่านั้น)
 - **ปุ่ม:** 👍 "ช่วยได้" `FeedbackButtons.tsx:45-47` · 👎 "ไม่ช่วย" `:48-50` (เลือกบังคับ) · ช่องข้อความ (≤ 500 ตัว ไม่บังคับ) `:60-69` · ปุ่ม "บันทึก" `:78-80` (ปิดถ้ายังไม่เลือก/ไม่มีอะไรเปลี่ยน `:31-32`)
-- **handler:** `handleSubmit` `:34-38` → `onSubmit(toFeedback(helpful, comment))` (`lib/textInput.ts:76-79` comment ว่างเป็น `null`) → `HistoryDetailPage.tsx:195` `feedback.mutate(value)`
+- **handler:** `handleSubmit` `:34-38` → `onSubmit(toFeedback(helpful, comment))` (`lib/textInput.ts:26-29` comment ว่างเป็น `null`) → `HistoryDetailPage.tsx:195` `feedback.mutate(value)`
 - **hook:** `useSubmitFeedback(sessionId)` `queries.ts:238-249` (สำเร็จ → ใส่ค่าที่บันทึกลงแคชรายละเอียด → ขึ้น "บันทึกแล้ว" `FeedbackButtons.tsx:81-85`)
 - **API:** `api/history.ts:29-35` · `POST /history/:id/feedback` body `{ "helpful": true, "comment": "ช่วยได้มาก" | null }`
 
@@ -703,9 +703,9 @@ sequenceDiagram
 
 | # | ปุ่ม / Action | ไฟล์ (หน้าจอ) | Handler / Hook | API | Backend (router/route handler → service → store) | DB table |
 |---|---|---|---|---|---|---|
-| 1 | สมัครสมาชิก | `RegisterPage.tsx:97` | `handleSubmit :38` → `AuthProvider.register :99` → `api/auth.ts:34` | `POST /auth/register` | `auth.routes.ts:11` → `parseRegisterBody` → `AuthService.register :33` → `UsersStore.create :65` | `users` (INSERT) |
-| 2 | เข้าสู่ระบบ | `LoginPage.tsx:90` | `handleSubmit :42` → `AuthProvider.login :92` → `api/auth.ts:24` | `POST /auth/login` | `auth.routes.ts:16` → `parseLoginBody` → `AuthService.login :55` → `UsersStore.findByEmail :55` | `users` (SELECT) |
-| 3 | (เปิดแอป) ยืนยันตัวตน | `AuthProvider.tsx:59-79` | `getMe` `api/auth.ts:44` | `GET /auth/me` | `auth.routes.ts:21` [`requireAuth`] → `AuthService.me :66` → `UsersStore.findById :60` | `users` (SELECT) |
+| 1 | สมัครสมาชิก | `RegisterPage.tsx:97` | `handleSubmit :38` → `AuthProvider.register :99` → `api/auth.ts:22` | `POST /auth/register` | `auth.routes.ts:11` → `parseRegisterBody` → `AuthService.register :33` → `UsersStore.create :65` | `users` (INSERT) |
+| 2 | เข้าสู่ระบบ | `LoginPage.tsx:90` | `handleSubmit :42` → `AuthProvider.login :92` → `api/auth.ts:13` | `POST /auth/login` | `auth.routes.ts:16` → `parseLoginBody` → `AuthService.login :55` → `UsersStore.findByEmail :55` | `users` (SELECT) |
+| 3 | (เปิดแอป) ยืนยันตัวตน | `AuthProvider.tsx:39-56` | `getMe` `api/auth.ts:31` | `GET /auth/me` | `auth.routes.ts:21` [`requireAuth`] → `AuthService.me :66` → `UsersStore.findById :60` | `users` (SELECT) |
 | 4 | ออกจากระบบ | `AppShell.tsx:84` | `AuthProvider.logout :106` | – (ล้าง localStorage เท่านั้น) | – | – |
 | 5 | เลือกเครื่องที่มีปัญหา | `HomePage.tsx:17` | `navigate('/devices')` | – | – | – |
 | 6 | (เปิดหน้า) รายการรุ่น | `DevicesPage.tsx:29` | `useManuals` `queries.ts:70` → `api/traversal.ts:24` | `GET /traversal/manuals` | `traversal.routes.ts:32` → `listManuals :48` → `GraphRepository.listManuals :99` | – (หน่วยความจำ) |

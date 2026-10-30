@@ -3,7 +3,7 @@ import type { DraftDetail, DraftGraph, DraftPublishResult, DraftSummary, DraftUp
 
 export const DRAFT_POLL_MS = 3000
 
-// POST /admin/drafts (multipart) → 202 { id, status: 'drafting' }
+/** POST /admin/drafts (multipart) → 202 { id, status: 'drafting' } */
 export async function uploadDraft(input: DraftUploadInput): Promise<{ id: string; status: 'drafting' }> {
   const form = new FormData()
   form.append('manualId', input.manualId)
@@ -18,28 +18,28 @@ export async function uploadDraft(input: DraftUploadInput): Promise<{ id: string
   return request('/admin/drafts', { method: 'POST', body: form })
 }
 
-// GET /admin/drafts
+/** GET /admin/drafts */
 export async function listDrafts(): Promise<{ items: DraftSummary[] }> {
   return request('/admin/drafts')
 }
 
-// GET /admin/drafts/:id
+/** GET /admin/drafts/:id */
 export async function getDraft(id: string): Promise<DraftDetail> {
   return request(`/admin/drafts/${encodeURIComponent(id)}`)
 }
 
-// PUT /admin/drafts/:id — แก้แผนผัง แล้ว backend ตรวจใหม่ (ผลตรวจมาจาก backend เท่านั้น)
+/** PUT /admin/drafts/:id — แก้แผนผัง แล้ว backend ตรวจใหม่ (ผลตรวจมาจาก backend เท่านั้น) */
 export async function updateDraft(id: string, graphs: DraftGraph[]): Promise<DraftDetail> {
   return request(`/admin/drafts/${encodeURIComponent(id)}`, { method: 'PUT', body: { graphs } })
 }
 
-// POST /admin/drafts/:id/reject
+/** POST /admin/drafts/:id/reject */
 export async function rejectDraft(id: string, reason: string): Promise<DraftDetail> {
   const trimmed = reason.trim()
   return request(`/admin/drafts/${encodeURIComponent(id)}/reject`, { method: 'POST', body: trimmed === '' ? {} : { reason: trimmed } })
 }
 
-// POST /admin/drafts/:id/publish — acknowledgedWarnings: ผู้ตรวจยืนยันว่าอ่านคำเตือนแล้ว (backend ตรวจซ้ำเสมอ)
+/** POST /admin/drafts/:id/publish — acknowledgedWarnings: ผู้ตรวจยืนยันว่าอ่านคำเตือนแล้ว (backend ตรวจซ้ำเสมอ) */
 export async function publishDraft(id: string, acknowledgedWarnings: boolean): Promise<DraftPublishResult> {
   return request(`/admin/drafts/${encodeURIComponent(id)}/publish`, { method: 'POST', body: { acknowledgedWarnings } })
 }

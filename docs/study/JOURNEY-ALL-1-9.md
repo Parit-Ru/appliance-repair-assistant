@@ -45,8 +45,8 @@ submit.mutate()
    - รหัสผ่านต้องยาว 8–72 ตัวอักษร (`:41`) **และ** ไม่เกิน 72 ไบต์ (`:43`) เพราะ bcrypt อ่านแค่ 72 ไบต์แรก อักษรไทย 1 ตัวกินราว 3 ไบต์
    - ชื่อที่แสดงต้องยาว 1–100 หลังตัดช่องว่าง (`:47-50`)
 5. **สั่งส่ง:** `submit` (`RegisterPage.tsx:25-28`) คือ `useMutation` ที่เรียก `register(email.trim(), password, displayName.trim())` และเมื่อสำเร็จจะ `navigate(next ?? '/history', { replace: true })` `useMutation` เป็น "การกระทำที่เปลี่ยนข้อมูล" ต่างจาก `useQuery` ที่ดึงข้อมูลเอง มันทำงานเมื่อสั่ง `.mutate()` เท่านั้น
-6. **provider รับช่วง:** `register` ใน `AuthProvider.tsx:93-98` เรียก `applySession(await apiRegister(email, password, displayName))`
-7. **api client:** `api/auth.ts:26-33`
+6. **provider รับช่วง:** `register` ใน `AuthProvider.tsx:75-80` เรียก `applySession(await apiRegister(email, password, displayName))`
+7. **api client:** `api/auth.ts:22-29`
 ```ts
 request<AuthResponse>('/auth/register', {
   method: 'POST',
@@ -103,10 +103,10 @@ VALUES (?, ?, ?, ?, ?)
 
 ## ง. ตอบกลับและหน้าจออัปเดต
 1. server ตอบ 201 พร้อม JSON ที่มี `accessToken` และ `user` (id, email, displayName, role, createdAt) ใน JWT มีแค่ `sub`, `role`, `iat`, `exp` ใครก็อ่านได้แต่ปลอมไม่ได้ เพราะมีลายเซ็นจาก `JWT_SECRET`
-2. **แปลงผล:** `toSession` (`api/auth.ts:13-15`) ได้ `{ token, user }` โดย `toAuthUser` (`:9-11`) หยิบแค่ `id`, `displayName`, `role` **ไม่เก็บอีเมล**
-3. **เก็บการล็อกอิน:** `applySession` (`AuthProvider.tsx:75-84`)
-   - `storeAuth(next)` เขียนลง `localStorage` key `fixstep.auth` (`authStorage.ts:50-56`, key ที่ `:3`)
-   - `setStored(next)` อัปเดต state ใน React
+2. **แปลงผล:** `toStoredAuth` (`api/auth.ts:9-11`) ได้ `{ token, user }` โดย `toAuthUser` (`:5-7`) หยิบแค่ `id`, `displayName`, `role` **ไม่เก็บอีเมล**
+3. **เก็บการล็อกอิน:** `applySession` (`AuthProvider.tsx:58-66`)
+   - `storeAuth(session)` เขียนลง `localStorage` key `fixstep.auth` (`authStorage.ts:46-53`, key ที่ `:3`)
+   - `setStored(session)` อัปเดต state ใน React
    - `queryClient.clear()` ล้างแคชข้อมูลเก่า เพราะตัวตนเปลี่ยนจาก guest เป็น user
 4. **ไปหน้าถัดไป:** `onSuccess` ใน `RegisterPage.tsx:27` เรียก `navigate(next ?? '/history', { replace: true })` ถ้ามี `?next=` จะกลับหน้านั้น ไม่งั้นไปหน้าประวัติ
 
@@ -125,7 +125,7 @@ VALUES (?, ?, ?, ?, ?)
 ## เฉลยคำถาม
 - **พิมพ์รหัสผ่าน 5 ตัวแล้วกดสมัคร มีคำขอไป backend ไหม:** ไม่มี `validateRegister` เจอข้อผิดพลาดแล้ว `return` ก่อน `submit.mutate()` (`RegisterPage.tsx:38-39`) แต่ถ้ามีคนยิง API ตรงๆ backend ก็ตอบ 400 เพราะ `parsePassword` ตรวจซ้ำ
 - **สมัครด้วยอีเมลที่มีอยู่แล้ว ไล่จาก DB ถึงหน้าจอ:** `INSERT` ชน UNIQUE → `ER_DUP_ENTRY` → `DuplicateEmailError` → `ApiError 409 EMAIL_TAKEN` → error handler ตอบ JSON → `request()` สร้าง `ApiError` ฝั่งหน้าจอ → `ErrorNotice` พร้อมลิงก์ไปล็อกอิน
-- **ทำไมหน้าจอเก็บแค่ id, ชื่อ, role ไม่เก็บอีเมล:** `toAuthUser` (`api/auth.ts:9-11`) หยิบเท่าที่ต้องใช้แสดงผล ลดข้อมูลส่วนตัวที่ค้างใน `localStorage`
+- **ทำไมหน้าจอเก็บแค่ id, ชื่อ, role ไม่เก็บอีเมล:** `toAuthUser` (`api/auth.ts:5-7`) หยิบเท่าที่ต้องใช้แสดงผล ลดข้อมูลส่วนตัวที่ค้างใน `localStorage`
 - **สมัครแล้วเป็น admin ได้ไหม:** ไม่ได้ `parseRegisterBody` เมิน `role` และ service กำหนด `Role.User` ตายตัว (`auth.service.ts:43`)
 
 ## ที่ไม่ได้ทำ
@@ -161,8 +161,8 @@ submit.mutate()
 ```
    `validateLogin` (`lib/authForm.ts:27-33`) ตรวจแค่ 2 อย่าง คืออีเมลรูปแบบถูก (`checkEmail` `:20-25`) และรหัสผ่านไม่ว่าง (`:31`) ตรวจน้อยกว่าตอนสมัครโดยตั้งใจ เพราะกฎรหัสผ่านอาจเปลี่ยนทีหลัง คนที่สมัครไว้ด้วยกฎเก่ายังต้องล็อกอินได้ (เป็นข้อสรุปจากเอกสารเก่า ไม่ได้เห็นคอมเมนต์ในโค้ดยืนยัน)
 5. **สั่งส่ง:** `submit` (`:25-28`) คือ `useMutation` เรียก `login(email.trim(), password)` สำเร็จแล้ว `navigate(next ?? '/', { replace: true })`
-6. **provider รับช่วง:** `login` ใน `AuthProvider.tsx:86-91` เรียก `applySession(await apiLogin(email, password))`
-7. **api client:** `api/auth.ts:17-24` เรียก `request('/auth/login', { method: 'POST', body: { email, password }, anonymous: true })` `anonymous: true` = ไม่แนบ token
+6. **provider รับช่วง:** `login` ใน `AuthProvider.tsx:68-73` เรียก `applySession(await apiLogin(email, password))`
+7. **api client:** `api/auth.ts:13-20` เรียก `request('/auth/login', { method: 'POST', body: { email, password }, anonymous: true })` `anonymous: true` = ไม่แนบ token
 8. **ยิง fetch:** `request()` ใน `api/http.ts:39-86` ต่อ URL (`:41`) ข้ามการหา token เพราะ `anonymous` (`:43`) ส่งด้วย `fetch` (`:53`)
 
 ### ฝั่งเซิร์ฟเวอร์
@@ -199,10 +199,10 @@ SELECT id, email, password_hash, display_name, role, UNIX_TIMESTAMP(created_at) 
 - ตาราง `users` (`001_users.sql:12-23`) ช่วงนี้อ่านอย่างเดียว ไม่มีการเขียน
 
 ### กลับมาที่หน้าจอ
-1. **แปลงผล:** `toSession` (`api/auth.ts:13-15`) ได้ `{ token, user: { id, displayName, role } }` ไม่เก็บอีเมล
-2. **เก็บบัตร:** `applySession` (`AuthProvider.tsx:75-84`)
-   - `storeAuth(next)` เขียนลง `localStorage['fixstep.auth']` (`authStorage.ts:50-56`, key ที่ `:3`) พร้อมเก็บสำเนาในตัวแปร `memory` (`:51`)
-   - `setStored(next)` อัปเดต state ใน React
+1. **แปลงผล:** `toStoredAuth` (`api/auth.ts:9-11`) ได้ `{ token, user: { id, displayName, role } }` ไม่เก็บอีเมล
+2. **เก็บบัตร:** `applySession` (`AuthProvider.tsx:58-66`)
+   - `storeAuth(session)` เขียนลง `localStorage['fixstep.auth']` (`authStorage.ts:46-53`, key ที่ `:3`) พร้อมเก็บสำเนาในตัวแปร `memory` (`:47`)
+   - `setStored(session)` อัปเดต state ใน React
    - `queryClient.clear()` ล้างแคชข้อมูลของผู้ใช้คนก่อน
    - การเขียน `localStorage` ห่อ `try/catch` ไว้ (`:52-55`) ถ้าเขียนไม่ได้ (เช่น โหมดส่วนตัวบางตัว) จะยังจำใน `memory` ของแท็บนั้นแทน ไม่ให้ล็อกอินล้ม
 3. **ไปหน้าถัดไป:** `onSuccess` (`LoginPage.tsx:27`) ไป `next` หรือหน้าแรก
@@ -210,7 +210,7 @@ SELECT id, email, password_hash, display_name, role, UNIX_TIMESTAMP(created_at) 
 ## ข. ใช้บัตรกับทุกคำขอถัดไป + backend ตรวจ
 
 ### ฝั่งหน้าจอ: แนบบัตร
-1. `request()` อ่าน token จาก `getStoredToken()` (`http.ts:43`, ฟังก์ชันอยู่ที่ `authStorage.ts:46-48`) อ่านจากที่เก็บตรงๆ ไม่ผ่าน React state จึงไม่มีช่วงที่คำขอยังใช้บัตรเก่าหลังล็อกอินหรือออกจากระบบ
+1. `request()` อ่าน token จาก `getStoredToken()` (`http.ts:43`, ฟังก์ชันอยู่ที่ `authStorage.ts:42-44`) อ่านจากที่เก็บตรงๆ ไม่ผ่าน React state จึงไม่มีช่วงที่คำขอยังใช้บัตรเก่าหลังล็อกอินหรือออกจากระบบ
 2. ใส่หัว `Authorization: Bearer <token>` (`http.ts:48`) ยกเว้นคำขอ `anonymous`
 
 ### ฝั่ง backend: ตรวจบัตร (`auth.middleware.ts`)
@@ -231,18 +231,18 @@ middleware 3 ตัวที่ใช้ `readUser` (`createAuthMiddleware` `:44
 ตัวอย่างที่ติดจริง: `/auth/me` ใช้ `requireAuth` (`auth.routes.ts:21`), `/traversal/*` กับ `/history/*` ใช้ `optionalAuth` (`app.ts:73-74`), `/admin/*` ใช้ `requireAuth` ตามด้วย `requireAdmin` ทีละ route (`admin.routes.ts:26-27`)
 
 ### ตัวอย่าง: ตอนเปิดเว็บยืนยันตัวตน
-1. `AuthProvider.tsx:56-73` ตอนโหลดแอป ถ้ามี token ที่จำไว้ จะเรียก `getMe()` (`api/auth.ts:35-37`) → `GET /auth/me` (`auth.routes.ts:21-23`) → `AuthService.me` (`auth.service.ts:66-72`) → `findById` (`users.store.ts:60-63`)
-2. ถ้าสำเร็จ จะเอา role และชื่อจากเซิร์ฟเวอร์ทับค่าที่จำไว้ (`:63-66`) ระหว่างรอ สถานะเป็น `verifying` (`:109`)
-3. ถ้าล้มเหลว (`:67-69`) แค่เลิกสถานะ `verifying` ไม่ล้าง token จึงใช้ค่าที่จำไว้ต่อ
+1. `AuthProvider.tsx:39-56` ตอนโหลดแอป ถ้ามี token ที่จำไว้ จะเรียก `getMe()` (`api/auth.ts:31-33`) → `GET /auth/me` (`auth.routes.ts:21-23`) → `AuthService.me` (`auth.service.ts:66-72`) → `findById` (`users.store.ts:60-63`)
+2. ถ้าสำเร็จ จะเอา role และชื่อจากเซิร์ฟเวอร์ทับค่าที่จำไว้ (`:46-49`) ระหว่างรอ สถานะเป็น `verifying` (`:91`)
+3. ถ้าล้มเหลว (`:50-52`) แค่เลิกสถานะ `verifying` ไม่ล้าง token จึงใช้ค่าที่จำไว้ต่อ
 
 ## ค. บัตรเสียหรือหมดอายุ และออกจากระบบ
 1. **backend ตอบ 401:** `unauthenticated()` (`auth.middleware.ts:18`) → ส่งเข้า error handler กลาง
 2. **หน้าจอรู้ว่า token เสีย:** `http.ts:70-72` เงื่อนไขคือ `status === 401 && token !== undefined` เฉพาะคำขอที่แนบ token เท่านั้น แล้วเรียก `unauthorizedHandler(token)`
-3. **ล้างแล้วพาไปล็อกอินใหม่:** handler ที่ `AuthProvider.tsx:41-51`
-   - ถ้า token ที่ใช้ไม่ใช่ token ปัจจุบัน (คำขอเก่าตอบช้าหลังล็อกอินใหม่) ให้เมิน (`:43`)
-   - `clearStoredAuth`, `setStored(null)`, `queryClient.clear()` (`:45-48`)
-   - `navigate(loginUrl('expired', หน้าเดิม))` (`:50`) ไป `/login?reason=expired&next=...`
-4. **ออกจากระบบ:** ปุ่มที่ `AppShell.tsx:84` เรียก `logout` (`AuthProvider.tsx:100-106`) ล้าง localStorage กับแคชแล้วกลับหน้าแรก **ฝั่งเซิร์ฟเวอร์ไม่มีอะไรเกิดขึ้น**
+3. **ล้างแล้วพาไปล็อกอินใหม่:** handler ที่ `AuthProvider.tsx:25-36`
+   - ถ้า token ที่ใช้ไม่ใช่ token ปัจจุบัน (คำขอเก่าตอบช้าหลังล็อกอินใหม่) ให้เมิน (`:27`)
+   - `clearStoredAuth`, `setStored(null)`, `queryClient.clear()` (`:29-32`)
+   - `navigate(loginUrl('expired', หน้าเดิม))` (`:33`) ไป `/login?reason=expired&next=...`
+4. **ออกจากระบบ:** ปุ่มที่ `AppShell.tsx:84` เรียก `logout` (`AuthProvider.tsx:82-88`) ล้าง localStorage กับแคชแล้วกลับหน้าแรก **ฝั่งเซิร์ฟเวอร์ไม่มีอะไรเกิดขึ้น**
 
 ## ถ้ามีอะไรผิดพลาด
 - **อีเมล/รหัสผ่านไม่ผ่านที่หน้าจอ:** แสดงใต้ช่อง ไม่ยิง API
@@ -260,7 +260,7 @@ middleware 3 ตัวที่ใช้ `readUser` (`createAuthMiddleware` `:44
 - ไม่มี rate limit กันเดารหัสผ่าน
 
 ## เฉลยคำถาม
-- **แก้ `role` ใน localStorage เป็น `admin` แล้วเปิด `/admin/analytics` จะเห็นอะไร:** หน้าจออาจแสดงหน้าได้ชั่วขณะ แต่ตอนเปิดเว็บ `GET /auth/me` เอา role จริงจากเซิร์ฟเวอร์ทับ (`AuthProvider.tsx:63-66`) จึงกลับเป็น `user` และต่อให้ข้ามได้ ทุกคำขอ `/admin/*` ใช้ token ที่ `role` ถูกเซ็นไว้ใน JWT แก้ไม่ได้ จึงโดน `requireAdmin` ตอบ 403 และหน้าจอไม่ได้ข้อมูลเลย
+- **แก้ `role` ใน localStorage เป็น `admin` แล้วเปิด `/admin/analytics` จะเห็นอะไร:** หน้าจออาจแสดงหน้าได้ชั่วขณะ แต่ตอนเปิดเว็บ `GET /auth/me` เอา role จริงจากเซิร์ฟเวอร์ทับ (`AuthProvider.tsx:46-49`) จึงกลับเป็น `user` และต่อให้ข้ามได้ ทุกคำขอ `/admin/*` ใช้ token ที่ `role` ถูกเซ็นไว้ใน JWT แก้ไม่ได้ จึงโดน `requireAdmin` ตอบ 403 และหน้าจอไม่ได้ข้อมูลเลย
 - **กดออกจากระบบแล้ว token เดิมยังใช้ได้ไหม:** ใช้ได้จนหมดอายุ ถ้ามีใครได้ token ไปก่อน เพราะ backend ไม่มี logout endpoint และไม่เก็บ token ใน DB ปุ่มออกแค่ลบ token ออกจากเบราว์เซอร์
 - **ล็อกอินผิดได้ 401 ทำไมหน้าจอไม่เด้งไปหน้าล็อกอินซ้ำ:** เพราะเงื่อนไขที่ `http.ts:70` ต้องมี token แนบไปด้วย คำขอล็อกอินเป็น `anonymous` จึงไม่มี token และ 401 ในกรณีนี้หมายถึงรหัสผิด ไม่ใช่ token เสีย
 - **ทำไมไม่พบอีเมลก็ยัง `compare` กับ `dummyHash`:** กันการวัดเวลาตอบ ถ้าข้าม `compare` เมื่อไม่พบอีเมล จะตอบเร็วกว่ากรณีพบ คนร้ายเดาได้ว่าอีเมลไหนมีบัญชี
@@ -355,7 +355,7 @@ SELECT graph_id, node_id, node_type, text_content, on_yes, on_no, next_node, on_
 ## ตอนที่ 1: หน้าจอค้นหา (Frontend)
 หน้า `pages/SymptomsPage.tsx`
 1. ถ้ายังไม่มีรุ่นใน URL → เด้งกลับ `/devices` (`:52` ไม่เดารุ่นให้)
-2. กรอกข้อความที่ `components/SymptomSearchForm.tsx` (ช่องพิมพ์ `:29` จำกัด 200 ตัว, ปุ่ม "ค้นหา" `:30-32` กดไม่ได้จนกว่า `checkQuery` จะ `ok` `lib/textInput.ts:31-36`)
+2. กรอกข้อความที่ `components/SymptomSearchForm.tsx` (ช่องพิมพ์ `:29` จำกัด 200 ตัว, ปุ่ม "ค้นหา" `:30-32` กดไม่ได้จนกว่า `checkText(value, MAX_QUERY_LENGTH)` จะ `ok` `lib/textInput.ts:10-15`)
 3. กดค้นหา → `handleSearch` (`SymptomsPage.tsx:43-46`) → `search.mutate({ query, manualId })` ผ่าน `useSymptomSearch` (`api/queries.ts:97`)
    - ใช้ `useMutation` ไม่ใช่ `useQuery` และไม่แคช เพราะผลขึ้นกับสถานะเซิร์ฟเวอร์ (เช่นตอนแรกยังโหลดโมเดลอยู่) ไม่ควรจำผลเก่า
 4. `api/traversal.ts:47-52` → **`POST /symptom-search`** body `{ "query": "ไมโครเวฟไม่ร้อน", "manualId": "samsung_..." }`
@@ -405,7 +405,7 @@ VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, NOW() + INTERVAL ? HOUR)   -- 24 ชั่ว
 - **ไม่มีการเก็บเวกเตอร์ใน DB** และ **ไม่ใช่ SQL filter** กรองด้วย `manualId` ในหน่วยความจำ
 
 ## ข้อสังเกต
-- "confidence" คือ **คะแนนความคล้ายของข้อความ ไม่ใช่ความน่าจะเป็นที่ถูก** หน้าจอบอกชัดและไม่แปลงเป็น % (`textInput.ts:38-47`)
+- "confidence" คือ **คะแนนความคล้ายของข้อความ ไม่ใช่ความน่าจะเป็นที่ถูก** หน้าจอบอกชัดและไม่แปลงเป็น % (`textInput.ts:22-24`)
 - `scoreGraph` แปลงคำค้นเป็นเวกเตอร์ **ซ้ำอีกครั้ง** ตอนเริ่ม session (ค้นหาทำไปแล้วหนึ่งรอบ) ทำงานซ้ำซ้อนเล็กน้อย
 - ข้อความ "ติดต่อศูนย์บริการ **Samsung**" ตายตัวในหน้าจอ (`SymptomSearchResults.tsx:16`)
 - ถ้า `SYMPTOM_SEARCH_ENABLED` ไม่ใช่ `true` ค้นหาตอบ 503 ผู้ใช้ยังเลือกจาก "อาการทั้งหมด" ได้
@@ -582,7 +582,7 @@ VALUES (?, ?, ?, ?, ?)
 ## ข. บันทึกข้อความผลลัพธ์ (ปุ่มเสริม ไม่บังคับ)
 **เรื่อง:** ถึงโหนดจบแล้ว สมชายพิมพ์ "ทำตามแล้วหาย" แล้วกด "บันทึกผล"
 1. ฟอร์มแสดงเฉพาะที่โหนดจบ: `frontend/src/components/step/StepView.tsx:27-29` เห็น `node.isTerminal` → `OutcomeStep` ใส่ฟอร์มไว้ที่ `OutcomeStep.tsx:44`
-2. กรอกข้อความ ปุ่มจะกดได้เมื่อ `checkOutcome` ได้ `ok` (ไม่ว่าง และไม่เกิน 1,000 ตัว `lib/outcome.ts:9-14`) `components/OutcomeForm.tsx:43-50` → `handleSubmit` ส่ง `normalizeOutcome(value)` (ตัดช่องว่างหัวท้าย)
+2. กรอกข้อความ ปุ่มจะกดได้เมื่อ `checkText(value, MAX_OUTCOME_LENGTH)` ได้ `ok` (ไม่ว่าง และไม่เกิน 1,000 ตัว `lib/textInput.ts:10-15`) `components/OutcomeForm.tsx:43-50` → `handleSubmit` ส่ง `value.trim()` (ตัดช่องว่างหัวท้าย)
 3. กดปุ่ม "บันทึกผล" (`OutcomeForm.tsx:83-85`) → `handleOutcome` (`pages/SessionPage.tsx:63-72`) กันกดซ้ำด้วย `isSavingOutcomeRef` แล้ว `saveOutcome.mutate(text)`
 4. `useSubmitOutcome` (`api/queries.ts:132`) → `api/traversal.ts:64-69` → **`POST /traversal/sessions/:id/outcome`** body `{ "text": "ทำตามแล้วหาย" }`
 5. Backend: `traversal.routes.ts:38-42` ผ่าน `optionalAuth` แล้วเรียก `parseOutcomeBody` (`traversal.dto.ts:166-185`): ต้องเป็นข้อความ, `trim` แล้วไม่ว่าง, ไม่เกิน 1,000 (`MAX_OUTCOME_LENGTH` `:6`) ผิด → 400 `INVALID_OUTCOME`
@@ -716,11 +716,11 @@ DELETE FROM sessions WHERE session_id = ? AND ${where.sql} AND status = 'complet
 
 ## ก. ฝั่งหน้าจอ
 1. ฟอร์มอยู่ใน `components/history/FeedbackButtons.tsx` ที่หน้ารายละเอียดเรียกใช้ที่ `pages/HistoryDetailPage.tsx:192-199` แสดงเฉพาะเมื่อ `data.available` (ผังยังตรงเดิม)
-2. ค่าเริ่มต้นของฟอร์มมาจากคะแนนที่เคยบันทึกไว้ (`saved`): `useState(saved?.helpful ?? null)` และ `useState(saved?.comment ?? '')` (`FeedbackButtons.tsx:28-29`) จึงเปิดมาแล้วเห็นของเดิม และส่งซ้ำคือแก้ค่าเดิม
+2. ค่าเริ่มต้นของฟอร์มมาจากคะแนนที่เคยบันทึกไว้ (`saved`): `useState(saved?.helpful ?? null)` และ `useState(saved?.comment ?? '')` (`FeedbackButtons.tsx:21-22`) จึงเปิดมาแล้วเห็นของเดิม และส่งซ้ำคือแก้ค่าเดิม
 3. ปุ่ม 👍 "ช่วยได้" (`:45-47`) และ 👎 "ไม่ช่วย" (`:48-50`) แค่ตั้งค่า `helpful` ใน state ยังไม่ส่ง · ต้องเลือกหนึ่งอย่าง (บังคับ)
-4. ช่องข้อความ (`:62-71`): ไม่บังคับ ไม่เกิน 500 ตัวอักษร (`MAX_FEEDBACK_COMMENT_LENGTH` `lib/textInput.ts:23`) มีตัวนับ `formatCommentCounter` (`textInput.ts:35`) และข้อความเตือน "ไม่ต้องใส่ข้อมูลส่วนตัว" (`:57-59`)
-5. ปุ่ม "บันทึก" (`:78-80`) กดได้เมื่อ (`:31-32`): เลือก 👍/👎 แล้ว **และ** ข้อความไม่เกิน 500 (`checkComment` `lib/textInput.ts:31`) **และ** ไม่กำลังส่ง **และ** ค่าต่างจากที่บันทึกไว้ (`isSameFeedback` `lib/textInput.ts:44` ถ้าเหมือนเดิมแสดง "บันทึกแล้ว" และปุ่มถูกปิด)
-6. กดบันทึก → `handleSubmit` (`FeedbackButtons.tsx:34-38`) → `onSubmit(toFeedback(helpful, comment))` (`lib/textInput.ts:39`): ตัดช่องว่างหัวท้าย และ **ข้อความว่างส่งเป็น `null`** ให้ตรงกับที่ DB เก็บ (NULL ไม่ใช่สตริงว่าง) → `HistoryDetailPage.tsx:195` `feedback.mutate(value)`
+4. ช่องข้อความ (`:46-65`): ไม่บังคับ ไม่เกิน 500 ตัวอักษร (`MAX_FEEDBACK_COMMENT_LENGTH` `lib/textInput.ts:5`) มีตัวนับ `formatCounter(comment, MAX_FEEDBACK_COMMENT_LENGTH)` (`textInput.ts:18-20`) และข้อความเตือน "ไม่ต้องใส่ข้อมูลส่วนตัว" (`:50-52`)
+5. ปุ่ม "บันทึก" (`:70-72`) กดได้เมื่อ (`:24-25`): เลือก 👍/👎 แล้ว **และ** ข้อความไม่เกิน 500 (`checkText(comment, MAX_FEEDBACK_COMMENT_LENGTH) !== 'too-long'` `lib/textInput.ts:10-15`) **และ** ไม่กำลังส่ง **และ** ค่าต่างจากที่บันทึกไว้ (`isSameFeedback` `lib/textInput.ts:31-35` ถ้าเหมือนเดิมแสดง "บันทึกแล้ว" และปุ่มถูกปิด)
+6. กดบันทึก → `handleSubmit` (`FeedbackButtons.tsx:27-31`) → `onSubmit(toFeedback(helpful, comment))` (`lib/textInput.ts:26-29`): ตัดช่องว่างหัวท้าย และ **ข้อความว่างส่งเป็น `null`** ให้ตรงกับที่ DB เก็บ (NULL ไม่ใช่สตริงว่าง) → `HistoryDetailPage.tsx:195` `feedback.mutate(value)`
 7. `useSubmitFeedback(sessionId)` (`api/queries.ts:166`) → `api/history.ts:29-35` `submitFeedback` → **`POST /history/:id/feedback`** body `{ "helpful": true, "comment": "ช่วยได้มาก" }` (comment อาจเป็น `null`) + `headers: ownerHeaders()`
 
 ## ข. ฝั่งเซิร์ฟเวอร์
@@ -753,7 +753,7 @@ ON DUPLICATE KEY UPDATE helpful = VALUES(helpful), `comment` = VALUES(`comment`)
 ```json
 { "helpful": true, "comment": "ช่วยได้มาก" }
 ```
-2. `useSubmitFeedback` `onSuccess` เอาค่าที่เซิร์ฟเวอร์ตอบมาใส่ในแคชรายละเอียดทันที (`setQueryData` ใน `api/queries.ts:166`) ฟอร์มจึงรู้ว่า "บันทึกแล้ว" โดยไม่ต้องโหลดซ้ำ → `isSameFeedback` เป็นจริง → ขึ้น "บันทึกแล้ว" (`FeedbackButtons.tsx:81-85`) และปุ่มบันทึกถูกปิด
+2. `useSubmitFeedback` `onSuccess` เอาค่าที่เซิร์ฟเวอร์ตอบมาใส่ในแคชรายละเอียดทันที (`setQueryData` ใน `api/queries.ts:166`) ฟอร์มจึงรู้ว่า "บันทึกแล้ว" โดยไม่ต้องโหลดซ้ำ → `isSameFeedback` เป็นจริง → ขึ้น "บันทึกแล้ว" (`FeedbackButtons.tsx:73-77`) และปุ่มบันทึกถูกปิด
 3. ผิดพลาด (เช่น 400/404/เครือข่าย) แสดง `ErrorNotice` ใต้ฟอร์ม (`:75`)
 
 ## ข้อสังเกตช่วง 8

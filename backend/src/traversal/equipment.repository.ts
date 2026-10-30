@@ -19,7 +19,7 @@ export class EquipmentRepository {
 
   constructor(private readonly pool: Pool) {}
 
-  // โหลดรายการอุปกรณ์เข้าหน่วยความจำ — app.ts เรียกตอนบูต ก่อนเปิดรับคำขอ 
+  /** โหลดรายการอุปกรณ์เข้าหน่วยความจำ — app.ts เรียกตอนบูต ก่อนเปิดรับคำขอ */
   async load(): Promise<void> {
     await this.loadAll();
   }

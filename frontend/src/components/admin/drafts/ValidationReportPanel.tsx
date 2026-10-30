@@ -14,10 +14,6 @@ function IssueList({ issues }: { issues: ValidationIssue[] }) {
   )
 }
 
-/**
- * รายงานของ validator (โค้ดล้วนฝั่ง backend) — แสดงตามที่ได้รับ ไม่คำนวณผลเอง
- * error = เผยแพร่ไม่ได้ (ไม่มีทางข้าม) · warning = ต้องติ๊กรับทราบก่อนเผยแพร่ · คำเตือนคำเสี่ยงแยกไว้ให้เห็นชัด
- */
 export function ValidationReportPanel({ report }: { report: ValidationReport | null }) {
   if (report === null) {
     return (

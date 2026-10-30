@@ -1,14 +1,3 @@
-/**
- * drafts.store.ts — SQL ทั้งหมดของ graph_drafts (migration 012) และการ publish ลง manuals / graphs / nodes
- *
- * ไฟล์นี้กับ migration 012 เป็นที่เดียวของระบบที่รู้จักตาราง graph_drafts — จุดอ่านผังของผู้ใช้ทั้งหมด (GraphRepository ฯลฯ)
- * ไม่แตะมัน ร่างจึงเข้าถึงไม่ได้จนกว่าจะ publish (ตรวจได้ด้วยการค้นคำว่า graph_drafts ใน backend/src)
- *
- * publish ทำใน transaction เดียว ล็อกแถวร่างด้วย SELECT … FOR UPDATE แล้วให้ callback `prepare` ตรวจ (validator) "ข้อมูลที่กำลังจะเขียนจริง"
- * ก่อน INSERT — จึงไม่มีช่องว่างให้ร่างถูกแก้ระหว่างตรวจกับเขียน · INSERT ล้วน ไม่มี ON DUPLICATE KEY UPDATE
- * (seed-graphs.js เดิมเขียนทับเงียบๆ · ที่นี่ id ชนของเดิม = ปฏิเสธ ไม่แตะผังที่ใช้งานอยู่)
- */
-
 import type { Pool, PoolConnection, ResultSetHeader, RowDataPacket } from 'mysql2/promise';
 import { numOrNull } from '../common/helpers';
 import { GRAPH_COLUMNS, MANUAL_COLUMNS, NODE_COLUMNS } from './draft-manual';

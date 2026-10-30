@@ -1,14 +1,12 @@
 import { Button } from '../ui/Button'
 
 interface PaginationProps {
-  /** หน้าที่แสดงอยู่ (ค่าจากเซิร์ฟเวอร์ ซึ่งปรับให้อยู่ในช่วงแล้ว) */
   page: number
   totalPages: number
   onChange: (page: number) => void
   disabled?: boolean
 }
 
-/** ก่อนหน้า / ถัดไป พร้อม "หน้า X จาก Y" — มีหน้าเดียวไม่แสดง */
 export function Pagination({ page, totalPages, onChange, disabled = false }: PaginationProps) {
   if (totalPages <= 1) return null
 

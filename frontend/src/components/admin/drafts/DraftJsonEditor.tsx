@@ -13,11 +13,6 @@ function format(graphs: DraftGraph[]): string {
   return JSON.stringify(graphs, null, 2)
 }
 
-/**
- * แก้แผนผังขั้นตอนเป็น JSON แล้วกด "ตรวจใหม่" → ส่งให้ backend ตรวจรูปแบบ + validator ใหม่ทั้งหมด
- * ผลการตรวจมาจาก backend เท่านั้น (หน้าจอแก้รายงานเองไม่ได้) · JSON ที่พิมพ์ผิดถูกปฏิเสธตั้งแต่หน้าจอ
- * ผู้เรียกใส่ key = เวลาแก้ไขล่าสุดของร่าง เพื่อให้ช่องแก้รีเซ็ตเป็นข้อมูลใหม่หลังบันทึก
- */
 export function DraftJsonEditor({ draftId, graphs }: DraftJsonEditorProps) {
   const textareaId = useId()
   const hintId = useId()

@@ -75,8 +75,8 @@
 | 2 | พิมพ์ข้อมูล | `pages/RegisterPage.tsx:24-27` | `useState` 3 ตัว (ชื่อ/อีเมล/รหัสผ่าน) | |
 | 3 | กดปุ่ม ตรวจฝั่งหน้าจอ | `RegisterPage.tsx:38-44` · `lib/authForm.ts:44-62` | `handleSubmit` → `validateRegister` (ผิด → แสดงใต้ช่อง ไม่ส่ง) | |
 | 4 | สั่งส่ง | `RegisterPage.tsx:29-32` | `useMutation` → `submit.mutate()` | |
-| 5 | เรียกผ่าน provider | `components/auth/AuthProvider.tsx:99-104` | `register` | |
-| 6 | api client | `api/auth.ts:34-41` | `register()` → `request('/auth/register', {anonymous:true})` | |
+| 5 | เรียกผ่าน provider | `components/auth/AuthProvider.tsx:75-80` | `register` | |
+| 6 | api client | `api/auth.ts:22-29` | `register()` → `request('/auth/register', {anonymous:true})` | |
 | 7 | ยิง fetch | `api/http.ts:59-107` | `request()` (ไม่แนบ token เพราะ `anonymous`) | |
 | 8 | **backend** ผ่าน cors + json | `backend/src/app.ts:66-67` | `cors`, `express.json` | |
 | 9 | เข้า router | `app.ts:71` · `auth/auth.routes.ts:11-14` | `router.post('/register')` (ไม่มี auth middleware) | |
@@ -85,8 +85,8 @@
 | 12 | บันทึกลง DB | `auth/users.store.ts:65-84` (SQL `:68-70`) | `UsersStore.create` → `INSERT INTO users ...` แล้ว `findById` | |
 | 13 | ตาราง | `backend/migrations/001_users.sql:12-23` | `users` (`email` UNIQUE) | |
 | 14 | ออกบัตรผ่าน | `auth/auth.service.ts:74-77` · `auth/token.ts:32-34` | `issue` → `tokens.sign({sub, role})` | |
-| 15 | ตอบ 201 → หน้าจอแปลง | `api/auth.ts:15-21` | `toSession` เก็บแค่ `{token, user:{id,displayName,role}}` (ไม่เก็บอีเมล) | |
-| 16 | เก็บล็อกอิน | `AuthProvider.tsx:81-90` · `lib/authStorage.ts:70-77` | `applySession` → `storeAuth` → `localStorage['fixstep.auth']` + `queryClient.clear()` | |
+| 15 | ตอบ 201 → หน้าจอแปลง | `api/auth.ts:9-11` | `toStoredAuth` เก็บแค่ `{token, user:{id,displayName,role}}` (ไม่เก็บอีเมล) | |
+| 16 | เก็บล็อกอิน | `AuthProvider.tsx:58-66` · `lib/authStorage.ts:46-53` | `applySession` → `storeAuth` → `localStorage['fixstep.auth']` + `queryClient.clear()` | |
 | 17 | ไปหน้าถัดไป | `RegisterPage.tsx:31` | `navigate(next ?? '/history')` | |
 
 ## ข้อควรจำ
@@ -110,7 +110,7 @@
 `INSERT` ชน UNIQUE `uq_users_email` → `ER_DUP_ENTRY` → `DuplicateEmailError` (`users.store.ts:73-75`) → `ApiError 409 EMAIL_TAKEN` (`auth.service.ts:46-47`) → `errorHandler` → `http.ts:95-99` → `ErrorNotice` + ลิงก์ล็อกอิน (error ถูกแปลงทีละชั้น: DB → store → service → HTTP)
 
 **3. ทำไมหน้าจอเก็บแค่ id / ชื่อ / role ไม่เก็บอีเมล?**
-เก็บเท่าที่ต้องใช้แสดงผล (`toAuthUser` `api/auth.ts:15-17`) ลดข้อมูลส่วนตัวที่ค้างใน `localStorage`
+เก็บเท่าที่ต้องใช้แสดงผล (`toAuthUser` `api/auth.ts:5-7`) ลดข้อมูลส่วนตัวที่ค้างใน `localStorage`
 
 ---
 
@@ -127,21 +127,21 @@
 | ขั้น | เกิดอะไร | ไฟล์:บรรทัด | function / โค้ด | โน้ตของฉัน |
 |---|---|---|---|---|
 | 1 | กดล็อกอิน | `pages/LoginPage.tsx:90-92`, `:42-48` · `lib/authForm.ts:36-42` | `handleSubmit` → `validateLogin` (อีเมลถูกรูป + รหัสผ่านไม่ว่าง) | |
-| 2 | ส่ง | `LoginPage.tsx:32-35` · `AuthProvider.tsx:92-97` · `api/auth.ts:24-31` | `useMutation` → `login` → `POST /auth/login` (`anonymous:true`) | |
+| 2 | ส่ง | `LoginPage.tsx:32-35` · `AuthProvider.tsx:68-73` · `api/auth.ts:13-20` | `useMutation` → `login` → `POST /auth/login` (`anonymous:true`) | |
 | 3 | router | `auth/auth.routes.ts:16-19` | `router.post('/login')` | |
 | 4 | ตรวจ input | `auth/auth.dto.ts:99` | `parseLoginBody` | |
 | 5 | หาผู้ใช้ | `auth/auth.service.ts:56` · `auth/users.store.ts:37-39`, `:56` | `findByEmail` → `SELECT ... FROM users WHERE email = ? LIMIT 1` | |
 | 6 | เทียบรหัสผ่าน | `auth.service.ts:58` | `compare(password, user ? hash : this.dummyHash)` (`dummyHash` `:26` กัน timing) | |
 | 7 | ผิด → 401 | `auth.service.ts:59-61` | `invalidCredentials()` ข้อความเดียวทุกกรณี | |
 | 8 | ออกบัตร | `auth.service.ts:63` · `auth/token.ts:32-34` | `issue` → `tokens.sign` | |
-| 9 | เก็บบัตร | `AuthProvider.tsx:81-90` · `lib/authStorage.ts:19, 70-77` | `applySession` → `localStorage['fixstep.auth']` (+สำเนาในหน่วยความจำ `:27`) | |
+| 9 | เก็บบัตร | `AuthProvider.tsx:58-66` · `lib/authStorage.ts:3, 46-53` | `applySession` → `localStorage['fixstep.auth']` (+สำเนาในหน่วยความจำ `:10`) | |
 | 10 | แนบบัตรทุกคำขอ | `api/http.ts:63`, `:69` | `getStoredToken()` → `Authorization: Bearer <token>` (ยกเว้น `anonymous`) | |
 | 11 | backend อ่านบัตร | `auth/auth.middleware.ts:20-42` | `readUser` (ไม่มี header → `undefined`; รูปแบบผิด/verify ล้ม/ข้อมูลผิด → 401) | |
 | 12 | ตรวจลายเซ็น | `auth/token.ts:37-40` | `verify` บังคับ `algorithms: ['HS256']` | |
 | 13 | middleware 3 ตัว | `auth.middleware.ts:49-57`, `:59-68`, `:70-80` | `optionalAuth`, `requireAuth`, `requireAdmin` (403 ถ้าไม่ใช่ admin) | |
-| 14 | ตอนเปิดเว็บ ยืนยันตัวตน | `AuthProvider.tsx:59-79` → `api/auth.ts:44-46` → `auth.routes.ts:21-24` → `auth.service.ts:66-72` → `users.store.ts:60-63` | `getMe` → `GET /auth/me` (`requireAuth`) → `me` → `findById` แล้วหน้าจอเอา role/ชื่อจากเซิร์ฟเวอร์ทับ (`:64-70`) | |
-| 15 | บัตรเสีย/หมดอายุ | `api/http.ts:91-93` → `AuthProvider.tsx:43-56` | `unauthorizedHandler` ล้างล็อกอิน+แคช → `/login?reason=expired&next=...` | |
-| 16 | ออกจากระบบ | `AppShell.tsx:84-86` → `AuthProvider.tsx:106-112` | `logout` (ล้างฝั่งเบราว์เซอร์อย่างเดียว) | |
+| 14 | ตอนเปิดเว็บ ยืนยันตัวตน | `AuthProvider.tsx:39-56` → `api/auth.ts:31-33` → `auth.routes.ts:21-24` → `auth.service.ts:66-72` → `users.store.ts:60-63` | `getMe` → `GET /auth/me` (`requireAuth`) → `me` → `findById` แล้วหน้าจอเอา role/ชื่อจากเซิร์ฟเวอร์ทับ (`:64-70`) | |
+| 15 | บัตรเสีย/หมดอายุ | `api/http.ts:91-93` → `AuthProvider.tsx:25-36` | `unauthorizedHandler` ล้างล็อกอิน+แคช → `/login?reason=expired&next=...` | |
+| 16 | ออกจากระบบ | `AppShell.tsx:84-86` → `AuthProvider.tsx:90-93` | `logout` (ล้างฝั่งเบราว์เซอร์อย่างเดียว) | |
 
 ## middleware 3 ตัวเทียบกัน
 | middleware | ใช้เมื่อ | ไม่มีบัตร | บัตรเสีย | ไม่ใช่ admin |
@@ -267,8 +267,8 @@ backend ตอบรุ่นใหม่ทันที (`reload()` `drafts.ser
 | ขั้น | เกิดอะไร | ไฟล์:บรรทัด | function / โค้ด | โน้ตของฉัน |
 |---|---|---|---|---|
 | 1 | ไม่มีรุ่นใน URL → เด้งกลับ | `pages/SymptomsPage.tsx:52` | `<Navigate to="/devices">` | |
-| 2 | ช่องพิมพ์ + ปุ่มค้นหา | `components/SymptomSearchForm.tsx:24-32` · `lib/textInput.ts:31-36` | `checkQuery` (ว่าง/เกิน 200 → กดไม่ได้) | |
-| 3 | กดค้นหา | `SymptomsPage.tsx:43-46` | `handleSearch` → `search.mutate({query, manualId})` | |
+| 2 | ช่องพิมพ์ + ปุ่มค้นหา | `components/SymptomSearchForm.tsx:24-32` · `lib/textInput.ts:10-15` | `checkText` (ว่าง/เกิน 200 → กดไม่ได้) | |
+| 3 | กดค้นหา | `SymptomsPage.tsx:28-31` | `handleSearch` → `search.mutate({query, manualId})` | |
 | 4 | hook | `api/queries.ts:97` | `useSymptomSearch` (`useMutation` ไม่แคช) | |
 | 5 | api client | `api/traversal.ts:47-52` | `POST /symptom-search` body `{query, manualId}` | |
 | 6 | backend router | `symptom-search/symptom-search.routes.ts:9-13` | `router.post('/')` (ไม่มี auth middleware) | |
@@ -343,7 +343,7 @@ VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, NOW() + INTERVAL ? HOUR)
 → ผ่านเกณฑ์ 0.55 เฉพาะผัง A
 
 ## ข้อควรจำ
-- "confidence" คือ **คะแนนความคล้ายของข้อความ ไม่ใช่ความน่าจะเป็นที่ถูก** หน้าจอบอกชัดและไม่แปลงเป็น % (`textInput.ts:38-47`)
+- "confidence" คือ **คะแนนความคล้ายของข้อความ ไม่ใช่ความน่าจะเป็นที่ถูก** หน้าจอบอกชัดและไม่แปลงเป็น % (`textInput.ts:22-24`)
 - ไม่มี LLM ตอนค้นหา/เริ่ม session · ไม่เก็บเวกเตอร์ใน MySQL (สร้างในหน่วยความจำตอนบูต) · ไม่ใช่ SQL filter
 - `scoreGraph` แปลงคำค้นเป็นเวกเตอร์ซ้ำตอนเริ่ม session (ซ้ำซ้อนเล็กน้อย)
 - ข้อความ "ติดต่อศูนย์บริการ Samsung" ตายตัวในหน้าจอ (`SymptomSearchResults.tsx:16`)

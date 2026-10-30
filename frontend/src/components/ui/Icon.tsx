@@ -1,17 +1,5 @@
 import type { ReactNode } from 'react'
 
-/**
- * ไอคอนทั้งหมดของแอป วาดเองทุกตัว ไม่ใช้ไลบรารีไอคอน
- *
- * ใช้แบบนี้: <Icon name="warning" className="h-5 w-5 text-danger" />
- *
- * - สีมาจาก currentColor คือสีตัวอักษรของตัวที่ครอบอยู่ เปลี่ยนด้วยคลาส text-*
- * - ขนาดกำหนดผ่าน className เช่น h-4 w-4
- * - ไอคอนอยู่คู่กับข้อความเสมอ จึงซ่อนจากโปรแกรมอ่านหน้าจอ (aria-hidden)
- * - spinner ไม่หมุนเอง ผู้เรียกต้องใส่คลาส animate-spin
- */
-
-/** ชื่อไอคอนทั้ง 12 ตัว ถ้าพิมพ์ชื่อผิด TypeScript จะแจ้งตั้งแต่ตอนเขียน */
 export type IconName =
   | 'warning' // เตือน
   | 'success' // ถูก
@@ -27,13 +15,10 @@ export type IconName =
   | 'switch-off' // สวิตช์ปิด
 
 interface IconShape {
-  /** ระบบพิกัดของรูป สวิตช์เป็นรูปแนวตั้งจึงใช้ 20×32 ตัวอื่นใช้ 24×24 */
   viewBox: string
-  /** เส้นที่ประกอบเป็นรูป */
   body: ReactNode
 }
 
-/** ตารางค้นหา: ชื่อไอคอน → รูปร่าง */
 const ICONS: Record<IconName, IconShape> = {
   warning: {
     viewBox: '0 0 24 24',
@@ -102,12 +87,12 @@ const ICONS: Record<IconName, IconShape> = {
   },
   spinner: {
     viewBox: '0 0 24 24',
-    // วงกลมสามในสี่วง พอหมุนด้วย animate-spin จะเห็นเป็นตัวหมุนรอ
+    /** วงกลมสามในสี่วง พอหมุนด้วย animate-spin จะเห็นเป็นตัวหมุนรอ */
     body: <path d="M21 12a9 9 0 1 1-9-9" />,
   },
   logo: {
     viewBox: '0 0 24 24',
-    // วงบนคือสถานะปัจจุบัน สองวงล่างคือสถานะถัดไปที่เป็นไปได้
+    /** วงบนคือสถานะปัจจุบัน สองวงล่างคือสถานะถัดไปที่เป็นไปได้ */
     body: (
       <>
         <circle cx="12" cy="5" r="2.5" />
@@ -120,7 +105,7 @@ const ICONS: Record<IconName, IconShape> = {
   },
   'switch-on': {
     viewBox: '0 0 20 32',
-    // ปุ่มทึบอยู่ด้านบน ต่างจากสวิตช์ปิดทั้งตำแหน่งและความทึบ จึงไม่ต้องพึ่งสีอย่างเดียว
+    /** ปุ่มทึบอยู่ด้านบน ต่างจากสวิตช์ปิดทั้งตำแหน่งและความทึบ จึงไม่ต้องพึ่งสีอย่างเดียว */
     body: (
       <>
         <rect x="2" y="2" width="16" height="28" rx="8" />
@@ -141,7 +126,6 @@ const ICONS: Record<IconName, IconShape> = {
 
 interface IconProps {
   name: IconName
-  /** คลาส Tailwind สำหรับขนาดและสี ถ้าไม่ส่งมาจะได้ขนาด 20px */
   className?: string
 }
 

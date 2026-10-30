@@ -17,7 +17,7 @@ RegisterPage  → ตรวจฟอร์ม → useMutation → AuthProvider  
                                 api/auth.ts → api/http.ts      → AuthService.register → UsersStore.create ──► INSERT
                                       └───── POST /auth/register ─────────►                │
                                       ◄──── 201 { accessToken, user } ◄────────────────────┘
-  ← เก็บใน localStorage ← applySession ← toSession
+  ← เก็บใน localStorage ← applySession ← toStoredAuth
 ```
 
 ## ตารางเส้นทาง (ขั้น → ไฟล์:บรรทัด → function)
@@ -29,8 +29,8 @@ RegisterPage  → ตรวจฟอร์ม → useMutation → AuthProvider  
 | 3 | กดปุ่ม "สมัครสมาชิก" | `RegisterPage.tsx:97-99` (ปุ่ม), `:53` (`<form onSubmit>`) | `Button type="submit"` → `handleSubmit` | |
 | 4 | ตรวจเบื้องต้นฝั่งหน้าจอ | `RegisterPage.tsx:38-44` · `frontend/src/lib/authForm.ts:44-62` | `handleSubmit` → `validateRegister(email, password, displayName)` ผิด → แสดงใต้ช่อง แล้ว `return` (ไม่ยิง API) | |
 | 5 | สั่งส่ง | `RegisterPage.tsx:29-32` | `useMutation({ mutationFn: () => register(email.trim(), password, displayName.trim()), onSuccess: navigate(...) })` → `submit.mutate()` | |
-| 6 | provider รับช่วง | `frontend/src/components/auth/AuthProvider.tsx:99-104` | `register` → `applySession(await apiRegister(...))` | |
-| 7 | api client | `frontend/src/api/auth.ts:34-41` | `register()` → `request<AuthResponse>('/auth/register', { method:'POST', body:{email,password,displayName}, anonymous:true })` | |
+| 6 | provider รับช่วง | `frontend/src/components/auth/AuthProvider.tsx:75-80` | `register` → `applySession(await apiRegister(...))` | |
+| 7 | api client | `frontend/src/api/auth.ts:22-29` | `register()` → `request<AuthResponse>('/auth/register', { method:'POST', body:{email,password,displayName}, anonymous:true })` | |
 | 8 | ประกอบและยิง fetch | `frontend/src/api/http.ts:59-107` (`anonymous` `:63`, header `:65-70`, fetch `:74-78`) | `request()`: URL = `VITE_API_URL + '/auth/register'`, `Content-Type: application/json`, **ไม่แนบ token** | |
 | 9 | **backend** ผ่านด่านแรก | `backend/src/app.ts:66-67` | `cors(...)` → `express.json()` (แปลง body เป็น `request.body`) | |
 | 10 | เข้า router ตาม path | `app.ts:71` · `backend/src/auth/auth.routes.ts:11-14` | `app.use('/auth', authRoutes(...))` → `router.post('/register', asyncRoute(...))` (ไม่มี auth middleware) ตอบ **201** | |
@@ -40,8 +40,8 @@ RegisterPage  → ตรวจฟอร์ม → useMutation → AuthProvider  
 | 14 | ตาราง | `backend/migrations/001_users.sql:12-23` | `users` (`id`, `email` UNIQUE, `password_hash`, `display_name`, `role`, `created_at`, `updated_at`) | |
 | 15 | ออกบัตรผ่าน | `auth.service.ts:74-77` · `backend/src/auth/token.ts:32-34` | `issue` → `tokens.sign({ sub: user.id, role: user.role })` (HS256 อายุเริ่มต้น 7 วัน) | |
 | 16 | ตอบกลับ 201 | `auth.routes.ts:12` | `response.status(201).json({ accessToken, user })` | |
-| 17 | หน้าจอแปลงผลที่ได้ | `frontend/src/api/auth.ts:15-21` | `toSession` → `{ token, user:{ id, displayName, role } }` (**ไม่เก็บอีเมล**) | |
-| 18 | เก็บการล็อกอิน | `AuthProvider.tsx:81-90` · `frontend/src/lib/authStorage.ts:70-77` (key `:19`) | `applySession`: `storeAuth` → `localStorage['fixstep.auth']`, `setStored`, `queryClient.clear()` | |
+| 17 | หน้าจอแปลงผลที่ได้ | `frontend/src/api/auth.ts:9-11` | `toStoredAuth` → `{ token, user:{ id, displayName, role } }` (**ไม่เก็บอีเมล**) | |
+| 18 | เก็บการล็อกอิน | `AuthProvider.tsx:58-66` · `frontend/src/lib/authStorage.ts:46-53` (key `:3`) | `applySession`: `storeAuth` → `localStorage['fixstep.auth']`, `setStored`, `queryClient.clear()` | |
 | 19 | ไปหน้าถัดไป | `RegisterPage.tsx:31` | `onSuccess` → `navigate(next ?? '/history', { replace: true })` | |
 
 ## โค้ดสำคัญของแต่ละขั้น
@@ -144,7 +144,7 @@ JWT ข้างในมีแค่ `sub` (user id), `role`, `iat`, `exp` (ใ
 `INSERT` ชน UNIQUE `uq_users_email` → MySQL `ER_DUP_ENTRY` → store โยน `DuplicateEmailError` (`users.store.ts:73-75`) → service แปลงเป็น `ApiError 409 EMAIL_TAKEN` (`auth.service.ts:46-47`) → `errorHandler` ตอบ JSON → `http.ts:95-99` สร้าง `ApiError` ฝั่งหน้าจอ → `ErrorNotice` พร้อมลิงก์ไปล็อกอิน
 
 **3. ทำไมหน้าจอเก็บแค่ id / ชื่อ / role ไม่เก็บอีเมล?**
-เก็บเท่าที่ต้องใช้แสดงผล (`toAuthUser` `api/auth.ts:15-17`) ลดข้อมูลส่วนตัวที่ค้างใน `localStorage` อีเมลไม่จำเป็นต่อการแสดงผลหรือส่งคำขอ
+เก็บเท่าที่ต้องใช้แสดงผล (`toAuthUser` `api/auth.ts:5-7`) ลดข้อมูลส่วนตัวที่ค้างใน `localStorage` อีเมลไม่จำเป็นต่อการแสดงผลหรือส่งคำขอ
 
 ## ที่ผมจดเพิ่มให้ (ดูแล้วเติมเองได้)
 - ไฟล์ที่ช่วงนี้แตะ เรียงตามลำดับการเรียก

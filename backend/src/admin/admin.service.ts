@@ -62,7 +62,7 @@ export class AdminService {
       this.store.perDay(window),
     ]);
 
-    // ---- outcomes ----
+    // outcomes
     const outcomes: AdminSummaryDto['outcomes'] = {
       user_fixed: 0,
       normal_behavior: 0,
@@ -76,7 +76,7 @@ export class AdminService {
       outcomes[kind ?? 'unknown'] += end.count;
     }
 
-    // ---- top graphs / devices ----
+    // top graphs / devices
     const topGraphs = [...graphCounts]
       .sort((a, b) => b.count - a.count || a.graphId.localeCompare(b.graphId))
       .slice(0, TOP_LIMIT)
@@ -99,7 +99,7 @@ export class AdminService {
         count,
       }));
 
-    // ---- per day (เติมวันที่ไม่มีข้อมูลเป็น 0) ----
+    // per day (เติมวันที่ไม่มีข้อมูลเป็น 0)
     const byDay = new Map(perDay.map((row) => [row.dayIndex, row]));
     const perDayFilled: AdminSummaryDto['perDay'] = [];
     for (let index = firstIndex; index <= todayIndex; index += 1) {

@@ -101,14 +101,6 @@ export class SymptomSearchService {
     }
   }
 
-  /**
-   * เพิ่มผังที่เพิ่ง publish เข้าดัชนีที่ทำงานอยู่ โดย embed เฉพาะข้อความของผังเหล่านั้น (ไม่ทำ 600+ ผังใหม่)
-   *
-   * เรียกหลัง GraphRepository.reload() แล้ว (findById ต้องเห็นผังใหม่)
-   * ไม่โยน error: ดัชนีไม่พร้อม/embed ล้ม → คืน indexed=false พร้อมเหตุผล และดัชนีเดิมไม่เปลี่ยน
-   * (ผังนั้นถูก publish ไปแล้ว ค้นหาด้วยข้อความจะเจอหลังรีสตาร์ต · เลือกจากรายการอาการเจอทันที)
-   * สลับดัชนีใหม่ในครั้งเดียวหลัง embed ครบ จึงไม่มีช่วงที่ค้นหาเห็นผังครึ่งๆ กลางๆ
-   */
   async addGraphs(graphIds: string[]): Promise<{ indexed: boolean; addedTexts: number; reason?: string }> {
     if (this.state !== 'ready') {
       const reason =

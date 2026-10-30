@@ -1,6 +1,6 @@
 import { useId } from 'react'
 import type { FormEvent } from 'react'
-import { MAX_QUERY_LENGTH, checkQuery } from '../lib/textInput'
+import { MAX_QUERY_LENGTH, checkText } from '../lib/textInput'
 import { Button } from './ui/Button'
 
 interface SymptomSearchFormProps {
@@ -13,7 +13,7 @@ interface SymptomSearchFormProps {
 
 export function SymptomSearchForm({ value, onChange, onSubmit, isSearching, disabled }: SymptomSearchFormProps) {
   const inputId = useId()
-  const canSearch = checkQuery(value) === 'ok'
+  const canSearch = checkText(value, MAX_QUERY_LENGTH) === 'ok'
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()

@@ -2,12 +2,10 @@ import type { ReactNode } from 'react'
 
 interface StatCardProps {
   label: string
-  /** ข้อความที่จัดรูปแล้ว (ค่า null ให้ส่ง "-" มา ห้ามส่ง 0) */
   value: string
   hint?: ReactNode
 }
 
-/** การ์ดตัวเลขสรุป */
 export function StatCard({ label, value, hint }: StatCardProps) {
   return (
     <div className="space-y-1 rounded-xl border border-line bg-panel p-4">

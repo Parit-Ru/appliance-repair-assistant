@@ -1,6 +1,6 @@
 import { useId } from 'react'
 
-const FIELD_CLASSES =
+export const FIELD_CLASSES =
   'min-h-12 w-full rounded-lg border bg-canvas px-3 py-2 text-base text-ink placeholder:text-ink-faint focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent'
 
 interface TextFieldProps {
@@ -15,7 +15,6 @@ interface TextFieldProps {
   disabled?: boolean
 }
 
-/** ช่องกรอกของฟอร์มเข้าสู่ระบบ/สมัครสมาชิก: ป้ายกำกับ + คำใบ้ + ข้อความผิดพลาดที่ผูกกับช่อง (aria) */
 export function TextField({ label, type, value, onChange, autoComplete, error, hint, maxLength, disabled }: TextFieldProps) {
   const inputId = useId()
   const hintId = useId()

@@ -37,7 +37,7 @@ interface NodeRow extends RowDataPacket {
   safety_warning: string | null;
 }
 
-// GET /traversal/graphs
+/** GET /traversal/graphs */
 export interface GraphSummary {
   graphId: string;
   manualId: string;
@@ -48,7 +48,7 @@ export interface GraphSummary {
   modelPattern: string;
 }
 
-// GET /traversal/manuals
+/** GET /traversal/manuals */
 export interface ManualSummary {
   manualId: string;
   deviceCategory: DeviceCategory;
@@ -71,7 +71,7 @@ export class GraphRepository {
 
   private readonly graphs = new Map<string, TroubleshootingGraph>();
 
-  // ชื่อรุ่นที่ผู้ใช้รู้จักของแต่ละคู่มือ (migration 006) ใช้ใน listManuals เท่านั้น ไม่ปนกับผังของ engine
+  /** ชื่อรุ่นที่ผู้ใช้รู้จักของแต่ละคู่มือ (migration 006) ใช้ใน listManuals เท่านั้น ไม่ปนกับผังของ engine */
   private readonly manualExtras = new Map<string, { displayName?: string; modelAliases?: string[] }>();
 
   constructor(private readonly pool: Pool) {}

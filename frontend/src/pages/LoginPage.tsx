@@ -4,7 +4,7 @@ import type { FormEvent } from 'react'
 import { Link, Navigate, useNavigate, useSearchParams } from 'react-router-dom'
 import { TextField } from '../components/auth/TextField'
 import { ErrorNotice } from '../components/ErrorNotice'
-import { Button } from '../components/ui/Button'
+import { Button, LINK_CLASSES } from '../components/ui/Button'
 import { Notice } from '../components/ui/Notice'
 import { useAuth } from '../lib/authContext'
 import { hasErrors, validateLogin } from '../lib/authForm'
@@ -85,7 +85,7 @@ export function LoginPage() {
 
       <p className="text-sm text-ink-soft">
         ยังไม่มีบัญชี?{' '}
-        <Link to={next === undefined ? '/register' : `/register?next=${encodeURIComponent(next)}`} className="text-accent underline-offset-4 hover:underline">
+        <Link to={next === undefined ? '/register' : `/register?next=${encodeURIComponent(next)}`} className={LINK_CLASSES}>
           สมัครสมาชิก
         </Link>
       </p>

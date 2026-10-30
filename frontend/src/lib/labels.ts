@@ -7,7 +7,6 @@ export const DEVICE_CATEGORY_LABELS: Record<DeviceCategory, string> = {
   Television: 'โทรทัศน์',
 }
 
-/** ประเภทเครื่องทั้งหมด เรียงตามลำดับในตารางป้ายด้านบน (แหล่งเดียวของรายการนี้) */
 export const DEVICE_CATEGORIES = Object.keys(DEVICE_CATEGORY_LABELS) as DeviceCategory[]
 
 export const OUTCOME_TITLES: Record<OutcomeKind, string> = {
@@ -17,10 +16,6 @@ export const OUTCOME_TITLES: Record<OutcomeKind, string> = {
   handoff_unknown: 'คู่มือไม่ครอบคลุมกรณีนี้',
 }
 
-/**
- * ป้ายสถานะในหน้า "ประวัติการซ่อม" ตัดสินจาก outcome_kind ของโหนดสุดท้ายเท่านั้น (ไม่มีเกณฑ์ confidence)
- * 3 ป้ายแรกตามสเปกหน้าประวัติ · normal_behavior (เครื่องไม่ได้เสีย) ใช้ข้อความเดิมของหน้าตรวจ
- */
 export const HISTORY_STATUS_LABELS: Record<OutcomeKind, string> = {
   user_fixed: 'แก้ได้แล้ว',
   handoff_informed: 'ยังไม่ได้แก้',

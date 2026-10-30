@@ -11,7 +11,7 @@ export function useChosenModel(): { manualId: string | undefined; modelSelection
   return { manualId, modelSelection }
 }
 
-// ลิงก์ไปหน้าเลือกอาการของรุ่นนั้น 
+/** ลิงก์ไปหน้าเลือกอาการของรุ่นนั้น */
 export function symptomsPath(manualId: string, modelSelection: ModelSelection, page: 'search' | 'all' = 'search'): string {
   const params = new URLSearchParams({ manual: manualId })
   if (modelSelection === 'unknown') params.set('unknown', '1')

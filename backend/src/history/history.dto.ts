@@ -10,7 +10,7 @@ const MAX_FEEDBACK_COMMENT_LENGTH = 500;
 // / ?page=/?pageSize= ผิดรูปแบบ → 400 INVALID_HISTORY_QUERY 
 const invalidQuery = (message: string) => new ApiError(400, 'INVALID_HISTORY_QUERY', message);
 
-//POST /history/:id/feedback 
+/** POST /history/:id/feedback */
 const invalidFeedback = (message: string) => new ApiError(400, 'INVALID_FEEDBACK', message);
 
 export interface HistoryQuery {
@@ -50,7 +50,7 @@ export function parseHistoryQuery(raw: unknown): HistoryQuery {
   };
 }
 
-// ข้อมูลผังที่แสดงในแถว/หัวรายละเอียด (หน้าจอใช้ symptomName() และ manualTitle() ตัวเดิมได้)
+/** ข้อมูลผังที่แสดงในแถว/หัวรายละเอียด (หน้าจอใช้ symptomName() และ manualTitle() ตัวเดิมได้) */
 export interface HistoryGraphInfo {
   manualId: string;
   entrySymptom: string;
@@ -108,7 +108,7 @@ export interface HistoryDetailDto {
 
 // ให้คะแนน: POST /history/:id/feedback
 
-// body ของ POST /history/:id/feedback: { helpful: boolean, comment?: string }
+/** body ของ POST /history/:id/feedback: { helpful: boolean, comment?: string } */
 export function parseFeedbackBody(body: unknown): HistoryFeedbackDto {
   if (!isPlainObject(body)) {
     throw invalidFeedback('body ต้องเป็น JSON object');

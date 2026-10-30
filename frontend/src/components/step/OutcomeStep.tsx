@@ -38,8 +38,7 @@ export function OutcomeStep({ node, manualLabel, form, actions }: OutcomeStepPro
         </span>
       }
       reference={node.reference}
-      manualLabel={manualLabel}
-    >
+      manualLabel={manualLabel}>
       <p className="leading-relaxed">{node.text}</p>
       {form !== undefined && <div className="mt-5 border-t border-line pt-5">{form}</div>}
       {actions !== undefined && <div className="mt-5 space-y-3">{actions}</div>}

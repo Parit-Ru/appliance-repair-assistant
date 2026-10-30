@@ -1,43 +1,30 @@
 import type { HistoryFeedback } from '../api/types'
 
 export const MAX_QUERY_LENGTH = 200
+export const MAX_OUTCOME_LENGTH = 1000
+export const MAX_FEEDBACK_COMMENT_LENGTH = 500
 
-// ตัดช่องว่างหน้าหลัง
-export function normalizeQuery(raw: string): string {
-  return raw.trim()
+type TextCheck = 'ok' | 'empty' | 'too-long'
+
+/** ตัดช่องว่างหน้าหลังแล้วตรวจว่าว่างหรือยาวเกิน max (ใช้กับช่องค้นหา ช่องบันทึกผล และช่องความเห็น) */
+export function checkText(raw: string, max: number): TextCheck {
+  const text = raw.trim()
+  if (text === '') return 'empty'
+  if (text.length > max) return 'too-long'
+  return 'ok'
 }
 
-type QueryCheck = 'ok' | 'empty' | 'too-long'
-
-export function checkQuery(raw: string): QueryCheck {
-  const query = normalizeQuery(raw)
-  if (query === '') return 'empty'
-  if (query.length > MAX_QUERY_LENGTH) return 'too-long'
-  return 'ok'
+/** ตัวนับใต้ช่องกรอก เช่น "12/500" (นับตามที่พิมพ์ ไม่ตัดช่องว่าง) */
+export function formatCounter(raw: string, max: number): string {
+  return `${raw.length}/${max}`
 }
 
 export function formatScore(score: number): string {
   return score.toFixed(3)
 }
 
-export const MAX_FEEDBACK_COMMENT_LENGTH = 500
-
-function normalizeComment(raw: string): string {
-  return raw.trim()
-}
-
-type CommentCheck = 'ok' | 'too-long'
-
-export function checkComment(raw: string): CommentCheck {
-  return normalizeComment(raw).length > MAX_FEEDBACK_COMMENT_LENGTH ? 'too-long' : 'ok'
-}
-
-export function formatCommentCounter(raw: string): string {
-  return `${raw.length}/${MAX_FEEDBACK_COMMENT_LENGTH}`
-}
-
 export function toFeedback(helpful: boolean, rawComment: string): HistoryFeedback {
-  const comment = normalizeComment(rawComment)
+  const comment = rawComment.trim()
   return { helpful, comment: comment === '' ? null : comment }
 }
 

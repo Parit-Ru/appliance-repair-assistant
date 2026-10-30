@@ -70,39 +70,38 @@ function uploadPdf(): RequestHandler {
   };
 }
 
-export function draftsRoutes(drafts: DraftsService, requireAuth: RequestHandler, requireAdmin: RequestHandler): Router {
+export function draftsRoutes(drafts: DraftsService): Router {
   const router = Router();
-  const adminOnly = [requireAuth, requireAdmin];
 
-  router.post('/',...adminOnly,uploadPdf(),asyncRoute(async (request, response) => {
+  router.post('/',uploadPdf(),asyncRoute(async (request, response) => {
       const fields = parseUploadFields(request.body);
       const { id } = await drafts.createFromUpload(request.file, fields, currentUser(request)!.sub);
       response.status(202).json({ id, status: 'drafting' });
     }),
   );
 
-  router.get('/',...adminOnly,asyncRoute(async (_request, response) => {
+  router.get('/',asyncRoute(async (_request, response) => {
       response.json(await drafts.list());
     }),
   );
 
-  router.get('/:id',...adminOnly,asyncRoute(async (request, response) => {
+  router.get('/:id',asyncRoute(async (request, response) => {
       response.json(await drafts.get(request.params.id));
     }),
   );
 
-  router.put('/:id',...adminOnly,asyncRoute(async (request, response) => {
+  router.put('/:id',asyncRoute(async (request, response) => {
       response.json(await drafts.update(request.params.id, parseUpdateBody(request.body).graphs));
     }),
   );
 
-  router.post('/:id/reject',...adminOnly,asyncRoute(async (request, response) => {
+  router.post('/:id/reject',asyncRoute(async (request, response) => {
       const { reason } = parseRejectBody(request.body);
       response.status(200).json(await drafts.reject(request.params.id, currentUser(request)!.sub, reason));
     }),
   );
 
-  router.post('/:id/publish',...adminOnly,asyncRoute(async (request, response) => {
+  router.post('/:id/publish',asyncRoute(async (request, response) => {
       const { acknowledgedWarnings } = parsePublishBody(request.body);
       response.status(200).json(await drafts.publish(request.params.id, currentUser(request)!.sub, acknowledgedWarnings));
     }),

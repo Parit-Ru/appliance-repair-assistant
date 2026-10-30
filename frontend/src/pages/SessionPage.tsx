@@ -33,10 +33,6 @@ function SessionView({ sessionId }: { sessionId: string }) {
   const abandon = useAbandonSession()
   const restart = useStartSession()
   const manuals = useManuals()
-
-  // รุ่นที่ผู้ใช้ระบุไว้ตอนเริ่ม มากับ navigate state จาก useStartSymptom (ไม่ได้อ่านจากเซิร์ฟเวอร์)
-  // รีเฟรชหน้าแล้วยังอยู่ แต่เปิดลิงก์ session ในแท็บใหม่ state จะหาย
-  // undefined = ไม่ได้ผ่านหน้าเลือกรุ่น (เริ่มจากรายการทุกรุ่น) หรือไม่ทราบ — ห้ามเติมเป็น 'selected' เพราะจะบันทึกผิด
   const location = useLocation()
   const modelSelection = modelSelectionFromState(location.state)
   const summary = graphs.data?.find((graph) => graph.graphId === session.data?.graphId)
@@ -76,7 +72,6 @@ function SessionView({ sessionId }: { sessionId: string }) {
   }
 
   function handleRestart(graphId: string) {
-    // พาค่า modelSelection เดิมไปตามเดิม: undefined ก็ยังเป็น undefined (ห้ามเปลี่ยนเป็น 'selected')
     restart.mutate(
       { graphId, manualId: summary?.manualId, modelSelection },
       {

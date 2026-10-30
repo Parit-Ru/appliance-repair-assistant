@@ -46,7 +46,7 @@ export class DraftsService {
       this.logger.error(`ตรวจร่างที่ค้างไม่สำเร็จ (รัน migration 012 แล้วหรือยัง?): ${err instanceof Error ? err.message : String(err)}`);
     }
   }
-  //POST /admin/drafts — รับ PDF  แยกข้อความช่วงหน้าที่เลือก บันทึกร่างสถานะ drafting ร่างต่อเบื้องหลังไฟล์ PDF ไม่ถูกเก็บ
+  /** POST /admin/drafts — รับ PDF  แยกข้อความช่วงหน้าที่เลือก บันทึกร่างสถานะ drafting ร่างต่อเบื้องหลังไฟล์ PDF ไม่ถูกเก็บ */
   async createFromUpload(file: { buffer: Buffer } | undefined, fields: UploadFields, userId: string): Promise<{ id: string }> {
     if (!file || file.buffer.length === 0) throw invalidDraftRequest('ต้องแนบไฟล์ PDF ในฟิลด์ file');
     if (!file.buffer.subarray(0, 1024).includes('%PDF-')) throw pdfUnsupportedType();
@@ -81,7 +81,7 @@ export class DraftsService {
     }
   }
 
-  //  เรียก LLM 
+  /** เรียก LLM */
   private async runDrafting(id: string): Promise<void> {
     try {
       const draft = await this.requireDraft(id);
@@ -152,7 +152,7 @@ export class DraftsService {
     return this.toDetail(await this.requireDraft(this.requireId(rawId)));
   }
 
-  //PUT /admin/drafts/:id 
+  /** PUT /admin/drafts/:id */
   async update(rawId: string, graphsRaw: unknown): Promise<DraftDetailDto> {
     const id = this.requireId(rawId);
     const draft = await this.requireDraft(id);
@@ -179,7 +179,7 @@ export class DraftsService {
   }
 
 
-  //POST /admin/drafts/:id/publish { acknowledgedWarnings }
+  /** POST /admin/drafts/:id/publish { acknowledgedWarnings } */
   async publish(rawId: string, userId: string, acknowledgedWarnings: boolean): Promise<PublishResultDto> {
     const id = this.requireId(rawId);
 

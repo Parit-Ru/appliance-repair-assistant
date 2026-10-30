@@ -1,4 +1,5 @@
 import { Link, useParams } from 'react-router-dom'
+import { LINK_CLASSES } from '../components/ui/Button'
 import { useAdminDraft } from '../api/queries'
 import type { DraftDetail } from '../api/types'
 import { AdminTabs } from '../components/admin/AdminTabs'
@@ -14,14 +15,6 @@ import { LoadingText } from '../components/LoadingText'
 import { canReject, draftFailureLabel } from '../lib/draftView'
 import { formatStartedAt } from '../lib/historyView'
 
-const LINK_CLASSES = 'text-accent underline-offset-4 hover:underline'
-/**
- * หน้าตรวจร่าง (/admin/drafts/:id)
- *
- * สิ่งที่ต้องเห็นก่อนเผยแพร่ (แผน Step 5 ข้อ d): ป้าย "ร่างโดย AI · ยังไม่เผยแพร่" · รายงานการตรวจ (ข้อผิดพลาด/คำเตือน/คำเสี่ยง)
- * · ทุกโหนดพร้อมข้อความหน้าต้นฉบับข้างกัน · ป้ายด่านความปลอดภัย · เส้นทางแบบข้อความ · ตัวแก้ JSON + ตรวจใหม่ · ปุ่มตัดสิน
- * ระหว่าง AI กำลังร่าง หน้านี้ถามสถานะเองทุก 3 วินาที
- */
 export function AdminDraftReviewPage() {
   const { id = '' } = useParams()
   const draft = useAdminDraft(id)

@@ -79,7 +79,7 @@ export function parseUploadFields(body: unknown): UploadFields {
   };
 }
 
-// body ของ PUT /admin/drafts/:id 
+/** body ของ PUT /admin/drafts/:id */
 export function parseUpdateBody(body: unknown): { graphs: unknown } {
   const source = asObject(body);
   const extra = Object.keys(source).filter((key) => key !== 'graphs');
@@ -88,7 +88,7 @@ export function parseUpdateBody(body: unknown): { graphs: unknown } {
   return { graphs: source.graphs };
 }
 
-// body ของ POST /admin/drafts/:id/publish → { acknowledgedWarnings }
+/** body ของ POST /admin/drafts/:id/publish → { acknowledgedWarnings } */
 export function parsePublishBody(body: unknown): { acknowledgedWarnings: boolean } {
   const source = asObject(body);
   const extra = Object.keys(source).filter((key) => key !== 'acknowledgedWarnings');
@@ -98,7 +98,7 @@ export function parsePublishBody(body: unknown): { acknowledgedWarnings: boolean
   return { acknowledgedWarnings: flag === true };
 }
 
-// body ของ POST /admin/drafts/:id/reject → { reason? } 
+/** body ของ POST /admin/drafts/:id/reject → { reason? } */
 export function parseRejectBody(body: unknown): { reason?: string } {
   const source = asObject(body);
   const extra = Object.keys(source).filter((key) => key !== 'reason');

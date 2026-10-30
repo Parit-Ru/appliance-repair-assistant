@@ -1,7 +1,7 @@
 import { useEffect, useId, useRef, useState } from 'react'
 import type { FormEvent } from 'react'
 import { describeError } from '../lib/errors'
-import { MAX_OUTCOME_LENGTH, checkOutcome, formatOutcomeCounter, normalizeOutcome } from '../lib/outcome'
+import { MAX_OUTCOME_LENGTH, checkText, formatCounter } from '../lib/textInput'
 import { Button } from './ui/Button'
 import { Notice } from './ui/Notice'
 
@@ -13,7 +13,7 @@ interface OutcomeFormProps {
   onRefresh: () => void
 }
 
-const TEXTAREA_CLASSES = 'w-full resize-y rounded-lg border border-line bg-canvas px-4 py-3 text-base text-ink placeholder:text-ink-faint focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent disabled:cursor-not-allowed disabled:opacity-50'
+export const TEXTAREA_CLASSES = 'w-full resize-y rounded-lg border border-line bg-canvas px-4 py-3 text-base text-ink placeholder:text-ink-faint focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent disabled:cursor-not-allowed disabled:opacity-50'
 
 export function OutcomeForm({ savedText, onSubmit, isSending, error, onRefresh }: OutcomeFormProps) {
   const textareaId = useId()
@@ -40,13 +40,13 @@ export function OutcomeForm({ savedText, onSubmit, isSending, error, onRefresh }
     )
   }
 
-  const canSubmit = checkOutcome(value) === 'ok' && !isSending
+  const canSubmit = checkText(value, MAX_OUTCOME_LENGTH) === 'ok' && !isSending
   const described = error === null ? null : describeError(error)
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
     if (!canSubmit) return
-    onSubmit(normalizeOutcome(value))
+    onSubmit(value.trim())
   }
 
   return (
@@ -63,7 +63,7 @@ export function OutcomeForm({ savedText, onSubmit, isSending, error, onRefresh }
       <div className="space-y-1">
         <textarea id={textareaId} value={value} onChange={(event) => setValue(event.target.value)} maxLength={MAX_OUTCOME_LENGTH} rows={4} placeholder="เช่น ทำตามขั้นตอนแล้วเครื่องกลับมาทำงานปกติ หรือยังไม่หาย" disabled={isSending} aria-describedby={`${hintId} ${counterId}`} className={TEXTAREA_CLASSES} />
         <p id={counterId} className="text-right text-xs text-ink-faint">
-          {formatOutcomeCounter(value)}
+          {formatCounter(value, MAX_OUTCOME_LENGTH)}
         </p>
       </div>
 

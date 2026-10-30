@@ -21,7 +21,7 @@ export function parseFeedbackParams(search: URLSearchParams): AdminFeedbackParam
   }
 }
 
-// แปลงกลับเป็น query string ของ URL — ค่าเริ่มต้นไม่ใส่ เพื่อให้ URL สั้น 
+/** แปลงกลับเป็น query string ของ URL — ค่าเริ่มต้นไม่ใส่ เพื่อให้ URL สั้น */
 export function feedbackToSearchParams(params: AdminFeedbackParams): URLSearchParams {
   const search = new URLSearchParams()
   if (params.helpful !== undefined) search.set('helpful', String(params.helpful))
@@ -31,7 +31,7 @@ export function feedbackToSearchParams(params: AdminFeedbackParams): URLSearchPa
   return search
 }
 
-// เปลี่ยนตัวกรอง = กลับไปหน้า 1 เสมอ (เปลี่ยนหน้าอย่างเดียวไม่รีเซ็ต) 
+/** เปลี่ยนตัวกรอง = กลับไปหน้า 1 เสมอ (เปลี่ยนหน้าอย่างเดียวไม่รีเซ็ต) */
 export function patchFeedbackParams(
   current: AdminFeedbackParams,
   patch: Partial<AdminFeedbackParams>,

@@ -27,10 +27,6 @@ const queryClient = new QueryClient({
   },
 })
 
-/**
- * AuthProvider อยู่ใน QueryClientProvider (ล้างแคชตอน login/logout) และใน BrowserRouter (พาไปหน้าเข้าสู่ระบบ)
- * หน้าเดิมทั้งหมดไม่บังคับเข้าสู่ระบบ · เฉพาะ /admin/* ครอบด้วย AdminRoute (UX · backend ตรวจสิทธิ์จริง)
- */
 export default function App() {
   return (
     <QueryClientProvider client={queryClient}>
@@ -48,34 +44,10 @@ export default function App() {
               <Route path="/login" element={<LoginPage />} />
               <Route path="/register" element={<RegisterPage />} />
               <Route path="/admin" element={<Navigate to="/admin/analytics" replace />} />
-              <Route
-                path="/admin/analytics"
-                element={
-                  <AdminRoute>
-                    <AdminAnalyticsPage />
-                  </AdminRoute>
-                }/>
-              <Route
-                path="/admin/feedback"
-                element={
-                  <AdminRoute>
-                    <AdminFeedbackPage />
-                  </AdminRoute>
-                }/>
-              <Route
-                path="/admin/drafts"
-                element={
-                  <AdminRoute>
-                    <AdminDraftsPage />
-                  </AdminRoute>
-                }/>
-              <Route
-                path="/admin/drafts/:id"
-                element={
-                  <AdminRoute>
-                    <AdminDraftReviewPage />
-                  </AdminRoute>
-                }/>
+              <Route path="/admin/analytics"element={<AdminRoute> <AdminAnalyticsPage /></AdminRoute>}/>
+              <Route path="/admin/feedback" element={<AdminRoute> <AdminFeedbackPage /></AdminRoute> }/>
+              <Route path="/admin/drafts" element={ <AdminRoute> <AdminDraftsPage /> </AdminRoute>}/>
+              <Route path="/admin/drafts/:id" element={<AdminRoute> <AdminDraftReviewPage /></AdminRoute> }/>
               <Route path="*" element={<NotFoundPage />} />
             </Routes>
           </AppShell>

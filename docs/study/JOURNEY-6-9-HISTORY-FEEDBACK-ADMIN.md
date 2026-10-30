@@ -40,7 +40,7 @@ VALUES (?, ?, ?, ?, ?)
 ## ข. บันทึกข้อความผลลัพธ์ (ปุ่มเสริม ไม่บังคับ)
 **เรื่อง:** ถึงโหนดจบแล้ว สมชายพิมพ์ "ทำตามแล้วหาย" แล้วกด "บันทึกผล"
 1. ฟอร์มแสดงเฉพาะที่โหนดจบ: `frontend/src/components/step/StepView.tsx:27-29` เห็น `node.isTerminal` → `OutcomeStep` ใส่ฟอร์มไว้ที่ `OutcomeStep.tsx:44`
-2. กรอกข้อความ ปุ่มจะกดได้เมื่อ `checkOutcome` ได้ `ok` (ไม่ว่าง และไม่เกิน 1,000 ตัว `lib/outcome.ts:9-14`) `components/OutcomeForm.tsx:43-50` → `handleSubmit` ส่ง `normalizeOutcome(value)` (ตัดช่องว่างหัวท้าย)
+2. กรอกข้อความ ปุ่มจะกดได้เมื่อ `checkText(value, MAX_OUTCOME_LENGTH)` ได้ `ok` (ไม่ว่าง และไม่เกิน 1,000 ตัว `lib/textInput.ts:10-15`) `components/OutcomeForm.tsx:43-50` → `handleSubmit` ส่ง `value.trim()` (ตัดช่องว่างหัวท้าย)
 3. กดปุ่ม "บันทึกผล" (`OutcomeForm.tsx:83-85`) → `handleOutcome` (`pages/SessionPage.tsx:63-72`) กันกดซ้ำด้วย `isSavingOutcomeRef` แล้ว `saveOutcome.mutate(text)`
 4. `useSubmitOutcome` (`api/queries.ts:132`) → `api/traversal.ts:64-69` → **`POST /traversal/sessions/:id/outcome`** body `{ "text": "ทำตามแล้วหาย" }`
 5. Backend: `traversal.routes.ts:38-42` ผ่าน `optionalAuth` แล้วเรียก `parseOutcomeBody` (`traversal.dto.ts:166-185`): ต้องเป็นข้อความ, `trim` แล้วไม่ว่าง, ไม่เกิน 1,000 (`MAX_OUTCOME_LENGTH` `:6`) ผิด → 400 `INVALID_OUTCOME`
@@ -174,11 +174,11 @@ DELETE FROM sessions WHERE session_id = ? AND ${where.sql} AND status = 'complet
 
 ## ก. ฝั่งหน้าจอ
 1. ฟอร์มอยู่ใน `components/history/FeedbackButtons.tsx` ที่หน้ารายละเอียดเรียกใช้ที่ `pages/HistoryDetailPage.tsx:192-199` แสดงเฉพาะเมื่อ `data.available` (ผังยังตรงเดิม)
-2. ค่าเริ่มต้นของฟอร์มมาจากคะแนนที่เคยบันทึกไว้ (`saved`): `useState(saved?.helpful ?? null)` และ `useState(saved?.comment ?? '')` (`FeedbackButtons.tsx:28-29`) จึงเปิดมาแล้วเห็นของเดิม และส่งซ้ำคือแก้ค่าเดิม
+2. ค่าเริ่มต้นของฟอร์มมาจากคะแนนที่เคยบันทึกไว้ (`saved`): `useState(saved?.helpful ?? null)` และ `useState(saved?.comment ?? '')` (`FeedbackButtons.tsx:21-22`) จึงเปิดมาแล้วเห็นของเดิม และส่งซ้ำคือแก้ค่าเดิม
 3. ปุ่ม 👍 "ช่วยได้" (`:45-47`) และ 👎 "ไม่ช่วย" (`:48-50`) แค่ตั้งค่า `helpful` ใน state ยังไม่ส่ง · ต้องเลือกหนึ่งอย่าง (บังคับ)
-4. ช่องข้อความ (`:62-71`): ไม่บังคับ ไม่เกิน 500 ตัวอักษร (`MAX_FEEDBACK_COMMENT_LENGTH` `lib/textInput.ts:23`) มีตัวนับ `formatCommentCounter` (`textInput.ts:35`) และข้อความเตือน "ไม่ต้องใส่ข้อมูลส่วนตัว" (`:57-59`)
-5. ปุ่ม "บันทึก" (`:78-80`) กดได้เมื่อ (`:31-32`): เลือก 👍/👎 แล้ว **และ** ข้อความไม่เกิน 500 (`checkComment` `lib/textInput.ts:31`) **และ** ไม่กำลังส่ง **และ** ค่าต่างจากที่บันทึกไว้ (`isSameFeedback` `lib/textInput.ts:44` ถ้าเหมือนเดิมแสดง "บันทึกแล้ว" และปุ่มถูกปิด)
-6. กดบันทึก → `handleSubmit` (`FeedbackButtons.tsx:34-38`) → `onSubmit(toFeedback(helpful, comment))` (`lib/textInput.ts:39`): ตัดช่องว่างหัวท้าย และ **ข้อความว่างส่งเป็น `null`** ให้ตรงกับที่ DB เก็บ (NULL ไม่ใช่สตริงว่าง) → `HistoryDetailPage.tsx:195` `feedback.mutate(value)`
+4. ช่องข้อความ (`:46-65`): ไม่บังคับ ไม่เกิน 500 ตัวอักษร (`MAX_FEEDBACK_COMMENT_LENGTH` `lib/textInput.ts:5`) มีตัวนับ `formatCounter(comment, MAX_FEEDBACK_COMMENT_LENGTH)` (`textInput.ts:18-20`) และข้อความเตือน "ไม่ต้องใส่ข้อมูลส่วนตัว" (`:50-52`)
+5. ปุ่ม "บันทึก" (`:70-72`) กดได้เมื่อ (`:24-25`): เลือก 👍/👎 แล้ว **และ** ข้อความไม่เกิน 500 (`checkText(comment, MAX_FEEDBACK_COMMENT_LENGTH) !== 'too-long'` `lib/textInput.ts:10-15`) **และ** ไม่กำลังส่ง **และ** ค่าต่างจากที่บันทึกไว้ (`isSameFeedback` `lib/textInput.ts:31-35` ถ้าเหมือนเดิมแสดง "บันทึกแล้ว" และปุ่มถูกปิด)
+6. กดบันทึก → `handleSubmit` (`FeedbackButtons.tsx:27-31`) → `onSubmit(toFeedback(helpful, comment))` (`lib/textInput.ts:26-29`): ตัดช่องว่างหัวท้าย และ **ข้อความว่างส่งเป็น `null`** ให้ตรงกับที่ DB เก็บ (NULL ไม่ใช่สตริงว่าง) → `HistoryDetailPage.tsx:195` `feedback.mutate(value)`
 7. `useSubmitFeedback(sessionId)` (`api/queries.ts:166`) → `api/history.ts:29-35` `submitFeedback` → **`POST /history/:id/feedback`** body `{ "helpful": true, "comment": "ช่วยได้มาก" }` (comment อาจเป็น `null`) + `headers: ownerHeaders()`
 
 ## ข. ฝั่งเซิร์ฟเวอร์
@@ -211,7 +211,7 @@ ON DUPLICATE KEY UPDATE helpful = VALUES(helpful), `comment` = VALUES(`comment`)
 ```json
 { "helpful": true, "comment": "ช่วยได้มาก" }
 ```
-2. `useSubmitFeedback` `onSuccess` เอาค่าที่เซิร์ฟเวอร์ตอบมาใส่ในแคชรายละเอียดทันที (`setQueryData` ใน `api/queries.ts:166`) ฟอร์มจึงรู้ว่า "บันทึกแล้ว" โดยไม่ต้องโหลดซ้ำ → `isSameFeedback` เป็นจริง → ขึ้น "บันทึกแล้ว" (`FeedbackButtons.tsx:81-85`) และปุ่มบันทึกถูกปิด
+2. `useSubmitFeedback` `onSuccess` เอาค่าที่เซิร์ฟเวอร์ตอบมาใส่ในแคชรายละเอียดทันที (`setQueryData` ใน `api/queries.ts:166`) ฟอร์มจึงรู้ว่า "บันทึกแล้ว" โดยไม่ต้องโหลดซ้ำ → `isSameFeedback` เป็นจริง → ขึ้น "บันทึกแล้ว" (`FeedbackButtons.tsx:73-77`) และปุ่มบันทึกถูกปิด
 3. ผิดพลาด (เช่น 400/404/เครือข่าย) แสดง `ErrorNotice` ใต้ฟอร์ม (`:75`)
 
 ## ข้อสังเกตช่วง 8

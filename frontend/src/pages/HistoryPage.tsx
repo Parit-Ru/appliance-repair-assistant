@@ -1,4 +1,5 @@
 import { Link, useSearchParams } from 'react-router-dom'
+import { LINK_CLASSES } from '../components/ui/Button'
 import { useHistory } from '../api/queries'
 import { ErrorNotice } from '../components/ErrorNotice'
 import { HistoryRow } from '../components/history/HistoryRow'
@@ -9,8 +10,6 @@ import { LoadingText } from '../components/LoadingText'
 import { useAuth } from '../lib/authContext'
 import { HISTORY_RETENTION_DAYS } from '../lib/historyView'
 import { useSlowWait } from '../lib/useSlowWait'
-
-const LINK_CLASSES = 'text-accent underline-offset-4 hover:underline'
 
 function pageFromUrl(raw: string | null): number {
   if (raw === null || !/^\d+$/.test(raw)) return 1

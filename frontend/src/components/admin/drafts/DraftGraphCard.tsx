@@ -73,10 +73,6 @@ function NodeRow({ node, graphId, draft }: { node: DraftNode; graphId: string; d
   )
 }
 
-/**
- * แผนผังขั้นตอนหนึ่งอันในร่าง: หัวข้ออาการ · เส้นทางแบบข้อความ · ทุกโหนดพร้อมข้อความหน้าต้นฉบับข้างกัน
- * ผู้ตรวจต้องเทียบข้อความทุกโหนดกับหน้าต้นฉบับ (validator ตรวจคำแปล/เนื้อหาไม่ได้)
- */
 export function DraftGraphCard({ graph, draft }: DraftGraphCardProps) {
   const graphIssues = issuesForGraph(draft.validation, graph.graph_id)
   const lines = pathLines(graph)

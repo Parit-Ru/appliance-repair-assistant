@@ -19,7 +19,7 @@ const crypto = require('node:crypto');
 const mysql = require('mysql2/promise');
 const bcrypt = require('bcryptjs');
 
-// ต้องเท่ากับ BCRYPT_ROUNDS ใน src/auth/auth.service.ts
+/** ต้องเท่ากับ BCRYPT_ROUNDS ใน src/auth/auth.service.ts */
 const BCRYPT_ROUNDS = 10;
 
 const MIN_PASSWORD_LENGTH = 8;
@@ -27,7 +27,7 @@ const MAX_PASSWORD_LENGTH = 72;
 const MAX_PASSWORD_BYTES = 72;
 const MAX_EMAIL_LENGTH = 255;
 const MAX_DISPLAY_NAME_LENGTH = 100;
-// ให้เหมือน EMAIL_PATTERN ใน src/auth/auth.dto.ts
+/** ให้เหมือน EMAIL_PATTERN ใน src/auth/auth.dto.ts */
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@.]+(\.[^\s@.]+)+$/;
 
 function connectionConfig() {

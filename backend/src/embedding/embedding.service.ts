@@ -42,7 +42,7 @@ export class EmbeddingService {
     this.logger.log(`โหลดโมเดลเสร็จใน ${Date.now() - started} ms`);
   }
 
-  // แปลงข้อความเป็นเวกเตอร์ 384 มิติ 
+  /** แปลงข้อความเป็นเวกเตอร์ 384 มิติ */
   async embed(text: string): Promise<Float32Array> {
     if (!this.extractor) {
       throw new Error('EmbeddingService: ยังไม่ได้เรียก load()');

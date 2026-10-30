@@ -9,7 +9,7 @@ const MAX_OUTCOME_LENGTH = 1000;
 // body ผิดรูปแบบ ใช้ code เดียวกับ INVALID_ACTION เพราะผู้ใช้เห็นข้อความไทยเดียวกัน (ต่างกันแค่ "ผิดตอนไหน")
 const invalidRequestBody = (message: string) => new ApiError(400, 'INVALID_ACTION', message);
 
-// body ของ POST /traversal/sessions/:id/outcome
+/** body ของ POST /traversal/sessions/:id/outcome */
 const invalidOutcome = (message: string) => new ApiError(400, 'INVALID_OUTCOME', message);
 
 /** หัวข้อ X-Client-Id ไม่ใช่ UUID หรือไม่ได้ส่งมาในที่ที่บังคับ (หน้า "ประวัติการซ่อม") → 400 INVALID_CLIENT_ID */

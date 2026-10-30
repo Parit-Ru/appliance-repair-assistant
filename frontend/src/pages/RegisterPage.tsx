@@ -55,7 +55,7 @@ export function RegisterPage() {
           autoComplete="nickname"
           maxLength={MAX_DISPLAY_NAME_LENGTH}
           error={fieldErrors.displayName}
-          disabled={submit.isPending}/>
+          disabled={submit.isPending} />
         <TextField
           label="อีเมล"
           type="email"

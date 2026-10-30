@@ -1,6 +1,6 @@
 import cors = require('cors');
 import express = require('express');
-import { adminRoutes } from './admin/admin.routes';
+import { adminArea, adminRoutes } from './admin/admin.routes';
 import { AdminService } from './admin/admin.service';
 import { AdminStore } from './admin/admin.store';
 import { createAuthMiddleware } from './auth/auth.middleware';
@@ -50,7 +50,8 @@ export async function createApp(): Promise<express.Express> {
   const equipment = new EquipmentRepository(pool);
   const symptomSearch = new SymptomSearchService(new EmbeddingService(), graphs);
   const traversal = new TraversalService(graphs, equipment, new SessionStore(pool), symptomSearch, createRephraseService());
-  const auth = new AuthService(new UsersStore(pool), tokens);
+  const users = new UsersStore(pool);
+  const auth = new AuthService(users, tokens);
   const history = new HistoryService(new HistoryStore(pool), graphs);
   const admin = new AdminService(new AdminStore(pool), graphs);
   const drafts = new DraftsService(new DraftsStore(pool), graphs, symptomSearch, new UnpdfTextExtractor(), createDraftLlmFromEnv());
@@ -60,7 +61,7 @@ export async function createApp(): Promise<express.Express> {
   symptomSearch.start();
   await drafts.failInterruptedDrafts();
 
-  const { optionalAuth, requireAuth, requireAdmin } = createAuthMiddleware(tokens);
+  const { optionalAuth, requireAuth, requireAdmin } = createAuthMiddleware(tokens, users);
   const app = express();
 
   app.use(cors({ origin: process.env.CORS_ORIGIN ?? 'http://localhost:5173', credentials: true }));
@@ -72,8 +73,10 @@ export async function createApp(): Promise<express.Express> {
   app.use('/symptom-search', symptomSearchRoutes(symptomSearch));
   app.use('/traversal', traversalRoutes(traversal, optionalAuth));
   app.use('/history', historyRoutes(history, optionalAuth));
-  app.use('/admin', adminRoutes(admin, requireAuth, requireAdmin));
-  app.use('/admin/drafts', draftsRoutes(drafts, requireAuth, requireAdmin));
+  app.use('/admin', adminArea(requireAuth, requireAdmin, (router) => {
+    router.use(adminRoutes(admin));
+    router.use('/drafts', draftsRoutes(drafts));
+  }));
 
   app.use(notFoundHandler); 
   app.use(errorHandler);

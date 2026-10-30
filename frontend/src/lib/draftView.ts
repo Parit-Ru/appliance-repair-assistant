@@ -1,13 +1,6 @@
 import type { DraftDetail, DraftGraph, DraftNode, DraftStatus, ValidationIssue, ValidationReport } from '../api/types'
 import { DEVICE_CATEGORIES } from './labels'
 
-/**
- * ตัวช่วยแสดงผลของหน้า "ร่างแผนผังขั้นตอน" (ฟังก์ชันล้วน ไม่แตะ React และไม่เรียก API)
- *
- * ข้อความบนหน้าจอใช้คำว่า "แผนผังขั้นตอน" เสมอ ไม่ใช้ "กราฟ" (ชื่อในโค้ด/ข้อมูล เช่น graph_id คงเดิม)
- * ทุกอย่างในนี้เป็น UX: การตัดสินว่าร่างผ่าน/เผยแพร่ได้อยู่ที่ backend (validator + ตรวจซ้ำตอน publish)
- */
-
 export const DRAFT_STATUS_LABELS: Record<DraftStatus, string> = {
   drafting: 'กำลังร่าง',
   ready: 'รอตรวจ',
@@ -24,7 +17,6 @@ export const DRAFT_STATUS_CLASSES: Record<DraftStatus, string> = {
   published: 'border-success/40 text-success',
 }
 
-/** สาเหตุที่ร่างล้ม (เก็บใน error.code ของร่าง ไม่ใช่ HTTP error) */
 const FAILURE_LABELS: Record<string, string> = {
   LLM_NOT_CONFIGURED: 'ยังไม่ได้ตั้งค่า LLM บนเซิร์ฟเวอร์ (AUTHORING_LLM_MODEL / GROQ_API_KEY)',
   LLM_TIMEOUT: 'LLM ไม่ตอบภายในเวลาที่กำหนด',
@@ -122,13 +114,11 @@ interface NodeIssues {
   warnings: ValidationIssue[]
 }
 
-/** issue ที่ระบุโหนดนี้ในแผนผังขั้นตอนนี้ */
 export function issuesForNode(report: ValidationReport | null, graphId: string, nodeId: string): NodeIssues {
   const match = (i: ValidationIssue) => i.graphId === graphId && i.nodeId === nodeId
   return { errors: report?.errors.filter(match) ?? [], warnings: report?.warnings.filter(match) ?? [] }
 }
 
-/** issue ระดับแผนผังขั้นตอน (ไม่ระบุโหนด) */
 export function issuesForGraph(report: ValidationReport | null, graphId: string): NodeIssues {
   const match = (i: ValidationIssue) => i.graphId === graphId && i.nodeId === undefined
   return { errors: report?.errors.filter(match) ?? [], warnings: report?.warnings.filter(match) ?? [] }
@@ -160,7 +150,6 @@ export function publishGate(draft: Pick<DraftDetail, 'status' | 'validation'>, r
   return { enabled: reason === null, reason, acknowledgedWarnings: ack }
 }
 
-// ฟอร์มอัปโหลด (ตรวจฝั่งหน้าจอให้ตรงกับ backend/src/authoring/drafts.dto.ts — backend ตรวจซ้ำเสมอ)
 export const MAX_DRAFT_PAGES = 10
 
 export interface UploadFormValues {

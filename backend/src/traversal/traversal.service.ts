@@ -70,7 +70,7 @@ export class TraversalService {
     return this.toResponse(session, node, graph);
   }
 
-  // GET /traversal/sessions/:id 
+  /** GET /traversal/sessions/:id */
   async getSession(sessionId: string, requesterUserId?: string): Promise<SessionResponseDto> {
     await this.authorize(sessionId, requesterUserId);
     const session = await this.requireSession(sessionId);
@@ -82,7 +82,7 @@ export class TraversalService {
     return this.toResponse(session, node, graph, outcome);
   }
 
-  // POST /traversal/sessions/:id/actions
+  /** POST /traversal/sessions/:id/actions */
   async submitAction(
     sessionId: string,
     action: TraversalAction,
@@ -103,7 +103,7 @@ export class TraversalService {
     return this.toResponse(result.session, result.node, graph);
   }
 
-  //DELETE /traversal/sessions/:id
+  /** DELETE /traversal/sessions/:id */
   async abandonSession(sessionId: string, owner: SessionOwner): Promise<void> {
     const deleted = await this.sessionStore.delete(sessionId, owner);
     if (!deleted) throw sessionNotFound(sessionId);

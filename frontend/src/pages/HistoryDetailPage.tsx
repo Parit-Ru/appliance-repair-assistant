@@ -7,7 +7,7 @@ import { FeedbackButtons } from '../components/history/FeedbackButtons'
 import { ErrorNotice } from '../components/ErrorNotice'
 import { SlowServerNotice } from '../components/SlowServerNotice'
 import { ReferenceLine } from '../components/step/ReferenceLine'
-import { Button } from '../components/ui/Button'
+import { Button, LINK_CLASSES } from '../components/ui/Button'
 import { Notice } from '../components/ui/Notice'
 import { LoadingText } from '../components/LoadingText'
 import { formatStartedAt, GRAPH_CHANGED_MESSAGE, historyTitle, STATUS_BADGE_CLASSES } from '../lib/historyView'
@@ -19,7 +19,6 @@ import { toTrailEntry } from '../lib/trail'
 import { useSlowWait } from '../lib/useSlowWait'
 import { useStartSymptom } from '../lib/useStartSymptom'
 
-const LINK_CLASSES = 'text-accent underline-offset-4 hover:underline'
 const SECTION_CLASSES = 'rounded-xl border border-line bg-panel p-5'
 
 export function HistoryDetailPage() {

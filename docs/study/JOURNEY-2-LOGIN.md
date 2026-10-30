@@ -40,8 +40,8 @@ LoginPage → validateLogin → useMutation → AuthProvider.login      cors →
 | 2 | หน้าเก็บค่าที่พิมพ์ | `frontend/src/pages/LoginPage.tsx:28-30` | `useState` (`email`, `password`, `fieldErrors`) | |
 | 3 | กดปุ่ม "เข้าสู่ระบบ" ตรวจเบื้องต้น | `LoginPage.tsx:90-92` (ปุ่ม), `:42-48` · `frontend/src/lib/authForm.ts:36-42` | `handleSubmit` → `validateLogin` (อีเมลถูกรูปแบบ + รหัสผ่านไม่ว่าง) ผิด → แสดงใต้ช่อง ไม่ยิง API | |
 | 4 | สั่งส่ง | `LoginPage.tsx:32-35` | `useMutation({ mutationFn: () => login(email.trim(), password), onSuccess: navigate(next ?? '/') })` | |
-| 5 | provider รับช่วง | `frontend/src/components/auth/AuthProvider.tsx:92-97` | `login` → `applySession(await apiLogin(...))` | |
-| 6 | api client | `frontend/src/api/auth.ts:24-31` | `login()` → `request('/auth/login', { method:'POST', body:{email,password}, anonymous:true })` | |
+| 5 | provider รับช่วง | `frontend/src/components/auth/AuthProvider.tsx:68-73` | `login` → `applySession(await apiLogin(...))` | |
+| 6 | api client | `frontend/src/api/auth.ts:13-20` | `login()` → `request('/auth/login', { method:'POST', body:{email,password}, anonymous:true })` | |
 | 7 | ยิง fetch | `frontend/src/api/http.ts:59-107` | `request()` (ไม่แนบ token เพราะ `anonymous`) | |
 | 8 | **backend** ผ่านด่านแรก | `backend/src/app.ts:66-67` | `cors` → `express.json()` | |
 | 9 | เข้า router | `app.ts:71` · `backend/src/auth/auth.routes.ts:16-19` | `router.post('/login', asyncRoute(...))` (ไม่มี auth middleware) ตอบ **200** | |
@@ -53,8 +53,8 @@ LoginPage → validateLogin → useMutation → AuthProvider.login      cors →
 | 11.4 | ผ่าน → ออกบัตร | `auth.service.ts:63`, `:74-77` · `backend/src/auth/token.ts:32-34` | `issue` → `tokens.sign({ sub, role })` | |
 | 12 | ตาราง | `backend/migrations/001_users.sql:12-23` | `users` (อ่านอย่างเดียวในช่วงนี้) | |
 | 13 | ตอบกลับ | `auth.routes.ts:17` | `response.status(200).json({ accessToken, user })` | |
-| 14 | หน้าจอแปลงผล | `frontend/src/api/auth.ts:15-21` | `toSession` → `{ token, user:{id, displayName, role} }` (ไม่เก็บอีเมล) | |
-| 15 | เก็บบัตร | `AuthProvider.tsx:81-90` · `frontend/src/lib/authStorage.ts:19`, `:70-77` | `applySession`: `storeAuth` → `localStorage['fixstep.auth']` (+สำเนาในหน่วยความจำ `:27`) + `queryClient.clear()` | |
+| 14 | หน้าจอแปลงผล | `frontend/src/api/auth.ts:9-11` | `toStoredAuth` → `{ token, user:{id, displayName, role} }` (ไม่เก็บอีเมล) | |
+| 15 | เก็บบัตร | `AuthProvider.tsx:58-66` · `frontend/src/lib/authStorage.ts:3`, `:46-53` | `applySession`: `storeAuth` → `localStorage['fixstep.auth']` (+สำเนาในหน่วยความจำ `:10`) + `queryClient.clear()` | |
 | 16 | ไปหน้าถัดไป | `LoginPage.tsx:34` | `onSuccess` → `navigate(next ?? '/', { replace: true })` | |
 
 ### ส่วน B: ใช้บัตรกับทุกคำขอถัดไป + backend ตรวจ
@@ -69,15 +69,15 @@ LoginPage → validateLogin → useMutation → AuthProvider.login      cors →
 | 19.4 | ตรวจรูปข้อมูลในบัตร | `auth.middleware.ts:38-41` | `sub` ต้องเป็นข้อความไม่ว่าง, `role` ต้องเป็นบทบาทจริง (`isRole`) ไม่งั้น 401 | |
 | 20 | middleware 3 ตัว | `auth.middleware.ts:49-57`, `:59-68`, `:70-80` | `optionalAuth`, `requireAuth`, `requireAdmin` | |
 | 21 | ผลวางที่ `request.user` | `auth.middleware.ts:13-15` | `currentUser(request)` ให้ handler อ่านต่อ | |
-| 22 | ตัวอย่าง: ตอนเปิดเว็บ ยืนยันตัวตน | `AuthProvider.tsx:59-79` → `api/auth.ts:44-46` → `auth.routes.ts:21-24` → `auth.service.ts:66-72` → `users.store.ts:60-63` | `getMe` → `GET /auth/me` (`requireAuth`) → `AuthService.me` → `findById` แล้วหน้าจอเอา role/ชื่อจากเซิร์ฟเวอร์ทับ (`:64-70`) | |
+| 22 | ตัวอย่าง: ตอนเปิดเว็บ ยืนยันตัวตน | `AuthProvider.tsx:39-56` → `api/auth.ts:31-33` → `auth.routes.ts:21-24` → `auth.service.ts:66-72` → `users.store.ts:60-63` | `getMe` → `GET /auth/me` (`requireAuth`) → `AuthService.me` → `findById` แล้วหน้าจอเอา role/ชื่อจากเซิร์ฟเวอร์ทับ (`:64-70`) | |
 
 ### ส่วน C: บัตรเสีย/หมดอายุ และออกจากระบบ
 | ขั้น | เกิดอะไร | ไฟล์:บรรทัด | function / โค้ด | โน้ตของฉัน |
 |---|---|---|---|---|
 | 23 | backend ตอบ 401 | `auth.middleware.ts:35`, `:39`, `:62` | `unauthenticated()` = `ApiError(401, 'UNAUTHENTICATED', 'กรุณาเข้าสู่ระบบ')` → `errorHandler` | |
 | 24 | หน้าจอรู้ว่า token เสีย | `frontend/src/api/http.ts:91-93` | เฉพาะคำขอที่แนบ token (`status === 401 && token !== undefined`) → `unauthorizedHandler(token)` | |
-| 25 | ล้างแล้วพาไปล็อกอินใหม่ | `AuthProvider.tsx:43-56` | `clearStoredAuth`, `queryClient.clear()`, `navigate('/login?reason=expired&next=<หน้าเดิม>')` (เมินถ้า token ไม่ใช่ตัวปัจจุบัน `:46`) | |
-| 26 | ออกจากระบบ | `AppShell.tsx:84-86` → `AuthProvider.tsx:106-112` | `logout`: ล้าง localStorage + แคช + กลับหน้าแรก **ฝั่งเซิร์ฟเวอร์ไม่มีอะไรเกิดขึ้น** | |
+| 25 | ล้างแล้วพาไปล็อกอินใหม่ | `AuthProvider.tsx:25-36` | `clearStoredAuth`, `queryClient.clear()`, `navigate('/login?reason=expired&next=<หน้าเดิม>')` (เมินถ้า token ไม่ใช่ตัวปัจจุบัน `:27`) | |
+| 26 | ออกจากระบบ | `AppShell.tsx:84-86` → `AuthProvider.tsx:90-93` | `logout`: ล้าง localStorage + แคช + กลับหน้าแรก **ฝั่งเซิร์ฟเวอร์ไม่มีอะไรเกิดขึ้น** | |
 
 ## โค้ดสำคัญของแต่ละขั้น
 

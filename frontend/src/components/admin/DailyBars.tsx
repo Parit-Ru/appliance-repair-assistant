@@ -5,10 +5,6 @@ interface DailyBarsProps {
   days: AdminSummary['perDay']
 }
 
-/**
- * กราฟแท่งแนวตั้งรายวัน (สร้างเองด้วย CSS): ความสูงแท่ง = จำนวนที่เริ่มตรวจ, ส่วนสีเขียวด้านล่าง = จำนวนที่จบ
- * ข้อมูลครบทุกวันเป็นรายการข้อความซ่อนไว้ให้โปรแกรมอ่านหน้าจอ · เมาส์ชี้ที่แท่งเห็นตัวเลข (title)
- */
 export function DailyBars({ days }: DailyBarsProps) {
   const max = Math.max(0, ...days.map((day) => day.started))
   const first = days[0]

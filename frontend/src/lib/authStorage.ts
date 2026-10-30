@@ -29,7 +29,7 @@ function parseStoredAuth(raw: string | null): StoredAuth | null {
   }
 }
 
-function load(): StoredAuth | null {
+export function readStoredAuth(): StoredAuth | null {
   if (memory !== undefined) return memory
   try {
     memory = parseStoredAuth(localStorage.getItem(STORAGE_KEY))
@@ -39,12 +39,8 @@ function load(): StoredAuth | null {
   return memory
 }
 
-export function readStoredAuth(): StoredAuth | null {
-  return load()
-}
-
 export function getStoredToken(): string | undefined {
-  return load()?.token
+  return readStoredAuth()?.token
 }
 
 export function storeAuth(auth: StoredAuth): void {
@@ -52,6 +48,7 @@ export function storeAuth(auth: StoredAuth): void {
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(auth))
   } catch {
+    // เก็บไม่ได้ (โหมดส่วนตัว/ถูกบล็อก): ใช้ค่าในหน่วยความจำของแท็บนี้ต่อไป
   }
 }
 
@@ -60,5 +57,6 @@ export function clearStoredAuth(): void {
   try {
     localStorage.removeItem(STORAGE_KEY)
   } catch {
+    // ลบไม่ได้: ค่าในหน่วยความจำถูกล้างแล้ว
   }
 }

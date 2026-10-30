@@ -8,12 +8,6 @@ import { Notice } from '../../ui/Notice'
 
 const CHECKBOX_CLASSES = 'mt-1 h-5 w-5 shrink-0 accent-accent'
 
-/**
- * ปฏิเสธ / เผยแพร่ (ร่างที่ล้มเป็นสถานะสิ้นสุด ต้องอัปโหลดใหม่)
- *
- * การเผยแพร่: ต้องติ๊ก "ตรวจแล้ว" เสมอ และถ้ามีคำเตือนต้องติ๊กรับทราบคำเตือน (ส่ง acknowledgedWarnings: true)
- * ปุ่มปิดเมื่อมีข้อผิดพลาด — เป็น UX เท่านั้น: backend ตรวจซ้ำทุกครั้ง error = ปฏิเสธเด็ดขาด ไม่มี override
- */
 export function DraftActions({ draft, onRefresh }: { draft: DraftDetail; onRefresh: () => void }) {
   const reasonId = useId()
   const reject = useRejectDraft(draft.id)

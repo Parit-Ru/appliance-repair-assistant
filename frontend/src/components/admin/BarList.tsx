@@ -7,16 +7,11 @@ interface BarItem {
 }
 
 interface BarListProps {
-  /** ชื่อกราฟ (อ่านออกเสียงด้วย) */
   title: string
   items: BarItem[]
   emptyText?: string
 }
 
-/**
- * กราฟแท่งแนวนอนที่สร้างเองด้วย CSS (ไม่ใช้ไลบรารีกราฟ)
- * ตัวเลขจริงแสดงเป็นข้อความข้างแท่งเสมอ จึงอ่านได้ครบแม้ไม่เห็นสี/ใช้โปรแกรมอ่านหน้าจอ
- */
 export function BarList({ title, items, emptyText = 'ยังไม่มีข้อมูลในช่วงนี้' }: BarListProps) {
   const max = Math.max(0, ...items.map((item) => item.value))
 
