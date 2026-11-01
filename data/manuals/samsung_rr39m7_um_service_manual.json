@@ -1,0 +1,1649 @@
+{
+  "manual_id": "samsung_rr39m7_um_service_manual",
+  "device_category": "Refrigerator",
+  "brand": "Samsung",
+  "model_pattern": "RR39M7*/RR39T7*/RZ32R*/RZ32M7*/RZ32T7*/RZ11M7*",
+  "source_manual": "Samsung Refrigerator Service Manual (1 door type: RR39M7*, RR39T7*, RZ32R*, RZ32M7*, RZ32T7*, RZ11M7*)",
+  "count": 29,
+  "flows": [
+    {
+      "flow_id": "samsung_rr39m7_um_power_cord_outlet_damaged",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RR39M7*/RR39T7*/RZ32R*/RZ32M7*/RZ32T7*/RZ11M7*",
+      "entry_symptom": "Check out whether the power cord or the outlet is broken, squeezed, chopped off or heat-deformed.",
+      "entry_symptom_th": "สายไฟหรือเต้ารับของตู้เย็นแตก ชำรุด ถูกทับ หรือบิดเบี้ยวจากความร้อน",
+      "entry_symptom_aliases": [
+        "สายไฟตู้เย็นชำรุด",
+        "สายไฟตู้เย็นแตก",
+        "ปลั๊กตู้เย็นละลาย",
+        "เต้ารับตู้เย็นเสีย",
+        "refrigerator power cord damaged",
+        "fridge power cord cracked"
+      ],
+      "source": "Samsung Refrigerator Service Manual (1 door type: RR39M7*, RR39T7*, RZ32R*, RZ32M7*, RZ32T7*, RZ11M7*)",
+      "page_range": [
+        5,
+        5
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RR39M7_p5_power_cord_outlet_damaged",
+      "severity": "high",
+      "difficulty": "hard",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "สายไฟหรือเต้ารับของตู้เย็นแตก ชำรุด ถูกบีบหรือทับ หรือบิดเบี้ยวจากความร้อนใช่หรือไม่? (คู่มือหน้า 5)",
+          "on_yes": "n2",
+          "on_no": "n_nomatch"
+        },
+        {
+          "state_id": "n2",
+          "type": "instruction",
+          "content": "หยุดใช้สายไฟที่มีรอยแตกหรือสึกหรอ (Do not use a cord that shows cracks or abrasion damage along its length or at either end) (คู่มือหน้า 24)",
+          "safety_critical": true,
+          "safety_warning": "ห้ามใช้สายไฟที่มีรอยแตกหรือสึกหรอจากการเสียดสีตลอดความยาวหรือที่ปลายทั้งสองด้าน (คู่มือหน้า 24) และต้องไม่ให้สายไฟถูกเจาะหรือถูกเหยียบทับ (คู่มือหน้า 5)",
+          "author_note": "ข้อความเตือนมาจากหน้า 24 และ 5 ของคู่มือโดยตรง และขั้นตอนนี้เป็นขั้นตอนหยุดใช้งานก่อนส่งช่าง จึงไม่มี checkpoint ถามว่าแก้ได้หรือไม่",
+          "next": "n_escalate"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "ตามคู่มือหน้า 5 สายไฟหรือเต้ารับที่ชำรุดต้องได้รับการซ่อมหรือเปลี่ยนทันที (Repair or replace the defective power cord/outlet immediately) และคู่มือหน้า 5 กับหน้า 24 ห้ามผู้ใช้ซ่อมหรือถอดแยกตู้เย็นเอง ให้ติดต่อศูนย์บริการ Samsung ในพื้นที่หรือร้านค้าที่ซื้อเครื่อง (คู่มือหน้า 19 ใช้ถ้อยคำ 'contact a local Samsung service center or retailer' ในหัวข้อเครือข่าย คู่มือเล่มนี้ไม่มีเบอร์ติดต่อ) และอย่าถอดแยกหรือซ่อมแซมตู้เย็นเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติจนบาดเจ็บ (คู่มือหน้า 7 และ 24)",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_nomatch",
+          "type": "escalation",
+          "content": "ถ้าไม่ใช่อาการนี้ ให้เลือกอาการที่ตรงกับที่เห็น หรือติดต่อศูนย์บริการ Samsung ในพื้นที่หรือร้านค้าที่ซื้อเครื่อง (คู่มือหน้า 19 ใช้ถ้อยคำ 'contact a local Samsung service center or retailer' ในหัวข้อเครือข่าย คู่มือเล่มนี้ไม่มีเบอร์ติดต่อ) และอย่าถอดแยกหรือซ่อมแซมตู้เย็นเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติจนบาดเจ็บ (คู่มือหน้า 7 และ 24)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_rr39m7_um_lights_off",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RR39M7*/RR39T7*/RZ32R*/RZ32M7*/RZ32T7*/RZ11M7*",
+      "entry_symptom": "If the fridge door remains open for 10 minutes or more, all the lights in the fridge will turn off.",
+      "entry_symptom_th": "ไฟภายในตู้เย็นดับทั้งหมด",
+      "entry_symptom_aliases": [
+        "ไฟในตู้เย็นดับ",
+        "ไฟตู้เย็นไม่ติด",
+        "ไฟในตู้เย็นไม่สว่าง",
+        "fridge light off",
+        "refrigerator interior light not working"
+      ],
+      "source": "Samsung Refrigerator Service Manual (1 door type: RR39M7*, RR39T7*, RZ32R*, RZ32M7*, RZ32T7*, RZ11M7*)",
+      "page_range": [
+        17,
+        17
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RR39M7_p17_lights_off",
+      "severity": "low",
+      "difficulty": "easy",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "ไฟภายในตู้เย็นดับทั้งหมดใช่หรือไม่?",
+          "on_yes": "n2",
+          "on_no": "n_nomatch"
+        },
+        {
+          "state_id": "n2",
+          "type": "checkpoint",
+          "question": "ประตูตู้เย็นหรือประตูช่องแช่แข็งเปิดค้างไว้ 10 นาทีขึ้นไป หรือปิดไม่สนิทจนตู้เย็นรับรู้ว่าประตูเปิดอยู่ใช่หรือไม่? (คู่มือหน้า 17, 19 และ 85)",
+          "on_yes": "n2n",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n2n",
+          "type": "resolution",
+          "content": "เป็นการทำงานปกติ ไม่ใช่ความเสียหาย ตามคู่มือหน้า 17 และ 19 ถ้าประตูเปิดค้างไว้ 10 นาทีขึ้นไป ไฟทั้งหมดในตู้เย็นจะดับ และตามคู่มือหน้า 85 ถ้าปิดประตูไม่สนิทตู้เย็นจะรับรู้ว่าประตูเปิดอยู่ เมื่อผ่านไปเกิน 10 นาทีไฟในตู้จะดับ",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไฟดับทั้งที่ประตูไม่ได้เปิดค้างหรือปิดไม่สนิท คู่มือไม่มีขั้นตอนอื่นที่ผู้ใช้ตรวจเองได้สำหรับอาการนี้ ให้ติดต่อศูนย์บริการ Samsung ในพื้นที่หรือร้านค้าที่ซื้อเครื่อง (คู่มือหน้า 19 ใช้ถ้อยคำ 'contact a local Samsung service center or retailer' ในหัวข้อเครือข่าย คู่มือเล่มนี้ไม่มีเบอร์ติดต่อ) และอย่าถอดแยกหรือซ่อมแซมตู้เย็นเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติจนบาดเจ็บ (คู่มือหน้า 7 และ 24) (คู่มือหน้า 6 ระบุว่าการเปลี่ยนหลอดไฟภายในต้องถอดปลั๊กก่อน เพราะอาจเกิดไฟฟ้าดูด)",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_nomatch",
+          "type": "escalation",
+          "content": "ถ้าไม่ใช่อาการนี้ ให้เลือกอาการที่ตรงกับที่เห็น หรือติดต่อศูนย์บริการ Samsung ในพื้นที่หรือร้านค้าที่ซื้อเครื่อง (คู่มือหน้า 19 ใช้ถ้อยคำ 'contact a local Samsung service center or retailer' ในหัวข้อเครือข่าย คู่มือเล่มนี้ไม่มีเบอร์ติดต่อ) และอย่าถอดแยกหรือซ่อมแซมตู้เย็นเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติจนบาดเจ็บ (คู่มือหน้า 7 และ 24)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_rr39m7_um_door_alarm",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RR39M7*/RR39T7*/RZ32R*/RZ32M7*/RZ32T7*/RZ11M7*",
+      "entry_symptom": "Door Alarm: If the door is left open for more than 2 minutes, the alarm will sound with the Alarm indicator blinking.",
+      "entry_symptom_th": "ตู้เย็นส่งเสียงเตือนประตูเปิดและไฟ Alarm กะพริบ",
+      "entry_symptom_aliases": [
+        "ตู้เย็นร้องเตือนประตู",
+        "ตู้เย็นมีเสียงเตือนประตูเปิด",
+        "ไฟ alarm ตู้เย็นกะพริบ",
+        "fridge door alarm",
+        "refrigerator door open alarm beeping"
+      ],
+      "source": "Samsung Refrigerator Service Manual (1 door type: RR39M7*, RR39T7*, RZ32R*, RZ32M7*, RZ32T7*, RZ11M7*)",
+      "page_range": [
+        18,
+        18
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RR39M7_p18_door_alarm",
+      "severity": "low",
+      "difficulty": "easy",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "ตู้เย็นส่งเสียงเตือนและไฟ Alarm กะพริบใช่หรือไม่?",
+          "on_yes": "n2",
+          "on_no": "n_nomatch"
+        },
+        {
+          "state_id": "n2",
+          "type": "checkpoint",
+          "question": "ประตูตู้เย็นหรือประตูช่องแช่แข็งถูกเปิดค้างไว้นานกว่า 2 นาทีใช่หรือไม่? (คู่มือหน้า 18)",
+          "on_yes": "n2n",
+          "on_no": "n3"
+        },
+        {
+          "state_id": "n2n",
+          "type": "resolution",
+          "content": "เป็นการทำงานปกติของฟังก์ชันเตือนประตู ไม่ใช่ความเสียหาย ตามคู่มือหน้า 18 และ 85 เสียงเตือนจะดังเมื่อประตูเปิดเกิน 2 นาที และถ้าประตูยังเปิดอยู่จะเตือนซ้ำทุกนาที ผู้ใช้เปิดหรือปิดการเตือนได้โดยกดปุ่ม Door Alarm (คู่มือหน้า 18)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "state_id": "n3",
+          "type": "checkpoint",
+          "question": "มีสิ่งของขวางหรือดันให้ประตูตู้เย็นเปิดอยู่ (ปิดไม่สนิท) ใช่หรือไม่?",
+          "on_yes": "n3f",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n3f",
+          "type": "instruction",
+          "content": "นำสิ่งที่ขวางหรือดันประตูให้เปิดอยู่ออก (Check if there is any obstacle pushing the Door open) (คู่มือหน้า 85) คู่มือหน้า 85 ระบุว่าประตูที่ปิดไม่สนิทตู้เย็นจะรับรู้ว่าเปิดอยู่และส่งเสียงเตือน",
+          "author_note": "คู่มือไม่ได้อธิบายวิธีนำสิ่งที่ขวางประตูออกโดยละเอียด ผู้พัฒนาจึงไม่เพิ่มรายละเอียด",
+          "next": "n3v"
+        },
+        {
+          "state_id": "n3v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n_resolved",
+          "type": "resolution",
+          "content": "เสียงเตือนหยุดแล้ว ตู้เย็นทำงานตามปกติ",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "ประตูปิดสนิทและไม่มีสิ่งขวางแต่ยังมีเสียงเตือน ขั้นตอนต่อไปตามคู่มือหน้า 85 คือตรวจสวิตช์ประตูและแผงวงจรหลัก ซึ่งต้องถอดชิ้นส่วนและวัดค่าทางไฟฟ้าเป็นงานของช่าง ให้ติดต่อศูนย์บริการ Samsung ในพื้นที่หรือร้านค้าที่ซื้อเครื่อง (คู่มือหน้า 19 ใช้ถ้อยคำ 'contact a local Samsung service center or retailer' ในหัวข้อเครือข่าย คู่มือเล่มนี้ไม่มีเบอร์ติดต่อ) และอย่าถอดแยกหรือซ่อมแซมตู้เย็นเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติจนบาดเจ็บ (คู่มือหน้า 7 และ 24)",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_nomatch",
+          "type": "escalation",
+          "content": "ถ้าไม่ใช่อาการนี้ ให้เลือกอาการที่ตรงกับที่เห็น หรือติดต่อศูนย์บริการ Samsung ในพื้นที่หรือร้านค้าที่ซื้อเครื่อง (คู่มือหน้า 19 ใช้ถ้อยคำ 'contact a local Samsung service center or retailer' ในหัวข้อเครือข่าย คู่มือเล่มนี้ไม่มีเบอร์ติดต่อ) และอย่าถอดแยกหรือซ่อมแซมตู้เย็นเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติจนบาดเจ็บ (คู่มือหน้า 7 และ 24)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_rr39m7_um_alarm_keeps_sounding",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RR39M7*/RR39T7*/RZ32R*/RZ32M7*/RZ32T7*/RZ11M7*",
+      "entry_symptom": "When the unit keeps alarming (Buzzer Sound)",
+      "entry_symptom_th": "ตู้เย็นส่งเสียงเตือน (Ding Dong หรือบี๊บ) ไม่หยุด",
+      "entry_symptom_aliases": [
+        "ตู้เย็นร้องไม่หยุด",
+        "ตู้เย็นบี๊บไม่หยุด",
+        "ตู้เย็นมีเสียงติ๊งต่องไม่หยุด",
+        "fridge keeps beeping",
+        "refrigerator buzzer keeps alarming"
+      ],
+      "source": "Samsung Refrigerator Service Manual (1 door type: RR39M7*, RR39T7*, RZ32R*, RZ32M7*, RZ32T7*, RZ11M7*)",
+      "page_range": [
+        85,
+        85
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RR39M7_p85_alarm_keeps_sounding",
+      "severity": "medium",
+      "difficulty": "medium",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "ตู้เย็นส่งเสียงเตือนไม่หยุด (เสียง Ding Dong ต่อเนื่อง หรือเสียงบี๊บต่อเนื่อง) ใช่หรือไม่?",
+          "on_yes": "n2",
+          "on_no": "n_nomatch"
+        },
+        {
+          "state_id": "n2",
+          "type": "checkpoint",
+          "question": "มีสิ่งของขวางหรือดันให้ประตูตู้เย็นเปิดอยู่ใช่หรือไม่? (คู่มือหน้า 85 และ 87)",
+          "on_yes": "n2f",
+          "on_no": "n3"
+        },
+        {
+          "state_id": "n2f",
+          "type": "instruction",
+          "content": "นำสิ่งที่ขวางหรือดันประตูให้เปิดอยู่ออก (Check if there is any obstacle pushing the Door open) (คู่มือหน้า 85 และ 87)",
+          "author_note": "คู่มือไม่ได้อธิบายวิธีนำสิ่งที่ขวางประตูออกโดยละเอียด ผู้พัฒนาจึงไม่เพิ่มรายละเอียด",
+          "next": "n2v"
+        },
+        {
+          "state_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "state_id": "n3",
+          "type": "instruction",
+          "content": "ยกเลิกโหมดบังคับทำงาน/บังคับละลายน้ำแข็ง (Cancel Forced Operation/Defrost) โดยปิดไฟแล้วเปิดใหม่ คือถอดปลั๊กตู้เย็นแล้วเสียบกลับ (turn off the power and turn it on again) (คู่มือหน้า 54 และ 85)",
+          "safety_critical": true,
+          "safety_warning": "ตู้เย็นต้องเสียบเต้ารับเฉพาะของตัวเองที่มีแรงดันตรงกับป้ายพิกัด ห้ามเสียบเครื่องใช้ไฟฟ้าหลายเครื่องกับปลั๊กพ่วงเดียวกัน เพราะสายไฟอาจร้อนเกินและเสี่ยงไฟไหม้ (คู่มือหน้า 24) ให้ตรวจสายไฟและเต้ารับว่าไม่แตก ไม่ถูกทับ ไม่ขาด และไม่บิดเบี้ยวจากความร้อน (คู่มือหน้า 5)",
+          "author_note": "ข้อความเตือนนี้มาจากหัวข้อความปลอดภัยหน้า 5 และ 24 ผู้พัฒนาโยงมาใช้กับขั้นตอนถอดหรือเสียบปลั๊ก และคู่มือไม่ได้อธิบายรายละเอียดการถอดหรือเสียบปลั๊ก คู่มือไม่ระบุเวลาที่ต้องรอระหว่างถอดปลั๊กกับเสียบกลับ (หน้า 78 มีข้อความเรื่องการจ่ายไฟหลังปิดมอเตอร์ 7 นาทีเพื่อป้องกันคอมเพรสเซอร์รับภาระเกิน แต่อยู่ในหัวข้อพัดลม C-Fan ผู้พัฒนาจึงไม่นำมาเป็นขั้นตอน)",
+          "next": "n3v"
+        },
+        {
+          "state_id": "n3v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n_resolved",
+          "type": "resolution",
+          "content": "เสียงเตือนหยุดแล้ว ตู้เย็นทำงานตามปกติ",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "ถ้าถอดปลั๊กแล้วเสียบกลับ ตู้เย็นยังส่งเสียงบี๊บต่อ ขั้นตอนต่อไปตามคู่มือหน้า 85 คือตรวจสิ่งแปลกปลอมที่จัมเปอร์ทดสอบและส่วนที่ลัดวงจรบนแผงวงจรหลัก รวมถึงตรวจสวิตช์ประตู ซึ่งเป็นงานของช่าง ให้ติดต่อศูนย์บริการ Samsung ในพื้นที่หรือร้านค้าที่ซื้อเครื่อง (คู่มือหน้า 19 ใช้ถ้อยคำ 'contact a local Samsung service center or retailer' ในหัวข้อเครือข่าย คู่มือเล่มนี้ไม่มีเบอร์ติดต่อ) และอย่าถอดแยกหรือซ่อมแซมตู้เย็นเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติจนบาดเจ็บ (คู่มือหน้า 7 และ 24)",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_nomatch",
+          "type": "escalation",
+          "content": "ถ้าไม่ใช่อาการนี้ ให้เลือกอาการที่ตรงกับที่เห็น หรือติดต่อศูนย์บริการ Samsung ในพื้นที่หรือร้านค้าที่ซื้อเครื่อง (คู่มือหน้า 19 ใช้ถ้อยคำ 'contact a local Samsung service center or retailer' ในหัวข้อเครือข่าย คู่มือเล่มนี้ไม่มีเบอร์ติดต่อ) และอย่าถอดแยกหรือซ่อมแซมตู้เย็นเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติจนบาดเจ็บ (คู่มือหน้า 7 และ 24)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_rr39m7_um_forced_operation_beep",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RR39M7*/RR39T7*/RZ32R*/RZ32M7*/RZ32T7*/RZ11M7*",
+      "entry_symptom": "When the Power Cool or Power Freezer button is pressed once during the Test mode, “FF” lights up on the Display Panel indicating that it is in the Forced Operation. At this time, it starts alarming with “Beep” sounds.",
+      "entry_symptom_th": "จอตู้เย็นแสดง FF หรือ Fd และมีเสียงบี๊บ (โหมดบังคับทำงาน)",
+      "entry_symptom_aliases": [
+        "ตู้เย็นขึ้น FF",
+        "ตู้เย็นขึ้น Fd",
+        "ตู้เย็นบี๊บและจอขึ้น FF",
+        "fridge FF display beep",
+        "refrigerator forced operation FF"
+      ],
+      "source": "Samsung Refrigerator Service Manual (1 door type: RR39M7*, RR39T7*, RZ32R*, RZ32M7*, RZ32T7*, RZ11M7*)",
+      "page_range": [
+        54,
+        54
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RR39M7_p54_forced_operation_beep",
+      "severity": "low",
+      "difficulty": "easy",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "จอตู้เย็นแสดง “FF” หรือ “Fd” และมีเสียงบี๊บใช่หรือไม่? (คู่มือหน้า 54)",
+          "on_yes": "n2",
+          "on_no": "n_nomatch"
+        },
+        {
+          "state_id": "n2",
+          "type": "instruction",
+          "content": "ยกเลิกโหมดบังคับทำงาน/บังคับละลายน้ำแข็ง (Cancel Forced Operation/Defrost) โดยปิดไฟแล้วเปิดใหม่ คือถอดปลั๊กตู้เย็นแล้วเสียบกลับ (turn off the power and turn it on again) (คู่มือหน้า 54 และ 85)",
+          "safety_critical": true,
+          "safety_warning": "ตู้เย็นต้องเสียบเต้ารับเฉพาะของตัวเองที่มีแรงดันตรงกับป้ายพิกัด ห้ามเสียบเครื่องใช้ไฟฟ้าหลายเครื่องกับปลั๊กพ่วงเดียวกัน เพราะสายไฟอาจร้อนเกินและเสี่ยงไฟไหม้ (คู่มือหน้า 24) ให้ตรวจสายไฟและเต้ารับว่าไม่แตก ไม่ถูกทับ ไม่ขาด และไม่บิดเบี้ยวจากความร้อน (คู่มือหน้า 5)",
+          "author_note": "ข้อความเตือนนี้มาจากหัวข้อความปลอดภัยหน้า 5 และ 24 ผู้พัฒนาโยงมาใช้กับขั้นตอนถอดหรือเสียบปลั๊ก และคู่มือไม่ได้อธิบายรายละเอียดการถอดหรือเสียบปลั๊ก คู่มือไม่ระบุเวลาที่ต้องรอระหว่างถอดปลั๊กกับเสียบกลับ (หน้า 78 มีข้อความเรื่องการจ่ายไฟหลังปิดมอเตอร์ 7 นาทีเพื่อป้องกันคอมเพรสเซอร์รับภาระเกิน แต่อยู่ในหัวข้อพัดลม C-Fan ผู้พัฒนาจึงไม่นำมาเป็นขั้นตอน) คู่มือหน้า 54 ข้อ 1-6 บอกว่ายกเลิกได้ด้วยการปิดแล้วเปิดไฟใหม่ แต่ข้อ 1-7 บอกว่าเสียงเตือนไม่มีฟังก์ชันยกเลิกและดังจนโหมดนี้เสร็จสิ้น ผู้พัฒนาใช้ตามข้อ 1-6 และข้อ 3-1",
+          "next": "n2v"
+        },
+        {
+          "state_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n_resolved",
+          "type": "resolution",
+          "content": "เสียงบี๊บหยุดแล้ว ตู้เย็นกลับสู่การทำงานปกติ",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "ถ้าถอดปลั๊กแล้วเสียบกลับ ตู้เย็นยังแสดง FF หรือ Fd และบี๊บต่อ คู่มือหน้า 54 ระบุว่าเสียงเตือนระหว่างโหมดบังคับทำงานจะดังต่อเนื่องจนโหมดนี้เสร็จสิ้น และขั้นตอนตรวจต่อไปเป็นงานของช่าง ให้ติดต่อศูนย์บริการ Samsung ในพื้นที่หรือร้านค้าที่ซื้อเครื่อง (คู่มือหน้า 19 ใช้ถ้อยคำ 'contact a local Samsung service center or retailer' ในหัวข้อเครือข่าย คู่มือเล่มนี้ไม่มีเบอร์ติดต่อ) และอย่าถอดแยกหรือซ่อมแซมตู้เย็นเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติจนบาดเจ็บ (คู่มือหน้า 7 และ 24)",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_nomatch",
+          "type": "escalation",
+          "content": "ถ้าไม่ใช่อาการนี้ ให้เลือกอาการที่ตรงกับที่เห็น หรือติดต่อศูนย์บริการ Samsung ในพื้นที่หรือร้านค้าที่ซื้อเครื่อง (คู่มือหน้า 19 ใช้ถ้อยคำ 'contact a local Samsung service center or retailer' ในหัวข้อเครือข่าย คู่มือเล่มนี้ไม่มีเบอร์ติดต่อ) และอย่าถอดแยกหรือซ่อมแซมตู้เย็นเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติจนบาดเจ็บ (คู่มือหน้า 7 และ 24)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_rr39m7_um_control_lock",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RR39M7*/RR39T7*/RZ32R*/RZ32M7*/RZ32T7*/RZ11M7*",
+      "entry_symptom": "Lock/Unlock (3 sec)",
+      "entry_symptom_th": "ปุ่มบนแผงควบคุมกดแล้วไม่ตอบสนองเพราะล็อกปุ่ม (Control Lock)",
+      "entry_symptom_aliases": [
+        "ปุ่มตู้เย็นกดไม่ติด",
+        "ปุ่มตู้เย็นไม่ตอบสนอง",
+        "ตู้เย็นล็อกปุ่ม",
+        "ปลดล็อกปุ่มตู้เย็น",
+        "fridge control lock",
+        "refrigerator buttons not working"
+      ],
+      "source": "Samsung Refrigerator Service Manual (1 door type: RR39M7*, RR39T7*, RZ32R*, RZ32M7*, RZ32T7*, RZ11M7*)",
+      "page_range": [
+        18,
+        18
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RR39M7_p18_control_lock",
+      "severity": "low",
+      "difficulty": "easy",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "ปุ่มบนแผงควบคุมตู้เย็นกดแล้วไม่ตอบสนอง และมีสัญลักษณ์ล็อก (Control Lock) ติดอยู่ใช่หรือไม่?",
+          "on_yes": "n2",
+          "on_no": "n_nomatch"
+        },
+        {
+          "state_id": "n2",
+          "type": "instruction",
+          "content": "ปลดล็อกโดยกดปุ่ม Control Lock (Lock/Unlock) ค้างไว้ 3 วินาที (To deactivate, press and hold again for 3 seconds) (คู่มือหน้า 18 และ 21)",
+          "author_note": "แผนภาพหน้า 21 ของรุ่น Kimchi เขียน 'Lock / Unlock (5 Sec)' แต่ข้อความหน้า 21 เขียน 3 seconds ผู้พัฒนาใช้ 3 วินาทีตามข้อความ",
+          "next": "n2v"
+        },
+        {
+          "state_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังปลดล็อก ปุ่มบนแผงควบคุมใช้งานได้ตามปกติหรือไม่?",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n_resolved",
+          "type": "resolution",
+          "content": "ปลดล็อกแล้ว ปุ่มบนแผงควบคุมใช้งานได้ตามปกติ",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "ถ้ากดค้าง 3 วินาทีแล้วปุ่มยังไม่ตอบสนอง คู่มือไม่มีขั้นตอนอื่นที่ผู้ใช้ตรวจเองได้ (คู่มือหน้า 18) ให้ติดต่อศูนย์บริการ Samsung ในพื้นที่หรือร้านค้าที่ซื้อเครื่อง (คู่มือหน้า 19 ใช้ถ้อยคำ 'contact a local Samsung service center or retailer' ในหัวข้อเครือข่าย คู่มือเล่มนี้ไม่มีเบอร์ติดต่อ) และอย่าถอดแยกหรือซ่อมแซมตู้เย็นเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติจนบาดเจ็บ (คู่มือหน้า 7 และ 24)",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_nomatch",
+          "type": "escalation",
+          "content": "ถ้าไม่ใช่อาการนี้ ให้เลือกอาการที่ตรงกับที่เห็น หรือติดต่อศูนย์บริการ Samsung ในพื้นที่หรือร้านค้าที่ซื้อเครื่อง (คู่มือหน้า 19 ใช้ถ้อยคำ 'contact a local Samsung service center or retailer' ในหัวข้อเครือข่าย คู่มือเล่มนี้ไม่มีเบอร์ติดต่อ) และอย่าถอดแยกหรือซ่อมแซมตู้เย็นเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติจนบาดเจ็บ (คู่มือหน้า 7 และ 24)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_rr39m7_um_no_power",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RR39M7*/RR39T7*/RZ32R*/RZ32M7*/RZ32T7*/RZ11M7*",
+      "entry_symptom": "When there is no Power in Main PCB",
+      "entry_symptom_th": "ตู้เย็นไม่มีไฟเลย จอไม่ติดและไม่ทำงาน",
+      "entry_symptom_aliases": [
+        "ตู้เย็นไม่มีไฟ",
+        "ตู้เย็นไม่ติด",
+        "ตู้เย็นไม่ทำงานเลย",
+        "ตู้เย็นจอไม่ติด",
+        "fridge no power",
+        "refrigerator dead no display"
+      ],
+      "source": "Samsung Refrigerator Service Manual (1 door type: RR39M7*, RR39T7*, RZ32R*, RZ32M7*, RZ32T7*, RZ11M7*)",
+      "page_range": [
+        93,
+        93
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RR39M7_p93_no_power",
+      "severity": "high",
+      "difficulty": "medium",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "ตู้เย็นไม่มีไฟเลย (จอไม่ติดและไม่ทำงานเลย) ใช่หรือไม่?",
+          "on_yes": "n2",
+          "on_no": "n_nomatch"
+        },
+        {
+          "state_id": "n2",
+          "type": "checkpoint",
+          "question": "สายไฟหรือเต้ารับของตู้เย็นแตก ชำรุด ถูกบีบหรือทับ หรือบิดเบี้ยวจากความร้อนใช่หรือไม่? (คู่มือหน้า 5)",
+          "on_yes": "n2e",
+          "on_no": "n3"
+        },
+        {
+          "state_id": "n2e",
+          "type": "escalation",
+          "content": "ตามคู่มือหน้า 5 สายไฟหรือเต้ารับที่ชำรุดต้องได้รับการซ่อมหรือเปลี่ยนทันที และคู่มือหน้า 5 กับหน้า 24 ห้ามผู้ใช้ซ่อมตู้เย็นเอง ห้ามใช้สายไฟที่แตกหรือสึกหรอ ให้ติดต่อศูนย์บริการ Samsung ในพื้นที่หรือร้านค้าที่ซื้อเครื่อง (คู่มือหน้า 19 ใช้ถ้อยคำ 'contact a local Samsung service center or retailer' ในหัวข้อเครือข่าย คู่มือเล่มนี้ไม่มีเบอร์ติดต่อ) และอย่าถอดแยกหรือซ่อมแซมตู้เย็นเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติจนบาดเจ็บ (คู่มือหน้า 7 และ 24)",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n3",
+          "type": "checkpoint",
+          "question": "ปลั๊กตู้เย็นเสียบอยู่กับเต้ารับเรียบร้อยแล้วใช่หรือไม่? (คู่มือหน้า 93 และ 94)",
+          "on_yes": "n_escalate",
+          "on_no": "n3f"
+        },
+        {
+          "state_id": "n3f",
+          "type": "instruction",
+          "content": "เสียบปลั๊กตู้เย็น (Plug in the unit) (คู่มือหน้า 93 และ 94)",
+          "safety_critical": true,
+          "safety_warning": "ตู้เย็นต้องเสียบเต้ารับเฉพาะของตัวเองที่มีแรงดันตรงกับป้ายพิกัด ห้ามเสียบเครื่องใช้ไฟฟ้าหลายเครื่องกับปลั๊กพ่วงเดียวกัน เพราะสายไฟอาจร้อนเกินและเสี่ยงไฟไหม้ (คู่มือหน้า 24) ให้ตรวจสายไฟและเต้ารับว่าไม่แตก ไม่ถูกทับ ไม่ขาด และไม่บิดเบี้ยวจากความร้อน (คู่มือหน้า 5)",
+          "author_note": "ข้อความเตือนนี้มาจากหัวข้อความปลอดภัยหน้า 5 และ 24 ผู้พัฒนาโยงมาใช้กับขั้นตอนถอดหรือเสียบปลั๊ก และคู่มือไม่ได้อธิบายรายละเอียดการถอดหรือเสียบปลั๊ก คู่มือหน้า 93 และ 94 บอกเพียง 'Plug in the unit' ไม่ได้อธิบายวิธีเสียบปลั๊ก",
+          "next": "n3v"
+        },
+        {
+          "state_id": "n3v",
+          "type": "checkpoint",
+          "question": "หลังเสียบปลั๊ก ตู้เย็นมีไฟและกลับมาทำงานหรือไม่?",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n_resolved",
+          "type": "resolution",
+          "content": "ตู้เย็นมีไฟและกลับมาทำงานตามปกติแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "ถ้าเสียบปลั๊กแล้วตู้เย็นยังไม่มีไฟ ขั้นตอนต่อไปตามคู่มือหน้า 93 และ 94 คือวัดแรงดันที่แผงวงจรหลัก ตรวจฟิวส์ ตรวจสายเชื่อมต่อ และเปลี่ยนแผงวงจร ซึ่งเป็นงานของช่าง คู่มือเตือนว่ามีไฟฟ้า AC220~240V หรือ DC310~340V ที่วงจรไฟของแผงวงจรหลัก (คู่มือหน้า 93) ห้ามเปิดซ่อมเอง ให้ติดต่อศูนย์บริการ Samsung ในพื้นที่หรือร้านค้าที่ซื้อเครื่อง (คู่มือหน้า 19 ใช้ถ้อยคำ 'contact a local Samsung service center or retailer' ในหัวข้อเครือข่าย คู่มือเล่มนี้ไม่มีเบอร์ติดต่อ) และอย่าถอดแยกหรือซ่อมแซมตู้เย็นเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติจนบาดเจ็บ (คู่มือหน้า 7 และ 24)",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_nomatch",
+          "type": "escalation",
+          "content": "ถ้าไม่ใช่อาการนี้ ให้เลือกอาการที่ตรงกับที่เห็น หรือติดต่อศูนย์บริการ Samsung ในพื้นที่หรือร้านค้าที่ซื้อเครื่อง (คู่มือหน้า 19 ใช้ถ้อยคำ 'contact a local Samsung service center or retailer' ในหัวข้อเครือข่าย คู่มือเล่มนี้ไม่มีเบอร์ติดต่อ) และอย่าถอดแยกหรือซ่อมแซมตู้เย็นเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติจนบาดเจ็บ (คู่มือหน้า 7 และ 24)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_rr39m7_um_compressor_not_working",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RR39M7*/RR39T7*/RZ32R*/RZ32M7*/RZ32T7*/RZ11M7*",
+      "entry_symptom": "When the Compressor is not working (INVERTER PBA)",
+      "entry_symptom_th": "คอมเพรสเซอร์ไม่ทำงาน",
+      "entry_symptom_aliases": [
+        "คอมเพรสเซอร์ตู้เย็นไม่ทำงาน",
+        "ตู้เย็นไม่เดินเครื่อง",
+        "ตู้เย็นไม่เย็นคอมไม่ทำงาน",
+        "fridge compressor not working",
+        "refrigerator compressor not running"
+      ],
+      "source": "Samsung Refrigerator Service Manual (1 door type: RR39M7*, RR39T7*, RZ32R*, RZ32M7*, RZ32T7*, RZ11M7*)",
+      "page_range": [
+        83,
+        83
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RR39M7_p83_compressor_not_working",
+      "severity": "medium",
+      "difficulty": "medium",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "คอมเพรสเซอร์ของตู้เย็นไม่ทำงานใช่หรือไม่?",
+          "on_yes": "n2",
+          "on_no": "n_nomatch"
+        },
+        {
+          "state_id": "n2",
+          "type": "checkpoint",
+          "question": "คอมเพรสเซอร์เพิ่งหยุดทำงานไม่ถึง 10 นาทีใช่หรือไม่? (คู่มือหน้า 83 และ 84)",
+          "on_yes": "n2f",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n2f",
+          "type": "instruction",
+          "content": "รอ 10 นาทีนับจากคอมเพรสเซอร์หยุด แล้วตรวจอีกครั้ง (Check in 10 minutes) (คู่มือหน้า 83 และ 84)",
+          "author_note": "คู่มือไม่ได้ระบุวิธีสังเกตว่าคอมเพรสเซอร์ทำงานโดยผู้ใช้ ผู้พัฒนาจึงไม่เพิ่มรายละเอียด",
+          "next": "n2v"
+        },
+        {
+          "state_id": "n2v",
+          "type": "checkpoint",
+          "question": "เมื่อรอครบ 10 นาทีแล้ว คอมเพรสเซอร์กลับมาทำงานตามปกติหรือไม่?",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n_resolved",
+          "type": "resolution",
+          "content": "คอมเพรสเซอร์กลับมาทำงานตามปกติ (NORMAL ตามผังหน้า 83)",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "ถ้าผ่านไปเกิน 10 นาทีแล้วคอมเพรสเซอร์ยังไม่ทำงาน ขั้นตอนต่อไปตามคู่มือหน้า 83 และ 84 คือทดสอบด้วยโหมดบังคับทำงาน ตรวจสัญญาณและแรงดันที่แผงวงจร ตรวจเซนเซอร์ ตรวจสายไปคอมเพรสเซอร์ และเปลี่ยนแผงอินเวอร์เตอร์หรือคอมเพรสเซอร์ ซึ่งเป็นงานของช่าง ให้ติดต่อศูนย์บริการ Samsung ในพื้นที่หรือร้านค้าที่ซื้อเครื่อง (คู่มือหน้า 19 ใช้ถ้อยคำ 'contact a local Samsung service center or retailer' ในหัวข้อเครือข่าย คู่มือเล่มนี้ไม่มีเบอร์ติดต่อ) และอย่าถอดแยกหรือซ่อมแซมตู้เย็นเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติจนบาดเจ็บ (คู่มือหน้า 7 และ 24)",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_nomatch",
+          "type": "escalation",
+          "content": "ถ้าไม่ใช่อาการนี้ ให้เลือกอาการที่ตรงกับที่เห็น หรือติดต่อศูนย์บริการ Samsung ในพื้นที่หรือร้านค้าที่ซื้อเครื่อง (คู่มือหน้า 19 ใช้ถ้อยคำ 'contact a local Samsung service center or retailer' ในหัวข้อเครือข่าย คู่มือเล่มนี้ไม่มีเบอร์ติดต่อ) และอย่าถอดแยกหรือซ่อมแซมตู้เย็นเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติจนบาดเจ็บ (คู่มือหน้า 7 และ 24)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_rr39m7_um_c_fan_not_running",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RR39M7*/RR39T7*/RZ32R*/RZ32M7*/RZ32T7*/RZ11M7*",
+      "entry_symptom": "When the C-Fan does not operate (Applies to Models with C-Fan)",
+      "entry_symptom_th": "พัดลม C-Fan ไม่หมุน (เฉพาะรุ่นที่มี C-Fan)",
+      "entry_symptom_aliases": [
+        "พัดลมตู้เย็นไม่หมุน",
+        "พัดลมคอมตู้เย็นไม่ทำงาน",
+        "C-Fan ไม่หมุน",
+        "fridge C-Fan not running",
+        "refrigerator condenser fan not spinning"
+      ],
+      "source": "Samsung Refrigerator Service Manual (1 door type: RR39M7*, RR39T7*, RZ32R*, RZ32M7*, RZ32T7*, RZ11M7*)",
+      "page_range": [
+        78,
+        78
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RR39M7_p78_c_fan_not_running",
+      "severity": "low",
+      "difficulty": "easy",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "พัดลม C-Fan ของตู้เย็น (รุ่นที่มี C-Fan) ไม่หมุนใช่หรือไม่?",
+          "on_yes": "n2",
+          "on_no": "n_nomatch"
+        },
+        {
+          "state_id": "n2",
+          "type": "checkpoint",
+          "question": "คอมเพรสเซอร์เพิ่งเริ่มทำงาน และอุณหภูมิรอบตู้เย็นตั้งแต่ 29°C (84°F) ขึ้นไปใช่หรือไม่? (คู่มือหน้า 78)",
+          "on_yes": "n2n",
+          "on_no": "n3"
+        },
+        {
+          "state_id": "n2n",
+          "type": "resolution",
+          "content": "เป็นการทำงานปกติ ตามคู่มือหน้า 78 เมื่ออุณหภูมิรอบตู้เย็นตั้งแต่ 29°C (84°F) ขึ้นไป C-Fan จะเริ่มหลังหยุดรอ 10 นาทีนับจากคอมเพรสเซอร์เริ่มทำงาน",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "state_id": "n3",
+          "type": "checkpoint",
+          "question": "คอมเพรสเซอร์หยุดทำงานอยู่ใช่หรือไม่? (คู่มือหน้า 78)",
+          "on_yes": "n3n",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n3n",
+          "type": "resolution",
+          "content": "เป็นการทำงานปกติ ตามคู่มือหน้า 78 C-Fan โดยทั่วไปทำงานพร้อมคอมเพรสเซอร์ เมื่อคอมเพรสเซอร์หยุดพัดลมจะหยุดตามด้วย",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "ถ้าคอมเพรสเซอร์กำลังทำงานและพ้นช่วงรอ 10 นาทีแล้ว C-Fan ยังไม่หมุน ขั้นตอนต่อไปตามคู่มือหน้า 78 คือทดสอบด้วยโหมดบังคับทำงาน วัดแรงดัน DC ที่แผงวงจรหลัก และเปลี่ยนมอเตอร์พัดลมหรือแผงวงจร ซึ่งเป็นงานของช่าง ให้ติดต่อศูนย์บริการ Samsung ในพื้นที่หรือร้านค้าที่ซื้อเครื่อง (คู่มือหน้า 19 ใช้ถ้อยคำ 'contact a local Samsung service center or retailer' ในหัวข้อเครือข่าย คู่มือเล่มนี้ไม่มีเบอร์ติดต่อ) และอย่าถอดแยกหรือซ่อมแซมตู้เย็นเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติจนบาดเจ็บ (คู่มือหน้า 7 และ 24)",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_nomatch",
+          "type": "escalation",
+          "content": "ถ้าไม่ใช่อาการนี้ ให้เลือกอาการที่ตรงกับที่เห็น หรือติดต่อศูนย์บริการ Samsung ในพื้นที่หรือร้านค้าที่ซื้อเครื่อง (คู่มือหน้า 19 ใช้ถ้อยคำ 'contact a local Samsung service center or retailer' ในหัวข้อเครือข่าย คู่มือเล่มนี้ไม่มีเบอร์ติดต่อ) และอย่าถอดแยกหรือซ่อมแซมตู้เย็นเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติจนบาดเจ็บ (คู่มือหน้า 7 และ 24)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_rr39m7_um_abnormal_high_temp",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RR39M7*/RR39T7*/RZ32R*/RZ32M7*/RZ32T7*/RZ11M7*",
+      "entry_symptom": "Abnormal High Temperature error The Fridge Display blinks when the Fridge temperature goes up abnormally or the Fridge Door is opened for a certain period of time while the Refrigerator temperature is high.",
+      "entry_symptom_th": "จอห้องแช่เย็นกะพริบ อุณหภูมิสูงผิดปกติ (รหัส 72 หรือ 71)",
+      "entry_symptom_aliases": [
+        "ตู้เย็นขึ้น 72",
+        "ตู้เย็นขึ้น 71",
+        "จอตู้เย็นกะพริบ",
+        "ตู้เย็นอุณหภูมิสูงผิดปกติ",
+        "fridge abnormal high temperature",
+        "refrigerator error 71",
+        "refrigerator error 72"
+      ],
+      "source": "Samsung Refrigerator Service Manual (1 door type: RR39M7*, RR39T7*, RZ32R*, RZ32M7*, RZ32T7*, RZ11M7*)",
+      "page_range": [
+        60,
+        60
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RR39M7_p60_abnormal_high_temp",
+      "severity": "medium",
+      "difficulty": "easy",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "จอห้องแช่เย็น (Fridge) กะพริบ หรือแสดงรหัสอุณหภูมิสูงผิดปกติ (รหัส 72 รุ่น RR39T7* หรือรหัส 71 รุ่น RZ32T7*, RZ11M7*, RQ32T7) ใช่หรือไม่? (คู่มือหน้า 57 และ 58)",
+          "on_yes": "n2",
+          "on_no": "n_nomatch"
+        },
+        {
+          "state_id": "n2",
+          "type": "checkpoint",
+          "question": "ประตูตู้เย็นถูกเปิดค้างไว้นานใช่หรือไม่? (คู่มือหน้า 58)",
+          "on_yes": "n2f",
+          "on_no": "n3"
+        },
+        {
+          "state_id": "n2f",
+          "type": "instruction",
+          "content": "นำสาเหตุออก โดยปิดประตูที่เปิดค้างไว้ (Remove the cause) แล้วรอสักครู่ อาการจะหายไปเอง (it will disappear in a certain period of time) (คู่มือหน้า 58 และ 60)",
+          "author_note": "คู่มือไม่ระบุระยะเวลาที่อาการจะหายไป (a certain period of time) และไม่ได้อธิบายวิธีปิดประตูโดยละเอียด",
+          "next": "n2v"
+        },
+        {
+          "state_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "state_id": "n3",
+          "type": "checkpoint",
+          "question": "มีอาหารร้อนวางเก็บอยู่ในตู้เย็นใช่หรือไม่? (คู่มือหน้า 58)",
+          "on_yes": "n3f",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n3f",
+          "type": "instruction",
+          "content": "นำสาเหตุออก โดยนำอาหารร้อนออกจากตู้เย็น (Remove the cause) แล้วรอสักครู่ อาการจะหายไปเอง (it will disappear in a certain period of time) (คู่มือหน้า 58 และ 60)",
+          "author_note": "คู่มือไม่ระบุระยะเวลาที่อาการจะหายไป (a certain period of time)",
+          "next": "n3v"
+        },
+        {
+          "state_id": "n3v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n_resolved",
+          "type": "resolution",
+          "content": "อาการหายแล้ว จอไม่กะพริบและไม่มีรหัสแสดง",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "ถ้าไม่ใช่สาเหตุจากประตูเปิดค้างหรืออาหารร้อน หรือกำจัดสาเหตุแล้วอาการยังอยู่ คู่มือหน้า 58 และ 60 ไม่มีขั้นตอนอื่นที่ผู้ใช้ตรวจเองได้สำหรับรหัสนี้ ให้ติดต่อศูนย์บริการ Samsung ในพื้นที่หรือร้านค้าที่ซื้อเครื่อง (คู่มือหน้า 19 ใช้ถ้อยคำ 'contact a local Samsung service center or retailer' ในหัวข้อเครือข่าย คู่มือเล่มนี้ไม่มีเบอร์ติดต่อ) และอย่าถอดแยกหรือซ่อมแซมตู้เย็นเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติจนบาดเจ็บ (คู่มือหน้า 7 และ 24) พร้อมแจ้งรหัสที่แสดง",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_nomatch",
+          "type": "escalation",
+          "content": "ถ้าจอไม่ได้กะพริบและไม่ได้แสดงรหัส 72 หรือ 71 (คู่มือหน้า 57) ให้เลือกอาการที่ตรงกับที่เห็น หรือติดต่อศูนย์บริการ Samsung ในพื้นที่หรือร้านค้าที่ซื้อเครื่อง (คู่มือหน้า 19 ใช้ถ้อยคำ 'contact a local Samsung service center or retailer' ในหัวข้อเครือข่าย คู่มือเล่มนี้ไม่มีเบอร์ติดต่อ) และอย่าถอดแยกหรือซ่อมแซมตู้เย็นเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติจนบาดเจ็บ (คู่มือหน้า 7 และ 24)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_rr39m7_um_demo_mode",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RR39M7*/RR39T7*/RZ32R*/RZ32M7*/RZ32T7*/RZ11M7*",
+      "entry_symptom": "When the unit is in Demo Mode, all the functions including the Display Panel works normal. But, the Compressor and C-Fan do not operate.",
+      "entry_symptom_th": "ตู้เย็นไม่เย็น คอมเพรสเซอร์และพัดลมไม่ทำงาน แต่แผงควบคุมและจอทำงานปกติ (Demo Mode)",
+      "entry_symptom_aliases": [
+        "ตู้เย็นไม่เย็นแต่จอปกติ",
+        "ตู้เย็นโหมดโชว์",
+        "ตู้เย็น demo mode",
+        "ตู้เย็นโหมดตัวอย่าง",
+        "fridge demo mode",
+        "refrigerator exhibition mode compressor not running"
+      ],
+      "source": "Samsung Refrigerator Service Manual (1 door type: RR39M7*, RR39T7*, RZ32R*, RZ32M7*, RZ32T7*, RZ11M7*)",
+      "page_range": [
+        64,
+        64
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RR39M7_p64_demo_mode",
+      "severity": "low",
+      "difficulty": "easy",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "ตู้เย็นไม่เย็น คอมเพรสเซอร์และพัดลม C-Fan ไม่ทำงาน แต่แผงควบคุมและจอทำงานได้ปกติใช่หรือไม่?",
+          "on_yes": "n2",
+          "on_no": "n_nomatch"
+        },
+        {
+          "state_id": "n2",
+          "type": "instruction",
+          "content": "ยกเลิก Demo Mode โดยกดปุ่มชุดเดียวกับที่ใช้เข้าโหมดค้างไว้ 6 วินาที คือ Power Freezer + Alarm (คู่มือหน้า 64) หรือ Power Cool หรือ Power Freezer + Alarm ตามปุ่มที่มีบนรุ่นของคุณ (คู่มือหน้า 65)",
+          "author_note": "คู่มือหน้า 64 ข้อ 6 บอกว่าปิดไฟแล้ว Demo Mode ยังคงอยู่ แต่หน้า 65 ข้อ 5 บอกว่าปิดไฟก็ยกเลิกได้ ผู้พัฒนาจึงไม่ใช้วิธีปิดไฟ และคู่มือไม่ระบุชัดว่า 'the same buttons' หมายถึงปุ่มขั้นแรกหรือทุกปุ่มที่ใช้เข้าโหมด ผู้พัฒนาใช้ปุ่มขั้นแรกที่กด 6 วินาที",
+          "next": "n2v"
+        },
+        {
+          "state_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังกดปุ่มแล้ว ตู้เย็นกลับมาทำความเย็นตามปกติหรือไม่?",
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n_resolved",
+          "type": "resolution",
+          "content": "ยกเลิก Demo Mode แล้ว ตู้เย็นกลับมาทำความเย็นตามปกติ",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "ถ้ายกเลิก Demo Mode ตามคู่มือแล้วคอมเพรสเซอร์ยังไม่ทำงาน ให้ใช้ผังตรวจคอมเพรสเซอร์ไม่ทำงานซึ่งเป็นงานของช่าง (คู่มือหน้า 83) ให้ติดต่อศูนย์บริการ Samsung ในพื้นที่หรือร้านค้าที่ซื้อเครื่อง (คู่มือหน้า 19 ใช้ถ้อยคำ 'contact a local Samsung service center or retailer' ในหัวข้อเครือข่าย คู่มือเล่มนี้ไม่มีเบอร์ติดต่อ) และอย่าถอดแยกหรือซ่อมแซมตู้เย็นเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติจนบาดเจ็บ (คู่มือหน้า 7 และ 24)",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_nomatch",
+          "type": "escalation",
+          "content": "ถ้าไม่ใช่อาการนี้ ให้เลือกอาการที่ตรงกับที่เห็น หรือติดต่อศูนย์บริการ Samsung ในพื้นที่หรือร้านค้าที่ซื้อเครื่อง (คู่มือหน้า 19 ใช้ถ้อยคำ 'contact a local Samsung service center or retailer' ในหัวข้อเครือข่าย คู่มือเล่มนี้ไม่มีเบอร์ติดต่อ) และอย่าถอดแยกหรือซ่อมแซมตู้เย็นเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติจนบาดเจ็บ (คู่มือหน้า 7 และ 24)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_rr39m7_um_wifi_connection",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RR39M7*/RR39T7*/RZ32R*/RZ32M7*/RZ32T7*/RZ11M7*",
+      "entry_symptom": "Samsung Smart Refrigerator may fail to connect to the Internet.",
+      "entry_symptom_th": "ตู้เย็นเชื่อมต่ออินเทอร์เน็ตหรือแอป Samsung Smart Home ไม่ได้",
+      "entry_symptom_aliases": [
+        "ตู้เย็นต่อ wifi ไม่ได้",
+        "ตู้เย็นเชื่อมต่ออินเทอร์เน็ตไม่ได้",
+        "Smart Home Dongle ต่อไม่ติด",
+        "แอป Samsung Smart Home ต่อตู้เย็นไม่ได้",
+        "fridge wifi not connecting",
+        "Samsung smart refrigerator cannot connect internet"
+      ],
+      "source": "Samsung Refrigerator Service Manual (1 door type: RR39M7*, RR39T7*, RZ32R*, RZ32M7*, RZ32T7*, RZ11M7*)",
+      "page_range": [
+        17,
+        17
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RR39M7_p17_wifi_connection",
+      "severity": "low",
+      "difficulty": "medium",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "ตู้เย็นที่ใช้ Smart Home Dongle (แยกจำหน่าย) เชื่อมต่ออินเทอร์เน็ตหรือแอป Samsung Smart Home ไม่ได้ใช่หรือไม่? (คู่มือหน้า 17)",
+          "on_yes": "n2",
+          "on_no": "n_nomatch"
+        },
+        {
+          "state_id": "n2",
+          "type": "checkpoint",
+          "question": "เราเตอร์ใช้ระบบเข้ารหัส WPA/TKIP หรือ WPA2/AES และเป็น Wi-Fi 2.4 GHz แบบ IEEE 802.11 b/g/n ใช่หรือไม่? (คู่มือหน้า 17)",
+          "on_yes": "n3",
+          "on_no": "n2f"
+        },
+        {
+          "state_id": "n2f",
+          "type": "instruction",
+          "content": "ปรับการตั้งค่าเราเตอร์ให้ใช้ระบบเข้ารหัสและมาตรฐานที่แนะนำ (คู่มือหน้า 17 ระบุว่ารองรับ WPA/TKIP และ WPA2/AES ไม่รองรับโปรโตคอลยืนยันตัวตน Wi-Fi รุ่นใหม่หรือไม่เป็นมาตรฐาน) วิธีตั้งค่าดูในคู่มือของเราเตอร์ (AP)",
+          "author_note": "คู่มือตู้เย็นไม่ได้อธิบายวิธีเปลี่ยนการตั้งค่าเราเตอร์ ระบุเพียงให้ดูคู่มือของ AP (see the user manual of the AP) (คู่มือหน้า 17)",
+          "next": "n2v"
+        },
+        {
+          "state_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังปรับการตั้งค่าเราเตอร์ ตู้เย็นเชื่อมต่อได้หรือไม่?",
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "state_id": "n3",
+          "type": "checkpoint",
+          "question": "ผู้ให้บริการอินเทอร์เน็ต (ISP) ลงทะเบียน MAC address ของพีซีหรือโมเด็มของคุณไว้ หรือเครือข่ายตั้งค่าไฟร์วอลล์ที่อาจกันไม่ให้ตู้เย็นเข้าอินเทอร์เน็ตใช่หรือไม่? (คู่มือหน้า 17)",
+          "on_yes": "n3e",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n3e",
+          "type": "escalation",
+          "content": "ติดต่อผู้ให้บริการอินเทอร์เน็ต (ISP) เพื่อขอความช่วยเหลือทางเทคนิค (Contact your Internet service provider for technical assistance) (คู่มือหน้า 17) ถ้าอาการยังอยู่ ให้ติดต่อศูนย์บริการ Samsung ในพื้นที่หรือร้านค้าที่ซื้อเครื่อง (contact a local Samsung service center or retailer) (คู่มือหน้า 17)",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_resolved",
+          "type": "resolution",
+          "content": "ตู้เย็นเชื่อมต่ออินเทอร์เน็ตได้แล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ผู้ใช้ตรวจเองได้ตามคู่มือ คู่มือหน้า 17 ระบุว่าเครือข่ายไร้สายอาจได้รับผลกระทบจากสภาพแวดล้อมการสื่อสารไร้สายรอบข้าง และเราเตอร์ที่ไม่ได้รับอนุญาตอาจเชื่อมต่อไม่ได้ ให้ติดต่อศูนย์บริการ Samsung ในพื้นที่หรือร้านค้าที่ซื้อเครื่อง (คู่มือหน้า 19 ใช้ถ้อยคำ 'contact a local Samsung service center or retailer' ในหัวข้อเครือข่าย คู่มือเล่มนี้ไม่มีเบอร์ติดต่อ) และอย่าถอดแยกหรือซ่อมแซมตู้เย็นเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติจนบาดเจ็บ (คู่มือหน้า 7 และ 24)",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_nomatch",
+          "type": "escalation",
+          "content": "ถ้าไม่ใช่อาการนี้ ให้เลือกอาการที่ตรงกับที่เห็น หรือติดต่อศูนย์บริการ Samsung ในพื้นที่หรือร้านค้าที่ซื้อเครื่อง (คู่มือหน้า 19 ใช้ถ้อยคำ 'contact a local Samsung service center or retailer' ในหัวข้อเครือข่าย คู่มือเล่มนี้ไม่มีเบอร์ติดต่อ) และอย่าถอดแยกหรือซ่อมแซมตู้เย็นเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติจนบาดเจ็บ (คู่มือหน้า 7 และ 24)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_rr39m7_um_room_sensor",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RR39M7*/RR39T7*/RZ32R*/RZ32M7*/RZ32T7*/RZ11M7*",
+      "entry_symptom": "Room Sensor Error 2 1 1",
+      "entry_symptom_th": "จอตู้เย็นแสดงรหัส 1/2 (เซนเซอร์อุณหภูมิห้อง)",
+      "entry_symptom_aliases": [
+        "ตู้เย็นขึ้นรหัส 1",
+        "ตู้เย็นขึ้นรหัส 2",
+        "refrigerator error code 1",
+        "refrigerator error code 2",
+        "Samsung fridge Room Sensor Error"
+      ],
+      "source": "Samsung Refrigerator Service Manual (1 door type: RR39M7*, RR39T7*, RZ32R*, RZ32M7*, RZ32T7*, RZ11M7*)",
+      "page_range": [
+        57,
+        57
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RR39M7_p57_room_sensor",
+      "severity": "medium",
+      "difficulty": "hard",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "จอแสดงตัวเลขของตู้เย็น (Fridge 7-Segment) แสดงรหัส 2 (รุ่น RR39T7*) หรือ 1 (รุ่น RZ32T7*, RZ11M7*, RQ32T7) ใช่หรือไม่? (คู่มือหน้า 57)",
+          "on_yes": "n_escalate",
+          "on_no": "n_nomatch"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "รหัส 2 (รุ่น RR39T7*) หรือ 1 (รุ่น RZ32T7*, RZ11M7*, RQ32T7) หมายถึงเซนเซอร์อุณหภูมิห้อง (Room Sensor) เปิดวงจรหรือลัดวงจร (คู่มือหน้า 57) ขั้นตอนตรวจตามคู่มือคือวัดแรงดันที่ขั้วต่อบนแผงวงจรหลัก (คู่มือหน้า 58 และ 60) ซึ่งเป็นงานของช่าง ให้ติดต่อศูนย์บริการ Samsung ในพื้นที่หรือร้านค้าที่ซื้อเครื่อง (คู่มือหน้า 19 ใช้ถ้อยคำ 'contact a local Samsung service center or retailer' ในหัวข้อเครือข่าย คู่มือเล่มนี้ไม่มีเบอร์ติดต่อ) และอย่าถอดแยกหรือซ่อมแซมตู้เย็นเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติจนบาดเจ็บ (คู่มือหน้า 7 และ 24) พร้อมแจ้งรหัสที่แสดง",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_nomatch",
+          "type": "escalation",
+          "content": "ถ้าจอไม่ได้แสดงรหัส 2 หรือ 1 (คู่มือหน้า 57) ให้เลือกอาการที่ตรงกับที่เห็น หรือติดต่อศูนย์บริการ Samsung ในพื้นที่หรือร้านค้าที่ซื้อเครื่อง (คู่มือหน้า 19 ใช้ถ้อยคำ 'contact a local Samsung service center or retailer' ในหัวข้อเครือข่าย คู่มือเล่มนี้ไม่มีเบอร์ติดต่อ) และอย่าถอดแยกหรือซ่อมแซมตู้เย็นเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติจนบาดเจ็บ (คู่มือหน้า 7 และ 24)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_rr39m7_um_defrost_sensor",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RR39M7*/RR39T7*/RZ32R*/RZ32M7*/RZ32T7*/RZ11M7*",
+      "entry_symptom": "Defrost Sensor Error 5 4 4",
+      "entry_symptom_th": "จอตู้เย็นแสดงรหัส 4/5 (เซนเซอร์ละลายน้ำแข็ง)",
+      "entry_symptom_aliases": [
+        "ตู้เย็นขึ้นรหัส 4",
+        "ตู้เย็นขึ้นรหัส 5",
+        "refrigerator error code 4",
+        "refrigerator error code 5",
+        "Samsung fridge Defrost Sensor Error"
+      ],
+      "source": "Samsung Refrigerator Service Manual (1 door type: RR39M7*, RR39T7*, RZ32R*, RZ32M7*, RZ32T7*, RZ11M7*)",
+      "page_range": [
+        57,
+        57
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RR39M7_p57_defrost_sensor",
+      "severity": "medium",
+      "difficulty": "hard",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "จอแสดงตัวเลขของตู้เย็น (Fridge 7-Segment) แสดงรหัส 5 (รุ่น RR39T7*) หรือ 4 (รุ่น RZ32T7*, RZ11M7*, RQ32T7) ใช่หรือไม่? (คู่มือหน้า 57)",
+          "on_yes": "n_escalate",
+          "on_no": "n_nomatch"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "รหัส 5 (รุ่น RR39T7*) หรือ 4 (รุ่น RZ32T7*, RZ11M7*, RQ32T7) หมายถึงเซนเซอร์ละลายน้ำแข็ง (Defrost Sensor) เปิดวงจรหรือลัดวงจร (คู่มือหน้า 57) ขั้นตอนตรวจตามคู่มือคือวัดแรงดันที่ขั้วต่อบนแผงวงจรหลัก (คู่มือหน้า 58 และ 60) ซึ่งเป็นงานของช่าง ให้ติดต่อศูนย์บริการ Samsung ในพื้นที่หรือร้านค้าที่ซื้อเครื่อง (คู่มือหน้า 19 ใช้ถ้อยคำ 'contact a local Samsung service center or retailer' ในหัวข้อเครือข่าย คู่มือเล่มนี้ไม่มีเบอร์ติดต่อ) และอย่าถอดแยกหรือซ่อมแซมตู้เย็นเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติจนบาดเจ็บ (คู่มือหน้า 7 และ 24) พร้อมแจ้งรหัสที่แสดง",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_nomatch",
+          "type": "escalation",
+          "content": "ถ้าจอไม่ได้แสดงรหัส 5 หรือ 4 (คู่มือหน้า 57) ให้เลือกอาการที่ตรงกับที่เห็น หรือติดต่อศูนย์บริการ Samsung ในพื้นที่หรือร้านค้าที่ซื้อเครื่อง (คู่มือหน้า 19 ใช้ถ้อยคำ 'contact a local Samsung service center or retailer' ในหัวข้อเครือข่าย คู่มือเล่มนี้ไม่มีเบอร์ติดต่อ) และอย่าถอดแยกหรือซ่อมแซมตู้เย็นเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติจนบาดเจ็บ (คู่มือหน้า 7 และ 24)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_rr39m7_um_ext_sensor",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RR39M7*/RR39T7*/RZ32R*/RZ32M7*/RZ32T7*/RZ11M7*",
+      "entry_symptom": "EXT-SENSOR Error 6 6 6",
+      "entry_symptom_th": "จอตู้เย็นแสดงรหัส 6 (เซนเซอร์ EXT)",
+      "entry_symptom_aliases": [
+        "ตู้เย็นขึ้นรหัส 6",
+        "refrigerator error code 6",
+        "Samsung fridge EXT-SENSOR Error"
+      ],
+      "source": "Samsung Refrigerator Service Manual (1 door type: RR39M7*, RR39T7*, RZ32R*, RZ32M7*, RZ32T7*, RZ11M7*)",
+      "page_range": [
+        57,
+        57
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RR39M7_p57_ext_sensor",
+      "severity": "medium",
+      "difficulty": "hard",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "จอแสดงตัวเลขของตู้เย็น (Fridge 7-Segment) แสดงรหัส 6 ใช่หรือไม่? (คู่มือหน้า 57)",
+          "on_yes": "n_escalate",
+          "on_no": "n_nomatch"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "รหัส 6 หมายถึงเซนเซอร์ EXT เปิดวงจรหรือลัดวงจร (คู่มือหน้า 57) ขั้นตอนตรวจตามคู่มือคือวัดแรงดันที่ขั้วต่อบนแผงวงจรหลัก (คู่มือหน้า 58 และ 60) ซึ่งเป็นงานของช่าง ให้ติดต่อศูนย์บริการ Samsung ในพื้นที่หรือร้านค้าที่ซื้อเครื่อง (คู่มือหน้า 19 ใช้ถ้อยคำ 'contact a local Samsung service center or retailer' ในหัวข้อเครือข่าย คู่มือเล่มนี้ไม่มีเบอร์ติดต่อ) และอย่าถอดแยกหรือซ่อมแซมตู้เย็นเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติจนบาดเจ็บ (คู่มือหน้า 7 และ 24) พร้อมแจ้งรหัสที่แสดง",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_nomatch",
+          "type": "escalation",
+          "content": "ถ้าจอไม่ได้แสดงรหัส 6 (คู่มือหน้า 57) ให้เลือกอาการที่ตรงกับที่เห็น หรือติดต่อศูนย์บริการ Samsung ในพื้นที่หรือร้านค้าที่ซื้อเครื่อง (คู่มือหน้า 19 ใช้ถ้อยคำ 'contact a local Samsung service center or retailer' ในหัวข้อเครือข่าย คู่มือเล่มนี้ไม่มีเบอร์ติดต่อ) และอย่าถอดแยกหรือซ่อมแซมตู้เย็นเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติจนบาดเจ็บ (คู่มือหน้า 7 และ 24)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_rr39m7_um_fan_error",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RR39M7*/RR39T7*/RZ32R*/RZ32M7*/RZ32T7*/RZ11M7*",
+      "entry_symptom": "Fan Error 22 21 21",
+      "entry_symptom_th": "จอตู้เย็นแสดงรหัส 21/22 (พัดลม)",
+      "entry_symptom_aliases": [
+        "ตู้เย็นขึ้นรหัส 21",
+        "ตู้เย็นขึ้นรหัส 22",
+        "refrigerator error code 21",
+        "refrigerator error code 22",
+        "Samsung fridge Fan Error"
+      ],
+      "source": "Samsung Refrigerator Service Manual (1 door type: RR39M7*, RR39T7*, RZ32R*, RZ32M7*, RZ32T7*, RZ11M7*)",
+      "page_range": [
+        57,
+        57
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RR39M7_p57_fan_error",
+      "severity": "medium",
+      "difficulty": "hard",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "จอแสดงตัวเลขของตู้เย็น (Fridge 7-Segment) แสดงรหัส 22 (รุ่น RR39T7*) หรือ 21 (รุ่น RZ32T7*, RZ11M7*, RQ32T7) ใช่หรือไม่? (คู่มือหน้า 57)",
+          "on_yes": "n_escalate",
+          "on_no": "n_nomatch"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "รหัส 22 (รุ่น RR39T7*) หรือ 21 (รุ่น RZ32T7*, RZ11M7*, RQ32T7) หมายถึงพัดลมติดขัด (fan restriction error) (คู่มือหน้า 57) ขั้นตอนตรวจตามคู่มือคือวัดแรงดันที่ขั้วต่อของพัดลมบนแผงวงจรหลัก (คู่มือหน้า 58 และ 60) ซึ่งเป็นงานของช่าง ให้ติดต่อศูนย์บริการ Samsung ในพื้นที่หรือร้านค้าที่ซื้อเครื่อง (คู่มือหน้า 19 ใช้ถ้อยคำ 'contact a local Samsung service center or retailer' ในหัวข้อเครือข่าย คู่มือเล่มนี้ไม่มีเบอร์ติดต่อ) และอย่าถอดแยกหรือซ่อมแซมตู้เย็นเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติจนบาดเจ็บ (คู่มือหน้า 7 และ 24) พร้อมแจ้งรหัสที่แสดง",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_nomatch",
+          "type": "escalation",
+          "content": "ถ้าจอไม่ได้แสดงรหัส 22 หรือ 21 (คู่มือหน้า 57) ให้เลือกอาการที่ตรงกับที่เห็น หรือติดต่อศูนย์บริการ Samsung ในพื้นที่หรือร้านค้าที่ซื้อเครื่อง (คู่มือหน้า 19 ใช้ถ้อยคำ 'contact a local Samsung service center or retailer' ในหัวข้อเครือข่าย คู่มือเล่มนี้ไม่มีเบอร์ติดต่อ) และอย่าถอดแยกหรือซ่อมแซมตู้เย็นเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติจนบาดเจ็บ (คู่มือหน้า 7 และ 24)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_rr39m7_um_c_fan_error",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RR39M7*/RR39T7*/RZ32R*/RZ32M7*/RZ32T7*/RZ11M7*",
+      "entry_symptom": "C-Fan Error 23 23 23",
+      "entry_symptom_th": "จอตู้เย็นแสดงรหัส 23 (พัดลม C-Fan)",
+      "entry_symptom_aliases": [
+        "ตู้เย็นขึ้นรหัส 23",
+        "refrigerator error code 23",
+        "Samsung fridge C-Fan Error"
+      ],
+      "source": "Samsung Refrigerator Service Manual (1 door type: RR39M7*, RR39T7*, RZ32R*, RZ32M7*, RZ32T7*, RZ11M7*)",
+      "page_range": [
+        57,
+        57
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RR39M7_p57_c_fan_error",
+      "severity": "medium",
+      "difficulty": "hard",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "จอแสดงตัวเลขของตู้เย็น (Fridge 7-Segment) แสดงรหัส 23 ใช่หรือไม่? (คู่มือหน้า 57)",
+          "on_yes": "n_escalate",
+          "on_no": "n_nomatch"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "รหัส 23 หมายถึงพัดลม C-Fan ติดขัด (fan restriction error) (คู่มือหน้า 57) ขั้นตอนตรวจตามคู่มือคือวัดแรงดันที่ขั้วต่อของพัดลมบนแผงวงจรหลัก (คู่มือหน้า 58 และ 60) ซึ่งเป็นงานของช่าง ให้ติดต่อศูนย์บริการ Samsung ในพื้นที่หรือร้านค้าที่ซื้อเครื่อง (คู่มือหน้า 19 ใช้ถ้อยคำ 'contact a local Samsung service center or retailer' ในหัวข้อเครือข่าย คู่มือเล่มนี้ไม่มีเบอร์ติดต่อ) และอย่าถอดแยกหรือซ่อมแซมตู้เย็นเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติจนบาดเจ็บ (คู่มือหน้า 7 และ 24) พร้อมแจ้งรหัสที่แสดง",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_nomatch",
+          "type": "escalation",
+          "content": "ถ้าจอไม่ได้แสดงรหัส 23 (คู่มือหน้า 57) ให้เลือกอาการที่ตรงกับที่เห็น หรือติดต่อศูนย์บริการ Samsung ในพื้นที่หรือร้านค้าที่ซื้อเครื่อง (คู่มือหน้า 19 ใช้ถ้อยคำ 'contact a local Samsung service center or retailer' ในหัวข้อเครือข่าย คู่มือเล่มนี้ไม่มีเบอร์ติดต่อ) และอย่าถอดแยกหรือซ่อมแซมตู้เย็นเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติจนบาดเจ็บ (คู่มือหน้า 7 และ 24)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_rr39m7_um_defrosting_error",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RR39M7*/RR39T7*/RZ32R*/RZ32M7*/RZ32T7*/RZ11M7*",
+      "entry_symptom": "Defrosting Error - 24 24",
+      "entry_symptom_th": "จอตู้เย็นแสดงรหัส 24 (การละลายน้ำแข็งผิดปกติ)",
+      "entry_symptom_aliases": [
+        "ตู้เย็นขึ้นรหัส 24",
+        "refrigerator error code 24",
+        "Samsung fridge Defrosting Error"
+      ],
+      "source": "Samsung Refrigerator Service Manual (1 door type: RR39M7*, RR39T7*, RZ32R*, RZ32M7*, RZ32T7*, RZ11M7*)",
+      "page_range": [
+        57,
+        57
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RR39M7_p57_defrosting_error",
+      "severity": "medium",
+      "difficulty": "hard",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "จอแสดงตัวเลขของตู้เย็น (Fridge 7-Segment) แสดงรหัส 24 (รุ่น RZ32T7*, RZ11M7*, RQ32T7) ใช่หรือไม่? (คู่มือหน้า 57)",
+          "on_yes": "n_escalate",
+          "on_no": "n_nomatch"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "รหัส 24 (รุ่น RZ32T7*, RZ11M7*, RQ32T7) หมายถึงการละลายน้ำแข็งของช่องแช่แข็งไม่สิ้นสุดแม้ให้ความร้อนต่อเนื่องนานกว่า 150 นาทีขึ้นไป โดยสาเหตุเกี่ยวกับฮีตเตอร์ละลายน้ำแข็ง เช่น ขั้วต่อหลุด ต่อไม่ดี สายขาด ลัดวงจร หรือฟิวส์อุณหภูมิเสีย (คู่มือหน้า 57) ขั้นตอนตรวจตามคู่มือคือวัดแรงดันที่ขั้วต่อบนแผงวงจรหลัก (คู่มือหน้า 58) ซึ่งเป็นงานของช่าง ให้ติดต่อศูนย์บริการ Samsung ในพื้นที่หรือร้านค้าที่ซื้อเครื่อง (คู่มือหน้า 19 ใช้ถ้อยคำ 'contact a local Samsung service center or retailer' ในหัวข้อเครือข่าย คู่มือเล่มนี้ไม่มีเบอร์ติดต่อ) และอย่าถอดแยกหรือซ่อมแซมตู้เย็นเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติจนบาดเจ็บ (คู่มือหน้า 7 และ 24) พร้อมแจ้งรหัสที่แสดง",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_nomatch",
+          "type": "escalation",
+          "content": "ถ้าจอไม่ได้แสดงรหัส 24 (คู่มือหน้า 57) ให้เลือกอาการที่ตรงกับที่เห็น หรือติดต่อศูนย์บริการ Samsung ในพื้นที่หรือร้านค้าที่ซื้อเครื่อง (คู่มือหน้า 19 ใช้ถ้อยคำ 'contact a local Samsung service center or retailer' ในหัวข้อเครือข่าย คู่มือเล่มนี้ไม่มีเบอร์ติดต่อ) และอย่าถอดแยกหรือซ่อมแซมตู้เย็นเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติจนบาดเจ็บ (คู่มือหน้า 7 และ 24)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_rr39m7_um_early_defrost_restoration",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RR39M7*/RR39T7*/RZ32R*/RZ32M7*/RZ32T7*/RZ11M7*",
+      "entry_symptom": "Early Defrosting Restoration Error 35 35 35",
+      "entry_symptom_th": "จอตู้เย็นแสดงรหัส 35 (การคืนสภาพการละลายน้ำแข็งเร็วผิดปกติ)",
+      "entry_symptom_aliases": [
+        "ตู้เย็นขึ้นรหัส 35",
+        "refrigerator error code 35",
+        "Samsung fridge Early Defrosting Restoration Error"
+      ],
+      "source": "Samsung Refrigerator Service Manual (1 door type: RR39M7*, RR39T7*, RZ32R*, RZ32M7*, RZ32T7*, RZ11M7*)",
+      "page_range": [
+        57,
+        57
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RR39M7_p57_early_defrost_restoration",
+      "severity": "medium",
+      "difficulty": "hard",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "จอแสดงตัวเลขของตู้เย็น (Fridge 7-Segment) แสดงรหัส 35 ใช่หรือไม่? (คู่มือหน้า 57)",
+          "on_yes": "n_escalate",
+          "on_no": "n_nomatch"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "รหัส 35 หมายถึงการละลายน้ำแข็งของช่องแช่แข็งกำลังจะสิ้นสุดภายใน 5 นาที โดยสาเหตุเกี่ยวกับฮีตเตอร์ละลายน้ำแข็ง เช่น ขั้วต่อหลุด ต่อไม่ดี สายขาด สายลัดวงจร หรือฟิวส์อุณหภูมิเสีย (คู่มือหน้า 57) คู่มือไม่มีขั้นตอนที่ผู้ใช้ตรวจเองได้สำหรับรหัสนี้ ให้ติดต่อศูนย์บริการ Samsung ในพื้นที่หรือร้านค้าที่ซื้อเครื่อง (คู่มือหน้า 19 ใช้ถ้อยคำ 'contact a local Samsung service center or retailer' ในหัวข้อเครือข่าย คู่มือเล่มนี้ไม่มีเบอร์ติดต่อ) และอย่าถอดแยกหรือซ่อมแซมตู้เย็นเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติจนบาดเจ็บ (คู่มือหน้า 7 และ 24) พร้อมแจ้งรหัสที่แสดง",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_nomatch",
+          "type": "escalation",
+          "content": "ถ้าจอไม่ได้แสดงรหัส 35 (คู่มือหน้า 57) ให้เลือกอาการที่ตรงกับที่เห็น หรือติดต่อศูนย์บริการ Samsung ในพื้นที่หรือร้านค้าที่ซื้อเครื่อง (คู่มือหน้า 19 ใช้ถ้อยคำ 'contact a local Samsung service center or retailer' ในหัวข้อเครือข่าย คู่มือเล่มนี้ไม่มีเบอร์ติดต่อ) และอย่าถอดแยกหรือซ่อมแซมตู้เย็นเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติจนบาดเจ็บ (คู่มือหน้า 7 และ 24)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_rr39m7_um_comp_start_failure",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RR39M7*/RR39T7*/RZ32R*/RZ32M7*/RZ32T7*/RZ11M7*",
+      "entry_symptom": "Comp Starting Failure Error 81 81 81",
+      "entry_symptom_th": "จอตู้เย็นแสดงรหัส 81 (คอมเพรสเซอร์สตาร์ทไม่ติด)",
+      "entry_symptom_aliases": [
+        "ตู้เย็นขึ้นรหัส 81",
+        "refrigerator error code 81",
+        "Samsung fridge Comp Starting Failure Error"
+      ],
+      "source": "Samsung Refrigerator Service Manual (1 door type: RR39M7*, RR39T7*, RZ32R*, RZ32M7*, RZ32T7*, RZ11M7*)",
+      "page_range": [
+        57,
+        57
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RR39M7_p57_comp_start_failure",
+      "severity": "medium",
+      "difficulty": "hard",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "จอแสดงตัวเลขของตู้เย็น (Fridge 7-Segment) แสดงรหัส 81 ใช่หรือไม่? (คู่มือหน้า 57)",
+          "on_yes": "n_escalate",
+          "on_no": "n_nomatch"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "รหัส 81 หมายถึงคอมเพรสเซอร์สตาร์ทไม่ติด (คู่มือหน้า 57) ขั้นตอนตรวจตามคู่มือคือตรวจการบัดกรีของแผงอินเวอร์เตอร์ และตรวจคอมเพรสเซอร์กับระบบทำความเย็น (คู่มือหน้า 59 และ 60) ซึ่งเป็นงานของช่าง ให้ติดต่อศูนย์บริการ Samsung ในพื้นที่หรือร้านค้าที่ซื้อเครื่อง (คู่มือหน้า 19 ใช้ถ้อยคำ 'contact a local Samsung service center or retailer' ในหัวข้อเครือข่าย คู่มือเล่มนี้ไม่มีเบอร์ติดต่อ) และอย่าถอดแยกหรือซ่อมแซมตู้เย็นเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติจนบาดเจ็บ (คู่มือหน้า 7 และ 24) พร้อมแจ้งรหัสที่แสดง",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_nomatch",
+          "type": "escalation",
+          "content": "ถ้าจอไม่ได้แสดงรหัส 81 (คู่มือหน้า 57) ให้เลือกอาการที่ตรงกับที่เห็น หรือติดต่อศูนย์บริการ Samsung ในพื้นที่หรือร้านค้าที่ซื้อเครื่อง (คู่มือหน้า 19 ใช้ถ้อยคำ 'contact a local Samsung service center or retailer' ในหัวข้อเครือข่าย คู่มือเล่มนี้ไม่มีเบอร์ติดต่อ) และอย่าถอดแยกหรือซ่อมแซมตู้เย็นเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติจนบาดเจ็บ (คู่มือหน้า 7 และ 24)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_rr39m7_um_comp_ipm_fault",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RR39M7*/RR39T7*/RZ32R*/RZ32M7*/RZ32T7*/RZ11M7*",
+      "entry_symptom": "Comp IPM Fault Error 82 82 82",
+      "entry_symptom_th": "จอตู้เย็นแสดงรหัส 82 (IPM ของคอมเพรสเซอร์ผิดพลาด)",
+      "entry_symptom_aliases": [
+        "ตู้เย็นขึ้นรหัส 82",
+        "refrigerator error code 82",
+        "Samsung fridge Comp IPM Fault Error"
+      ],
+      "source": "Samsung Refrigerator Service Manual (1 door type: RR39M7*, RR39T7*, RZ32R*, RZ32M7*, RZ32T7*, RZ11M7*)",
+      "page_range": [
+        57,
+        57
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RR39M7_p57_comp_ipm_fault",
+      "severity": "medium",
+      "difficulty": "hard",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "จอแสดงตัวเลขของตู้เย็น (Fridge 7-Segment) แสดงรหัส 82 ใช่หรือไม่? (คู่มือหน้า 57)",
+          "on_yes": "n_escalate",
+          "on_no": "n_nomatch"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "รหัส 82 หมายถึงเกิดข้อผิดพลาดของ IPM ในวงจรขับคอมเพรสเซอร์ (compressor IPM fault) (คู่มือหน้า 57) คู่มือไม่มีขั้นตอนที่ผู้ใช้ตรวจเองได้สำหรับรหัสนี้ ให้ติดต่อศูนย์บริการ Samsung ในพื้นที่หรือร้านค้าที่ซื้อเครื่อง (คู่มือหน้า 19 ใช้ถ้อยคำ 'contact a local Samsung service center or retailer' ในหัวข้อเครือข่าย คู่มือเล่มนี้ไม่มีเบอร์ติดต่อ) และอย่าถอดแยกหรือซ่อมแซมตู้เย็นเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติจนบาดเจ็บ (คู่มือหน้า 7 และ 24) พร้อมแจ้งรหัสที่แสดง",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_nomatch",
+          "type": "escalation",
+          "content": "ถ้าจอไม่ได้แสดงรหัส 82 (คู่มือหน้า 57) ให้เลือกอาการที่ตรงกับที่เห็น หรือติดต่อศูนย์บริการ Samsung ในพื้นที่หรือร้านค้าที่ซื้อเครื่อง (คู่มือหน้า 19 ใช้ถ้อยคำ 'contact a local Samsung service center or retailer' ในหัวข้อเครือข่าย คู่มือเล่มนี้ไม่มีเบอร์ติดต่อ) และอย่าถอดแยกหรือซ่อมแซมตู้เย็นเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติจนบาดเจ็บ (คู่มือหน้า 7 และ 24)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_rr39m7_um_comp_abnormal_current",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RR39M7*/RR39T7*/RZ32R*/RZ32M7*/RZ32T7*/RZ11M7*",
+      "entry_symptom": "Comp Abnormal Current Detection Error 83 83 83",
+      "entry_symptom_th": "จอตู้เย็นแสดงรหัส 83 (กระแสคอมเพรสเซอร์ผิดปกติ)",
+      "entry_symptom_aliases": [
+        "ตู้เย็นขึ้นรหัส 83",
+        "refrigerator error code 83",
+        "Samsung fridge Comp Abnormal Current Detection Error"
+      ],
+      "source": "Samsung Refrigerator Service Manual (1 door type: RR39M7*, RR39T7*, RZ32R*, RZ32M7*, RZ32T7*, RZ11M7*)",
+      "page_range": [
+        57,
+        57
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RR39M7_p57_comp_abnormal_current",
+      "severity": "medium",
+      "difficulty": "hard",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "จอแสดงตัวเลขของตู้เย็น (Fridge 7-Segment) แสดงรหัส 83 ใช่หรือไม่? (คู่มือหน้า 57)",
+          "on_yes": "n_escalate",
+          "on_no": "n_nomatch"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "รหัส 83 หมายถึงตรวจพบกระแสผิดปกติของคอมเพรสเซอร์ (คู่มือหน้า 57) ขั้นตอนตรวจตามคู่มือคือตรวจการต่อสายคอมเพรสเซอร์ ตรวจการบัดกรีของแผงอินเวอร์เตอร์ และตรวจคอมเพรสเซอร์กับระบบทำความเย็น (คู่มือหน้า 59 และ 61) ซึ่งเป็นงานของช่าง ให้ติดต่อศูนย์บริการ Samsung ในพื้นที่หรือร้านค้าที่ซื้อเครื่อง (คู่มือหน้า 19 ใช้ถ้อยคำ 'contact a local Samsung service center or retailer' ในหัวข้อเครือข่าย คู่มือเล่มนี้ไม่มีเบอร์ติดต่อ) และอย่าถอดแยกหรือซ่อมแซมตู้เย็นเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติจนบาดเจ็บ (คู่มือหน้า 7 และ 24) พร้อมแจ้งรหัสที่แสดง",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_nomatch",
+          "type": "escalation",
+          "content": "ถ้าจอไม่ได้แสดงรหัส 83 (คู่มือหน้า 57) ให้เลือกอาการที่ตรงกับที่เห็น หรือติดต่อศูนย์บริการ Samsung ในพื้นที่หรือร้านค้าที่ซื้อเครื่อง (คู่มือหน้า 19 ใช้ถ้อยคำ 'contact a local Samsung service center or retailer' ในหัวข้อเครือข่าย คู่มือเล่มนี้ไม่มีเบอร์ติดต่อ) และอย่าถอดแยกหรือซ่อมแซมตู้เย็นเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติจนบาดเจ็บ (คู่มือหน้า 7 และ 24)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_rr39m7_um_comp_motor_restriction",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RR39M7*/RR39T7*/RZ32R*/RZ32M7*/RZ32T7*/RZ11M7*",
+      "entry_symptom": "Comp Motor Restriction Error 84 84 84",
+      "entry_symptom_th": "จอตู้เย็นแสดงรหัส 84 (มอเตอร์คอมเพรสเซอร์ติดขัด)",
+      "entry_symptom_aliases": [
+        "ตู้เย็นขึ้นรหัส 84",
+        "refrigerator error code 84",
+        "Samsung fridge Comp Motor Restriction Error"
+      ],
+      "source": "Samsung Refrigerator Service Manual (1 door type: RR39M7*, RR39T7*, RZ32R*, RZ32M7*, RZ32T7*, RZ11M7*)",
+      "page_range": [
+        57,
+        57
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RR39M7_p57_comp_motor_restriction",
+      "severity": "medium",
+      "difficulty": "hard",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "จอแสดงตัวเลขของตู้เย็น (Fridge 7-Segment) แสดงรหัส 84 ใช่หรือไม่? (คู่มือหน้า 57)",
+          "on_yes": "n_escalate",
+          "on_no": "n_nomatch"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "รหัส 84 หมายถึงมอเตอร์ของคอมเพรสเซอร์ติดขัด (คู่มือหน้า 57) ขั้นตอนตรวจตามคู่มือคือตรวจคอมเพรสเซอร์และระบบทำความเย็น ตรวจแรงดันไฟเข้า และตรวจการบัดกรีของแผงอินเวอร์เตอร์ (คู่มือหน้า 59 และ 61) ซึ่งเป็นงานของช่าง ให้ติดต่อศูนย์บริการ Samsung ในพื้นที่หรือร้านค้าที่ซื้อเครื่อง (คู่มือหน้า 19 ใช้ถ้อยคำ 'contact a local Samsung service center or retailer' ในหัวข้อเครือข่าย คู่มือเล่มนี้ไม่มีเบอร์ติดต่อ) และอย่าถอดแยกหรือซ่อมแซมตู้เย็นเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติจนบาดเจ็บ (คู่มือหน้า 7 และ 24) พร้อมแจ้งรหัสที่แสดง",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_nomatch",
+          "type": "escalation",
+          "content": "ถ้าจอไม่ได้แสดงรหัส 84 (คู่มือหน้า 57) ให้เลือกอาการที่ตรงกับที่เห็น หรือติดต่อศูนย์บริการ Samsung ในพื้นที่หรือร้านค้าที่ซื้อเครื่อง (คู่มือหน้า 19 ใช้ถ้อยคำ 'contact a local Samsung service center or retailer' ในหัวข้อเครือข่าย คู่มือเล่มนี้ไม่มีเบอร์ติดต่อ) และอย่าถอดแยกหรือซ่อมแซมตู้เย็นเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติจนบาดเจ็บ (คู่มือหน้า 7 และ 24)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_rr39m7_um_comp_low_voltage",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RR39M7*/RR39T7*/RZ32R*/RZ32M7*/RZ32T7*/RZ11M7*",
+      "entry_symptom": "Comp Low Voltage Error 85 85 85",
+      "entry_symptom_th": "จอตู้เย็นแสดงรหัส 85 (แรงดันคอมเพรสเซอร์ต่ำ)",
+      "entry_symptom_aliases": [
+        "ตู้เย็นขึ้นรหัส 85",
+        "refrigerator error code 85",
+        "Samsung fridge Comp Low Voltage Error"
+      ],
+      "source": "Samsung Refrigerator Service Manual (1 door type: RR39M7*, RR39T7*, RZ32R*, RZ32M7*, RZ32T7*, RZ11M7*)",
+      "page_range": [
+        57,
+        57
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RR39M7_p57_comp_low_voltage",
+      "severity": "medium",
+      "difficulty": "hard",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "จอแสดงตัวเลขของตู้เย็น (Fridge 7-Segment) แสดงรหัส 85 ใช่หรือไม่? (คู่มือหน้า 57)",
+          "on_yes": "n_escalate",
+          "on_no": "n_nomatch"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "รหัส 85 หมายถึงแรงดันไฟเข้าของคอมเพรสเซอร์ต่ำเกินไป (คู่มือหน้า 57) ขั้นตอนตรวจตามคู่มือคือตรวจแรงดันไฟเข้า (คู่มือหน้า 59 และ 61) ซึ่งเป็นงานของช่าง ให้ติดต่อศูนย์บริการ Samsung ในพื้นที่หรือร้านค้าที่ซื้อเครื่อง (คู่มือหน้า 19 ใช้ถ้อยคำ 'contact a local Samsung service center or retailer' ในหัวข้อเครือข่าย คู่มือเล่มนี้ไม่มีเบอร์ติดต่อ) และอย่าถอดแยกหรือซ่อมแซมตู้เย็นเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติจนบาดเจ็บ (คู่มือหน้า 7 และ 24) พร้อมแจ้งรหัสที่แสดง",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_nomatch",
+          "type": "escalation",
+          "content": "ถ้าจอไม่ได้แสดงรหัส 85 (คู่มือหน้า 57) ให้เลือกอาการที่ตรงกับที่เห็น หรือติดต่อศูนย์บริการ Samsung ในพื้นที่หรือร้านค้าที่ซื้อเครื่อง (คู่มือหน้า 19 ใช้ถ้อยคำ 'contact a local Samsung service center or retailer' ในหัวข้อเครือข่าย คู่มือเล่มนี้ไม่มีเบอร์ติดต่อ) และอย่าถอดแยกหรือซ่อมแซมตู้เย็นเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติจนบาดเจ็บ (คู่มือหน้า 7 และ 24)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_rr39m7_um_comp_overvoltage",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RR39M7*/RR39T7*/RZ32R*/RZ32M7*/RZ32T7*/RZ11M7*",
+      "entry_symptom": "Comp Overvoltage Error 86 86 86",
+      "entry_symptom_th": "จอตู้เย็นแสดงรหัส 86 (แรงดันคอมเพรสเซอร์สูง)",
+      "entry_symptom_aliases": [
+        "ตู้เย็นขึ้นรหัส 86",
+        "refrigerator error code 86",
+        "Samsung fridge Comp Overvoltage Error"
+      ],
+      "source": "Samsung Refrigerator Service Manual (1 door type: RR39M7*, RR39T7*, RZ32R*, RZ32M7*, RZ32T7*, RZ11M7*)",
+      "page_range": [
+        57,
+        57
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RR39M7_p57_comp_overvoltage",
+      "severity": "medium",
+      "difficulty": "hard",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "จอแสดงตัวเลขของตู้เย็น (Fridge 7-Segment) แสดงรหัส 86 ใช่หรือไม่? (คู่มือหน้า 57)",
+          "on_yes": "n_escalate",
+          "on_no": "n_nomatch"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "รหัส 86 หมายถึงแรงดันไฟเข้าของคอมเพรสเซอร์สูงเกินไป (คู่มือหน้า 57) ขั้นตอนตรวจตามคู่มือคือตรวจแรงดันไฟเข้า (คู่มือหน้า 59 และ 61) ซึ่งเป็นงานของช่าง ให้ติดต่อศูนย์บริการ Samsung ในพื้นที่หรือร้านค้าที่ซื้อเครื่อง (คู่มือหน้า 19 ใช้ถ้อยคำ 'contact a local Samsung service center or retailer' ในหัวข้อเครือข่าย คู่มือเล่มนี้ไม่มีเบอร์ติดต่อ) และอย่าถอดแยกหรือซ่อมแซมตู้เย็นเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติจนบาดเจ็บ (คู่มือหน้า 7 และ 24) พร้อมแจ้งรหัสที่แสดง",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_nomatch",
+          "type": "escalation",
+          "content": "ถ้าจอไม่ได้แสดงรหัส 86 (คู่มือหน้า 57) ให้เลือกอาการที่ตรงกับที่เห็น หรือติดต่อศูนย์บริการ Samsung ในพื้นที่หรือร้านค้าที่ซื้อเครื่อง (คู่มือหน้า 19 ใช้ถ้อยคำ 'contact a local Samsung service center or retailer' ในหัวข้อเครือข่าย คู่มือเล่มนี้ไม่มีเบอร์ติดต่อ) และอย่าถอดแยกหรือซ่อมแซมตู้เย็นเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติจนบาดเจ็บ (คู่มือหน้า 7 และ 24)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_rr39m7_um_comp_ipm_shutdown",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RR39M7*/RR39T7*/RZ32R*/RZ32M7*/RZ32T7*/RZ11M7*",
+      "entry_symptom": "Comp IPM Shut down Error 96 96 96",
+      "entry_symptom_th": "จอตู้เย็นแสดงรหัส 96 (IPM ของคอมเพรสเซอร์ปิดการทำงาน)",
+      "entry_symptom_aliases": [
+        "ตู้เย็นขึ้นรหัส 96",
+        "refrigerator error code 96",
+        "Samsung fridge Comp IPM Shut down Error"
+      ],
+      "source": "Samsung Refrigerator Service Manual (1 door type: RR39M7*, RR39T7*, RZ32R*, RZ32M7*, RZ32T7*, RZ11M7*)",
+      "page_range": [
+        57,
+        57
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RR39M7_p57_comp_ipm_shutdown",
+      "severity": "medium",
+      "difficulty": "hard",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "จอแสดงตัวเลขของตู้เย็น (Fridge 7-Segment) แสดงรหัส 96 ใช่หรือไม่? (คู่มือหน้า 57)",
+          "on_yes": "n_escalate",
+          "on_no": "n_nomatch"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "รหัส 96 หมายถึงเกิดข้อผิดพลาดแบบ IPM ปิดการทำงาน (IPM Shut Down) ของคอมเพรสเซอร์ (คู่มือหน้า 57) คู่มือไม่มีขั้นตอนที่ผู้ใช้ตรวจเองได้สำหรับรหัสนี้ ให้ติดต่อศูนย์บริการ Samsung ในพื้นที่หรือร้านค้าที่ซื้อเครื่อง (คู่มือหน้า 19 ใช้ถ้อยคำ 'contact a local Samsung service center or retailer' ในหัวข้อเครือข่าย คู่มือเล่มนี้ไม่มีเบอร์ติดต่อ) และอย่าถอดแยกหรือซ่อมแซมตู้เย็นเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติจนบาดเจ็บ (คู่มือหน้า 7 และ 24) พร้อมแจ้งรหัสที่แสดง",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_nomatch",
+          "type": "escalation",
+          "content": "ถ้าจอไม่ได้แสดงรหัส 96 (คู่มือหน้า 57) ให้เลือกอาการที่ตรงกับที่เห็น หรือติดต่อศูนย์บริการ Samsung ในพื้นที่หรือร้านค้าที่ซื้อเครื่อง (คู่มือหน้า 19 ใช้ถ้อยคำ 'contact a local Samsung service center or retailer' ในหัวข้อเครือข่าย คู่มือเล่มนี้ไม่มีเบอร์ติดต่อ) และอย่าถอดแยกหรือซ่อมแซมตู้เย็นเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติจนบาดเจ็บ (คู่มือหน้า 7 และ 24)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_rr39m7_um_comp_communication",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RR39M7*/RR39T7*/RZ32R*/RZ32M7*/RZ32T7*/RZ11M7*",
+      "entry_symptom": "Comp Communication Error 44 44 44",
+      "entry_symptom_th": "จอตู้เย็นแสดงรหัส 44 (การสื่อสารคอมเพรสเซอร์ผิดพลาด)",
+      "entry_symptom_aliases": [
+        "ตู้เย็นขึ้นรหัส 44",
+        "refrigerator error code 44",
+        "Samsung fridge Comp Communication Error"
+      ],
+      "source": "Samsung Refrigerator Service Manual (1 door type: RR39M7*, RR39T7*, RZ32R*, RZ32M7*, RZ32T7*, RZ11M7*)",
+      "page_range": [
+        57,
+        57
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RR39M7_p57_comp_communication",
+      "severity": "medium",
+      "difficulty": "hard",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "จอแสดงตัวเลขของตู้เย็น (Fridge 7-Segment) แสดงรหัส 44 ใช่หรือไม่? (คู่มือหน้า 57)",
+          "on_yes": "n_escalate",
+          "on_no": "n_nomatch"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "รหัส 44 หมายถึงการสื่อสารระหว่างคอมเพรสเซอร์กับไมคอม (Micom) ผิดพลาด (คู่มือหน้า 57) คู่มือไม่มีขั้นตอนที่ผู้ใช้ตรวจเองได้สำหรับรหัสนี้ ให้ติดต่อศูนย์บริการ Samsung ในพื้นที่หรือร้านค้าที่ซื้อเครื่อง (คู่มือหน้า 19 ใช้ถ้อยคำ 'contact a local Samsung service center or retailer' ในหัวข้อเครือข่าย คู่มือเล่มนี้ไม่มีเบอร์ติดต่อ) และอย่าถอดแยกหรือซ่อมแซมตู้เย็นเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติจนบาดเจ็บ (คู่มือหน้า 7 และ 24) พร้อมแจ้งรหัสที่แสดง",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_nomatch",
+          "type": "escalation",
+          "content": "ถ้าจอไม่ได้แสดงรหัส 44 (คู่มือหน้า 57) ให้เลือกอาการที่ตรงกับที่เห็น หรือติดต่อศูนย์บริการ Samsung ในพื้นที่หรือร้านค้าที่ซื้อเครื่อง (คู่มือหน้า 19 ใช้ถ้อยคำ 'contact a local Samsung service center or retailer' ในหัวข้อเครือข่าย คู่มือเล่มนี้ไม่มีเบอร์ติดต่อ) และอย่าถอดแยกหรือซ่อมแซมตู้เย็นเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติจนบาดเจ็บ (คู่มือหน้า 7 และ 24)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_rr39m7_um_exterior_humidity_sensor",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RR39M7*/RR39T7*/RZ32R*/RZ32M7*/RZ32T7*/RZ11M7*",
+      "entry_symptom": "Exterior Humidity Sensor Error 13 13 13",
+      "entry_symptom_th": "จอตู้เย็นแสดงรหัส 13 (เซนเซอร์ความชื้นภายนอก)",
+      "entry_symptom_aliases": [
+        "ตู้เย็นขึ้นรหัส 13",
+        "refrigerator error code 13",
+        "Samsung fridge Exterior Humidity Sensor Error"
+      ],
+      "source": "Samsung Refrigerator Service Manual (1 door type: RR39M7*, RR39T7*, RZ32R*, RZ32M7*, RZ32T7*, RZ11M7*)",
+      "page_range": [
+        57,
+        57
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RR39M7_p57_exterior_humidity_sensor",
+      "severity": "medium",
+      "difficulty": "hard",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "จอแสดงตัวเลขของตู้เย็น (Fridge 7-Segment) แสดงรหัส 13 ใช่หรือไม่? (คู่มือหน้า 57)",
+          "on_yes": "n_escalate",
+          "on_no": "n_nomatch"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "รหัส 13 หมายถึงเซนเซอร์ความชื้นภายนอกเปิดวงจรหรือลัดวงจร (คู่มือหน้า 57) ขั้นตอนตรวจตามคู่มือคือวัดแรงดันที่ขั้วต่อบนแผงวงจรหลัก (คู่มือหน้า 61) ซึ่งเป็นงานของช่าง ให้ติดต่อศูนย์บริการ Samsung ในพื้นที่หรือร้านค้าที่ซื้อเครื่อง (คู่มือหน้า 19 ใช้ถ้อยคำ 'contact a local Samsung service center or retailer' ในหัวข้อเครือข่าย คู่มือเล่มนี้ไม่มีเบอร์ติดต่อ) และอย่าถอดแยกหรือซ่อมแซมตู้เย็นเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติจนบาดเจ็บ (คู่มือหน้า 7 และ 24) พร้อมแจ้งรหัสที่แสดง",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_nomatch",
+          "type": "escalation",
+          "content": "ถ้าจอไม่ได้แสดงรหัส 13 (คู่มือหน้า 57) ให้เลือกอาการที่ตรงกับที่เห็น หรือติดต่อศูนย์บริการ Samsung ในพื้นที่หรือร้านค้าที่ซื้อเครื่อง (คู่มือหน้า 19 ใช้ถ้อยคำ 'contact a local Samsung service center or retailer' ในหัวข้อเครือข่าย คู่มือเล่มนี้ไม่มีเบอร์ติดต่อ) และอย่าถอดแยกหรือซ่อมแซมตู้เย็นเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติจนบาดเจ็บ (คู่มือหน้า 7 และ 24)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_rr39m7_um_wifi_communication",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RR39M7*/RR39T7*/RZ32R*/RZ32M7*/RZ32T7*/RZ11M7*",
+      "entry_symptom": "WiFi Communication Error 52 52 52",
+      "entry_symptom_th": "จอตู้เย็นแสดงรหัส 52 (การสื่อสาร Wi-Fi ผิดพลาด)",
+      "entry_symptom_aliases": [
+        "ตู้เย็นขึ้นรหัส 52",
+        "refrigerator error code 52",
+        "Samsung fridge WiFi Communication Error"
+      ],
+      "source": "Samsung Refrigerator Service Manual (1 door type: RR39M7*, RR39T7*, RZ32R*, RZ32M7*, RZ32T7*, RZ11M7*)",
+      "page_range": [
+        57,
+        57
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RR39M7_p57_wifi_communication",
+      "severity": "medium",
+      "difficulty": "hard",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "จอแสดงตัวเลขของตู้เย็น (Fridge 7-Segment) แสดงรหัส 52 ใช่หรือไม่? (คู่มือหน้า 57)",
+          "on_yes": "n_escalate",
+          "on_no": "n_nomatch"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "รหัส 52 หมายถึงการสื่อสารระหว่างโมดูล Wi-Fi กับไมคอม (Micom) ผิดพลาด (คู่มือหน้า 57) ขั้นตอนตรวจตามคู่มือคือตรวจการเชื่อมต่อระหว่างแผงวงจรหลักกับโมดูล Wi-Fi (คู่มือหน้า 61) ซึ่งเป็นงานของช่าง ให้ติดต่อศูนย์บริการ Samsung ในพื้นที่หรือร้านค้าที่ซื้อเครื่อง (คู่มือหน้า 19 ใช้ถ้อยคำ 'contact a local Samsung service center or retailer' ในหัวข้อเครือข่าย คู่มือเล่มนี้ไม่มีเบอร์ติดต่อ) และอย่าถอดแยกหรือซ่อมแซมตู้เย็นเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติจนบาดเจ็บ (คู่มือหน้า 7 และ 24) พร้อมแจ้งรหัสที่แสดง",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_nomatch",
+          "type": "escalation",
+          "content": "ถ้าจอไม่ได้แสดงรหัส 52 (คู่มือหน้า 57) ให้เลือกอาการที่ตรงกับที่เห็น หรือติดต่อศูนย์บริการ Samsung ในพื้นที่หรือร้านค้าที่ซื้อเครื่อง (คู่มือหน้า 19 ใช้ถ้อยคำ 'contact a local Samsung service center or retailer' ในหัวข้อเครือข่าย คู่มือเล่มนี้ไม่มีเบอร์ติดต่อ) และอย่าถอดแยกหรือซ่อมแซมตู้เย็นเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติจนบาดเจ็บ (คู่มือหน้า 7 และ 24)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    }
+  ]
+}

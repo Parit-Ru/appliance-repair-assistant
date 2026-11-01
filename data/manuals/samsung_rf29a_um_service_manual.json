@@ -1,0 +1,2208 @@
+{
+  "manual_id": "samsung_rf29a_um_service_manual",
+  "device_category": "Refrigerator",
+  "brand": "Samsung",
+  "model_pattern": "RF29A*/RF23A*",
+  "source_manual": "Samsung French Door Refrigerator Service Manual (RF29A* / RF23A*, model code RF**A9071* etc.)",
+  "count": 30,
+  "flows": [
+    {
+      "flow_id": "samsung_rf29a_um_spurting_spitting_sound",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RF29A*/RF23A*",
+      "entry_symptom": "Spurting, spitting sound",
+      "entry_symptom_th": "ตู้เย็นมีเสียงฟู่หรือเสียงของเหลวไหล",
+      "entry_symptom_aliases": [
+        "ตู้เย็นมีเสียงน้ำไหล",
+        "ตู้เย็นมีเสียงฟู่",
+        "ตู้เย็นมีเสียงจิ๊กๆ",
+        "fridge gurgling sound",
+        "refrigerator spitting sound"
+      ],
+      "source": "Samsung French Door Refrigerator Service Manual (RF29A* / RF23A*, model code RF**A9071* etc.)",
+      "page_range": [
+        145,
+        145
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RF29A_p145_spurting_spitting_sound",
+      "severity": "low",
+      "difficulty": "easy",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "ได้ยินเสียงฟู่ เสียงพ่น หรือเสียงเหมือนของเหลวไหลในตู้เย็นใช่หรือไม่?",
+          "on_yes": "n1n",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n1n",
+          "type": "resolution",
+          "content": "เสียงนี้อาจเกิดเมื่อสารทำความเย็นภายในตู้ไหลในสภาพก๊าซและของเหลว และน้ำแข็งที่เกาะอยู่ที่คอยล์เย็นอาจทำให้เกิดเสียงคล้าย ‘chik-chik’ หรือ ‘bukbuk’ เมื่อน้ำแข็งละลาย คู่มือระบุว่าเป็นเรื่องปกติและไม่ใช่ปัญหา ใช้งานตู้เย็นต่อได้ (คู่มือหน้า 145)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการที่ผู้ใช้ตรวจเองได้ตามคู่มือ ให้ติดต่อศูนย์บริการ Samsung ที่ได้รับอนุญาต (คู่มือหน้า 2 ระบุว่าความเสียหายจากการซ่อมโดยผู้ที่ไม่ใช่ผู้ให้บริการที่ได้รับอนุญาตของ Samsung ไม่อยู่ในการรับประกัน ข้อมูลเพิ่มเติมที่ http://samsung.com/support) และอย่าถอดแยกหรือซ่อมแซมเครื่องเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติ (คู่มือหน้า 6) พร้อมแจ้งรุ่นตู้เย็น อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_rf29a_um_tapping_sound",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RF29A*/RF23A*",
+      "entry_symptom": "Tapping sound",
+      "entry_symptom_th": "ตู้เย็นมีเสียงเคาะ",
+      "entry_symptom_aliases": [
+        "ตู้เย็นมีเสียงแกร๊ก",
+        "ตู้เย็นมีเสียงก๊อกแก๊ก",
+        "ตู้เย็นมีเสียงดังป๊อก",
+        "fridge tapping sound",
+        "refrigerator cracking noise"
+      ],
+      "source": "Samsung French Door Refrigerator Service Manual (RF29A* / RF23A*, model code RF**A9071* etc.)",
+      "page_range": [
+        145,
+        145
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RF29A_p145_tapping_sound",
+      "severity": "low",
+      "difficulty": "easy",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "ได้ยินเสียงเคาะหรือเสียงแกร๊กจากภายในตู้เย็นใช่หรือไม่?",
+          "on_yes": "n1n",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n1n",
+          "type": "resolution",
+          "content": "เสียงนี้อาจเกิดเมื่อชิ้นส่วนภายในตู้เย็นขยายหรือหดตัวตามอุณหภูมิภายในที่เปลี่ยนไป และอาจได้ยินเสียงคล้ายกันเมื่อน้ำแข็งที่เกาะคอยล์เย็นละลาย คู่มือระบุว่าเป็นเรื่องปกติและไม่ใช่ปัญหา ใช้งานตู้เย็นต่อได้ (คู่มือหน้า 145)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการที่ผู้ใช้ตรวจเองได้ตามคู่มือ ให้ติดต่อศูนย์บริการ Samsung ที่ได้รับอนุญาต (คู่มือหน้า 2 ระบุว่าความเสียหายจากการซ่อมโดยผู้ที่ไม่ใช่ผู้ให้บริการที่ได้รับอนุญาตของ Samsung ไม่อยู่ในการรับประกัน ข้อมูลเพิ่มเติมที่ http://samsung.com/support) และอย่าถอดแยกหรือซ่อมแซมเครื่องเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติ (คู่มือหน้า 6) พร้อมแจ้งรุ่นตู้เย็น อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_rf29a_um_whining_humming_sound",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RF29A*/RF23A*",
+      "entry_symptom": "Whining or humming sound",
+      "entry_symptom_th": "ตู้เย็นมีเสียงหึ่งหรือเสียงอื้อ",
+      "entry_symptom_aliases": [
+        "ตู้เย็นมีเสียงหึ่งๆ",
+        "ตู้เย็นมีเสียงคอมเพรสเซอร์ดัง",
+        "ตู้เย็นมีเสียงพัดลมดัง",
+        "fridge humming sound",
+        "refrigerator whining noise"
+      ],
+      "source": "Samsung French Door Refrigerator Service Manual (RF29A* / RF23A*, model code RF**A9071* etc.)",
+      "page_range": [
+        145,
+        145
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RF29A_p145_whining_humming_sound",
+      "severity": "low",
+      "difficulty": "easy",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "ได้ยินเสียงหึ่งหรือเสียงอื้อจากคอมเพรสเซอร์หรือพัดลมตอนตู้เย็นเริ่มหรือหยุดทำงานใช่หรือไม่?",
+          "on_yes": "n1n",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n1n",
+          "type": "resolution",
+          "content": "เสียงนี้อาจเกิดจากคอมเพรสเซอร์หรือพัดลมเมื่อตู้เย็นเริ่มหรือหยุดทำงาน และอาจดังหรือเบาลงตามความเร็วรอบที่เปลี่ยนไปตามอุณหภูมิโดยรอบหรือสภาพภายในตู้ คู่มือเปรียบเทียบกับเสียงตอนสตาร์ทหรือดับเครื่องยนต์ของรถ และระบุว่าเป็นเรื่องปกติและไม่ใช่ปัญหา (คู่มือหน้า 145)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการที่ผู้ใช้ตรวจเองได้ตามคู่มือ ให้ติดต่อศูนย์บริการ Samsung ที่ได้รับอนุญาต (คู่มือหน้า 2 ระบุว่าความเสียหายจากการซ่อมโดยผู้ที่ไม่ใช่ผู้ให้บริการที่ได้รับอนุญาตของ Samsung ไม่อยู่ในการรับประกัน ข้อมูลเพิ่มเติมที่ http://samsung.com/support) และอย่าถอดแยกหรือซ่อมแซมเครื่องเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติ (คู่มือหน้า 6) พร้อมแจ้งรุ่นตู้เย็น อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_rf29a_um_new_fridge_loud_noise",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RF29A*/RF23A*",
+      "entry_symptom": "The refrigerator has just been installed but the noise is too loud!",
+      "entry_symptom_th": "เพิ่งติดตั้งตู้เย็นแต่เสียงดังมาก",
+      "entry_symptom_aliases": [
+        "ตู้เย็นใหม่เสียงดัง",
+        "ตู้เย็นเสียงดังหลังเสียบปลั๊ก",
+        "ตู้เย็นเสียงดังหลังไฟดับ",
+        "new fridge too loud",
+        "refrigerator loud after power cut"
+      ],
+      "source": "Samsung French Door Refrigerator Service Manual (RF29A* / RF23A*, model code RF**A9071* etc.)",
+      "page_range": [
+        145,
+        145
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RF29A_p145_new_fridge_loud_noise",
+      "severity": "low",
+      "difficulty": "easy",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "ตู้เย็นเพิ่งเริ่มทำงานครั้งแรก หรือเพิ่งเริ่มทำงานใหม่หลังไฟดับใช่หรือไม่?",
+          "on_yes": "n1n",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n1n",
+          "type": "resolution",
+          "content": "เมื่อตู้เย็นเริ่มทำงานครั้งแรกหรือเริ่มใหม่หลังไฟดับ คอมเพรสเซอร์และพัดลมจะหมุนเร็วขึ้นเพื่อลดอุณหภูมิภายใน เสียงจึงอาจดัง แต่จะเบาลงเมื่ออุณหภูมิภายในลดลง คู่มือระบุว่าเป็นเรื่องปกติและไม่ใช่ปัญหา (คู่มือหน้า 145) และเมื่อเปิดเครื่องครั้งแรก คอมเพรสเซอร์กับพัดลมจะทำงานต่อเนื่อง 3 นาทีโดยไม่คำนึงถึงสภาวะการทำงาน (คู่มือหน้า 111)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการที่ผู้ใช้ตรวจเองได้ตามคู่มือ ให้ติดต่อศูนย์บริการ Samsung ที่ได้รับอนุญาต (คู่มือหน้า 2 ระบุว่าความเสียหายจากการซ่อมโดยผู้ที่ไม่ใช่ผู้ให้บริการที่ได้รับอนุญาตของ Samsung ไม่อยู่ในการรับประกัน ข้อมูลเพิ่มเติมที่ http://samsung.com/support) และอย่าถอดแยกหรือซ่อมแซมเครื่องเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติ (คู่มือหน้า 6) พร้อมแจ้งรุ่นตู้เย็น อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_rf29a_um_vacuum_sound",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RF29A*/RF23A*",
+      "entry_symptom": "vacuum sound",
+      "entry_symptom_th": "ตู้เย็นมีเสียงลมดูดหลังเปิดปิดประตู",
+      "entry_symptom_aliases": [
+        "ตู้เย็นมีเสียงฟุ่บหลังปิดประตู",
+        "ตู้เย็นมีเสียงลมจากด้านหลัง",
+        "ตู้เย็นมีเสียงดึ๊กๆ",
+        "fridge vacuum sound",
+        "refrigerator air sound after closing door"
+      ],
+      "source": "Samsung French Door Refrigerator Service Manual (RF29A* / RF23A*, model code RF**A9071* etc.)",
+      "page_range": [
+        145,
+        145
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RF29A_p145_vacuum_sound",
+      "severity": "low",
+      "difficulty": "easy",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "ได้ยินเสียงลมไหลจากด้านหลังตู้เย็นหรือเสียงดึ๊กๆ หลังเปิดและปิดประตูใช่หรือไม่?",
+          "on_yes": "n1n",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n1n",
+          "type": "resolution",
+          "content": "เมื่อเปิดแล้วปิดประตู อากาศที่ค้างอยู่ในตู้จะเย็นลงอย่างรวดเร็วและทำให้ความดันภายในลดลงชั่วคราว อาจเกิดเสียงลมไหลจากด้านหลังตู้คล้าย ‘shik~’ หรือโครงสร้างภายในบิดเบี้ยวชั่วคราวจนเกิดเสียงคล้าย ‘ddudduk’ คู่มือระบุว่าเป็นเรื่องปกติและไม่ใช่ปัญหา (คู่มือหน้า 145)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการที่ผู้ใช้ตรวจเองได้ตามคู่มือ ให้ติดต่อศูนย์บริการ Samsung ที่ได้รับอนุญาต (คู่มือหน้า 2 ระบุว่าความเสียหายจากการซ่อมโดยผู้ที่ไม่ใช่ผู้ให้บริการที่ได้รับอนุญาตของ Samsung ไม่อยู่ในการรับประกัน ข้อมูลเพิ่มเติมที่ http://samsung.com/support) และอย่าถอดแยกหรือซ่อมแซมเครื่องเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติ (คู่มือหน้า 6) พร้อมแจ้งรุ่นตู้เย็น อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_rf29a_um_loud_noise_strange_sound",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RF29A*/RF23A*",
+      "entry_symptom": "There is a loud noise as well as a strange sound.",
+      "entry_symptom_th": "ตู้เย็นมีเสียงดังและเสียงแปลกๆ",
+      "entry_symptom_aliases": [
+        "ตู้เย็นเสียงดังผิดปกติ",
+        "ตู้เย็นสั่น",
+        "ตู้เย็นมีเสียงแปลก",
+        "refrigerator loud strange noise",
+        "fridge vibrating"
+      ],
+      "source": "Samsung French Door Refrigerator Service Manual (RF29A* / RF23A*, model code RF**A9071* etc.)",
+      "page_range": [
+        145,
+        145
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RF29A_p145_loud_noise_strange_sound",
+      "severity": "low",
+      "difficulty": "easy",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "ตู้เย็นตั้งอยู่บนพื้นเรียบและแข็งแรงใช่หรือไม่?",
+          "on_yes": "n2",
+          "on_no": "n1f"
+        },
+        {
+          "state_id": "n1f",
+          "type": "instruction",
+          "content": "ย้ายตู้เย็นไปตั้งบนพื้นเรียบและแข็งแรง (คู่มือหน้า 145)",
+          "safety_critical": true,
+          "safety_warning": "เมื่อต้องเลื่อนตู้เย็น ให้ดึงตรงออกมาและดันกลับตรงๆ (คู่มือหน้า 7)",
+          "author_note": "ข้อความเตือนนี้มาจากหัวข้อการเคลื่อนย้ายตู้เย็นหน้า 7 ผู้พัฒนาโยงมาใช้กับขั้นตอนที่ต้องเลื่อนหรือย้ายตู้เย็น",
+          "next": "n1v"
+        },
+        {
+          "state_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "state_id": "n2",
+          "type": "checkpoint",
+          "question": "ด้านหลังตู้เย็นห่างจากผนังอย่างน้อย 5 ซม. ใช่หรือไม่?",
+          "on_yes": "n3",
+          "on_no": "n2f"
+        },
+        {
+          "state_id": "n2f",
+          "type": "instruction",
+          "content": "เลื่อนตู้เย็นให้ด้านหลังห่างจากผนังอย่างน้อย 5 ซม. (คู่มือหน้า 145)",
+          "safety_critical": true,
+          "safety_warning": "เมื่อต้องเลื่อนตู้เย็น ให้ดึงตรงออกมาและดันกลับตรงๆ (คู่มือหน้า 7)",
+          "author_note": "ข้อความเตือนนี้มาจากหัวข้อการเคลื่อนย้ายตู้เย็นหน้า 7 ผู้พัฒนาโยงมาใช้กับขั้นตอนที่ต้องเลื่อนหรือย้ายตู้เย็น",
+          "next": "n2v"
+        },
+        {
+          "state_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "state_id": "n3",
+          "type": "checkpoint",
+          "question": "ไม่มีสิ่งของวางชิดด้านหลังและด้านข้างตู้เย็นใช่หรือไม่?",
+          "on_yes": "n4",
+          "on_no": "n3f"
+        },
+        {
+          "state_id": "n3f",
+          "type": "instruction",
+          "content": "นำสิ่งของที่วางชิดด้านหลังและด้านข้างตู้เย็นออก (คู่มือหน้า 145)",
+          "next": "n3v"
+        },
+        {
+          "state_id": "n3v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "on_yes": "n_resolved",
+          "on_no": "n4"
+        },
+        {
+          "state_id": "n4",
+          "type": "checkpoint",
+          "question": "ไม่มีของหนักวางอยู่บนตู้เย็นใช่หรือไม่?",
+          "on_yes": "n_escalate",
+          "on_no": "n4f"
+        },
+        {
+          "state_id": "n4f",
+          "type": "instruction",
+          "content": "นำของหนักที่วางอยู่บนตู้เย็นออก (คู่มือหน้า 145)",
+          "next": "n4v"
+        },
+        {
+          "state_id": "n4v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n_resolved",
+          "type": "resolution",
+          "content": "เสียงดังและเสียงแปลกหายแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการที่ผู้ใช้ตรวจเองได้ตามคู่มือ ให้ติดต่อศูนย์บริการ Samsung ที่ได้รับอนุญาต (คู่มือหน้า 2 ระบุว่าความเสียหายจากการซ่อมโดยผู้ที่ไม่ใช่ผู้ให้บริการที่ได้รับอนุญาตของ Samsung ไม่อยู่ในการรับประกัน ข้อมูลเพิ่มเติมที่ http://samsung.com/support) และอย่าถอดแยกหรือซ่อมแซมเครื่องเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติ (คู่มือหน้า 6) พร้อมแจ้งรุ่นตู้เย็น อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_rf29a_um_odd_smell_inside",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RF29A*/RF23A*",
+      "entry_symptom": "There is an odd smell coming from inside the refrigerator.",
+      "entry_symptom_th": "มีกลิ่นแปลกๆ ในตู้เย็น",
+      "entry_symptom_aliases": [
+        "ตู้เย็นมีกลิ่นเหม็น",
+        "ตู้เย็นมีกลิ่นอับ",
+        "กลิ่นในตู้เย็น",
+        "refrigerator smell",
+        "fridge odor"
+      ],
+      "source": "Samsung French Door Refrigerator Service Manual (RF29A* / RF23A*, model code RF**A9071* etc.)",
+      "page_range": [
+        145,
+        145
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RF29A_p145_odd_smell_inside",
+      "severity": "low",
+      "difficulty": "easy",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "มีอาหารกลิ่นแรงที่ไม่ได้ปิดฝาหรือห่อ หรือมีอาหารที่เก็บไว้ในตู้เย็นนานใช่หรือไม่?",
+          "on_yes": "n1f",
+          "on_no": "n2"
+        },
+        {
+          "state_id": "n1f",
+          "type": "instruction",
+          "content": "ปิดฝาภาชนะหรือห่ออาหารที่มีกลิ่นแรง โดยเฉพาะเนื้อสัตว์และปลาแห้งให้ห่อด้วยถุงพลาสติก และนำอาหารที่เก็บไว้นานออก (คู่มือหน้า 145)",
+          "next": "n1v"
+        },
+        {
+          "state_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "state_id": "n2",
+          "type": "checkpoint",
+          "question": "ตู้เย็นรุ่นนี้มี UV Deodorizing Filter และตั้งไว้เป็น Off ใช่หรือไม่?",
+          "on_yes": "n2f",
+          "on_no": "n3"
+        },
+        {
+          "state_id": "n2f",
+          "type": "instruction",
+          "content": "เปิด UV Deodorizing Filter เป็น On ที่ More Options > UV Deodorizing Filter (เฉพาะบางรุ่น) (คู่มือหน้า 23 และ 27)",
+          "author_note": "หน้า 27 ระบุเพียงว่าเปิดหรือปิด UV Deodorizing Filter ได้ ส่วนหน้า 9 อธิบายว่าช่วยลดกลิ่นจากแบคทีเรียและมีเฉพาะบางรุ่น ผู้พัฒนาโยงเข้ากับอาการกลิ่น",
+          "next": "n2v"
+        },
+        {
+          "state_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "state_id": "n3",
+          "type": "instruction",
+          "content": "ทำความสะอาดด้านใน: ย้ายอาหารไปเก็บที่อื่น ถอดปลั๊กไฟ รอ 2~3 ชั่วโมง เช็ดด้านในด้วยผ้าแห้ง แล้วเปิดระบายอากาศภายในตู้เย็น (คู่มือหน้า 145)",
+          "safety_critical": true,
+          "safety_warning": "ถอดปลั๊กไฟตู้เย็นออกจากเต้ารับก่อนทำความสะอาดภายใน เพื่อป้องกันไฟฟ้าดูด (คู่มือหน้า 145 และ 5)",
+          "author_note": "หน้า 145 สั่งให้ถอดปลั๊กไฟก่อนทำความสะอาดภายใน ส่วนเหตุผลเรื่องไฟฟ้าดูดผู้พัฒนาโยงมาจากหน้า 5 ('Unplug the product ... To prevent electric shock') ซึ่งคู่มือเขียนไว้กับการเปลี่ยนหลอดไฟภายใน",
+          "next": "n3v"
+        },
+        {
+          "state_id": "n3v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "on_yes": "n_resolved",
+          "on_no": "n4"
+        },
+        {
+          "state_id": "n4",
+          "type": "instruction",
+          "content": "ใส่ขนมปังแผ่น เมล็ดกาแฟ ถ่านไม้เนื้อแข็ง หรือแผ่นทองแดงไว้ในตู้เย็นเพื่อดูดกลิ่น (คู่มือหน้า 145)",
+          "next": "n4v"
+        },
+        {
+          "state_id": "n4v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n_resolved",
+          "type": "resolution",
+          "content": "กลิ่นแปลกๆ ในตู้เย็นหายแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการที่ผู้ใช้ตรวจเองได้ตามคู่มือ ให้ติดต่อศูนย์บริการ Samsung ที่ได้รับอนุญาต (คู่มือหน้า 2 ระบุว่าความเสียหายจากการซ่อมโดยผู้ที่ไม่ใช่ผู้ให้บริการที่ได้รับอนุญาตของ Samsung ไม่อยู่ในการรับประกัน ข้อมูลเพิ่มเติมที่ http://samsung.com/support) และอย่าถอดแยกหรือซ่อมแซมเครื่องเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติ (คู่มือหน้า 6) พร้อมแจ้งรุ่นตู้เย็น อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_rf29a_um_door_hard_to_open",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RF29A*/RF23A*",
+      "entry_symptom": "I can't easily open the refrigerator door.",
+      "entry_symptom_th": "เปิดประตูตู้เย็นยาก",
+      "entry_symptom_aliases": [
+        "ประตูตู้เย็นเปิดยาก",
+        "ประตูตู้เย็นฝืด",
+        "เปิดประตูตู้เย็นไม่ออก",
+        "refrigerator door hard to open",
+        "fridge door stuck"
+      ],
+      "source": "Samsung French Door Refrigerator Service Manual (RF29A* / RF23A*, model code RF**A9071* etc.)",
+      "page_range": [
+        146,
+        146
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RF29A_p146_door_hard_to_open",
+      "severity": "low",
+      "difficulty": "easy",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "ด้านหน้าตู้เย็นสูงกว่าด้านหลังใช่หรือไม่?",
+          "on_yes": "n1f",
+          "on_no": "n2"
+        },
+        {
+          "state_id": "n1f",
+          "type": "instruction",
+          "content": "ปรับระดับตู้เย็นด้วยขาปรับความสูงของตู้เย็น (คู่มือหน้า 146)",
+          "next": "n1v"
+        },
+        {
+          "state_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "state_id": "n2",
+          "type": "checkpoint",
+          "question": "ช่องแช่แข็งกับช่องแช่เย็นที่แยกกันประกบกันสนิทโดยไม่มีช่องว่างใช่หรือไม่?",
+          "on_yes": "n2n",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n2n",
+          "type": "resolution",
+          "content": "เพราะช่องแช่แข็งกับช่องแช่เย็นที่แยกกันประกบกันสนิทโดยไม่มีช่องว่าง จึงอาจเปิดประตูได้ยาก (คู่มือหน้า 146)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "state_id": "n_resolved",
+          "type": "resolution",
+          "content": "เปิดประตูได้ง่ายขึ้นแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการที่ผู้ใช้ตรวจเองได้ตามคู่มือ ให้ติดต่อศูนย์บริการ Samsung ที่ได้รับอนุญาต (คู่มือหน้า 2 ระบุว่าความเสียหายจากการซ่อมโดยผู้ที่ไม่ใช่ผู้ให้บริการที่ได้รับอนุญาตของ Samsung ไม่อยู่ในการรับประกัน ข้อมูลเพิ่มเติมที่ http://samsung.com/support) และอย่าถอดแยกหรือซ่อมแซมเครื่องเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติ (คู่มือหน้า 6) พร้อมแจ้งรุ่นตู้เย็น อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_rf29a_um_door_height_gap_different",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RF29A*/RF23A*",
+      "entry_symptom": "The fridge door is lower than the freezer door when I look at the refrigerator from the front. The upper and lower gaps between the freezer door and the fridge door are different.",
+      "entry_symptom_th": "ประตูช่องแช่เย็นต่ำกว่าประตูช่องแช่แข็ง หรือช่องว่างระหว่างประตูบนและล่างไม่เท่ากัน",
+      "entry_symptom_aliases": [
+        "ประตูตู้เย็นไม่เท่ากัน",
+        "ประตูตู้เย็นเหลื่อมกัน",
+        "ช่องว่างระหว่างประตูตู้เย็นไม่เท่ากัน",
+        "fridge doors uneven",
+        "refrigerator door gap different"
+      ],
+      "source": "Samsung French Door Refrigerator Service Manual (RF29A* / RF23A*, model code RF**A9071* etc.)",
+      "page_range": [
+        146,
+        146
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RF29A_p146_door_height_gap_different",
+      "severity": "low",
+      "difficulty": "easy",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "เมื่อมองจากด้านหน้า ประตูช่องแช่เย็นต่ำกว่าประตูช่องแช่แข็ง หรือช่องว่างบนและล่างระหว่างสองประตูไม่เท่ากันใช่หรือไม่?",
+          "on_yes": "n1n",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n1n",
+          "type": "resolution",
+          "content": "เพราะขนาดและน้ำหนักของช่องแช่เย็นกับช่องแช่แข็งไม่เท่ากัน จึงเกิดอาการนี้ได้จากน้ำหนักที่ซ่อนอยู่ และด้วยเหตุผลเดียวกัน ช่องว่างบนและล่างระหว่างประตูอาจไม่เท่ากัน (คู่มือหน้า 146)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการที่ผู้ใช้ตรวจเองได้ตามคู่มือ ให้ติดต่อศูนย์บริการ Samsung ที่ได้รับอนุญาต (คู่มือหน้า 2 ระบุว่าความเสียหายจากการซ่อมโดยผู้ที่ไม่ใช่ผู้ให้บริการที่ได้รับอนุญาตของ Samsung ไม่อยู่ในการรับประกัน ข้อมูลเพิ่มเติมที่ http://samsung.com/support) และอย่าถอดแยกหรือซ่อมแซมเครื่องเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติ (คู่มือหน้า 6) พร้อมแจ้งรุ่นตู้เย็น อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_rf29a_um_freezer_frost_fridge_dew",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RF29A*/RF23A*",
+      "entry_symptom": "The freezer compartment is covered with frost! (The fridge compartment is wet with dew.)",
+      "entry_symptom_th": "ช่องแช่แข็งมีน้ำแข็งเกาะเต็ม (ช่องแช่เย็นมีหยดน้ำ)",
+      "entry_symptom_aliases": [
+        "น้ำแข็งเกาะในช่องแช่แข็ง",
+        "ตู้เย็นมีน้ำแข็งเกาะเยอะ",
+        "ตู้เย็นมีน้ำเกาะ",
+        "freezer covered with frost",
+        "fridge wet with dew"
+      ],
+      "source": "Samsung French Door Refrigerator Service Manual (RF29A* / RF23A*, model code RF**A9071* etc.)",
+      "page_range": [
+        146,
+        146
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RF29A_p146_freezer_frost_fridge_dew",
+      "severity": "low",
+      "difficulty": "easy",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "ประตูตู้เย็นถูกเปิดค้างไว้นานใช่หรือไม่?",
+          "on_yes": "n1f",
+          "on_no": "n2"
+        },
+        {
+          "state_id": "n1f",
+          "type": "instruction",
+          "content": "ปิดประตูให้สนิทและหลีกเลี่ยงการเปิดประตูค้างไว้นาน (คู่มือหน้า 146)",
+          "next": "n1v"
+        },
+        {
+          "state_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "state_id": "n2",
+          "type": "checkpoint",
+          "question": "มีอาหารที่มีน้ำมากเก็บไว้โดยไม่ปิดฝาภาชนะใช่หรือไม่?",
+          "on_yes": "n2f",
+          "on_no": "n3"
+        },
+        {
+          "state_id": "n2f",
+          "type": "instruction",
+          "content": "ปิดฝาภาชนะหรือห่ออาหารที่มีความชื้นสูง (คู่มือหน้า 146)",
+          "next": "n2v"
+        },
+        {
+          "state_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "state_id": "n3",
+          "type": "checkpoint",
+          "question": "อุณหภูมิหรือความชื้นรอบตู้เย็นสูงใช่หรือไม่?",
+          "on_yes": "n3n",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n3n",
+          "type": "resolution",
+          "content": "เมื่ออุณหภูมิหรือความชื้นโดยรอบสูง อาจเกิดน้ำแข็งเกาะหรือหยดน้ำได้ (คู่มือหน้า 146)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "state_id": "n_resolved",
+          "type": "resolution",
+          "content": "น้ำแข็งและหยดน้ำลดลงแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "ถ้าน้ำแข็งเกาะหนามากที่คอยล์เย็น (evaporator) ของช่องแช่เย็น คู่มือฉบับช่างให้ถอดฝาครอบคอยล์เย็นเพื่อตรวจการทำงานของคอมเพรสเซอร์ สารทำความเย็นรั่ว และชิ้นส่วนที่เกี่ยวข้อง (คู่มือหน้า 110) ซึ่งเป็นงานของช่าง ให้ติดต่อศูนย์บริการ Samsung ที่ได้รับอนุญาต (คู่มือหน้า 2 ระบุว่าความเสียหายจากการซ่อมโดยผู้ที่ไม่ใช่ผู้ให้บริการที่ได้รับอนุญาตของ Samsung ไม่อยู่ในการรับประกัน ข้อมูลเพิ่มเติมที่ http://samsung.com/support) และอย่าถอดแยกหรือซ่อมแซมเครื่องเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติ (คู่มือหน้า 6)",
+          "outcome_kind": "handoff_informed"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_rf29a_um_lamp_cover_wet_dew",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RF29A*/RF23A*",
+      "entry_symptom": "The main body of the refrigerator and the internal lamp cover in the freezer compartment are wet with dew.",
+      "entry_symptom_th": "ตัวตู้เย็นและฝาครอบหลอดไฟในช่องแช่แข็งมีหยดน้ำ",
+      "entry_symptom_aliases": [
+        "ฝาครอบไฟช่องแช่แข็งมีน้ำเกาะ",
+        "ตัวตู้เย็นมีหยดน้ำเกาะ",
+        "ตู้เย็นเหงื่อออก",
+        "freezer lamp cover wet",
+        "refrigerator sweating"
+      ],
+      "source": "Samsung French Door Refrigerator Service Manual (RF29A* / RF23A*, model code RF**A9071* etc.)",
+      "page_range": [
+        146,
+        146
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RF29A_p146_lamp_cover_wet_dew",
+      "severity": "low",
+      "difficulty": "easy",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "ประตูช่องแช่แข็งถูกเปิดค้างไว้นานใช่หรือไม่?",
+          "on_yes": "n1f",
+          "on_no": "n2"
+        },
+        {
+          "state_id": "n1f",
+          "type": "instruction",
+          "content": "ปิดประตูให้สนิท เพราะหลอดไฟในช่องแช่แข็งให้ความร้อนเมื่อเปิดประตูนาน น้ำแข็งที่เกาะจะหายไปเมื่อปิดประตู (คู่มือหน้า 146)",
+          "next": "n1v"
+        },
+        {
+          "state_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "state_id": "n2",
+          "type": "checkpoint",
+          "question": "ความชื้นรอบตู้เย็นสูงเกินไปใช่หรือไม่?",
+          "on_yes": "n2n",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n2n",
+          "type": "resolution",
+          "content": "เมื่อความชื้นโดยรอบสูงเกินไป ความชื้นในอากาศอาจกลายเป็นหยดน้ำเมื่อสัมผัสผิวที่เย็นของตู้เย็น (คู่มือหน้า 146)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "state_id": "n_resolved",
+          "type": "resolution",
+          "content": "หยดน้ำหายแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการที่ผู้ใช้ตรวจเองได้ตามคู่มือ ให้ติดต่อศูนย์บริการ Samsung ที่ได้รับอนุญาต (คู่มือหน้า 2 ระบุว่าความเสียหายจากการซ่อมโดยผู้ที่ไม่ใช่ผู้ให้บริการที่ได้รับอนุญาตของ Samsung ไม่อยู่ในการรับประกัน ข้อมูลเพิ่มเติมที่ http://samsung.com/support) และอย่าถอดแยกหรือซ่อมแซมเครื่องเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติ (คู่มือหน้า 6) พร้อมแจ้งรุ่นตู้เย็น อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_rf29a_um_surface_hot",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RF29A*/RF23A*",
+      "entry_symptom": "The surface of the refrigerator is hot!",
+      "entry_symptom_th": "ผิวด้านนอกตู้เย็นร้อน",
+      "entry_symptom_aliases": [
+        "ตู้เย็นร้อน",
+        "ข้างตู้เย็นร้อน",
+        "ตัวตู้เย็นอุ่น",
+        "refrigerator surface hot",
+        "fridge side hot"
+      ],
+      "source": "Samsung French Door Refrigerator Service Manual (RF29A* / RF23A*, model code RF**A9071* etc.)",
+      "page_range": [
+        146,
+        146
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RF29A_p146_surface_hot",
+      "severity": "low",
+      "difficulty": "easy",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "บริเวณด้านหน้าหรือด้านข้างของตู้เย็นรู้สึกร้อนใช่หรือไม่?",
+          "on_yes": "n1n",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n1n",
+          "type": "resolution",
+          "content": "รอบด้านหน้าและด้านข้างของตู้เย็นมีท่อเพื่อทำความเย็นให้อาหารเร็วขึ้นและประหยัดไฟ โดยเฉพาะตอนติดตั้งครั้งแรกหรือหน้าร้อนอาจรู้สึกร้อน คู่มือระบุว่าไม่ใช่ปัญหา (คู่มือหน้า 146)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการที่ผู้ใช้ตรวจเองได้ตามคู่มือ ให้ติดต่อศูนย์บริการ Samsung ที่ได้รับอนุญาต (คู่มือหน้า 2 ระบุว่าความเสียหายจากการซ่อมโดยผู้ที่ไม่ใช่ผู้ให้บริการที่ได้รับอนุญาตของ Samsung ไม่อยู่ในการรับประกัน ข้อมูลเพิ่มเติมที่ http://samsung.com/support) และอย่าถอดแยกหรือซ่อมแซมเครื่องเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติ (คู่มือหน้า 6) พร้อมแจ้งรุ่นตู้เย็น อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_rf29a_um_not_cooling",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RF29A*/RF23A*",
+      "entry_symptom": "The freezer and fridge do not work at all. (The cooling performance is low.)",
+      "entry_symptom_th": "ตู้เย็นไม่เย็น ทั้งช่องแช่แข็งและช่องแช่เย็นไม่ทำงาน",
+      "entry_symptom_aliases": [
+        "ตู้เย็นไม่เย็น",
+        "ตู้เย็นเย็นน้อย",
+        "ช่องแช่แข็งไม่เย็น",
+        "ช่องแช่เย็นไม่เย็น",
+        "refrigerator not cooling",
+        "fridge freezer not cold"
+      ],
+      "source": "Samsung French Door Refrigerator Service Manual (RF29A* / RF23A*, model code RF**A9071* etc.)",
+      "page_range": [
+        146,
+        146
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RF29A_p146_not_cooling",
+      "severity": "medium",
+      "difficulty": "easy",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "ปลั๊กไฟตู้เย็นเสียบแน่นอยู่ใช่หรือไม่?",
+          "on_yes": "n2",
+          "on_no": "n1f"
+        },
+        {
+          "state_id": "n1f",
+          "type": "instruction",
+          "content": "เสียบปลั๊กให้แน่น หรือแก้ปลั๊กที่หลวม (คู่มือหน้า 146 และ 105)",
+          "safety_critical": true,
+          "safety_warning": "ห้ามเสียบเครื่องใช้ไฟฟ้าหลายเครื่องในเต้ารับเดียวกัน และห้ามใช้สายต่อพ่วง ห้ามงอสายไฟแรงๆ หรือวางของหนักทับสายไฟ เพื่อป้องกันไฟไหม้หรือเครื่องทำงานผิดปกติ (คู่มือหน้า 6)",
+          "author_note": "ข้อความเตือนนี้มาจากหัวข้อความปลอดภัยหน้า 6 ของคู่มือ ผู้พัฒนาโยงมาใช้กับขั้นตอนเสียบปลั๊ก",
+          "next": "n1v"
+        },
+        {
+          "state_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "state_id": "n2",
+          "type": "checkpoint",
+          "question": "ตั้งอุณหภูมิเป้าหมายไว้สูง หรือมีไอคอน Lock ติดอยู่ใช่หรือไม่? (ช่องแช่เย็นตั้งได้ 34~44°F (1~7°C) ช่องแช่แข็งตั้งได้ -8~5°F (-23~-15°C) ตามคู่มือหน้า 24)",
+          "on_yes": "n2f",
+          "on_no": "n3"
+        },
+        {
+          "state_id": "n2f",
+          "type": "instruction",
+          "content": "ถ้ามีไอคอน Lock ให้กดปุ่ม Lock ค้างไว้ 3 วินาทีจนไอคอนหายไป แล้วตั้งอุณหภูมิให้ต่ำลง (คู่มือหน้า 146)",
+          "author_note": "แผงควบคุมของรุ่นนี้ (หน้า 23) มีปุ่ม <, ○ และ > ไม่มีปุ่มชื่อ Lock ส่วนตารางหน้า 145-147 เป็นข้อความรวมหลายรุ่น ผู้ใช้ให้ดูปุ่มหรือไอคอนล็อกที่ตรงกับรุ่นของตน",
+          "next": "n2v"
+        },
+        {
+          "state_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "state_id": "n3",
+          "type": "checkpoint",
+          "question": "จอแสดงข้อความ “Cooling Off mode turned on” หรือตู้เย็นถูกตั้งเป็นโหมด Cooling Off (โหมดตั้งโชว์ในร้านค้า) ใช่หรือไม่?",
+          "on_yes": "n3f",
+          "on_no": "n4"
+        },
+        {
+          "state_id": "n3f",
+          "type": "instruction",
+          "content": "ปิดโหมด Cooling Off โดยแตะปุ่ม < และ > ค้างไว้พร้อมกัน 6 วินาที แล้วแตะ ○ (คู่มือหน้า 28) เพราะในโหมดนี้คอมเพรสเซอร์ไม่ทำงาน ตู้เย็นและช่องแช่แข็งจึงไม่เย็น",
+          "next": "n3v"
+        },
+        {
+          "state_id": "n3v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "on_yes": "n_resolved",
+          "on_no": "n4"
+        },
+        {
+          "state_id": "n4",
+          "type": "checkpoint",
+          "question": "ตู้เย็นโดนแสงแดดโดยตรง หรือมีเครื่องทำความร้อนอยู่ใกล้ตู้เย็นใช่หรือไม่?",
+          "on_yes": "n4f",
+          "on_no": "n5"
+        },
+        {
+          "state_id": "n4f",
+          "type": "instruction",
+          "content": "ย้ายตู้เย็นให้พ้นแสงแดดโดยตรงและแหล่งความร้อน (คู่มือหน้า 146)",
+          "safety_critical": true,
+          "safety_warning": "เมื่อต้องเลื่อนตู้เย็น ให้ดึงตรงออกมาและดันกลับตรงๆ (คู่มือหน้า 7)",
+          "author_note": "ข้อความเตือนนี้มาจากหัวข้อการเคลื่อนย้ายตู้เย็นหน้า 7 ผู้พัฒนาโยงมาใช้กับขั้นตอนที่ต้องเลื่อนหรือย้ายตู้เย็น",
+          "next": "n4v"
+        },
+        {
+          "state_id": "n4v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "on_yes": "n_resolved",
+          "on_no": "n5"
+        },
+        {
+          "state_id": "n5",
+          "type": "checkpoint",
+          "question": "ด้านหลังตู้เย็นห่างจากผนังอย่างน้อย 5 ซม. ใช่หรือไม่?",
+          "on_yes": "n_escalate",
+          "on_no": "n5f"
+        },
+        {
+          "state_id": "n5f",
+          "type": "instruction",
+          "content": "เลื่อนตู้เย็นให้ด้านหลังห่างจากผนังอย่างน้อย 5 ซม. (คู่มือหน้า 146)",
+          "safety_critical": true,
+          "safety_warning": "เมื่อต้องเลื่อนตู้เย็น ให้ดึงตรงออกมาและดันกลับตรงๆ (คู่มือหน้า 7)",
+          "author_note": "ข้อความเตือนนี้มาจากหัวข้อการเคลื่อนย้ายตู้เย็นหน้า 7 ผู้พัฒนาโยงมาใช้กับขั้นตอนที่ต้องเลื่อนหรือย้ายตู้เย็น",
+          "next": "n5v"
+        },
+        {
+          "state_id": "n5v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n_resolved",
+          "type": "resolution",
+          "content": "ตู้เย็นกลับมาเย็นตามปกติแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "ถ้าตรวจตามรายการข้างต้นแล้วตู้เย็นยังไม่เย็น ส่วนที่เหลือในคู่มือเป็นงานของช่าง เช่น ตรวจการทำงานของคอมเพรสเซอร์ เซ็นเซอร์ และพัดลม (คู่มือหน้า 106 และ 111) ซึ่งต้องเปิดตัวเครื่องหรือวัดค่าไฟฟ้า ให้ติดต่อศูนย์บริการ Samsung ที่ได้รับอนุญาต (คู่มือหน้า 2 ระบุว่าความเสียหายจากการซ่อมโดยผู้ที่ไม่ใช่ผู้ให้บริการที่ได้รับอนุญาตของ Samsung ไม่อยู่ในการรับประกัน ข้อมูลเพิ่มเติมที่ http://samsung.com/support) และอย่าถอดแยกหรือซ่อมแซมเครื่องเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติ (คู่มือหน้า 6) พร้อมแจ้งรุ่นตู้เย็นและสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_informed"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_rf29a_um_hot_air_from_bottom",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RF29A*/RF23A*",
+      "entry_symptom": "Hot air blows from the bottom of the refrigerator.",
+      "entry_symptom_th": "มีลมร้อนออกจากด้านล่างตู้เย็น",
+      "entry_symptom_aliases": [
+        "ลมร้อนออกจากตู้เย็น",
+        "ใต้ตู้เย็นมีลมร้อน",
+        "ตู้เย็นเป่าลมร้อน",
+        "hot air from bottom of refrigerator",
+        "fridge blowing hot air"
+      ],
+      "source": "Samsung French Door Refrigerator Service Manual (RF29A* / RF23A*, model code RF**A9071* etc.)",
+      "page_range": [
+        146,
+        146
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RF29A_p146_hot_air_from_bottom",
+      "severity": "low",
+      "difficulty": "easy",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "รู้สึกว่ามีลมร้อนออกมาจากด้านล่างของตู้เย็นใช่หรือไม่?",
+          "on_yes": "n1n",
+          "on_no": "n2"
+        },
+        {
+          "state_id": "n1n",
+          "type": "resolution",
+          "content": "ความร้อนถูกระบายออกจากคอมเพรสเซอร์ที่ทำงานเพื่อลดอุณหภูมิภายในตู้ โดยตู้เย็นออกแบบให้ระบายความร้อนออกทางด้านข้าง คู่มือระบุว่าไม่ใช่ปัญหาของตู้เย็น (คู่มือหน้า 146)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "state_id": "n2",
+          "type": "checkpoint",
+          "question": "ด้านข้างของตู้เย็นถูกผนังหรือสิ่งของบังไว้ใช่หรือไม่?",
+          "on_yes": "n2n",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n2n",
+          "type": "resolution",
+          "content": "ถ้าด้านข้างตู้เย็นถูกผนังหรือสิ่งของบังไว้ ผู้ใช้อาจรู้สึกถึงลมร้อนที่ด้านหน้า คู่มือระบุว่าไม่ใช่ปัญหาของตู้เย็น (คู่มือหน้า 146)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการที่ผู้ใช้ตรวจเองได้ตามคู่มือ ให้ติดต่อศูนย์บริการ Samsung ที่ได้รับอนุญาต (คู่มือหน้า 2 ระบุว่าความเสียหายจากการซ่อมโดยผู้ที่ไม่ใช่ผู้ให้บริการที่ได้รับอนุญาตของ Samsung ไม่อยู่ในการรับประกัน ข้อมูลเพิ่มเติมที่ http://samsung.com/support) และอย่าถอดแยกหรือซ่อมแซมเครื่องเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติ (คู่มือหน้า 6) พร้อมแจ้งรุ่นตู้เย็น อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_rf29a_um_fridge_food_frozen",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RF29A*/RF23A*",
+      "entry_symptom": "The food in the fridge compartment is frozen.",
+      "entry_symptom_th": "อาหารในช่องแช่เย็นแข็งตัว",
+      "entry_symptom_aliases": [
+        "อาหารในตู้เย็นแข็ง",
+        "ผักในตู้เย็นแข็ง",
+        "ช่องแช่เย็นเย็นเกินไป",
+        "food frozen in fridge",
+        "refrigerator freezing food"
+      ],
+      "source": "Samsung French Door Refrigerator Service Manual (RF29A* / RF23A*, model code RF**A9071* etc.)",
+      "page_range": [
+        147,
+        147
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RF29A_p147_fridge_food_frozen",
+      "severity": "low",
+      "difficulty": "easy",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "ตั้งอุณหภูมิช่องแช่เย็นไว้ต่ำเกินไปใช่หรือไม่? (ช่องแช่เย็นตั้งได้ 34~44°F (1~7°C) ตามคู่มือหน้า 24)",
+          "on_yes": "n1f",
+          "on_no": "n2"
+        },
+        {
+          "state_id": "n1f",
+          "type": "instruction",
+          "content": "ปรับอุณหภูมิช่องแช่เย็นให้อยู่ในระดับที่เหมาะสม (คู่มือหน้า 147)",
+          "next": "n1v"
+        },
+        {
+          "state_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "state_id": "n2",
+          "type": "checkpoint",
+          "question": "อุณหภูมิโดยรอบตู้เย็นต่ำ 5°C หรือต่ำกว่าใช่หรือไม่?",
+          "on_yes": "n2n",
+          "on_no": "n3"
+        },
+        {
+          "state_id": "n2n",
+          "type": "resolution",
+          "content": "เมื่ออุณหภูมิโดยรอบ 5°C หรือต่ำกว่า อาหารที่เก็บในช่องแช่เย็นอาจแข็งตัวได้ (คู่มือหน้า 147)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "state_id": "n3",
+          "type": "checkpoint",
+          "question": "อาหารที่มีน้ำมากวางอยู่ด้านหลังชั้นวางและสัมผัสลมเย็นโดยตรงใช่หรือไม่?",
+          "on_yes": "n3f",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n3f",
+          "type": "instruction",
+          "content": "วางอาหารที่มีน้ำมากไว้ด้านหน้าชั้นวาง มิฉะนั้นอาหารอาจแข็งตัวจากการสัมผัสลมเย็นภายในช่องโดยตรง (คู่มือหน้า 147)",
+          "next": "n3v"
+        },
+        {
+          "state_id": "n3v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n_resolved",
+          "type": "resolution",
+          "content": "อาหารในช่องแช่เย็นไม่แข็งตัวแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการที่ผู้ใช้ตรวจเองได้ตามคู่มือ ให้ติดต่อศูนย์บริการ Samsung ที่ได้รับอนุญาต (คู่มือหน้า 2 ระบุว่าความเสียหายจากการซ่อมโดยผู้ที่ไม่ใช่ผู้ให้บริการที่ได้รับอนุญาตของ Samsung ไม่อยู่ในการรับประกัน ข้อมูลเพิ่มเติมที่ http://samsung.com/support) และอย่าถอดแยกหรือซ่อมแซมเครื่องเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติ (คู่มือหน้า 6) พร้อมแจ้งรุ่นตู้เย็น อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_rf29a_um_runs_continuously",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RF29A*/RF23A*",
+      "entry_symptom": "The refrigerator does not stop and runs continuously!",
+      "entry_symptom_th": "ตู้เย็นทำงานตลอดไม่หยุด",
+      "entry_symptom_aliases": [
+        "ตู้เย็นเดินตลอดเวลา",
+        "ตู้เย็นไม่ตัด",
+        "พัดลมตู้เย็นหมุนตลอด",
+        "refrigerator runs continuously",
+        "fridge never stops"
+      ],
+      "source": "Samsung French Door Refrigerator Service Manual (RF29A* / RF23A*, model code RF**A9071* etc.)",
+      "page_range": [
+        147,
+        147
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RF29A_p147_runs_continuously",
+      "severity": "low",
+      "difficulty": "easy",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "ได้ยินพัดลมในตู้เย็นทำงานต่อเนื่องแม้คอมเพรสเซอร์หยุดแล้วใช่หรือไม่?",
+          "on_yes": "n1n",
+          "on_no": "n2"
+        },
+        {
+          "state_id": "n1n",
+          "type": "resolution",
+          "content": "แม้คอมเพรสเซอร์ที่ทำความเย็นจะหยุด พัดลมในตู้เย็นยังทำงานต่อเพื่อรักษาการไหลของลมเย็นและอุณหภูมิให้คงที่ คู่มือระบุว่าเป็นเรื่องปกติ (พัดลมจะหยุดเมื่อเปิดประตูช่องแช่แข็งหรือช่องแช่เย็น) (คู่มือหน้า 147)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "state_id": "n2",
+          "type": "checkpoint",
+          "question": "เปิด Power Cool หรือ Power Freeze ค้างไว้ใช่หรือไม่?",
+          "on_yes": "n2f",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n2f",
+          "type": "instruction",
+          "content": "ปิด Power Cool ในเมนู Fridge / Power Cool และปิด Power Freeze ในเมนู Freezer / Power Freeze เพราะทั้งสองโหมดทำให้ตู้เย็นทำงานเต็มกำลังนานหลายชั่วโมงและเพิ่มการใช้ไฟ (คู่มือหน้า 24)",
+          "next": "n2v"
+        },
+        {
+          "state_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n_resolved",
+          "type": "resolution",
+          "content": "ตู้เย็นกลับมาทำงานตามปกติแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการที่ผู้ใช้ตรวจเองได้ตามคู่มือ ให้ติดต่อศูนย์บริการ Samsung ที่ได้รับอนุญาต (คู่มือหน้า 2 ระบุว่าความเสียหายจากการซ่อมโดยผู้ที่ไม่ใช่ผู้ให้บริการที่ได้รับอนุญาตของ Samsung ไม่อยู่ในการรับประกัน ข้อมูลเพิ่มเติมที่ http://samsung.com/support) และอย่าถอดแยกหรือซ่อมแซมเครื่องเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติ (คู่มือหน้า 6) พร้อมแจ้งรุ่นตู้เย็น อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_rf29a_um_temperature_display_off",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RF29A*/RF23A*",
+      "entry_symptom": "The temperature display is not turned on.",
+      "entry_symptom_th": "จอแสดงอุณหภูมิไม่ติด",
+      "entry_symptom_aliases": [
+        "จอตู้เย็นดับ",
+        "จอตู้เย็นไม่แสดงอุณหภูมิ",
+        "หน้าจอตู้เย็นไม่ติด",
+        "refrigerator display off",
+        "fridge temperature display not on"
+      ],
+      "source": "Samsung French Door Refrigerator Service Manual (RF29A* / RF23A*, model code RF**A9071* etc.)",
+      "page_range": [
+        147,
+        147
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RF29A_p147_temperature_display_off",
+      "severity": "low",
+      "difficulty": "easy",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "จอดับไปหลังจากไม่ได้กดปุ่มประมาณ 10 วินาทีใช่หรือไม่?",
+          "on_yes": "n1n",
+          "on_no": "n2"
+        },
+        {
+          "state_id": "n1n",
+          "type": "resolution",
+          "content": "เพื่อประหยัดพลังงาน จอแสดงอุณหภูมิจะดับหลังไม่มีการกดปุ่ม 10 วินาที ให้แตะปุ่มใดก็ได้หรือเปิดและปิดประตูตู้เย็น จอจะสว่างอีกครั้ง (คู่มือหน้า 147 และ 23)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "state_id": "n2",
+          "type": "checkpoint",
+          "question": "เปิดโหมด Sabbath ไว้ใช่หรือไม่?",
+          "on_yes": "n2f",
+          "on_no": "n3"
+        },
+        {
+          "state_id": "n2f",
+          "type": "instruction",
+          "content": "ปิดโหมด Sabbath โดยแตะปุ่ม ○ และ > ค้างไว้พร้อมกัน 6 วินาที แล้วแตะ > เพราะในโหมดนี้ปุ่ม จอแสดงผล และไฟภายในจะไม่ทำงาน (คู่มือหน้า 28)",
+          "next": "n2v"
+        },
+        {
+          "state_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "state_id": "n3",
+          "type": "checkpoint",
+          "question": "ปลั๊กไฟตู้เย็นเสียบแน่นอยู่ใช่หรือไม่?",
+          "on_yes": "n_escalate",
+          "on_no": "n3f"
+        },
+        {
+          "state_id": "n3f",
+          "type": "instruction",
+          "content": "เสียบปลั๊กให้แน่น หรือแก้ปลั๊กที่หลวม (คู่มือหน้า 105)",
+          "safety_critical": true,
+          "safety_warning": "ห้ามเสียบเครื่องใช้ไฟฟ้าหลายเครื่องในเต้ารับเดียวกัน และห้ามใช้สายต่อพ่วง ห้ามงอสายไฟแรงๆ หรือวางของหนักทับสายไฟ เพื่อป้องกันไฟไหม้หรือเครื่องทำงานผิดปกติ (คู่มือหน้า 6)",
+          "author_note": "ข้อความเตือนนี้มาจากหัวข้อความปลอดภัยหน้า 6 ของคู่มือ ผู้พัฒนาโยงมาใช้กับขั้นตอนเสียบปลั๊ก",
+          "next": "n3v"
+        },
+        {
+          "state_id": "n3v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n_resolved",
+          "type": "resolution",
+          "content": "จอแสดงอุณหภูมิติดแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "ถ้าเสียบปลั๊กแน่นแล้วแต่ตู้เย็นยังไม่มีไฟ ขั้นตอนต่อไปตามคู่มือต้องวัดแรงดันไฟที่แหล่งจ่ายไฟและตรวจแผงวงจร ซึ่งบริเวณขั้วไฟของแผงวงจรมีไฟ AC และไฟ DC แรงดันสูงกว่า 310V (คู่มือหน้า 105) ห้ามเปิดตัวเครื่องเอง ให้ติดต่อศูนย์บริการ Samsung ที่ได้รับอนุญาต (คู่มือหน้า 2 ระบุว่าความเสียหายจากการซ่อมโดยผู้ที่ไม่ใช่ผู้ให้บริการที่ได้รับอนุญาตของ Samsung ไม่อยู่ในการรับประกัน ข้อมูลเพิ่มเติมที่ http://samsung.com/support) และอย่าถอดแยกหรือซ่อมแซมเครื่องเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติ (คู่มือหน้า 6)",
+          "outcome_kind": "handoff_informed"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_rf29a_um_buttons_do_not_work",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RF29A*/RF23A*",
+      "entry_symptom": "The buttons on the control panel of the refrigerator do not work.",
+      "entry_symptom_th": "ปุ่มบนแผงควบคุมตู้เย็นกดไม่ได้",
+      "entry_symptom_aliases": [
+        "ปุ่มตู้เย็นกดไม่ติด",
+        "แผงควบคุมตู้เย็นไม่ตอบสนอง",
+        "ปุ่มล็อกตู้เย็น",
+        "refrigerator buttons not working",
+        "fridge control panel not responding"
+      ],
+      "source": "Samsung French Door Refrigerator Service Manual (RF29A* / RF23A*, model code RF**A9071* etc.)",
+      "page_range": [
+        147,
+        147
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RF29A_p147_buttons_do_not_work",
+      "severity": "low",
+      "difficulty": "easy",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "มีไอคอน Lock ติดอยู่ หรือจอล็อกอยู่ใช่หรือไม่?",
+          "on_yes": "n1f",
+          "on_no": "n2"
+        },
+        {
+          "state_id": "n1f",
+          "type": "instruction",
+          "content": "กดปุ่ม Lock ค้างไว้ 3 วินาทีเพื่อปลดล็อก (คู่มือหน้า 146 และ 115) คู่มือระบุว่าถ้าไม่มีการกดปุ่มนาน 60 วินาที จอจะล็อก",
+          "author_note": "แผงควบคุมของรุ่นนี้ (หน้า 23) มีปุ่ม <, ○ และ > ไม่มีปุ่มชื่อ Lock ส่วนตารางหน้า 145-147 เป็นข้อความรวมหลายรุ่น ผู้ใช้ให้ดูปุ่มหรือไอคอนล็อกที่ตรงกับรุ่นของตน",
+          "next": "n1v"
+        },
+        {
+          "state_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "state_id": "n2",
+          "type": "checkpoint",
+          "question": "มือเปียกหรือเพิ่งเช็ดปุ่มด้วยผ้าชื้นใช่หรือไม่?",
+          "on_yes": "n2f",
+          "on_no": "n3"
+        },
+        {
+          "state_id": "n2f",
+          "type": "instruction",
+          "content": "เช็ดความชื้นที่ปุ่มออกให้แห้ง แล้วลองกดใหม่ (คู่มือหน้า 147)",
+          "next": "n2v"
+        },
+        {
+          "state_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "state_id": "n3",
+          "type": "checkpoint",
+          "question": "เปิดโหมด Sabbath ไว้ใช่หรือไม่?",
+          "on_yes": "n3f",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n3f",
+          "type": "instruction",
+          "content": "ปิดโหมด Sabbath โดยแตะปุ่ม ○ และ > ค้างไว้พร้อมกัน 6 วินาที แล้วแตะ > (คู่มือหน้า 28)",
+          "author_note": "หน้า 28 ระบุว่าในโหมด Sabbath ปุ่มไม่ทำงาน แต่ก็ระบุวิธีปิดโหมดด้วยปุ่มเดียวกัน ผู้พัฒนาไม่ตีความเพิ่มและคงข้อความตามคู่มือ",
+          "next": "n3v"
+        },
+        {
+          "state_id": "n3v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n_resolved",
+          "type": "resolution",
+          "content": "ปุ่มบนแผงควบคุมใช้งานได้แล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการที่ผู้ใช้ตรวจเองได้ตามคู่มือ ให้ติดต่อศูนย์บริการ Samsung ที่ได้รับอนุญาต (คู่มือหน้า 2 ระบุว่าความเสียหายจากการซ่อมโดยผู้ที่ไม่ใช่ผู้ให้บริการที่ได้รับอนุญาตของ Samsung ไม่อยู่ในการรับประกัน ข้อมูลเพิ่มเติมที่ http://samsung.com/support) และอย่าถอดแยกหรือซ่อมแซมเครื่องเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติ (คู่มือหน้า 6) พร้อมแจ้งรุ่นตู้เย็น อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_rf29a_um_set_temperature_display_not_changed",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RF29A*/RF23A*",
+      "entry_symptom": "Although you changed the temperature on the panel, the actual temperature inside the refrigerator will still be displayed until it reaches the new set point.",
+      "entry_symptom_th": "ตั้งอุณหภูมิใหม่แล้วแต่จอยังแสดงอุณหภูมิเดิม",
+      "entry_symptom_aliases": [
+        "ปรับอุณหภูมิตู้เย็นแล้วตัวเลขไม่เปลี่ยน",
+        "ตั้งอุณหภูมิตู้เย็นแล้วไม่เปลี่ยน",
+        "temperature display not changing",
+        "fridge set temperature not updating"
+      ],
+      "source": "Samsung French Door Refrigerator Service Manual (RF29A* / RF23A*, model code RF**A9071* etc.)",
+      "page_range": [
+        23,
+        23
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RF29A_p23_set_temperature_display_not_changed",
+      "severity": "low",
+      "difficulty": "easy",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "เพิ่งเปลี่ยนอุณหภูมิบนแผงควบคุม แต่จอยังแสดงอุณหภูมิจริงภายในตู้อยู่ใช่หรือไม่?",
+          "on_yes": "n1n",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n1n",
+          "type": "resolution",
+          "content": "จอจะแสดงอุณหภูมิจริงภายในตู้เย็นจนกว่าจะถึงค่าที่ตั้งใหม่ ตู้เย็นต้องใช้เวลาสักพักจึงจะถึงอุณหภูมิใหม่ คู่มือระบุว่าเป็นการทำงานปกติ ไม่ต้องตั้งอุณหภูมิซ้ำ และเมื่อตู้เย็นปรับสภาพอุณหภูมิภายในเสร็จ จอจะแสดงอุณหภูมิใหม่ (คู่มือหน้า 23)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการที่ผู้ใช้ตรวจเองได้ตามคู่มือ ให้ติดต่อศูนย์บริการ Samsung ที่ได้รับอนุญาต (คู่มือหน้า 2 ระบุว่าความเสียหายจากการซ่อมโดยผู้ที่ไม่ใช่ผู้ให้บริการที่ได้รับอนุญาตของ Samsung ไม่อยู่ในการรับประกัน ข้อมูลเพิ่มเติมที่ http://samsung.com/support) และอย่าถอดแยกหรือซ่อมแซมเครื่องเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติ (คู่มือหน้า 6) พร้อมแจ้งรุ่นตู้เย็น อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_rf29a_um_water_filter_indicator_red",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RF29A*/RF23A*",
+      "entry_symptom": "The Filter indicator blinks red to remind you that the filter needs to be replaced.",
+      "entry_symptom_th": "ตัวแสดงไส้กรองน้ำกะพริบสีแดง (ถึงเวลาเปลี่ยนไส้กรอง)",
+      "entry_symptom_aliases": [
+        "เตือนเปลี่ยนไส้กรองน้ำ",
+        "ไฟไส้กรองน้ำตู้เย็นกะพริบแดง",
+        "รีเซ็ตไส้กรองน้ำ",
+        "fridge water filter replace",
+        "filter indicator red"
+      ],
+      "source": "Samsung French Door Refrigerator Service Manual (RF29A* / RF23A*, model code RF**A9071* etc.)",
+      "page_range": [
+        26,
+        26
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RF29A_p26_water_filter_indicator_red",
+      "severity": "low",
+      "difficulty": "easy",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "ตัวแสดงไส้กรอง (Filter indicator) กะพริบสีแดง หรือจอแสดงข้อความให้เปลี่ยนไส้กรองใช่หรือไม่?",
+          "on_yes": "n2",
+          "on_no": "n_nomatch"
+        },
+        {
+          "state_id": "n2",
+          "type": "instruction",
+          "content": "ตัวแสดงจะกะพริบสีแดงเมื่อใช้ไส้กรองแท้มาประมาณ 6 เดือน (ราว 320 แกลลอนหรือ 1200 ลิตร) ให้เลือกเมนู Filter Reset (More Options > Filter Reset) แล้วเปลี่ยนไส้กรองตามคำแนะนำบนหน้าจอ (คู่มือหน้า 26 และ 23) สำหรับรุ่นที่มีจอ Family Hub หลังเปลี่ยนไส้กรองให้แตะ Water Filter แล้วแตะ Reset (คู่มือหน้า 34)",
+          "next": "n2v"
+        },
+        {
+          "state_id": "n2v",
+          "type": "checkpoint",
+          "question": "ตัวแสดงไส้กรองหยุดกะพริบสีแดงแล้วใช่หรือไม่?",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n_resolved",
+          "type": "resolution",
+          "content": "เปลี่ยนไส้กรองและรีเซ็ตตัวแสดงแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการที่ผู้ใช้ตรวจเองได้ตามคู่มือ ให้ติดต่อศูนย์บริการ Samsung ที่ได้รับอนุญาต (คู่มือหน้า 2 ระบุว่าความเสียหายจากการซ่อมโดยผู้ที่ไม่ใช่ผู้ให้บริการที่ได้รับอนุญาตของ Samsung ไม่อยู่ในการรับประกัน ข้อมูลเพิ่มเติมที่ http://samsung.com/support) และอย่าถอดแยกหรือซ่อมแซมเครื่องเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติ (คู่มือหน้า 6) พร้อมแจ้งรุ่นตู้เย็น อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        },
+        {
+          "state_id": "n_nomatch",
+          "type": "escalation",
+          "content": "ถ้าไม่เห็นตัวแสดงไส้กรองกะพริบสีแดง ให้เลือกอาการที่ตรงกับที่เห็น หรือติดต่อศูนย์บริการ Samsung ที่ได้รับอนุญาต (คู่มือหน้า 2 ระบุว่าความเสียหายจากการซ่อมโดยผู้ที่ไม่ใช่ผู้ให้บริการที่ได้รับอนุญาตของ Samsung ไม่อยู่ในการรับประกัน ข้อมูลเพิ่มเติมที่ http://samsung.com/support) และอย่าถอดแยกหรือซ่อมแซมเครื่องเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติ (คู่มือหน้า 6)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_rf29a_um_sabbath_mode_panel_dead",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RF29A*/RF23A*",
+      "entry_symptom": "When the refrigerator is in the Sabbath mode, the buttons, display, and internal lights do not function.",
+      "entry_symptom_th": "ปุ่ม จอแสดงผล และไฟภายในตู้เย็นไม่ทำงาน (โหมด Sabbath)",
+      "entry_symptom_aliases": [
+        "ไฟในตู้เย็นไม่ติด",
+        "จอตู้เย็นไม่ติด",
+        "ปุ่มตู้เย็นไม่ทำงานแต่ตู้ยังเย็น",
+        "โหมดซับบาธ",
+        "sabbath mode",
+        "fridge light off display off"
+      ],
+      "source": "Samsung French Door Refrigerator Service Manual (RF29A* / RF23A*, model code RF**A9071* etc.)",
+      "page_range": [
+        28,
+        28
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RF29A_p28_sabbath_mode_panel_dead",
+      "severity": "low",
+      "difficulty": "easy",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "ตู้เย็นยังเย็นอยู่ แต่ปุ่ม จอแสดงผล และไฟภายในไม่ทำงาน และมีการเปิดโหมด Sabbath ไว้ใช่หรือไม่?",
+          "on_yes": "n1f",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n1f",
+          "type": "instruction",
+          "content": "ปิดโหมด Sabbath โดยแตะปุ่ม ○ และ > ค้างไว้พร้อมกัน 6 วินาที แล้วแตะ > ในโหมดนี้ตู้เย็นและช่องแช่แข็งยังคงทำความเย็นต่อ โหมดจะปิดเองเมื่อครบ 85 ชั่วโมง และถ้าไฟดับแล้วตู้เย็นเริ่มทำงานใหม่ โหมดนี้ยังคงอยู่ ต้องปิดด้วยวิธีนี้ (คู่มือหน้า 28)",
+          "next": "n1v"
+        },
+        {
+          "state_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n_resolved",
+          "type": "resolution",
+          "content": "ปิดโหมด Sabbath แล้ว ปุ่ม จอ และไฟภายในกลับมาทำงาน",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการที่ผู้ใช้ตรวจเองได้ตามคู่มือ ให้ติดต่อศูนย์บริการ Samsung ที่ได้รับอนุญาต (คู่มือหน้า 2 ระบุว่าความเสียหายจากการซ่อมโดยผู้ที่ไม่ใช่ผู้ให้บริการที่ได้รับอนุญาตของ Samsung ไม่อยู่ในการรับประกัน ข้อมูลเพิ่มเติมที่ http://samsung.com/support) และอย่าถอดแยกหรือซ่อมแซมเครื่องเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติ (คู่มือหน้า 6) พร้อมแจ้งรุ่นตู้เย็น อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_rf29a_um_cooling_off_mode_not_cold",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RF29A*/RF23A*",
+      "entry_symptom": "In the Cooling Off mode, neither the refrigerator nor the freezer becomes cold.",
+      "entry_symptom_th": "ตู้เย็นไม่เย็นเพราะอยู่ในโหมด Cooling Off (โหมดตั้งโชว์ในร้านค้า)",
+      "entry_symptom_aliases": [
+        "ตู้เย็นใหม่ไม่เย็น",
+        "ตู้เย็นมีข้อความ Cooling Off",
+        "โหมดโชว์ตู้เย็น",
+        "shop mode refrigerator",
+        "cooling off mode"
+      ],
+      "source": "Samsung French Door Refrigerator Service Manual (RF29A* / RF23A*, model code RF**A9071* etc.)",
+      "page_range": [
+        28,
+        28
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RF29A_p28_cooling_off_mode_not_cold",
+      "severity": "medium",
+      "difficulty": "easy",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "จอแสดงข้อความ “Cooling Off mode turned on” หรือมีเสียงเตือนเมื่อเปิดโหมดนี้ใช่หรือไม่?",
+          "on_yes": "n1f",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n1f",
+          "type": "instruction",
+          "content": "ปิดโหมด Cooling Off โดยแตะปุ่ม < และ > ค้างไว้พร้อมกัน 6 วินาที แล้วแตะ ○ (คู่มือหน้า 28) ถ้าตู้เย็นอยู่ในโหมดนี้ การปิดไฟแล้วเปิดใหม่ก็ยังอยู่ในโหมดนี้ (คู่มือหน้า 97)",
+          "next": "n1v"
+        },
+        {
+          "state_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n_resolved",
+          "type": "resolution",
+          "content": "ปิดโหมด Cooling Off แล้ว ตู้เย็นเริ่มทำความเย็นตามปกติ",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการที่ผู้ใช้ตรวจเองได้ตามคู่มือ ให้ติดต่อศูนย์บริการ Samsung ที่ได้รับอนุญาต (คู่มือหน้า 2 ระบุว่าความเสียหายจากการซ่อมโดยผู้ที่ไม่ใช่ผู้ให้บริการที่ได้รับอนุญาตของ Samsung ไม่อยู่ในการรับประกัน ข้อมูลเพิ่มเติมที่ http://samsung.com/support) และอย่าถอดแยกหรือซ่อมแซมเครื่องเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติ (คู่มือหน้า 6) พร้อมแจ้งรุ่นตู้เย็น อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_rf29a_um_high_temperature_indicator_blinks",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RF29A*/RF23A*",
+      "entry_symptom": "The F compartment abnormal high-temperature indicator blinks",
+      "entry_symptom_th": "ตัวแสดงอุณหภูมิสูงผิดปกติของช่องแช่แข็ง (หรือช่องแช่เย็น/Flex room) กะพริบ",
+      "entry_symptom_aliases": [
+        "จออุณหภูมิตู้เย็นกะพริบ",
+        "ตู้เย็นเตือนอุณหภูมิสูง",
+        "ช่องแช่แข็งอุณหภูมิสูงผิดปกติ",
+        "fridge high temperature blinking",
+        "freezer temperature alarm"
+      ],
+      "source": "Samsung French Door Refrigerator Service Manual (RF29A* / RF23A*, model code RF**A9071* etc.)",
+      "page_range": [
+        91,
+        91
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RF29A_p91_high_temperature_indicator_blinks",
+      "severity": "low",
+      "difficulty": "easy",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "ประตูช่องที่ตัวแสดงกะพริบถูกเปิดค้างไว้นานใช่หรือไม่?",
+          "on_yes": "n1f",
+          "on_no": "n2"
+        },
+        {
+          "state_id": "n1f",
+          "type": "instruction",
+          "content": "ปิดประตูให้สนิท แล้วรอให้อุณหภูมิลดลง (คู่มือหน้า 91)",
+          "next": "n1v"
+        },
+        {
+          "state_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "state_id": "n2",
+          "type": "checkpoint",
+          "question": "เพิ่งนำอาหารร้อนเข้าไปเก็บในช่องนั้นใช่หรือไม่?",
+          "on_yes": "n2f",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n2f",
+          "type": "instruction",
+          "content": "นำอาหารร้อนออกจากช่องนั้น คู่มือระบุว่าถ้าสาเหตุหมดไป รหัสจะหายไปเองหลังเวลาที่กำหนดไว้ล่วงหน้า (คู่มือหน้า 91)",
+          "author_note": "คู่มือให้ตรวจว่ามีอาหารร้อนเก็บในช่องหรือไม่ และให้กำจัดสาเหตุ ส่วนการนำอาหารร้อนออกเป็นวิธีที่ผู้พัฒนาตีความจากข้อความนี้",
+          "next": "n2v"
+        },
+        {
+          "state_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n_resolved",
+          "type": "resolution",
+          "content": "ตัวแสดงอุณหภูมิสูงผิดปกติหยุดกะพริบแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการที่ผู้ใช้ตรวจเองได้ตามคู่มือ ให้ติดต่อศูนย์บริการ Samsung ที่ได้รับอนุญาต (คู่มือหน้า 2 ระบุว่าความเสียหายจากการซ่อมโดยผู้ที่ไม่ใช่ผู้ให้บริการที่ได้รับอนุญาตของ Samsung ไม่อยู่ในการรับประกัน ข้อมูลเพิ่มเติมที่ http://samsung.com/support) และอย่าถอดแยกหรือซ่อมแซมเครื่องเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติ (คู่มือหน้า 6) พร้อมแจ้งรุ่นตู้เย็น อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_rf29a_um_power_not_supplied",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RF29A*/RF23A*",
+      "entry_symptom": "Power Not Supplied",
+      "entry_symptom_th": "ตู้เย็นไม่มีไฟเข้า",
+      "entry_symptom_aliases": [
+        "ตู้เย็นไม่ติด",
+        "ตู้เย็นไม่มีไฟ",
+        "ตู้เย็นไม่ทำงานเลย",
+        "ปลั๊กตู้เย็นหลวม",
+        "refrigerator no power",
+        "fridge dead"
+      ],
+      "source": "Samsung French Door Refrigerator Service Manual (RF29A* / RF23A*, model code RF**A9071* etc.)",
+      "page_range": [
+        105,
+        105
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RF29A_p105_power_not_supplied",
+      "severity": "medium",
+      "difficulty": "easy",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "ปลั๊กไฟตู้เย็นเสียบแน่นอยู่ใช่หรือไม่?",
+          "on_yes": "n_escalate",
+          "on_no": "n1f"
+        },
+        {
+          "state_id": "n1f",
+          "type": "instruction",
+          "content": "เสียบปลั๊กให้แน่น หรือแก้ปลั๊กที่หลวม (คู่มือหน้า 105)",
+          "safety_critical": true,
+          "safety_warning": "ห้ามเสียบเครื่องใช้ไฟฟ้าหลายเครื่องในเต้ารับเดียวกัน และห้ามใช้สายต่อพ่วง ห้ามงอสายไฟแรงๆ หรือวางของหนักทับสายไฟ เพื่อป้องกันไฟไหม้หรือเครื่องทำงานผิดปกติ (คู่มือหน้า 6)",
+          "author_note": "ข้อความเตือนนี้มาจากหัวข้อความปลอดภัยหน้า 6 ของคู่มือ ผู้พัฒนาโยงมาใช้กับขั้นตอนเสียบปลั๊ก",
+          "next": "n1v"
+        },
+        {
+          "state_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n_resolved",
+          "type": "resolution",
+          "content": "ตู้เย็นมีไฟและทำงานแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "ถ้าเสียบปลั๊กแน่นแล้วแต่ตู้เย็นยังไม่มีไฟ ขั้นตอนต่อไปตามคู่มือต้องวัดแรงดันไฟที่แหล่งจ่ายไฟและตรวจแผงวงจร ซึ่งบริเวณขั้วไฟของแผงวงจรมีไฟ AC และไฟ DC แรงดันสูงกว่า 310V (คู่มือหน้า 105) ห้ามเปิดตัวเครื่องเอง ให้ติดต่อศูนย์บริการ Samsung ที่ได้รับอนุญาต (คู่มือหน้า 2 ระบุว่าความเสียหายจากการซ่อมโดยผู้ที่ไม่ใช่ผู้ให้บริการที่ได้รับอนุญาตของ Samsung ไม่อยู่ในการรับประกัน ข้อมูลเพิ่มเติมที่ http://samsung.com/support) และอย่าถอดแยกหรือซ่อมแซมเครื่องเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติ (คู่มือหน้า 6)",
+          "outcome_kind": "handoff_informed"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_rf29a_um_compressor_not_running",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RF29A*/RF23A*",
+      "entry_symptom": "When the compressor does not work properly",
+      "entry_symptom_th": "คอมเพรสเซอร์ไม่ทำงาน",
+      "entry_symptom_aliases": [
+        "คอมเพรสเซอร์ไม่ทำงาน",
+        "คอมตู้เย็นไม่ติด",
+        "ตู้เย็นไม่เดิน",
+        "compressor not working",
+        "fridge compressor not starting"
+      ],
+      "source": "Samsung French Door Refrigerator Service Manual (RF29A* / RF23A*, model code RF**A9071* etc.)",
+      "page_range": [
+        106,
+        106
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RF29A_p106_compressor_not_running",
+      "severity": "medium",
+      "difficulty": "easy",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "คอมเพรสเซอร์เพิ่งหยุดทำงานไม่ถึง 10 นาทีใช่หรือไม่?",
+          "on_yes": "n1f",
+          "on_no": "n2"
+        },
+        {
+          "state_id": "n1f",
+          "type": "instruction",
+          "content": "รอให้ผ่านไปอย่างน้อย 10 นาทีหลังคอมเพรสเซอร์หยุด แล้วตรวจอีกครั้ง (คู่มือหน้า 106)",
+          "next": "n1v"
+        },
+        {
+          "state_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "state_id": "n2",
+          "type": "checkpoint",
+          "question": "เพิ่งปิดไฟตู้เย็นแล้วเปิดใหม่ภายใน 5 นาทีใช่หรือไม่?",
+          "on_yes": "n2f",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n2f",
+          "type": "instruction",
+          "content": "รอ 5 นาทีหลังปิดไฟก่อนเปิดใหม่ เพื่อป้องกันคอมเพรสเซอร์รับภาระเกิน (คู่มือหน้า 111)",
+          "safety_critical": true,
+          "safety_warning": "ห้ามเสียบเครื่องใช้ไฟฟ้าหลายเครื่องในเต้ารับเดียวกัน และห้ามใช้สายต่อพ่วง ห้ามงอสายไฟแรงๆ หรือวางของหนักทับสายไฟ เพื่อป้องกันไฟไหม้หรือเครื่องทำงานผิดปกติ (คู่มือหน้า 6)",
+          "author_note": "ข้อความเตือนนี้มาจากหัวข้อความปลอดภัยหน้า 6 ของคู่มือ ผู้พัฒนาโยงมาใช้กับขั้นตอนเสียบปลั๊ก",
+          "next": "n2v"
+        },
+        {
+          "state_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n_resolved",
+          "type": "resolution",
+          "content": "คอมเพรสเซอร์กลับมาทำงานแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "ถ้ารอครบเวลาแล้วคอมเพรสเซอร์ยังไม่ทำงาน ขั้นตอนต่อไปตามคู่มือต้องวัดแรงดันไฟที่แผงอินเวอร์เตอร์ ตรวจเซ็นเซอร์ และตรวจคอมเพรสเซอร์ ซึ่งบริเวณแผงมีไฟ AC และไฟ DC แรงดันสูงกว่า 310V (คู่มือหน้า 106) ห้ามเปิดตัวเครื่องเอง ให้ติดต่อศูนย์บริการ Samsung ที่ได้รับอนุญาต (คู่มือหน้า 2 ระบุว่าความเสียหายจากการซ่อมโดยผู้ที่ไม่ใช่ผู้ให้บริการที่ได้รับอนุญาตของ Samsung ไม่อยู่ในการรับประกัน ข้อมูลเพิ่มเติมที่ http://samsung.com/support) และอย่าถอดแยกหรือซ่อมแซมเครื่องเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติ (คู่มือหน้า 6)",
+          "outcome_kind": "handoff_informed"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_rf29a_um_error_code_displayed",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RF29A*/RF23A*",
+      "entry_symptom": "A sensor error is displayed on the front display panel of the refrigerator.",
+      "entry_symptom_th": "หน้าจอตู้เย็นแสดงรหัสข้อผิดพลาดของเซ็นเซอร์",
+      "entry_symptom_aliases": [
+        "ตู้เย็นขึ้นรหัส 2C",
+        "ตู้เย็นขึ้น error",
+        "จอตู้เย็นแสดงรหัสผิดพลาด",
+        "รหัส 6C ตู้เย็น",
+        "รหัส 13C ตู้เย็น",
+        "fridge error code",
+        "refrigerator sensor error"
+      ],
+      "source": "Samsung French Door Refrigerator Service Manual (RF29A* / RF23A*, model code RF**A9071* etc.)",
+      "page_range": [
+        108,
+        108
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RF29A_p108_error_code_displayed",
+      "severity": "medium",
+      "difficulty": "easy",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "หน้าจอตู้เย็นแสดงรหัสข้อผิดพลาดหรือข้อความเซ็นเซอร์ผิดปกติ (เช่น 2C, 6C, 13C, 21C, 44C ตามคู่มือหน้า 108, 109, 111 และ 91) ใช่หรือไม่?",
+          "on_yes": "n_escalate",
+          "on_no": "n_nomatch"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "ตู้เย็นแสดงรหัสข้อผิดพลาดบนหน้าจอ คู่มือระบุว่าถ้าตรวจพบข้อผิดพลาดของเซ็นเซอร์ ตู้เย็นจะทำงานในโหมดฉุกเฉิน (emergency operating mode) และอาจทำความเย็นได้ไม่ปกติ (คู่มือหน้า 108) การตรวจต่อจากนี้ต้องวัดค่าไฟฟ้าหรือเปลี่ยนชิ้นส่วน ซึ่งเป็นงานของช่าง ให้จดรหัสที่เห็นไว้ เช่น 2C คือเซ็นเซอร์อุณหภูมิช่องแช่เย็น, 6C คือเซ็นเซอร์อุณหภูมิอากาศภายนอก (คู่มือหน้า 108), 13C คือเซ็นเซอร์ความชื้น (คู่มือหน้า 109), 21C 22C 23C 31C คือมอเตอร์พัดลม (คู่มือหน้า 111), 44C 46E และ 52Er คือการสื่อสารระหว่างแผงวงจรขัดข้อง (คู่มือหน้า 91) แล้วติดต่อศูนย์บริการ Samsung ที่ได้รับอนุญาต (คู่มือหน้า 2 ระบุว่าความเสียหายจากการซ่อมโดยผู้ที่ไม่ใช่ผู้ให้บริการที่ได้รับอนุญาตของ Samsung ไม่อยู่ในการรับประกัน ข้อมูลเพิ่มเติมที่ http://samsung.com/support) และอย่าถอดแยกหรือซ่อมแซมเครื่องเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติ (คู่มือหน้า 6) พร้อมแจ้งรหัสที่เห็น",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_nomatch",
+          "type": "escalation",
+          "content": "ถ้าไม่เห็นรหัสข้อผิดพลาดบนหน้าจอ ให้เลือกอาการที่ตรงกับที่เห็น หรือติดต่อศูนย์บริการ Samsung ที่ได้รับอนุญาต (คู่มือหน้า 2 ระบุว่าความเสียหายจากการซ่อมโดยผู้ที่ไม่ใช่ผู้ให้บริการที่ได้รับอนุญาตของ Samsung ไม่อยู่ในการรับประกัน ข้อมูลเพิ่มเติมที่ http://samsung.com/support) และอย่าถอดแยกหรือซ่อมแซมเครื่องเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติ (คู่มือหน้า 6)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_rf29a_um_fan_not_running",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RF29A*/RF23A*",
+      "entry_symptom": "When the Fan does not operate (F, R, M, C - FAN)",
+      "entry_symptom_th": "พัดลมในตู้เย็นไม่ทำงาน",
+      "entry_symptom_aliases": [
+        "พัดลมตู้เย็นไม่หมุน",
+        "พัดลมช่องแช่เย็นไม่ทำงาน",
+        "พัดลมตู้เย็นหยุด",
+        "fridge fan not running",
+        "refrigerator fan not working"
+      ],
+      "source": "Samsung French Door Refrigerator Service Manual (RF29A* / RF23A*, model code RF**A9071* etc.)",
+      "page_range": [
+        111,
+        111
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RF29A_p111_fan_not_running",
+      "severity": "low",
+      "difficulty": "easy",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "พัดลมช่องแช่เย็น (R-Fan) ยังไม่หมุนทันทีหลังเปิดแล้วปิดประตู หรือตอนอุณหภูมิห้องสูงใช่หรือไม่?",
+          "on_yes": "n1n",
+          "on_no": "n2"
+        },
+        {
+          "state_id": "n1n",
+          "type": "resolution",
+          "content": "ขณะคอมเพรสเซอร์ทำงาน R-Fan ปกติจะหมุน แต่เมื่ออุณหภูมิโดยรอบสูงหรือเปิดแล้วปิดประตู 1 ครั้ง พัดลมจะเริ่มหมุนหลังหน่วงเวลา 1 นาที คู่มือระบุว่าเป็นเรื่องปกติ (คู่มือหน้า 111)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "state_id": "n2",
+          "type": "checkpoint",
+          "question": "ประตูช่องแช่แข็งหรือช่องแช่เย็นปิดไม่สนิทใช่หรือไม่?",
+          "on_yes": "n2f",
+          "on_no": "n3"
+        },
+        {
+          "state_id": "n2f",
+          "type": "instruction",
+          "content": "ปิดประตูให้สนิทแล้วตรวจอีกครั้ง (คู่มือหน้า 111)",
+          "next": "n2v"
+        },
+        {
+          "state_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "state_id": "n3",
+          "type": "checkpoint",
+          "question": "เพิ่งปิดไฟตู้เย็นแล้วเปิดใหม่ภายใน 5 นาทีใช่หรือไม่?",
+          "on_yes": "n3f",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n3f",
+          "type": "instruction",
+          "content": "รอ 5 นาทีหลังปิดไฟก่อนเปิดใหม่ เพื่อป้องกันคอมเพรสเซอร์รับภาระเกิน (คู่มือหน้า 111)",
+          "safety_critical": true,
+          "safety_warning": "ห้ามเสียบเครื่องใช้ไฟฟ้าหลายเครื่องในเต้ารับเดียวกัน และห้ามใช้สายต่อพ่วง ห้ามงอสายไฟแรงๆ หรือวางของหนักทับสายไฟ เพื่อป้องกันไฟไหม้หรือเครื่องทำงานผิดปกติ (คู่มือหน้า 6)",
+          "author_note": "ข้อความเตือนนี้มาจากหัวข้อความปลอดภัยหน้า 6 ของคู่มือ ผู้พัฒนาโยงมาใช้กับขั้นตอนเสียบปลั๊ก",
+          "next": "n3v"
+        },
+        {
+          "state_id": "n3v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n_resolved",
+          "type": "resolution",
+          "content": "พัดลมกลับมาทำงานแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "ถ้าตรวจตามข้างต้นแล้วพัดลมยังไม่ทำงาน หรือจอแสดงรหัส 21C, 22C, 23C หรือ 31C (ข้อผิดพลาดของมอเตอร์พัดลม) ขั้นตอนต่อไปตามคู่มือต้องวัดแรงดันไฟที่เมนบอร์ด ซึ่งเป็นงานของช่าง (คู่มือหน้า 111) ให้ติดต่อศูนย์บริการ Samsung ที่ได้รับอนุญาต (คู่มือหน้า 2 ระบุว่าความเสียหายจากการซ่อมโดยผู้ที่ไม่ใช่ผู้ให้บริการที่ได้รับอนุญาตของ Samsung ไม่อยู่ในการรับประกัน ข้อมูลเพิ่มเติมที่ http://samsung.com/support) และอย่าถอดแยกหรือซ่อมแซมเครื่องเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติ (คู่มือหน้า 6)",
+          "outcome_kind": "handoff_informed"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_rf29a_um_door_alarm_dingdong",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RF29A*/RF23A*",
+      "entry_symptom": "A ‘dingdong’ sound is heard continuously or the ‘Refrigerator door is opened’ message is displayed",
+      "entry_symptom_th": "ตู้เย็นมีเสียงเตือนติ๊งต่องต่อเนื่อง หรือจอแสดงข้อความว่าประตูเปิด",
+      "entry_symptom_aliases": [
+        "ตู้เย็นร้องเตือนประตูเปิด",
+        "ตู้เย็นมีเสียงติ๊งต่อง",
+        "ประตูตู้เย็นปิดไม่สนิท",
+        "ปิดเสียงเตือนประตูตู้เย็น",
+        "fridge door alarm",
+        "refrigerator door open alarm"
+      ],
+      "source": "Samsung French Door Refrigerator Service Manual (RF29A* / RF23A*, model code RF**A9071* etc.)",
+      "page_range": [
+        112,
+        112
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RF29A_p112_door_alarm_dingdong",
+      "severity": "low",
+      "difficulty": "easy",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "เสียงเตือนดังหลังจากเปิดประตูช่องแช่แข็งหรือช่องแช่เย็นค้างไว้ตั้งแต่ 2 นาทีขึ้นไปใช่หรือไม่?",
+          "on_yes": "n1n",
+          "on_no": "n2"
+        },
+        {
+          "state_id": "n1n",
+          "type": "resolution",
+          "content": "ตู้เย็นจะส่งเสียงเตือนประตูเปิดเมื่อเปิดประตูค้างไว้ตั้งแต่ 2 นาทีขึ้นไป (คู่มือหน้า 114) โดยเตือนครั้งละ 10 วินาทีทุก 1 นาที (คู่มือหน้า 116) ให้ปิดประตูให้สนิท ถ้าไม่ต้องการเสียงเตือนสามารถปิด Door Alarm ได้ที่ More Options > Door Alarm > Off (คู่มือหน้า 23 และ 27)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "state_id": "n2",
+          "type": "checkpoint",
+          "question": "ประตูแง้มอยู่เล็กน้อย หรือมีอาหารหรือสิ่งของค้างอยู่ระหว่างประตูกับตัวตู้ใช่หรือไม่?",
+          "on_yes": "n2f",
+          "on_no": "n3"
+        },
+        {
+          "state_id": "n2f",
+          "type": "instruction",
+          "content": "หาสาเหตุที่ทำให้ประตูปิดไม่สนิท เช่น อาหารหรือสิ่งของค้างระหว่างประตูกับตัวตู้ แล้วแก้ไข จากนั้นปิดประตูให้สนิท (คู่มือหน้า 112)",
+          "next": "n2v"
+        },
+        {
+          "state_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "state_id": "n3",
+          "type": "checkpoint",
+          "question": "ยางขอบประตู (gasket) ชำรุดใช่หรือไม่?",
+          "on_yes": "n3e",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n3e",
+          "type": "escalation",
+          "content": "คู่มือระบุว่าสาเหตุหนึ่งคือยางขอบประตูชำรุด (คู่มือหน้า 112) การเปลี่ยนยางขอบประตูเป็นงานของช่าง ให้ติดต่อศูนย์บริการ Samsung ที่ได้รับอนุญาต (คู่มือหน้า 2 ระบุว่าความเสียหายจากการซ่อมโดยผู้ที่ไม่ใช่ผู้ให้บริการที่ได้รับอนุญาตของ Samsung ไม่อยู่ในการรับประกัน ข้อมูลเพิ่มเติมที่ http://samsung.com/support) และอย่าถอดแยกหรือซ่อมแซมเครื่องเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติ (คู่มือหน้า 6)",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_resolved",
+          "type": "resolution",
+          "content": "เสียงเตือนประตูหยุดแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "ถ้าปิดประตูสนิทแล้วเสียงเตือนยังดังต่อเนื่อง ขั้นตอนต่อไปตามคู่มือต้องตรวจขั้วต่อสาย รีดสวิตช์ประตู และเมนบอร์ด ซึ่งเป็นงานของช่าง (คู่มือหน้า 112) ให้ติดต่อศูนย์บริการ Samsung ที่ได้รับอนุญาต (คู่มือหน้า 2 ระบุว่าความเสียหายจากการซ่อมโดยผู้ที่ไม่ใช่ผู้ให้บริการที่ได้รับอนุญาตของ Samsung ไม่อยู่ในการรับประกัน ข้อมูลเพิ่มเติมที่ http://samsung.com/support) และอย่าถอดแยกหรือซ่อมแซมเครื่องเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติ (คู่มือหน้า 6)",
+          "outcome_kind": "handoff_informed"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_rf29a_um_forced_operation_beeping",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RF29A*/RF23A*",
+      "entry_symptom": "A ‘beep-beep’ sound is heard continuously",
+      "entry_symptom_th": "ตู้เย็นมีเสียงบี๊บๆ ต่อเนื่องไม่หยุด",
+      "entry_symptom_aliases": [
+        "ตู้เย็นร้องบี๊บไม่หยุด",
+        "ตู้เย็นร้องเตือนตลอด",
+        "ตู้เย็นเสียงบี๊ป",
+        "fridge beeping continuously",
+        "refrigerator beep forced operation"
+      ],
+      "source": "Samsung French Door Refrigerator Service Manual (RF29A* / RF23A*, model code RF**A9071* etc.)",
+      "page_range": [
+        113,
+        113
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RF29A_p113_forced_operation_beeping",
+      "severity": "low",
+      "difficulty": "easy",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "instruction",
+          "content": "ปิดไฟตู้เย็นแล้วเปิดใหม่เพื่อยกเลิก Forced Operation หรือ Forced Defrosting (คู่มือหน้า 113) ควรรอ 5 นาทีหลังปิดไฟก่อนเปิดใหม่ เพื่อป้องกันคอมเพรสเซอร์รับภาระเกิน (คู่มือหน้า 111) เสียงเตือนของโหมดนี้ปิดเสียงไม่ได้จนกว่าจะออกจากโหมด (คู่มือหน้า 79)",
+          "safety_critical": true,
+          "safety_warning": "ห้ามเสียบเครื่องใช้ไฟฟ้าหลายเครื่องในเต้ารับเดียวกัน และห้ามใช้สายต่อพ่วง ห้ามงอสายไฟแรงๆ หรือวางของหนักทับสายไฟ เพื่อป้องกันไฟไหม้หรือเครื่องทำงานผิดปกติ (คู่มือหน้า 6)",
+          "author_note": "ข้อความเตือนนี้มาจากหัวข้อความปลอดภัยหน้า 6 ของคู่มือ ผู้พัฒนาโยงมาใช้กับขั้นตอนเสียบปลั๊ก",
+          "next": "n1v"
+        },
+        {
+          "state_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n_resolved",
+          "type": "resolution",
+          "content": "เสียงเตือนหยุดแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "ถ้ายังมีเสียงเตือนต่อเนื่องแม้ปิดไฟแล้วเปิดใหม่ ขั้นตอนต่อไปตามคู่มือต้องตรวจสิ่งแปลกปลอมที่ Test Jumper บนเมนบอร์ดและอุปกรณ์ที่ลัดวงจร ซึ่งเป็นงานของช่าง (คู่มือหน้า 113) ให้ติดต่อศูนย์บริการ Samsung ที่ได้รับอนุญาต (คู่มือหน้า 2 ระบุว่าความเสียหายจากการซ่อมโดยผู้ที่ไม่ใช่ผู้ให้บริการที่ได้รับอนุญาตของ Samsung ไม่อยู่ในการรับประกัน ข้อมูลเพิ่มเติมที่ http://samsung.com/support) และอย่าถอดแยกหรือซ่อมแซมเครื่องเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติ (คู่มือหน้า 6)",
+          "outcome_kind": "handoff_informed"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_rf29a_um_wifi_not_working",
+      "device_category": "Refrigerator",
+      "brand": "Samsung",
+      "model_pattern": "RF29A*/RF23A*",
+      "entry_symptom": "When the Wi-Fi does not work properly",
+      "entry_symptom_th": "Wi-Fi ของตู้เย็นใช้งานไม่ได้",
+      "entry_symptom_aliases": [
+        "ตู้เย็นต่อ wifi ไม่ได้",
+        "ตู้เย็นเชื่อมต่อ SmartThings ไม่ได้",
+        "wifi ตู้เย็นหลุด",
+        "fridge wifi not connecting",
+        "refrigerator wifi not working"
+      ],
+      "source": "Samsung French Door Refrigerator Service Manual (RF29A* / RF23A*, model code RF**A9071* etc.)",
+      "page_range": [
+        117,
+        117
+      ],
+      "source_chunk_id": "manual_Samsung_Refrigerator_RF29A_p117_wifi_not_working",
+      "severity": "low",
+      "difficulty": "medium",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "เปิด Wi-Fi Connect เป็น On อยู่แล้วใช่หรือไม่?",
+          "on_yes": "n2",
+          "on_no": "n1f"
+        },
+        {
+          "state_id": "n1f",
+          "type": "instruction",
+          "content": "เปิด Wi-Fi Connect เป็น On ที่ More Options > Wi-Fi Connect > On (คู่มือหน้า 23, 27 และ 117)",
+          "next": "n1v"
+        },
+        {
+          "state_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "on_yes": "n_resolved",
+          "on_no": "n2"
+        },
+        {
+          "state_id": "n2",
+          "type": "checkpoint",
+          "question": "เคยทำ Wi-Fi Easy Setup เสร็จแล้วใช่หรือไม่?",
+          "on_yes": "n3",
+          "on_no": "n2f"
+        },
+        {
+          "state_id": "n2f",
+          "type": "instruction",
+          "content": "ทำ Easy Setup ผ่านแอป SmartThings ตามขั้นตอนในแอป (คู่มือหน้า 117 และ 29)",
+          "author_note": "หน้า 117 เขียนเพียง 'Perform Easy Setup' ส่วนหน้า 29 อธิบายการเพิ่มตู้เย็นในแอป SmartThings ผู้พัฒนาโยงสองหน้านี้เข้าด้วยกัน",
+          "next": "n2v"
+        },
+        {
+          "state_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "state_id": "n3",
+          "type": "checkpoint",
+          "question": "ตั้งค่า Easy Setup ไม่สำเร็จใช่หรือไม่?",
+          "on_yes": "n3f",
+          "on_no": "n4"
+        },
+        {
+          "state_id": "n3f",
+          "type": "instruction",
+          "content": "ตรวจว่าเราเตอร์เปิดไฟอยู่ แล้วทำ Easy Setup อีกครั้ง (คู่มือหน้า 117)",
+          "next": "n3v"
+        },
+        {
+          "state_id": "n3v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "on_yes": "n_resolved",
+          "on_no": "n4"
+        },
+        {
+          "state_id": "n4",
+          "type": "checkpoint",
+          "question": "ไม่พบชื่ออุปกรณ์ “[Fridge]_E30AJT51XXXXX” ในรายการ AP ตอนตั้งค่าในโหมด SET AP ใช่หรือไม่?",
+          "on_yes": "n4f",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n4f",
+          "type": "instruction",
+          "content": "ทำ Factory Reset (ทำได้ครั้งเดียว) โดยกดปุ่ม lock/unlock ค้างไว้จนจอแสดง ‘Ar’ (ประมาณ 12 วินาที) (คู่มือหน้า 117) แล้วทำ Easy Setup อีกครั้ง",
+          "author_note": "คู่มือไม่ได้ระบุว่า Factory Reset ล้างค่าใดบ้าง และระบุให้ทำเพียงครั้งเดียว (one time)",
+          "next": "n4v"
+        },
+        {
+          "state_id": "n4v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n_resolved",
+          "type": "resolution",
+          "content": "Wi-Fi ของตู้เย็นใช้งานได้แล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "ถ้าทำตามขั้นตอนแล้ว Wi-Fi ยังใช้ไม่ได้ ขั้นตอนต่อไปตามคู่มือคือการตรวจและเปลี่ยนโมดูล Wi-Fi ซึ่งเป็นงานของช่าง (คู่มือหน้า 117) ให้ติดต่อศูนย์บริการ Samsung ที่ได้รับอนุญาต (คู่มือหน้า 2 ระบุว่าความเสียหายจากการซ่อมโดยผู้ที่ไม่ใช่ผู้ให้บริการที่ได้รับอนุญาตของ Samsung ไม่อยู่ในการรับประกัน ข้อมูลเพิ่มเติมที่ http://samsung.com/support) และอย่าถอดแยกหรือซ่อมแซมเครื่องเอง เพราะเสี่ยงต่อไฟไหม้หรือเครื่องทำงานผิดปกติ (คู่มือหน้า 6)",
+          "outcome_kind": "handoff_informed"
+        }
+      ]
+    }
+  ]
+}

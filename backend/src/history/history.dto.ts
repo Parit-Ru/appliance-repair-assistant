@@ -1,7 +1,7 @@
 import { ApiError } from '../common/api-error';
 import { isPlainObject } from '../common/helpers';
-import type { DeviceCategory, NodeReference, OutcomeKind, RenderedNode, TraversalAction } from '../traversal-engine/types';
-import type { ModelSelection } from '../traversal/traversal.dto';
+import type { DeviceCategory, StateReference, OutcomeKind, RenderedState, ExecutionAction } from '../state-machine/types';
+import type { ModelSelection } from '../execution/execution.dto';
 
 export const DEFAULT_PAGE_SIZE = 10;
 export const MAX_PAGE_SIZE = 50;
@@ -51,7 +51,7 @@ export function parseHistoryQuery(raw: unknown): HistoryQuery {
 }
 
 /** ข้อมูลผังที่แสดงในแถว/หัวรายละเอียด (หน้าจอใช้ symptomName() และ manualTitle() ตัวเดิมได้) */
-export interface HistoryGraphInfo {
+export interface HistoryFlowInfo {
   manualId: string;
   entrySymptom: string;
   entrySymptomTh?: string;
@@ -63,10 +63,10 @@ export interface HistoryGraphInfo {
 
 export interface HistoryListItemDto {
   sessionId: string;
-  graphId: string;
+  flowId: string;
   startedAt: string;
   outcomeKind: OutcomeKind | null;
-  graph: HistoryGraphInfo | null;
+  flow: HistoryFlowInfo | null;
 }
 
 export interface HistoryListResponseDto {
@@ -80,8 +80,8 @@ export interface HistoryListResponseDto {
 // รายละเอียด: GET /history/:id
 
 export interface HistoryStepDto {
-  node: RenderedNode;
-  action: TraversalAction;
+  state: RenderedState;
+  action: ExecutionAction;
 }
 
 export interface HistoryFeedbackDto {
@@ -91,17 +91,17 @@ export interface HistoryFeedbackDto {
 
 export interface HistoryDetailDto {
   sessionId: string;
-  graphId: string;
+  flowId: string;
   startedAt: string;
   modelSelection: ModelSelection | null;
   confidence: number | null;
-  graph: HistoryGraphInfo | null;
+  flow: HistoryFlowInfo | null;
   outcomeKind: OutcomeKind | null;
   available: boolean;
   steps: HistoryStepDto[];
-  finalNode: RenderedNode | null;
+  finalState: RenderedState | null;
   safetyWarnings: string[];
-  reference: NodeReference | null;
+  reference: StateReference | null;
   outcome: string | null;
   feedback: HistoryFeedbackDto | null;
 }

@@ -5,9 +5,9 @@
   "model_pattern": "RF195AC/RF197AC/RF215AC/RF217AC/RF18HFENB/RF20HFENB",
   "source_manual": "Samsung Refrigerator Bottom Mount Freezer Service Manual (RF195AC/RF197AC/RF215AC/RF217AC/RF18HFENB/RF20HFENB), Technical Service Guide 2009",
   "count": 13,
-  "graphs": [
+  "flows": [
     {
-      "graph_id": "samsung_rf_sm2009_glass_shelf_stuck",
+      "flow_id": "samsung_rf_sm2009_glass_shelf_stuck",
       "device_category": "Refrigerator",
       "brand": "Samsung",
       "model_pattern": "RF195AC/RF197AC/RF215AC/RF217AC/RF18HFENB/RF20HFENB",
@@ -26,10 +26,10 @@
       "source_chunk_id": "manual_Samsung_Refrigerator_RFSM2009_p22_glass_shelf_stuck",
       "severity": "low",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "ตอนดึงชั้นกระจกออก ชั้นไม่เลื่อนออกมาง่ายใช่หรือไม่?",
           "safety_critical": false,
@@ -37,14 +37,14 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n_lift",
+          "state_id": "n_lift",
           "type": "instruction",
           "content": "ยกชั้นกระจกขึ้นเล็กน้อย แล้วดึงออกมาอีกครั้ง (คู่มือหน้า 22)",
           "safety_critical": false,
           "next": "n_check"
         },
         {
-          "node_id": "n_check",
+          "state_id": "n_check",
           "type": "checkpoint",
           "question": "หลังยกชั้นขึ้นเล็กน้อยแล้วดึงอีกครั้ง ชั้นเลื่อนออกมาได้หรือไม่?",
           "safety_critical": false,
@@ -52,13 +52,13 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "ดึงชั้นกระจกออกได้แล้ว",
           "outcome_kind": "user_fixed"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "คู่มือให้วิธีแก้เพียงข้อเดียวสำหรับอาการนี้ (ยกชั้นขึ้นเล็กน้อยแล้วดึงอีกครั้ง) หากยังดึงไม่ออก ให้ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่องและอาการที่พบ",
           "outcome_kind": "handoff_unknown"
@@ -66,7 +66,7 @@
       ]
     },
     {
-      "graph_id": "samsung_rf_sm2009_moving_tray_stuck",
+      "flow_id": "samsung_rf_sm2009_moving_tray_stuck",
       "device_category": "Refrigerator",
       "brand": "Samsung",
       "model_pattern": "RF195AC/RF197AC/RF215AC/RF217AC/RF18HFENB/RF20HFENB",
@@ -85,10 +85,10 @@
       "source_chunk_id": "manual_Samsung_Refrigerator_RFSM2009_p23_moving_tray_stuck",
       "severity": "low",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "ตอนดึงถาดเลื่อน (Moving Tray) ออก ถาดไม่เลื่อนออกมาง่ายใช่หรือไม่?",
           "safety_critical": false,
@@ -96,14 +96,14 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n_lift",
+          "state_id": "n_lift",
           "type": "instruction",
           "content": "ยกถาดเลื่อนขึ้นเล็กน้อย แล้วดึงออกมาอีกครั้ง (คู่มือหน้า 23)",
           "safety_critical": false,
           "next": "n_check"
         },
         {
-          "node_id": "n_check",
+          "state_id": "n_check",
           "type": "checkpoint",
           "question": "หลังยกถาดขึ้นเล็กน้อยแล้วดึงอีกครั้ง ถาดเลื่อนออกมาได้หรือไม่?",
           "safety_critical": false,
@@ -111,13 +111,13 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "ดึงถาดเลื่อนออกได้แล้ว",
           "outcome_kind": "user_fixed"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "คู่มือให้วิธีแก้เพียงข้อเดียวสำหรับอาการนี้ (ยกถาดขึ้นเล็กน้อยแล้วดึงอีกครั้ง) หากยังดึงไม่ออก ให้ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่องและอาการที่พบ",
           "outcome_kind": "handoff_unknown"
@@ -125,7 +125,7 @@
       ]
     },
     {
-      "graph_id": "samsung_rf_sm2009_remove_vegetable_fruit_drawers",
+      "flow_id": "samsung_rf_sm2009_remove_vegetable_fruit_drawers",
       "device_category": "Refrigerator",
       "brand": "Samsung",
       "model_pattern": "RF195AC/RF197AC/RF215AC/RF217AC/RF18HFENB/RF20HFENB",
@@ -144,17 +144,17 @@
       "source_chunk_id": "manual_Samsung_Refrigerator_RFSM2009_p23_remove_vegetable_fruit_drawers",
       "severity": "low",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "instruction",
           "content": "ถอดลิ้นชักผักและผลไม้ โดยดึงที่ส่วนลูกล้อ (roller) แล้วยกลิ้นชักขึ้น (คู่มือหน้า 23)",
           "safety_critical": false,
           "next": "n2"
         },
         {
-          "node_id": "n2",
+          "state_id": "n2",
           "type": "checkpoint",
           "question": "ถอดลิ้นชักผักและผลไม้ออกได้แล้วหรือไม่?",
           "safety_critical": false,
@@ -162,14 +162,14 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n3",
+          "state_id": "n3",
           "type": "instruction",
           "content": "ถอดชั้นรองลิ้นชักผักและผลไม้ โดยดึงชั้นออกมา (คู่มือหน้า 23)",
           "safety_critical": false,
           "next": "n4"
         },
         {
-          "node_id": "n4",
+          "state_id": "n4",
           "type": "checkpoint",
           "question": "ถอดชั้นรองลิ้นชักออกได้แล้วหรือไม่?",
           "safety_critical": false,
@@ -177,14 +177,14 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n5",
+          "state_id": "n5",
           "type": "instruction",
           "content": "ถอดแผ่นกั้นลิ้นชักผักและผลไม้ โดยดึงแผ่นกั้นออกมา (คู่มือหน้า 23)",
           "safety_critical": false,
           "next": "n6"
         },
         {
-          "node_id": "n6",
+          "state_id": "n6",
           "type": "checkpoint",
           "question": "ถอดแผ่นกั้นออกได้แล้วหรือไม่?",
           "safety_critical": false,
@@ -192,13 +192,13 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "ถอดลิ้นชัก ชั้นรองลิ้นชัก และแผ่นกั้นออกได้ครบแล้ว",
           "outcome_kind": "user_fixed"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "คู่มือระบุเฉพาะวิธีดึงและยกชิ้นส่วนออก หากถอดไม่ออก ให้ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่องและชิ้นส่วนที่ถอดไม่ออก",
           "outcome_kind": "handoff_unknown"
@@ -206,7 +206,7 @@
       ]
     },
     {
-      "graph_id": "samsung_rf_sm2009_remove_door_bin",
+      "flow_id": "samsung_rf_sm2009_remove_door_bin",
       "device_category": "Refrigerator",
       "brand": "Samsung",
       "model_pattern": "RF195AC/RF197AC/RF215AC/RF217AC/RF18HFENB/RF20HFENB",
@@ -224,17 +224,17 @@
       "source_chunk_id": "manual_Samsung_Refrigerator_RFSM2009_p24_remove_door_bin",
       "severity": "low",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "instruction",
           "content": "ยกช่องเก็บของที่ประตู (Door Bin) ขึ้น แล้วดึงตรงออกมา (คู่มือหน้า 24)",
           "safety_critical": false,
           "next": "n2"
         },
         {
-          "node_id": "n2",
+          "state_id": "n2",
           "type": "checkpoint",
           "question": "ถอดช่องเก็บของที่ประตูออกได้แล้วหรือไม่?",
           "safety_critical": false,
@@ -242,13 +242,13 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "ถอดช่องเก็บของที่ประตูออกได้แล้ว",
           "outcome_kind": "user_fixed"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "คู่มือระบุเฉพาะวิธียกขึ้นแล้วดึงตรงออก หากถอดไม่ออก ให้ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่อง",
           "outcome_kind": "handoff_unknown"
@@ -256,7 +256,7 @@
       ]
     },
     {
-      "graph_id": "samsung_rf_sm2009_refrigerator_light",
+      "flow_id": "samsung_rf_sm2009_refrigerator_light",
       "device_category": "Refrigerator",
       "brand": "Samsung",
       "model_pattern": "RF195AC/RF197AC/RF215AC/RF217AC/RF18HFENB/RF20HFENB",
@@ -275,10 +275,10 @@
       "source_chunk_id": "manual_Samsung_Refrigerator_RFSM2009_p22_refrigerator_light",
       "severity": "low",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "ไฟในห้องแช่เย็นไม่ติดเมื่อเปิดประตู ทั้งที่ตู้เย็นยังทำงานปกติ (จอแสดงผลติดหรือได้ยินเสียงเครื่องทำงาน) ใช่หรือไม่?",
           "safety_critical": false,
@@ -286,7 +286,7 @@
           "on_no": "n_escalate_other"
         },
         {
-          "node_id": "n_unplug",
+          "state_id": "n_unplug",
           "type": "instruction",
           "content": "ถอดปลั๊กตู้เย็นออกจากเต้ารับก่อนเริ่มทำงาน (คู่มือหน้า 57 ระบุให้ปิดไฟก่อนเปลี่ยนหลอดไฟ)",
           "safety_critical": true,
@@ -294,14 +294,14 @@
           "next": "n_remove"
         },
         {
-          "node_id": "n_remove",
+          "state_id": "n_remove",
           "type": "instruction",
           "content": "ถอดฝาครอบหลอดไฟ โดยดึงฝาครอบลงในขณะที่ดันด้านหลังของฝาครอบ แล้วแยกแผงไฟ LED ออก (คู่มือหน้า 22)",
           "safety_critical": false,
           "next": "n_conn"
         },
         {
-          "node_id": "n_conn",
+          "state_id": "n_conn",
           "type": "checkpoint",
           "question": "ขั้วต่อสายของหลอดไฟ LED เสียบแน่นสนิทหรือไม่? (ดูให้แน่ใจว่าขั้วต่อไม่หลุดหลวม)",
           "safety_critical": false,
@@ -310,7 +310,7 @@
           "on_no": "n_fix_conn"
         },
         {
-          "node_id": "n_fix_conn",
+          "state_id": "n_fix_conn",
           "type": "instruction",
           "content": "เสียบขั้วต่อของหลอดไฟ LED ให้แน่นสนิท แล้วประกอบชิ้นส่วนกลับตามลำดับย้อนกลับ",
           "safety_critical": false,
@@ -318,7 +318,7 @@
           "next": "n_replug"
         },
         {
-          "node_id": "n_replug",
+          "state_id": "n_replug",
           "type": "instruction",
           "content": "เสียบปลั๊กตู้เย็นกลับเข้าเต้ารับ แล้วเปิดประตูเพื่อดูว่าไฟในห้องแช่เย็นติดหรือไม่",
           "safety_critical": true,
@@ -327,7 +327,7 @@
           "next": "n_check"
         },
         {
-          "node_id": "n_check",
+          "state_id": "n_check",
           "type": "checkpoint",
           "question": "ไฟในห้องแช่เย็นติดแล้วหรือไม่?",
           "safety_critical": false,
@@ -335,19 +335,19 @@
           "on_no": "n_escalate_lamp"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "ไฟในห้องแช่เย็นติดแล้ว (ขั้วต่อหลอดไฟเดิมเสียบไม่แน่น)",
           "outcome_kind": "user_fixed"
         },
         {
-          "node_id": "n_escalate_lamp",
+          "state_id": "n_escalate_lamp",
           "type": "escalation",
           "content": "ขั้วต่อเสียบแน่นแล้วแต่ไฟในห้องแช่เย็นยังไม่ติด คู่มือหน้า 57 ให้ตรวจหลอดไฟ LED และเปลี่ยนหลอดไฟ LED หากเสีย ซึ่งต้องใช้ชิ้นส่วนใหม่ ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่องและอาการที่พบ",
           "outcome_kind": "handoff_informed"
         },
         {
-          "node_id": "n_escalate_other",
+          "state_id": "n_escalate_other",
           "type": "escalation",
           "content": "อาการไม่ตรงกับกรณีที่คู่มือระบุ (ไฟในห้องแช่เย็นไม่ติดทั้งที่ตู้เย็นทำงานปกติ) หากตู้เย็นไม่มีไฟเข้าเลย ให้เลือกอาการ \"ตู้เย็นไม่มีไฟเข้า\" แทน หากยังไม่หาย ให้ติดต่อศูนย์บริการ Samsung",
           "outcome_kind": "handoff_unknown"
@@ -355,7 +355,7 @@
       ]
     },
     {
-      "graph_id": "samsung_rf_sm2009_freezer_light",
+      "flow_id": "samsung_rf_sm2009_freezer_light",
       "device_category": "Refrigerator",
       "brand": "Samsung",
       "model_pattern": "RF195AC/RF197AC/RF215AC/RF217AC/RF18HFENB/RF20HFENB",
@@ -374,10 +374,10 @@
       "source_chunk_id": "manual_Samsung_Refrigerator_RFSM2009_p26_freezer_light",
       "severity": "low",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "ไฟในห้องแช่แข็งไม่ติดเมื่อเปิดประตู ทั้งที่ตู้เย็นยังทำงานปกติ (จอแสดงผลติดหรือได้ยินเสียงเครื่องทำงาน) ใช่หรือไม่?",
           "safety_critical": false,
@@ -385,7 +385,7 @@
           "on_no": "n_escalate_other"
         },
         {
-          "node_id": "n_unplug",
+          "state_id": "n_unplug",
           "type": "instruction",
           "content": "ถอดปลั๊กตู้เย็นออกจากเต้ารับก่อนเริ่มทำงาน (คู่มือหน้า 57 ระบุให้ปิดไฟก่อนเปลี่ยนหลอดไฟ)",
           "safety_critical": true,
@@ -393,14 +393,14 @@
           "next": "n_remove"
         },
         {
-          "node_id": "n_remove",
+          "state_id": "n_remove",
           "type": "instruction",
           "content": "ถอดหลอดไฟ โดยดึงฝาครอบไฟลงในขณะที่ดันด้านหลังของฝาครอบ (คู่มือหน้า 26)",
           "safety_critical": false,
           "next": "n_conn"
         },
         {
-          "node_id": "n_conn",
+          "state_id": "n_conn",
           "type": "checkpoint",
           "question": "ขั้วต่อสายของหลอดไฟ LED เสียบแน่นสนิทหรือไม่? (ดูให้แน่ใจว่าขั้วต่อไม่หลุดหลวม)",
           "safety_critical": false,
@@ -409,7 +409,7 @@
           "on_no": "n_fix_conn"
         },
         {
-          "node_id": "n_fix_conn",
+          "state_id": "n_fix_conn",
           "type": "instruction",
           "content": "เสียบขั้วต่อของหลอดไฟ LED ให้แน่นสนิท แล้วประกอบชิ้นส่วนกลับตามลำดับย้อนกลับ",
           "safety_critical": false,
@@ -417,7 +417,7 @@
           "next": "n_replug"
         },
         {
-          "node_id": "n_replug",
+          "state_id": "n_replug",
           "type": "instruction",
           "content": "เสียบปลั๊กตู้เย็นกลับเข้าเต้ารับ แล้วเปิดประตูเพื่อดูว่าไฟในห้องแช่แข็งติดหรือไม่",
           "safety_critical": true,
@@ -426,7 +426,7 @@
           "next": "n_check"
         },
         {
-          "node_id": "n_check",
+          "state_id": "n_check",
           "type": "checkpoint",
           "question": "ไฟในห้องแช่แข็งติดแล้วหรือไม่?",
           "safety_critical": false,
@@ -434,19 +434,19 @@
           "on_no": "n_escalate_lamp"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "ไฟในห้องแช่แข็งติดแล้ว (ขั้วต่อหลอดไฟเดิมเสียบไม่แน่น)",
           "outcome_kind": "user_fixed"
         },
         {
-          "node_id": "n_escalate_lamp",
+          "state_id": "n_escalate_lamp",
           "type": "escalation",
           "content": "ขั้วต่อเสียบแน่นแล้วแต่ไฟในห้องแช่แข็งยังไม่ติด คู่มือหน้า 57 ให้ตรวจหลอดไฟ LED และเปลี่ยนหลอดไฟ LED หากเสีย ซึ่งต้องใช้ชิ้นส่วนใหม่ ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่องและอาการที่พบ",
           "outcome_kind": "handoff_informed"
         },
         {
-          "node_id": "n_escalate_other",
+          "state_id": "n_escalate_other",
           "type": "escalation",
           "content": "อาการไม่ตรงกับกรณีที่คู่มือระบุ (ไฟในห้องแช่แข็งไม่ติดทั้งที่ตู้เย็นทำงานปกติ) หากตู้เย็นไม่มีไฟเข้าเลย ให้เลือกอาการ \"ตู้เย็นไม่มีไฟเข้า\" แทน หากยังไม่หาย ให้ติดต่อศูนย์บริการ Samsung",
           "outcome_kind": "handoff_unknown"
@@ -454,7 +454,7 @@
       ]
     },
     {
-      "graph_id": "samsung_rf_sm2009_compressor_delay",
+      "flow_id": "samsung_rf_sm2009_compressor_delay",
       "device_category": "Refrigerator",
       "brand": "Samsung",
       "model_pattern": "RF195AC/RF197AC/RF215AC/RF217AC/RF18HFENB/RF20HFENB",
@@ -473,10 +473,10 @@
       "source_chunk_id": "manual_Samsung_Refrigerator_RFSM2009_p52_compressor_delay",
       "severity": "low",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "คอมเพรสเซอร์เพิ่งหยุดทำงานเพราะอุณหภูมิในตู้ถึงค่าที่ตั้งไว้ และยังไม่ถึง 5 นาที ใช่หรือไม่?",
           "safety_critical": false,
@@ -484,14 +484,14 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n_wait",
+          "state_id": "n_wait",
           "type": "instruction",
           "content": "รอให้ครบ 5 นาที คอมเพรสเซอร์จะไม่ทำงานจนกว่าจะผ่านไป 5 นาทีหลังจากหยุดเมื่ออุณหภูมิถึงค่าที่ตั้ง และจะไม่ทำงานระหว่างการละลายน้ำแข็งด้วย (คู่มือหน้า 52)",
           "safety_critical": false,
           "next": "n_check"
         },
         {
-          "node_id": "n_check",
+          "state_id": "n_check",
           "type": "checkpoint",
           "question": "รอครบ 5 นาทีแล้ว คอมเพรสเซอร์กลับมาทำงานหรือไม่?",
           "safety_critical": false,
@@ -499,13 +499,13 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "การหน่วงเวลา 5 นาทีเป็นการทำงานปกติของตู้เย็น ไม่ใช่ความเสียหาย",
           "outcome_kind": "normal_behavior"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ไม่พบสาเหตุที่ตรงกับข้อมูลระดับผู้ใช้ในคู่มือ (การหน่วง 5 นาทีหรือช่วงละลายน้ำแข็ง) การตรวจต่อไปในคู่มือเป็นงานวัดบนแผงวงจร ซึ่งเป็นงานช่าง ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่องและอาการที่พบ",
           "outcome_kind": "handoff_unknown"
@@ -513,7 +513,7 @@
       ]
     },
     {
-      "graph_id": "samsung_rf_sm2009_fan_delayed_start",
+      "flow_id": "samsung_rf_sm2009_fan_delayed_start",
       "device_category": "Refrigerator",
       "brand": "Samsung",
       "model_pattern": "RF195AC/RF197AC/RF215AC/RF217AC/RF18HFENB/RF20HFENB",
@@ -532,10 +532,10 @@
       "source_chunk_id": "manual_Samsung_Refrigerator_RFSM2009_p48_fan_delayed_start",
       "severity": "low",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "พัดลมไม่ทำงานทันทีหลังเพิ่งเปิดแล้วปิดประตู หรือหลังเสียบปลั๊ก/ไฟกลับมา ใช่หรือไม่?",
           "safety_critical": false,
@@ -543,14 +543,14 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n_wait",
+          "state_id": "n_wait",
           "type": "instruction",
           "content": "ไม่ต้องถือว่าเป็นความผิดปกติ ตู้เย็นออกแบบให้หน่วงเวลา: หากเปิดแล้วปิดประตูหนึ่งครั้งตอนอุณหภูมิห้องสูง พัดลมจะเริ่มทำงานหลังหน่วง 1 นาที หลังปิดแล้วเปิดไฟใหม่หรือไฟดับชั่วขณะ พัดลมจะเริ่มหลังหน่วง 5 นาที และพัดลมห้องเครื่องอาจไม่ทำงานเมื่ออุณหภูมิห้องต่ำ (ประมาณ 59°F หรือต่ำกว่า 15°C) ให้รอประมาณ 5 นาที (อาจนานกว่านี้ตามอุณหภูมิ) (คู่มือหน้า 48)",
           "safety_critical": false,
           "next": "n_check"
         },
         {
-          "node_id": "n_check",
+          "state_id": "n_check",
           "type": "checkpoint",
           "question": "รอประมาณ 5 นาทีแล้ว พัดลมทำงานหรือไม่?",
           "safety_critical": false,
@@ -558,13 +558,13 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "พัดลมทำงานแล้ว — การหน่วงเวลาเป็นการทำงานปกติของตู้เย็น ไม่ใช่ความเสียหาย",
           "outcome_kind": "normal_behavior"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ไม่พบสาเหตุที่ตรงกับข้อมูลระดับผู้ใช้ในคู่มือ การตรวจพัดลมต่อไปในคู่มือเป็นงานวัดแรงดันบนแผงวงจร ซึ่งเป็นงานช่าง ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่องและอาการที่พบ",
           "outcome_kind": "handoff_unknown"
@@ -572,7 +572,7 @@
       ]
     },
     {
-      "graph_id": "samsung_rf_sm2009_door_alarm_continuous",
+      "flow_id": "samsung_rf_sm2009_door_alarm_continuous",
       "device_category": "Refrigerator",
       "brand": "Samsung",
       "model_pattern": "RF195AC/RF197AC/RF215AC/RF217AC/RF18HFENB/RF20HFENB",
@@ -591,10 +591,10 @@
       "source_chunk_id": "manual_Samsung_Refrigerator_RFSM2009_p53_door_alarm_continuous",
       "severity": "low",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "ประตูตู้เย็นและประตูช่องแช่แข็งทุกบานปิดสนิทแล้วหรือไม่? (ลองดันประตูให้สนิท)",
           "safety_critical": false,
@@ -602,14 +602,14 @@
           "on_no": "n_close"
         },
         {
-          "node_id": "n_close",
+          "state_id": "n_close",
           "type": "instruction",
           "content": "ปิดประตูให้สนิท ถ้าประตูปิดไม่สนิท ตู้เย็นจะถือว่าประตูเปิดอยู่ เสียงเตือนจะดังต่อเนื่อง และไฟในตู้จะดับหลังผ่านไป 10 นาทีแม้ประตูจะเปิดอยู่จริง (คู่มือหน้า 53)",
           "safety_critical": false,
           "next": "n_recheck1"
         },
         {
-          "node_id": "n_recheck1",
+          "state_id": "n_recheck1",
           "type": "checkpoint",
           "question": "หลังปิดประตูสนิทแล้ว เสียงเตือนหยุดหรือไม่?",
           "safety_critical": false,
@@ -617,7 +617,7 @@
           "on_no": "n_obstruct"
         },
         {
-          "node_id": "n_obstruct",
+          "state_id": "n_obstruct",
           "type": "checkpoint",
           "question": "มีสิ่งรบกวนการปิดประตู เช่น ขอบยางประตูพับ หรือมีอาหารขวางอยู่หรือไม่?",
           "safety_critical": false,
@@ -625,14 +625,14 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n_clear",
+          "state_id": "n_clear",
           "type": "instruction",
           "content": "นำสิ่งที่ขวางออก แล้วปิดประตูให้สนิท (คู่มือหน้า 53)",
           "safety_critical": false,
           "next": "n_recheck2"
         },
         {
-          "node_id": "n_recheck2",
+          "state_id": "n_recheck2",
           "type": "checkpoint",
           "question": "หลังนำสิ่งที่ขวางออกแล้ว เสียงเตือนหยุดหรือไม่?",
           "safety_critical": false,
@@ -640,13 +640,13 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "เสียงเตือนหยุดแล้ว — สาเหตุคือประตูปิดไม่สนิท",
           "outcome_kind": "user_fixed"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ไม่พบสาเหตุที่ตรงกับข้อมูลระดับผู้ใช้ในคู่มือ (ประตูปิดไม่สนิทหรือมีสิ่งรบกวน) การตรวจสวิตช์ประตูและแผงวงจรต่อไปเป็นงานช่าง ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่องและอาการที่พบ",
           "outcome_kind": "handoff_unknown"
@@ -654,7 +654,7 @@
       ]
     },
     {
-      "graph_id": "samsung_rf_sm2009_beep_continuous_test_mode",
+      "flow_id": "samsung_rf_sm2009_beep_continuous_test_mode",
       "device_category": "Refrigerator",
       "brand": "Samsung",
       "model_pattern": "RF195AC/RF197AC/RF215AC/RF217AC/RF18HFENB/RF20HFENB",
@@ -673,10 +673,10 @@
       "source_chunk_id": "manual_Samsung_Refrigerator_RFSM2009_p53_beep_continuous_test_mode",
       "severity": "low",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "ตู้เย็นมีเสียงบี๊บดังต่อเนื่อง และจอแสดงผลที่แผงด้านหน้าดับทั้งหมด ใช่หรือไม่?",
           "safety_critical": false,
@@ -684,7 +684,7 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n_power_off",
+          "state_id": "n_power_off",
           "type": "instruction",
           "content": "ปิดไฟหลักของตู้เย็นโดยถอดปลั๊กออกจากเต้ารับ เพื่อยกเลิกโหมดทดสอบ (คู่มือหน้า 30-31)",
           "safety_critical": true,
@@ -693,7 +693,7 @@
           "next": "n_power_on"
         },
         {
-          "node_id": "n_power_on",
+          "state_id": "n_power_on",
           "type": "instruction",
           "content": "เสียบปลั๊กกลับเข้าเต้ารับ เพื่อเปิดตู้เย็นใหม่",
           "safety_critical": true,
@@ -702,7 +702,7 @@
           "next": "n_check"
         },
         {
-          "node_id": "n_check",
+          "state_id": "n_check",
           "type": "checkpoint",
           "question": "หลังเปิดตู้เย็นใหม่ เสียงบี๊บหยุดและจอแสดงผลกลับมาแสดงผลปกติหรือไม่?",
           "safety_critical": false,
@@ -710,13 +710,13 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "เสียงบี๊บหยุดแล้ว — โหมดทดสอบ (manual operation / manual defrost) ถูกยกเลิกแล้ว",
           "outcome_kind": "user_fixed"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ไม่พบสาเหตุที่ตรงกับข้อมูลระดับผู้ใช้ในคู่มือ (โหมดทดสอบที่ค้างอยู่) ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่องและลักษณะเสียงที่ได้ยิน",
           "outcome_kind": "handoff_unknown"
@@ -724,7 +724,7 @@
       ]
     },
     {
-      "graph_id": "samsung_rf_sm2009_no_power",
+      "flow_id": "samsung_rf_sm2009_no_power",
       "device_category": "Refrigerator",
       "brand": "Samsung",
       "model_pattern": "RF195AC/RF197AC/RF215AC/RF217AC/RF18HFENB/RF20HFENB",
@@ -743,10 +743,10 @@
       "source_chunk_id": "manual_Samsung_Refrigerator_RFSM2009_p51_no_power",
       "severity": "medium",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "สายไฟหรือปลั๊กตู้เย็นมีรอยแตก สึกหรอ หรือชำรุดหรือไม่?",
           "safety_critical": false,
@@ -754,7 +754,7 @@
           "on_no": "n2"
         },
         {
-          "node_id": "n2",
+          "state_id": "n2",
           "type": "checkpoint",
           "question": "ปลั๊กตู้เย็นเสียบแน่นสนิทในเต้ารับหรือไม่? (ไม่หลวม)",
           "safety_critical": false,
@@ -762,7 +762,7 @@
           "on_no": "n_plug"
         },
         {
-          "node_id": "n_plug",
+          "state_id": "n_plug",
           "type": "instruction",
           "content": "เสียบปลั๊กตู้เย็นเข้าเต้ารับอีกครั้งให้แน่นสนิท แล้วตรวจว่าปลั๊กไม่หลวม (คู่มือหน้า 51)",
           "safety_critical": true,
@@ -771,7 +771,7 @@
           "next": "n_check"
         },
         {
-          "node_id": "n_check",
+          "state_id": "n_check",
           "type": "checkpoint",
           "question": "หลังเสียบปลั๊กแน่นแล้ว ตู้เย็นมีไฟเข้า (จอแสดงผลติดหรือได้ยินเสียงเครื่องทำงาน) หรือไม่?",
           "safety_critical": false,
@@ -779,19 +779,19 @@
           "on_no": "n_escalate_other"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "ตู้เย็นมีไฟเข้าแล้ว — สาเหตุคือปลั๊กเสียบไม่แน่น",
           "outcome_kind": "user_fixed"
         },
         {
-          "node_id": "n_escalate_cord",
+          "state_id": "n_escalate_cord",
           "type": "escalation",
           "content": "ห้ามใช้สายไฟหรือปลั๊กที่แตกหรือสึกหรอ ต้องซ่อมหรือเปลี่ยนสายไฟโดยทันที (คู่มือหน้า 4 และ 17) ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่อง",
           "outcome_kind": "handoff_informed"
         },
         {
-          "node_id": "n_escalate_other",
+          "state_id": "n_escalate_other",
           "type": "escalation",
           "content": "ไม่พบสาเหตุระดับผู้ใช้ที่ตรงกับคู่มือ ขั้นตรวจต่อไปในคู่มือคือฟิวส์และแรงดันไฟบนแผงวงจร ซึ่งเป็นงานช่าง ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่องและสิ่งที่ได้ตรวจแล้ว",
           "outcome_kind": "handoff_unknown"
@@ -799,7 +799,7 @@
       ]
     },
     {
-      "graph_id": "samsung_rf_sm2009_exhibition_mode",
+      "flow_id": "samsung_rf_sm2009_exhibition_mode",
       "device_category": "Refrigerator",
       "brand": "Samsung",
       "model_pattern": "RF195AC/RF197AC/RF215AC/RF217AC/RF18HFENB/RF20HFENB",
@@ -818,10 +818,10 @@
       "source_chunk_id": "manual_Samsung_Refrigerator_RFSM2009_p37_exhibition_mode",
       "severity": "medium",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "หน้าจอ ไฟ และพัดลมในตู้ทำงานปกติ แต่คอมเพรสเซอร์ไม่เดินและตู้เย็นไม่เย็น ใช่หรือไม่?",
           "safety_critical": false,
@@ -829,7 +829,7 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n_cancel",
+          "state_id": "n_cancel",
           "type": "instruction",
           "content": "กดปุ่ม Power Freeze และปุ่ม Freezer พร้อมกัน (กดซ้ำ) เพื่อยกเลิกโหมดโชว์สินค้า (คู่มือหน้า 37) โหมดนี้ยังคงอยู่แม้ปิดไฟแล้วเปิดใหม่ จึงต้องยกเลิกด้วยปุ่ม",
           "safety_critical": false,
@@ -837,7 +837,7 @@
           "next": "n_check"
         },
         {
-          "node_id": "n_check",
+          "state_id": "n_check",
           "type": "checkpoint",
           "question": "หลังยกเลิกแล้ว รอประมาณ 5 นาที คอมเพรสเซอร์กลับมาทำงานและตู้เย็นเริ่มเย็นหรือไม่?",
           "safety_critical": false,
@@ -846,13 +846,13 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "ยกเลิกโหมดโชว์สินค้าแล้ว ตู้เย็นกลับมาทำความเย็นตามปกติ",
           "outcome_kind": "user_fixed"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ไม่พบสาเหตุที่ตรงกับข้อมูลระดับผู้ใช้ในคู่มือ (โหมดโชว์สินค้า) ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่องและอาการที่พบ",
           "outcome_kind": "handoff_unknown"
@@ -860,7 +860,7 @@
       ]
     },
     {
-      "graph_id": "samsung_rf_sm2009_sensor_led_blinking",
+      "flow_id": "samsung_rf_sm2009_sensor_led_blinking",
       "device_category": "Refrigerator",
       "brand": "Samsung",
       "model_pattern": "RF195AC/RF197AC/RF215AC/RF217AC/RF18HFENB/RF20HFENB",
@@ -879,10 +879,10 @@
       "source_chunk_id": "manual_Samsung_Refrigerator_RFSM2009_p31_sensor_led_blinking",
       "severity": "medium",
       "difficulty": "hard",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "ตอนเสียบปลั๊กเปิดตู้เย็นครั้งแรก ไฟ LED บนจอแสดงอุณหภูมิกะพริบทุก 0.5 วินาที (ไม่มีเสียงบี๊บ) ใช่หรือไม่?",
           "safety_critical": false,
@@ -890,7 +890,7 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n_note",
+          "state_id": "n_note",
           "type": "instruction",
           "content": "ตู้เย็นตรวจพบว่าเซนเซอร์อุณหภูมิมีความผิดปกติจึงให้ไฟ LED กะพริบ ขณะนี้จอแสดงผลทำงานไม่ปกติ และตู้เย็นควบคุมอุณหภูมิในโหมดฉุกเฉิน (คู่มือหน้า 31) ตำแหน่งไฟที่กะพริบบอกว่าเซนเซอร์ตัวใดผิดปกติ (ดูตารางรหัสในคู่มือหน้า 33-34)",
           "safety_critical": false,
@@ -898,14 +898,14 @@
           "next": "n_reset"
         },
         {
-          "node_id": "n_reset",
+          "state_id": "n_reset",
           "type": "instruction",
           "content": "กดปุ่ม Power Freeze และปุ่ม Power Cool พร้อมกันค้างไว้ 8 วินาที เพื่อยกเลิกการแสดงข้อผิดพลาดและกลับสู่การแสดงผลปกติ (คู่มือหน้า 31)",
           "safety_critical": false,
           "next": "n_check"
         },
         {
-          "node_id": "n_check",
+          "state_id": "n_check",
           "type": "checkpoint",
           "question": "หลังกดแล้ว ไฟหยุดกะพริบและหน้าจอกลับสู่การแสดงผลปกติหรือไม่?",
           "safety_critical": false,
@@ -913,19 +913,19 @@
           "on_no": "n_escalate_malfunction"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "ไฟหยุดกะพริบแล้ว ตู้เย็นกลับสู่การแสดงผลปกติ — หากอาการกลับมาอีก ควรให้ช่างตรวจสอบ",
           "outcome_kind": "user_fixed"
         },
         {
-          "node_id": "n_escalate_malfunction",
+          "state_id": "n_escalate_malfunction",
           "type": "escalation",
           "content": "ไฟยังกะพริบหลังกดยกเลิกแล้ว บ่งชี้ว่าเซนเซอร์อุณหภูมิยังผิดปกติและต้องให้ช่างตรวจสอบ ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่องและอาการที่พบ",
           "outcome_kind": "handoff_informed"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "อาการไม่ตรงกับกรณีไฟ LED กะพริบจากการวินิจฉัยตัวเองที่ระบุในคู่มือ ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่องและอาการที่พบ",
           "outcome_kind": "handoff_unknown"

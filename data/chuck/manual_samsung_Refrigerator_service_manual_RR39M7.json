@@ -1,0 +1,495 @@
+[
+  {
+    "chunk_id": "manual_Samsung_Refrigerator_RR39M7_p5_power_cord_outlet_damaged",
+    "device_category": "Refrigerator",
+    "brand": "Samsung",
+    "model": "RR39M7*/RR39T7*/RZ32R*/RZ32M7*/RZ32T7*/RZ11M7*",
+    "source": "Samsung Refrigerator Service Manual (1 door type: RR39M7*, RR39T7*, RZ32R*, RZ32M7*, RZ32T7*, RZ11M7*)",
+    "page": 5,
+    "content": "Check out whether the power cord or the outlet is broken, squeezed, chopped off or heat-deformed. 1. Repair or replace the defective power cord/outlet immediately. 2. Make sure the power cord is not punctuated or stomped down.",
+    "metadata": {
+      "symptom": "Check out whether the power cord or the outlet is broken, squeezed, chopped off or heat-deformed.",
+      "possible_cause": null,
+      "solution": "1. Repair or replace the defective power cord/outlet immediately.\n2. Make sure the power cord is not punctuated or stomped down.",
+      "severity": "high",
+      "difficulty": "hard",
+      "safety_warning": "ห้ามใช้สายไฟที่มีรอยแตกหรือสึกหรอจากการเสียดสีตลอดความยาวหรือที่ปลายทั้งสองด้าน (คู่มือหน้า 24) และต้องไม่ให้สายไฟถูกเจาะหรือถูกเหยียบทับ (คู่มือหน้า 5)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Refrigerator_RR39M7_p17_lights_off",
+    "device_category": "Refrigerator",
+    "brand": "Samsung",
+    "model": "RR39M7*/RR39T7*/RZ32R*/RZ32M7*/RZ32T7*/RZ11M7*",
+    "source": "Samsung Refrigerator Service Manual (1 door type: RR39M7*, RR39T7*, RZ32R*, RZ32M7*, RZ32T7*, RZ11M7*)",
+    "page": 17,
+    "content": "If the fridge door remains open for 10 minutes or more, all the lights in the fridge will turn off. 1. If the fridge door remains open for 10 minutes or more, all the lights in the fridge will turn off. 2. If the freezer door remains open for 10 minutes or more, all the lights in the fridge will turn off.",
+    "metadata": {
+      "symptom": "If the fridge door remains open for 10 minutes or more, all the lights in the fridge will turn off.",
+      "possible_cause": null,
+      "solution": "1. If the fridge door remains open for 10 minutes or more, all the lights in the fridge will turn off.\n2. If the freezer door remains open for 10 minutes or more, all the lights in the fridge will turn off.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Refrigerator_RR39M7_p18_door_alarm",
+    "device_category": "Refrigerator",
+    "brand": "Samsung",
+    "model": "RR39M7*/RR39T7*/RZ32R*/RZ32M7*/RZ32T7*/RZ11M7*",
+    "source": "Samsung Refrigerator Service Manual (1 door type: RR39M7*, RR39T7*, RZ32R*, RZ32M7*, RZ32T7*, RZ11M7*)",
+    "page": 18,
+    "content": "Door Alarm: If the door is left open for more than 2 minutes, the alarm will sound with the Alarm indicator blinking. 1. If the door is left open for more than 2 minutes, the alarm will sound with the Alarm indicator blinking. 2. You can toggle to enable and disable the alarm by pressing Door Alarm.",
+    "metadata": {
+      "symptom": "Door Alarm: If the door is left open for more than 2 minutes, the alarm will sound with the Alarm indicator blinking.",
+      "possible_cause": null,
+      "solution": "1. If the door is left open for more than 2 minutes, the alarm will sound with the Alarm indicator blinking.\n2. You can toggle to enable and disable the alarm by pressing Door Alarm.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Refrigerator_RR39M7_p85_alarm_keeps_sounding",
+    "device_category": "Refrigerator",
+    "brand": "Samsung",
+    "model": "RR39M7*/RR39T7*/RZ32R*/RZ32M7*/RZ32T7*/RZ11M7*",
+    "source": "Samsung Refrigerator Service Manual (1 door type: RR39M7*, RR39T7*, RZ32R*, RZ32M7*, RZ32T7*, RZ11M7*)",
+    "page": 85,
+    "content": "When the unit keeps alarming (Buzzer Sound) 1. The unit is not in Forced Operation or Forced Defrost mode. 2. Cancel Forced Operation/Defrost 3. When the unit is plugged out and in again, it keeps beeping? 4. Check if there is any obstacle pushing the Door open.",
+    "metadata": {
+      "symptom": "When the unit keeps alarming (Buzzer Sound)",
+      "possible_cause": null,
+      "solution": "1. The unit is not in Forced Operation or Forced Defrost mode.\n2. Cancel Forced Operation/Defrost\n3. When the unit is plugged out and in again, it keeps beeping?\n4. Check if there is any obstacle pushing the Door open.",
+      "severity": "medium",
+      "difficulty": "medium",
+      "safety_warning": "ตู้เย็นต้องเสียบเต้ารับเฉพาะของตัวเองที่มีแรงดันตรงกับป้ายพิกัด ห้ามเสียบเครื่องใช้ไฟฟ้าหลายเครื่องกับปลั๊กพ่วงเดียวกัน เพราะสายไฟอาจร้อนเกินและเสี่ยงไฟไหม้ (คู่มือหน้า 24) ให้ตรวจสายไฟและเต้ารับว่าไม่แตก ไม่ถูกทับ ไม่ขาด และไม่บิดเบี้ยวจากความร้อน (คู่มือหน้า 5)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Refrigerator_RR39M7_p54_forced_operation_beep",
+    "device_category": "Refrigerator",
+    "brand": "Samsung",
+    "model": "RR39M7*/RR39T7*/RZ32R*/RZ32M7*/RZ32T7*/RZ11M7*",
+    "source": "Samsung Refrigerator Service Manual (1 door type: RR39M7*, RR39T7*, RZ32R*, RZ32M7*, RZ32T7*, RZ11M7*)",
+    "page": 54,
+    "content": "When the Power Cool or Power Freezer button is pressed once during the Test mode, “FF” lights up on the Display Panel indicating that it is in the Forced Operation. At this time, it starts alarming with “Beep” sounds. To cancel the Forced Operation in the middle of the Test function, turn off the power and turn it on again, or select the Test Cancellation mode.",
+    "metadata": {
+      "symptom": "When the Power Cool or Power Freezer button is pressed once during the Test mode, “FF” lights up on the Display Panel indicating that it is in the Forced Operation. At this time, it starts alarming with “Beep” sounds.",
+      "possible_cause": null,
+      "solution": "To cancel the Forced Operation in the middle of the Test function, turn off the power and turn it on again, or select the Test Cancellation mode.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": "ตู้เย็นต้องเสียบเต้ารับเฉพาะของตัวเองที่มีแรงดันตรงกับป้ายพิกัด ห้ามเสียบเครื่องใช้ไฟฟ้าหลายเครื่องกับปลั๊กพ่วงเดียวกัน เพราะสายไฟอาจร้อนเกินและเสี่ยงไฟไหม้ (คู่มือหน้า 24) ให้ตรวจสายไฟและเต้ารับว่าไม่แตก ไม่ถูกทับ ไม่ขาด และไม่บิดเบี้ยวจากความร้อน (คู่มือหน้า 5)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Refrigerator_RR39M7_p18_control_lock",
+    "device_category": "Refrigerator",
+    "brand": "Samsung",
+    "model": "RR39M7*/RR39T7*/RZ32R*/RZ32M7*/RZ32T7*/RZ11M7*",
+    "source": "Samsung Refrigerator Service Manual (1 door type: RR39M7*, RR39T7*, RZ32R*, RZ32M7*, RZ32T7*, RZ11M7*)",
+    "page": 18,
+    "content": "Lock/Unlock (3 sec) 1. To prevent accidental manipulation, press and hold Control Lock for 3 seconds to activate the Control Lock. 2. To deactivate, press and hold again for 3 seconds. The controls will be enabled as normal.",
+    "metadata": {
+      "symptom": "Lock/Unlock (3 sec)",
+      "possible_cause": null,
+      "solution": "1. To prevent accidental manipulation, press and hold Control Lock for 3 seconds to activate the Control Lock.\n2. To deactivate, press and hold again for 3 seconds. The controls will be enabled as normal.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Refrigerator_RR39M7_p93_no_power",
+    "device_category": "Refrigerator",
+    "brand": "Samsung",
+    "model": "RR39M7*/RR39T7*/RZ32R*/RZ32M7*/RZ32T7*/RZ11M7*",
+    "source": "Samsung Refrigerator Service Manual (1 door type: RR39M7*, RR39T7*, RZ32R*, RZ32M7*, RZ32T7*, RZ11M7*)",
+    "page": 93,
+    "content": "When there is no Power in Main PCB 1. The unit is plugged in? 2. Plug in the unit 3. Check the wire connections 4. There is AC220~240V or DC310~340V at the MAIN PCB Power Circuit. So, be cautious when repairing the unit or measuring values.",
+    "metadata": {
+      "symptom": "When there is no Power in Main PCB",
+      "possible_cause": null,
+      "solution": "1. The unit is plugged in?\n2. Plug in the unit\n3. Check the wire connections\n4. There is AC220~240V or DC310~340V at the MAIN PCB Power Circuit. So, be cautious when repairing the unit or measuring values.",
+      "severity": "high",
+      "difficulty": "medium",
+      "safety_warning": "ตู้เย็นต้องเสียบเต้ารับเฉพาะของตัวเองที่มีแรงดันตรงกับป้ายพิกัด ห้ามเสียบเครื่องใช้ไฟฟ้าหลายเครื่องกับปลั๊กพ่วงเดียวกัน เพราะสายไฟอาจร้อนเกินและเสี่ยงไฟไหม้ (คู่มือหน้า 24) ให้ตรวจสายไฟและเต้ารับว่าไม่แตก ไม่ถูกทับ ไม่ขาด และไม่บิดเบี้ยวจากความร้อน (คู่มือหน้า 5)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Refrigerator_RR39M7_p83_compressor_not_working",
+    "device_category": "Refrigerator",
+    "brand": "Samsung",
+    "model": "RR39M7*/RR39T7*/RZ32R*/RZ32M7*/RZ32T7*/RZ11M7*",
+    "source": "Samsung Refrigerator Service Manual (1 door type: RR39M7*, RR39T7*, RZ32R*, RZ32M7*, RZ32T7*, RZ11M7*)",
+    "page": 83,
+    "content": "When the Compressor is not working (INVERTER PBA) 1. 10 minutes have passed since COMP was off 2. Check in 10 minutes 3. NORMAL (Recheck)",
+    "metadata": {
+      "symptom": "When the Compressor is not working (INVERTER PBA)",
+      "possible_cause": null,
+      "solution": "1. 10 minutes have passed since COMP was off\n2. Check in 10 minutes\n3. NORMAL (Recheck)",
+      "severity": "medium",
+      "difficulty": "medium",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Refrigerator_RR39M7_p78_c_fan_not_running",
+    "device_category": "Refrigerator",
+    "brand": "Samsung",
+    "model": "RR39M7*/RR39T7*/RZ32R*/RZ32M7*/RZ32T7*/RZ11M7*",
+    "source": "Samsung Refrigerator Service Manual (1 door type: RR39M7*, RR39T7*, RZ32R*, RZ32M7*, RZ32T7*, RZ11M7*)",
+    "page": 78,
+    "content": "When the C-Fan does not operate (Applies to Models with C-Fan) 1. The C-Fan motor generally runs together with the compressor. 2. 29℃/84°F or higher : Turns on after a 10 minute pause when the Compressor starts operating. 3. 18℃/64°F~28℃/82°F : Turns on immediately when the Compressor starts operating.",
+    "metadata": {
+      "symptom": "When the C-Fan does not operate (Applies to Models with C-Fan)",
+      "possible_cause": null,
+      "solution": "1. The C-Fan motor generally runs together with the compressor.\n2. 29℃/84°F or higher : Turns on after a 10 minute pause when the Compressor starts operating.\n3. 18℃/64°F~28℃/82°F : Turns on immediately when the Compressor starts operating.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Refrigerator_RR39M7_p60_abnormal_high_temp",
+    "device_category": "Refrigerator",
+    "brand": "Samsung",
+    "model": "RR39M7*/RR39T7*/RZ32R*/RZ32M7*/RZ32T7*/RZ11M7*",
+    "source": "Samsung Refrigerator Service Manual (1 door type: RR39M7*, RR39T7*, RZ32R*, RZ32M7*, RZ32T7*, RZ11M7*)",
+    "page": 60,
+    "content": "Abnormal High Temperature error The Fridge Display blinks when the Fridge temperature goes up abnormally or the Fridge Door is opened for a certain period of time while the Refrigerator temperature is high. 1. Check if the Door is opened for a long time or hot foods are kept. 2. Remove the cause, and it will disappear in a certain period of time.",
+    "metadata": {
+      "symptom": "Abnormal High Temperature error The Fridge Display blinks when the Fridge temperature goes up abnormally or the Fridge Door is opened for a certain period of time while the Refrigerator temperature is high.",
+      "possible_cause": null,
+      "solution": "1. Check if the Door is opened for a long time or hot foods are kept.\n2. Remove the cause, and it will disappear in a certain period of time.",
+      "severity": "medium",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Refrigerator_RR39M7_p64_demo_mode",
+    "device_category": "Refrigerator",
+    "brand": "Samsung",
+    "model": "RR39M7*/RR39T7*/RZ32R*/RZ32M7*/RZ32T7*/RZ11M7*",
+    "source": "Samsung Refrigerator Service Manual (1 door type: RR39M7*, RR39T7*, RZ32R*, RZ32M7*, RZ32T7*, RZ11M7*)",
+    "page": 64,
+    "content": "When the unit is in Demo Mode, all the functions including the Display Panel works normal. But, the Compressor and C-Fan do not operate. To cancel the Demo Mode, press the same buttons for 6 seconds as you enter into the Demo Mode",
+    "metadata": {
+      "symptom": "When the unit is in Demo Mode, all the functions including the Display Panel works normal. But, the Compressor and C-Fan do not operate.",
+      "possible_cause": null,
+      "solution": "To cancel the Demo Mode, press the same buttons for 6 seconds as you enter into the Demo Mode",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Refrigerator_RR39M7_p17_wifi_connection",
+    "device_category": "Refrigerator",
+    "brand": "Samsung",
+    "model": "RR39M7*/RR39T7*/RZ32R*/RZ32M7*/RZ32T7*/RZ11M7*",
+    "source": "Samsung Refrigerator Service Manual (1 door type: RR39M7*, RR39T7*, RZ32R*, RZ32M7*, RZ32T7*, RZ11M7*)",
+    "page": 17,
+    "content": "Samsung Smart Refrigerator may fail to connect to the Internet. 1. Recommended encryption systems include WPA/TKIP and WPA2/AES. 2. If your Internet service provider has registered the MAC address of your PC or modem for identification, your Samsung Smart Refrigerator may fail to connect to the Internet. If this happens, contact your Internet service provider for technical assistance. 3. Contact your Internet service provider for technical assistance. If this symptom continues, contact a local Samsung service center or retailer. 4. Unauthorized Wi-Fi wireless routers may fail to connect to applicable Samsung Smart Refrigerators.",
+    "metadata": {
+      "symptom": "Samsung Smart Refrigerator may fail to connect to the Internet.",
+      "possible_cause": null,
+      "solution": "1. Recommended encryption systems include WPA/TKIP and WPA2/AES.\n2. If your Internet service provider has registered the MAC address of your PC or modem for identification, your Samsung Smart Refrigerator may fail to connect to the Internet. If this happens, contact your Internet service provider for technical assistance.\n3. Contact your Internet service provider for technical assistance. If this symptom continues, contact a local Samsung service center or retailer.\n4. Unauthorized Wi-Fi wireless routers may fail to connect to applicable Samsung Smart Refrigerators.",
+      "severity": "low",
+      "difficulty": "medium",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Refrigerator_RR39M7_p57_room_sensor",
+    "device_category": "Refrigerator",
+    "brand": "Samsung",
+    "model": "RR39M7*/RR39T7*/RZ32R*/RZ32M7*/RZ32T7*/RZ11M7*",
+    "source": "Samsung Refrigerator Service Manual (1 door type: RR39M7*, RR39T7*, RZ32R*, RZ32M7*, RZ32T7*, RZ11M7*)",
+    "page": 57,
+    "content": "Room Sensor Error 2 1 1 When an open/short sensor error occurs.",
+    "metadata": {
+      "symptom": "Room Sensor Error 2 1 1",
+      "possible_cause": null,
+      "solution": "When an open/short sensor error occurs.",
+      "severity": "medium",
+      "difficulty": "hard",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Refrigerator_RR39M7_p57_defrost_sensor",
+    "device_category": "Refrigerator",
+    "brand": "Samsung",
+    "model": "RR39M7*/RR39T7*/RZ32R*/RZ32M7*/RZ32T7*/RZ11M7*",
+    "source": "Samsung Refrigerator Service Manual (1 door type: RR39M7*, RR39T7*, RZ32R*, RZ32M7*, RZ32T7*, RZ11M7*)",
+    "page": 57,
+    "content": "Defrost Sensor Error 5 4 4 When an open/short sensor error occurs.",
+    "metadata": {
+      "symptom": "Defrost Sensor Error 5 4 4",
+      "possible_cause": null,
+      "solution": "When an open/short sensor error occurs.",
+      "severity": "medium",
+      "difficulty": "hard",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Refrigerator_RR39M7_p57_ext_sensor",
+    "device_category": "Refrigerator",
+    "brand": "Samsung",
+    "model": "RR39M7*/RR39T7*/RZ32R*/RZ32M7*/RZ32T7*/RZ11M7*",
+    "source": "Samsung Refrigerator Service Manual (1 door type: RR39M7*, RR39T7*, RZ32R*, RZ32M7*, RZ32T7*, RZ11M7*)",
+    "page": 57,
+    "content": "EXT-SENSOR Error 6 6 6 When an open/short sensor error occurs.",
+    "metadata": {
+      "symptom": "EXT-SENSOR Error 6 6 6",
+      "possible_cause": null,
+      "solution": "When an open/short sensor error occurs.",
+      "severity": "medium",
+      "difficulty": "hard",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Refrigerator_RR39M7_p57_fan_error",
+    "device_category": "Refrigerator",
+    "brand": "Samsung",
+    "model": "RR39M7*/RR39T7*/RZ32R*/RZ32M7*/RZ32T7*/RZ11M7*",
+    "source": "Samsung Refrigerator Service Manual (1 door type: RR39M7*, RR39T7*, RZ32R*, RZ32M7*, RZ32T7*, RZ11M7*)",
+    "page": 57,
+    "content": "Fan Error 22 21 21 When a fan restriction error occurs.",
+    "metadata": {
+      "symptom": "Fan Error 22 21 21",
+      "possible_cause": null,
+      "solution": "When a fan restriction error occurs.",
+      "severity": "medium",
+      "difficulty": "hard",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Refrigerator_RR39M7_p57_c_fan_error",
+    "device_category": "Refrigerator",
+    "brand": "Samsung",
+    "model": "RR39M7*/RR39T7*/RZ32R*/RZ32M7*/RZ32T7*/RZ11M7*",
+    "source": "Samsung Refrigerator Service Manual (1 door type: RR39M7*, RR39T7*, RZ32R*, RZ32M7*, RZ32T7*, RZ11M7*)",
+    "page": 57,
+    "content": "C-Fan Error 23 23 23 When a fan restriction error occurs.",
+    "metadata": {
+      "symptom": "C-Fan Error 23 23 23",
+      "possible_cause": null,
+      "solution": "When a fan restriction error occurs.",
+      "severity": "medium",
+      "difficulty": "hard",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Refrigerator_RR39M7_p57_defrosting_error",
+    "device_category": "Refrigerator",
+    "brand": "Samsung",
+    "model": "RR39M7*/RR39T7*/RZ32R*/RZ32M7*/RZ32T7*/RZ11M7*",
+    "source": "Samsung Refrigerator Service Manual (1 door type: RR39M7*, RR39T7*, RZ32R*, RZ32M7*, RZ32T7*, RZ11M7*)",
+    "page": 57,
+    "content": "Defrosting Error - 24 24 1. It occurs when there is a separation of the Housing related to the Defrost Heater, contact error, disconnection, short circuit, or a failure of Temperature Fuse. 2. The failure is displayed when defrosting of the F Compartment does not end even after nonstop heating for 150 minutes or longer.",
+    "metadata": {
+      "symptom": "Defrosting Error - 24 24",
+      "possible_cause": null,
+      "solution": "1. It occurs when there is a separation of the Housing related to the Defrost Heater, contact error, disconnection, short circuit, or a failure of Temperature Fuse.\n2. The failure is displayed when defrosting of the F Compartment does not end even after nonstop heating for 150 minutes or longer.",
+      "severity": "medium",
+      "difficulty": "hard",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Refrigerator_RR39M7_p57_early_defrost_restoration",
+    "device_category": "Refrigerator",
+    "brand": "Samsung",
+    "model": "RR39M7*/RR39T7*/RZ32R*/RZ32M7*/RZ32T7*/RZ11M7*",
+    "source": "Samsung Refrigerator Service Manual (1 door type: RR39M7*, RR39T7*, RZ32R*, RZ32M7*, RZ32T7*, RZ11M7*)",
+    "page": 57,
+    "content": "Early Defrosting Restoration Error 35 35 35 1. It occurs when there is a separation of the Housing related to the F Compartment Defrost Heater, poor contact, Wire-Cut, Wire-Short, or a fault with Temperature Fuse. 2. The failure is displayed when defrosting of the F Compartment is about to end in 5 minutes.",
+    "metadata": {
+      "symptom": "Early Defrosting Restoration Error 35 35 35",
+      "possible_cause": null,
+      "solution": "1. It occurs when there is a separation of the Housing related to the F Compartment Defrost Heater, poor contact, Wire-Cut, Wire-Short, or a fault with Temperature Fuse.\n2. The failure is displayed when defrosting of the F Compartment is about to end in 5 minutes.",
+      "severity": "medium",
+      "difficulty": "hard",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Refrigerator_RR39M7_p57_comp_start_failure",
+    "device_category": "Refrigerator",
+    "brand": "Samsung",
+    "model": "RR39M7*/RR39T7*/RZ32R*/RZ32M7*/RZ32T7*/RZ11M7*",
+    "source": "Samsung Refrigerator Service Manual (1 door type: RR39M7*, RR39T7*, RZ32R*, RZ32M7*, RZ32T7*, RZ11M7*)",
+    "page": 57,
+    "content": "Comp Starting Failure Error 81 81 81 If the compressor fails to start.",
+    "metadata": {
+      "symptom": "Comp Starting Failure Error 81 81 81",
+      "possible_cause": null,
+      "solution": "If the compressor fails to start.",
+      "severity": "medium",
+      "difficulty": "hard",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Refrigerator_RR39M7_p57_comp_ipm_fault",
+    "device_category": "Refrigerator",
+    "brand": "Samsung",
+    "model": "RR39M7*/RR39T7*/RZ32R*/RZ32M7*/RZ32T7*/RZ11M7*",
+    "source": "Samsung Refrigerator Service Manual (1 door type: RR39M7*, RR39T7*, RZ32R*, RZ32M7*, RZ32T7*, RZ11M7*)",
+    "page": 57,
+    "content": "Comp IPM Fault Error 82 82 82 If a compressor IPM fault error occurs.",
+    "metadata": {
+      "symptom": "Comp IPM Fault Error 82 82 82",
+      "possible_cause": null,
+      "solution": "If a compressor IPM fault error occurs.",
+      "severity": "medium",
+      "difficulty": "hard",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Refrigerator_RR39M7_p57_comp_abnormal_current",
+    "device_category": "Refrigerator",
+    "brand": "Samsung",
+    "model": "RR39M7*/RR39T7*/RZ32R*/RZ32M7*/RZ32T7*/RZ11M7*",
+    "source": "Samsung Refrigerator Service Manual (1 door type: RR39M7*, RR39T7*, RZ32R*, RZ32M7*, RZ32T7*, RZ11M7*)",
+    "page": 57,
+    "content": "Comp Abnormal Current Detection Error 83 83 83 If a compressor abnormal current error occurs.",
+    "metadata": {
+      "symptom": "Comp Abnormal Current Detection Error 83 83 83",
+      "possible_cause": null,
+      "solution": "If a compressor abnormal current error occurs.",
+      "severity": "medium",
+      "difficulty": "hard",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Refrigerator_RR39M7_p57_comp_motor_restriction",
+    "device_category": "Refrigerator",
+    "brand": "Samsung",
+    "model": "RR39M7*/RR39T7*/RZ32R*/RZ32M7*/RZ32T7*/RZ11M7*",
+    "source": "Samsung Refrigerator Service Manual (1 door type: RR39M7*, RR39T7*, RZ32R*, RZ32M7*, RZ32T7*, RZ11M7*)",
+    "page": 57,
+    "content": "Comp Motor Restriction Error 84 84 84 If a compressor motor restriction error occurs.",
+    "metadata": {
+      "symptom": "Comp Motor Restriction Error 84 84 84",
+      "possible_cause": null,
+      "solution": "If a compressor motor restriction error occurs.",
+      "severity": "medium",
+      "difficulty": "hard",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Refrigerator_RR39M7_p57_comp_low_voltage",
+    "device_category": "Refrigerator",
+    "brand": "Samsung",
+    "model": "RR39M7*/RR39T7*/RZ32R*/RZ32M7*/RZ32T7*/RZ11M7*",
+    "source": "Samsung Refrigerator Service Manual (1 door type: RR39M7*, RR39T7*, RZ32R*, RZ32M7*, RZ32T7*, RZ11M7*)",
+    "page": 57,
+    "content": "Comp Low Voltage Error 85 85 85 If a compressor low voltage error occurs.",
+    "metadata": {
+      "symptom": "Comp Low Voltage Error 85 85 85",
+      "possible_cause": null,
+      "solution": "If a compressor low voltage error occurs.",
+      "severity": "medium",
+      "difficulty": "hard",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Refrigerator_RR39M7_p57_comp_overvoltage",
+    "device_category": "Refrigerator",
+    "brand": "Samsung",
+    "model": "RR39M7*/RR39T7*/RZ32R*/RZ32M7*/RZ32T7*/RZ11M7*",
+    "source": "Samsung Refrigerator Service Manual (1 door type: RR39M7*, RR39T7*, RZ32R*, RZ32M7*, RZ32T7*, RZ11M7*)",
+    "page": 57,
+    "content": "Comp Overvoltage Error 86 86 86 If a compressor overvoltage error occurs.",
+    "metadata": {
+      "symptom": "Comp Overvoltage Error 86 86 86",
+      "possible_cause": null,
+      "solution": "If a compressor overvoltage error occurs.",
+      "severity": "medium",
+      "difficulty": "hard",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Refrigerator_RR39M7_p57_comp_ipm_shutdown",
+    "device_category": "Refrigerator",
+    "brand": "Samsung",
+    "model": "RR39M7*/RR39T7*/RZ32R*/RZ32M7*/RZ32T7*/RZ11M7*",
+    "source": "Samsung Refrigerator Service Manual (1 door type: RR39M7*, RR39T7*, RZ32R*, RZ32M7*, RZ32T7*, RZ11M7*)",
+    "page": 57,
+    "content": "Comp IPM Shut down Error 96 96 96 If a compressor IPM Shut Down error occurs.",
+    "metadata": {
+      "symptom": "Comp IPM Shut down Error 96 96 96",
+      "possible_cause": null,
+      "solution": "If a compressor IPM Shut Down error occurs.",
+      "severity": "medium",
+      "difficulty": "hard",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Refrigerator_RR39M7_p57_comp_communication",
+    "device_category": "Refrigerator",
+    "brand": "Samsung",
+    "model": "RR39M7*/RR39T7*/RZ32R*/RZ32M7*/RZ32T7*/RZ11M7*",
+    "source": "Samsung Refrigerator Service Manual (1 door type: RR39M7*, RR39T7*, RZ32R*, RZ32M7*, RZ32T7*, RZ11M7*)",
+    "page": 57,
+    "content": "Comp Communication Error 44 44 44 When a compressor and Micom communication error occurs.",
+    "metadata": {
+      "symptom": "Comp Communication Error 44 44 44",
+      "possible_cause": null,
+      "solution": "When a compressor and Micom communication error occurs.",
+      "severity": "medium",
+      "difficulty": "hard",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Refrigerator_RR39M7_p57_exterior_humidity_sensor",
+    "device_category": "Refrigerator",
+    "brand": "Samsung",
+    "model": "RR39M7*/RR39T7*/RZ32R*/RZ32M7*/RZ32T7*/RZ11M7*",
+    "source": "Samsung Refrigerator Service Manual (1 door type: RR39M7*, RR39T7*, RZ32R*, RZ32M7*, RZ32T7*, RZ11M7*)",
+    "page": 57,
+    "content": "Exterior Humidity Sensor Error 13 13 13 When an Open/Short error from the exterior humidity sensor occurs.",
+    "metadata": {
+      "symptom": "Exterior Humidity Sensor Error 13 13 13",
+      "possible_cause": null,
+      "solution": "When an Open/Short error from the exterior humidity sensor occurs.",
+      "severity": "medium",
+      "difficulty": "hard",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Refrigerator_RR39M7_p57_wifi_communication",
+    "device_category": "Refrigerator",
+    "brand": "Samsung",
+    "model": "RR39M7*/RR39T7*/RZ32R*/RZ32M7*/RZ32T7*/RZ11M7*",
+    "source": "Samsung Refrigerator Service Manual (1 door type: RR39M7*, RR39T7*, RZ32R*, RZ32M7*, RZ32T7*, RZ11M7*)",
+    "page": 57,
+    "content": "WiFi Communication Error 52 52 52 When a Wi-Fi Module and Micom communication error occurs.",
+    "metadata": {
+      "symptom": "WiFi Communication Error 52 52 52",
+      "possible_cause": null,
+      "solution": "When a Wi-Fi Module and Micom communication error occurs.",
+      "severity": "medium",
+      "difficulty": "hard",
+      "safety_warning": null
+    }
+  }
+]

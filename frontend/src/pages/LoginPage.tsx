@@ -27,7 +27,6 @@ export function LoginPage() {
     onSuccess: () => navigate(next ?? '/', { replace: true }),
   })
 
-  // ล็อกอินอยู่แล้วเปิดหน้านี้ 
   if (status === 'user' && !submit.isPending) {
     return <Navigate to={next ?? '/'} replace />
   }

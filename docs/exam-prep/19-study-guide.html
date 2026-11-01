@@ -1,0 +1,906 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<title>คู่มืออ่านสอบ: AI Troubleshooting Assistant</title>
+<style>
+:root{
+  --ink:#1c2430; --soft:#4a5565; --faint:#6b7686; --line:#d6dce4; --panel:#f5f7fa;
+  --brand:#14507a; --brand-soft:#e6f0f7;
+  --say:#0f6b50; --say-bg:#e8f6f1; --warn:#a4400e; --warn-bg:#fdf0e7; --ask:#5a3d97; --ask-bg:#f2eefb;
+}
+@page{size:A4;margin:18mm 17mm 18mm 17mm}
+*{box-sizing:border-box}
+html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{margin:0;font-family:"Leelawadee UI",Leelawadee,Tahoma,sans-serif;font-size:10.5pt;line-height:1.55;color:var(--ink);background:#fff}
+h1,h2,h3{line-height:1.3;color:var(--brand);margin:0}
+h1{font-size:21pt;margin-bottom:3mm}
+h2{font-size:13.5pt;margin:6mm 0 2mm;break-after:avoid}
+h3{font-size:11.5pt;margin:4mm 0 1.5mm;color:var(--ink);break-after:avoid}
+p{margin:0 0 2.5mm}
+ul,ol{margin:0 0 3mm;padding-left:6mm}
+li{margin-bottom:1mm}
+code{font-family:Consolas,"Leelawadee UI",monospace;font-size:9.4pt;background:var(--panel);padding:0 1mm;border-radius:2px;overflow-wrap:anywhere}
+pre{font-family:Consolas,"Leelawadee UI",monospace;font-size:9pt;line-height:1.45;background:var(--panel);border:1px solid var(--line);border-radius:4px;padding:2.5mm 3mm;margin:0 0 3mm;white-space:pre-wrap;overflow-wrap:anywhere;break-inside:avoid}
+pre code{background:none;padding:0;font-size:inherit}
+table{width:100%;border-collapse:collapse;margin:0 0 3.5mm;font-size:10pt;line-height:1.45}
+th{background:var(--brand-soft);color:var(--brand);text-align:left;font-weight:700}
+th,td{border:1px solid var(--line);padding:1.3mm 2mm;vertical-align:top}
+tr{break-inside:avoid}
+thead{display:table-header-group}
+.num{text-align:right;white-space:nowrap}
+section.ch{break-before:page}
+.kicker{color:var(--faint);font-size:10pt;margin-bottom:1mm;letter-spacing:.02em}
+.lead{font-size:11.5pt;color:var(--soft);margin-bottom:4mm}
+.box{border-left:3px solid;border-radius:0 4px 4px 0;padding:2.4mm 3.5mm;margin:0 0 3.5mm;break-inside:avoid}
+.box>:last-child{margin-bottom:0}
+.box .t{font-weight:700;display:block;margin-bottom:1mm}
+.say{border-color:var(--say);background:var(--say-bg)} .say .t{color:var(--say)}
+.warn{border-color:var(--warn);background:var(--warn-bg)} .warn .t{color:var(--warn)}
+.ask{border-color:var(--ask);background:var(--ask-bg)} .ask .t{color:var(--ask)}
+.ref{font-size:9.5pt;color:var(--soft);border-top:1px solid var(--line);padding-top:1.5mm;margin-top:2mm;break-inside:avoid}
+.ref code{font-size:8.7pt}
+.flow{display:flex;flex-wrap:nowrap;align-items:stretch;gap:1.5mm;margin:0 0 3.5mm;break-inside:avoid}
+.flow .s{flex:1 1 0;min-width:0;border:1px solid var(--line);background:var(--panel);border-radius:4px;padding:1.8mm 2mm;font-size:9.6pt;line-height:1.4}
+.flow .s b{display:block;color:var(--brand);margin-bottom:.5mm}
+.flow .a{align-self:center;color:var(--faint);font-weight:700}
+.flow .s.ai{background:var(--brand-soft);border-color:#a9c9e0}
+.cover{height:250mm;display:flex;flex-direction:column;justify-content:center}
+.cover h1{font-size:30pt;margin-bottom:4mm}
+.cover .sub{font-size:14pt;color:var(--soft);margin-bottom:10mm}
+.cover .meta{font-size:10.5pt;color:var(--faint);border-top:2px solid var(--brand);padding-top:3mm}
+.toc{list-style:none;padding:0;margin:0 0 5mm}
+.toc li{border-bottom:1px solid var(--line);padding:.7mm 0;margin:0}
+.toc a{color:inherit;text-decoration:none}
+.toc b{color:var(--brand);display:inline-block;width:20mm;white-space:nowrap}
+.frac{display:inline-block;vertical-align:middle;text-align:center;line-height:1.25}
+.frac>span{display:block}.frac>span:first-child{border-bottom:1px solid var(--ink);padding:0 1.5mm}
+.formula{text-align:center;margin:0 0 3.5mm;font-size:11.5pt;break-inside:avoid}
+tr.on td{background:var(--say-bg)}
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="kicker">01418499 · ภาควิชาวิทยาการคอมพิวเตอร์ มหาวิทยาลัยเกษตรศาสตร์ วิทยาเขตกำแพงแสน</div>
+  <h1>คู่มืออ่านสอบ</h1>
+  <div class="sub">AI Troubleshooting Assistant for Everyday Life<br>เข้าใจระบบทีละบท และอธิบายให้กรรมการฟังได้ด้วยคำของตัวเอง</div>
+  <div class="meta">สอบวันที่ 2 พฤศจิกายน 2569 · ตรวจกับโค้ด branch <code>express-migration</code> commit <code>d31d69f</code> · จัดทำ 31 ตุลาคม 2569<br>ทุกตัวเลขนับจากโค้ดหรือ <code>data/manuals/*.json</code> ถ้ามาจากเอกสารเดิมจะระบุไว้ ไม่ได้รันระบบหรือแตะฐานข้อมูลตอนจัดทำ</div>
+</div>
+
+<section class="ch" id="use">
+<h1>ใช้เล่มนี้อย่างไร</h1>
+<p class="lead">อ่านทีละบท แล้วปิดเล่มอธิบายออกเสียง ถ้าอธิบายไม่ได้ ให้กลับไปอ่านใหม่ เป้าหมายไม่ใช่จำทุกบรรทัด แต่ตอบได้ว่า "ทำงานอย่างไร" และ "ทำไมเลือกแบบนี้"</p>
+<table>
+<tr><th style="width:30%">กล่องในเล่ม</th><th>ใช้ทำอะไร</th></tr>
+<tr><td><b style="color:var(--say)">พูดกับกรรมการ</b></td><td>ประโยคตัวอย่าง ปรับเป็นคำของตัวเองได้</td></tr>
+<tr><td><b style="color:var(--warn)">ระวัง</b></td><td>สิ่งที่ห้ามพูดเกินจริง หรือจุดที่ระบบยังไม่ทำ</td></tr>
+<tr><td><b style="color:var(--ask)">ลองตอบ</b></td><td>คำถามตรวจความเข้าใจ เฉลยอยู่ท้ายเล่ม</td></tr>
+<tr><td><b>ดูในโค้ด</b></td><td>ไฟล์และบรรทัดที่เปิดให้กรรมการดูได้ นับจากรากโปรเจกต์</td></tr>
+</table>
+<h2>ลำดับการอ่าน</h2>
+<table>
+<tr><th style="width:27%">เวลา</th><th>อ่าน</th></tr>
+<tr><td>วันนี้ (ทำความเข้าใจ)</td><td>บท 1–4 ก่อน เป็นแกนของระบบ แล้วตามด้วยบท 5–9</td></tr>
+<tr><td>1 พ.ย. (ซ้อมพูด)</td><td>บท 10–12, ภาคผนวก, ซ้อมเดโมบนเครื่องตามไฟล์ 17</td></tr>
+<tr><td>เช้าวันสอบ</td><td>ภาคผนวก ก ตัวเลข และ ภาคผนวก ข สิ่งที่ห้ามพูด</td></tr>
+</table>
+<h2>สารบัญ</h2>
+<ul class="toc">
+<li><a href="#c0"><b>ภาพรวม</b>ระบบโดยย่อ และวิธีแนะนำระบบ 1 นาที</a></li>
+<li><a href="#c1"><b>บท 1</b>ผังและ engine: หัวใจของระบบ</a></li>
+<li><a href="#c2"><b>บท 2</b>การค้นหา: embedding และ cosine similarity</a></li>
+<li><a href="#c3"><b>บท 3</b>LLM และความปลอดภัย</a></li>
+<li><a href="#c4"><b>บท 4</b>ความรู้มาจากไหน: 631 ผัง และการร่างจาก PDF</a></li>
+<li><a href="#c5"><b>บท 5</b>Backend: Express และการเดินทางของคำขอ</a></li>
+<li><a href="#c6"><b>บท 6</b>ฐานข้อมูล</a></li>
+<li><a href="#c7"><b>บท 7</b>บัญชีผู้ใช้ สิทธิ์ และ guest</a></li>
+<li><a href="#c8"><b>บท 8</b>Frontend</a></li>
+<li><a href="#c9"><b>บท 9</b>ประวัติ feedback และ dashboard</a></li>
+<li><a href="#c10"><b>บท 10</b>การประเมินผล</a></li>
+<li><a href="#c11"><b>บท 11</b>Deployment และเดโมจากเครื่อง</a></li>
+<li><a href="#c12"><b>บท 12</b>ข้อจำกัด และงานในอนาคต</a></li>
+<li><a href="#a"><b>ภาคผนวก</b>ตัวเลข · สิ่งที่ห้ามพูด · คำถามยาก · เฉลย · คำศัพท์</a></li>
+</ul>
+</section>
+
+<section class="ch" id="c0">
+<div class="kicker">ภาพรวม</div>
+<h1>ภาพรวมระบบ</h1>
+<p class="lead">ระบบแยก "การหา" ออกจาก "การตอบ" AI ช่วยหาว่าอาการตรงกับหัวข้อไหน แต่คำแนะนำทุกขั้นเป็นข้อความที่เตรียมไว้ในผังก่อนผู้ใช้ถาม</p>
+<div class="flow">
+  <div class="s"><b>1. เลือกรุ่น</b>ผู้ใช้เลือกเครื่องและรุ่น</div><div class="a">→</div>
+  <div class="s"><b>2. พิมพ์อาการ</b>"ไมโครเวฟไม่ร้อน"</div><div class="a">→</div>
+  <div class="s ai"><b>3. ค้นหา</b>embedding + cosine ได้ไม่เกิน 3 ผัง</div><div class="a">→</div>
+  <div class="s"><b>4. ผู้ใช้เลือก</b>ระบบไม่เลือกให้</div><div class="a">→</div>
+  <div class="s"><b>5. เดินผัง</b>engine ถามทีละขั้น</div><div class="a">→</div>
+  <div class="s"><b>6. จบ</b>แก้ได้ หรือส่งต่อศูนย์บริการ</div>
+</div>
+<p style="font-size:9.6pt;color:var(--soft)">ช่องสีฟ้าคือจุดเดียวบนเส้นทางหลักที่ใช้โมเดล AI และเป็น embedding ที่รันในเครื่อง ไม่ใช่ LLM</p>
+<h2>ชื่อเรียกของระบบ</h2>
+<p><b>Retrieval-guided troubleshooting state machine</b> แปลตรงตัวคือ state machine สำหรับพาแก้ปัญหา ที่ใช้การค้นคืนช่วยเลือกจุดเริ่มต้น ระบบนี้ไม่ใช่ RAG เพราะ RAG ให้ LLM เขียนคำตอบจากข้อความที่ค้นได้ แต่ระบบนี้ LLM ไม่ได้เขียนคำแนะนำ</p>
+<table>
+<tr><th style="width:21%">ประเด็น</th><th>ถาม LLM ตรงๆ</th><th>RAG</th><th>ระบบนี้</th></tr>
+<tr><td>คำตอบมาจาก</td><td>โมเดลแต่งสด</td><td>โมเดลแต่งจากข้อความที่ค้นได้</td><td>ผังที่เตรียมไว้ล่วงหน้า</td></tr>
+<tr><td>ตรวจก่อนใช้ได้ไหม</td><td>ไม่ได้</td><td>ตรวจได้แค่ข้อความต้นทาง</td><td>ตรวจผังได้ก่อนเผยแพร่</td></tr>
+<tr><td>ขั้นอันตราย</td><td>ขึ้นกับ prompt</td><td>ขึ้นกับ prompt</td><td>บังคับด้วยโค้ดฝั่งเซิร์ฟเวอร์</td></tr>
+<tr><td>เมื่อไม่รู้</td><td>มักตอบอยู่ดี</td><td>ขึ้นกับ prompt</td><td>บอกว่าไม่พบ หรือส่งต่อศูนย์บริการ</td></tr>
+<tr><td>ข้อแลก</td><td colspan="2">ยืดหยุ่นกว่า ตอบได้หลายเรื่อง</td><td>ตอบได้เฉพาะอาการที่มีผัง (631 ผัง)</td></tr>
+</table>
+<h2>ส่วนประกอบ</h2>
+<table>
+<tr><th style="width:21%">ส่วน</th><th style="width:33%">เทคโนโลยี</th><th>หน้าที่</th></tr>
+<tr><td>Frontend</td><td>React 19, Vite, TanStack Query, Tailwind</td><td>หน้าจอผู้ใช้และ admin</td></tr>
+<tr><td>Backend</td><td>Express 4, TypeScript, mysql2</td><td>API, engine, ค้นหา, ตรวจสิทธิ์</td></tr>
+<tr><td>ฐานข้อมูล</td><td>MySQL (utf8mb4)</td><td>ผัง, session, ผู้ใช้, feedback, ร่าง</td></tr>
+<tr><td>Embedding</td><td>MiniLM หลายภาษา (ONNX) 384 มิติ</td><td>แปลงข้อความเป็นเวกเตอร์ในเครื่อง</td></tr>
+<tr><td>LLM (เสริม)</td><td>Groq API</td><td>เรียบเรียงถ้อยคำ และช่วย admin ร่างผัง</td></tr>
+</table>
+<div class="box say"><span class="t">พูดกับกรรมการ: แนะนำระบบ 1 นาที</span>
+"เวลาเครื่องใช้ไฟฟ้ามีปัญหา คนส่วนใหญ่ไม่เปิดคู่มือ หรือถาม AI แชตซึ่งอาจแต่งขั้นตอนที่คู่มือไม่ได้พูด ระบบของผมแปลงส่วนแก้ปัญหาของคู่มือ Samsung 21 เล่มเป็นผังขั้นตอน 631 ผัง ผู้ใช้เลือกรุ่น พิมพ์อาการเป็นภาษาพูด ระบบใช้ embedding หาอาการที่ใกล้ที่สุดไม่เกิน 3 อันให้เลือกเอง จากนั้นพาตรวจทีละขั้นตามผัง ขั้นอันตรายต้องยืนยันคำเตือนก่อน และถ้าคู่มือไม่บอกทางแก้ ระบบจะส่งต่อศูนย์บริการแทนการเดา LLM ไม่ได้เป็นคนคิดคำแนะนำ"
+</div>
+</section>
+
+<section class="ch" id="c1">
+<div class="kicker">บท 1</div>
+<h1>ผังและ engine: หัวใจของระบบ</h1>
+<p class="lead">ผังเหมือนแบบสอบถามที่บอกว่า "ตอบใช่ ไปข้อนี้ ตอบไม่ ไปข้อนั้น" engine คือโปรแกรมที่เดินตามกติกานั้น โดยไม่ใช้ AI</p>
+<h2>โหนด 5 ชนิด</h2>
+<table>
+<tr><th style="width:18%">ชนิด</th><th style="width:30%">หน้าที่</th><th>action ที่รับ</th><th class="num">ใน 631 ผัง</th></tr>
+<tr><td><code>checkpoint</code></td><td>ถาม ใช่/ไม่ใช่</td><td><code>answer</code> แล้วไป <code>on_yes</code> หรือ <code>on_no</code></td><td class="num">2,146</td></tr>
+<tr><td><code>instruction</code></td><td>สั่งให้ทำ 1 อย่าง</td><td><code>continue</code> หรือ <code>confirm_safety</code> ถ้าเป็นขั้นอันตราย</td><td class="num">1,107</td></tr>
+<tr><td><code>resolution</code></td><td>จบ: แก้ได้ หรือเป็นอาการปกติ</td><td>ไม่รับแล้ว</td><td class="num">706</td></tr>
+<tr><td><code>escalation</code></td><td>จบ: ส่งต่อศูนย์บริการ</td><td>ไม่รับแล้ว</td><td class="num">780</td></tr>
+<tr><td><code>input</code></td><td>ให้พิมพ์ค่า เช่น รหัส error</td><td><code>input</code> ตรวจด้วย regex</td><td class="num">0</td></tr>
+</table>
+<div class="box warn"><span class="t">ระวัง</span>โค้ดรองรับ <code>input</code> แต่ข้อมูล 631 ผังไม่มีโหนดชนิดนี้เลย จึงอย่าบอกว่าเดโมผังเดิมแล้วจะเห็นขั้นกรอกรหัส error</div>
+<h2>ตัวอย่างผังจริง</h2>
+<p>ผัง <code>samsung_ge83mdt_um_not_cooked_at_all</code> "อาหารไม่สุกเลย" แถวสีเขียวคือเส้นทางที่เดโม</p>
+<table>
+<tr><th style="width:15%">โหนด</th><th style="width:17%">ชนิด</th><th>ข้อความ (ย่อ)</th><th style="width:15%">ใช่ / ต่อไป</th><th style="width:15%">ไม่ใช่</th></tr>
+<tr class="on"><td><code>n1</code></td><td>checkpoint</td><td>ตั้งเวลาถูกต้องและกด Start แล้วใช่หรือไม่?</td><td><code>n2</code></td><td><b><code>n1f</code></b></td></tr>
+<tr class="on"><td><code>n1f</code></td><td>instruction ⚠</td><td>ตั้งเวลาให้ถูกต้องและกดปุ่ม Start</td><td><b><code>n1v</code></b></td><td></td></tr>
+<tr class="on"><td><code>n1v</code></td><td>checkpoint</td><td>หลังทำตามแล้ว อาการหายหรือไม่?</td><td><b><code>n_resolved</code></b></td><td><code>n2</code></td></tr>
+<tr><td><code>n2</code></td><td>checkpoint</td><td>ประตูเตาปิดสนิทแล้วใช่หรือไม่?</td><td><code>n3</code></td><td><code>n2f</code></td></tr>
+<tr><td><code>n2f</code></td><td>instruction ⚠</td><td>ปิดประตูให้สนิทแล้วเริ่มปรุงอีกครั้ง (คู่มือหน้า 37)</td><td><code>n2v</code></td><td></td></tr>
+<tr><td><code>n2v</code></td><td>checkpoint</td><td>หลังทำตามแล้ว อาการหายหรือไม่?</td><td><code>n_resolved</code></td><td><code>n3</code></td></tr>
+<tr><td><code>n3</code></td><td>checkpoint</td><td>ใช้ไฟเกินกำลังวงจรจนฟิวส์ขาดหรือเบรกเกอร์ตัดใช่หรือไม่?</td><td><code>n3e</code></td><td><code>n_escalate</code></td></tr>
+<tr class="on"><td><code>n_resolved</code></td><td>resolution</td><td>อาหารสุกตามปกติแล้ว (<code>user_fixed</code>)</td><td colspan="2">จบ</td></tr>
+<tr><td><code>n3e</code></td><td>escalation</td><td>คู่มือให้ตรวจเรื่องนี้แต่ไม่บอกวิธีแก้ ส่งต่อศูนย์ (<code>handoff_informed</code>)</td><td colspan="2">จบ</td></tr>
+<tr><td><code>n_escalate</code></td><td>escalation</td><td>ไม่พบสาเหตุในรายการตรวจ ส่งต่อศูนย์ (<code>handoff_unknown</code>)</td><td colspan="2">จบ</td></tr>
+</table>
+<h2>engine ทำงานอย่างไร</h2>
+<p>ฟังก์ชันหลักคือ <code>submitAction</code> ทำ 5 อย่าง: ปฏิเสธถ้า session จบแล้ว, หาโหนดปัจจุบัน, เรียก <code>resolveNextNode</code> เพื่อตัดสินโหนดถัดไป, เปลี่ยนสถานะเป็น <code>completed</code> ถ้าถึงโหนดจบ, คืน session ใหม่พร้อมโหนดที่จะแสดง</p>
+<p>การตัดสินใจของ checkpoint มีบรรทัดเดียว และไม่มี AI:</p>
+<pre><code>nextNodeId: action.value === 'yes' ? node.on_yes : node.on_no,</code></pre>
+<p>คำศัพท์ 2 คำที่ต้องอธิบายได้:</p>
+<ul>
+<li><b>Deterministic:</b> ผังเดิมและคำตอบเดิม ได้ผลเดิมทุกครั้ง</li>
+<li><b>Pure function:</b> engine รับค่าเข้าแล้วคืนค่าออก ไม่เรียกฐานข้อมูลหรือเน็ตเอง การบันทึกเป็นหน้าที่ของ <code>TraversalService</code> จึงทดสอบง่าย และใช้เล่นประวัติซ้ำได้ (บท 9)</li>
+</ul>
+<h2>ด่านความปลอดภัย</h2>
+<pre><code>if (node.safety_critical) {
+  if (action.type === 'continue') {
+    throw new SafetyConfirmationRequiredError(node.node_id);   // ตอบ HTTP 400
+  }
+  ...
+}</code></pre>
+<p>มี 368 โหนดที่เป็น <code>safety_critical</code> ปุ่มที่กดไม่ได้บนหน้าเว็บเป็นแค่ด่านแรก ถ้ายิง API ตรงด้วย <code>continue</code> เซิร์ฟเวอร์ก็ยังปฏิเสธ เพราะกฎอยู่ใน engine</p>
+<div class="box say"><span class="t">พูดกับกรรมการ</span>"การตัดสินเส้นทางไม่ได้ใช้ AI ครับ ผังกำหนดไว้ล่วงหน้า engine ดูแค่โหนดปัจจุบันกับคำตอบ แล้วไปโหนดถัดไปตามผัง ถ้าเป็นขั้นอันตราย ต้องส่งการยืนยันเท่านั้น ถึงยิง API ข้ามหน้าเว็บ เซิร์ฟเวอร์ก็ปฏิเสธ"</div>
+<div class="box warn"><span class="t">ระวัง</span>การยืนยันคือการติ๊ก ระบบรู้ไม่ได้ว่าผู้ใช้ถอดปลั๊กจริงหรือไม่ และด่านนี้ใช้กับโหนด instruction เท่านั้น</div>
+<div class="box ask"><span class="t">ลองตอบ</span><ol style="margin:0">
+<li>ผู้ใช้ 2 คนเลือกผังเดียวกันและตอบเหมือนกัน จะได้ขั้นตอนเหมือนกันไหม เพราะอะไร</li>
+<li>ยิง <code>continue</code> ไปที่โหนด safety_critical แล้วเกิดอะไรขึ้น ทำไมล็อกแค่ปุ่มบนหน้าเว็บไม่พอ</li>
+<li>ทำไมปิด LLM แล้วยังเดินผังได้</li></ol></div>
+<div class="ref"><b>ดูในโค้ด</b> <code>backend/src/traversal-engine/traversal-engine.ts</code>: <code>submitAction</code> 41-72, checkpoint 85, ด่านความปลอดภัย 90-97 · ข้อมูล <code>data/manuals/samsung_ge83mdt_um_de68_04111e.json</code></div>
+</section>
+
+<section class="ch" id="c2">
+<div class="kicker">บท 2</div>
+<h1>การค้นหา: embedding และ cosine similarity</h1>
+<p class="lead">ส่วนค้นหาเหมือนบรรณารักษ์ที่ชี้ว่าควรเปิดบทไหน ชี้ผิดได้ จึงเสนอหลายตัวเลือกให้ผู้ใช้เลือกเอง</p>
+<h2>สิ่งที่ถูกค้นคืออะไร</h2>
+<p>ระบบไม่ได้ค้น chunk ของคู่มือ แต่ค้น "ป้ายชื่ออาการ" ของผัง แต่ละผังมีป้ายหลายแบบ คือ ชื่ออาการไทย ชื่ออาการอังกฤษ และคำพ้อง (<code>entry_symptom_aliases</code>) รวมทั้งระบบมี <b>3,814 ป้าย</b> ซ้ำกันบางส่วน เหลือข้อความไม่ซ้ำ <b>1,936 ข้อความ</b> ซึ่ง embed ครั้งเดียวแล้วใช้เวกเตอร์ร่วมกัน</p>
+<h2>ขั้นตอนการค้นหา</h2>
+<div class="flow">
+  <div class="s"><b>ตรวจคำค้น</b>ไม่ว่าง ไม่เกิน 200 ตัวอักษร</div><div class="a">→</div>
+  <div class="s ai"><b>แปลงเป็นเวกเตอร์</b>384 มิติ</div><div class="a">→</div>
+  <div class="s"><b>กรองรุ่น</b>เหลือเฉพาะป้ายของ <code>manualId</code></div><div class="a">→</div>
+  <div class="s"><b>Cosine</b>เก็บคะแนนสูงสุดต่อผัง</div><div class="a">→</div>
+  <div class="s"><b>ตัด</b>≥ 0.55 และไม่เกิน 3</div>
+</div>
+<h2>Embedding คืออะไร</h2>
+<p>Embedding แปลงข้อความเป็นเลข 384 ตัว ข้อความที่ความหมายใกล้กันจะได้เวกเตอร์ที่ชี้ไปทางใกล้กัน "ไม่ร้อน" กับ "food is not heated" จึงเทียบกันได้แม้คนละภาษา โดยไม่ต้องตัดคำไทยเอง</p>
+<p>โมเดลคือ <code>Xenova/paraphrase-multilingual-MiniLM-L12-v2</code> แบบ quantized (q8) ไฟล์ประมาณ 56 MB เก็บใน repo และตั้ง <code>allowRemoteModels = false</code> จึงไม่โหลดจากเน็ตตอนรัน</p>
+<h2>Cosine similarity</h2>
+<div class="formula">cos(q, d) = <span class="frac"><span>q · d</span><span>‖q‖ × ‖d‖</span></span></div>
+<p>วัดมุมระหว่างเวกเตอร์ ชี้ทางเดียวกันได้ 1 ตั้งฉากกันได้ 0 ไม่สนใจความยาวของเวกเตอร์</p>
+<h3>คำนวณด้วยมือ (เวกเตอร์ 3 มิติ)</h3>
+<p>สมมติคำค้น q = (1, 2, 2) ดังนั้น ‖q‖ = √(1+4+4) = 3</p>
+<table>
+<tr><th>ผัง</th><th>d</th><th>q · d</th><th>‖d‖</th><th>cos</th><th>เกณฑ์ 0.55</th></tr>
+<tr><td>A</td><td>(2, 1, 2)</td><td>2+2+4 = 8</td><td>3</td><td>8/9 = 0.889</td><td>ผ่าน</td></tr>
+<tr><td>B</td><td>(0, 0, 1)</td><td>0+0+2 = 2</td><td>1</td><td>2/3 = 0.667</td><td>ผ่าน</td></tr>
+<tr><td>C</td><td>(2, −1, 0)</td><td>2−2+0 = 0</td><td>√5</td><td>0</td><td>ตก</td></tr>
+</table>
+<p>ถ้าผังหนึ่งมีหลายป้าย ระบบใช้<b>คะแนนสูงสุด</b>ของป้ายในผังนั้น ถ้าคะแนนเท่ากันจะเรียงตาม <code>graphId</code> เพื่อให้ผลคงที่</p>
+<h2>ตัวอย่างผลจริง และเหตุผลที่เสนอ 3 ผัง</h2>
+<table>
+<tr><th>คำค้น (รุ่น GE83MDT)</th><th>ผล</th></tr>
+<tr><td>"ไมโครเวฟไม่ร้อน"</td><td><code>not_start</code> 0.845 อันดับ 1 · <code>not_cooked_at_all</code> 0.822 อันดับ 2</td></tr>
+<tr><td>"วันนี้ฝนตก"</td><td>0.301 ไม่ถึงเกณฑ์ ระบบตอบว่าไม่พบ</td></tr>
+</table>
+<p style="font-size:9.6pt;color:var(--soft)">ค่าจาก <code>docs/STUDY_GUIDE.md:604-629</code> ซึ่งวัดด้วย <code>backend/scripts/study-measure.js</code> ไม่ได้รันใหม่ตอนจัดทำเล่มนี้</p>
+<p>อาการที่ถูกอยู่อันดับ 2 นี่คือเหตุผลที่ระบบไม่เลือกให้เอง</p>
+<h2>การตัดสินใจที่ต้องตอบได้</h2>
+<table>
+<tr><th style="width:30%">คำถาม</th><th>คำตอบ</th></tr>
+<tr><td>ทำไมต้องเลือกรุ่นก่อน</td><td>ถ้าไม่กรอง "ไมโครเวฟไม่ร้อน" มี 120 ผังผ่านเกณฑ์ และ 3 อันดับแรกได้ 1.000 เท่ากัน เพราะมีคำพ้องตรงตัวในหลายรุ่น</td></tr>
+<tr><td>ทำไมไม่ใช้ vector DB</td><td>ข้อความไม่ซ้ำแค่ประมาณ 2,000 ข้อความ เวกเตอร์ใช้ RAM ราว 3 MB ไล่เทียบทุกตัวเร็วพอ และได้ผล exact การเพิ่มฐานข้อมูลอีกตัวเพิ่มความซับซ้อนโดยไม่จำเป็น</td></tr>
+<tr><td>ทำไมไม่เก็บเวกเตอร์ใน DB</td><td>คำนวณตอนบูตแล้วเก็บใน RAM ไม่มีปัญหาเวกเตอร์ค้างเมื่อผังถูกแก้ ข้อแลกคือบูตช้าลงราว 1 นาที แต่ไม่บล็อกการเปิดเซิร์ฟเวอร์ ระหว่างนั้นค้นหาได้ 503</td></tr>
+<tr><td>ทำไม embedding ในเครื่อง</td><td>ไม่มีค่าใช้จ่ายต่อคำค้น ข้อความผู้ใช้ไม่ออกนอกเซิร์ฟเวอร์ ไม่พึ่งเน็ตหรือ rate limit ข้อเสียคือใช้ RAM ราว 250–300 MB และโมเดลเล็กอาจคุณภาพต่ำกว่า</td></tr>
+<tr><td>ความซับซ้อน</td><td>O(N·d) ต่อคำค้น เมื่อ N คือจำนวนป้าย d = 384 กรองรุ่นแล้วเฉลี่ยราว 180 ป้าย</td></tr>
+<tr><td>ถ้าข้อมูลโตขึ้น</td><td>ใช้ ANN เช่น HNSW หรือ vector DB, cache เวกเตอร์, hybrid search กับ BM25</td></tr>
+</table>
+<div class="box warn"><span class="t">ระวัง</span><ul style="margin:0">
+<li>คะแนนคือความคล้ายของข้อความ <b>ไม่ใช่ความน่าจะเป็นที่วินิจฉัยถูก</b> 0.8 ไม่ได้แปลว่าถูก 80% และ engine ไม่ได้ใช้คะแนนเลือกเส้นทาง</li>
+<li><b>0.55 ไม่ได้ปรับกับข้อมูลปัจจุบัน</b> มาจากชุด 56 ข้อที่ AI ร่าง ของคู่มือแอร์ในโปรเจกต์เก่า</li>
+<li>ภายในรุ่นเดียวกัน คะแนนสูงกันหมด เพราะคำว่า "ไมโครเวฟ" ดันคะแนน ("ไมโครเวฟไม่ร้อน" ผ่าน 8 จาก 9 ผัง) เกณฑ์จึงตัดได้แค่ของที่ไม่เกี่ยวเลย</li></ul></div>
+<div class="box say"><span class="t">พูดกับกรรมการ</span>"ผมแปลงคำค้นและชื่ออาการเป็นเวกเตอร์ด้วยโมเดลในเครื่อง กรองเฉพาะรุ่นที่เลือก แล้วเทียบด้วย cosine ถ้าไม่มีผังไหนถึง 0.55 ระบบตอบว่าไม่พบ และไม่เดา แต่ค่านี้ยังไม่ได้ปรับกับข้อมูลชุดปัจจุบัน ผมจึงไม่ได้อ้างว่าเป็นค่าที่ดีที่สุด"</div>
+<div class="box ask"><span class="t">ลองตอบ</span><ol style="margin:0">
+<li>q = (1, 0, 0) กับ d = (1, 1, 0) ได้ cosine เท่าไร ผ่าน 0.55 ไหม</li>
+<li>กรรมการถามว่า "คะแนน 0.82 แปลว่าระบบมั่นใจ 82% ใช่ไหม" จะตอบว่าอย่างไร</li>
+<li>ทำไมมี 3,814 ป้าย แต่ embed แค่ 1,936 ครั้ง</li></ol></div>
+<div class="ref"><b>ดูในโค้ด</b> <code>backend/src/symptom-search/symptom-search.service.ts</code>: ค่าคงที่ 11-12, ค้นหา 160-191 · <code>symptom-matcher.ts</code>: cosine 20-41, ป้าย 43-62, จัดอันดับ 64-88, ตัด 90-95 · <code>backend/src/embedding/embedding.service.ts:34, 46-55</code></div>
+</section>
+
+<section class="ch" id="c3">
+<div class="kicker">บท 3</div>
+<h1>LLM และความปลอดภัย</h1>
+<p class="lead">LLM อยู่ 2 จุด ทั้งสองจุดไม่ได้ตัดสินเส้นทาง และถ้าปิดไป ผู้ใช้ยังค้นหาและเดินผังได้ครบ</p>
+<table>
+<tr><th style="width:22%"></th><th>1. เรียบเรียงถ้อยคำ (rephrase)</th><th>2. ร่างผังจาก PDF (authoring)</th></tr>
+<tr><td>ใครเห็นผล</td><td>ผู้ใช้ พร้อมลิงก์ดูข้อความต้นฉบับ</td><td>admin เท่านั้น จนกว่าจะกด publish</td></tr>
+<tr><td>เปิดอย่างไร</td><td>ปิดเป็นค่าเริ่มต้น เปิดด้วย <code>REPHRASE_ENABLED=true</code></td><td>ต้องตั้ง <code>AUTHORING_LLM_MODEL</code> และ key</td></tr>
+<tr><td>ส่งอะไรให้ LLM</td><td>ข้อความของโหนดเท่านั้น ไม่ส่งคำค้นของผู้ใช้</td><td>ข้อความ PDF ทีละ 2 หน้า</td></tr>
+<tr><td>ตั้งค่า</td><td>temperature 0, timeout 3 วินาที</td><td>temperature 0, JSON mode, timeout 60 วินาที, max_tokens 6000</td></tr>
+<tr><td>ถ้าล้ม</td><td>ใช้ข้อความต้นฉบับ</td><td>ร่างมีสถานะ <code>failed</code></td></tr>
+</table>
+<h2>ด่านตรวจ rephrase</h2>
+<p>ไม่ rephrase โหนดอันตรายและโหนดจบเลย ส่วนโหนดอื่น ผลของ LLM ต้องผ่าน <code>checkRephrase</code> ทุกข้อ ไม่อย่างนั้นทิ้งแล้วใช้ต้นฉบับ:</p>
+<ul>
+<li>ไม่ว่าง ไม่มีลิงก์ ไม่มี markdown หรือ HTML ที่ต้นฉบับไม่มี และไม่แตกหลายย่อหน้า</li>
+<li>ความยาวอยู่ระหว่าง 0.5 ถึง 1.6 เท่าของต้นฉบับ</li>
+<li>ชุดตัวเลขต้องเหมือนเดิมทุกตัว โดยแปลงเลขไทยก่อน</li>
+<li>คำภาษาอังกฤษ เช่น รุ่น รหัส ชื่อปุ่ม ต้องครบและไม่มีคำเกิน</li>
+<li>จำนวนคำว่า "ไม่" ต้องเท่าเดิม ไม่นับ "หรือไม่" เพื่อกันการกลับความหมาย</li>
+</ul>
+<div class="box warn"><span class="t">ระวัง</span>ด่านนี้ตรวจรูปผิว ไม่ได้เข้าใจความหมาย ถ้า LLM เปลี่ยนคำกริยาแต่ตัวเลขและคำปฏิเสธเท่าเดิม ก็อาจผ่านได้ จึงปิดเป็นค่าเริ่มต้นและไม่ใช้กับขั้นอันตราย</div>
+<h2>กันการแต่งข้อมูล (hallucination) หลายชั้น</h2>
+<ol>
+<li>คำแนะนำไม่ได้สร้างตอนผู้ใช้ถาม จึงไม่มีการแต่งสดบนเส้นทางหลัก</li>
+<li>การอ้างอิงมาจากฟิลด์ของผัง (<code>source</code>, <code>page_range</code>) LLM ไม่ได้พิมพ์ตอนรัน</li>
+<li>rephrase มีด่านตรวจ และแสดงข้อความต้นฉบับให้กดดูได้</li>
+<li>ร่างจาก LLM ต้องผ่าน validator และคนต้องกด publish เอง</li>
+</ol>
+<div class="box warn"><span class="t">ระวัง: อย่าพูดว่า "ระบบไม่มีวัน hallucinate"</span>ความเสี่ยงย้ายไปอยู่ขั้นเตรียมข้อมูล ตอนทำ chunk LLM เคยแต่งคำว่า "blown/tripped" ที่ PDF ไม่มี สคริปต์ตรวจจับได้ แต่ความหมายและคำแปลยังไม่มีคนตรวจ (บท 4)</div>
+<h2>ความปลอดภัยหลายชั้น</h2>
+<table>
+<tr><th style="width:20%">ชั้น</th><th>กลไก</th></tr>
+<tr><td>ข้อมูล</td><td>368 โหนด <code>safety_critical</code> พร้อม <code>safety_warning</code></td></tr>
+<tr><td>Engine</td><td>รับเฉพาะ <code>confirm_safety</code> ถ้าส่ง <code>continue</code> ได้ 400 <code>SAFETY_CONFIRMATION_REQUIRED</code></td></tr>
+<tr><td>หน้าจอ</td><td><code>SafetyGateStep</code> กล่องแดง ปุ่มกดไม่ได้จนกว่าจะติ๊ก</td></tr>
+<tr><td>LLM</td><td>ไม่ rephrase ขั้นอันตราย ทั้งฝั่งเซิร์ฟเวอร์และหน้าจอ</td></tr>
+<tr><td>Prompt ร่างผัง</td><td>สั่งห้ามตัดหรือลดคำเตือน และห้ามเพิ่มข้อมูลจากความรู้ของโมเดล</td></tr>
+<tr><td>Validator</td><td><code>E_SAFETY_NO_WARNING</code> และ regex คำเสี่ยงไทย-อังกฤษ เช่น ปลั๊ก ไฟฟ้า แก๊ส ถ้าพบแต่ไม่ตั้งด่าน เตือนด้วย <code>W_NODE_RISK</code></td></tr>
+</table>
+<h2>เมื่อข้อมูลไม่พอ</h2>
+<table>
+<tr><th style="width:45%">สถานการณ์</th><th>ระบบทำอะไร</th></tr>
+<tr><td>คำค้นไม่ถึง 0.55</td><td>"ไม่พบ... ระบบไม่เดาอาการให้" พร้อมลิงก์อาการทั้งหมด</td></tr>
+<tr><td>ตอบไม่ใช่จนหมดรายการตรวจ</td><td>escalation <code>handoff_unknown</code></td></tr>
+<tr><td>คู่มือบอกสาเหตุ แต่ไม่บอกวิธีแก้</td><td>escalation <code>handoff_informed</code></td></tr>
+<tr><td>ระบบค้นหายังโหลดไม่เสร็จ</td><td>503 หน้าจอแจ้งเป็นข้อมูล และใช้หน้าอาการทั้งหมดได้</td></tr>
+<tr><td>LLM ล่ม</td><td>ใช้ข้อความต้นฉบับ ผู้ใช้เดินผังได้ตามปกติ</td></tr>
+</table>
+<div class="box say"><span class="t">พูดกับกรรมการ</span>"ผมไม่ให้ LLM อยู่บนเส้นทางที่สร้างคำแนะนำ เพราะงานนี้เกี่ยวกับไฟฟ้าและความร้อน การใช้ prompt สั่งเป็นได้แค่การขอร้อง แต่กฎในโค้ดเป็นการบังคับ LLM จึงทำแค่ปรับภาษา ซึ่งปิดอยู่เป็นค่าเริ่มต้น และช่วยร่างผังให้คนตรวจ"</div>
+<div class="box ask"><span class="t">ลองตอบ</span><ol style="margin:0">
+<li>ระบบนี้เป็น RAG ไหม ต่างกันตรงไหน</li>
+<li>ถ้า LLM เปลี่ยน "ถอดปลั๊ก 30 นาที" เป็น "ถอดปลั๊ก 60 นาที" ด่านใดจับได้</li>
+<li>Groq ล่มระหว่างเดโม อะไรยังใช้ได้ อะไรใช้ไม่ได้</li></ol></div>
+<div class="ref"><b>ดูในโค้ด</b> <code>backend/src/rephrase/rephrase.service.ts:40, 56-58</code> · <code>rephrase-guard.ts:26-61</code> · <code>groq-llm.client.ts:5-11</code> · <code>backend/src/authoring/draft-llm.client.ts:33-62</code> · <code>frontend/src/components/step/SafetyGateStep.tsx</code></div>
+</section>
+
+<section class="ch" id="c4">
+<div class="kicker">บท 4</div>
+<h1>ความรู้มาจากไหน: 631 ผัง และการร่างจาก PDF</h1>
+<p class="lead">ผังมาได้ 2 ทาง ทาง A เป็นที่มาของ 631 ผังทั้งหมด ทาง B เป็นเครื่องมือของ admin สำหรับเพิ่มคู่มือใหม่</p>
+<h2>ทาง A: ทำนอกระบบ (ที่มาของ 631 ผัง)</h2>
+<div class="flow">
+  <div class="s"><b>PDF</b>คัดส่วนแก้ปัญหา</div><div class="a">→</div>
+  <div class="s ai"><b>LLM จัดรูป</b>เป็น chunk รายอาการ</div><div class="a">→</div>
+  <div class="s"><b>สคริปต์ตรวจ</b>เทียบ chunk กับ PDF</div><div class="a">→</div>
+  <div class="s"><b>สคริปต์แปลง</b>chunk เป็นผัง</div><div class="a">→</div>
+  <div class="s"><b>ผู้พัฒนาเติม</b>ไทย คำพ้อง คำเตือน หมายเหตุ</div><div class="a">→</div>
+  <div class="s"><b>Seed</b>เข้า MySQL</div>
+</div>
+<p><b>ทำไมแบ่งตามอาการ:</b> ส่วนแก้ปัญหาของคู่มือเป็นตาราง "อาการ สาเหตุ วิธีแก้" อยู่แล้ว การตัดทีละ 500 ตัวอักษรจะผ่าอาการกลางคัน จึงตัดหนึ่งอาการต่อหนึ่งชิ้น ไม่มี chunk size หรือ overlap ในระบบ</p>
+<h2>ผ่านการตรวจแค่ไหน</h2>
+<table>
+<tr><th style="width:30%">ตรวจอะไร</th><th>ผล</th></tr>
+<tr><td>ผังกับ PDF ด้วยสคริปต์ (16 ต.ค.)</td><td>จาก 644 ผังในรายงาน (รวมผังแอร์ 13 ผังที่ไม่อยู่ในระบบแล้ว): ผ่าน 559, ข้อยกเว้นที่ตรวจแล้ว 6, WARN 18, FAIL 0, ตรวจไม่ได้ 61 (ตัดผังแอร์แล้วเหลือ 48)</td></tr>
+<tr><td>โครงสร้าง</td><td><code>validate_graph.py</code> และ <code>simulate_paths.py</code> ตรวจว่าไปถึงทุกโหนด ไม่มีทางตัน และด่านความปลอดภัยครบ</td></tr>
+<tr><td>คนตรวจคำแปลและลำดับขั้น</td><td><b>ยังไม่ได้ทำอย่างเป็นระบบ</b> (เอกสารเขียนไว้เองว่ายังไม่ได้ทำ)</td></tr>
+</table>
+<div class="box warn"><span class="t">ระวัง</span>สคริปต์ที่ให้ผลตรวจ PDF ชุดนี้ถูกลบจาก repo แล้ว (กู้ได้จาก commit <code>76c0911</code>) จึงรันโชว์ตอนนี้ไม่ได้ทันที และ "FAIL 0" วัดว่าคำและตัวเลขอยู่ในหน้าที่อ้าง ไม่ได้วัดความหมาย</div>
+<h2>author_note: ข้อความไหนผู้พัฒนาเขียนเอง</h2>
+<p><code>author_note</code> เป็นหมายเหตุบอกที่มา ไม่ใช่ข้อความที่ผู้ใช้เห็น มี 1,264 โหนด และเก็บในฐานข้อมูล แต่ backend ไม่ได้ SELECT ขึ้นมา ผู้ใช้จึงไม่เห็น</p>
+<table>
+<tr><th>กลุ่ม (จัดด้วยกฎคำสำคัญ ตัวเลขเป็นค่าประมาณ)</th><th class="num">โหนด</th></tr>
+<tr><td>คำเชื่อม "หลังทำตามแล้ว อาการหายหรือไม่?" (นับตรงตัว)</td><td class="num">720</td></tr>
+<tr><td>ประกอบจากหลายหน้าในเล่มเดียวกัน หรือโยงชื่อปุ่ม/คำศัพท์</td><td class="num">~313</td></tr>
+<tr><td>ผู้พัฒนาเพิ่มขั้นหรือคำเตือน โดยดึงจากหน้าอื่นในเล่ม</td><td class="num">~57</td></tr>
+<tr><td>มีส่วนที่ผู้พัฒนาเขียนหรือสรุปเอง: คำเตือนทั้งก้อน 36 โหนด (ทีวี) และบางส่วนอีกราว 45 โหนด</td><td class="num">~81</td></tr>
+<tr><td>บันทึกว่าคู่มือไม่บอกวิธี ผู้พัฒนาจึงไม่เติมรายละเอียด</td><td class="num">~93</td></tr>
+</table>
+<p>นอกจากนี้ 64 โหนดมีหมายเหตุว่า "ควรให้ผู้ตรวจยืนยัน" ซึ่งยังไม่ได้ตรวจ</p>
+<div class="box warn"><span class="t">ระวัง: อย่าพูดว่า</span>"81 โหนดไม่ได้มาจากคู่มือเลย" หรือ "คำเตือนที่เพิ่มเข้มกว่าคู่มือทุกข้อ" เพราะยังไม่ได้เทียบทีละข้อ และยังไม่มีผู้เชี่ยวชาญตรวจ</div>
+<h2>ทาง B: admin ร่างผังจาก PDF</h2>
+<div class="flow">
+  <div class="s"><b>อัปโหลด</b>≤ 10 MB เลือก ≤ 10 หน้า</div><div class="a">→</div>
+  <div class="s"><b>แยกข้อความ</b>unpdf ไม่ทำ OCR</div><div class="a">→</div>
+  <div class="s ai"><b>LLM ร่าง</b>ทีละ 2 หน้า ตอบ JSON</div><div class="a">→</div>
+  <div class="s"><b>Validator</b>24 กฎ error, 5 กฎ warning</div><div class="a">→</div>
+  <div class="s"><b>Admin ตรวจ</b>แก้ JSON ได้</div><div class="a">→</div>
+  <div class="s"><b>Publish</b>transaction เดียว</div>
+</div>
+<ul>
+<li><b>สถานะร่าง:</b> <code>drafting</code> → <code>ready</code> หรือ <code>failed</code> → <code>published</code> หรือ <code>rejected</code></li>
+<li><b>ตัวอย่างกฎ error:</b> <code>E_UNREACHABLE</code> (มีโหนดที่ไปไม่ถึง), <code>E_NO_EXIT</code> (ไม่มีทางจบ), <code>E_SOURCE_PAGE_OUTSIDE</code> (อ้างหน้าที่ไม่ได้อัปโหลด)</li>
+<li><b>Publish:</b> มี error ≥ 1 ถูกปฏิเสธ 409 ถ้ามี warning ต้องกดยอมรับ และเพิ่มได้เฉพาะคู่มือใหม่ ไม่เขียนทับของเดิม</li>
+<li><b>ใช้ได้ทันที:</b> <code>reload()</code> สร้างข้อมูลชุดใหม่ให้เสร็จก่อนแล้วค่อยสลับ และ <code>addGraphs()</code> embed เฉพาะข้อความใหม่ จึงไม่ต้องรีสตาร์ต</li>
+</ul>
+<div class="box warn"><span class="t">ระวัง</span><ul style="margin:0">
+<li>ตอน publish ระบบทิ้ง <code>source_page</code> รายโหนด เหลือช่วงหน้าของผัง</li>
+<li>อาการที่คร่อมระหว่างกลุ่ม 2 หน้าอาจหาย เพราะสั่งให้ข้ามอาการที่ถูกตัดขอบ</li>
+<li>เอกสารบันทึกว่า flow นี้ยังไม่ได้ทดสอบกับ PDF และ Groq จริงหลังย้ายมา Express ถ้าจะเดโม ต้องลองก่อน</li></ul></div>
+<div class="box say"><span class="t">พูดกับกรรมการ: 631 ผังใครทำ</span>"ทั้งหมดมาจาก pipeline นอกระบบครับ ใช้ LLM จัดรูปข้อความจาก PDF เป็นรายอาการ แปลงเป็นผังด้วยสคริปต์ แล้วผมเติมภาษาไทยกับคำเตือน ตรวจอัตโนมัติกับ PDF แล้วไม่พบ FAIL แต่มี 48 ผังที่ตรวจอัตโนมัติไม่ได้ และคำแปลกับลำดับขั้นยังไม่มีคนตรวจอย่างเป็นระบบ ผมบอกข้อนี้ตรงๆ เพราะเป็นความเสี่ยงหลักของข้อมูล"</div>
+<div class="box ask"><span class="t">ลองตอบ</span><ol style="margin:0">
+<li>631 ผังมาจากการอัปโหลด PDF ในเว็บใช่ไหม</li>
+<li>ทำไมไม่ตัด chunk ทีละ 500 ตัวอักษร</li>
+<li>ถ้า LLM ร่างผังที่มีโหนดไปไม่ถึง จะเกิดอะไรขึ้นเมื่อกด publish</li></ol></div>
+<div class="ref"><b>ดูในโค้ด</b> <code>scripts/convert_chunks_to_graphs.py</code> · <code>backend/scripts/seed-graphs.js</code> · <code>backend/src/authoring/drafts.service.ts:85-117, 183-213</code> · <code>graph-validator.ts:85-421</code> · <code>draft-manual.ts:99-120</code> · <code>docs/ops/VERIFY-GRAPHS-AGAINST-SOURCE.md:15-32</code></div>
+</section>
+
+<section class="ch" id="c5">
+<div class="kicker">บท 5</div>
+<h1>Backend: Express และการเดินทางของคำขอ</h1>
+<p class="lead">ไฟล์ <code>app.ts</code> เป็นแผงประกอบ สร้างทุกชิ้นด้วย <code>new</code> แล้วผูก URL กับแต่ละโมดูล อ่านจากบนลงล่างก็รู้ว่าใครใช้ใคร</p>
+<h2>ชั้นของโค้ด</h2>
+<div class="flow">
+  <div class="s"><b>Route</b>รับคำขอ</div><div class="a">→</div>
+  <div class="s"><b>DTO</b>ตรวจข้อมูล</div><div class="a">→</div>
+  <div class="s"><b>Service</b>ตรรกะของงาน</div><div class="a">→</div>
+  <div class="s"><b>Store / Repository</b>SQL</div><div class="a">→</div>
+  <div class="s"><b>MySQL</b></div>
+</div>
+<table>
+<tr><th style="width:22%">ชั้น</th><th style="width:27%">ไฟล์</th><th>ถ้ากรรมการถามเทียบกับ NestJS</th></tr>
+<tr><td>Route</td><td><code>*.routes.ts</code></td><td>Controller</td></tr>
+<tr><td>DTO</td><td><code>*.dto.ts</code></td><td>DTO + ValidationPipe: ตรวจเองทีละช่อง และคืนเฉพาะช่องที่ประกาศ</td></tr>
+<tr><td>Service</td><td><code>*.service.ts</code></td><td>Provider</td></tr>
+<tr><td>Middleware สิทธิ์</td><td><code>auth.middleware.ts</code></td><td>Guard</td></tr>
+<tr><td>Error handler</td><td><code>error-handler.ts</code></td><td>Exception filter</td></tr>
+</table>
+<h2>ลำดับตอนบูต</h2>
+<p>ตรวจ <code>JWT_SECRET</code> → ต่อ MySQL → โหลดผังเข้า RAM → โหลดอุปกรณ์ → เริ่มโหลดโมเดลค้นหาแบบไม่รอ → เปลี่ยนร่างที่ค้างเป็น failed → เปิดรับคำขอ ถ้าไม่มี <code>JWT_SECRET</code> หรือต่อฐานข้อมูลไม่ได้ เซิร์ฟเวอร์จะไม่ขึ้นเลย</p>
+<h2>ตามคำขอ 1 ครั้ง: ผู้ใช้ตอบ "ไม่ใช่"</h2>
+<ol>
+<li>หน้าเว็บส่ง <code>POST /traversal/sessions/:id/actions</code> พร้อม <code>{"type":"answer","value":"no"}</code></li>
+<li><code>optionalAuth</code> ตรวจ token ถ้ามี ถ้าไม่มีถือเป็น guest</li>
+<li><code>parseTraversalAction</code> ตรวจรูปแบบ ถ้าผิดตอบ 400</li>
+<li><code>TraversalService</code> อ่าน session จาก DB และตรวจสิทธิ์ ถ้าเป็น session ของ user อื่นตอบ 404</li>
+<li>engine คำนวณโหนดถัดไป (บท 1)</li>
+<li>บันทึก UPDATE <code>sessions</code> และ INSERT <code>session_history</code> ใน transaction เดียว</li>
+<li>ตอบกลับโหนดถัดไป หน้าเว็บเอาไปใส่ cache แล้วแสดงผล</li>
+</ol>
+<h2>ความปลอดภัยของ SQL</h2>
+<pre><code>const [rows] = await this.pool.query(`${SELECT_USER} WHERE email = ? LIMIT 1`, [email]);</code></pre>
+<p>ใช้ placeholder <code>?</code> ไลบรารีจะ escape ให้ ผู้ใช้จึงแทรกคำสั่ง SQL ไม่ได้ จุดที่ต่อสตริง SQL จะต่อเฉพาะค่าคงที่ในโค้ด ไม่ต่อค่าจากผู้ใช้</p>
+<h2>กันข้อมูลชนกัน</h2>
+<ul>
+<li><code>UNIQUE (session_id, step_order)</code> กัน 2 คำขอซ้อนกันบน session เดียว</li>
+<li><code>UPDATE ... WHERE outcome_text IS NULL</code> ทำให้บันทึกผลลัพธ์ได้ครั้งเดียว</li>
+<li>ใช้ transaction ใน 3 จุด: เดินขั้น, publish ร่าง, seed</li>
+</ul>
+<h2>รูปแบบ error</h2>
+<pre><code>{ "statusCode": 400, "code": "SAFETY_CONFIRMATION_REQUIRED", "message": "ข้อความไทย" }</code></pre>
+<p>หน้าเว็บตัดสินจาก <code>code</code> ส่วน <code>message</code> ใช้แสดงผล และ <code>asyncRoute</code> จำเป็นเพราะ Express 4 ไม่ส่ง error ของ async handler ไปที่ errorHandler ให้เอง</p>
+<h2>endpoint 24 ตัว แบ่งกลุ่ม</h2>
+<table>
+<tr><th style="width:27%">กลุ่ม</th><th>ตัวอย่าง</th><th style="width:27%">สิทธิ์</th></tr>
+<tr><td><code>/health</code></td><td>สถานะระบบ</td><td>สาธารณะ</td></tr>
+<tr><td><code>/auth</code></td><td>register, login, me</td><td>สาธารณะ ยกเว้น me</td></tr>
+<tr><td><code>/symptom-search</code></td><td>ค้นหา, status</td><td>สาธารณะ</td></tr>
+<tr><td><code>/traversal</code></td><td>รายการคู่มือ/ผัง, เริ่ม, ตอบ, บันทึกผล, ยกเลิก</td><td>guest หรือ user</td></tr>
+<tr><td><code>/history</code></td><td>รายการ, รายละเอียด, feedback, ลบ</td><td>ต้องรู้เจ้าของ</td></tr>
+<tr><td><code>/admin</code></td><td>สถิติ, feedback, ร่างผัง</td><td>admin</td></tr>
+</table>
+<div class="box say"><span class="t">พูดกับกรรมการ: ทำไมย้ายจาก NestJS มา Express</span>"ตอนไล่อ่านโค้ดเตรียมสอบ ส่วนที่ผมอธิบายไม่ได้คือกลไกของ framework เช่น decorator และ dependency injection ไม่ใช่ตรรกะของระบบ Express เป็นฟังก์ชันธรรมดาที่อ่านจากบนลงล่างได้ ตอนย้ายมีเอกสารบันทึกว่าเทียบ HTTP 120 กรณีกับ error 46 ชนิดแล้วตรงกันทั้งหมด แต่ชุดเทียบอยู่นอก repo และบางส่วนยังไม่ได้ทดสอบมือหลังย้าย"</div>
+<div class="box warn"><span class="t">ระวัง</span>test อัตโนมัติเหลือไฟล์เดียวคือ <code>admin-guard.spec.ts</code> และ error ที่ไม่รู้จักส่ง <code>message</code> ดิบกลับไปให้ client ได้ (<code>error-handler.ts:67-71</code>)</div>
+<div class="box ask"><span class="t">ลองตอบ</span><ol style="margin:0">
+<li>ทำไมการตอบแต่ละขั้นต้องใช้ transaction</li>
+<li><code>?</code> ใน SQL กัน SQL injection ได้อย่างไร</li>
+<li>Middleware ต่างจาก Service อย่างไร</li></ol></div>
+<div class="ref"><b>ดูในโค้ด</b> <code>backend/src/app.ts:45-85</code> · <code>traversal/traversal.routes.ts</code> · <code>traversal.service.ts:86-104</code> · <code>session.store.ts:89-142</code> · <code>common/error-handler.ts:74-115</code> · <code>auth/users.store.ts:55-58</code></div>
+</section>
+
+<section class="ch" id="c6">
+<div class="kicker">บท 6</div>
+<h1>ฐานข้อมูล</h1>
+<p class="lead">มี 3 กลุ่มตาราง: ความรู้, การใช้งาน และงาน admin ซึ่งแยกออกมาเพื่อไม่ให้ผู้ใช้เห็นร่าง</p>
+<table>
+<tr><th style="width:17%">กลุ่ม</th><th style="width:33%">ความสัมพันธ์</th><th>เก็บอะไร</th></tr>
+<tr><td><b>ความรู้</b></td><td><code>manuals</code> → <code>graphs</code> → <code>nodes</code><br><code>equipment</code> → <code>equipment_usage</code></td><td>คู่มือ, ผังต่ออาการ, โหนด, อุปกรณ์ที่อาจต้องใช้</td></tr>
+<tr><td><b>การใช้งาน</b></td><td><code>users</code> → <code>sessions</code><br><code>sessions</code> → <code>session_history</code><br><code>sessions</code> → <code>session_feedback</code></td><td>บัญชี, การตรวจแต่ละครั้ง, ทุกคำตอบ, feedback</td></tr>
+<tr><td><b>งาน admin</b></td><td><code>graph_drafts</code></td><td>ร่างจาก LLM, ข้อความหน้า PDF (ไม่เก็บไฟล์), รายงาน validator</td></tr>
+</table>
+<h2>การตัดสินใจสำคัญ</h2>
+<table>
+<tr><th style="width:36%">การออกแบบ</th><th>เหตุผล</th></tr>
+<tr><td><code>nodes</code> ตารางเดียวเก็บทุกชนิด</td><td>อ่านง่าย คอลัมน์ที่ชนิดนั้นไม่ใช้เป็น NULL และ PK คือ <code>(graph_id, node_id)</code></td></tr>
+<tr><td>ไม่มีตารางประวัติแยก</td><td>ประวัติคือ <code>sessions</code> ที่ <code>status='completed'</code> รวมกับ <code>session_history</code></td></tr>
+<tr><td>อายุ session</td><td>เดินอยู่ 24 ชั่วโมง ต่ออายุทุกขั้น เมื่อจบเป็น 90 วัน</td></tr>
+<tr><td><code>session_feedback</code> ใช้ PK = session_id</td><td>1 session มี 1 feedback ส่งซ้ำคือแก้ค่าเดิม (<code>ON DUPLICATE KEY UPDATE</code>)</td></tr>
+<tr><td>FK <code>sessions → graphs</code> แบบ RESTRICT</td><td>ลบผังที่มีประวัติใช้งานอยู่ไม่ได้</td></tr>
+<tr><td>CHECK ใน <code>equipment_usage</code></td><td>ต้องมี <code>source_page</code> หรือ <code>author_note</code> อย่างน้อยหนึ่งอย่าง คือบังคับว่าต้องมีที่มา</td></tr>
+<tr><td><code>utf8mb4</code> ทุกตาราง</td><td>เก็บไทยและอีโมจิครบ และ collation ต้องตรงกันจึงสร้าง FK ได้</td></tr>
+<tr><td>ไม่เก็บ embedding</td><td>คำนวณตอนบูต ไม่มีปัญหาเวกเตอร์ค้าง และ MySQL ใน setup นี้ไม่มี index ค้นเวกเตอร์</td></tr>
+<tr><td>UUID เป็น id ของ user/session</td><td>เดาไม่ได้เหมือนเลขเรียงต่อกัน</td></tr>
+</table>
+<div class="box warn"><span class="t">ระวัง</span><ul style="margin:0">
+<li><code>nodes</code> <b>ไม่มีคอลัมน์เลขหน้ารายโหนด</b> และไม่มีตาราง embedding</li>
+<li>migration บน branch นี้คือ 001–006 แต่ <code>main</code> ใช้ 12 ไฟล์ชื่อเดิม <b>อย่ารัน migrate กับ DB บน Aiven</b> เพราะ runner จำตามชื่อไฟล์</li>
+<li>DB บน Aiven ใช้ร่วมกับโปรเจกต์เก่า FixStep</li>
+<li>ไม่มีตัวลบ session หมดอายุ แถวยังอยู่ แค่ทุก query กรอง <code>expires_at &gt; NOW()</code> และไม่มี endpoint ลบบัญชี</li></ul></div>
+<div class="box say"><span class="t">พูดกับกรรมการ: ทำไมใช้ MySQL</span>"ข้อมูลเป็นความสัมพันธ์ชัดเจน คู่มือ ผัง โหนด และ session กับคำตอบ ผมคุ้นเคยและใช้บริการฟรีที่มีอยู่แล้ว ไม่ต้องใช้ pgvector เพราะการค้นหาเวกเตอร์ทำในหน่วยความจำ"</div>
+<div class="box ask"><span class="t">ลองตอบ</span><ol style="margin:0">
+<li>ประวัติการซ่อมเก็บที่ตารางไหน</li>
+<li>ทำไมใช้ utf8mb4 แทน utf8</li>
+<li>ถ้าส่ง feedback ซ้ำ session เดิม ข้อมูลเป็นอย่างไร</li></ol></div>
+<div class="ref"><b>ดูในโค้ด</b> <code>backend/migrations/001_users.sql</code> ถึง <code>006_graph_drafts.sql</code> · <code>002_graphs.sql:53-84</code> · <code>004_sessions.sql:17-77</code> · <code>003_equipment.sql:35-36</code> · <code>scripts/run-migrations.js:33-40</code></div>
+</section>
+
+<section class="ch" id="c7">
+<div class="kicker">บท 7</div>
+<h1>บัญชีผู้ใช้ สิทธิ์ และ guest</h1>
+<p class="lead">ใช้งานหลักได้โดยไม่สมัคร ถ้าล็อกอิน เซิร์ฟเวอร์ให้บัตรผ่าน (JWT) อายุ 7 วัน ส่วนสิทธิ์ admin เช็กจากฐานข้อมูลทุกครั้ง</p>
+<div class="flow">
+  <div class="s"><b>Login</b>ส่งอีเมล + รหัส</div><div class="a">→</div>
+  <div class="s"><b>ตรวจรหัส</b>bcrypt</div><div class="a">→</div>
+  <div class="s"><b>ออก JWT</b>HS256 มี sub, role</div><div class="a">→</div>
+  <div class="s"><b>เก็บ</b>localStorage</div><div class="a">→</div>
+  <div class="s"><b>ทุกคำขอ</b>Bearer token</div><div class="a">→</div>
+  <div class="s"><b>Middleware</b>verify</div>
+</div>
+<h2>สิทธิ์ของแต่ละแบบ</h2>
+<table>
+<tr><th>ความสามารถ</th><th>Guest</th><th>User</th><th>Admin</th></tr>
+<tr><td>ค้นหา เดินผัง บันทึกผล</td><td>ได้</td><td>ได้</td><td>ได้</td></tr>
+<tr><td>ประวัติ feedback ลบ</td><td>ได้ ผูกกับเบราว์เซอร์</td><td>ได้ ผูกกับบัญชี</td><td>ได้</td></tr>
+<tr><td>หน้า admin</td><td>ไม่ได้</td><td>ไม่ได้ (403)</td><td>ได้</td></tr>
+</table>
+<h2>Middleware 3 ตัว</h2>
+<table>
+<tr><th style="width:24%">ตัว</th><th>ทำอะไร</th></tr>
+<tr><td><code>optionalAuth</code></td><td>มี token ก็ตรวจ ผิดตอบ 401 ไม่มีก็ถือเป็น guest</td></tr>
+<tr><td><code>requireAuth</code></td><td>ต้องมี token ที่ถูกต้อง</td></tr>
+<tr><td><code>requireAdmin</code></td><td><b>อ่าน role จาก DB ทุกคำขอ</b> ไม่เชื่อ role ใน token จึงถอดสิทธิ์แล้วมีผลทันที</td></tr>
+</table>
+<p><code>adminArea</code> ใส่ด่านครั้งเดียวที่ router แม่ของ <code>/admin</code> route ใหม่จึงถูกป้องกันอัตโนมัติ และ <code>AdminRoute</code> บนหน้าเว็บเป็นแค่ UX ตัวป้องกันจริงอยู่ที่เซิร์ฟเวอร์</p>
+<h2>รายละเอียดที่พูดแล้วดูเข้าใจจริง</h2>
+<ul>
+<li><b>dummyHash:</b> ถ้าไม่พบอีเมล ยัง <code>compare</code> กับ hash หลอก เวลาตอบจึงใกล้เคียงกัน และใช้ข้อความ error เดียวกัน กันการเดาว่าอีเมลนี้มีบัญชีผ่านหน้า login</li>
+<li><b>ล็อก algorithm:</b> <code>jwt.verify</code> รับเฉพาะ HS256</li>
+<li><b>รหัสผ่าน ≤ 72 ไบต์:</b> bcrypt ใช้แค่ 72 ไบต์แรก และอักษรไทยใช้ 3 ไบต์ต่อตัว</li>
+<li><b>สมัครได้แค่ user:</b> ส่ง <code>role</code> มาใน body ก็ไม่มีผล admin สร้างได้ทาง <code>npm run seed:admin</code> เท่านั้น</li>
+<li><b>Guest:</b> เบราว์เซอร์สุ่ม UUID เก็บใน localStorage ส่งเป็น <code>X-Client-Id</code> SQL แยกเจ้าของด้วย <code>client_id = ? AND user_id IS NULL</code></li>
+</ul>
+<h2>จุดอ่อนที่รู้อยู่แล้ว</h2>
+<table>
+<tr><th>จุดอ่อน</th><th>ถ้าแก้</th></tr>
+<tr><td>login ไม่มี rate limit</td><td><code>express-rate-limit</code></td></tr>
+<tr><td>token อยู่ใน localStorage ถ้ามี XSS ถูกขโมยได้</td><td>httpOnly cookie + CSRF token</td></tr>
+<tr><td>logout ไม่เพิกถอน token ใช้ได้ถึงหมดอายุ</td><td>ลดอายุ + refresh token</td></tr>
+<tr><td>session ของ guest ที่กำลังเดินไม่ตรวจเจ้าของ แต่ต้องรู้ UUID ของ session</td><td>ตรวจ <code>client_id</code> ทุกคำขอ</td></tr>
+<tr><td>ไม่มี helmet และ error 500 ส่งข้อความดิบ</td><td>เพิ่ม helmet และส่งข้อความกลาง</td></tr>
+<tr><td>ประวัติ guest หายเมื่อเปลี่ยนเบราว์เซอร์ และไม่ย้ายเข้าบัญชีตอนล็อกอิน</td><td>เพิ่ม flow ผูกประวัติ</td></tr>
+</table>
+<div class="box say"><span class="t">พูดกับกรรมการ</span>"จุดที่ผมตั้งใจคือสิทธิ์ admin อ่านจากฐานข้อมูลทุกครั้ง ไม่เชื่อ token และใช้ dummy hash กันการเดาอีเมลตอน login จุดอ่อนที่รู้อยู่คือยังไม่มี rate limit และ token อยู่ใน localStorage ผมมีแผนแก้ไว้แล้ว"</div>
+<div class="box ask"><span class="t">ลองตอบ</span><ol style="margin:0">
+<li>ถอดสิทธิ์ admin ขณะที่ token ยังไม่หมดอายุ เข้า <code>/admin</code> ได้ไหม เพราะอะไร</li>
+<li>Guest ระบุตัวอย่างไร ถือเป็นการยืนยันตัวตนไหม</li>
+<li>Logout แล้ว token เดิมยังใช้ได้ไหม</li></ol></div>
+<div class="ref"><b>ดูในโค้ด</b> <code>backend/src/auth/token.ts</code> · <code>auth.middleware.ts:54-87</code> · <code>auth.service.ts:26, 55-63</code> · <code>session-owner.ts:25-30</code> · <code>admin/admin.routes.ts:9-14</code> · <code>frontend/src/lib/clientId.ts</code></div>
+</section>
+
+<section class="ch" id="c8">
+<div class="kicker">บท 8</div>
+<h1>Frontend</h1>
+<p class="lead">เป็น SPA ไม่มี Redux ข้อมูลจากเซิร์ฟเวอร์ให้ TanStack Query จัดการ ข้อมูลผู้ใช้อยู่ใน Context สถานะเล็กๆ ของหน้าใช้ <code>useState</code></p>
+<h2>เส้นทางหลัก</h2>
+<table>
+<tr><th style="width:36%">Path</th><th>หน้าที่</th></tr>
+<tr><td><code>/devices</code></td><td>เลือกเครื่องและรุ่น หรือ "ไม่ทราบรุ่น"</td></tr>
+<tr><td><code>/symptoms</code>, <code>/symptoms/all</code></td><td>ค้นหา และดูอาการทั้งหมด ถ้ายังไม่เลือกรุ่นจะพากลับ <code>/devices</code></td></tr>
+<tr><td><code>/session/:sessionId</code></td><td>เดินผังทีละขั้น</td></tr>
+<tr><td><code>/history</code>, <code>/history/:sessionId</code></td><td>ประวัติ feedback และลบ</td></tr>
+<tr><td><code>/login</code>, <code>/register</code></td><td>บัญชี</td></tr>
+<tr><td><code>/admin/analytics</code>, <code>/feedback</code>, <code>/drafts</code></td><td>สถิติ feedback และร่างผัง</td></tr>
+</table>
+<h2>State อยู่ที่ไหน</h2>
+<table>
+<tr><th style="width:38%">ชนิด</th><th>เก็บที่</th></tr>
+<tr><td>ข้อมูลจากเซิร์ฟเวอร์</td><td>TanStack Query cache</td></tr>
+<tr><td>ผู้ใช้ที่ล็อกอิน</td><td>React Context + localStorage <code>fixstep.auth</code></td></tr>
+<tr><td>Guest id</td><td>localStorage <code>fixstep.clientId</code></td></tr>
+<tr><td>รุ่นที่เลือก</td><td>URL query string จึงรีเฟรชแล้วไม่หาย</td></tr>
+<tr><td>กันกดซ้ำ</td><td><code>useRef</code> (<code>isSendingRef</code>) เพราะอัปเดตทันที ไม่รอ render</td></tr>
+</table>
+<h2>TanStack Query ช่วยอะไร</h2>
+<ul>
+<li><b>Query key มีตัวตนผู้ใช้:</b> เช่น <code>['history', identity, 'list', page]</code> เปลี่ยนผู้ใช้แล้วไม่เห็นข้อมูลคนก่อน และล้าง cache ทุกครั้งที่ login/logout</li>
+<li><b>ลดการโหลดซ้ำ:</b> หลังตอบแต่ละขั้น ใช้ <code>setQueryData</code> ใส่ผลลง cache ทันที ไม่ต้อง GET ใหม่</li>
+<li><b>Polling เฉพาะที่จำเป็น:</b> poll ร่างทุก 3 วินาที เฉพาะตอนมีร่าง <code>drafting</code></li>
+<li><b>ค้นหาเป็น mutation:</b> ผลค้นหาไม่ถูก cache</li>
+</ul>
+<h2>Component สำคัญ</h2>
+<table>
+<tr><th style="width:33%">Component</th><th>หน้าที่</th></tr>
+<tr><td><code>StepView</code></td><td>เลือกการแสดงผลตามชนิดโหนด</td></tr>
+<tr><td><code>SafetyGateStep</code></td><td>กล่องเตือนแดงและ checkbox บังคับ</td></tr>
+<tr><td><code>ReferenceLine</code></td><td>บรรทัดที่มาของผัง</td></tr>
+<tr><td><code>RephraseNote</code></td><td>บอกว่าข้อความถูกปรับด้วย AI และดูต้นฉบับ</td></tr>
+<tr><td><code>SymptomSearchResults</code></td><td>แสดงผลไม่เกิน 3 พร้อมคะแนน หรือข้อความ "ไม่เดา"</td></tr>
+<tr><td><code>DraftJsonEditor</code>, <code>ValidationReportPanel</code></td><td>ตรวจและแก้ร่าง</td></tr>
+</table>
+<h2>การเรียก API</h2>
+<p>ทุกคำขอผ่าน <code>request()</code> ตัวเดียวใน <code>http.ts</code> ใส่ token ให้อัตโนมัติ แปลง error เป็น <code>ApiError</code> และเมื่อได้ 401 ขณะมี token จะออกจากระบบให้ <code>describeError</code> แปลง <code>code</code> เป็นข้อความไทย ส่วนฝั่ง client ตรวจความยาวก่อนส่งเพื่อความสะดวก แต่เซิร์ฟเวอร์ตรวจซ้ำเสมอ</p>
+<div class="box warn"><span class="t">ระวัง</span>ชื่อบนหน้าจอยังเป็น "FixStep" จากโปรเจกต์ก่อน ถ้ากรรมการถาม ให้ตอบตรงๆ ว่ายังไม่ได้เปลี่ยน ไม่มีผลต่อการทำงาน และไม่มีไฟล์เทสต์ frontend</div>
+<div class="box say"><span class="t">พูดกับกรรมการ: ทำไมใช้ TanStack Query</span>"ข้อมูลส่วนใหญ่อยู่ที่เซิร์ฟเวอร์ ไม่ใช่สถานะของหน้าจอ TanStack Query จัดการโหลด error และ cache ให้ จึงไม่ต้องเขียนเอง และไม่ต้องใช้ Redux ผมใส่ตัวตนผู้ใช้ไว้ใน query key เพื่อไม่ให้ข้อมูลคนก่อนปนมา"</div>
+<div class="box ask"><span class="t">ลองตอบ</span><ol style="margin:0">
+<li>ทำไมเก็บรุ่นที่เลือกไว้ใน URL</li>
+<li>ทำไมกันกดซ้ำด้วย <code>useRef</code> แทน <code>useState</code></li>
+<li>การล็อกปุ่มบนหน้าเว็บอย่างเดียวพอไหมสำหรับขั้นอันตราย</li></ol></div>
+<div class="ref"><b>ดูในโค้ด</b> <code>frontend/src/App.tsx:37-51</code> · <code>api/queries.ts</code> · <code>api/http.ts:39-86</code> · <code>components/step/StepView.tsx</code> · <code>pages/SessionPage.tsx:42-57</code></div>
+</section>
+
+<section class="ch" id="c9">
+<div class="kicker">บท 9</div>
+<h1>ประวัติ feedback และ dashboard</h1>
+<p class="lead">ทุกครั้งที่ตรวจจนจบ รายการจะอยู่ในประวัติ 90 วัน ผู้ใช้ให้ feedback ได้ และ admin ดูภาพรวมจาก dashboard</p>
+<h2>ประวัติการซ่อม</h2>
+<ul>
+<li><b>รายการ:</b> <code>sessions</code> ที่จบแล้วและยังไม่หมดอายุของเจ้าของนั้น ดึงล่าสุดไม่เกิน 50 รายการ แบ่งหน้าละ 10</li>
+<li><b>รายละเอียด:</b> ถ้าไม่ใช่ของตัวเอง ตอบ 404 โดยไม่บอกว่ามีอยู่</li>
+<li><b>เล่นซ้ำ (replay):</b> นำคำตอบที่บันทึกไว้เดินผ่าน engine บนผังปัจจุบัน ถ้าไม่จบที่โหนดเดิม แปลว่าผังถูกแก้ ระบบจะแสดง <code>available: false</code> แทนการแสดงขั้นเก่าคู่กับข้อสรุปที่ไม่เกี่ยวกัน</li>
+<li><b>ลบ:</b> คำสั่ง DELETE เดียวที่มีเงื่อนไขเจ้าของ <code>session_history</code> และ <code>session_feedback</code> หายตาม CASCADE</li>
+</ul>
+<div class="box say"><span class="t">จุดเด่นที่พูดได้</span>"Replay ทำได้เพราะ engine เป็น pure function ถ้าผังเปลี่ยนจนเส้นทางไม่ตรง ระบบจะไม่แสดงข้อมูลที่ขัดกัน"</div>
+<h2>Feedback</h2>
+<pre><code>INSERT INTO session_feedback (session_id, helpful, `comment`) VALUES (?, ?, ?)
+ON DUPLICATE KEY UPDATE helpful = VALUES(helpful), `comment` = VALUES(`comment`)</code></pre>
+<p>1 session มี 1 feedback ส่งซ้ำคือแก้ค่าเดิม (upsert) comment ไม่เกิน 500 ตัวอักษร และให้ได้เฉพาะ session ที่จบแล้ว ส่วน <code>outcome_text</code> เป็นอีกอย่าง คือข้อความที่ผู้ใช้พิมพ์ตอนจบ บันทึกได้ครั้งเดียว</p>
+<h2>Dashboard: <code>GET /admin/analytics/summary?days=1..90</code></h2>
+<table>
+<tr><th style="width:28%">ตัวเลข</th><th>ความหมาย</th></tr>
+<tr><td>sessions</td><td>ทั้งหมด จบแล้ว กำลังเดิน ทิ้งกลางทาง และแยกตาม user / guest</td></tr>
+<tr><td>confidence</td><td>ค่าเฉลี่ย cosine ของ session ที่มีคะแนน (NULL ไม่ถูกนับ)</td></tr>
+<tr><td>feedback</td><td>satisfactionRate = helpful / total ถ้าไม่มี feedback เป็น null ไม่ใช่ 0</td></tr>
+<tr><td>outcomes</td><td>แยกผลจบตาม <code>outcome_kind</code> ของโหนดสุดท้าย</td></tr>
+<tr><td>topGraphs, topDevices</td><td>อาการและประเภทเครื่องที่ถูกตรวจบ่อย 10 อันดับ</td></tr>
+<tr><td>perDay</td><td>เริ่มและจบต่อวันตามเวลาไทย เติม 0 ในวันที่ไม่มีข้อมูล</td></tr>
+</table>
+<p>เซิร์ฟเวอร์ยิง 5 query พร้อมกันด้วย <code>Promise.all</code> และหยิบเฉพาะช่องที่ DTO ระบุ ไม่ส่งข้อมูลอย่างอีเมลออกไป</p>
+<div class="box warn"><span class="t">ระวัง</span><ul style="margin:0">
+<li>satisfaction rate มาจากคนที่เลือกกด feedback (selection bias) <b>ไม่ใช่ความแม่นยำของระบบ</b></li>
+<li>ตัวเลขตอนเดโมเป็นข้อมูลทดสอบ ไม่ใช่ผู้ใช้จริง ต้องพูดเองก่อนถูกถาม</li>
+<li>ประวัติเกิน 50 รายการจะเห็นแค่ 50 ล่าสุด และ <code>total</code> ไม่เกิน 50</li></ul></div>
+<div class="box ask"><span class="t">ลองตอบ</span><ol style="margin:0">
+<li>Replay คืออะไร ทำไมต้องมี</li>
+<li>ไม่มี feedback เลย ทำไม satisfactionRate เป็น null ไม่ใช่ 0</li>
+<li>satisfaction 90% แปลว่าระบบแม่น 90% ไหม</li></ol></div>
+<div class="ref"><b>ดูในโค้ด</b> <code>backend/src/history/history.store.ts:48-60, 95-112</code> · <code>history.service.ts:98-156, 196-221</code> · <code>admin/admin.service.ts:52-124</code> · <code>admin.store.ts:111-192</code></div>
+</section>
+
+<section class="ch" id="c10">
+<div class="kicker">บท 10</div>
+<h1>การประเมินผล</h1>
+<p class="lead">ณ วันที่จัดทำ ระบบยังไม่มีผลประเมินความแม่นยำที่อ้างได้ และยังไม่ได้ทดสอบกับผู้ใช้จริง บทนี้ช่วยให้ตอบตรงๆ โดยไม่ดูอ่อน</p>
+<h2>สิ่งที่มี และที่อ้างไม่ได้</h2>
+<table>
+<tr><th style="width:28%">สิ่งที่มี</th><th>ผล</th><th style="width:37%">ข้อจำกัด</th></tr>
+<tr><td>ตรวจผังกับ PDF</td><td>FAIL 0 ตรวจไม่ได้ 48 ผัง (ตัดแอร์แล้ว)</td><td>วัดคำและตัวเลข ไม่ใช่ความหมาย</td></tr>
+<tr><td>ตัวอย่างคะแนนค้นหา</td><td>6 คำค้น</td><td>เป็นตัวอย่าง ไม่ใช่ชุดทดสอบ</td></tr>
+<tr><td>ชุดตั้งเกณฑ์ 56 ข้อ</td><td>top-1 29/39, top-3 37/39, นอกขอบเขตหลุด 8/17</td><td><b>ห้ามอ้าง</b> AI ร่าง และเป็นคู่มือแอร์ที่ไม่อยู่ในระบบแล้ว</td></tr>
+<tr><td>Feedback ในระบบ</td><td>มีเครื่องมือเก็บ</td><td>ยังไม่มีผู้ใช้จริง</td></tr>
+</table>
+<p>ตรวจเมื่อ 31 ต.ค.: ยังไม่มีโฟลเดอร์ <code>data/eval/</code> ใน repo</p>
+<h2>สิ่งที่ควรวัด</h2>
+<p>ระบบไม่ได้วินิจฉัย แต่หาผังที่ใช่ จึงควรวัดคุณภาพการเลือกผัง และการปฏิเสธเมื่อไม่มีผังที่ใช่</p>
+<table>
+<tr><th style="width:32%">Metric</th><th>นิยาม</th></tr>
+<tr><td>Top-1 hit rate</td><td>ในขอบเขต: อันดับ 1 เป็นผังที่ถูกและถึงเกณฑ์</td></tr>
+<tr><td>Top-3 hit rate</td><td>ในขอบเขต: ผังที่ถูกอยู่ในผลที่แสดง ตรงกับการใช้งานจริงที่ผู้ใช้เลือกเอง</td></tr>
+<tr><td>False rejection</td><td>ในขอบเขต แต่ระบบตอบว่าไม่พบ</td></tr>
+<tr><td>Out-of-scope rejection</td><td>นอกขอบเขต และระบบตอบว่าไม่พบ นี่คือความสามารถ "ไม่เดา"</td></tr>
+</table>
+<h2>ถ้ามีเวลาทำชุดเล็ก</h2>
+<ol>
+<li>เลือก 4 เล่ม (GE83MDT, RB6000D, KM2DVBADN, WA5000R) เล่มละ 10–15 คำค้นในขอบเขต และ 5 คำค้นนอกขอบเขต ห้ามลอกคำพ้องตรงตัว</li>
+<li>ตั้งเฉลย <b>ก่อน</b>ดูผลของระบบ แล้วแบ่งชุด tuning กับชุด report</li>
+<li>กวาด threshold 0.40–0.90 บน tuning เลือกค่าที่ TPR + TNR − 1 สูงสุด (Youden's J)</li>
+<li>รายงานผล 0.55 กับค่าใหม่บนชุด report พร้อมข้อจำกัด: ชุดเล็ก ผู้พัฒนาตั้งเฉลยเอง 4 จาก 21 เล่ม</li>
+</ol>
+<p>การทำชุดนี้ไม่ต้องแก้ระบบ ใช้โค้ดที่ build แล้วและไฟล์ JSON ได้ ร่างสคริปต์อยู่ในไฟล์ <code>10-evaluation.md</code> ถ้าไม่ทัน ให้ใช้คำตอบด้านล่าง และเสนอเป็นงานถัดไป</p>
+<div class="box say"><span class="t">พูดกับกรรมการ: ถ้ายังไม่มีผล</span>"ยังไม่ได้ทดสอบกับผู้ใช้จริง และยังไม่มีชุดทดสอบการค้นหาที่อ้างเป็นความแม่นยำได้ครับ ผมไม่อยากอ้างตัวเลขที่ไม่มี สิ่งที่ทำแล้วคือตรวจข้อมูลในผังกับ PDF ด้วยสคริปต์ และแผนต่อไปคือวัด top-3 hit rate กับ out-of-scope rejection ด้วยชุดที่ตั้งเฉลยล่วงหน้า แล้วใช้ผลมาปรับ threshold จากนั้นทำ usability test 5–8 คน วัด task success และ SUS"</div>
+<div class="box say"><span class="t">ถ้าถูกถามต่อ: "แล้วรู้ได้ไงว่าใช้ได้จริง"</span>"ระบบไม่ได้สร้างคำแนะนำเอง ความถูกต้องของคำแนะนำจึงขึ้นกับผังเทียบกับคู่มือ ซึ่งตรวจได้โดยไม่ต้องมีผู้ใช้ ความเสี่ยงที่เหลือคือเลือกผังผิด ซึ่งผมลดด้วยการให้ผู้ใช้เลือกเอง แต่ยอมรับว่ายังไม่ได้วัดว่าผู้ใช้ทั่วไปตอบคำถามในผังถูกไหม เช่น 'ฟิวส์ขาดไหม' อาจตอบไม่ได้"</div>
+<div class="box warn"><span class="t">ระวัง</span>ห้ามอ้าง 37/39 เป็นความแม่นยำของระบบ และห้ามใช้ satisfaction rate แทนความแม่นยำ</div>
+<div class="box ask"><span class="t">ลองตอบ</span><ol style="margin:0">
+<li>ทำไม top-3 ตรงกับการใช้งานจริงมากกว่า top-1</li>
+<li>ทำไมต้องแยกชุด tuning กับ report</li>
+<li>ทำไมต้องวัด out-of-scope rejection ด้วย</li></ol></div>
+<div class="ref"><b>ดูเพิ่ม</b> <code>docs/exam-prep/10-evaluation.md</code> · <code>backend/scripts/study-measure.js</code> · <code>docs/STUDY_GUIDE.md:604-629</code></div>
+</section>
+
+<section class="ch" id="c11">
+<div class="kicker">บท 11</div>
+<h1>Deployment และเดโมจากเครื่อง</h1>
+<p class="lead">ระบบออกแบบให้ deploy บนบริการฟรี 3 ส่วน แต่สิ่งที่ออนไลน์อยู่เป็นเวอร์ชันเก่า จึงเลือกเดโมจากเครื่อง</p>
+<table>
+<tr><th style="width:15%">ส่วน</th><th style="width:26%">ตั้งใจไว้</th><th>สถานะที่ตรวจล่าสุด</th></tr>
+<tr><td>Backend</td><td>Render (free)</td><td>branch <code>main</code> ยังเป็น NestJS (<code>f9b7e09</code>)</td></tr>
+<tr><td>Frontend</td><td>GitHub Pages</td><td>build วันที่ 14 ต.ค. ไม่มีหน้าเลือกรุ่น ประวัติ login admin</td></tr>
+<tr><td>ฐานข้อมูล</td><td>Aiven MySQL</td><td>ใช้ร่วมกับโปรเจกต์เก่า FixStep</td></tr>
+<tr><td>เดโมจริง</td><td>เครื่องตัวเอง</td><td>MySQL ในเครื่อง + Express + Vite จากโค้ดที่เปิดให้ดู</td></tr>
+</table>
+<h2>รู้ไว้เรื่องการ deploy</h2>
+<ul>
+<li>ไม่มี Docker ใช้ native Node runtime ผ่าน <code>render.yaml</code> เพื่อลดงาน ops</li>
+<li>Render free หลับเมื่อไม่มีคนใช้ และปลุกครั้งแรกใช้เวลาราว 1 นาที</li>
+<li>ไฟล์โมเดลอยู่ใน git จึงไม่ต้องดาวน์โหลดตอนรัน</li>
+<li>ค่าลับอยู่ใน env ไฟล์ <code>.env</code> ไม่อยู่ใน git และ <code>VITE_*</code> จะถูกฝังใน JS จึงห้ามใส่ความลับ</li>
+</ul>
+<h2>เตรียมเดโมบนเครื่อง</h2>
+<p>ขั้นตอนเต็มอยู่ในไฟล์ <code>17-local-demo-runbook.md</code> สรุปลำดับคือ:</p>
+<div class="flow">
+  <div class="s"><b>1. DB ใหม่</b>ชื่อ appliance_demo</div><div class="a">→</div>
+  <div class="s"><b>2. .env</b>สำรองของเดิมก่อน</div><div class="a">→</div>
+  <div class="s"><b>3. migrate + seed</b>ได้ 631 ผัง</div><div class="a">→</div>
+  <div class="s"><b>4. backend</b>รอ "ระบบค้นหาพร้อม"</div><div class="a">→</div>
+  <div class="s"><b>5. frontend</b>localhost:5173</div>
+</div>
+<div class="box warn"><span class="t">ระวัง: ต้องซ้อมก่อนวันสอบ</span>คำสั่งใน runbook <b>ยังไม่เคยรันจริง</b> ค่าที่ "ควรเห็น" มาจากการอ่านโค้ด ถ้าเจอปัญหาจะได้แก้ทันก่อนวันสอบ และห้ามชี้ไป DB บน Aiven</div>
+<h2 style="break-before:page">สคริปต์เดโมแบบย่อ (ประมาณ 6 นาที)</h2>
+<table>
+<tr><th style="width:17%">ช่วง</th><th>ทำบนจอ</th><th style="width:43%">ประเด็นที่พูด</th></tr>
+<tr><td>เคสปกติ</td><td>ไมโครเวฟ → GE83MDT → "ไมโครเวฟไม่ร้อน" → เลือก "อาหารไม่สุกเลย" → <code>n1</code> ไม่ใช่ → <code>n1f</code> ติ๊กเตือน → <code>n1v</code> ใช่ → จบ</td><td>คะแนนไม่ใช่โอกาสถูก, บรรทัดอ้างอิงคือหน้าของหัวข้อ, ขั้นอันตรายบังคับที่เซิร์ฟเวอร์</td></tr>
+<tr><td>ข้อมูลไม่พอ</td><td>พิมพ์ "วันนี้ฝนตก"</td><td>ไม่ถึงเกณฑ์ ระบบไม่เดา</td></tr>
+<tr><td>ประวัติ</td><td>เปิดรายการ → กด 👍 + comment → เปลี่ยนเป็น 👎</td><td>1 session มี 1 feedback, replay ผ่าน engine</td></tr>
+<tr><td>Admin</td><td><code>/admin/analytics</code> → <code>/admin/feedback</code> → <code>/admin/drafts</code> ร่างที่เตรียมไว้</td><td>ตัวเลขเป็นข้อมูลทดสอบ, LLM เป็นแค่ผู้ร่าง, คนต้องกด publish</td></tr>
+<tr><td>ปิด</td><td>สไลด์ข้อจำกัด</td><td>พูดข้อจำกัดเองก่อนถูกถาม (บท 12)</td></tr>
+</table>
+<h2>แผนสำรองเมื่อไม่มีเน็ต</h2>
+<p>ค้นหา เดินผัง ประวัติ feedback และ dashboard ทำงานในเครื่องได้ทั้งหมด สิ่งที่ต้องใช้เน็ตมีแค่ rephrase และการร่างผังใหม่</p>
+<ol>
+<li>ตั้ง <code>REPHRASE_ENABLED=false</code> แล้วรีสตาร์ต backend ถ้าเปิดไว้ ขั้นที่ไม่ใช่ขั้นอันตรายอาจรอสูงสุด 3 วินาทีก่อนใช้ข้อความต้นฉบับ</li>
+<li>ใช้ร่าง <code>ready</code> ที่เตรียมไว้แทนการอัปโหลดสด</li>
+<li>พูดว่า "นี่คือเหตุผลที่ไม่ให้ LLM อยู่บนเส้นทางหลัก"</li>
+</ol>
+<h2>ก่อนกรรมการเห็นหน้าจอ</h2>
+<ul>
+<li>ปิดแท็บ <code>.env</code> ห้ามพิมพ์ค่าในเทอร์มินัล และปิดแท็บ Aiven, Render, Groq, อีเมล, LINE</li>
+<li>อย่าเปิด DevTools แท็บ Application หรือ Network เพราะมี JWT</li>
+<li>ใช้บัญชีเดโมเท่านั้น และเปิด Focus Assist</li>
+<li>ดู <code>git log -1 --oneline</code> ให้รู้ว่าเดโมคือ commit ไหน</li>
+</ul>
+<div class="box say"><span class="t">พูดกับกรรมการ: ระบบที่เดโมตรงกับโค้ดไหม</span>"ตรงครับ เดโมนี้รันบนเครื่องทั้งระบบจากโค้ดที่เปิดให้ดู ส่วน URL สาธารณะยังเป็นเวอร์ชันก่อนหน้า ผมจึงเลือกเดโมจากเครื่องเพื่อให้สิ่งที่เห็นตรงกับที่อธิบาย และไม่เสี่ยงกับ DB ที่ใช้ร่วมกับโปรเจกต์อื่นก่อนสอบ"</div>
+<div class="box ask"><span class="t">ลองตอบ</span><ol style="margin:0">
+<li>ทำไมไม่เดโมจาก URL ที่ deploy ไว้</li>
+<li>ถ้าเน็ตล่มกลางเดโม อะไรยังทำงาน</li>
+<li>ทำไมห้ามรัน migrate กับ DB บน Aiven</li></ol></div>
+<div class="ref"><b>ดูเพิ่ม</b> <code>docs/exam-prep/17-local-demo-runbook.md</code> · <code>15-demo-script.md</code> · <code>11-deployment.md</code> · <code>render.yaml</code></div>
+</section>
+
+<section class="ch" id="c12">
+<div class="kicker">บท 12</div>
+<h1>ข้อจำกัด และงานในอนาคต</h1>
+<p class="lead">หลักการตอบ: บอกข้อจำกัดก่อนถูกถาม แล้วตามด้วย "ระบบรับมืออย่างไร" และ "จะแก้อย่างไร" การรู้จุดอ่อนของตัวเองเป็นหลักฐานว่าเข้าใจระบบจริง</p>
+<h2>ข้อจำกัดและคำตอบ</h2>
+<table>
+<tr><th style="width:27%">ข้อจำกัด</th><th>ตอบอย่างไร</th><th style="width:23%">ถ้าแก้</th></tr>
+<tr><td>ครอบคลุม 21 คู่มือ</td><td>ไม่มีผังก็บอกว่าไม่พบและแนะนำศูนย์บริการ ไม่เดา</td><td>ใช้ทาง B เพิ่มคู่มือ</td></tr>
+<tr><td>Citation อยู่ระดับผัง</td><td>บรรทัดอ้างอิงเป็นหน้าของหัวข้อ เลขหน้ารายคำสั่งอยู่ในข้อความ (instruction 89%)</td><td>เพิ่มเลขหน้ารายโหนด</td></tr>
+<tr><td>ผู้ใช้ไม่เห็นว่าข้อความไหนผู้พัฒนาเพิ่ม</td><td>มีบันทึกที่มาในข้อมูลแล้ว แต่ยังไม่แสดงบนหน้าจอ</td><td>แสดงป้ายจาก <code>author_note</code></td></tr>
+<tr><td>คำแปลและลำดับขั้นยังไม่มีคนตรวจ</td><td>ตรวจสิ่งที่โปรแกรมตรวจได้แล้ว ส่วนความหมายต้องใช้คน</td><td>สุ่มตรวจ + เก็บสถานะผู้ตรวจ</td></tr>
+<tr><td>ยังไม่มีผลประเมิน</td><td>ดูบท 10</td><td>ชุดทดสอบ + usability test</td></tr>
+<tr><td>Threshold ไม่ได้ปรับ</td><td>มาจากชุดเก่า ภายในรุ่นแยกได้ไม่ดี ระบบจึงให้ผู้ใช้เลือกเอง</td><td>กวาดค่าใหม่, threshold ต่อรุ่น, hybrid search</td></tr>
+<tr><td>ค้นหาแบบ brute force</td><td>พอสำหรับข้อมูลขนาดนี้ เวกเตอร์ใช้ RAM ราว 3 MB</td><td>HNSW หรือ vector DB</td></tr>
+<tr><td>ยืนยันความปลอดภัยคือการติ๊ก</td><td>ระบบรู้ไม่ได้ว่าทำจริง แต่บังคับให้เห็นคำเตือนก่อน</td><td>ไม่มีทางแก้ด้วยซอฟต์แวร์ล้วน</td></tr>
+<tr><td>ไม่ใช่การวินิจฉัยยืนยัน</td><td>พาตรวจตามคู่มือเพื่อหาสาเหตุที่เป็นไปได้ และผลขึ้นกับคำตอบของผู้ใช้</td><td>เพิ่มข้อความปฏิเสธความรับผิดชอบ</td></tr>
+<tr><td>เทสต์เหลือไฟล์เดียว</td><td>ตอนย้าย framework ใช้ชุดเทียบนอก repo ยอมรับว่าควรมีเพิ่ม</td><td>นำเทสต์ engine/matcher/guard กลับมา</td></tr>
+<tr><td>Security ยังไม่ครบ</td><td>บท 7 มีรายการและแผนแก้</td><td>rate limit, helmet, cookie</td></tr>
+</table>
+<h2>Citation รายโหนด: ตัวเลขที่ควรรู้</h2>
+<table>
+<tr><th>ชนิดโหนด</th><th class="num">ทั้งหมด</th><th class="num">มี "คู่มือหน้า N" ในข้อความ</th></tr>
+<tr><td>instruction</td><td class="num">1,107</td><td class="num">980 (89%)</td></tr>
+<tr><td>escalation</td><td class="num">780</td><td class="num">602 (77%)</td></tr>
+<tr><td>resolution</td><td class="num">706</td><td class="num">193 (27%)</td></tr>
+<tr><td>checkpoint</td><td class="num">2,146</td><td class="num">10 (0.5%)</td></tr>
+</table>
+<p>มี 541 โหนดอ้างหลายหน้า และ 860 โหนดอ้างหน้าที่อยู่นอกช่วงหน้าของผัง เช่น ผังที่หัวข้ออยู่หน้า 37 แต่ขั้นตอนอ้างหน้า 3, 10 หรือ 40 ป้ายบนจอที่เขียนว่า "ที่มาของขั้นตอนนี้" จึงยังไม่ตรงความหมาย</p>
+<div class="box say"><span class="t">พูดกับกรรมการ: citation</span>"บรรทัดอ้างอิงเป็นหน้าของหัวข้อแก้ปัญหา ส่วนเลขหน้าของแต่ละคำสั่งอยู่ในวงเล็บในข้อความ ประมาณ 89% ของขั้นที่ให้ลงมือทำ ยังไม่ใช่ citation รายโหนดแบบมีโครงสร้าง และป้ายบนจอยังสื่อเกินจริงเล็กน้อย ผมรู้ปัญหานี้ และวางแผนเพิ่มเลขหน้าเป็นข้อมูลของแต่ละโหนด"</div>
+<h2>งานในอนาคต (เรียงตามความคุ้มค่า)</h2>
+<ol>
+<li>ประเมินผลจริง: ชุดทดสอบ และ usability test</li>
+<li>Citation รายโหนด และแสดงป้ายที่มาจาก <code>author_note</code></li>
+<li>ให้คนตรวจคำแปลและลำดับขั้น</li>
+<li>ขยายคู่มือ ยี่ห้อ และประเภทเครื่อง โดยเปลี่ยน ENUM เป็นตารางอ้างอิง</li>
+<li>ปรับการค้นหา: hybrid search, re-ranker, threshold ต่อรุ่น</li>
+<li>Security และ ops: rate limit, helmet, Docker, CI, แยก DB จากโปรเจกต์เก่า</li>
+<li>ใช้ feedback 👎 ชี้ผังที่ควรแก้ และรองรับรูปภาพในขั้นตอน</li>
+</ol>
+<div class="box ask"><span class="t">ลองตอบ</span><ol style="margin:0">
+<li>ทำไมควรพูดข้อจำกัดเองก่อนถูกถาม</li>
+<li>บรรทัด "หน้า 37" ตรงกับทุกขั้นในผังไหม</li>
+<li>ถ้ามีเวลาอีก 1 เดือน จะทำอะไรก่อน เพราะอะไร</li></ol></div>
+<div class="ref"><b>ดูเพิ่ม</b> <code>docs/exam-prep/12-limitations-and-future-work.md</code> · <code>14-weak-points-and-risks.md</code> · <code>18-proposal-author-note-citation.md</code></div>
+</section>
+
+<section class="ch" id="a">
+<div class="kicker">ภาคผนวก ก</div>
+<h1>ตัวเลขที่ต้องจำ</h1>
+<table>
+<tr><th style="width:42%">เรื่อง</th><th>ค่า</th></tr>
+<tr><td>คู่มือ / ผัง / โหนด</td><td>21 / 631 / 4,739</td></tr>
+<tr><td>ประเภทเครื่อง</td><td>ไมโครเวฟ 6, ตู้เย็น 5, ทีวี 5, เครื่องซักผ้า 5</td></tr>
+<tr><td>โหนด safety_critical</td><td>368</td></tr>
+<tr><td>โหนดที่มี author_note</td><td>1,264 (27%) เป็นคำเชื่อม 720</td></tr>
+<tr><td>ป้ายในดัชนี / ข้อความไม่ซ้ำ</td><td>3,814 / 1,936</td></tr>
+<tr><td>Embedding</td><td>MiniLM หลายภาษา, q8, 384 มิติ, ไฟล์ ~56 MB</td></tr>
+<tr><td>Threshold / ผลสูงสุด</td><td>0.55 / 3</td></tr>
+<tr><td>RAM</td><td>เวกเตอร์ ~3 MB, ทั้ง process ~250–300 MB (ประมาณการ)</td></tr>
+<tr><td>Rephrase</td><td>ปิดเป็นค่าเริ่มต้น, temperature 0, timeout 3 วินาที</td></tr>
+<tr><td>ร่างผัง</td><td>2 หน้าต่อครั้ง, เลือก ≤ 10 หน้า, PDF ≤ 10 MB, 24 กฎ error + 5 กฎ warning</td></tr>
+<tr><td>JWT / bcrypt</td><td>HS256 อายุ 7 วัน / cost 10</td></tr>
+<tr><td>อายุ session</td><td>เดินอยู่ 24 ชั่วโมง, จบแล้ว 90 วัน</td></tr>
+<tr><td>Endpoint / migration</td><td>24 / 001–006</td></tr>
+<tr><td>ผลตรวจกับ PDF</td><td>FAIL 0, ตรวจไม่ได้ 48 ผัง</td></tr>
+</table>
+</section>
+<section class="ch">
+<div class="kicker">ภาคผนวก ข</div>
+<h1>สิ่งที่ห้ามพูด</h1>
+<table>
+<tr><th style="width:47%">อย่าพูดว่า</th><th>ให้พูดว่า</th></tr>
+<tr><td>"ระบบนี้เป็น RAG"</td><td>"Retrieval-guided state machine LLM ไม่ได้เขียนคำแนะนำ"</td></tr>
+<tr><td>"คะแนน 0.82 แปลว่าถูก 82%"</td><td>"เป็นความคล้ายของข้อความ ไม่ใช่ความน่าจะเป็น"</td></tr>
+<tr><td>"ระบบไม่มีทาง hallucinate"</td><td>"ไม่แต่งสดบนเส้นทางหลัก แต่ข้อมูลตอนเตรียมยังมีความเสี่ยง"</td></tr>
+<tr><td>"ทุกขั้นบอกหน้าของตัวเอง"</td><td>"บรรทัดอ้างอิงเป็นหน้าของหัวข้อ เลขหน้ารายคำสั่งอยู่ในข้อความ"</td></tr>
+<tr><td>"ทุกข้อความมาจากคู่มือ"</td><td>"ส่วนใหญ่มาจากคู่มือ และมีส่วนที่ผมเพิ่มพร้อมบันทึกที่มา"</td></tr>
+<tr><td>"81 โหนดไม่ได้มาจากคู่มือเลย"</td><td>"คำเตือนทั้งก้อน 36 โหนด และบางส่วนอีกราว 45 โหนด"</td></tr>
+<tr><td>"คำเตือนที่เพิ่มเข้มกว่าคู่มือทุกข้อ"</td><td>"ยังไม่ได้เทียบทีละข้อ และยังไม่มีผู้เชี่ยวชาญตรวจ"</td></tr>
+<tr><td>"ความแม่นยำ 37/39" หรือ "พึงพอใจ 90%"</td><td>"ยังไม่มีผลประเมินที่อ้างได้"</td></tr>
+<tr><td>"คนตรวจครบ 631 ผังแล้ว"</td><td>"ตรวจอัตโนมัติแล้ว แต่คำแปลและลำดับยังไม่มีคนตรวจเป็นระบบ"</td></tr>
+<tr><td>"ระบบที่ deploy คือเวอร์ชันนี้"</td><td>"URL สาธารณะยังเป็นเวอร์ชันก่อน ผมเดโมจากเครื่อง"</td></tr>
+<tr><td>"ระบบวินิจฉัยเครื่องเสียได้"</td><td>"พาตรวจตามคู่มือเพื่อหาสาเหตุที่เป็นไปได้"</td></tr>
+</table>
+</section>
+
+<section class="ch">
+<div class="kicker">ภาคผนวก ค</div>
+<h1>คำถามยากที่ควรซ้อม</h1>
+<table>
+<tr><th style="width:36%">คำถาม</th><th>แนวตอบ</th></tr>
+<tr><td>0.55 มาจากไหน</td><td>มาจากชุดเก่าของคู่มือแอร์ที่ AI ร่าง ยังไม่ได้ปรับกับข้อมูลปัจจุบัน จึงไม่อ้างว่าเป็นค่าที่ดีที่สุด</td></tr>
+<tr><td>พิมพ์ "ไมโครเวฟเสีย" ทุกผังคงผ่านเกณฑ์ ระบบช่วยอะไร</td><td>ใช่ ภายในรุ่นคะแนนสูงกันหมด ระบบให้ 3 อันดับแรก และมีหน้าอาการทั้งหมด</td></tr>
+<tr><td>ทำไมไม่ใช้ ChatGPT</td><td>ตรวจไม่ได้ว่าจะตอบอะไร อาจแต่งขั้นตอนหรือละคำเตือน และมีค่าใช้จ่ายกับการส่งข้อมูลออกนอกระบบ</td></tr>
+<tr><td>ทำไมไม่ทำ RAG</td><td>RAG ลดการแต่งได้แต่ไม่หมด และคำเตือนบังคับด้วย prompt ได้แค่ขอร้อง งานนี้มีความเสี่ยงด้านความปลอดภัย</td></tr>
+<tr><td>ทำไมไม่ fine-tune</td><td>ข้อมูลไม่พอ ไม่รับประกันว่าไม่แต่ง และต้องเทรนใหม่ทุกครั้งที่เพิ่มคู่มือ</td></tr>
+<tr><td>ทำไมไม่ใช้ LangChain</td><td>ใช้ LLM แค่ 2 จุด จุดละ HTTP call เดียว เขียนเองอ่านและคุมได้ทุกบรรทัด</td></tr>
+<tr><td>ทำไมไม่ใช้ keyword search</td><td>ผู้ใช้พิมพ์ภาษาพูด ผังมีสองภาษา embedding เทียบความหมายข้ามภาษาได้ แต่ยังไม่ได้วัดเทียบกัน</td></tr>
+<tr><td>ทำไมไม่ใช้ ORM</td><td>อยากเห็นและอธิบาย SQL ทุกคำสั่ง ข้อแลกคือต้องแปลงชนิดข้อมูลเอง</td></tr>
+<tr><td>ถ้าผู้ใช้ทำตามแล้วเกิดอันตราย ใครรับผิดชอบ</td><td>ระบบแนะนำตามคู่มือและมีคำเตือนบังคับ แต่ยังไม่มีข้อความปฏิเสธความรับผิดชอบบนหน้าจอ ถ้าใช้จริงต้องเพิ่ม</td></tr>
+<tr><td>ผู้ใช้ตอบผิด ระบบรู้ไหม</td><td>ไม่รู้ ผลขึ้นกับคำตอบ เช่น "ฟิวส์ขาดไหม" อาจตอบไม่ได้ ยังไม่ได้วัด จึงเป็นเหตุผลของ usability test</td></tr>
+<tr><td>ย้าย framework ใกล้สอบไม่เสี่ยงเหรอ</td><td>เสี่ยงครับ จึงเทียบกับชุดเดิม แต่ยอมรับว่าการอัปโหลด PDF และ Groq จริงยังไม่ได้ทดสอบมือหลังย้าย</td></tr>
+<tr><td>ส่วนไหนที่คุณภูมิใจ และส่วนไหนอยากทำใหม่</td><td>ภูมิใจ: แยกการหาออกจากการตอบ และบังคับความปลอดภัยด้วยโค้ด · อยากทำใหม่: เก็บเลขหน้ารายโหนดตั้งแต่ต้น และประเมินผลให้เร็วกว่านี้ (ปรับเป็นความเห็นของตัวเองได้)</td></tr>
+</table>
+<p>รวม 106 คำถามพร้อมแนวตอบอยู่ในไฟล์ <code>13-committee-qa.md</code></p>
+</section>
+
+<section class="ch">
+<div class="kicker">ภาคผนวก ง</div>
+<h1>เฉลย "ลองตอบ"</h1>
+<h3>บท 1</h3><ol>
+<li>เหมือนกัน เพราะ engine เป็น deterministic ดูแค่โหนดปัจจุบันกับคำตอบ ไม่มีการสุ่มหรือ AI</li>
+<li>ได้ 400 <code>SAFETY_CONFIRMATION_REQUIRED</code> ล็อกปุ่มไม่พอเพราะยิง API ตรงข้ามหน้าเว็บได้</li>
+<li>การเลือกโหนดถัดไปใช้ค่าในผังเท่านั้น LLM ไม่ได้อยู่บนเส้นทางนี้</li></ol>
+<h3>บท 2</h3><ol>
+<li>q·d = 1, ‖q‖ = 1, ‖d‖ = √2 ได้ 1/√2 ≈ 0.707 ผ่าน</li>
+<li>ไม่ใช่ เป็นความคล้ายระหว่างข้อความ ไม่ได้ calibrate และ engine ไม่ได้ใช้ตัดสิน</li>
+<li>ป้ายซ้ำกันข้ามผังหรือข้ามรุ่น ข้อความที่เหมือนกันจึงใช้เวกเตอร์ร่วมกัน</li></ol>
+<h3>บท 3</h3><ol>
+<li>ไม่เป็น RAG ใช้ LLM เขียนคำตอบจากข้อความที่ค้นได้ ระบบนี้ค้นเพื่อเลือกผัง แล้วคำแนะนำมาจากผัง</li>
+<li>ด่านชุดตัวเลข เพราะ 30 กับ 60 ไม่ตรงกัน ระบบจึงทิ้งผลแล้วใช้ต้นฉบับ</li>
+<li>ค้นหา เดินผัง ประวัติ feedback dashboard ใช้ได้ ส่วน rephrase กลับเป็นข้อความต้นฉบับ และร่างผังใหม่ใช้ไม่ได้</li></ol>
+<h3>บท 4</h3><ol>
+<li>ไม่ใช่ ทั้งหมดมาจาก pipeline นอกระบบ (ทาง A)</li>
+<li>จะผ่าอาการกลางคัน หน่วยที่ต้องการคือหนึ่งอาการต่อหนึ่งผัง</li>
+<li>validator รายงาน <code>E_UNREACHABLE</code> เมื่อมี error ระบบไม่ให้ publish ตอบ 409 <code>DRAFT_INVALID</code> จนกว่าจะแก้</li></ol>
+<h3>บท 5</h3><ol>
+<li>ต้องเปลี่ยนตำแหน่งปัจจุบันและเพิ่มประวัติพร้อมกัน ถ้าสำเร็จแค่อย่างเดียวข้อมูลจะไม่ตรงกัน</li>
+<li>ค่าถูกส่งแยกจากตัวคำสั่งและถูก escape จึงเป็นข้อมูล ไม่ถูกตีความเป็นคำสั่ง SQL</li>
+<li>Middleware ทำงานร่วมกับหลาย route ก่อนถึงงานหลัก เช่น ตรวจสิทธิ์ ส่วน Service เก็บตรรกะของงานนั้น</li></ol>
+<h3>บท 6</h3><ol>
+<li>ไม่มีตารางแยก คือ <code>sessions</code> ที่จบแล้วรวมกับ <code>session_history</code></li>
+<li><code>utf8</code> เดิมของ MySQL เก็บได้ 3 ไบต์ ส่วน <code>utf8mb4</code> เก็บอักขระ 4 ไบต์ เช่น อีโมจิ ได้ด้วย</li>
+<li>มีแถวเดียว ค่าใหม่แทนค่าเดิม เพราะ PK คือ session_id</li></ol>
+<h3>บท 7</h3><ol>
+<li>ไม่ได้ <code>requireAdmin</code> อ่าน role จาก DB ทุกคำขอ จึงได้ 403</li>
+<li>เบราว์เซอร์สุ่ม UUID ส่งผ่าน <code>X-Client-Id</code> ไม่ใช่การยืนยันตัวตน ใครรู้ UUID ก็เข้าถึงประวัติของ guest นั้นได้ แต่เดายากมาก</li>
+<li>ใช้ได้จนหมดอายุ เพราะ logout แค่ลบฝั่ง client ไม่มีการเพิกถอน</li></ol>
+<h3>บท 8</h3><ol>
+<li>รีเฟรชหรือแชร์ลิงก์แล้วยังรู้ว่าเลือกรุ่นไหน</li>
+<li><code>useRef</code> เปลี่ยนค่าทันทีโดยไม่รอ render จึงกันการกดเร็วๆ 2 ครั้งได้</li>
+<li>ไม่พอ ต้องบังคับที่เซิร์ฟเวอร์ด้วย ซึ่ง engine ทำอยู่แล้ว</li></ol>
+<h3>บท 9</h3><ol>
+<li>นำคำตอบที่บันทึกไว้เดินซ้ำบนผังปัจจุบัน เพื่อยืนยันว่ายังจบที่โหนดเดิม ถ้าไม่ใช่จะไม่แสดงข้อมูลที่ขัดกัน</li>
+<li>เพราะ "ยังไม่มีข้อมูล" ต่างจาก "ไม่มีใครพอใจเลย"</li>
+<li>ไม่ มาจากคนที่เลือกกด feedback และไม่ได้วัดว่าเลือกผังถูกหรือไม่</li></ol>
+<h3>บท 10</h3><ol>
+<li>ระบบเสนอหลายอันให้ผู้ใช้เลือก จึงถือว่าสำเร็จถ้าผังที่ถูกอยู่ในผลที่แสดง</li>
+<li>กันการเลือกค่าให้ถูกใจข้อมูลชุดเดียวกับที่รายงาน ผลบนชุด report จึงน่าเชื่อถือกว่า</li>
+<li>ระบบที่ตอบทุกคำค้นจะได้ hit rate สูงแต่เดามั่ว ต้องวัดความสามารถ "ไม่เดา" ด้วย</li></ol>
+<h3>บท 11</h3><ol>
+<li>ที่ออนไลน์เป็นเวอร์ชันเก่า backend ยังเป็น NestJS และหน้าเว็บขาดหลายฟีเจอร์ จึงไม่ตรงกับโค้ดที่อธิบาย</li>
+<li>ค้นหา เดินผัง ประวัติ feedback dashboard ส่วน rephrase และร่างผังใหม่ใช้ไม่ได้</li>
+<li>DB นั้นใช้ร่วมกับโปรเจกต์อื่น และ runner จำตามชื่อไฟล์ ซึ่งบน branch นี้ต่างจาก <code>main</code> ผลจึงไม่ได้ทดสอบ</li></ol>
+<h3>บท 12</h3><ol>
+<li>แสดงว่าเข้าใจระบบและซื่อสัตย์ และคุมบทสนทนาได้ดีกว่าถูกจับได้ทีหลัง</li>
+<li>ไม่ตรงทุกขั้น เป็นหน้าของหัวข้อ เลขหน้ารายคำสั่งอยู่ในข้อความ</li>
+<li>แนะนำ: ประเมินผลก่อน เพราะยังไม่รู้ว่าการค้นหาดีแค่ไหน และผลจะบอกว่าควรปรับอะไรต่อ (ตอบตามความเห็นของตัวเองได้)</li></ol>
+</section>
+
+<section class="ch">
+<div class="kicker">ภาคผนวก จ</div>
+<h1>คำศัพท์ฉบับย่อ</h1>
+<table>
+<tr><th style="width:30%">คำ</th><th>ความหมาย</th></tr>
+<tr><td>Embedding</td><td>แปลงข้อความเป็นเวกเตอร์ตัวเลข ความหมายใกล้กันเวกเตอร์ก็ใกล้กัน</td></tr>
+<tr><td>Cosine similarity</td><td>วัดมุมระหว่างเวกเตอร์ เพื่อบอกความคล้าย</td></tr>
+<tr><td>Threshold</td><td>เกณฑ์ขั้นต่ำ ต่ำกว่า 0.55 ไม่แสดงผล</td></tr>
+<tr><td>Pre-filter</td><td>กรองตามรุ่นก่อนคำนวณคะแนน</td></tr>
+<tr><td>Brute force / exact</td><td>เทียบทุกรายการ ได้ผลตรงแน่นอน แต่ช้าเมื่อข้อมูลมาก</td></tr>
+<tr><td>ANN / HNSW</td><td>ค้นหาเวกเตอร์แบบประมาณ เร็วกว่าเมื่อข้อมูลมาก</td></tr>
+<tr><td>RAG</td><td>ค้นข้อความแล้วให้ LLM เขียนคำตอบ</td></tr>
+<tr><td>LLM</td><td>โมเดลภาษาขนาดใหญ่ที่สร้างข้อความได้</td></tr>
+<tr><td>Hallucination</td><td>LLM สร้างข้อมูลที่ไม่จริงหรือไม่มีในแหล่งข้อมูล</td></tr>
+<tr><td>State machine</td><td>ระบบที่มีสถานะ และเปลี่ยนสถานะตามกติกาที่กำหนด</td></tr>
+<tr><td>Deterministic</td><td>ข้อมูลเข้าเดิม ได้ผลเดิมเสมอ</td></tr>
+<tr><td>Pure function</td><td>ผลขึ้นกับค่าที่รับเข้า และไม่ไปเปลี่ยนสิ่งภายนอก</td></tr>
+<tr><td>Transaction</td><td>หลายคำสั่งที่สำเร็จทั้งหมด หรือไม่เกิดผลเลย</td></tr>
+<tr><td>Upsert</td><td>ถ้ายังไม่มีให้เพิ่ม ถ้ามีแล้วให้แก้</td></tr>
+<tr><td>JWT</td><td>token ที่เซ็นแล้ว เซิร์ฟเวอร์ตรวจได้โดยไม่ต้องเก็บ session</td></tr>
+<tr><td>bcrypt</td><td>hash รหัสผ่านที่ตั้งใจให้ช้า เพื่อให้เดายาก</td></tr>
+<tr><td>Middleware</td><td>ฟังก์ชันที่ทำงานก่อนถึงงานหลักของ route</td></tr>
+<tr><td>Migration / Seed</td><td>สคริปต์สร้างตาราง / สคริปต์ใส่ข้อมูลเริ่มต้น</td></tr>
+<tr><td>Selection bias</td><td>ผลเอนเอียงเพราะตัวอย่างมาจากคนบางกลุ่ม</td></tr>
+<tr><td>SUS</td><td>แบบสอบถามมาตรฐานวัดความใช้งานง่าย 10 ข้อ</td></tr>
+<tr><td>Youden's J</td><td>TPR + TNR − 1 ใช้เลือก threshold ที่สมดุล</td></tr>
+</table>
+</section>
+
+</body>
+</html>

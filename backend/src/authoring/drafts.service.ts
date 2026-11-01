@@ -2,18 +2,18 @@ import { randomUUID } from 'node:crypto';
 import { isoFromEpoch, UUID_PATTERN } from '../common/helpers';
 import { createLogger } from '../common/logger';
 import { SymptomSearchService } from '../symptom-search/symptom-search.service';
-import { GraphRepository } from '../traversal/graph.repository';
+import { FlowRepository } from '../execution/flow.repository';
 import { DraftLlmError, PROMPT_VERSION } from './draft-llm.client';
 import type { DraftLlmClient } from './draft-llm.client';
 import { assembleManual, toDbRows } from './draft-manual';
-import { DraftParseError, assignGraphIds, parseDraftGraphs, parseLlmOutput } from './draft-schema';
-import type { DraftGraph, LlmGraph } from './draft-schema';
+import { DraftParseError, assignFlowIds, parseDraftFlows, parseLlmOutput } from './draft-schema';
+import type { DraftFlow, LlmFlow } from './draft-schema';
 import type { DraftDetailDto, DraftSummaryDto, PublishResultDto, UploadFields } from './drafts.dto';
 import { draftBusy, draftIdConflict, draftInvalid, draftNotFound, draftNotReady, invalidDraftRequest, pdfUnsupportedType, publishReloadFailed, warningsNotAcknowledged } from './drafts.errors';
 import { DraftsStore } from './drafts.store';
 import type { DraftRecord, PreparedPublish } from './drafts.store';
-import { validateManual } from './graph-validator';
-import type { ValidationReport } from './graph-validator';
+import { validateManual } from './flow-validator';
+import type { ValidationReport } from './flow-validator';
 import type { PageText, PdfTextExtractor } from './pdf-text';
 
 const PAGES_PER_LLM_CALL = 2;
@@ -32,7 +32,7 @@ export class DraftsService {
 
   constructor(
     private readonly store: DraftsStore,
-    private readonly graphRepository: GraphRepository,
+    private readonly flowRepository: FlowRepository,
     private readonly symptomSearch: SymptomSearchService,
     private readonly extractor: PdfTextExtractor,
     private readonly llm: DraftLlmClient | null = null,
@@ -55,7 +55,7 @@ export class DraftsService {
     this.busy = true;
     try {
       if ((await this.store.countDrafting()) > 0) throw draftBusy();
-      if (this.graphRepository.listManuals().some((m) => m.manualId === fields.manualId)) {
+      if (this.flowRepository.listManuals().some((m) => m.manualId === fields.manualId)) {
         throw draftIdConflict([`manual_id '${fields.manualId}' มีอยู่แล้ว (เผยแพร่ได้เฉพาะคู่มือใหม่)`]);
       }
 
@@ -90,7 +90,7 @@ export class DraftsService {
         return;
       }
 
-      const collected: LlmGraph[] = [];
+      const collected: LlmFlow[] = [];
       const groups = chunkPages(draft.pages);
       for (let index = 0; index < groups.length; index += 1) {
         const raw = await this.llm.draft({ manualId: draft.manualId, meta: draft.meta, pages: groups[index] });
@@ -99,14 +99,14 @@ export class DraftsService {
       }
 
       if (collected.length === 0) {
-        await this.store.markFailed(id, 'NO_GRAPHS_FOUND', 'LLM ไม่พบเนื้อหาการแก้ปัญหาในหน้าที่เลือก — ลองเลือกหน้าส่วน Troubleshooting');
+        await this.store.markFailed(id, 'NO_FLOWS_FOUND', 'LLM ไม่พบเนื้อหาการแก้ปัญหาในหน้าที่เลือก — ลองเลือกหน้าส่วน Troubleshooting');
         return;
       }
 
-      const graphs = assignGraphIds(draft.manualId, collected);
-      const report = this.validate(draft.manualId, draft.meta, graphs, draft.pages, id);
-      await this.store.markReady(id, graphs, report);
-      this.logger.log(`ร่าง ${id} พร้อมตรวจ: ${graphs.length} ผัง · error ${report.errors.length} · warning ${report.warnings.length}`);
+      const flows = assignFlowIds(draft.manualId, collected);
+      const report = this.validate(draft.manualId, draft.meta, flows, draft.pages, id);
+      await this.store.markReady(id, flows, report);
+      this.logger.log(`ร่าง ${id} พร้อมตรวจ: ${flows.length} ผัง · error ${report.errors.length} · warning ${report.warnings.length}`);
     } catch (err) {
       const { code, message } = this.describeFailure(err);
       this.logger.warn(`ร่าง ${id} ล้มเหลว [${code}]`);
@@ -135,7 +135,7 @@ export class DraftsService {
         sourceManual: row.meta.source_manual,
         pageFrom: row.meta.page_from,
         pageTo: row.meta.page_to,
-        graphCount: row.graphCount,
+        flowCount: row.flowCount,
         progress: { done: row.progressDone, total: row.progressTotal },
         error: row.errorCode === null ? null : { code: row.errorCode, message: row.errorMessage ?? '' },
         validationCounts:
@@ -153,21 +153,21 @@ export class DraftsService {
   }
 
   /** PUT /admin/drafts/:id */
-  async update(rawId: string, graphsRaw: unknown): Promise<DraftDetailDto> {
+  async update(rawId: string, flowsRaw: unknown): Promise<DraftDetailDto> {
     const id = this.requireId(rawId);
     const draft = await this.requireDraft(id);
     if (draft.status !== 'ready') throw draftNotReady('edit', draft.status);
 
-    let graphs: DraftGraph[];
+    let flows: DraftFlow[];
     try {
-      graphs = parseDraftGraphs(graphsRaw);
+      flows = parseDraftFlows(flowsRaw);
     } catch (err) {
       if (err instanceof DraftParseError) throw invalidDraftRequest(err.message);
       throw err;
     }
 
-    const report = this.validate(draft.manualId, draft.meta, graphs, draft.pages, id);
-    if (!(await this.store.saveEdit(id, graphs, report))) throw draftNotReady('edit', 'เปลี่ยนไปแล้ว');
+    const report = this.validate(draft.manualId, draft.meta, flows, draft.pages, id);
+    if (!(await this.store.saveEdit(id, flows, report))) throw draftNotReady('edit', 'เปลี่ยนไปแล้ว');
     return this.get(id);
   }
 
@@ -183,31 +183,31 @@ export class DraftsService {
   async publish(rawId: string, userId: string, acknowledgedWarnings: boolean): Promise<PublishResultDto> {
     const id = this.requireId(rawId);
 
-    const graphIds = await this.store.publish(id, userId, (draft): PreparedPublish => {
-      if (!draft.graphs) throw draftNotReady('publish', draft.status);
-      const graphs = parseDraftGraphs(draft.graphs); // ข้อมูลใน DB ก็ถูกตรวจรูปร่างซ้ำ (กันถูกแก้นอกระบบ)
-      const manual = assembleManual(draft.manualId, draft.meta, graphs, draft.id);
+    const flowIds = await this.store.publish(id, userId, (draft): PreparedPublish => {
+      if (!draft.flows) throw draftNotReady('publish', draft.status);
+      const flows = parseDraftFlows(draft.flows); // ข้อมูลใน DB ก็ถูกตรวจรูปร่างซ้ำ (กันถูกแก้นอกระบบ)
+      const manual = assembleManual(draft.manualId, draft.meta, flows, draft.id);
       const report = validateManual(manual, this.pageMap(draft.pages));
 
       if (report.errors.length > 0) throw draftInvalid(report.errors.length);
       if (report.warnings.length > 0 && !acknowledgedWarnings) throw warningsNotAcknowledged(report.warnings.length);
 
-      return { rows: toDbRows(manual), report, graphIds: graphs.map((g) => g.graph_id) };
+      return { rows: toDbRows(manual), report, flowIds: flows.map((g) => g.flow_id) };
     });
 
     try {
-      await this.graphRepository.reload();
+      await this.flowRepository.reload();
     } catch (err) {
       this.logger.error(`publish ${id} สำเร็จแต่ reload ผังไม่สำเร็จ: ${err instanceof Error ? err.message : String(err)}`);
       throw publishReloadFailed();
     }
 
-    const searchIndex = await this.symptomSearch.addGraphs(graphIds);
-    this.logger.log(`เผยแพร่ร่าง ${id}: ${graphIds.length} ผัง · ดัชนีค้นหา ${searchIndex.indexed ? 'อัปเดตแล้ว' : 'ไม่ได้อัปเดต'}`);
+    const searchIndex = await this.symptomSearch.addFlows(flowIds);
+    this.logger.log(`เผยแพร่ร่าง ${id}: ${flowIds.length} ผัง · ดัชนีค้นหา ${searchIndex.indexed ? 'อัปเดตแล้ว' : 'ไม่ได้อัปเดต'}`);
     return {
       id,
       status: 'published',
-      graphIds,
+      flowIds,
       searchIndex: { indexed: searchIndex.indexed, ...(searchIndex.reason !== undefined ? { reason: searchIndex.reason } : {}) },
     };
   }
@@ -227,16 +227,16 @@ export class DraftsService {
     return new Map(pages.map((p) => [p.page, p.text]));
   }
 
-  private validate(manualId: string, meta: DraftRecord['meta'], graphs: DraftGraph[], pages: PageText[], draftId: string): ValidationReport {
-    const manual = assembleManual(manualId, meta, graphs, draftId);
+  private validate(manualId: string, meta: DraftRecord['meta'], flows: DraftFlow[], pages: PageText[], draftId: string): ValidationReport {
+    const manual = assembleManual(manualId, meta, flows, draftId);
     const report = validateManual(manual, this.pageMap(pages));
 
-    for (const graph of graphs) {
-      if (this.graphRepository.findById(graph.graph_id)) {
-        report.errors.push({ code: 'E_ID_CONFLICT', message: `graph_id '${graph.graph_id}' ชนกับผังที่ใช้งานอยู่ (ไม่เขียนทับ)`, graphId: graph.graph_id });
+    for (const flow of flows) {
+      if (this.flowRepository.findById(flow.flow_id)) {
+        report.errors.push({ code: 'E_ID_CONFLICT', message: `flow_id '${flow.flow_id}' ชนกับผังที่ใช้งานอยู่ (ไม่เขียนทับ)`, flowId: flow.flow_id });
       }
     }
-    if (this.graphRepository.listManuals().some((m) => m.manualId === manualId)) {
+    if (this.flowRepository.listManuals().some((m) => m.manualId === manualId)) {
       report.errors.push({ code: 'E_ID_CONFLICT', message: `manual_id '${manualId}' มีอยู่แล้ว (เผยแพร่ได้เฉพาะคู่มือใหม่)` });
     }
     return report;
@@ -252,7 +252,7 @@ export class DraftsService {
       sourceManual: draft.meta.source_manual,
       pageFrom: draft.meta.page_from,
       pageTo: draft.meta.page_to,
-      graphCount: draft.graphs === null ? null : draft.graphs.length,
+      flowCount: draft.flows === null ? null : draft.flows.length,
       progress: { done: draft.progressDone, total: draft.progressTotal },
       error: draft.errorCode === null ? null : { code: draft.errorCode, message: draft.errorMessage ?? '' },
       validationCounts: draft.validation === null ? null : { errors: draft.validation.errors.length, warnings: draft.validation.warnings.length },
@@ -260,7 +260,7 @@ export class DraftsService {
       updatedAt: iso(draft.updatedAtEpoch) as string,
       meta: draft.meta,
       pages: draft.pages,
-      graphs: draft.graphs,
+      flows: draft.flows,
       validation: draft.validation,
       llm: { model: draft.llmModel, promptVersion: draft.promptVersion },
       reviewedAt: iso(draft.reviewedAtEpoch),

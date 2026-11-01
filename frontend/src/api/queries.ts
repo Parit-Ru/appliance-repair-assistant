@@ -3,8 +3,8 @@ import { useIdentity } from '../lib/authContext'
 import { getAdminFeedback, getAdminSummary } from './admin'
 import { DRAFT_POLL_MS, getDraft, listDrafts, publishDraft, rejectDraft, updateDraft, uploadDraft } from './drafts'
 import { deleteHistory, getHistory, listHistory, submitFeedback } from './history'
-import { abandonSession, getHealth, getSession, listGraphs, listManuals, searchSymptoms, startSession, submitAction, submitOutcome } from './traversal'
-import type { AdminFeedbackParams, DraftDetail, DraftGraph, DraftUploadInput, HistoryFeedback, ModelSelection, SessionResponse, SymptomSearchResponse, TraversalAction } from './types'
+import { abandonSession, getHealth, getSession, listFlows, listManuals, searchSymptoms, startSession, submitAction, submitOutcome } from './execution'
+import type { AdminFeedbackParams, DraftDetail, DraftFlow, DraftUploadInput, HistoryFeedback, ModelSelection, SessionResponse, SymptomSearchResponse, ExecutionAction } from './types'
 
 const sessionQuery = (sessionId: string, identity = 'guest') =>
   queryOptions({
@@ -38,10 +38,10 @@ export function useHealth() {
 }
 
 
-export function useGraphs(manualId?: string) {
+export function useFlows(manualId?: string) {
   return useQuery({
-    queryKey: manualId === undefined ? ['graphs'] : ['graphs', manualId],
-    queryFn: () => listGraphs(manualId),
+    queryKey: manualId === undefined ? ['flows'] : ['flows', manualId],
+    queryFn: () => listFlows(manualId),
     staleTime: Infinity,
   })
 }
@@ -102,7 +102,7 @@ function useCacheSession() {
 }
 
 interface StartSessionVariables {
-  graphId: string
+  flowId: string
   query?: string
   manualId?: string
   modelSelection?: ModelSelection
@@ -110,14 +110,14 @@ interface StartSessionVariables {
 
 export function useStartSession() {
   return useMutation({
-    mutationFn: ({ graphId, ...options }: StartSessionVariables) => startSession(graphId, options),
+    mutationFn: ({ flowId, ...options }: StartSessionVariables) => startSession(flowId, options),
     onSuccess: useCacheSession(),
   })
 }
 
 export function useSubmitAction(sessionId: string) {
   return useMutation({
-    mutationFn: (action: TraversalAction) => submitAction(sessionId, action),
+    mutationFn: (action: ExecutionAction) => submitAction(sessionId, action),
     onSuccess: useCacheSession(),
   })
 }
@@ -202,7 +202,7 @@ function useDraftCacheUpdate() {
 export function useUpdateDraft(id: string) {
   const apply = useDraftCacheUpdate()
   return useMutation({
-    mutationFn: (graphs: DraftGraph[]) => updateDraft(id, graphs),
+    mutationFn: (flows: DraftFlow[]) => updateDraft(id, flows),
     onSuccess: apply,
   })
 }
@@ -226,7 +226,7 @@ export function usePublishDraft(id: string) {
       void queryClient.invalidateQueries({ queryKey: ['admin', identity, 'drafts'] })
     },
     onSuccess: () => {
-      void queryClient.invalidateQueries({ queryKey: ['graphs'] })
+      void queryClient.invalidateQueries({ queryKey: ['flows'] })
       void queryClient.invalidateQueries({ queryKey: ['manuals'] })
     },
   })

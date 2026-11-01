@@ -1,8 +1,8 @@
-export type {InputType,OutcomeKind,DeviceCategory,TraversalAction,NodeReference,RenderedNode,} from '../../../backend/src/traversal-engine/types'
-import type { DeviceCategory, NodeReference, OutcomeKind, SessionStatus, RenderedNode, TraversalAction } from '../../../backend/src/traversal-engine/types'
+export type {InputType,OutcomeKind,DeviceCategory,ExecutionAction,StateReference,RenderedState,} from '../../../backend/src/state-machine/types'
+import type { DeviceCategory, StateReference, OutcomeKind, SessionStatus, RenderedState, ExecutionAction } from '../../../backend/src/state-machine/types'
 
-export interface GraphSummary {
-  graphId: string
+export interface FlowSummary {
+  flowId: string
   manualId: string
   entrySymptom: string
   entrySymptomTh?: string
@@ -17,13 +17,13 @@ export interface ManualSummary {
   modelPattern: string
   displayName?: string
   modelAliases?: string[]
-  graphCount: number
+  flowCount: number
 }
 
 export type ModelSelection = 'selected' | 'unknown'
 
 interface SymptomMatch {
-  graphId: string
+  flowId: string
   entrySymptom: string
   entrySymptomTh?: string
   deviceCategory: DeviceCategory
@@ -40,9 +40,9 @@ export interface SymptomSearchResponse {
 
 export interface SessionResponse {
   sessionId: string
-  graphId: string
+  flowId: string
   status: SessionStatus
-  node: RenderedNode
+  state: RenderedState
   equipment?: EquipmentItem[]
   confidence?: number | null
   outcome?: string | null
@@ -64,7 +64,7 @@ export interface ApiErrorBody {
 }
 
 /** GET/DELETE/POST /history */
-export interface HistoryGraphInfo {
+export interface HistoryFlowInfo {
   manualId: string
   entrySymptom: string
   entrySymptomTh?: string
@@ -76,10 +76,10 @@ export interface HistoryGraphInfo {
 
 export interface HistoryListItem {
   sessionId: string
-  graphId: string
+  flowId: string
   startedAt: string
   outcomeKind: OutcomeKind | null
-  graph: HistoryGraphInfo | null
+  flow: HistoryFlowInfo | null
 }
 
 export interface HistoryListResponse {
@@ -91,8 +91,8 @@ export interface HistoryListResponse {
 }
 
 interface HistoryStep {
-  node: RenderedNode
-  action: TraversalAction
+  state: RenderedState
+  action: ExecutionAction
 }
 
 export type Role = 'user' | 'admin'
@@ -124,7 +124,7 @@ export interface AdminFeedbackItem {
   comment: string | null
   createdAt: string
   updatedAt: string
-  graphId: string
+  flowId: string
   deviceCategory: DeviceCategory | null
   brand: string | null
   ownerType: OwnerType
@@ -155,7 +155,7 @@ export interface AdminSummary {
   }
   confidence: { average: number | null; sampleSize: number }
   outcomes: Record<OutcomeKind | 'unknown', number>
-  topGraphs: Array<{ graphId: string; entrySymptomTh: string | null; count: number }>
+  topFlows: Array<{ flowId: string; entrySymptomTh: string | null; count: number }>
   topDevices: Array<{ deviceCategory: DeviceCategory | 'unknown'; count: number }>
   perDay: Array<{ date: string; started: number; completed: number }>
 }
@@ -167,17 +167,17 @@ export interface HistoryFeedback {
 
 export interface HistoryDetail {
   sessionId: string
-  graphId: string
+  flowId: string
   startedAt: string
   modelSelection: ModelSelection | null
   confidence: number | null
-  graph: HistoryGraphInfo | null
+  flow: HistoryFlowInfo | null
   outcomeKind: OutcomeKind | null
   available: boolean
   steps: HistoryStep[]
-  finalNode: RenderedNode | null
+  finalState: RenderedState | null
   safetyWarnings: string[]
-  reference: NodeReference | null
+  reference: StateReference | null
   outcome: string | null
   feedback: HistoryFeedback | null
 }
@@ -194,8 +194,8 @@ interface DraftMeta {
   page_to: number
 }
 
-export interface DraftNode {
-  node_id: string
+export interface DraftState {
+  state_id: string
   type: string
   question?: string
   content?: string
@@ -213,28 +213,28 @@ export interface DraftNode {
   source_page?: number
 }
 
-export interface DraftGraph {
-  graph_id: string
+export interface DraftFlow {
+  flow_id: string
   entry_symptom: string
   entry_symptom_th?: string
   entry_symptom_aliases?: string[]
   severity?: string
   difficulty?: string
-  entry_node: string
-  nodes: DraftNode[]
+  initial_state: string
+  states: DraftState[]
 }
 
 export interface ValidationIssue {
   code: string
   message: string
-  graphId?: string
-  nodeId?: string
+  flowId?: string
+  stateId?: string
 }
 
 export interface ValidationReport {
   errors: ValidationIssue[]
   warnings: ValidationIssue[]
-  stats: { graphs: number; nodes: number }
+  stats: { flows: number; states: number }
   validatedAt: string
 }
 
@@ -252,7 +252,7 @@ export interface DraftSummary {
   sourceManual: string
   pageFrom: number
   pageTo: number
-  graphCount: number | null
+  flowCount: number | null
   progress: { done: number; total: number }
   error: { code: string; message: string } | null
   validationCounts: { errors: number; warnings: number } | null
@@ -263,7 +263,7 @@ export interface DraftSummary {
 export interface DraftDetail extends DraftSummary {
   meta: DraftMeta
   pages: DraftPage[]
-  graphs: DraftGraph[] | null
+  flows: DraftFlow[] | null
   validation: ValidationReport | null
   llm: { model: string | null; promptVersion: string | null }
   reviewedAt: string | null
@@ -285,6 +285,6 @@ export interface DraftUploadInput {
 export interface DraftPublishResult {
   id: string
   status: 'published'
-  graphIds: string[]
+  flowIds: string[]
   searchIndex: { indexed: boolean; reason?: string }
 }

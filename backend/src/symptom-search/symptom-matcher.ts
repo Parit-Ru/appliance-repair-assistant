@@ -1,9 +1,9 @@
-import type { TroubleshootingGraph } from '../traversal-engine/types';
-export type SymptomSource = Pick<TroubleshootingGraph,
-  'graph_id' | 'entry_symptom' | 'entry_symptom_th' | 'entry_symptom_aliases'>;
+import type { TroubleshootingFlow } from '../state-machine/types';
+export type SymptomSource = Pick<TroubleshootingFlow,
+  'flow_id' | 'entry_symptom' | 'entry_symptom_th' | 'entry_symptom_aliases'>;
 
 interface SymptomText {
-  graphId: string;
+  flowId: string;
   text: string;
 }
 
@@ -11,8 +11,8 @@ export interface IndexedSymptom extends SymptomText {
   vector: ArrayLike<number>;
 }
 
-interface RankedGraph {
-  graphId: string;
+interface RankedFlow {
+  flowId: string;
   score: number;
   matchedText: string;
 }
@@ -40,10 +40,10 @@ function cosineSimilarity(
   return dot / (Math.sqrt(normA) * Math.sqrt(normB));
 }
 
-export function buildSymptomTexts(graphs: SymptomSource[]): SymptomText[] {
+export function buildSymptomTexts(flows: SymptomSource[]): SymptomText[] {
   const result: SymptomText[] = [];
 
-  for (const g of graphs) {
+  for (const g of flows) {
     const candidates: Array<string | undefined | null> = [
       g.entry_symptom_th,
       g.entry_symptom,
@@ -53,7 +53,7 @@ export function buildSymptomTexts(graphs: SymptomSource[]): SymptomText[] {
     for (const raw of candidates) {
       const text = typeof raw === 'string' ? raw.trim() : '';
       if (text.length > 0) {
-        result.push({ graphId: g.graph_id, text });
+        result.push({ flowId: g.flow_id, text });
       }
     }
   }
@@ -61,18 +61,18 @@ export function buildSymptomTexts(graphs: SymptomSource[]): SymptomText[] {
   return result;
 }
 
-export function rankGraphs(
+export function rankFlows(
   queryVector: ArrayLike<number>,
   index: IndexedSymptom[],
-): RankedGraph[] {
-  const best = new Map<string, RankedGraph>();
+): RankedFlow[] {
+  const best = new Map<string, RankedFlow>();
 
   for (const item of index) {
     const score = cosineSimilarity(queryVector, item.vector);
-    const current = best.get(item.graphId);
+    const current = best.get(item.flowId);
     if (current === undefined || score > current.score) {
-      best.set(item.graphId, {
-        graphId: item.graphId,
+      best.set(item.flowId, {
+        flowId: item.flowId,
         score,
         matchedText: item.text,
       });
@@ -81,16 +81,16 @@ export function rankGraphs(
 
   return [...best.values()].sort((x, y) => {
     if (y.score !== x.score) return y.score - x.score;
-    if (x.graphId < y.graphId) return -1;
-    if (x.graphId > y.graphId) return 1;
+    if (x.flowId < y.flowId) return -1;
+    if (x.flowId > y.flowId) return 1;
     return 0;
   });
 }
 
 export function selectMatches(
-  ranked: RankedGraph[],
+  ranked: RankedFlow[],
   threshold: number,
   max: number,
-): RankedGraph[] {
+): RankedFlow[] {
   return ranked.filter((r) => r.score >= threshold).slice(0, Math.max(0, max));
 }

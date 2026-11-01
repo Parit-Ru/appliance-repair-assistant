@@ -1,0 +1,2699 @@
+{
+  "manual_id": "samsung_wa45t3400a_um_service_manual",
+  "device_category": "Washing Machine",
+  "brand": "Samsung",
+  "model_pattern": "WA45T3400A*",
+  "source_manual": "Samsung Top-Loading Washer Service Manual (WA45T3400A*, model code WA45T3400AV/A4, WA45T3400AP/A4, WA45T3400AW/A4)",
+  "count": 29,
+  "flows": [
+    {
+      "flow_id": "samsung_wa45t3400a_um_1c_water_level_sensor",
+      "device_category": "Washing Machine",
+      "brand": "Samsung",
+      "model_pattern": "WA45T3400A*",
+      "entry_symptom": "1C The WaterLevel sensor is not working properly.",
+      "entry_symptom_th": "จอเครื่องซักผ้าแสดงรหัส 1C (เซนเซอร์ระดับน้ำ)",
+      "entry_symptom_aliases": [
+        "เครื่องซักผ้าขึ้น 1C",
+        "ซักผ้าขึ้น 1C",
+        "washer 1C error",
+        "samsung washer 1C",
+        "water level sensor error 1C"
+      ],
+      "source": "Samsung Top-Loading Washer Service Manual (WA45T3400A*, model code WA45T3400AV/A4, WA45T3400AP/A4, WA45T3400AW/A4)",
+      "page_range": [
+        19,
+        19
+      ],
+      "source_chunk_id": "manual_Samsung_WashingMachine_WA45T3400A_p19_1c_water_level_sensor",
+      "severity": "medium",
+      "difficulty": "hard",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "จอเครื่องซักผ้าแสดงรหัส 1C ใช่หรือไม่? (ขณะแสดงรหัสนี้เครื่องจะระบายน้ำ 3 นาที และปุ่ม Power ใช้งานไม่ได้ในช่วงนั้น (คู่มือหน้า 19))",
+          "on_yes": "n_escalate",
+          "on_no": "n_nomatch"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "รหัส 1C หมายถึงเซนเซอร์ระดับน้ำทำงานไม่ถูกต้อง (คู่มือหน้า 19) ขั้นตอนตามคู่มือคือตรวจสายไฟของเซนเซอร์ระดับน้ำ (คู่มือหน้า 19) ซึ่งเป็นงานของช่าง ให้ติดต่อศูนย์บริการลูกค้า (customer service centre) (คู่มือหน้า 19) และอย่าซ่อมหรือถอดแยกเครื่องซักผ้าเอง เพราะอาจทำให้บาดเจ็บและอายุการใช้งานของเครื่องสั้นลง (คู่มือหน้า 2) พร้อมแจ้งรหัส 1C",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_nomatch",
+          "type": "escalation",
+          "content": "ถ้าจอไม่ได้แสดงรหัส 1C ให้เลือกอาการที่ตรงกับที่เห็น หรือติดต่อศูนย์บริการลูกค้า (customer service centre) (คู่มือหน้า 19) และอย่าซ่อมหรือถอดแยกเครื่องซักผ้าเอง เพราะอาจทำให้บาดเจ็บและอายุการใช้งานของเครื่องสั้นลง (คู่มือหน้า 2)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_wa45t3400a_um_3c_motor",
+      "device_category": "Washing Machine",
+      "brand": "Samsung",
+      "model_pattern": "WA45T3400A*",
+      "entry_symptom": "3C Check the motor for operation.",
+      "entry_symptom_th": "จอเครื่องซักผ้าแสดงรหัส 3C (ตรวจการทำงานของมอเตอร์)",
+      "entry_symptom_aliases": [
+        "เครื่องซักผ้าขึ้น 3C",
+        "ซักผ้าขึ้น 3C",
+        "washer 3C error",
+        "samsung washer 3C",
+        "washer motor error 3C"
+      ],
+      "source": "Samsung Top-Loading Washer Service Manual (WA45T3400A*, model code WA45T3400AV/A4, WA45T3400AP/A4, WA45T3400AW/A4)",
+      "page_range": [
+        19,
+        19
+      ],
+      "source_chunk_id": "manual_Samsung_WashingMachine_WA45T3400A_p19_3c_motor",
+      "severity": "low",
+      "difficulty": "easy",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "จอเครื่องซักผ้าแสดงรหัส 3C ใช่หรือไม่?",
+          "on_yes": "n2",
+          "on_no": "n_nomatch"
+        },
+        {
+          "state_id": "n2",
+          "type": "instruction",
+          "content": "ลองเริ่มรอบการทำงานใหม่ (Try restarting the cycle) (คู่มือหน้า 19)",
+          "next": "n2v"
+        },
+        {
+          "state_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n_resolved",
+          "type": "resolution",
+          "content": "รหัส 3C หายแล้ว เครื่องทำงานต่อได้ตามปกติ",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "ถ้าปัญหายังอยู่ ให้เรียกช่าง (call for service) (คู่มือหน้า 19) ขั้นตอนตรวจมอเตอร์ต่อไปตามคู่มือเป็นงานของช่าง ให้ติดต่อศูนย์บริการลูกค้า (customer service centre) (คู่มือหน้า 19) และอย่าซ่อมหรือถอดแยกเครื่องซักผ้าเอง เพราะอาจทำให้บาดเจ็บและอายุการใช้งานของเครื่องสั้นลง (คู่มือหน้า 2)",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_nomatch",
+          "type": "escalation",
+          "content": "ถ้าจอไม่ได้แสดงรหัส 3C ให้เลือกอาการที่ตรงกับที่เห็น หรือติดต่อศูนย์บริการลูกค้า (customer service centre) (คู่มือหน้า 19) และอย่าซ่อมหรือถอดแยกเครื่องซักผ้าเอง เพราะอาจทำให้บาดเจ็บและอายุการใช้งานของเครื่องสั้นลง (คู่มือหน้า 2)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_wa45t3400a_um_4c_no_water_supply",
+      "device_category": "Washing Machine",
+      "brand": "Samsung",
+      "model_pattern": "WA45T3400A*",
+      "entry_symptom": "4C Water is not supplied.",
+      "entry_symptom_th": "จอเครื่องซักผ้าแสดงรหัส 4C (ไม่มีน้ำเข้า)",
+      "entry_symptom_aliases": [
+        "เครื่องซักผ้าขึ้น 4C",
+        "ซักผ้าน้ำไม่เข้า 4C",
+        "washer 4C error",
+        "samsung washer 4C",
+        "washer water not supplied 4C"
+      ],
+      "source": "Samsung Top-Loading Washer Service Manual (WA45T3400A*, model code WA45T3400AV/A4, WA45T3400AP/A4, WA45T3400AW/A4)",
+      "page_range": [
+        19,
+        19
+      ],
+      "source_chunk_id": "manual_Samsung_WashingMachine_WA45T3400A_p19_4c_no_water_supply",
+      "severity": "low",
+      "difficulty": "easy",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "จอเครื่องซักผ้าแสดงรหัส 4C ใช่หรือไม่? (ขณะแสดงรหัสนี้เครื่องจะระบายน้ำ 3 นาที และปุ่ม Power ใช้งานไม่ได้ในช่วงนั้น (คู่มือหน้า 19))",
+          "on_yes": "n2",
+          "on_no": "n_nomatch"
+        },
+        {
+          "state_id": "n2",
+          "type": "checkpoint",
+          "question": "ก๊อกน้ำเปิดอยู่ใช่หรือไม่?",
+          "on_yes": "n3",
+          "on_no": "n2f"
+        },
+        {
+          "state_id": "n2f",
+          "type": "instruction",
+          "content": "เปิดก๊อกน้ำ (Make sure the water taps are open) (คู่มือหน้า 19)",
+          "next": "n2v"
+        },
+        {
+          "state_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "state_id": "n3",
+          "type": "checkpoint",
+          "question": "สายน้ำเข้าอุดตันหรือไม่?",
+          "on_yes": "n3f",
+          "on_no": "n4"
+        },
+        {
+          "state_id": "n3f",
+          "type": "instruction",
+          "content": "ตรวจให้แน่ใจว่าสายน้ำเข้าไม่อุดตัน (Make sure the water hoses are not clogged) (คู่มือหน้า 19)",
+          "author_note": "คู่มือระบุเพียงให้ตรวจสอบให้แน่ใจ ไม่ได้อธิบายวิธีแก้โดยละเอียด ผู้พัฒนาจึงไม่เพิ่มรายละเอียด",
+          "next": "n3v"
+        },
+        {
+          "state_id": "n3v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n4"
+        },
+        {
+          "state_id": "n4",
+          "type": "checkpoint",
+          "question": "ก๊อกน้ำแข็งตัวหรือไม่?",
+          "on_yes": "n4f",
+          "on_no": "n5"
+        },
+        {
+          "state_id": "n4f",
+          "type": "instruction",
+          "content": "ตรวจให้แน่ใจว่าก๊อกน้ำไม่แข็งตัว (Make sure the water taps are not frozen) (คู่มือหน้า 19)",
+          "author_note": "คู่มือระบุเพียงให้ตรวจสอบให้แน่ใจ ไม่ได้อธิบายวิธีแก้โดยละเอียด ผู้พัฒนาจึงไม่เพิ่มรายละเอียด",
+          "next": "n4v"
+        },
+        {
+          "state_id": "n4v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n5"
+        },
+        {
+          "state_id": "n5",
+          "type": "checkpoint",
+          "question": "แรงดันน้ำที่เข้าเครื่องเพียงพอหรือไม่? (ข้อมูลจำเพาะหน้า 6 ระบุแรงดันน้ำ 20~116psi (137~800kPa))",
+          "on_yes": "n6",
+          "on_no": "n5f"
+        },
+        {
+          "state_id": "n5f",
+          "type": "instruction",
+          "content": "ตรวจให้แน่ใจว่าเครื่องได้รับแรงดันน้ำเพียงพอ (Make sure the washing machine is operating with sufficient water pressure) (คู่มือหน้า 19 และ 6)",
+          "author_note": "คู่มือระบุเพียงให้ตรวจสอบให้แน่ใจ ไม่ได้อธิบายวิธีแก้โดยละเอียด ผู้พัฒนาจึงไม่เพิ่มรายละเอียด",
+          "next": "n5v"
+        },
+        {
+          "state_id": "n5v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n6"
+        },
+        {
+          "state_id": "n6",
+          "type": "checkpoint",
+          "question": "ก๊อกน้ำเย็นและก๊อกน้ำร้อนต่อสายน้ำถูกต้องและแน่นดีใช่หรือไม่?",
+          "on_yes": "n7",
+          "on_no": "n6f"
+        },
+        {
+          "state_id": "n6f",
+          "type": "instruction",
+          "content": "ตรวจให้แน่ใจว่าก๊อกน้ำเย็นและก๊อกน้ำร้อนต่อกับสายน้ำถูกต้อง (Make sure that the cold water tap and the hot water tap are properly connected) (คู่มือหน้า 19)",
+          "author_note": "คู่มือระบุเพียงให้ตรวจสอบให้แน่ใจ ไม่ได้อธิบายวิธีแก้โดยละเอียด ผู้พัฒนาจึงไม่เพิ่มรายละเอียด",
+          "next": "n6v"
+        },
+        {
+          "state_id": "n6v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n7"
+        },
+        {
+          "state_id": "n7",
+          "type": "checkpoint",
+          "question": "ตะแกรงกรอง (mesh filter) ของสายน้ำเข้าอาจอุดตันใช่หรือไม่?",
+          "on_yes": "n7f",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n7f",
+          "type": "instruction",
+          "content": "ทำความสะอาดตะแกรงกรอง (Clean the mesh filter) (คู่มือหน้า 19)",
+          "safety_critical": true,
+          "safety_warning": "ถอดปลั๊กไฟของเครื่องก่อนทำงานกับชิ้นส่วนไฟฟ้า เพื่อป้องกันไฟฟ้าดูด (คู่มือหน้า 1) และห้ามฉีดน้ำใส่ตัวเครื่องโดยตรงเมื่อทำความสะอาด เพราะอาจเกิดไฟฟ้าดูดหรือไฟไหม้ (คู่มือหน้า 3)",
+          "author_note": "ข้อความเตือนนี้มาจากหัวข้อความปลอดภัยหน้า 1 และ 3 ซึ่งคู่มือเขียนไว้กับงานซ่อมชิ้นส่วนไฟฟ้า ผู้พัฒนาโยงมาใช้กับขั้นตอนที่ต้องถอดหรือทำความสะอาดชิ้นส่วนที่ต่อกับน้ำ และคู่มือไม่ได้อธิบายตำแหน่งหรือวิธีถอดชิ้นส่วนนั้น",
+          "next": "n7v"
+        },
+        {
+          "state_id": "n7v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n_resolved",
+          "type": "resolution",
+          "content": "รหัส 4C หายแล้ว น้ำเข้าเครื่องปกติ",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการที่ผู้ใช้ตรวจเองได้ตามคู่มือ ให้ติดต่อศูนย์บริการลูกค้า (customer service centre) (คู่มือหน้า 19) และอย่าซ่อมหรือถอดแยกเครื่องซักผ้าเอง เพราะอาจทำให้บาดเจ็บและอายุการใช้งานของเครื่องสั้นลง (คู่มือหน้า 2) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_nomatch",
+          "type": "escalation",
+          "content": "ถ้าจอไม่ได้แสดงรหัส 4C ให้เลือกอาการที่ตรงกับที่เห็น หรือติดต่อศูนย์บริการลูกค้า (customer service centre) (คู่มือหน้า 19) และอย่าซ่อมหรือถอดแยกเครื่องซักผ้าเอง เพราะอาจทำให้บาดเจ็บและอายุการใช้งานของเครื่องสั้นลง (คู่มือหน้า 2)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_wa45t3400a_um_4c2_cold_hose",
+      "device_category": "Washing Machine",
+      "brand": "Samsung",
+      "model_pattern": "WA45T3400A*",
+      "entry_symptom": "4C2 Make sure the cold water supply hose is firmly connected to the cold water tap.",
+      "entry_symptom_th": "จอเครื่องซักผ้าแสดงรหัส 4C2 (สายน้ำเย็น)",
+      "entry_symptom_aliases": [
+        "เครื่องซักผ้าขึ้น 4C2",
+        "ซักผ้าขึ้น 4C2",
+        "washer 4C2 error",
+        "samsung washer 4C2",
+        "cold water hose 4C2"
+      ],
+      "source": "Samsung Top-Loading Washer Service Manual (WA45T3400A*, model code WA45T3400AV/A4, WA45T3400AP/A4, WA45T3400AW/A4)",
+      "page_range": [
+        19,
+        19
+      ],
+      "source_chunk_id": "manual_Samsung_WashingMachine_WA45T3400A_p19_4c2_cold_hose",
+      "severity": "low",
+      "difficulty": "easy",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "จอเครื่องซักผ้าแสดงรหัส 4C2 ใช่หรือไม่?",
+          "on_yes": "n2",
+          "on_no": "n_nomatch"
+        },
+        {
+          "state_id": "n2",
+          "type": "checkpoint",
+          "question": "สายน้ำเย็นต่อแน่นกับก๊อกน้ำเย็น (ไม่ได้ต่อกับก๊อกน้ำร้อน) ใช่หรือไม่?",
+          "on_yes": "n_escalate",
+          "on_no": "n2f"
+        },
+        {
+          "state_id": "n2f",
+          "type": "instruction",
+          "content": "ต่อสายน้ำเย็นให้แน่นกับก๊อกน้ำเย็น (Make sure the cold water supply hose is firmly connected to the cold water tap) ถ้าต่อกับก๊อกน้ำร้อน ผ้าอาจเสียรูปในบางรอบการซัก (คู่มือหน้า 19)",
+          "author_note": "คู่มือไม่ได้อธิบายวิธีสลับสายน้ำและไม่มีคำเตือนเรื่องการสลับสายน้ำร้อน ผู้พัฒนาจึงไม่เพิ่มรายละเอียด",
+          "next": "n2v"
+        },
+        {
+          "state_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n_resolved",
+          "type": "resolution",
+          "content": "รหัส 4C2 หายแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการที่ผู้ใช้ตรวจเองได้ตามคู่มือ ให้ติดต่อศูนย์บริการลูกค้า (customer service centre) (คู่มือหน้า 19) และอย่าซ่อมหรือถอดแยกเครื่องซักผ้าเอง เพราะอาจทำให้บาดเจ็บและอายุการใช้งานของเครื่องสั้นลง (คู่มือหน้า 2) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_nomatch",
+          "type": "escalation",
+          "content": "ถ้าจอไม่ได้แสดงรหัส 4C2 ให้เลือกอาการที่ตรงกับที่เห็น หรือติดต่อศูนย์บริการลูกค้า (customer service centre) (คู่มือหน้า 19) และอย่าซ่อมหรือถอดแยกเครื่องซักผ้าเอง เพราะอาจทำให้บาดเจ็บและอายุการใช้งานของเครื่องสั้นลง (คู่มือหน้า 2)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_wa45t3400a_um_5c_no_drain",
+      "device_category": "Washing Machine",
+      "brand": "Samsung",
+      "model_pattern": "WA45T3400A*",
+      "entry_symptom": "5C Water is not draining.",
+      "entry_symptom_th": "จอเครื่องซักผ้าแสดงรหัส 5C (น้ำไม่ระบายออก)",
+      "entry_symptom_aliases": [
+        "เครื่องซักผ้าขึ้น 5C",
+        "ซักผ้าน้ำไม่ระบาย 5C",
+        "washer 5C error",
+        "samsung washer 5C",
+        "washer not draining 5C"
+      ],
+      "source": "Samsung Top-Loading Washer Service Manual (WA45T3400A*, model code WA45T3400AV/A4, WA45T3400AP/A4, WA45T3400AW/A4)",
+      "page_range": [
+        19,
+        19
+      ],
+      "source_chunk_id": "manual_Samsung_WashingMachine_WA45T3400A_p19_5c_no_drain",
+      "severity": "low",
+      "difficulty": "easy",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "จอเครื่องซักผ้าแสดงรหัส 5C ใช่หรือไม่?",
+          "on_yes": "n2",
+          "on_no": "n_nomatch"
+        },
+        {
+          "state_id": "n2",
+          "type": "checkpoint",
+          "question": "สายระบายน้ำแข็งตัวหรืออุดตันหรือไม่?",
+          "on_yes": "n2f",
+          "on_no": "n3"
+        },
+        {
+          "state_id": "n2f",
+          "type": "instruction",
+          "content": "ตรวจให้แน่ใจว่าสายระบายน้ำไม่แข็งตัวหรืออุดตัน (Make sure the drain hose is not frozen or clogged) (คู่มือหน้า 19)",
+          "author_note": "คู่มือระบุเพียงให้ตรวจสอบให้แน่ใจ ไม่ได้อธิบายวิธีแก้โดยละเอียด ผู้พัฒนาจึงไม่เพิ่มรายละเอียด",
+          "next": "n2v"
+        },
+        {
+          "state_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "state_id": "n3",
+          "type": "checkpoint",
+          "question": "สายระบายน้ำวางในตำแหน่งที่ถูกต้องตามประเภทการเชื่อมต่อใช่หรือไม่?",
+          "on_yes": "n4",
+          "on_no": "n3f"
+        },
+        {
+          "state_id": "n3f",
+          "type": "instruction",
+          "content": "จัดตำแหน่งสายระบายน้ำให้ถูกต้องตามประเภทการเชื่อมต่อ (Make sure the drain hose is positioned correctly, depending on the connection type) (คู่มือหน้า 19)",
+          "author_note": "คู่มือไม่ได้ระบุประเภทการเชื่อมต่อหรือตำแหน่งที่ถูกต้อง ผู้ใช้ให้ดูตามคู่มือผู้ใช้ของเครื่อง",
+          "next": "n3v"
+        },
+        {
+          "state_id": "n3v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n4"
+        },
+        {
+          "state_id": "n4",
+          "type": "checkpoint",
+          "question": "สายระบายน้ำเหยียดตรงตลอดแนวไปถึงระบบระบายน้ำใช่หรือไม่?",
+          "on_yes": "n5",
+          "on_no": "n4f"
+        },
+        {
+          "state_id": "n4f",
+          "type": "instruction",
+          "content": "ทำให้สายระบายน้ำเหยียดตรงตลอดแนวไปถึงระบบระบายน้ำ (Make sure the drain hose is straightened all the way to the drain system) (คู่มือหน้า 19)",
+          "next": "n4v"
+        },
+        {
+          "state_id": "n4v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n5"
+        },
+        {
+          "state_id": "n5",
+          "type": "checkpoint",
+          "question": "ตัวกรองเศษผง (debris filter) อาจอุดตันใช่หรือไม่?",
+          "on_yes": "n5f",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n5f",
+          "type": "instruction",
+          "content": "ทำความสะอาดตัวกรองเศษผง (Clean the debris filter) (คู่มือหน้า 19)",
+          "safety_critical": true,
+          "safety_warning": "ถอดปลั๊กไฟของเครื่องก่อนทำงานกับชิ้นส่วนไฟฟ้า เพื่อป้องกันไฟฟ้าดูด (คู่มือหน้า 1) และห้ามฉีดน้ำใส่ตัวเครื่องโดยตรงเมื่อทำความสะอาด เพราะอาจเกิดไฟฟ้าดูดหรือไฟไหม้ (คู่มือหน้า 3)",
+          "author_note": "ข้อความเตือนนี้มาจากหัวข้อความปลอดภัยหน้า 1 และ 3 ซึ่งคู่มือเขียนไว้กับงานซ่อมชิ้นส่วนไฟฟ้า ผู้พัฒนาโยงมาใช้กับขั้นตอนที่ต้องถอดหรือทำความสะอาดชิ้นส่วนที่ต่อกับน้ำ และคู่มือไม่ได้อธิบายตำแหน่งหรือวิธีถอดชิ้นส่วนนั้น และคู่มือไม่ได้ระบุตำแหน่งตัวกรองเศษผง",
+          "next": "n5v"
+        },
+        {
+          "state_id": "n5v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n_resolved",
+          "type": "resolution",
+          "content": "รหัส 5C หายแล้ว น้ำระบายออกได้ปกติ",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "ถ้ารหัสยังคงอยู่ คู่มือหน้า 19 ให้ติดต่อศูนย์บริการ ให้ติดต่อศูนย์บริการลูกค้า (customer service centre) (คู่มือหน้า 19) และอย่าซ่อมหรือถอดแยกเครื่องซักผ้าเอง เพราะอาจทำให้บาดเจ็บและอายุการใช้งานของเครื่องสั้นลง (คู่มือหน้า 2)",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_nomatch",
+          "type": "escalation",
+          "content": "ถ้าจอไม่ได้แสดงรหัส 5C ให้เลือกอาการที่ตรงกับที่เห็น หรือติดต่อศูนย์บริการลูกค้า (customer service centre) (คู่มือหน้า 19) และอย่าซ่อมหรือถอดแยกเครื่องซักผ้าเอง เพราะอาจทำให้บาดเจ็บและอายุการใช้งานของเครื่องสั้นลง (คู่มือหน้า 2)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_wa45t3400a_um_9c1_over_voltage",
+      "device_category": "Washing Machine",
+      "brand": "Samsung",
+      "model_pattern": "WA45T3400A*",
+      "entry_symptom": "9C1 The electronic control needs to be checked (Over Voltage Error).",
+      "entry_symptom_th": "จอเครื่องซักผ้าแสดงรหัส 9C1 (แรงดันไฟเกิน)",
+      "entry_symptom_aliases": [
+        "เครื่องซักผ้าขึ้น 9C1",
+        "ซักผ้าขึ้น 9C1",
+        "washer 9C1 error",
+        "samsung washer 9C1",
+        "washer over voltage 9C1"
+      ],
+      "source": "Samsung Top-Loading Washer Service Manual (WA45T3400A*, model code WA45T3400AV/A4, WA45T3400AP/A4, WA45T3400AW/A4)",
+      "page_range": [
+        19,
+        19
+      ],
+      "source_chunk_id": "manual_Samsung_WashingMachine_WA45T3400A_p19_9c1_over_voltage",
+      "severity": "medium",
+      "difficulty": "hard",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "จอเครื่องซักผ้าแสดงรหัส 9C1 ใช่หรือไม่?",
+          "on_yes": "n_escalate",
+          "on_no": "n_nomatch"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "รหัส 9C1 หมายถึงต้องตรวจชุดควบคุมอิเล็กทรอนิกส์ (Over Voltage Error) (คู่มือหน้า 19) ขั้นตอนตามคู่มือคือตรวจแผงวงจร (PCB) สายไฟภายในเครื่อง และการจ่ายไฟ (คู่มือหน้า 19) ซึ่งเป็นงานของช่าง ให้ติดต่อศูนย์บริการลูกค้า (customer service centre) (คู่มือหน้า 19) และอย่าซ่อมหรือถอดแยกเครื่องซักผ้าเอง เพราะอาจทำให้บาดเจ็บและอายุการใช้งานของเครื่องสั้นลง (คู่มือหน้า 2) พร้อมแจ้งรหัส 9C1",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_nomatch",
+          "type": "escalation",
+          "content": "ถ้าจอไม่ได้แสดงรหัส 9C1 ให้เลือกอาการที่ตรงกับที่เห็น หรือติดต่อศูนย์บริการลูกค้า (customer service centre) (คู่มือหน้า 19) และอย่าซ่อมหรือถอดแยกเครื่องซักผ้าเอง เพราะอาจทำให้บาดเจ็บและอายุการใช้งานของเครื่องสั้นลง (คู่มือหน้า 2)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_wa45t3400a_um_9c2_low_voltage",
+      "device_category": "Washing Machine",
+      "brand": "Samsung",
+      "model_pattern": "WA45T3400A*",
+      "entry_symptom": "9C2 Low voltage detected",
+      "entry_symptom_th": "จอเครื่องซักผ้าแสดงรหัส 9C2 (แรงดันไฟต่ำ)",
+      "entry_symptom_aliases": [
+        "เครื่องซักผ้าขึ้น 9C2",
+        "ซักผ้าขึ้น 9C2",
+        "washer 9C2 error",
+        "samsung washer 9C2",
+        "washer low voltage 9C2"
+      ],
+      "source": "Samsung Top-Loading Washer Service Manual (WA45T3400A*, model code WA45T3400AV/A4, WA45T3400AP/A4, WA45T3400AW/A4)",
+      "page_range": [
+        19,
+        19
+      ],
+      "source_chunk_id": "manual_Samsung_WashingMachine_WA45T3400A_p19_9c2_low_voltage",
+      "severity": "low",
+      "difficulty": "easy",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "จอเครื่องซักผ้าแสดงรหัส 9C2 ใช่หรือไม่?",
+          "on_yes": "n2",
+          "on_no": "n_nomatch"
+        },
+        {
+          "state_id": "n2",
+          "type": "checkpoint",
+          "question": "ปลั๊กไฟของเครื่องเสียบอยู่ในเต้ารับใช่หรือไม่?",
+          "on_yes": "n_escalate",
+          "on_no": "n2f"
+        },
+        {
+          "state_id": "n2f",
+          "type": "instruction",
+          "content": "เสียบปลั๊กไฟของเครื่องเข้ากับเต้ารับ (Check if the power cord is plugged in) (คู่มือหน้า 19)",
+          "safety_critical": true,
+          "safety_warning": "เวลาถอดปลั๊กให้จับที่ตัวปลั๊กแล้วดึงออกจากเต้ารับ ไม่ดึงที่สายไฟ และห้ามต่อเครื่องใช้ไฟฟ้าหลายเครื่องกับเต้ารับเดียวกันพร้อมกัน เพราะเสี่ยงไฟไหม้จากความร้อนสูง (คู่มือหน้า 1) ให้ตรวจปลั๊กและเต้ารับว่าไม่เสียหาย แบน ขาด หรือเสื่อมสภาพ ถ้าเต้ารับในบ้านชำรุดให้เรียกช่างไฟมาเปลี่ยน (คู่มือหน้า 2)",
+          "author_note": "ข้อความเตือนนี้มาจากหัวข้อความปลอดภัยหน้า 1 และ 2 ผู้พัฒนาโยงมาใช้กับขั้นตอนเกี่ยวกับปลั๊ก เต้ารับ ฟิวส์หรือเบรกเกอร์ และคู่มือไม่ได้อธิบายวิธีตรวจฟิวส์หรือรีเซ็ตเบรกเกอร์",
+          "next": "n2v"
+        },
+        {
+          "state_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n_resolved",
+          "type": "resolution",
+          "content": "รหัส 9C2 หายแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "ถ้ารหัสยังคงอยู่ คู่มือหน้า 19 ให้ติดต่อศูนย์บริการ ให้ติดต่อศูนย์บริการลูกค้า (customer service centre) (คู่มือหน้า 19) และอย่าซ่อมหรือถอดแยกเครื่องซักผ้าเอง เพราะอาจทำให้บาดเจ็บและอายุการใช้งานของเครื่องสั้นลง (คู่มือหน้า 2)",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_nomatch",
+          "type": "escalation",
+          "content": "ถ้าจอไม่ได้แสดงรหัส 9C2 ให้เลือกอาการที่ตรงกับที่เห็น หรือติดต่อศูนย์บริการลูกค้า (customer service centre) (คู่มือหน้า 19) และอย่าซ่อมหรือถอดแยกเครื่องซักผ้าเอง เพราะอาจทำให้บาดเจ็บและอายุการใช้งานของเครื่องสั้นลง (คู่มือหน้า 2)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_wa45t3400a_um_ac6_inverter_comm",
+      "device_category": "Washing Machine",
+      "brand": "Samsung",
+      "model_pattern": "WA45T3400A*",
+      "entry_symptom": "AC6 Inverter Communication problem",
+      "entry_symptom_th": "จอเครื่องซักผ้าแสดงรหัส AC6 (การสื่อสารกับอินเวอร์เตอร์)",
+      "entry_symptom_aliases": [
+        "เครื่องซักผ้าขึ้น AC6",
+        "ซักผ้าขึ้น AC6",
+        "washer AC6 error",
+        "samsung washer AC6",
+        "inverter communication AC6"
+      ],
+      "source": "Samsung Top-Loading Washer Service Manual (WA45T3400A*, model code WA45T3400AV/A4, WA45T3400AP/A4, WA45T3400AW/A4)",
+      "page_range": [
+        19,
+        19
+      ],
+      "source_chunk_id": "manual_Samsung_WashingMachine_WA45T3400A_p19_ac6_inverter_comm",
+      "severity": "medium",
+      "difficulty": "hard",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "จอเครื่องซักผ้าแสดงรหัส AC6 ใช่หรือไม่?",
+          "on_yes": "n_escalate",
+          "on_no": "n_nomatch"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "รหัส AC6 หมายถึงมีปัญหาการสื่อสารของอินเวอร์เตอร์ (Inverter Communication problem) (คู่มือหน้า 19) ขั้นตอนตามคู่มือคือตรวจแผงวงจรอินเวอร์เตอร์และสายไฟภายในเครื่อง (คู่มือหน้า 19) ซึ่งเป็นงานของช่าง ให้ติดต่อศูนย์บริการลูกค้า (customer service centre) (คู่มือหน้า 19) และอย่าซ่อมหรือถอดแยกเครื่องซักผ้าเอง เพราะอาจทำให้บาดเจ็บและอายุการใช้งานของเครื่องสั้นลง (คู่มือหน้า 2) พร้อมแจ้งรหัส AC6",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_nomatch",
+          "type": "escalation",
+          "content": "ถ้าจอไม่ได้แสดงรหัส AC6 ให้เลือกอาการที่ตรงกับที่เห็น หรือติดต่อศูนย์บริการลูกค้า (customer service centre) (คู่มือหน้า 19) และอย่าซ่อมหรือถอดแยกเครื่องซักผ้าเอง เพราะอาจทำให้บาดเจ็บและอายุการใช้งานของเครื่องสั้นลง (คู่มือหน้า 2)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_wa45t3400a_um_dc_door_open",
+      "device_category": "Washing Machine",
+      "brand": "Samsung",
+      "model_pattern": "WA45T3400A*",
+      "entry_symptom": "dC Operating the washer with the door open.",
+      "entry_symptom_th": "จอเครื่องซักผ้าแสดงรหัส dC (เปิดประตูขณะเครื่องทำงาน)",
+      "entry_symptom_aliases": [
+        "เครื่องซักผ้าขึ้น dC",
+        "ซักผ้าขึ้น dC",
+        "washer dC error",
+        "samsung washer dC",
+        "washer door open error"
+      ],
+      "source": "Samsung Top-Loading Washer Service Manual (WA45T3400A*, model code WA45T3400AV/A4, WA45T3400AP/A4, WA45T3400AW/A4)",
+      "page_range": [
+        19,
+        19
+      ],
+      "source_chunk_id": "manual_Samsung_WashingMachine_WA45T3400A_p19_dc_door_open",
+      "severity": "low",
+      "difficulty": "easy",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "จอเครื่องซักผ้าแสดงรหัส dC ใช่หรือไม่?",
+          "on_yes": "n2",
+          "on_no": "n_nomatch"
+        },
+        {
+          "state_id": "n2",
+          "type": "checkpoint",
+          "question": "ประตู (ฝา) ปิดสนิทแล้วใช่หรือไม่?",
+          "on_yes": "n3",
+          "on_no": "n2f"
+        },
+        {
+          "state_id": "n2f",
+          "type": "instruction",
+          "content": "ปิดประตู (ฝา) ให้สนิท (Make sure the door is properly closed) (คู่มือหน้า 19)",
+          "next": "n2v"
+        },
+        {
+          "state_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "state_id": "n3",
+          "type": "checkpoint",
+          "question": "มีผ้าติดค้างอยู่ที่ประตู (ฝา) หรือไม่?",
+          "on_yes": "n3f",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n3f",
+          "type": "instruction",
+          "content": "ตรวจให้แน่ใจว่าไม่มีผ้าติดค้างที่ประตู (Make sure laundry is not caught in the door) (คู่มือหน้า 19)",
+          "author_note": "คู่มือระบุเพียงให้ตรวจสอบให้แน่ใจ ไม่ได้อธิบายวิธีแก้โดยละเอียด ผู้พัฒนาจึงไม่เพิ่มรายละเอียด",
+          "next": "n3v"
+        },
+        {
+          "state_id": "n3v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n_resolved",
+          "type": "resolution",
+          "content": "รหัส dC หายแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการที่ผู้ใช้ตรวจเองได้ตามคู่มือ ให้ติดต่อศูนย์บริการลูกค้า (customer service centre) (คู่มือหน้า 19) และอย่าซ่อมหรือถอดแยกเครื่องซักผ้าเอง เพราะอาจทำให้บาดเจ็บและอายุการใช้งานของเครื่องสั้นลง (คู่มือหน้า 2) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_nomatch",
+          "type": "escalation",
+          "content": "ถ้าจอไม่ได้แสดงรหัส dC ให้เลือกอาการที่ตรงกับที่เห็น หรือติดต่อศูนย์บริการลูกค้า (customer service centre) (คู่มือหน้า 19) และอย่าซ่อมหรือถอดแยกเครื่องซักผ้าเอง เพราะอาจทำให้บาดเจ็บและอายุการใช้งานของเครื่องสั้นลง (คู่มือหน้า 2)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_wa45t3400a_um_hc_high_temp",
+      "device_category": "Washing Machine",
+      "brand": "Samsung",
+      "model_pattern": "WA45T3400A*",
+      "entry_symptom": "HC High temperature heating check.",
+      "entry_symptom_th": "จอเครื่องซักผ้าแสดงรหัส HC (ตรวจสอบความร้อนสูง)",
+      "entry_symptom_aliases": [
+        "เครื่องซักผ้าขึ้น HC",
+        "ซักผ้าขึ้น HC",
+        "washer HC error",
+        "samsung washer HC",
+        "washer high temperature HC"
+      ],
+      "source": "Samsung Top-Loading Washer Service Manual (WA45T3400A*, model code WA45T3400AV/A4, WA45T3400AP/A4, WA45T3400AW/A4)",
+      "page_range": [
+        19,
+        19
+      ],
+      "source_chunk_id": "manual_Samsung_WashingMachine_WA45T3400A_p19_hc_high_temp",
+      "severity": "medium",
+      "difficulty": "hard",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "จอเครื่องซักผ้าแสดงรหัส HC ใช่หรือไม่?",
+          "on_yes": "n_escalate",
+          "on_no": "n_nomatch"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "รหัส HC หมายถึงต้องตรวจสอบความร้อนสูง (High temperature heating check) (คู่มือหน้า 19) ขั้นตอนตามคู่มือระบุให้ติดต่อศูนย์บริการหากรหัสยังคงอยู่ โดยไม่มีขั้นตอนที่ผู้ใช้ทำเองได้ (คู่มือหน้า 19) ซึ่งเป็นงานของช่าง ให้ติดต่อศูนย์บริการลูกค้า (customer service centre) (คู่มือหน้า 19) และอย่าซ่อมหรือถอดแยกเครื่องซักผ้าเอง เพราะอาจทำให้บาดเจ็บและอายุการใช้งานของเครื่องสั้นลง (คู่มือหน้า 2) พร้อมแจ้งรหัส HC",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_nomatch",
+          "type": "escalation",
+          "content": "ถ้าจอไม่ได้แสดงรหัส HC ให้เลือกอาการที่ตรงกับที่เห็น หรือติดต่อศูนย์บริการลูกค้า (customer service centre) (คู่มือหน้า 19) และอย่าซ่อมหรือถอดแยกเครื่องซักผ้าเอง เพราะอาจทำให้บาดเจ็บและอายุการใช้งานของเครื่องสั้นลง (คู่มือหน้า 2)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_wa45t3400a_um_lc_drain_hose",
+      "device_category": "Washing Machine",
+      "brand": "Samsung",
+      "model_pattern": "WA45T3400A*",
+      "entry_symptom": "LC Check the drain hose.",
+      "entry_symptom_th": "จอเครื่องซักผ้าแสดงรหัส LC (ตรวจสายระบายน้ำ)",
+      "entry_symptom_aliases": [
+        "เครื่องซักผ้าขึ้น LC",
+        "ซักผ้าขึ้น LC",
+        "washer LC error",
+        "samsung washer LC",
+        "washer drain hose LC"
+      ],
+      "source": "Samsung Top-Loading Washer Service Manual (WA45T3400A*, model code WA45T3400AV/A4, WA45T3400AP/A4, WA45T3400AW/A4)",
+      "page_range": [
+        19,
+        19
+      ],
+      "source_chunk_id": "manual_Samsung_WashingMachine_WA45T3400A_p19_lc_drain_hose",
+      "severity": "low",
+      "difficulty": "easy",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "จอเครื่องซักผ้าแสดงรหัส LC ใช่หรือไม่? (ขณะแสดงรหัสนี้เครื่องจะระบายน้ำ 3 นาที และปุ่ม Power ใช้งานไม่ได้ในช่วงนั้น (คู่มือหน้า 19))",
+          "on_yes": "n2",
+          "on_no": "n_nomatch"
+        },
+        {
+          "state_id": "n2",
+          "type": "checkpoint",
+          "question": "ปลายสายระบายน้ำวางอยู่ที่พื้นใช่หรือไม่?",
+          "on_yes": "n3",
+          "on_no": "n2f"
+        },
+        {
+          "state_id": "n2f",
+          "type": "instruction",
+          "content": "วางปลายสายระบายน้ำไว้ที่พื้น (Make sure the end of the drain hose is placed on the floor) (คู่มือหน้า 19)",
+          "author_note": "คู่มือเขียนว่าให้ปลายสายวางที่พื้น ไม่ได้อธิบายเพิ่มเติม ผู้พัฒนาจึงไม่เพิ่มรายละเอียด",
+          "next": "n2v"
+        },
+        {
+          "state_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "state_id": "n3",
+          "type": "checkpoint",
+          "question": "สายระบายน้ำอุดตันหรือไม่?",
+          "on_yes": "n3f",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n3f",
+          "type": "instruction",
+          "content": "ตรวจให้แน่ใจว่าสายระบายน้ำไม่อุดตัน (Make sure the drain hose is not clogged) (คู่มือหน้า 19)",
+          "author_note": "คู่มือระบุเพียงให้ตรวจสอบให้แน่ใจ ไม่ได้อธิบายวิธีแก้โดยละเอียด ผู้พัฒนาจึงไม่เพิ่มรายละเอียด",
+          "next": "n3v"
+        },
+        {
+          "state_id": "n3v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n_resolved",
+          "type": "resolution",
+          "content": "รหัส LC หายแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "ถ้ารหัสยังคงอยู่ คู่มือหน้า 19 ให้ติดต่อศูนย์บริการ ให้ติดต่อศูนย์บริการลูกค้า (customer service centre) (คู่มือหน้า 19) และอย่าซ่อมหรือถอดแยกเครื่องซักผ้าเอง เพราะอาจทำให้บาดเจ็บและอายุการใช้งานของเครื่องสั้นลง (คู่มือหน้า 2)",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_nomatch",
+          "type": "escalation",
+          "content": "ถ้าจอไม่ได้แสดงรหัส LC ให้เลือกอาการที่ตรงกับที่เห็น หรือติดต่อศูนย์บริการลูกค้า (customer service centre) (คู่มือหน้า 19) และอย่าซ่อมหรือถอดแยกเครื่องซักผ้าเอง เพราะอาจทำให้บาดเจ็บและอายุการใช้งานของเครื่องสั้นลง (คู่มือหน้า 2)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_wa45t3400a_um_oc_overflow",
+      "device_category": "Washing Machine",
+      "brand": "Samsung",
+      "model_pattern": "WA45T3400A*",
+      "entry_symptom": "OC Water is overflowed.",
+      "entry_symptom_th": "จอเครื่องซักผ้าแสดงรหัส OC (น้ำล้น)",
+      "entry_symptom_aliases": [
+        "เครื่องซักผ้าขึ้น OC",
+        "ซักผ้าขึ้น OC",
+        "washer OC error",
+        "samsung washer OC",
+        "washer overflow OC"
+      ],
+      "source": "Samsung Top-Loading Washer Service Manual (WA45T3400A*, model code WA45T3400AV/A4, WA45T3400AP/A4, WA45T3400AW/A4)",
+      "page_range": [
+        20,
+        20
+      ],
+      "source_chunk_id": "manual_Samsung_WashingMachine_WA45T3400A_p20_oc_overflow",
+      "severity": "low",
+      "difficulty": "easy",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "จอเครื่องซักผ้าแสดงรหัส OC ใช่หรือไม่?",
+          "on_yes": "n2",
+          "on_no": "n_nomatch"
+        },
+        {
+          "state_id": "n2",
+          "type": "instruction",
+          "content": "เริ่มทำงานใหม่หลังจากเครื่องปั่นเสร็จ (Restart after spinning) (คู่มือหน้า 20)",
+          "author_note": "คู่มือเขียนเพียง 'Restart after spinning' ไม่ได้อธิบายวิธีเริ่มใหม่ ผู้พัฒนาจึงไม่เพิ่มรายละเอียด",
+          "next": "n2v"
+        },
+        {
+          "state_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n_resolved",
+          "type": "resolution",
+          "content": "รหัส OC หายแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "ถ้ารหัสยังคงอยู่บนจอ คู่มือหน้า 20 ให้ติดต่อศูนย์บริการ Samsung ให้ติดต่อศูนย์บริการลูกค้า (customer service centre) (คู่มือหน้า 19) และอย่าซ่อมหรือถอดแยกเครื่องซักผ้าเอง เพราะอาจทำให้บาดเจ็บและอายุการใช้งานของเครื่องสั้นลง (คู่มือหน้า 2)",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_nomatch",
+          "type": "escalation",
+          "content": "ถ้าจอไม่ได้แสดงรหัส OC ให้เลือกอาการที่ตรงกับที่เห็น หรือติดต่อศูนย์บริการลูกค้า (customer service centre) (คู่มือหน้า 19) และอย่าซ่อมหรือถอดแยกเครื่องซักผ้าเอง เพราะอาจทำให้บาดเจ็บและอายุการใช้งานของเครื่องสั้นลง (คู่มือหน้า 2)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_wa45t3400a_um_pc_clutch_position",
+      "device_category": "Washing Machine",
+      "brand": "Samsung",
+      "model_pattern": "WA45T3400A*",
+      "entry_symptom": "PC When position of the clutch can't be detected.",
+      "entry_symptom_th": "จอเครื่องซักผ้าแสดงรหัส PC (ตรวจไม่พบตำแหน่งคลัตช์)",
+      "entry_symptom_aliases": [
+        "เครื่องซักผ้าขึ้น PC",
+        "ซักผ้าขึ้น PC",
+        "washer PC error",
+        "samsung washer PC",
+        "washer clutch error PC"
+      ],
+      "source": "Samsung Top-Loading Washer Service Manual (WA45T3400A*, model code WA45T3400AV/A4, WA45T3400AP/A4, WA45T3400AW/A4)",
+      "page_range": [
+        20,
+        20
+      ],
+      "source_chunk_id": "manual_Samsung_WashingMachine_WA45T3400A_p20_pc_clutch_position",
+      "severity": "medium",
+      "difficulty": "hard",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "จอเครื่องซักผ้าแสดงรหัส PC ใช่หรือไม่?",
+          "on_yes": "n_escalate",
+          "on_no": "n_nomatch"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "รหัส PC หมายถึงตรวจไม่พบตำแหน่งของคลัตช์ (คู่มือหน้า 20) ขั้นตอนตามคู่มือระบุให้ติดต่อศูนย์บริการหากรหัสยังคงอยู่ โดยไม่มีขั้นตอนที่ผู้ใช้ทำเองได้ (คู่มือหน้า 20) ซึ่งเป็นงานของช่าง ให้ติดต่อศูนย์บริการลูกค้า (customer service centre) (คู่มือหน้า 19) และอย่าซ่อมหรือถอดแยกเครื่องซักผ้าเอง เพราะอาจทำให้บาดเจ็บและอายุการใช้งานของเครื่องสั้นลง (คู่มือหน้า 2) พร้อมแจ้งรหัส PC",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_nomatch",
+          "type": "escalation",
+          "content": "ถ้าจอไม่ได้แสดงรหัส PC ให้เลือกอาการที่ตรงกับที่เห็น หรือติดต่อศูนย์บริการลูกค้า (customer service centre) (คู่มือหน้า 19) และอย่าซ่อมหรือถอดแยกเครื่องซักผ้าเอง เพราะอาจทำให้บาดเจ็บและอายุการใช้งานของเครื่องสั้นลง (คู่มือหน้า 2)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_wa45t3400a_um_pc1_clutch_hall",
+      "device_category": "Washing Machine",
+      "brand": "Samsung",
+      "model_pattern": "WA45T3400A*",
+      "entry_symptom": "PC1 After position of the clutch is detected, if the signal of the clutch hall goes wrong.",
+      "entry_symptom_th": "จอเครื่องซักผ้าแสดงรหัส PC1 (สัญญาณฮอลล์ของคลัตช์ผิดปกติ)",
+      "entry_symptom_aliases": [
+        "เครื่องซักผ้าขึ้น PC1",
+        "ซักผ้าขึ้น PC1",
+        "washer PC1 error",
+        "samsung washer PC1",
+        "washer clutch hall PC1"
+      ],
+      "source": "Samsung Top-Loading Washer Service Manual (WA45T3400A*, model code WA45T3400AV/A4, WA45T3400AP/A4, WA45T3400AW/A4)",
+      "page_range": [
+        20,
+        20
+      ],
+      "source_chunk_id": "manual_Samsung_WashingMachine_WA45T3400A_p20_pc1_clutch_hall",
+      "severity": "medium",
+      "difficulty": "hard",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "จอเครื่องซักผ้าแสดงรหัส PC1 ใช่หรือไม่?",
+          "on_yes": "n_escalate",
+          "on_no": "n_nomatch"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "รหัส PC1 หมายถึงตรวจพบตำแหน่งคลัตช์แล้วแต่สัญญาณฮอลล์ของคลัตช์ผิดปกติ (คู่มือหน้า 20) ขั้นตอนตามคู่มือระบุให้ติดต่อศูนย์บริการหากรหัสยังคงอยู่ โดยไม่มีขั้นตอนที่ผู้ใช้ทำเองได้ (คู่มือหน้า 20) ซึ่งเป็นงานของช่าง ให้ติดต่อศูนย์บริการลูกค้า (customer service centre) (คู่มือหน้า 19) และอย่าซ่อมหรือถอดแยกเครื่องซักผ้าเอง เพราะอาจทำให้บาดเจ็บและอายุการใช้งานของเครื่องสั้นลง (คู่มือหน้า 2) พร้อมแจ้งรหัส PC1",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_nomatch",
+          "type": "escalation",
+          "content": "ถ้าจอไม่ได้แสดงรหัส PC1 ให้เลือกอาการที่ตรงกับที่เห็น หรือติดต่อศูนย์บริการลูกค้า (customer service centre) (คู่มือหน้า 19) และอย่าซ่อมหรือถอดแยกเครื่องซักผ้าเอง เพราะอาจทำให้บาดเจ็บและอายุการใช้งานของเครื่องสั้นลง (คู่มือหน้า 2)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_wa45t3400a_um_ub_spin_unbalanced",
+      "device_category": "Washing Machine",
+      "brand": "Samsung",
+      "model_pattern": "WA45T3400A*",
+      "entry_symptom": "Ub Spinning does not work.",
+      "entry_symptom_th": "จอเครื่องซักผ้าแสดงรหัส Ub (ปั่นแห้งไม่ทำงาน)",
+      "entry_symptom_aliases": [
+        "เครื่องซักผ้าขึ้น Ub",
+        "ซักผ้าขึ้น UB",
+        "washer Ub error",
+        "samsung washer Ub",
+        "washer unbalance Ub"
+      ],
+      "source": "Samsung Top-Loading Washer Service Manual (WA45T3400A*, model code WA45T3400AV/A4, WA45T3400AP/A4, WA45T3400AW/A4)",
+      "page_range": [
+        20,
+        20
+      ],
+      "source_chunk_id": "manual_Samsung_WashingMachine_WA45T3400A_p20_ub_spin_unbalanced",
+      "severity": "low",
+      "difficulty": "easy",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "จอเครื่องซักผ้าแสดงรหัส Ub ใช่หรือไม่?",
+          "on_yes": "n2",
+          "on_no": "n_nomatch"
+        },
+        {
+          "state_id": "n2",
+          "type": "checkpoint",
+          "question": "ผ้ากระจายตัวสม่ำเสมอในถังใช่หรือไม่?",
+          "on_yes": "n3",
+          "on_no": "n2f"
+        },
+        {
+          "state_id": "n2f",
+          "type": "instruction",
+          "content": "จัดผ้าให้กระจายตัวสม่ำเสมอ (Make sure laundry is spread out evenly) (คู่มือหน้า 20)",
+          "next": "n2v"
+        },
+        {
+          "state_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "state_id": "n3",
+          "type": "checkpoint",
+          "question": "เครื่องตั้งอยู่บนพื้นผิวเรียบและมั่นคงใช่หรือไม่?",
+          "on_yes": "n4",
+          "on_no": "n3f"
+        },
+        {
+          "state_id": "n3f",
+          "type": "instruction",
+          "content": "ตรวจให้แน่ใจว่าเครื่องตั้งอยู่บนพื้นผิวเรียบและมั่นคง (Make sure the washing machine is on a flat, stable surface) (คู่มือหน้า 20)",
+          "author_note": "คู่มือระบุเพียงให้ตรวจสอบให้แน่ใจ ไม่ได้อธิบายวิธีแก้โดยละเอียด ผู้พัฒนาจึงไม่เพิ่มรายละเอียด",
+          "next": "n3v"
+        },
+        {
+          "state_id": "n3v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n4"
+        },
+        {
+          "state_id": "n4",
+          "type": "instruction",
+          "content": "จัดการกระจายผ้าใหม่ (Redistribute the load) ถ้าซักผ้าเพียงชิ้นเดียว เช่น ชุดคลุมอาบน้ำหรือกางเกงยีนส์ ผลการปั่นแห้งอาจไม่น่าพอใจและจอจะแสดง Ub (คู่มือหน้า 20)",
+          "next": "n4v"
+        },
+        {
+          "state_id": "n4v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n_resolved",
+          "type": "resolution",
+          "content": "รหัส Ub หายแล้ว ปั่นแห้งได้ตามปกติ",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการที่ผู้ใช้ตรวจเองได้ตามคู่มือ ให้ติดต่อศูนย์บริการลูกค้า (customer service centre) (คู่มือหน้า 19) และอย่าซ่อมหรือถอดแยกเครื่องซักผ้าเอง เพราะอาจทำให้บาดเจ็บและอายุการใช้งานของเครื่องสั้นลง (คู่มือหน้า 2) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_nomatch",
+          "type": "escalation",
+          "content": "ถ้าจอไม่ได้แสดงรหัส Ub ให้เลือกอาการที่ตรงกับที่เห็น หรือติดต่อศูนย์บริการลูกค้า (customer service centre) (คู่มือหน้า 19) และอย่าซ่อมหรือถอดแยกเครื่องซักผ้าเอง เพราะอาจทำให้บาดเจ็บและอายุการใช้งานของเครื่องสั้นลง (คู่มือหน้า 2)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_wa45t3400a_um_ur_additional_rinse",
+      "device_category": "Washing Machine",
+      "brand": "Samsung",
+      "model_pattern": "WA45T3400A*",
+      "entry_symptom": "Ur Display for additional rinsing.",
+      "entry_symptom_th": "จอเครื่องซักผ้าแสดงรหัส Ur (ล้างเพิ่ม)",
+      "entry_symptom_aliases": [
+        "เครื่องซักผ้าขึ้น Ur",
+        "ซักผ้าขึ้น UR",
+        "washer Ur error",
+        "samsung washer Ur",
+        "washer additional rinse Ur"
+      ],
+      "source": "Samsung Top-Loading Washer Service Manual (WA45T3400A*, model code WA45T3400AV/A4, WA45T3400AP/A4, WA45T3400AW/A4)",
+      "page_range": [
+        20,
+        20
+      ],
+      "source_chunk_id": "manual_Samsung_WashingMachine_WA45T3400A_p20_ur_additional_rinse",
+      "severity": "low",
+      "difficulty": "easy",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "จอเครื่องซักผ้าแสดงรหัส Ur ใช่หรือไม่?",
+          "on_yes": "n2",
+          "on_no": "n_nomatch"
+        },
+        {
+          "state_id": "n2",
+          "type": "instruction",
+          "content": "รหัส Ur เป็นการแสดงว่ามีการล้างเพิ่ม (Display for additional rinsing) เมื่อเครื่องตรวจพบความไม่สมดุล ปลดการแสดงผลได้โดยกดปุ่มใดก็ได้ (Any key input) (คู่มือหน้า 20)",
+          "next": "n2v"
+        },
+        {
+          "state_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังกดปุ่มแล้ว รหัส Ur หายไปหรือไม่?",
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_normal",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n_normal",
+          "type": "resolution",
+          "content": "รหัส Ur เป็นการแสดงการล้างเพิ่มเมื่อตรวจพบความไม่สมดุล ไม่ใช่ข้อผิดพลาดของเครื่อง และหายไปเมื่อกดปุ่มใดก็ได้ (คู่มือหน้า 20)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "ถ้ารหัส Ur ยังไม่หายหลังกดปุ่ม คู่มือหน้า 20 ไม่ได้ระบุขั้นตอนต่อไป ให้ติดต่อศูนย์บริการลูกค้า (customer service centre) (คู่มือหน้า 19) และอย่าซ่อมหรือถอดแยกเครื่องซักผ้าเอง เพราะอาจทำให้บาดเจ็บและอายุการใช้งานของเครื่องสั้นลง (คู่มือหน้า 2)",
+          "outcome_kind": "handoff_unknown"
+        },
+        {
+          "state_id": "n_nomatch",
+          "type": "escalation",
+          "content": "ถ้าจอไม่ได้แสดงรหัส Ur ให้เลือกอาการที่ตรงกับที่เห็น หรือติดต่อศูนย์บริการลูกค้า (customer service centre) (คู่มือหน้า 19) และอย่าซ่อมหรือถอดแยกเครื่องซักผ้าเอง เพราะอาจทำให้บาดเจ็บและอายุการใช้งานของเครื่องสั้นลง (คู่มือหน้า 2)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_wa45t3400a_um_ue_unbalance",
+      "device_category": "Washing Machine",
+      "brand": "Samsung",
+      "model_pattern": "WA45T3400A*",
+      "entry_symptom": "UE Check the type of laundry. Check whether it may cause an unbalanced situation.",
+      "entry_symptom_th": "จอเครื่องซักผ้าแสดงรหัส UE (ผ้าไม่สมดุล)",
+      "entry_symptom_aliases": [
+        "เครื่องซักผ้าขึ้น UE",
+        "ซักผ้าขึ้น UE",
+        "washer UE error",
+        "samsung washer UE",
+        "washer unbalance UE"
+      ],
+      "source": "Samsung Top-Loading Washer Service Manual (WA45T3400A*, model code WA45T3400AV/A4, WA45T3400AP/A4, WA45T3400AW/A4)",
+      "page_range": [
+        25,
+        25
+      ],
+      "source_chunk_id": "manual_Samsung_WashingMachine_WA45T3400A_p25_ue_unbalance",
+      "severity": "low",
+      "difficulty": "easy",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "จอเครื่องซักผ้าแสดงรหัส UE ใช่หรือไม่?",
+          "on_yes": "n2",
+          "on_no": "n_nomatch"
+        },
+        {
+          "state_id": "n2",
+          "type": "instruction",
+          "content": "กดปุ่ม Pause จัดตำแหน่งผ้าใหม่หรือเอาผ้าออกบางชิ้น แล้วกดปุ่ม Start เพื่อให้รอบการซักดำเนินต่อจนเสร็จ (press pause reposition the load or remove a few items. Press start to continue) (คู่มือหน้า 25)",
+          "next": "n2v"
+        },
+        {
+          "state_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n_resolved",
+          "type": "resolution",
+          "content": "รหัส UE หายแล้ว รอบการซักดำเนินต่อได้",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการที่ผู้ใช้ตรวจเองได้ตามคู่มือ ให้ติดต่อศูนย์บริการลูกค้า (customer service centre) (คู่มือหน้า 19) และอย่าซ่อมหรือถอดแยกเครื่องซักผ้าเอง เพราะอาจทำให้บาดเจ็บและอายุการใช้งานของเครื่องสั้นลง (คู่มือหน้า 2) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_nomatch",
+          "type": "escalation",
+          "content": "ถ้าจอไม่ได้แสดงรหัส UE ให้เลือกอาการที่ตรงกับที่เห็น หรือติดต่อศูนย์บริการลูกค้า (customer service centre) (คู่มือหน้า 19) และอย่าซ่อมหรือถอดแยกเครื่องซักผ้าเอง เพราะอาจทำให้บาดเจ็บและอายุการใช้งานของเครื่องสั้นลง (คู่มือหน้า 2)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_wa45t3400a_um_bc2_switch_error",
+      "device_category": "Washing Machine",
+      "brand": "Samsung",
+      "model_pattern": "WA45T3400A*",
+      "entry_symptom": "BC2 Check whether either the Power switch or a tact switch is continually pressed.",
+      "entry_symptom_th": "จอเครื่องซักผ้าแสดงรหัส BC2 (สวิตช์ทำงานผิดปกติ)",
+      "entry_symptom_aliases": [
+        "เครื่องซักผ้าขึ้น BC2",
+        "ซักผ้าขึ้น BC2",
+        "washer BC2 error",
+        "samsung washer BC2",
+        "washer switch error BC2"
+      ],
+      "source": "Samsung Top-Loading Washer Service Manual (WA45T3400A*, model code WA45T3400AV/A4, WA45T3400AP/A4, WA45T3400AW/A4)",
+      "page_range": [
+        25,
+        25
+      ],
+      "source_chunk_id": "manual_Samsung_WashingMachine_WA45T3400A_p25_bc2_switch_error",
+      "severity": "low",
+      "difficulty": "easy",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "จอเครื่องซักผ้าแสดงรหัส BC2 ใช่หรือไม่?",
+          "on_yes": "n2",
+          "on_no": "n_nomatch"
+        },
+        {
+          "state_id": "n2",
+          "type": "instruction",
+          "content": "ตรวจดูว่าปุ่ม Power หรือปุ่มอื่นบนแผงควบคุมถูกกดค้างอยู่หรือไม่ (Check whether either the Power switch or a tact switch is continually pressed) (คู่มือหน้า 25)",
+          "author_note": "คู่มือไม่ได้ระบุวิธีแก้เมื่อพบว่าปุ่มถูกกดค้าง ผู้พัฒนาจึงไม่เพิ่มรายละเอียด",
+          "next": "n2v"
+        },
+        {
+          "state_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n_resolved",
+          "type": "resolution",
+          "content": "รหัส BC2 หายแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "ถ้ารหัสยังคงอยู่ ขั้นตอนต่อไปตามคู่มือคือตรวจความแน่นของสกรูยึดแผงวงจรและเปลี่ยนแผงวงจรหลัก (คู่มือหน้า 25) ซึ่งเป็นงานของช่าง ให้ติดต่อศูนย์บริการลูกค้า (customer service centre) (คู่มือหน้า 19) และอย่าซ่อมหรือถอดแยกเครื่องซักผ้าเอง เพราะอาจทำให้บาดเจ็บและอายุการใช้งานของเครื่องสั้นลง (คู่มือหน้า 2)",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_nomatch",
+          "type": "escalation",
+          "content": "ถ้าจอไม่ได้แสดงรหัส BC2 ให้เลือกอาการที่ตรงกับที่เห็น หรือติดต่อศูนย์บริการลูกค้า (customer service centre) (คู่มือหน้า 19) และอย่าซ่อมหรือถอดแยกเครื่องซักผ้าเอง เพราะอาจทำให้บาดเจ็บและอายุการใช้งานของเครื่องสั้นลง (คู่มือหน้า 2)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_wa45t3400a_um_will_not_start",
+      "device_category": "Washing Machine",
+      "brand": "Samsung",
+      "model_pattern": "WA45T3400A*",
+      "entry_symptom": "Will Not Start",
+      "entry_symptom_th": "เครื่องซักผ้าไม่เริ่มทำงาน",
+      "entry_symptom_aliases": [
+        "เครื่องซักผ้าไม่ทำงาน",
+        "ซักผ้าไม่เริ่ม",
+        "เครื่องซักผ้ากดแล้วไม่เดิน",
+        "washer will not start",
+        "samsung washer not starting"
+      ],
+      "source": "Samsung Top-Loading Washer Service Manual (WA45T3400A*, model code WA45T3400AV/A4, WA45T3400AP/A4, WA45T3400AW/A4)",
+      "page_range": [
+        28,
+        28
+      ],
+      "source_chunk_id": "manual_Samsung_WashingMachine_WA45T3400A_p28_will_not_start",
+      "severity": "low",
+      "difficulty": "easy",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "เครื่องซักผ้ามีอาการเครื่องซักผ้าไม่เริ่มทำงานใช่หรือไม่?",
+          "on_yes": "n2",
+          "on_no": "n_nomatch"
+        },
+        {
+          "state_id": "n2",
+          "type": "checkpoint",
+          "question": "ปลั๊กเครื่องเสียบอยู่ในเต้ารับใช่หรือไม่?",
+          "on_yes": "n3",
+          "on_no": "n2f"
+        },
+        {
+          "state_id": "n2f",
+          "type": "instruction",
+          "content": "เสียบปลั๊กเครื่องเข้ากับเต้ารับ (Plug the unit into the wall outlet) (คู่มือหน้า 28)",
+          "safety_critical": true,
+          "safety_warning": "เวลาถอดปลั๊กให้จับที่ตัวปลั๊กแล้วดึงออกจากเต้ารับ ไม่ดึงที่สายไฟ และห้ามต่อเครื่องใช้ไฟฟ้าหลายเครื่องกับเต้ารับเดียวกันพร้อมกัน เพราะเสี่ยงไฟไหม้จากความร้อนสูง (คู่มือหน้า 1) ให้ตรวจปลั๊กและเต้ารับว่าไม่เสียหาย แบน ขาด หรือเสื่อมสภาพ ถ้าเต้ารับในบ้านชำรุดให้เรียกช่างไฟมาเปลี่ยน (คู่มือหน้า 2)",
+          "author_note": "ข้อความเตือนนี้มาจากหัวข้อความปลอดภัยหน้า 1 และ 2 ผู้พัฒนาโยงมาใช้กับขั้นตอนเกี่ยวกับปลั๊ก เต้ารับ ฟิวส์หรือเบรกเกอร์ และคู่มือไม่ได้อธิบายวิธีตรวจฟิวส์หรือรีเซ็ตเบรกเกอร์",
+          "next": "n2v"
+        },
+        {
+          "state_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "state_id": "n3",
+          "type": "checkpoint",
+          "question": "ฟิวส์หรือเบรกเกอร์ของวงจรไฟฟ้าปกติ (ไม่ตัด) ใช่หรือไม่?",
+          "on_yes": "n4",
+          "on_no": "n3f"
+        },
+        {
+          "state_id": "n3f",
+          "type": "instruction",
+          "content": "ตรวจฟิวส์หรือรีเซ็ตเบรกเกอร์ (Check fuse or reset circuit breaker) (คู่มือหน้า 28)",
+          "safety_critical": true,
+          "safety_warning": "เวลาถอดปลั๊กให้จับที่ตัวปลั๊กแล้วดึงออกจากเต้ารับ ไม่ดึงที่สายไฟ และห้ามต่อเครื่องใช้ไฟฟ้าหลายเครื่องกับเต้ารับเดียวกันพร้อมกัน เพราะเสี่ยงไฟไหม้จากความร้อนสูง (คู่มือหน้า 1) ให้ตรวจปลั๊กและเต้ารับว่าไม่เสียหาย แบน ขาด หรือเสื่อมสภาพ ถ้าเต้ารับในบ้านชำรุดให้เรียกช่างไฟมาเปลี่ยน (คู่มือหน้า 2)",
+          "author_note": "ข้อความเตือนนี้มาจากหัวข้อความปลอดภัยหน้า 1 และ 2 ผู้พัฒนาโยงมาใช้กับขั้นตอนเกี่ยวกับปลั๊ก เต้ารับ ฟิวส์หรือเบรกเกอร์ และคู่มือไม่ได้อธิบายวิธีตรวจฟิวส์หรือรีเซ็ตเบรกเกอร์",
+          "next": "n3v"
+        },
+        {
+          "state_id": "n3v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n4"
+        },
+        {
+          "state_id": "n4",
+          "type": "instruction",
+          "content": "กดปุ่มใดก็ได้เพื่อเปิดเครื่อง แล้วกดปุ่ม Start/Pause เพื่อให้เครื่องทำงาน (Push any key to turn on the washer and press the Start/Pause key) (คู่มือหน้า 28)",
+          "next": "n4v"
+        },
+        {
+          "state_id": "n4v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n5"
+        },
+        {
+          "state_id": "n5",
+          "type": "instruction",
+          "content": "ปิดประตู (ฝา) แล้วกดปุ่ม Start/Pause เพื่อให้เครื่องทำงาน (Close door and push the Start/Pause key) (คู่มือหน้า 28)",
+          "next": "n5v"
+        },
+        {
+          "state_id": "n5v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n6"
+        },
+        {
+          "state_id": "n6",
+          "type": "checkpoint",
+          "question": "เครื่องอยู่ในช่วง pause, soak หรือ suds (ช่วง suds ไฟ Suds จะติดแทนเวลาที่เหลือ) ใช่หรือไม่?",
+          "on_yes": "n6n",
+          "on_no": "n7"
+        },
+        {
+          "state_id": "n6n",
+          "type": "resolution",
+          "content": "เครื่องอาจอยู่ในช่วง pause, soak หรือ suds ให้รอสักครู่ เครื่องอาจเริ่มทำงานเอง (Wait briefly and it may start) (คู่มือหน้า 28)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "state_id": "n7",
+          "type": "checkpoint",
+          "question": "ระบบระบายน้ำอาจถูกกีดขวางหรือไม่? (ถ้าระบบระบายน้ำมีปัญหาทางไฟฟ้า จะแสดงรหัส nd หลังจากผ่านไป 30 นาที)",
+          "on_yes": "n7f",
+          "on_no": "n8"
+        },
+        {
+          "state_id": "n7f",
+          "type": "instruction",
+          "content": "ตรวจดูระบบระบายน้ำว่าถูกกีดขวางหรือไม่ (Check for restricted drain system) (คู่มือหน้า 28)",
+          "author_note": "คู่มือระบุเพียงให้ตรวจสอบให้แน่ใจ ไม่ได้อธิบายวิธีแก้โดยละเอียด ผู้พัฒนาจึงไม่เพิ่มรายละเอียด",
+          "next": "n7v"
+        },
+        {
+          "state_id": "n7v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n8"
+        },
+        {
+          "state_id": "n8",
+          "type": "checkpoint",
+          "question": "น้ำเข้าเครื่องปกติใช่หรือไม่?",
+          "on_yes": "n_escalate",
+          "on_no": "n8f"
+        },
+        {
+          "state_id": "n8f",
+          "type": "instruction",
+          "content": "ตรวจการจ่ายน้ำเข้าเครื่อง (Check Water Supply) (คู่มือหน้า 28)",
+          "author_note": "คู่มือระบุเพียงให้ตรวจสอบให้แน่ใจ ไม่ได้อธิบายวิธีแก้โดยละเอียด ผู้พัฒนาจึงไม่เพิ่มรายละเอียด",
+          "next": "n8v"
+        },
+        {
+          "state_id": "n8v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n_resolved",
+          "type": "resolution",
+          "content": "เครื่องซักผ้าเริ่มทำงานได้แล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการที่ผู้ใช้ตรวจเองได้ ขั้นตอนต่อไปตามคู่มือคือตรวจตะแกรงกรองของสายน้ำหรือวาล์ว ตรวจขั้วต่อบนแผงวงจร และเปลี่ยนแผงวงจร (คู่มือหน้า 28) ซึ่งเป็นงานของช่าง ให้ติดต่อศูนย์บริการลูกค้า (customer service centre) (คู่มือหน้า 19) และอย่าซ่อมหรือถอดแยกเครื่องซักผ้าเอง เพราะอาจทำให้บาดเจ็บและอายุการใช้งานของเครื่องสั้นลง (คู่มือหน้า 2)",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_nomatch",
+          "type": "escalation",
+          "content": "ถ้าไม่ใช่อาการนี้ ให้เลือกอาการที่ตรงกับที่เห็น หรือติดต่อศูนย์บริการลูกค้า (customer service centre) (คู่มือหน้า 19) และอย่าซ่อมหรือถอดแยกเครื่องซักผ้าเอง เพราะอาจทำให้บาดเจ็บและอายุการใช้งานของเครื่องสั้นลง (คู่มือหน้า 2)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_wa45t3400a_um_leaking",
+      "device_category": "Washing Machine",
+      "brand": "Samsung",
+      "model_pattern": "WA45T3400A*",
+      "entry_symptom": "Leaking",
+      "entry_symptom_th": "เครื่องซักผ้าน้ำรั่ว",
+      "entry_symptom_aliases": [
+        "เครื่องซักผ้าน้ำรั่ว",
+        "ซักผ้ามีน้ำรั่ว",
+        "น้ำรั่วจากเครื่องซักผ้า",
+        "washer leaking",
+        "samsung washer water leak"
+      ],
+      "source": "Samsung Top-Loading Washer Service Manual (WA45T3400A*, model code WA45T3400AV/A4, WA45T3400AP/A4, WA45T3400AW/A4)",
+      "page_range": [
+        28,
+        28
+      ],
+      "source_chunk_id": "manual_Samsung_WashingMachine_WA45T3400A_p28_leaking",
+      "severity": "medium",
+      "difficulty": "medium",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "เครื่องซักผ้ามีน้ำรั่วใช่หรือไม่?",
+          "on_yes": "n2",
+          "on_no": "n_nomatch"
+        },
+        {
+          "state_id": "n2",
+          "type": "checkpoint",
+          "question": "ข้อต่อสายน้ำเข้ามีน้ำรั่วหรือไม่?",
+          "on_yes": "n2f",
+          "on_no": "n3"
+        },
+        {
+          "state_id": "n2f",
+          "type": "instruction",
+          "content": "ตรวจให้แน่ใจว่าข้อต่อสายน้ำเข้าไม่รั่ว และตรวจยางรองว่าเสียหายจากการขันแน่นเกินไปหรือไม่ (Make sure inlet hose connections are not leaking. Check for rubber gasket damage due to over tightening) (คู่มือหน้า 28)",
+          "author_note": "คู่มือระบุเพียงให้ตรวจสอบให้แน่ใจ ไม่ได้อธิบายวิธีแก้โดยละเอียด ผู้พัฒนาจึงไม่เพิ่มรายละเอียด",
+          "next": "n2v"
+        },
+        {
+          "state_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "state_id": "n3",
+          "type": "instruction",
+          "content": "ตรวจท่อระบายน้ำ (standpipe) ว่ารั่วหรือไม่ โดยพันผ้าแห้งรอบปากท่อ (Wrap a dry rag around the standpipe opening) และตรวจให้แน่ใจว่าท่อรับน้ำที่ไหลจากเครื่องซักผ้าได้ทัน (Be sure the standpipe is capable of accepting the flow of water from the washer) (คู่มือหน้า 28)",
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "next": "n3q"
+        },
+        {
+          "state_id": "n3q",
+          "type": "checkpoint",
+          "question": "ผ้าที่พันรอบปากท่อเปียกหรือไม่?",
+          "on_yes": "n_plumbing",
+          "on_no": "n4"
+        },
+        {
+          "state_id": "n_plumbing",
+          "type": "escalation",
+          "content": "ถ้าผ้าเปียก คู่มือหน้า 28 ระบุว่าการรั่วเกิดจากระบบท่อน้ำภายในบ้าน (leak is fault of home plumbing) ให้แจ้งช่างประปาหรือเจ้าของที่พักตรวจระบบท่อ",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n4",
+          "type": "checkpoint",
+          "question": "ปลายสายระบายน้ำสอดเข้าท่อและยึดแน่นดีแล้วใช่หรือไม่?",
+          "on_yes": "n_escalate",
+          "on_no": "n4f"
+        },
+        {
+          "state_id": "n4f",
+          "type": "instruction",
+          "content": "สอดปลายสายระบายน้ำเข้าท่อระบายน้ำให้ถูกต้องและยึดให้แน่น (Make sure end of drain hose is correctly inserted and secured to drain standpipe) (คู่มือหน้า 28)",
+          "next": "n4v"
+        },
+        {
+          "state_id": "n4v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n_resolved",
+          "type": "resolution",
+          "content": "ไม่มีน้ำรั่วแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "ถ้ายังรั่ว ขั้นตอนต่อไปตามคู่มือคือตรวจข้อต่อสายภายในเครื่อง (สายน้ำเข้า สายระบายน้ำ และสายช่องใส่ผงซักฟอก) และยางบูท (คู่มือหน้า 28) ซึ่งเป็นงานของช่าง คู่มือหน้า 28 เตือนว่าแรงดันของน้ำร้อนอาจดันให้ประตูเปิดออก ให้ติดต่อศูนย์บริการลูกค้า (customer service centre) (คู่มือหน้า 19) และอย่าซ่อมหรือถอดแยกเครื่องซักผ้าเอง เพราะอาจทำให้บาดเจ็บและอายุการใช้งานของเครื่องสั้นลง (คู่มือหน้า 2)",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_nomatch",
+          "type": "escalation",
+          "content": "ถ้าไม่ใช่อาการนี้ ให้เลือกอาการที่ตรงกับที่เห็น หรือติดต่อศูนย์บริการลูกค้า (customer service centre) (คู่มือหน้า 19) และอย่าซ่อมหรือถอดแยกเครื่องซักผ้าเอง เพราะอาจทำให้บาดเจ็บและอายุการใช้งานของเครื่องสั้นลง (คู่มือหน้า 2)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_wa45t3400a_um_will_not_spin",
+      "device_category": "Washing Machine",
+      "brand": "Samsung",
+      "model_pattern": "WA45T3400A*",
+      "entry_symptom": "Will Not Spin",
+      "entry_symptom_th": "เครื่องซักผ้าไม่ปั่นแห้ง",
+      "entry_symptom_aliases": [
+        "เครื่องซักผ้าไม่ปั่น",
+        "ซักผ้าไม่ปั่นแห้ง",
+        "เครื่องซักผ้าปั่นไม่หมุน",
+        "washer will not spin",
+        "samsung washer not spinning"
+      ],
+      "source": "Samsung Top-Loading Washer Service Manual (WA45T3400A*, model code WA45T3400AV/A4, WA45T3400AP/A4, WA45T3400AW/A4)",
+      "page_range": [
+        28,
+        28
+      ],
+      "source_chunk_id": "manual_Samsung_WashingMachine_WA45T3400A_p28_will_not_spin",
+      "severity": "low",
+      "difficulty": "easy",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "เครื่องซักผ้ามีอาการเครื่องซักผ้าไม่ปั่นแห้งใช่หรือไม่?",
+          "on_yes": "n2",
+          "on_no": "n_nomatch"
+        },
+        {
+          "state_id": "n2",
+          "type": "checkpoint",
+          "question": "ประตู (ฝา) ปิดสนิทแล้วใช่หรือไม่?",
+          "on_yes": "n3",
+          "on_no": "n2f"
+        },
+        {
+          "state_id": "n2f",
+          "type": "instruction",
+          "content": "ปิดประตู (ฝา) ให้สนิท (Make sure to close the door completely) (คู่มือหน้า 28)",
+          "next": "n2v"
+        },
+        {
+          "state_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "state_id": "n3",
+          "type": "checkpoint",
+          "question": "ยังมีน้ำค้างอยู่ในเครื่องหรือไม่?",
+          "on_yes": "n3e",
+          "on_no": "n4"
+        },
+        {
+          "state_id": "n3e",
+          "type": "escalation",
+          "content": "ถ้ามีน้ำค้างอยู่ในเครื่อง คู่มือหน้า 28 ให้ไปทำตามอาการ “Will Not Drain” ให้เลือกอาการเครื่องซักผ้าไม่ระบายน้ำเพื่อทำตามขั้นตอนนั้น หรือติดต่อศูนย์บริการลูกค้า (customer service centre) (คู่มือหน้า 19) และอย่าซ่อมหรือถอดแยกเครื่องซักผ้าเอง เพราะอาจทำให้บาดเจ็บและอายุการใช้งานของเครื่องสั้นลง (คู่มือหน้า 2)",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n4",
+          "type": "instruction",
+          "content": "ตรวจสอบกรณีที่ผ้าในถังไม่สมดุลในโหมดปกติ (Check Possible unbalanced load scenario in normal mode) (คู่มือหน้า 28)",
+          "author_note": "คู่มือหน้า 28 บอกเพียงให้ตรวจกรณีผ้าไม่สมดุล วิธีจัดผ้าที่คู่มือระบุไว้อยู่ที่หน้า 20 และ 25 ในอาการรหัส Ub และ UE ผู้พัฒนาไม่นำมาปนในขั้นนี้",
+          "next": "n4v"
+        },
+        {
+          "state_id": "n4v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n_resolved",
+          "type": "resolution",
+          "content": "เครื่องซักผ้าปั่นแห้งได้แล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการที่ผู้ใช้ตรวจเองได้ ขั้นตอนต่อไปตามคู่มือคือทดสอบการหมุนด้วยโหมดทดสอบและตรวจสายต่อที่แผงวงจร เซนเซอร์ระดับน้ำ มอเตอร์ และฮอลล์เซนเซอร์ (คู่มือหน้า 28) ซึ่งเป็นงานของช่าง ให้ติดต่อศูนย์บริการลูกค้า (customer service centre) (คู่มือหน้า 19) และอย่าซ่อมหรือถอดแยกเครื่องซักผ้าเอง เพราะอาจทำให้บาดเจ็บและอายุการใช้งานของเครื่องสั้นลง (คู่มือหน้า 2)",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_nomatch",
+          "type": "escalation",
+          "content": "ถ้าไม่ใช่อาการนี้ ให้เลือกอาการที่ตรงกับที่เห็น หรือติดต่อศูนย์บริการลูกค้า (customer service centre) (คู่มือหน้า 19) และอย่าซ่อมหรือถอดแยกเครื่องซักผ้าเอง เพราะอาจทำให้บาดเจ็บและอายุการใช้งานของเครื่องสั้นลง (คู่มือหน้า 2)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_wa45t3400a_um_no_water_fill",
+      "device_category": "Washing Machine",
+      "brand": "Samsung",
+      "model_pattern": "WA45T3400A*",
+      "entry_symptom": "No Water Fill",
+      "entry_symptom_th": "เครื่องซักผ้าไม่มีน้ำเข้า",
+      "entry_symptom_aliases": [
+        "เครื่องซักผ้าน้ำไม่เข้า",
+        "ซักผ้าไม่เติมน้ำ",
+        "เครื่องซักผ้าไม่มีน้ำ",
+        "washer no water fill",
+        "samsung washer not filling with water"
+      ],
+      "source": "Samsung Top-Loading Washer Service Manual (WA45T3400A*, model code WA45T3400AV/A4, WA45T3400AP/A4, WA45T3400AW/A4)",
+      "page_range": [
+        28,
+        28
+      ],
+      "source_chunk_id": "manual_Samsung_WashingMachine_WA45T3400A_p28_no_water_fill",
+      "severity": "low",
+      "difficulty": "easy",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "เครื่องซักผ้ามีอาการเครื่องซักผ้าไม่มีน้ำเข้าใช่หรือไม่?",
+          "on_yes": "n2",
+          "on_no": "n_nomatch"
+        },
+        {
+          "state_id": "n2",
+          "type": "checkpoint",
+          "question": "ก๊อกน้ำเปิดสุดแล้วใช่หรือไม่?",
+          "on_yes": "n3",
+          "on_no": "n2f"
+        },
+        {
+          "state_id": "n2f",
+          "type": "instruction",
+          "content": "เปิดก๊อกน้ำให้สุด (Check if water taps are turned on fully) (คู่มือหน้า 28)",
+          "next": "n2v"
+        },
+        {
+          "state_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "state_id": "n3",
+          "type": "checkpoint",
+          "question": "สายน้ำเข้าพับงอหรือไม่?",
+          "on_yes": "n3f",
+          "on_no": "n4"
+        },
+        {
+          "state_id": "n3f",
+          "type": "instruction",
+          "content": "ตรวจสายน้ำเข้าว่ามีส่วนที่พับงอหรือไม่ (Check if there is any kink in inlet hoses) (คู่มือหน้า 28)",
+          "author_note": "คู่มือระบุเพียงให้ตรวจสอบให้แน่ใจ ไม่ได้อธิบายวิธีแก้โดยละเอียด ผู้พัฒนาจึงไม่เพิ่มรายละเอียด",
+          "next": "n3v"
+        },
+        {
+          "state_id": "n3v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n4"
+        },
+        {
+          "state_id": "n4",
+          "type": "checkpoint",
+          "question": "ตะแกรงกรองของสายน้ำเข้า (inlet screen) อาจอุดตันใช่หรือไม่?",
+          "on_yes": "n4f",
+          "on_no": "n5"
+        },
+        {
+          "state_id": "n4f",
+          "type": "instruction",
+          "content": "ตรวจและทำความสะอาดตะแกรงกรองของสายน้ำเข้า (Check if inlet screens are clogged up) (คู่มือหน้า 28)",
+          "safety_critical": true,
+          "safety_warning": "ถอดปลั๊กไฟของเครื่องก่อนทำงานกับชิ้นส่วนไฟฟ้า เพื่อป้องกันไฟฟ้าดูด (คู่มือหน้า 1) และห้ามฉีดน้ำใส่ตัวเครื่องโดยตรงเมื่อทำความสะอาด เพราะอาจเกิดไฟฟ้าดูดหรือไฟไหม้ (คู่มือหน้า 3)",
+          "author_note": "ข้อความเตือนนี้มาจากหัวข้อความปลอดภัยหน้า 1 และ 3 ซึ่งคู่มือเขียนไว้กับงานซ่อมชิ้นส่วนไฟฟ้า ผู้พัฒนาโยงมาใช้กับขั้นตอนที่ต้องถอดหรือทำความสะอาดชิ้นส่วนที่ต่อกับน้ำ และคู่มือไม่ได้อธิบายตำแหน่งหรือวิธีถอดชิ้นส่วนนั้น",
+          "next": "n4v"
+        },
+        {
+          "state_id": "n4v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n5"
+        },
+        {
+          "state_id": "n5",
+          "type": "checkpoint",
+          "question": "แรงดันน้ำเพียงพอหรือไม่? (ข้อมูลจำเพาะหน้า 6 ระบุแรงดันน้ำ 20~116psi (137~800kPa))",
+          "on_yes": "n_escalate",
+          "on_no": "n5f"
+        },
+        {
+          "state_id": "n5f",
+          "type": "instruction",
+          "content": "ตรวจว่าแรงดันน้ำเพียงพอ (Check if water has enough pressure) (คู่มือหน้า 28 และ 6)",
+          "author_note": "คู่มือระบุเพียงให้ตรวจสอบให้แน่ใจ ไม่ได้อธิบายวิธีแก้โดยละเอียด ผู้พัฒนาจึงไม่เพิ่มรายละเอียด",
+          "next": "n5v"
+        },
+        {
+          "state_id": "n5v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n_resolved",
+          "type": "resolution",
+          "content": "น้ำเข้าเครื่องซักผ้าได้แล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการที่ผู้ใช้ตรวจเองได้ ขั้นตอนต่อไปตามคู่มือคือทดสอบวาล์วน้ำด้วยโหมดทดสอบ วัดความต้านทานของคอยล์วาล์ว และตรวจสวิตช์แรงดันกับแผงวงจร (คู่มือหน้า 28) ซึ่งเป็นงานของช่าง ให้ติดต่อศูนย์บริการลูกค้า (customer service centre) (คู่มือหน้า 19) และอย่าซ่อมหรือถอดแยกเครื่องซักผ้าเอง เพราะอาจทำให้บาดเจ็บและอายุการใช้งานของเครื่องสั้นลง (คู่มือหน้า 2)",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_nomatch",
+          "type": "escalation",
+          "content": "ถ้าไม่ใช่อาการนี้ ให้เลือกอาการที่ตรงกับที่เห็น หรือติดต่อศูนย์บริการลูกค้า (customer service centre) (คู่มือหน้า 19) และอย่าซ่อมหรือถอดแยกเครื่องซักผ้าเอง เพราะอาจทำให้บาดเจ็บและอายุการใช้งานของเครื่องสั้นลง (คู่มือหน้า 2)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_wa45t3400a_um_tub_full_of_suds",
+      "device_category": "Washing Machine",
+      "brand": "Samsung",
+      "model_pattern": "WA45T3400A*",
+      "entry_symptom": "Tub Full of Suds",
+      "entry_symptom_th": "เครื่องซักผ้ามีฟองเต็มถัง",
+      "entry_symptom_aliases": [
+        "ฟองเต็มถังซักผ้า",
+        "เครื่องซักผ้าฟองเยอะ",
+        "ซักผ้าฟองล้นถัง",
+        "washer tub full of suds",
+        "samsung washer too many suds"
+      ],
+      "source": "Samsung Top-Loading Washer Service Manual (WA45T3400A*, model code WA45T3400AV/A4, WA45T3400AP/A4, WA45T3400AW/A4)",
+      "page_range": [
+        28,
+        28
+      ],
+      "source_chunk_id": "manual_Samsung_WashingMachine_WA45T3400A_p28_tub_full_of_suds",
+      "severity": "low",
+      "difficulty": "easy",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "เครื่องซักผ้ามีอาการเครื่องซักผ้ามีฟองเต็มถังใช่หรือไม่?",
+          "on_yes": "n2",
+          "on_no": "n_nomatch"
+        },
+        {
+          "state_id": "n2",
+          "type": "checkpoint",
+          "question": "ใช้ผงซักฟอกชนิด HE (High-Efficiency) หรือชนิดฟองน้อยอยู่ใช่หรือไม่?",
+          "on_yes": "n3",
+          "on_no": "n2f"
+        },
+        {
+          "state_id": "n2f",
+          "type": "instruction",
+          "content": "เปลี่ยนมาใช้ผงซักฟอกชนิด HE (High-Efficiency) หรือชนิดฟองน้อย (Use HE or low sudsing detergent) (คู่มือหน้า 28)",
+          "author_note": "ข้อความเดิมของคู่มือระบุว่าเป็นผงซักฟอกสำหรับเครื่องฝาหน้า (front load washers) แต่เครื่องรุ่นนี้เป็นเครื่องฝาบน ผู้ใช้ให้เลือกชนิดผงซักฟอกตามที่ระบุในคู่มือผู้ใช้ของเครื่อง",
+          "next": "n2v"
+        },
+        {
+          "state_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "state_id": "n3",
+          "type": "checkpoint",
+          "question": "ใส่ผงซักฟอกมากเกินไปสำหรับขนาดผ้าและความสกปรกหรือไม่? (ผ้าขนหนูทำให้เกิดฟองมากกว่าปกติ น้ำอ่อน ผ้าน้อย หรือสกปรกน้อยก็ควรใช้ผงซักฟอกน้อยลง)",
+          "on_yes": "n3f",
+          "on_no": "n4"
+        },
+        {
+          "state_id": "n3f",
+          "type": "instruction",
+          "content": "ลดปริมาณผงซักฟอกให้เหมาะกับขนาดผ้าและความสกปรกของผ้ารอบนั้น (Reduce the amount of detergent) (คู่มือหน้า 28)",
+          "next": "n3v"
+        },
+        {
+          "state_id": "n3v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n4"
+        },
+        {
+          "state_id": "n4",
+          "type": "instruction",
+          "content": "ซักอีกหนึ่งรอบด้วยน้ำเย็นและเกลือหนึ่งช้อนโต๊ะ โดยไม่ใส่ผงซักฟอก (Do one more washing cycle with cold water and a table spoon of salt without detergent) (คู่มือหน้า 28)",
+          "next": "n4v"
+        },
+        {
+          "state_id": "n4v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n_resolved",
+          "type": "resolution",
+          "content": "ฟองในถังหมดแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการที่ผู้ใช้ตรวจเองได้ ขั้นตอนต่อไปตามคู่มือคือตรวจการระบายน้ำและสายต่อของปั๊มระบายน้ำกับแผงวงจร (คู่มือหน้า 28) ซึ่งเป็นงานของช่าง ให้ติดต่อศูนย์บริการลูกค้า (customer service centre) (คู่มือหน้า 19) และอย่าซ่อมหรือถอดแยกเครื่องซักผ้าเอง เพราะอาจทำให้บาดเจ็บและอายุการใช้งานของเครื่องสั้นลง (คู่มือหน้า 2)",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_nomatch",
+          "type": "escalation",
+          "content": "ถ้าไม่ใช่อาการนี้ ให้เลือกอาการที่ตรงกับที่เห็น หรือติดต่อศูนย์บริการลูกค้า (customer service centre) (คู่มือหน้า 19) และอย่าซ่อมหรือถอดแยกเครื่องซักผ้าเอง เพราะอาจทำให้บาดเจ็บและอายุการใช้งานของเครื่องสั้นลง (คู่มือหน้า 2)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_wa45t3400a_um_wet_clothes",
+      "device_category": "Washing Machine",
+      "brand": "Samsung",
+      "model_pattern": "WA45T3400A*",
+      "entry_symptom": "Wet Clothes",
+      "entry_symptom_th": "ผ้าที่ซักเสร็จยังเปียก",
+      "entry_symptom_aliases": [
+        "ผ้าเปียกหลังซัก",
+        "ซักผ้าเสร็จแล้วผ้ายังเปียก",
+        "ผ้าไม่แห้งหลังปั่น",
+        "washer wet clothes",
+        "samsung washer clothes still wet"
+      ],
+      "source": "Samsung Top-Loading Washer Service Manual (WA45T3400A*, model code WA45T3400AV/A4, WA45T3400AP/A4, WA45T3400AW/A4)",
+      "page_range": [
+        29,
+        29
+      ],
+      "source_chunk_id": "manual_Samsung_WashingMachine_WA45T3400A_p29_wet_clothes",
+      "severity": "low",
+      "difficulty": "easy",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "เครื่องซักผ้ามีอาการผ้าที่ซักเสร็จยังเปียกใช่หรือไม่?",
+          "on_yes": "n2",
+          "on_no": "n_nomatch"
+        },
+        {
+          "state_id": "n2",
+          "type": "checkpoint",
+          "question": "ผ้าที่ซักมีน้อยเกินไปจนไม่สมดุลหรือไม่?",
+          "on_yes": "n2f",
+          "on_no": "n3"
+        },
+        {
+          "state_id": "n2f",
+          "type": "instruction",
+          "content": "ใส่ผ้าเพิ่ม (Put additional load) (คู่มือหน้า 29)",
+          "next": "n2v"
+        },
+        {
+          "state_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "state_id": "n3",
+          "type": "checkpoint",
+          "question": "ใช้ผงซักฟอกทั่วไปจนเกิดฟองมากเกินไปหรือไม่?",
+          "on_yes": "n3f",
+          "on_no": "n4"
+        },
+        {
+          "state_id": "n3f",
+          "type": "instruction",
+          "content": "ใช้ผงซักฟอกชนิด HE (High-Efficiency) หรือลดปริมาณลง (Use HE or reduce its quantity) (คู่มือหน้า 29)",
+          "next": "n3v"
+        },
+        {
+          "state_id": "n3v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n4"
+        },
+        {
+          "state_id": "n4",
+          "type": "checkpoint",
+          "question": "ได้เลือกโปรแกรม Low Spin Speed หรือ Drain Only ไว้ใช่หรือไม่?",
+          "on_yes": "n4n",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n4n",
+          "type": "resolution",
+          "content": "ผ้ายังเปียกเพราะเลือก Low Spin Speed หรือ Drain Only ไว้ (คู่มือหน้า 29) ซึ่งเป็นความเร็วปั่นต่ำหรือระบายน้ำอย่างเดียวตามที่เลือก ไม่ใช่ข้อผิดพลาดของเครื่อง",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "state_id": "n_resolved",
+          "type": "resolution",
+          "content": "ผ้าไม่เปียกแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการที่ผู้ใช้ตรวจเองได้ คู่มือหน้า 29 ให้ไปตรวจตามอาการ “Will Not Spin” ให้เลือกอาการเครื่องซักผ้าไม่ปั่นแห้ง หรือติดต่อศูนย์บริการลูกค้า (customer service centre) (คู่มือหน้า 19) และอย่าซ่อมหรือถอดแยกเครื่องซักผ้าเอง เพราะอาจทำให้บาดเจ็บและอายุการใช้งานของเครื่องสั้นลง (คู่มือหน้า 2)",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_nomatch",
+          "type": "escalation",
+          "content": "ถ้าไม่ใช่อาการนี้ ให้เลือกอาการที่ตรงกับที่เห็น หรือติดต่อศูนย์บริการลูกค้า (customer service centre) (คู่มือหน้า 19) และอย่าซ่อมหรือถอดแยกเครื่องซักผ้าเอง เพราะอาจทำให้บาดเจ็บและอายุการใช้งานของเครื่องสั้นลง (คู่มือหน้า 2)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_wa45t3400a_um_will_not_unlock",
+      "device_category": "Washing Machine",
+      "brand": "Samsung",
+      "model_pattern": "WA45T3400A*",
+      "entry_symptom": "Will Not Unlock",
+      "entry_symptom_th": "ประตู (ฝา) เครื่องซักผ้าปลดล็อกไม่ได้ (จอแสดง LO)",
+      "entry_symptom_aliases": [
+        "ฝาเครื่องซักผ้าเปิดไม่ได้",
+        "เครื่องซักผ้าขึ้น LO",
+        "ซักผ้าปลดล็อกไม่ได้",
+        "washer will not unlock",
+        "samsung washer LO display"
+      ],
+      "source": "Samsung Top-Loading Washer Service Manual (WA45T3400A*, model code WA45T3400AV/A4, WA45T3400AP/A4, WA45T3400AW/A4)",
+      "page_range": [
+        29,
+        29
+      ],
+      "source_chunk_id": "manual_Samsung_WashingMachine_WA45T3400A_p29_will_not_unlock",
+      "severity": "low",
+      "difficulty": "easy",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "เครื่องซักผ้ามีอาการประตู (ฝา) เครื่องซักผ้าปลดล็อกไม่ได้ (จอแสดง LO)ใช่หรือไม่?",
+          "on_yes": "n2",
+          "on_no": "n_nomatch"
+        },
+        {
+          "state_id": "n2",
+          "type": "instruction",
+          "content": "ปิดเครื่องแล้วเปิดใหม่ (Turn off and on the unit) (คู่มือหน้า 29)",
+          "author_note": "คู่มือไม่ได้อธิบายวิธีปิดและเปิดเครื่อง ผู้พัฒนาจึงไม่เพิ่มรายละเอียด เช่นการถอดปลั๊ก",
+          "next": "n2v"
+        },
+        {
+          "state_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n_resolved",
+          "type": "resolution",
+          "content": "ประตู (ฝา) ปลดล็อกได้แล้ว และ LO หายไป",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "ถ้า LO ยังขึ้นอยู่ ขั้นตอนต่อไปตามคู่มือคือตรวจแผงวงจรและสวิตช์ล็อกประตู (คู่มือหน้า 29) ซึ่งเป็นงานของช่าง ให้ติดต่อศูนย์บริการลูกค้า (customer service centre) (คู่มือหน้า 19) และอย่าซ่อมหรือถอดแยกเครื่องซักผ้าเอง เพราะอาจทำให้บาดเจ็บและอายุการใช้งานของเครื่องสั้นลง (คู่มือหน้า 2)",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_nomatch",
+          "type": "escalation",
+          "content": "ถ้าไม่ใช่อาการนี้ ให้เลือกอาการที่ตรงกับที่เห็น หรือติดต่อศูนย์บริการลูกค้า (customer service centre) (คู่มือหน้า 19) และอย่าซ่อมหรือถอดแยกเครื่องซักผ้าเอง เพราะอาจทำให้บาดเจ็บและอายุการใช้งานของเครื่องสั้นลง (คู่มือหน้า 2)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_wa45t3400a_um_no_key_operation",
+      "device_category": "Washing Machine",
+      "brand": "Samsung",
+      "model_pattern": "WA45T3400A*",
+      "entry_symptom": "No Key Operation",
+      "entry_symptom_th": "ปุ่มบนเครื่องซักผ้ากดไม่ตอบสนอง",
+      "entry_symptom_aliases": [
+        "ปุ่มเครื่องซักผ้ากดไม่ได้",
+        "เครื่องซักผ้ากดปุ่มแล้วไม่ทำงาน",
+        "เครื่องซักผ้าล็อกเด็ก",
+        "washer no key operation",
+        "samsung washer buttons do not respond"
+      ],
+      "source": "Samsung Top-Loading Washer Service Manual (WA45T3400A*, model code WA45T3400AV/A4, WA45T3400AP/A4, WA45T3400AW/A4)",
+      "page_range": [
+        29,
+        29
+      ],
+      "source_chunk_id": "manual_Samsung_WashingMachine_WA45T3400A_p29_no_key_operation",
+      "severity": "low",
+      "difficulty": "easy",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "เครื่องซักผ้ามีอาการปุ่มบนเครื่องซักผ้ากดไม่ตอบสนองใช่หรือไม่?",
+          "on_yes": "n2",
+          "on_no": "n_nomatch"
+        },
+        {
+          "state_id": "n2",
+          "type": "checkpoint",
+          "question": "บางปุ่มตัวเลือก (Option) หรือปุ่มฟังก์ชันใช้ไม่ได้ในรอบการซักที่เลือกอยู่ใช่หรือไม่?",
+          "on_yes": "n2n",
+          "on_no": "n3"
+        },
+        {
+          "state_id": "n2n",
+          "type": "resolution",
+          "content": "ปุ่ม Option และ Function ตอบสนองต่างกันไปตามรอบการซักแต่ละรอบ (คู่มือหน้า 29) จึงเป็นการทำงานตามปกติ",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "state_id": "n3",
+          "type": "checkpoint",
+          "question": "จอแสดงคำว่า End อยู่ใช่หรือไม่?",
+          "on_yes": "n3n",
+          "on_no": "n4"
+        },
+        {
+          "state_id": "n3n",
+          "type": "resolution",
+          "content": "เมื่อจอแสดง End จะใช้งานได้เฉพาะปุ่ม Power ให้กดปุ่ม Power แล้วเลือกรอบการซักใหม่ (คู่มือหน้า 29)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "state_id": "n4",
+          "type": "checkpoint",
+          "question": "เปิดฟังก์ชันล็อกเด็ก (Child Lock) ไว้หรือไม่?",
+          "on_yes": "n4f",
+          "on_no": "n5"
+        },
+        {
+          "state_id": "n4f",
+          "type": "instruction",
+          "content": "กดปุ่ม Spin level และปุ่ม Soil level พร้อมกันค้างไว้ จนได้ยินเสียงบี๊บ (hold down Spin level key and soil level key simultaneously until it sends out a beeping sound) (คู่มือหน้า 29)",
+          "author_note": "คู่มือหน้า 29 มีสองแถว (No Key Operation และ Buttons do not Respond) ที่ระบุวิธียกเลิกล็อกเด็กต่างกัน แถวแรกใช้ Spin level กับ Soil level แถวที่สองใช้ Temp กับ Spin ผู้พัฒนาให้ลองตามลำดับ เพราะปุ่มบนแผงของแต่ละรุ่นอาจต่างกัน",
+          "next": "n4v"
+        },
+        {
+          "state_id": "n4v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n5"
+        },
+        {
+          "state_id": "n5",
+          "type": "instruction",
+          "content": "ถ้าปุ่มยังไม่ตอบสนอง ให้ลองกดปุ่ม Temp และปุ่ม Spin พร้อมกันค้างไว้ จนได้ยินเสียงบี๊บ (press and hold Temp and Spin simultaneously until a beep is heard) (คู่มือหน้า 29)",
+          "next": "n5v"
+        },
+        {
+          "state_id": "n5v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n_resolved",
+          "type": "resolution",
+          "content": "ปุ่มตอบสนองได้ตามปกติแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการที่ผู้ใช้ตรวจเองได้ตามคู่มือ ให้ติดต่อศูนย์บริการลูกค้า (customer service centre) (คู่มือหน้า 19) และอย่าซ่อมหรือถอดแยกเครื่องซักผ้าเอง เพราะอาจทำให้บาดเจ็บและอายุการใช้งานของเครื่องสั้นลง (คู่มือหน้า 2) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_nomatch",
+          "type": "escalation",
+          "content": "ถ้าไม่ใช่อาการนี้ ให้เลือกอาการที่ตรงกับที่เห็น หรือติดต่อศูนย์บริการลูกค้า (customer service centre) (คู่มือหน้า 19) และอย่าซ่อมหรือถอดแยกเครื่องซักผ้าเอง เพราะอาจทำให้บาดเจ็บและอายุการใช้งานของเครื่องสั้นลง (คู่มือหน้า 2)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_wa45t3400a_um_will_not_drain",
+      "device_category": "Washing Machine",
+      "brand": "Samsung",
+      "model_pattern": "WA45T3400A*",
+      "entry_symptom": "Will Not Drain",
+      "entry_symptom_th": "เครื่องซักผ้าไม่ระบายน้ำ",
+      "entry_symptom_aliases": [
+        "เครื่องซักผ้าน้ำไม่ออก",
+        "ซักผ้าไม่ระบายน้ำ",
+        "น้ำค้างในเครื่องซักผ้า",
+        "washer will not drain",
+        "samsung washer not draining"
+      ],
+      "source": "Samsung Top-Loading Washer Service Manual (WA45T3400A*, model code WA45T3400AV/A4, WA45T3400AP/A4, WA45T3400AW/A4)",
+      "page_range": [
+        29,
+        29
+      ],
+      "source_chunk_id": "manual_Samsung_WashingMachine_WA45T3400A_p29_will_not_drain",
+      "severity": "low",
+      "difficulty": "easy",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "เครื่องซักผ้ามีอาการเครื่องซักผ้าไม่ระบายน้ำใช่หรือไม่?",
+          "on_yes": "n2",
+          "on_no": "n_nomatch"
+        },
+        {
+          "state_id": "n2",
+          "type": "checkpoint",
+          "question": "สายระบายน้ำพับงอหรือไม่?",
+          "on_yes": "n2f",
+          "on_no": "n3"
+        },
+        {
+          "state_id": "n2f",
+          "type": "instruction",
+          "content": "ทำให้สายระบายน้ำตรง (Check for any kink on the drain hose. If any, straight it out) (คู่มือหน้า 29)",
+          "next": "n2v"
+        },
+        {
+          "state_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "state_id": "n3",
+          "type": "checkpoint",
+          "question": "สายระบายน้ำมีสิ่งกีดขวางหรือไม่?",
+          "on_yes": "n3f",
+          "on_no": "n4"
+        },
+        {
+          "state_id": "n3f",
+          "type": "instruction",
+          "content": "ตรวจดูสิ่งกีดขวางในสายระบายน้ำ (Check for any restriction in the drain hose) (คู่มือหน้า 29)",
+          "author_note": "คู่มือระบุเพียงให้ตรวจสอบให้แน่ใจ ไม่ได้อธิบายวิธีแก้โดยละเอียด ผู้พัฒนาจึงไม่เพิ่มรายละเอียด",
+          "next": "n3v"
+        },
+        {
+          "state_id": "n3v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n4"
+        },
+        {
+          "state_id": "n4",
+          "type": "instruction",
+          "content": "ปิดประตู (ฝา) แล้วกดปุ่ม Start/Pause เพราะเพื่อความปลอดภัย เครื่องจะไม่หมุนหรือปั่นขณะเปิดประตู (คู่มือหน้า 29)",
+          "next": "n4v"
+        },
+        {
+          "state_id": "n4v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n5"
+        },
+        {
+          "state_id": "n5",
+          "type": "instruction",
+          "content": "ถ้าอากาศภายนอกเย็นจัด ให้ตรวจดูว่าภายในสายระบายน้ำแข็งตัวหรือไม่ (When it is freezing outside, check if it is frozen inside the drain hose) (คู่มือหน้า 29)",
+          "author_note": "คู่มือไม่ได้ระบุวิธีละลายน้ำแข็งในสายระบายน้ำ ผู้พัฒนาจึงไม่เพิ่มรายละเอียด",
+          "next": "n5v"
+        },
+        {
+          "state_id": "n5v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n_resolved",
+          "type": "resolution",
+          "content": "เครื่องซักผ้าระบายน้ำได้แล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการที่ผู้ใช้ตรวจเองได้ ขั้นตอนต่อไปตามคู่มือคือทดสอบปั๊มระบายน้ำ วัดแรงดันและความต้านทานของปั๊ม และตรวจสายยางระหว่างถังกับปั๊มระบายน้ำ (คู่มือหน้า 29) ซึ่งเป็นงานของช่าง ให้ติดต่อศูนย์บริการลูกค้า (customer service centre) (คู่มือหน้า 19) และอย่าซ่อมหรือถอดแยกเครื่องซักผ้าเอง เพราะอาจทำให้บาดเจ็บและอายุการใช้งานของเครื่องสั้นลง (คู่มือหน้า 2)",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_nomatch",
+          "type": "escalation",
+          "content": "ถ้าไม่ใช่อาการนี้ ให้เลือกอาการที่ตรงกับที่เห็น หรือติดต่อศูนย์บริการลูกค้า (customer service centre) (คู่มือหน้า 19) และอย่าซ่อมหรือถอดแยกเครื่องซักผ้าเอง เพราะอาจทำให้บาดเจ็บและอายุการใช้งานของเครื่องสั้นลง (คู่มือหน้า 2)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_wa45t3400a_um_wrong_water_temperature",
+      "device_category": "Washing Machine",
+      "brand": "Samsung",
+      "model_pattern": "WA45T3400A*",
+      "entry_symptom": "Wrong Water Temperature",
+      "entry_symptom_th": "อุณหภูมิน้ำของเครื่องซักผ้าไม่ถูกต้อง",
+      "entry_symptom_aliases": [
+        "น้ำเครื่องซักผ้าไม่ร้อน",
+        "น้ำเครื่องซักผ้าร้อนเกินไป",
+        "น้ำเครื่องซักผ้าเย็นเกินไป",
+        "washer wrong water temperature",
+        "samsung washer water too hot too cold"
+      ],
+      "source": "Samsung Top-Loading Washer Service Manual (WA45T3400A*, model code WA45T3400AV/A4, WA45T3400AP/A4, WA45T3400AW/A4)",
+      "page_range": [
+        29,
+        29
+      ],
+      "source_chunk_id": "manual_Samsung_WashingMachine_WA45T3400A_p29_wrong_water_temperature",
+      "severity": "low",
+      "difficulty": "easy",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "เครื่องซักผ้ามีอาการอุณหภูมิน้ำของเครื่องซักผ้าไม่ถูกต้องใช่หรือไม่?",
+          "on_yes": "n2",
+          "on_no": "n_nomatch"
+        },
+        {
+          "state_id": "n2",
+          "type": "checkpoint",
+          "question": "ก๊อกน้ำทั้งสองก๊อกเปิดสุดแล้วใช่หรือไม่?",
+          "on_yes": "n3",
+          "on_no": "n2f"
+        },
+        {
+          "state_id": "n2f",
+          "type": "instruction",
+          "content": "เปิดก๊อกน้ำทั้งสองให้สุด (Check if both of the water taps are fully open) (คู่มือหน้า 29)",
+          "next": "n2v"
+        },
+        {
+          "state_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "state_id": "n3",
+          "type": "checkpoint",
+          "question": "น้ำในถังรู้สึกร้อนหรือเย็นกว่าที่คาดไว้มากใช่หรือไม่?",
+          "on_yes": "n3n",
+          "on_no": "n4"
+        },
+        {
+          "state_id": "n3n",
+          "type": "resolution",
+          "content": "เครื่องลดปริมาณน้ำที่จ่ายเข้าขณะที่แผงวงจรควบคุมการไหลของน้ำเพื่อปรับอุณหภูมิจริงของน้ำในถัง จึงอาจรู้สึกร้อนหรือเย็นกว่าที่คาดไว้มาก (Too Hot/Too Cold) (คู่มือหน้า 29)",
+          "outcome_kind": "normal_behavior"
+        },
+        {
+          "state_id": "n4",
+          "type": "checkpoint",
+          "question": "เลือกอุณหภูมิถูกต้องตามที่ต้องการแล้วใช่หรือไม่?",
+          "on_yes": "n5",
+          "on_no": "n4f"
+        },
+        {
+          "state_id": "n4f",
+          "type": "instruction",
+          "content": "เลือกอุณหภูมิให้ถูกต้อง (Check if the temperature selection is correct) (คู่มือหน้า 29)",
+          "next": "n4v"
+        },
+        {
+          "state_id": "n4v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n5"
+        },
+        {
+          "state_id": "n5",
+          "type": "checkpoint",
+          "question": "ตะแกรงกรองของสายน้ำเข้า (inlet screen) อาจมีเศษตกค้างใช่หรือไม่?",
+          "on_yes": "n5f",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n5f",
+          "type": "instruction",
+          "content": "ถอดสายน้ำเข้าออกจากวาล์วน้ำ แล้วเอาเศษที่ตกค้างในตะแกรงกรองออก (Disconnect inlet hoses from the Water Valve and remove any residue in the inlet screens) (คู่มือหน้า 29)",
+          "safety_critical": true,
+          "safety_warning": "ถอดปลั๊กไฟของเครื่องก่อนทำงานกับชิ้นส่วนไฟฟ้า เพื่อป้องกันไฟฟ้าดูด (คู่มือหน้า 1) และห้ามฉีดน้ำใส่ตัวเครื่องโดยตรงเมื่อทำความสะอาด เพราะอาจเกิดไฟฟ้าดูดหรือไฟไหม้ (คู่มือหน้า 3)",
+          "author_note": "ข้อความเตือนนี้มาจากหัวข้อความปลอดภัยหน้า 1 และ 3 ซึ่งคู่มือเขียนไว้กับงานซ่อมชิ้นส่วนไฟฟ้า ผู้พัฒนาโยงมาใช้กับขั้นตอนที่ต้องถอดหรือทำความสะอาดชิ้นส่วนที่ต่อกับน้ำ และคู่มือไม่ได้อธิบายตำแหน่งหรือวิธีถอดชิ้นส่วนนั้น และคู่มือไม่ได้ระบุให้ปิดก๊อกน้ำก่อนถอดสาย ผู้พัฒนาจึงไม่เพิ่มขั้นตอนนี้",
+          "next": "n5v"
+        },
+        {
+          "state_id": "n5v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n_resolved",
+          "type": "resolution",
+          "content": "อุณหภูมิน้ำถูกต้องแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการที่ผู้ใช้ตรวจเองได้ตามคู่มือ ให้ติดต่อศูนย์บริการลูกค้า (customer service centre) (คู่มือหน้า 19) และอย่าซ่อมหรือถอดแยกเครื่องซักผ้าเอง เพราะอาจทำให้บาดเจ็บและอายุการใช้งานของเครื่องสั้นลง (คู่มือหน้า 2) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_nomatch",
+          "type": "escalation",
+          "content": "ถ้าไม่ใช่อาการนี้ ให้เลือกอาการที่ตรงกับที่เห็น หรือติดต่อศูนย์บริการลูกค้า (customer service centre) (คู่มือหน้า 19) และอย่าซ่อมหรือถอดแยกเครื่องซักผ้าเอง เพราะอาจทำให้บาดเจ็บและอายุการใช้งานของเครื่องสั้นลง (คู่มือหน้า 2)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_wa45t3400a_um_noisy_vibration_walking",
+      "device_category": "Washing Machine",
+      "brand": "Samsung",
+      "model_pattern": "WA45T3400A*",
+      "entry_symptom": "Noisy and/or Vibration/Walking",
+      "entry_symptom_th": "เครื่องซักผ้าเสียงดัง สั่น หรือเดินได้",
+      "entry_symptom_aliases": [
+        "เครื่องซักผ้าเสียงดัง",
+        "เครื่องซักผ้าสั่น",
+        "เครื่องซักผ้าเดินตอนปั่น",
+        "washer noisy vibration walking",
+        "samsung washer shaking"
+      ],
+      "source": "Samsung Top-Loading Washer Service Manual (WA45T3400A*, model code WA45T3400AV/A4, WA45T3400AP/A4, WA45T3400AW/A4)",
+      "page_range": [
+        29,
+        29
+      ],
+      "source_chunk_id": "manual_Samsung_WashingMachine_WA45T3400A_p29_noisy_vibration_walking",
+      "severity": "low",
+      "difficulty": "easy",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "เครื่องซักผ้ามีอาการเครื่องซักผ้าเสียงดัง สั่น หรือเดินได้ใช่หรือไม่?",
+          "on_yes": "n2",
+          "on_no": "n_nomatch"
+        },
+        {
+          "state_id": "n2",
+          "type": "checkpoint",
+          "question": "เครื่องตั้งอยู่ในระดับ และน็อตล็อกที่แผ่นฐานด้านล่างขันแน่นแล้วใช่หรือไม่?",
+          "on_yes": "n3",
+          "on_no": "n2f"
+        },
+        {
+          "state_id": "n2f",
+          "type": "instruction",
+          "content": "ปรับให้เครื่องอยู่ในระดับและขันน็อตล็อกที่แผ่นฐานด้านล่างให้แน่น (Check if the washer is leveled and the lock nuts are tightened up on the bottom plate) (คู่มือหน้า 29) วิธีตรวจระดับตามคู่มือหน้า 4 คือกดที่มุมเครื่องเพื่อดูว่ามีการขยับหรือไม่ ถ้าขยับให้ปรับขาแล้วตรวจซ้ำจนไม่ขยับ",
+          "author_note": "วิธีตรวจระดับนำมาจากหัวข้อ After Servicing หน้า 4 ซึ่งเขียนไว้สำหรับช่าง ผู้พัฒนาโยงมาใช้กับขั้นตอนนี้",
+          "next": "n2v"
+        },
+        {
+          "state_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "state_id": "n3",
+          "type": "checkpoint",
+          "question": "ถอดน็อตขนส่ง (shipping bolts) และตัวคั่น (spacers) ที่แผงด้านหลังครบแล้วใช่หรือไม่?",
+          "on_yes": "n4",
+          "on_no": "n3f"
+        },
+        {
+          "state_id": "n3f",
+          "type": "instruction",
+          "content": "ถอดน็อตขนส่งและตัวคั่นที่แผงด้านหลังออกให้ครบ (Check if all of the shipping bolts and spacers are removed from the back panel) (คู่มือหน้า 29)",
+          "safety_critical": true,
+          "safety_warning": "ถอดปลั๊กไฟของเครื่องก่อนทำงานกับชิ้นส่วนไฟฟ้า เพื่อป้องกันไฟฟ้าดูด (คู่มือหน้า 1) และห้ามฉีดน้ำใส่ตัวเครื่องโดยตรงเมื่อทำความสะอาด เพราะอาจเกิดไฟฟ้าดูดหรือไฟไหม้ (คู่มือหน้า 3)",
+          "author_note": "ข้อความเตือนนี้มาจากหัวข้อความปลอดภัยหน้า 1 และ 3 ซึ่งคู่มือเขียนไว้กับงานซ่อมชิ้นส่วนไฟฟ้า ผู้พัฒนาโยงมาใช้กับขั้นตอนที่ต้องถอดหรือทำความสะอาดชิ้นส่วนที่ต่อกับน้ำ และคู่มือไม่ได้อธิบายตำแหน่งหรือวิธีถอดชิ้นส่วนนั้น และคู่มือไม่ได้อธิบายตำแหน่งหรือวิธีถอดน็อตขนส่ง",
+          "next": "n3v"
+        },
+        {
+          "state_id": "n3v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n4"
+        },
+        {
+          "state_id": "n4",
+          "type": "checkpoint",
+          "question": "ปริมาณผ้ามากพอและไม่เกิดความไม่สมดุลใช่หรือไม่?",
+          "on_yes": "n5",
+          "on_no": "n4f"
+        },
+        {
+          "state_id": "n4f",
+          "type": "instruction",
+          "content": "ถ้าผ้ามีน้อยเกินไป ให้ใส่ผ้าขนหนูสองสามผืนเพื่อถ่วงให้สมดุล (If there is not enough load, put in a few towels to balance it) (คู่มือหน้า 29)",
+          "next": "n4v"
+        },
+        {
+          "state_id": "n4v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n5"
+        },
+        {
+          "state_id": "n5",
+          "type": "checkpoint",
+          "question": "มีสิ่งรบกวนใต้เครื่อง เช่น ฝุ่นเคลือบพื้นหรือไม่?",
+          "on_yes": "n5f",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n5f",
+          "type": "instruction",
+          "content": "กำจัดสิ่งรบกวน เช่น ฝุ่นที่เคลือบพื้น (Remove various trouble contributors such as dust coat on the floor) (คู่มือหน้า 29)",
+          "next": "n5v"
+        },
+        {
+          "state_id": "n5v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n_resolved",
+          "type": "resolution",
+          "content": "เครื่องซักผ้าเสียงเบาลงและไม่สั่นหรือเดินแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการที่ผู้ใช้ตรวจเองได้ ขั้นตอนต่อไปตามคู่มือคือตรวจความแน่นของการยึดมอเตอร์ (คู่มือหน้า 29) ซึ่งเป็นงานของช่าง ให้ติดต่อศูนย์บริการลูกค้า (customer service centre) (คู่มือหน้า 19) และอย่าซ่อมหรือถอดแยกเครื่องซักผ้าเอง เพราะอาจทำให้บาดเจ็บและอายุการใช้งานของเครื่องสั้นลง (คู่มือหน้า 2)",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_nomatch",
+          "type": "escalation",
+          "content": "ถ้าไม่ใช่อาการนี้ ให้เลือกอาการที่ตรงกับที่เห็น หรือติดต่อศูนย์บริการลูกค้า (customer service centre) (คู่มือหน้า 19) และอย่าซ่อมหรือถอดแยกเครื่องซักผ้าเอง เพราะอาจทำให้บาดเจ็บและอายุการใช้งานของเครื่องสั้นลง (คู่มือหน้า 2)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    }
+  ]
+}

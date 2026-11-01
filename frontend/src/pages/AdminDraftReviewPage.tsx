@@ -4,7 +4,7 @@ import { useAdminDraft } from '../api/queries'
 import type { DraftDetail } from '../api/types'
 import { AdminTabs } from '../components/admin/AdminTabs'
 import { DraftActions } from '../components/admin/drafts/DraftActions'
-import { DraftGraphCard } from '../components/admin/drafts/DraftGraphCard'
+import { DraftFlowCard } from '../components/admin/drafts/DraftFlowCard'
 import { DraftJsonEditor } from '../components/admin/drafts/DraftJsonEditor'
 import { DraftStatusBadge } from '../components/admin/drafts/DraftStatusBadge'
 import { ValidationReportPanel } from '../components/admin/drafts/ValidationReportPanel'
@@ -67,7 +67,7 @@ function DraftBody({ draft, onRefresh }: { draft: DraftDetail; onRefresh: () => 
       ) : (
         <div className="rounded-xl border-2 border-dashed border-accent/60 bg-accent/10 p-4">
           <p className="font-semibold text-accent">ร่างโดย AI · ยังไม่เผยแพร่</p>
-          <p className="text-sm text-ink">ผู้ใช้ทั่วไปมองไม่เห็นร่างนี้ เนื้อหาอาจผิดจากคู่มือ — ต้องตรวจทุกโหนดเทียบหน้าต้นฉบับก่อนอนุมัติ</p>
+          <p className="text-sm text-ink">ผู้ใช้ทั่วไปมองไม่เห็นร่างนี้ เนื้อหาอาจผิดจากคู่มือ — ต้องตรวจทุกสถานะเทียบหน้าต้นฉบับก่อนอนุมัติ</p>
         </div>
       )}
 
@@ -86,18 +86,18 @@ function DraftBody({ draft, onRefresh }: { draft: DraftDetail; onRefresh: () => 
         </Notice>
       )}
 
-      {draft.graphs !== null && (
+      {draft.flows !== null && (
         <>
           <ValidationReportPanel report={draft.validation} />
 
           <section aria-label="แผนผังขั้นตอนในร่าง" className="space-y-4">
-            <h2 className="text-lg font-semibold">แผนผังขั้นตอนในร่าง ({draft.graphs.length})</h2>
-            {draft.graphs.map((graph) => (
-              <DraftGraphCard key={graph.graph_id} graph={graph} draft={draft} />
+            <h2 className="text-lg font-semibold">แผนผังขั้นตอนในร่าง ({draft.flows.length})</h2>
+            {draft.flows.map((flow) => (
+              <DraftFlowCard key={flow.flow_id} flow={flow} draft={draft} />
             ))}
           </section>
 
-          {draft.status === 'ready' && <DraftJsonEditor key={draft.updatedAt} draftId={draft.id} graphs={draft.graphs} />}
+          {draft.status === 'ready' && <DraftJsonEditor key={draft.updatedAt} draftId={draft.id} flows={draft.flows} />}
         </>
       )}
 

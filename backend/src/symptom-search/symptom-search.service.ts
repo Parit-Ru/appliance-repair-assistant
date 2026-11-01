@@ -1,10 +1,10 @@
 import { createLogger } from '../common/logger';
 import { ApiError } from '../common/api-error';
 import { round3 } from '../common/helpers';
-import { GraphRepository } from '../traversal/graph.repository';
-import type { DeviceCategory } from '../traversal-engine/types';
+import { FlowRepository } from '../execution/flow.repository';
+import type { DeviceCategory } from '../state-machine/types';
 import {EMBEDDING_DTYPE,EMBEDDING_MODEL_ID,EmbeddingService,} from '../embedding/embedding.service'
-import {buildSymptomTexts,rankGraphs,selectMatches, type IndexedSymptom,type SymptomSource } from './symptom-matcher';
+import {buildSymptomTexts,rankFlows,selectMatches, type IndexedSymptom,type SymptomSource } from './symptom-matcher';
 import type {SearchState,SearchStatusDto,SymptomSearchResponseDto,} from './symptom-search.dto';
 
 
@@ -15,7 +15,7 @@ const ENABLE_ENV_NAME = 'SYMPTOM_SEARCH_ENABLED';
 const searchNotReady = () => new ApiError(503, 'SEARCH_NOT_READY', 'ระบบค้นหากำลังเริ่มทำงาน');
 const searchUnavailable = () => new ApiError(503, 'SEARCH_UNAVAILABLE', 'ระบบค้นหาไม่พร้อมใช้งาน');
 
-interface GraphInfo {
+interface FlowInfo {
   entrySymptom: string;
   entrySymptomTh?: string;
   deviceCategory: DeviceCategory;
@@ -27,13 +27,13 @@ export class SymptomSearchService {
 
   private state: SearchState = 'disabled';
   private index: IndexedSymptom[] = [];
-  private graphInfo = new Map<string, GraphInfo>();
+  private flowInfo = new Map<string, FlowInfo>();
   private loadMs: number | null = null;
   private lastError: string | null = null;
 
   constructor(
     private readonly embedding: EmbeddingService,
-    private readonly graphs: GraphRepository,
+    private readonly flows: FlowRepository,
   ) {}
 
   /**
@@ -61,24 +61,24 @@ export class SymptomSearchService {
     try {
       await this.embedding.load();
 
-      const fullGraphs: SymptomSource[] = [];
-      const info = new Map<string, GraphInfo>();
-      for (const summary of this.graphs.listAll()) {
-        const graph = this.graphs.findById(summary.graphId);
-        if (!graph) continue;
-        fullGraphs.push(graph);
-        info.set(graph.graph_id, {
-          entrySymptom: graph.entry_symptom,
-          entrySymptomTh: graph.entry_symptom_th,
-          deviceCategory: graph.device_category,
-          manualId: graph.manual_id,
+      const fullFlows: SymptomSource[] = [];
+      const info = new Map<string, FlowInfo>();
+      for (const summary of this.flows.listAll()) {
+        const flow = this.flows.findById(summary.flowId);
+        if (!flow) continue;
+        fullFlows.push(flow);
+        info.set(flow.flow_id, {
+          entrySymptom: flow.entry_symptom,
+          entrySymptomTh: flow.entry_symptom_th,
+          deviceCategory: flow.device_category,
+          manualId: flow.manual_id,
         });
       }
 
       // ข้อความเดียวกันจากหลายคู่มือ (เช่น "ทีวีปิดเอง") ทำเวกเตอร์ครั้งเดียวแล้วใช้ร่วมกัน
       const vectors = new Map<string, Float32Array>();
       const index: IndexedSymptom[] = [];
-      for (const item of buildSymptomTexts(fullGraphs)) {
+      for (const item of buildSymptomTexts(fullFlows)) {
         let vector = vectors.get(item.text);
         if (vector === undefined) {
           vector = await this.embedding.embed(item.text);
@@ -88,7 +88,7 @@ export class SymptomSearchService {
       }
 
       this.index = index;
-      this.graphInfo = info;
+      this.flowInfo = info;
       this.loadMs = Date.now() - started;
       this.state = 'ready';
       this.logger.log(
@@ -101,7 +101,7 @@ export class SymptomSearchService {
     }
   }
 
-  async addGraphs(graphIds: string[]): Promise<{ indexed: boolean; addedTexts: number; reason?: string }> {
+  async addFlows(flowIds: string[]): Promise<{ indexed: boolean; addedTexts: number; reason?: string }> {
     if (this.state !== 'ready') {
       const reason =
         this.state === 'disabled' ? 'ระบบค้นหาปิดอยู่ (SYMPTOM_SEARCH_ENABLED ไม่ใช่ true)' : `ดัชนียังไม่พร้อม (สถานะ ${this.state})`;
@@ -109,18 +109,18 @@ export class SymptomSearchService {
     }
 
     try {
-      const wanted = new Set(graphIds);
-      const graphs: SymptomSource[] = [];
-      const info = new Map(this.graphInfo);
+      const wanted = new Set(flowIds);
+      const flows: SymptomSource[] = [];
+      const info = new Map(this.flowInfo);
       for (const id of wanted) {
-        const graph = this.graphs.findById(id);
-        if (!graph) continue;
-        graphs.push(graph);
-        info.set(graph.graph_id, {
-          entrySymptom: graph.entry_symptom,
-          entrySymptomTh: graph.entry_symptom_th,
-          deviceCategory: graph.device_category,
-          manualId: graph.manual_id,
+        const flow = this.flows.findById(id);
+        if (!flow) continue;
+        flows.push(flow);
+        info.set(flow.flow_id, {
+          entrySymptom: flow.entry_symptom,
+          entrySymptomTh: flow.entry_symptom_th,
+          deviceCategory: flow.device_category,
+          manualId: flow.manual_id,
         });
       }
 
@@ -129,7 +129,7 @@ export class SymptomSearchService {
       for (const item of this.index) known.set(item.text, item.vector);
 
       const added: IndexedSymptom[] = [];
-      for (const item of buildSymptomTexts(graphs)) {
+      for (const item of buildSymptomTexts(flows)) {
         let vector = known.get(item.text);
         if (vector === undefined) {
           vector = await this.embedding.embed(item.text);
@@ -138,9 +138,9 @@ export class SymptomSearchService {
         added.push({ ...item, vector });
       }
 
-      this.index = [...this.index.filter((item) => !wanted.has(item.graphId)), ...added];
-      this.graphInfo = info;
-      this.logger.log(`เพิ่มผังเข้าดัชนีค้นหา ${graphs.length} ผัง (${added.length} ข้อความ)`);
+      this.index = [...this.index.filter((item) => !wanted.has(item.flowId)), ...added];
+      this.flowInfo = info;
+      this.logger.log(`เพิ่มผังเข้าดัชนีค้นหา ${flows.length} ผัง (${added.length} ข้อความ)`);
       return { indexed: true, addedTexts: added.length };
     } catch (err) {
       const reason = err instanceof Error ? err.message : String(err);
@@ -157,15 +157,15 @@ export class SymptomSearchService {
     const candidates =
       manualId === undefined
         ? this.index
-        : this.index.filter((item) => this.graphInfo.get(item.graphId)?.manualId === manualId);
-    const ranked = rankGraphs(queryVector, candidates);
+        : this.index.filter((item) => this.flowInfo.get(item.flowId)?.manualId === manualId);
+    const ranked = rankFlows(queryVector, candidates);
 
     // เทียบเกณฑ์ด้วยค่าเต็ม แล้วค่อยปัดเศษตอนส่งออก
     const matches = selectMatches(ranked, MATCH_THRESHOLD, MAX_RESULTS).map(
       (r) => {
-        const info = this.graphInfo.get(r.graphId) as GraphInfo;
+        const info = this.flowInfo.get(r.flowId) as FlowInfo;
         return {
-          graphId: r.graphId,
+          flowId: r.flowId,
           entrySymptom: info.entrySymptom,
           entrySymptomTh: info.entrySymptomTh,
           deviceCategory: info.deviceCategory,
@@ -182,11 +182,11 @@ export class SymptomSearchService {
       matches,
     };
   }
-  async scoreGraph(query: string, graphId: string): Promise<number | null> {
+  async scoreFlow(query: string, flowId: string): Promise<number | null> {
     if (this.state !== 'ready') return null;
 
-    const ranked = rankGraphs(await this.embedding.embed(query), this.index);
-    const hit = ranked.find((r) => r.graphId === graphId);
+    const ranked = rankFlows(await this.embedding.embed(query), this.index);
+    const hit = ranked.find((r) => r.flowId === flowId);
     return hit ? round3(hit.score) : null;
   }
   getStatus(): SearchStatusDto {
@@ -195,7 +195,7 @@ export class SymptomSearchService {
       model: EMBEDDING_MODEL_ID,
       dtype: EMBEDDING_DTYPE,
       indexedTexts: this.index.length,
-      indexedGraphs: this.graphInfo.size,
+      indexedFlows: this.flowInfo.size,
       loadMs: this.loadMs,
       modelFilesFoundLocally: this.embedding.modelFilesFoundLocally,
       error: this.lastError,

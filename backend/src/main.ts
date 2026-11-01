@@ -1,8 +1,4 @@
-/**
- * main.ts — จุดเริ่มของ backend: โหลด .env → ประกอบแอป (app.ts) → เปิดรับคำขอที่ PORT
- */
 import 'dotenv/config';
-
 import { createApp } from './app';
 
 async function bootstrap(): Promise<void> {

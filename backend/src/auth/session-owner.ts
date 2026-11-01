@@ -1,4 +1,4 @@
-import { parseOptionalClientId, parseRequiredClientId } from '../traversal/traversal.dto';
+import { parseOptionalClientId, parseRequiredClientId } from '../execution/execution.dto';
 import type { AuthUser } from './auth.middleware';
 export type SessionOwner =
   | { kind: 'user'; userId: string }

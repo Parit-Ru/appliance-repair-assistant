@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import type { NodeReference } from '../../api/types'
+import type { StateReference } from '../../api/types'
 import { ReferenceLine } from './ReferenceLine'
 
 type StepCardTone = 'default' | 'danger'
@@ -9,7 +9,7 @@ interface StepCardProps {
   heading: ReactNode
   tone?: StepCardTone
   notice?: ReactNode
-  reference: NodeReference
+  reference: StateReference
   manualLabel?: string
   children?: ReactNode
 }

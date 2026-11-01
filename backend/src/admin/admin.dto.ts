@@ -1,6 +1,6 @@
 import { ApiError } from '../common/api-error';
 import { isPlainObject } from '../common/helpers';
-import type { DeviceCategory, OutcomeKind } from '../traversal-engine/types';
+import type { DeviceCategory, OutcomeKind } from '../state-machine/types';
 
 export const DEFAULT_PAGE_SIZE = 20;
 export const MAX_PAGE_SIZE = 100;
@@ -155,7 +155,7 @@ export interface AdminFeedbackItemDto {
   comment: string | null;
   createdAt: string;
   updatedAt: string;
-  graphId: string;
+  flowId: string;
   deviceCategory: DeviceCategory | null;
   brand: string | null;
   ownerType: OwnerType;
@@ -178,7 +178,7 @@ export interface AdminSummaryDto {
   };
   confidence: { average: number | null; sampleSize: number };
   outcomes: Record<OutcomeKind | 'unknown', number>;
-  topGraphs: Array<{ graphId: string; entrySymptomTh: string | null; count: number }>;
+  topFlows: Array<{ flowId: string; entrySymptomTh: string | null; count: number }>;
   topDevices: Array<{ deviceCategory: DeviceCategory | 'unknown'; count: number }>;
   perDay: Array<{ date: string; started: number; completed: number }>;
 }

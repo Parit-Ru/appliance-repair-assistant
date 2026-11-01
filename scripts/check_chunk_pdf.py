@@ -100,7 +100,6 @@ def find_offset(chunks, pages):
     return votes.most_common(1)[0][0] if votes else 0
 
 
-# ---------------------------------------------------------------- ตรวจ 1 chunk
 
 def check_chunk(chunk, pages, all_words, offset):
     parts = chunk_parts(chunk)

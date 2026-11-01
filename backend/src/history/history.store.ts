@@ -1,18 +1,18 @@
 import type { Pool, ResultSetHeader, RowDataPacket } from 'mysql2/promise';
 import { ownerWhere } from '../auth/session-owner';
 import type { SessionOwner } from '../auth/session-owner';
-import type { SessionHistoryEntry } from '../traversal-engine/types';
-import { parseVariables, rowToHistoryEntry } from '../traversal/session.store';
-import type { HistoryRow } from '../traversal/session.store';
-import type { ModelSelection } from '../traversal/traversal.dto';
+import type { SessionHistoryEntry } from '../state-machine/types';
+import { parseVariables, rowToHistoryEntry } from '../execution/session.store';
+import type { HistoryRow } from '../execution/session.store';
+import type { ModelSelection } from '../execution/execution.dto';
 import type { HistoryFeedbackDto } from './history.dto';
 
 export const MAX_HISTORY_ROWS = 50;
 
 interface SummaryRow extends RowDataPacket {
   session_id: string;
-  graph_id: string;
-  current_node_id: string;
+  flow_id: string;
+  current_state_id: string;
   created_epoch: string | number;
 }
 
@@ -30,8 +30,8 @@ interface FeedbackRow extends RowDataPacket {
 
 export interface CompletedSessionSummary {
   sessionId: string;
-  graphId: string;
-  currentNodeId: string;
+  flowId: string;
+  currentStateId: string;
   startedAtEpoch: number;
 }
 
@@ -48,7 +48,7 @@ export class HistoryStore {
   async listCompleted(owner: SessionOwner): Promise<CompletedSessionSummary[]> {
     const where = ownerWhere(owner);
     const [rows] = await this.pool.query<SummaryRow[]>(
-      `SELECT session_id, graph_id, current_node_id,
+      `SELECT session_id, flow_id, current_state_id,
               UNIX_TIMESTAMP(created_at) AS created_epoch
          FROM sessions
         WHERE ${where.sql} AND status = 'completed' AND expires_at > NOW()
@@ -62,7 +62,7 @@ export class HistoryStore {
   async findCompleted(sessionId: string, owner: SessionOwner): Promise<CompletedSession | undefined> {
     const where = ownerWhere(owner);
     const [rows] = await this.pool.query<DetailRow[]>(
-      `SELECT session_id, graph_id, current_node_id, variables, confidence,
+      `SELECT session_id, flow_id, current_state_id, variables, confidence,
               model_selection, outcome_text,
               UNIX_TIMESTAMP(created_at) AS created_epoch
          FROM sessions
@@ -83,7 +83,7 @@ export class HistoryStore {
 
   async findSteps(sessionId: string): Promise<SessionHistoryEntry[]> {
     const [rows] = await this.pool.query<HistoryRow[]>(
-      `SELECT node_id, action_type, action_value
+      `SELECT state_id, action_type, action_value
          FROM session_history
         WHERE session_id = ?
         ORDER BY step_order`,
@@ -126,8 +126,8 @@ export class HistoryStore {
 function toSummary(row: SummaryRow): CompletedSessionSummary {
   return {
     sessionId: row.session_id,
-    graphId: row.graph_id,
-    currentNodeId: row.current_node_id,
+    flowId: row.flow_id,
+    currentStateId: row.current_state_id,
     startedAtEpoch: Number(row.created_epoch),
   };
 }

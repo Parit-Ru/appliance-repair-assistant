@@ -1,11 +1,11 @@
 import type { Pool, PoolConnection, ResultSetHeader, RowDataPacket } from 'mysql2/promise';
 import { numOrNull } from '../common/helpers';
-import { GRAPH_COLUMNS, MANUAL_COLUMNS, NODE_COLUMNS } from './draft-manual';
+import { FLOW_COLUMNS, MANUAL_COLUMNS, STATE_COLUMNS, TRANSITION_COLUMNS } from './draft-manual';
 import type { DbRows, DraftMeta } from './draft-manual';
-import type { DraftGraph } from './draft-schema';
+import type { DraftFlow } from './draft-schema';
 import type { DraftStatus } from './drafts.dto';
 import { draftIdConflict, draftNotFound, draftNotReady } from './drafts.errors';
-import type { ValidationReport } from './graph-validator';
+import type { ValidationReport } from './flow-validator';
 import type { PageText } from './pdf-text';
 
 export interface DraftRecord {
@@ -14,7 +14,7 @@ export interface DraftRecord {
   manualId: string;
   meta: DraftMeta;
   pages: PageText[];
-  graphs: DraftGraph[] | null;
+  flows: DraftFlow[] | null;
   validation: ValidationReport | null;
   progressDone: number;
   progressTotal: number;
@@ -33,7 +33,7 @@ interface DraftListRow {
   status: DraftStatus;
   manualId: string;
   meta: DraftMeta;
-  graphCount: number | null;
+  flowCount: number | null;
   progressDone: number;
   progressTotal: number;
   errorCode: string | null;
@@ -58,18 +58,18 @@ interface NewDraft {
 export interface PreparedPublish {
   rows: DbRows;
   report: ValidationReport;
-  graphIds: string[];
+  flowIds: string[];
 }
 
 interface Row extends RowDataPacket {
   [column: string]: unknown;
 }
 
-const SELECT_DRAFT = `SELECT id, status, manual_id, meta, pages, graphs, validation, progress_done, progress_total,
+const SELECT_DRAFT = `SELECT id, status, manual_id, meta, pages, flows, validation, progress_done, progress_total,
                               error_code, error_message, llm_model, prompt_version,
                               UNIX_TIMESTAMP(created_at) AS created_epoch, UNIX_TIMESTAMP(updated_at) AS updated_epoch,
                               UNIX_TIMESTAMP(reviewed_at) AS reviewed_epoch, UNIX_TIMESTAMP(published_at) AS published_epoch
-                         FROM graph_drafts`;
+                         FROM flow_drafts`;
 
 
 function json<T>(value: unknown): T | null {
@@ -85,7 +85,7 @@ function toRecord(row: Row): DraftRecord {
     manualId: String(row.manual_id),
     meta: json<DraftMeta>(row.meta) as DraftMeta,
     pages: json<PageText[]>(row.pages) ?? [],
-    graphs: json<DraftGraph[]>(row.graphs),
+    flows: json<DraftFlow[]>(row.flows),
     validation: json<ValidationReport>(row.validation),
     progressDone: Number(row.progress_done),
     progressTotal: Number(row.progress_total),
@@ -105,7 +105,7 @@ export class DraftsStore {
 
   async insert(draft: NewDraft): Promise<void> {
     await this.pool.query(
-      `INSERT INTO graph_drafts
+      `INSERT INTO flow_drafts
          (id, status, manual_id, meta, pages, progress_total, llm_model, prompt_version, created_by)
        VALUES (?, 'drafting', ?, ?, ?, ?, ?, ?, ?)`,
       [draft.id, draft.manualId, JSON.stringify(draft.meta), JSON.stringify(draft.pages), draft.progressTotal, draft.llmModel, draft.promptVersion, draft.createdBy],
@@ -120,11 +120,11 @@ export class DraftsStore {
   async list(): Promise<DraftListRow[]> {
     const [rows] = await this.pool.query<Row[]>(
       `SELECT id, status, manual_id, meta, progress_done, progress_total, error_code, error_message,
-              JSON_LENGTH(graphs) AS graph_count,
+              JSON_LENGTH(flows) AS flow_count,
               JSON_LENGTH(JSON_EXTRACT(validation, '$.errors')) AS error_count,
               JSON_LENGTH(JSON_EXTRACT(validation, '$.warnings')) AS warning_count,
               UNIX_TIMESTAMP(created_at) AS created_epoch, UNIX_TIMESTAMP(updated_at) AS updated_epoch
-         FROM graph_drafts
+         FROM flow_drafts
         ORDER BY created_at DESC
         LIMIT 100`,
     );
@@ -133,7 +133,7 @@ export class DraftsStore {
       status: row.status as DraftStatus,
       manualId: String(row.manual_id),
       meta: json<DraftMeta>(row.meta) as DraftMeta,
-      graphCount: numOrNull(row.graph_count),
+      flowCount: numOrNull(row.flow_count),
       progressDone: Number(row.progress_done),
       progressTotal: Number(row.progress_total),
       errorCode: (row.error_code as string | null) ?? null,
@@ -146,13 +146,13 @@ export class DraftsStore {
   }
 
   async countDrafting(): Promise<number> {
-    const [rows] = await this.pool.query<Row[]>(`SELECT COUNT(*) AS n FROM graph_drafts WHERE status = 'drafting'`);
+    const [rows] = await this.pool.query<Row[]>(`SELECT COUNT(*) AS n FROM flow_drafts WHERE status = 'drafting'`);
     return Number(rows[0]?.n ?? 0);
   }
 
   async failInterrupted(): Promise<number> {
     const [result] = await this.pool.query<ResultSetHeader>(
-      `UPDATE graph_drafts
+      `UPDATE flow_drafts
           SET status = 'failed', error_code = 'INTERRUPTED', error_message = 'งานถูกขัดจังหวะ (เซิร์ฟเวอร์เริ่มทำงานใหม่) ให้อัปโหลดคู่มือใหม่'
         WHERE status = 'drafting'`,
     );
@@ -160,36 +160,36 @@ export class DraftsStore {
   }
 
   async setProgress(id: string, done: number): Promise<void> {
-    await this.pool.query(`UPDATE graph_drafts SET progress_done = ? WHERE id = ? AND status = 'drafting'`, [done, id]);
+    await this.pool.query(`UPDATE flow_drafts SET progress_done = ? WHERE id = ? AND status = 'drafting'`, [done, id]);
   }
 
-  async markReady(id: string, graphs: DraftGraph[], validation: ValidationReport): Promise<void> {
+  async markReady(id: string, flows: DraftFlow[], validation: ValidationReport): Promise<void> {
     await this.pool.query(
-      `UPDATE graph_drafts
-          SET status = 'ready', graphs = ?, validation = ?, error_code = NULL, error_message = NULL
+      `UPDATE flow_drafts
+          SET status = 'ready', flows = ?, validation = ?, error_code = NULL, error_message = NULL
         WHERE id = ? AND status = 'drafting'`,
-      [JSON.stringify(graphs), JSON.stringify(validation), id],
+      [JSON.stringify(flows), JSON.stringify(validation), id],
     );
   }
 
   async markFailed(id: string, code: string, message: string): Promise<void> {
     await this.pool.query(
-      `UPDATE graph_drafts SET status = 'failed', error_code = ?, error_message = ? WHERE id = ? AND status = 'drafting'`,
+      `UPDATE flow_drafts SET status = 'failed', error_code = ?, error_message = ? WHERE id = ? AND status = 'drafting'`,
       [code, message.slice(0, 500), id],
     );
   }
 
-  async saveEdit(id: string, graphs: DraftGraph[], validation: ValidationReport): Promise<boolean> {
+  async saveEdit(id: string, flows: DraftFlow[], validation: ValidationReport): Promise<boolean> {
     const [result] = await this.pool.query<ResultSetHeader>(
-      `UPDATE graph_drafts SET graphs = ?, validation = ? WHERE id = ? AND status = 'ready'`,
-      [JSON.stringify(graphs), JSON.stringify(validation), id],
+      `UPDATE flow_drafts SET flows = ?, validation = ? WHERE id = ? AND status = 'ready'`,
+      [JSON.stringify(flows), JSON.stringify(validation), id],
     );
     return result.affectedRows === 1;
   }
 
   async reject(id: string, userId: string, reason: string | undefined): Promise<boolean> {
     const [result] = await this.pool.query<ResultSetHeader>(
-      `UPDATE graph_drafts
+      `UPDATE flow_drafts
           SET status = 'rejected', reviewed_by = ?, reviewed_at = NOW(), error_code = 'REJECTED', error_message = ?
         WHERE id = ? AND status IN ('ready', 'failed')`,
       [userId, reason ?? null, id],
@@ -211,11 +211,15 @@ export class DraftsStore {
 
       const { rows: db } = prepared;
       await conn.query(`INSERT INTO manuals (${MANUAL_COLUMNS.join(', ')}) VALUES (?)`, [MANUAL_COLUMNS.map((c) => db.manual[c])]);
-      await conn.query(`INSERT INTO graphs (${GRAPH_COLUMNS.join(', ')}) VALUES ?`, [db.graphs.map((g) => GRAPH_COLUMNS.map((c) => g[c]))]);
-      await conn.query(`INSERT INTO nodes (${NODE_COLUMNS.join(', ')}) VALUES ?`, [db.nodes.map((n) => NODE_COLUMNS.map((c) => n[c]))]);
+      await conn.query(`INSERT INTO flows (${FLOW_COLUMNS.join(', ')}) VALUES ?`, [db.flows.map((g) => FLOW_COLUMNS.map((c) => g[c]))]);
+      await conn.query(`INSERT INTO states (${STATE_COLUMNS.join(', ')}) VALUES ?`, [db.states.map((n) => STATE_COLUMNS.map((c) => n[c]))]);
+      // transition อ้างอิง states (FK) จึง INSERT หลัง states ใน transaction เดียวกัน
+      if (db.transitions.length > 0) {
+        await conn.query(`INSERT INTO state_transitions (${TRANSITION_COLUMNS.join(', ')}) VALUES ?`, [db.transitions.map((t) => TRANSITION_COLUMNS.map((c) => t[c]))]);
+      }
 
       await conn.query(
-        `UPDATE graph_drafts
+        `UPDATE flow_drafts
             SET status = 'published', validation = ?, reviewed_by = ?, reviewed_at = NOW(), published_at = NOW(),
                 error_code = NULL, error_message = NULL
           WHERE id = ?`,
@@ -223,7 +227,7 @@ export class DraftsStore {
       );
 
       await conn.commit();
-      return prepared.graphIds;
+      return prepared.flowIds;
     } catch (err) {
       await conn.rollback().catch(() => undefined);
       if ((err as { code?: string }).code === 'ER_DUP_ENTRY') throw draftIdConflict(['มี id เดียวกันถูกเพิ่มระหว่างเผยแพร่']);
@@ -239,8 +243,8 @@ export class DraftsStore {
     const [manuals] = await conn.query<Row[]>(`SELECT manual_id FROM manuals WHERE manual_id = ?`, [prepared.rows.manual.manual_id]);
     for (const row of manuals) conflicts.push(`manual_id '${String(row.manual_id)}'`);
 
-    const [graphs] = await conn.query<Row[]>(`SELECT graph_id FROM graphs WHERE graph_id IN (?)`, [prepared.graphIds]);
-    for (const row of graphs) conflicts.push(`graph_id '${String(row.graph_id)}'`);
+    const [flows] = await conn.query<Row[]>(`SELECT flow_id FROM flows WHERE flow_id IN (?)`, [prepared.flowIds]);
+    for (const row of flows) conflicts.push(`flow_id '${String(row.flow_id)}'`);
 
     if (conflicts.length > 0) throw draftIdConflict(conflicts);
   }

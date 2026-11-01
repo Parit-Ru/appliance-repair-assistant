@@ -1,10 +1,10 @@
 -- 004_sessions: การเดินผัง (sessions, session_history)
--- ต้องรันหลัง 001_users และ 002_graphs (FK ไปที่ users และ graphs)
+-- ต้องรันหลัง 001_users และ 002_flows (FK ไปที่ users และ flows)
 -- ทุกตาราง: InnoDB, utf8mb4, utf8mb4_unicode_ci (ต้องตรงกันทั้งหมด ไม่งั้น FOREIGN KEY สร้างไม่ได้)
 -- รายละเอียดว่าแต่ละตารางเก็บอะไร ดู docs/reference/DATABASE.md
 
 -- sessions: การตรวจ 1 ครั้ง = การเดินผัง 1 ผัง
---   variables       = ค่าที่ผู้ใช้กรอกที่โหนด input (ไว้แทน {{ตัวแปร}} ในข้อความ) — ไม่ใส่ข้อมูลอื่นปน
+--   variables       = ค่าที่ผู้ใช้กรอกที่สถานะ input (ไว้แทน {{ตัวแปร}} ในข้อความ) — ไม่ใส่ข้อมูลอื่นปน
 --   confidence      = คะแนน cosine ของผังที่เลือก (แสดงผลอย่างเดียว) NULL = ไม่ได้ค้นด้วยข้อความ
 --   outcome_text    = ข้อความผลลัพธ์ที่ผู้ใช้พิมพ์หลังจบ (บันทึกได้ครั้งเดียว) · outcome_at = เวลาที่บันทึก
 --   model_selection = selected (เลือกรุ่นเอง) · unknown (ไม่ทราบรุ่น เลือกใกล้เคียง) · NULL = ไม่ผ่านหน้าเลือกรุ่น
@@ -16,8 +16,8 @@
 --   expires_at = เดินอยู่ 24 ชม. ต่ออายุทุกขั้น · จบแล้ว 90 วัน (กำหนดที่ backend)
 CREATE TABLE IF NOT EXISTS sessions (
   session_id       CHAR(36) NOT NULL,
-  graph_id         VARCHAR(120) NOT NULL,
-  current_node_id  VARCHAR(60)  NOT NULL,
+  flow_id          VARCHAR(120) NOT NULL,
+  current_state_id VARCHAR(60)  NOT NULL COMMENT 'สถานะปัจจุบันของผู้ใช้ (จบแล้ว = สถานะสิ้นสุดใน F)',
   status           ENUM('in_progress','completed') NOT NULL DEFAULT 'in_progress',
   variables        JSON NOT NULL,
   confidence       DECIMAL(4,3) NULL
@@ -38,14 +38,15 @@ CREATE TABLE IF NOT EXISTS sessions (
 
   PRIMARY KEY (session_id),
 
-  CONSTRAINT fk_sessions_graph
-    FOREIGN KEY (graph_id) REFERENCES graphs (graph_id)
+  CONSTRAINT fk_sessions_flow
+    FOREIGN KEY (flow_id) REFERENCES flows (flow_id)
     ON DELETE RESTRICT ON UPDATE CASCADE,
 
   CONSTRAINT fk_sessions_user
     FOREIGN KEY (user_id) REFERENCES users (id)
     ON DELETE SET NULL ON UPDATE CASCADE,
 
+  INDEX idx_sessions_flow (flow_id),
   INDEX idx_sessions_expires (expires_at),
   INDEX idx_sessions_status (status),
   -- รองรับ WHERE client_id = ? AND status = 'completed' AND expires_at > NOW() (หน้าประวัติของ guest)
@@ -60,7 +61,7 @@ CREATE TABLE IF NOT EXISTS session_history (
   id           BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
   session_id   CHAR(36) NOT NULL,
   step_order   SMALLINT UNSIGNED NOT NULL,
-  node_id      VARCHAR(60) NOT NULL COMMENT 'โหนดที่ผู้ใช้อยู่ตอนส่ง action นี้',
+  state_id     VARCHAR(60) NOT NULL COMMENT 'สถานะที่ผู้ใช้อยู่ตอนส่ง action นี้',
   action_type  ENUM('answer','continue','confirm_safety','input') NOT NULL,
   action_value VARCHAR(255) NULL,
   created_at   TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,

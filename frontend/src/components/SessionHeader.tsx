@@ -1,10 +1,10 @@
-import type { GraphSummary } from '../api/types'
+import type { FlowSummary } from '../api/types'
 import { formatScore } from '../lib/textInput'
 import { symptomName } from '../lib/symptoms'
 import { Button } from './ui/Button'
 
 interface SessionHeaderProps {
-  summary: GraphSummary | undefined
+  summary: FlowSummary | undefined
   modelName?: string
   confidence: number | null | undefined
   canAbandon: boolean

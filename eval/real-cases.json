@@ -1,0 +1,1583 @@
+{
+  "meta": {
+    "created": "2026-11-01",
+    "purpose": "เคสจริงจากแหล่งสาธารณะที่ผู้ใช้รายงานว่าแก้ได้ ใช้เป็นชุดทดสอบ 'อาการจริง -> ระบบชี้สาเหตุ/แนะนำวิธีถูกไหม' (offline evaluation)",
+    "language_note": "query_th เขียนใหม่เป็นภาษาไทยสไตล์ผู้ใช้จากอาการที่แหล่งต้นทางรายงาน (ต้นทางส่วนใหญ่เป็นภาษาอังกฤษ) ไม่ใช่ข้อความต้นฉบับ",
+    "confirmation_scale": {
+      "high": "ผู้ใช้ที่เล่าเคสรายงานผลชัดเจนว่าหายหรือใช้งานได้ปกติ",
+      "medium": "ผลบางส่วน/ชั่วคราว หรือยืนยันโดยผู้ตอบ/ผู้ใช้อื่น หรือถ้อยคำยืนยันไม่ชัด"
+    },
+    "fix_categories": {
+      "user_serviceable": "ตรวจ/ทำความสะอาด/จัดตำแหน่ง โดยไม่ต้องเปิดตัวเครื่อง ระบบควรให้ขั้นตอนตามคู่มือพร้อมอ้างอิง",
+      "simple_part": "เปลี่ยนชิ้นส่วนเข้าถึงง่ายและไม่เกี่ยวกับไฟแรงสูง ระบบควรให้เฉพาะขั้นตอนที่คู่มืออนุญาต ถ้าเกินนั้นแนะนำศูนย์บริการ",
+      "disassembly_or_electrical": "ต้องเปิดตัวเครื่องหรือเกี่ยวกับไฟฟ้า ระบบควรเตือนความปลอดภัย แนะนำศูนย์บริการ และไม่สั่งให้ถอดเครื่อง (ให้ได้เฉพาะการตรวจเบื้องต้นที่คู่มืออนุญาต)",
+      "household_plumbing": "สาเหตุอยู่ที่ท่อน้ำของบ้าน ระบบควรให้ตรวจสายระบายน้ำ/ท่อตามคู่มือ และแนะนำช่างประปาถ้าไม่หาย",
+      "workaround_not_in_manual": "วิธีที่ผู้ใช้ทำไม่ใช่วิธีตามคู่มือ ระบบไม่ควรแนะนำวิธีลัดนี้ ควรอ้างอิงคู่มือหรือแนะนำศูนย์บริการ"
+    },
+    "cause_tags_seed": {
+      "door_switch_latch": {
+        "th": [
+          "สวิตช์ประตู",
+          "สวิตช์ล็อก",
+          "ล็อกประตู",
+          "ที่ล็อก"
+        ],
+        "en": [
+          "door switch",
+          "interlock",
+          "latch"
+        ]
+      },
+      "turntable_motor": {
+        "th": [
+          "มอเตอร์จานหมุน",
+          "มอเตอร์ถาดหมุน"
+        ],
+        "en": [
+          "turntable motor"
+        ]
+      },
+      "turntable_coupler": {
+        "th": [
+          "ตัวต่อแกน",
+          "แกนจานหมุน",
+          "ตัวหมุนจาน",
+          "ลูกล้อ",
+          "จานรอง"
+        ],
+        "en": [
+          "coupler",
+          "turntable support",
+          "roller ring"
+        ]
+      },
+      "thermal_fuse_thermostat": {
+        "th": [
+          "เทอร์มอลฟิวส์",
+          "เทอร์โมสตัท",
+          "ตัวตัดความร้อน"
+        ],
+        "en": [
+          "thermal fuse",
+          "thermostat",
+          "thermal cut"
+        ]
+      },
+      "blown_fuse": {
+        "th": [
+          "ฟิวส์"
+        ],
+        "en": [
+          "fuse"
+        ]
+      },
+      "lamp": {
+        "th": [
+          "หลอดไฟ"
+        ],
+        "en": [
+          "lamp",
+          "bulb"
+        ]
+      },
+      "filter_cap_misaligned": {
+        "th": [
+          "ฝากรอง",
+          "ฝาปิดไส้กรอง",
+          "ฝาปิดตัวกรอง",
+          "ปิดไม่สนิท"
+        ],
+        "en": [
+          "filter cap",
+          "filter cover"
+        ]
+      },
+      "foreign_object_drain_hose": {
+        "th": [
+          "สิ่งแปลกปลอม",
+          "สายระบายน้ำ",
+          "ท่อระบายน้ำ",
+          "อุดตัน"
+        ],
+        "en": [
+          "foreign object",
+          "drain hose",
+          "blocked"
+        ]
+      },
+      "household_drain_blockage": {
+        "th": [
+          "ท่อน้ำทิ้งของบ้าน",
+          "ท่อระบายน้ำบ้าน",
+          "ท่ออุดตัน",
+          "ท่อบ้าน",
+          "ท่อน้ำทิ้ง"
+        ],
+        "en": [
+          "standpipe",
+          "household drain",
+          "waste pipe"
+        ]
+      },
+      "drain_pump": {
+        "th": [
+          "ปั๊มน้ำทิ้ง",
+          "ปั๊มระบายน้ำ",
+          "ไส้กรองปั๊ม",
+          "ตัวกรองเศษ"
+        ],
+        "en": [
+          "drain pump",
+          "pump filter"
+        ]
+      },
+      "lid_switch": {
+        "th": [
+          "สวิตช์ฝา",
+          "สวิตช์ฝาปิด",
+          "ฝาเครื่อง",
+          "ล็อกฝา"
+        ],
+        "en": [
+          "lid switch",
+          "door lock"
+        ]
+      },
+      "suspension_strap": {
+        "th": [
+          "สายรัดลดแรงสั่น",
+          "ตัวรองรับแรงสั่น",
+          "สายพาน",
+          "โช้ค"
+        ],
+        "en": [
+          "suspension",
+          "dampening",
+          "belt"
+        ]
+      },
+      "start_relay": {
+        "th": [
+          "รีเลย์สตาร์ท",
+          "รีเลย์",
+          "คอมเพรสเซอร์",
+          "โอเวอร์โหลด",
+          "คาปาซิเตอร์"
+        ],
+        "en": [
+          "start relay",
+          "overload",
+          "compressor",
+          "capacitor"
+        ]
+      },
+      "evaporator_fan": {
+        "th": [
+          "พัดลมช่องแช่แข็ง",
+          "พัดลมระเหย",
+          "พัดลมคอยล์เย็น",
+          "มอเตอร์พัดลม",
+          "พัดลมในช่องฟรีซ"
+        ],
+        "en": [
+          "evaporator fan",
+          "fan motor"
+        ]
+      },
+      "defrost_system": {
+        "th": [
+          "ระบบละลายน้ำแข็ง",
+          "ไทเมอร์ละลายน้ำแข็ง",
+          "ดีฟรอสต์",
+          "ฮีตเตอร์ละลาย",
+          "เทอร์โมสตัทละลาย"
+        ],
+        "en": [
+          "defrost"
+        ]
+      },
+      "frost_buildup": {
+        "th": [
+          "น้ำแข็งเกาะ",
+          "น้ำแข็งสะสม",
+          "ละลายน้ำแข็ง"
+        ],
+        "en": [
+          "frost",
+          "ice buildup"
+        ]
+      },
+      "drain_pan_leak": {
+        "th": [
+          "ถาดรองน้ำ",
+          "ถาดน้ำทิ้ง",
+          "น้ำรั่วใต้ตู้"
+        ],
+        "en": [
+          "drain pan"
+        ]
+      },
+      "ice_maker": {
+        "th": [
+          "เครื่องทำน้ำแข็ง",
+          "ที่ทำน้ำแข็ง",
+          "เฟืองทำน้ำแข็ง"
+        ],
+        "en": [
+          "ice maker"
+        ]
+      },
+      "door_gasket": {
+        "th": [
+          "ยางขอบประตู",
+          "ขอบยาง",
+          "ซีลประตู"
+        ],
+        "en": [
+          "gasket",
+          "door seal"
+        ]
+      },
+      "cold_control_thermostat": {
+        "th": [
+          "เทอร์โมสตัท",
+          "ตัวควบคุมอุณหภูมิ",
+          "คอนโทรลความเย็น"
+        ],
+        "en": [
+          "cold control",
+          "temperature control",
+          "thermostat"
+        ]
+      },
+      "drum_baffle": {
+        "th": [
+          "แผ่นกวน",
+          "ครีบในถัง"
+        ],
+        "en": [
+          "baffle"
+        ]
+      },
+      "lid_hinge": {
+        "th": [
+          "บานพับฝา",
+          "บานพับ"
+        ],
+        "en": [
+          "hinge"
+        ]
+      },
+      "door_latch": {
+        "th": [
+          "สลักประตู",
+          "ที่ล็อกประตู",
+          "แผ่นรับสลัก",
+          "ปรับระดับเครื่อง",
+          "ตั้งระดับ"
+        ],
+        "en": [
+          "latch",
+          "strike plate",
+          "level"
+        ]
+      },
+      "clutch": {
+        "th": [
+          "คลัตช์",
+          "ชุดคลัตช์"
+        ],
+        "en": [
+          "clutch"
+        ]
+      },
+      "water_inlet_valve": {
+        "th": [
+          "วาล์วน้ำเข้า",
+          "วาล์วเติมน้ำ",
+          "ตะแกรงกรองวาล์ว"
+        ],
+        "en": [
+          "inlet valve",
+          "water valve"
+        ]
+      },
+      "drive_motor_coupling": {
+        "th": [
+          "มอเตอร์ขับ",
+          "ตัวต่อแกนมอเตอร์",
+          "มอเตอร์กวน"
+        ],
+        "en": [
+          "drive motor",
+          "coupling",
+          "stirrer"
+        ]
+      }
+    },
+    "alt_cause_tags_note": "บางเคสมีสาเหตุร่วมหลายอย่าง ใช้ alt_cause_tags: นับว่า cause_hit ถ้าตรง cause_tag หรือ alt_cause_tags ตัวใดตัวหนึ่ง"
+  },
+  "cases": [
+    {
+      "id": "MW01",
+      "device": "ไมโครเวฟ",
+      "brand_model": "GE JVM1540LM5CS",
+      "query_th": "ไมโครเวฟเปิดติด แต่ไม่ร้อน",
+      "confirmed_fix_th": "สวิตช์ประตูตัวหนึ่งหลวมเพราะตัวยึดบนแผ่น latch หัก เปลี่ยนแผ่น latch แล้วกลับมาใช้ได้ปกติ",
+      "cause_tag": "door_switch_latch",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้เล่าเองว่าหาย (รีวิว DIY ปี 2017)",
+      "source_url": "https://www.appliancepartspros.com/ge-board-latch-wb02x21661-ap5958489.html"
+    },
+    {
+      "id": "MW02",
+      "device": "ไมโครเวฟ",
+      "brand_model": "GE (ไม่ระบุรุ่น)",
+      "query_th": "ไมโครเวฟเปิดติดแต่ไม่ร้อน และจานไม่หมุน",
+      "confirmed_fix_th": "เปลี่ยนสวิตช์นิรภัยของประตูตัวล่าง",
+      "cause_tag": "door_switch_latch",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "medium",
+      "confirmation_note": "ผู้ใช้ระบุชิ้นส่วนที่เปลี่ยน แต่ข้อความที่ค้นได้ไม่เขียนผลชัด",
+      "source_url": "https://www.appliancepartspros.com/ge-board-latch-wb02x21661-ap5958489.html"
+    },
+    {
+      "id": "MW03",
+      "device": "ไมโครเวฟ",
+      "brand_model": "รหัสรุ่น LMH2235ST",
+      "query_th": "ไมโครเวฟไม่ทำงานเลย",
+      "confirmed_fix_th": "สวิตช์ตรวจจับประตูเสีย ผู้ใช้เปลี่ยนสวิตช์ตามคลิปซ่อมและระวังตัวเก็บประจุแรงดันสูง",
+      "cause_tag": "door_switch_latch",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "medium",
+      "confirmation_note": "ผู้ใช้เล่าเองในเว็บอะไหล่",
+      "source_url": "https://partselect.com/Models/LMH2235ST/Instructions"
+    },
+    {
+      "id": "MW04",
+      "device": "ไมโครเวฟ",
+      "brand_model": "รหัสรุ่น 62464",
+      "query_th": "ไมโครเวฟทำงานแต่ไม่เริ่มทำความร้อน",
+      "confirmed_fix_th": "สวิตช์ไมโครของประตูหัก ถอดปลั๊ก เปิดฝาครอบ แล้วเปลี่ยนสวิตช์",
+      "cause_tag": "door_switch_latch",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "medium",
+      "confirmation_note": "ขั้นตอนที่ผู้ใช้เขียน มีผู้อ่านโหวตว่ามีประโยชน์ 37 จาก 48 คน",
+      "source_url": "https://partselect.ca/Models/62464/Instructions"
+    },
+    {
+      "id": "MW05",
+      "device": "ไมโครเวฟ",
+      "brand_model": "Maytag (ตามหน้ารุ่น MMV1164WS1)",
+      "query_th": "จานหมุนของไมโครเวฟสะดุด มีเสียงคลิกและกระตุก",
+      "confirmed_fix_th": "เปลี่ยนมอเตอร์จานหมุน (ต้องลดแผงควบคุมด้านล่างลง) แล้วใช้งานได้เต็มที่",
+      "cause_tag": "turntable_motor",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้รีวิวรายงานว่าไมโครเวฟทำงานครบ",
+      "source_url": "https://www.partselect.com/Models/MMV1164WS1/Instructions/?start=4"
+    },
+    {
+      "id": "MW06",
+      "device": "ไมโครเวฟ",
+      "brand_model": "GE (ตามหน้ารุ่น JVM1540SN2SS)",
+      "query_th": "จานไมโครเวฟไม่หมุน",
+      "confirmed_fix_th": "เปลี่ยนตัวต่อแกน (coupler) แล้วไม่หาย จึงเปลี่ยนมอเตอร์จานหมุนจึงหาย",
+      "cause_tag": "turntable_motor",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานว่าหายหลังเปลี่ยนมอเตอร์",
+      "source_url": "https://www.partselect.com/Models/JVM1540SN2SS/Instructions/?start=5"
+    },
+    {
+      "id": "MW07",
+      "device": "ไมโครเวฟ",
+      "brand_model": "GE (ตามหน้ารุ่น JVM1540SN2SS)",
+      "query_th": "จานไมโครเวฟไม่หมุน เพราะตัวต่อแกนที่ก้นเตาแตก",
+      "confirmed_fix_th": "ใส่ตัวต่อแกน (coupler) อันใหม่โดยให้ร่องตรงตำแหน่ง จานกลับมาหมุน",
+      "cause_tag": "turntable_coupler",
+      "fix_category": "simple_part",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานว่าใช้ได้",
+      "source_url": "https://www.partselect.com/Models/JVM1540SN2SS/Instructions/?start=5"
+    },
+    {
+      "id": "MW08",
+      "device": "ไมโครเวฟ",
+      "brand_model": "GE (ตามหน้ารุ่น JVM1540SN2SS)",
+      "query_th": "ไมโครเวฟดับสนิทหลังมีอาหารไหม้อยู่ข้างใน",
+      "confirmed_fix_th": "เปลี่ยนเทอร์โมสตัทตัดความร้อน (one-shot thermostat) แล้วกลับมาทำงาน",
+      "cause_tag": "thermal_fuse_thermostat",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานว่าหาย",
+      "source_url": "https://www.partselect.com/Models/JVM1540SN2SS/Instructions/?start=5"
+    },
+    {
+      "id": "MW09",
+      "device": "ไมโครเวฟ",
+      "brand_model": "GE (ตามหน้ารุ่น JVM1540SN2SS)",
+      "query_th": "ไมโครเวฟไม่มีไฟเลย ทั้งที่เต้ารับมีไฟ",
+      "confirmed_fix_th": "ฟิวส์ด้านหลังแผงหน้าขาด เปลี่ยนฟิวส์",
+      "cause_tag": "blown_fuse",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานว่าหาย",
+      "source_url": "https://www.partselect.com/Models/JVM1540SN2SS/Instructions/?start=5"
+    },
+    {
+      "id": "MW10",
+      "device": "ไมโครเวฟ",
+      "brand_model": "GE (ตามหน้ารุ่น JVM1540SN2SS)",
+      "query_th": "ไมโครเวฟไม่ทำงาน และจานหมุนย้อนกลับเมื่อเปิดประตู",
+      "confirmed_fix_th": "สวิตช์ล็อกประตูไหม้ ถอดแผ่นโลหะและชุดสวิตช์แล้วเปลี่ยน (ต้องสั่งสวิตช์ชนิด NO/NC ให้ตรง)",
+      "cause_tag": "door_switch_latch",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานว่าหาย",
+      "source_url": "https://www.partselect.com/Models/JVM1540SN2SS/Instructions/?start=5"
+    },
+    {
+      "id": "MW11",
+      "device": "ไมโครเวฟ",
+      "brand_model": "GE (ตามหน้ารุ่น JVM1540SN2SS)",
+      "query_th": "ไฟในไมโครเวฟไม่ติด",
+      "confirmed_fix_th": "ถอดสกรูแผงด้านล่าง เปลี่ยนขั้วหลอด (ระวังหลอดหักที่ฐาน)",
+      "cause_tag": "lamp",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานว่าหาย",
+      "source_url": "https://www.partselect.com/Models/JVM1540SN2SS/Instructions/?start=5"
+    },
+    {
+      "id": "WM01",
+      "device": "เครื่องซักผ้า",
+      "brand_model": "Samsung WF45K6500AV/A2",
+      "query_th": "เครื่องซักผ้าฝาหน้ามีน้ำรั่วรอบฝาปิดไส้กรองปั๊มน้ำทิ้งระหว่างซัก",
+      "confirmed_fix_th": "ใส่ฝากรองให้ร่องบากด้านล่างตรงกับเดือยในช่อง ไม่ต้องขันแน่นเกินไป น้ำก็หยุดรั่ว",
+      "cause_tag": "filter_cap_misaligned",
+      "fix_category": "user_serviceable",
+      "confirmation": "medium",
+      "confirmation_note": "กระทู้ติดป้าย SOLVED มีผู้ใช้อื่น 2 คนยืนยัน แต่เจ้าของกระทู้ไม่ได้ตอบผล และบางคนบอกว่ายังรั่ว",
+      "source_url": "https://www.ifixit.com/Answers/View/492986/washing+machine+leaking+water+from+coin+trap"
+    },
+    {
+      "id": "WM02",
+      "device": "เครื่องซักผ้า",
+      "brand_model": "LG WM2016CW",
+      "query_th": "เครื่องซักผ้า LG ขึ้น OE เป็นระยะ ล้างไส้กรองแล้วก็ไม่หาย",
+      "confirmed_fix_th": "พบสร้อยโซ่เล็กติดในท่อระบายน้ำที่ขอบยางประตู ถอดแผงหน้าแล้วดึงออก หลังจากนั้นไม่ขึ้น OE อีก",
+      "cause_tag": "foreign_object_drain_hose",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "medium",
+      "confirmation_note": "ผู้ตอบรายงานผลเอง เจ้าของกระทู้ไม่ได้ตอบ",
+      "source_url": "https://www.ifixit.com/Answers/View/836811/LG+wm2016cw+Front+Load+giving+OE+error+code"
+    },
+    {
+      "id": "WM03",
+      "device": "เครื่องซักผ้า",
+      "brand_model": "LG F12B8QDA 7kg",
+      "query_th": "เครื่องซักผ้า LG ขึ้น OE หลังซักไปห้าหกรอบ ล้างไส้กรองและเช็กสายแล้วก็ยังเป็นตอนปั่น",
+      "confirmed_fix_th": "ช่างประปาพบท่อน้ำทิ้งของบ้าน (u-bend ใต้ซิงก์) อุดตันที่ผู้ติดตั้งมองข้าม ล้างและเปลี่ยน u-bend แล้วเครื่องใช้ได้ปกติ",
+      "cause_tag": "household_drain_blockage",
+      "fix_category": "household_plumbing",
+      "confirmation": "high",
+      "confirmation_note": "เจ้าของกระทู้ยืนยันว่าเครื่องใช้ได้ปกติ",
+      "source_url": "https://forum.whitegoodshelp.co.uk/questions/1338/oe-error-code-for-my-new-lg-f12b8qda-7kg-washing-machine-1836"
+    },
+    {
+      "id": "WM04",
+      "device": "เครื่องซักผ้า",
+      "brand_model": "GE (ไม่ระบุรุ่น)",
+      "query_th": "เครื่องซักผ้าไม่ระบายน้ำ ไม่เข้าสู่การปั่นแห้ง ผ้าเปียกแฉะอยู่ในถัง",
+      "confirmed_fix_th": "ใช้เครื่องดูดน้ำออก แล้วเปลี่ยนปั๊มน้ำทิ้งเพราะเพลาใบพัดของปั๊มเดิมหัก เครื่องกลับมาใช้ได้",
+      "cause_tag": "drain_pump",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้เขียนว่าเครื่องกลับมาเหมือนใหม่",
+      "source_url": "https://www.appliancepartspros.com/diy-story-washer-wouldn-t-drain-diy13332027.html"
+    },
+    {
+      "id": "WM05",
+      "device": "เครื่องซักผ้า",
+      "brand_model": "Kenmore 79641072310",
+      "query_th": "เครื่องซักผ้าไม่ระบายน้ำ",
+      "confirmed_fix_th": "ปั๊มน้ำทิ้งเสีย และสวิตช์ตรวจตำแหน่งโรเตอร์เสียตามไปด้วย เปลี่ยนทั้งสองอย่างแล้วเครื่องทำงานดี",
+      "cause_tag": "drain_pump",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานว่าเครื่องทำงานดี",
+      "source_url": "https://www.appliancepartspros.com/diy-story-washer-drain-diy4929224.html"
+    },
+    {
+      "id": "WM06",
+      "device": "เครื่องซักผ้า",
+      "brand_model": "Samsung WF448AAP/XAA-0000",
+      "query_th": "เครื่องซักผ้า Samsung ไม่ระบายน้ำ ใช้น้ำบ่อมาประมาณ 15 ปี",
+      "confirmed_fix_th": "ปั๊มน้ำทิ้งอุดตันด้วยทรายและตะกรันจากน้ำกระด้าง เปลี่ยนปั๊มใหม่แล้วเครื่องทำงานปกติ",
+      "cause_tag": "drain_pump",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานว่าเครื่องทำงานปกติหลังประกอบ",
+      "source_url": "https://www.appliancepartspros.com/diy-story-samsung-washing-machine-wasn-t-draining-diy6441670.html"
+    },
+    {
+      "id": "WM07",
+      "device": "เครื่องซักผ้า",
+      "brand_model": "Samsung WF220ANW/XAA-01",
+      "query_th": "เครื่องซักผ้าไม่ระบายน้ำเป็นๆ หายๆ และมีเสียงแปลกตอนระบายไม่ออก",
+      "confirmed_fix_th": "ล้างตัวกรองและรูระบายแล้วไม่หาย จึงวัดไฟที่ปั๊มได้ราว 123V แล้วเปลี่ยนปั๊มน้ำทิ้ง พร้อมทำความสะอาดบริเวณวาล์วระบาย",
+      "cause_tag": "drain_pump",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "medium",
+      "confirmation_note": "ผู้ใช้เขียนทำนองว่าตอนนี้ดูเหมือนใช้ได้ดี",
+      "source_url": "https://www.appliancepartspros.com/diy-story-samsung-washer-drain-diy6086139.html"
+    },
+    {
+      "id": "WM08",
+      "device": "เครื่องซักผ้า",
+      "brand_model": "Samsung (ไม่ระบุรุ่น)",
+      "query_th": "เครื่องซักผ้า Samsung ไม่ยอมระบายน้ำ",
+      "confirmed_fix_th": "เปลี่ยนปั๊มน้ำทิ้ง ปัญหาหาย",
+      "cause_tag": "drain_pump",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานว่าหาย",
+      "source_url": "https://www.appliancepartspros.com/diy-story-washer-wasnt-draining-diy1406695.html"
+    },
+    {
+      "id": "WM09",
+      "device": "เครื่องซักผ้า",
+      "brand_model": "Maytag A506 (ฝาบน)",
+      "query_th": "เครื่องซักผ้าฝาบนไม่ระบายน้ำ",
+      "confirmed_fix_th": "เปลี่ยนสายพานที่หย่อนแล้วไม่หาย จึงเปลี่ยนปั๊มน้ำทิ้ง แล้วระบายน้ำได้ปกติ",
+      "cause_tag": "drain_pump",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานว่าหายหลังเปลี่ยนปั๊ม",
+      "source_url": "https://www.appliancepartspros.com/diy-story-washer-drain-diy6278831.html"
+    },
+    {
+      "id": "WM10",
+      "device": "เครื่องซักผ้า",
+      "brand_model": "ไม่ระบุยี่ห้อ (ตามหน้ารุ่น LAT5006AGE)",
+      "query_th": "เครื่องซักผ้าหยุดกลางรอบ ต้องเปิดปิดฝาถึงจะเดินต่อ",
+      "confirmed_fix_th": "สวิตช์ฝาปิดไม่ต่อวงจร เปลี่ยนสวิตช์ฝา",
+      "cause_tag": "lid_switch",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานว่าหาย",
+      "source_url": "https://partselect.com/Models/LAT5006AGE/Instructions/?start=4"
+    },
+    {
+      "id": "WM11",
+      "device": "เครื่องซักผ้า",
+      "brand_model": "ไม่ระบุยี่ห้อ (ตามหน้ารุ่น LAT5006AGE)",
+      "query_th": "เครื่องซักผ้าเติมน้ำเสร็จแต่ไม่เริ่มซัก",
+      "confirmed_fix_th": "เปลี่ยนสวิตช์ฝา และขยับชุดให้แตะหน้าสัมผัสตัวที่สอง จึงทำงาน",
+      "cause_tag": "lid_switch",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานว่าหายเมื่อวางตำแหน่งถูก",
+      "source_url": "https://partselect.com/Models/LAT5006AGE/Instructions/?start=4"
+    },
+    {
+      "id": "WM12",
+      "device": "เครื่องซักผ้า",
+      "brand_model": "ไม่ระบุยี่ห้อ (ตามหน้ารุ่น LAT5006AGE)",
+      "query_th": "เครื่องซักผ้าปิดฝาแล้วไม่เติมน้ำ เครื่องไม่ตอบสนอง",
+      "confirmed_fix_th": "ถอดปลั๊ก ถอดชุดสวิตช์ฝาออกแล้วใส่กลับให้แน่น (ไม่ได้เปลี่ยนชิ้นส่วน) เครื่องกลับมาทำงาน",
+      "cause_tag": "lid_switch",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานว่าเครื่องทำงาน",
+      "source_url": "https://partselect.com/Models/LAT5006AGE/Instructions/?start=4"
+    },
+    {
+      "id": "WM13",
+      "device": "เครื่องซักผ้า",
+      "brand_model": "ไม่ระบุยี่ห้อ (ตามหน้ารุ่น LAT5006AGE)",
+      "query_th": "เครื่องซักผ้าไม่เริ่มทำงาน แต่ปุ่มเติมน้ำด้วยมือยังใช้ได้",
+      "confirmed_fix_th": "พบฟิวส์ในชุดสวิตช์ฝาขาด เปลี่ยนชุดสวิตช์ฝา",
+      "cause_tag": "lid_switch",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานว่าหาย",
+      "source_url": "https://partselect.com/Models/LAT5006AGE/Instructions/?start=4"
+    },
+    {
+      "id": "WM14",
+      "device": "เครื่องซักผ้า",
+      "brand_model": "ไม่ระบุยี่ห้อ (ตามหน้ารุ่น WPRE8150H0WT)",
+      "query_th": "เครื่องซักผ้าระบายน้ำไม่หมดหลังล้างครั้งสุดท้าย และมีกลิ่นเหมือนสายพานไหม้",
+      "confirmed_fix_th": "เปลี่ยนสายรัดลดแรงสั่น (dampening straps) ตามที่ผู้ซื้อรายอื่นแนะนำ เครื่องทำงานปกติ",
+      "cause_tag": "suspension_strap",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานว่าทำงานสมบูรณ์หลังเปลี่ยน",
+      "source_url": "https://partselect.com/Models/WPRE8150H0WT/Instructions/?start=9"
+    },
+    {
+      "id": "WM15",
+      "device": "เครื่องซักผ้า",
+      "brand_model": "ไม่ระบุยี่ห้อ (ตามหน้ารุ่น WPRE8150H0WT)",
+      "query_th": "เครื่องซักผ้าระบายน้ำติดๆ ขัดๆ บางรอบไม่ออก",
+      "confirmed_fix_th": "ปั๊มติดขัดเป็นช่วงๆ เปลี่ยนปั๊มใช้เวลาราวสิบนาที เครื่องกลับมาใช้ได้ดี",
+      "cause_tag": "drain_pump",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานว่าใช้ได้ดี",
+      "source_url": "https://partselect.com/Models/WPRE8150H0WT/Instructions/?start=9"
+    },
+    {
+      "id": "RF01",
+      "device": "ตู้เย็น",
+      "brand_model": "Whirlpool ET22RKXGW01",
+      "query_th": "ตู้เย็นไม่เย็น คอมเพรสเซอร์ฮัมและร้อน แต่ไม่ติดเดินเครื่อง",
+      "confirmed_fix_th": "เปลี่ยนชุดรีเลย์สตาร์ทและโอเวอร์โหลด ทำความสะอาดบริเวณคอมเพรสเซอร์ พัดลม และคอยล์ร้อน คอมเพรสเซอร์ติดเดินปกติ ช่องแช่แข็ง 6°F ช่องธรรมดา 44°F ภายในหนึ่งชั่วโมง และใช้ได้ดีหลังผ่านไป 5 วัน",
+      "cause_tag": "start_relay",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานตัวเลขอุณหภูมิและผลหลัง 5 วัน",
+      "source_url": "https://www.appliancepartspros.com/diy-story-refrigerator-cooling-diy2094741.html"
+    },
+    {
+      "id": "RF02",
+      "device": "ตู้เย็น",
+      "brand_model": "Frigidaire (ไม่ระบุรุ่น)",
+      "query_th": "ตู้เย็นแทบไม่เย็น ของในช่องแช่แข็งละลาย พัดลมด้านหลังไม่หมุน คอมเพรสเซอร์ติดแล้วดับเป็นรอบ",
+      "confirmed_fix_th": "ทำความสะอาดพัดลมและคอยล์ร้อน พัดลมกลับมาหมุนแต่ยังไม่เย็น วัดแล้วคอมเพรสเซอร์ปกติ จึงเปลี่ยนรีเลย์สตาร์ทและโอเวอร์โหลด คอมเพรสเซอร์เดินปกติ",
+      "cause_tag": "start_relay",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานว่าคอมเพรสเซอร์เดินปกติหลังเปลี่ยน",
+      "source_url": "https://www.appliancepartspros.com/diy-story-compressor-running-diy415906.html"
+    },
+    {
+      "id": "RF03",
+      "device": "ตู้เย็น",
+      "brand_model": "Maytag M1TXEMMWQ04",
+      "query_th": "ตู้เย็นช่องธรรมดาอุ่น แต่ช่องแช่แข็งยังเย็นจัด",
+      "confirmed_fix_th": "ทดสอบแล้วชี้ไปที่มอเตอร์พัดลมระเหย (evaporator fan) เปลี่ยนมอเตอร์ ตู้เย็นกลับมาเย็นปกติ",
+      "cause_tag": "evaporator_fan",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานว่าเย็นปกติ",
+      "source_url": "https://www.appliancepartspros.com/diy-story-fridge-lukewarm-freezer-ice-cold-diy4910414.html"
+    },
+    {
+      "id": "RF04",
+      "device": "ตู้เย็น",
+      "brand_model": "ไม่ระบุยี่ห้อ (ใช้ชุดมอเตอร์ GE)",
+      "query_th": "ตู้เย็นไม่เย็นและไม่แข็ง",
+      "confirmed_fix_th": "เปลี่ยนมอเตอร์พัดลมระเหย ซึ่งทำหน้าที่ดันลมเย็นจากคอยล์ไปทั่วตู้ ส่วนประกอบหลักอื่นยังดี ปัญหาหาย",
+      "cause_tag": "evaporator_fan",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานว่าแก้ได้และไม่ต้องซื้อตู้ใหม่",
+      "source_url": "https://www.appliancepartspros.com/diy-story-refrigerator-cool-freeze-diy1232838.html"
+    },
+    {
+      "id": "RF05",
+      "device": "ตู้เย็น",
+      "brand_model": "Whirlpool WRT1L1W01 (ตามที่ผู้ใช้ระบุ)",
+      "query_th": "ตู้เย็นไม่ค่อยเย็น",
+      "confirmed_fix_th": "กำจัดน้ำแข็งที่เกาะ และเปลี่ยนมอเตอร์พัดลมระเหย ตู้เย็นกลับมาเย็นดี",
+      "cause_tag": "evaporator_fan",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานว่าเย็นดีอีกครั้ง",
+      "source_url": "https://www.appliancepartspros.com/diy-stories-for-whirlpool-blade-fan-evaporator-wp2163777-ap6005892.html"
+    },
+    {
+      "id": "RF06",
+      "device": "ตู้เย็น",
+      "brand_model": "Maytag MRT311FFFE00",
+      "query_th": "ตู้เย็นมีน้ำแข็งเกาะ และช่องแช่แข็งไม่เย็นพอ",
+      "confirmed_fix_th": "เปลี่ยนมอเตอร์และใบพัดพัดลมระเหยหลังช่องแช่แข็ง ตู้เย็นทำงานดี",
+      "cause_tag": "evaporator_fan",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานว่าทำงานดี",
+      "source_url": "https://www.appliancepartspros.com/diy-stories-for-whirlpool-blade-fan-evaporator-wp2163777-ap6005892.html"
+    },
+    {
+      "id": "RF07",
+      "device": "ตู้เย็น",
+      "brand_model": "Whirlpool GAFZ21XXRK00",
+      "query_th": "ตู้เย็นมีเสียงดังมากจากพัดลมด้านหลังช่องแช่แข็ง",
+      "confirmed_fix_th": "เปลี่ยนมอเตอร์และใบพัดพัดลมระเหย เสียงดังหายไป",
+      "cause_tag": "evaporator_fan",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานว่าเสียงหาย",
+      "source_url": "https://www.appliancepartspros.com/diy-stories-for-whirlpool-blade-fan-evaporator-wp2163777-ap6005892.html"
+    },
+    {
+      "id": "RF08",
+      "device": "ตู้เย็น",
+      "brand_model": "Whirlpool WRF990SLAM00",
+      "query_th": "ตู้เย็นช่องแช่แข็งเย็นแต่ช่องธรรมดาอุ่น",
+      "confirmed_fix_th": "พัดลมระเหยหยุดและน้ำแข็งกั้นทางลม เปลี่ยนตัวควบคุมแดมเปอร์และพัดลม ตู้เย็นกลับมาเย็น",
+      "cause_tag": "evaporator_fan",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานว่าเสร็จเร็วเมื่อวินิจฉัยได้",
+      "source_url": "https://www.appliancepartspros.com/diy-stories-for-whirlpool-motor-evap-w10633627-ap5781863.html"
+    },
+    {
+      "id": "RF09",
+      "device": "ตู้เย็น",
+      "brand_model": "ไม่ระบุยี่ห้อ (ตามหน้ารุ่น FRT22RGCB8)",
+      "query_th": "ช่องแช่แข็งแข็งโป๊ก แต่ช่องธรรมดาประมาณ 60°F ลมระหว่างสองช่องแทบไม่ไหล",
+      "confirmed_fix_th": "เปลี่ยนไทเมอร์ละลายน้ำแข็ง (อยู่หลังแผงเตี้ยด้านล่างหน้า) ช่องธรรมดาลดเหลือ 32-34°F และลมกลับมาไหล",
+      "cause_tag": "defrost_system",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานอุณหภูมิหลังซ่อม",
+      "source_url": "https://www.partselect.com/Models/FRT22RGCB8/Instructions/"
+    },
+    {
+      "id": "RF10",
+      "device": "ตู้เย็น",
+      "brand_model": "ไม่ระบุยี่ห้อ (ตามหน้ารุ่น FRT22RGCB8)",
+      "query_th": "คอมเพรสเซอร์เดินตลอด ช่องธรรมดาอุ่น มีน้ำแข็งอุดคอยล์",
+      "confirmed_fix_th": "ใช้ไดร์เป่าผมละลายน้ำแข็ง แล้วเปลี่ยนไทเมอร์และเทอร์โมสตัทละลายน้ำแข็ง (ต้องหมุนไทเมอร์เล็กน้อยให้เริ่มรอบละลาย) ไอศกรีมไม่ละลายอีก",
+      "cause_tag": "defrost_system",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานว่าใช้ได้หลังหมุนไทเมอร์ให้เริ่มทำงาน",
+      "source_url": "https://www.partselect.com/Models/FRT22RGCB8/Instructions/"
+    },
+    {
+      "id": "RF11",
+      "device": "ตู้เย็น",
+      "brand_model": "ไม่ระบุยี่ห้อ (ตามหน้ารุ่น FRT22RGCB8)",
+      "query_th": "ช่องแช่แข็งมีน้ำแข็งเกาะหนามาก และช่องธรรมดาไม่เย็น",
+      "confirmed_fix_th": "ถอดฝาหลังช่องแช่แข็งแล้วเปลี่ยนพัดลมระเหย ตู้เย็นทำงานปกติ",
+      "cause_tag": "evaporator_fan",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานว่าตู้เย็นทำงานเหมือนเดิม",
+      "source_url": "https://www.partselect.com/Models/FRT22RGCB8/Instructions/"
+    },
+    {
+      "id": "RF12",
+      "device": "ตู้เย็น",
+      "brand_model": "ไม่ระบุยี่ห้อ (ตามหน้ารุ่น FRT21RRJD1)",
+      "query_th": "ตู้เย็นช่องธรรมดาอุ่น ช่องแช่แข็งเย็นและเดินเครื่องตลอด มีน้ำแข็งเกาะ",
+      "confirmed_fix_th": "ตัดสาเหตุตัวควบคุมอุณหภูมิและไทเมอร์ออกก่อน แล้วเปลี่ยนเทอร์โมสตัทละลายน้ำแข็ง ตู้เย็นทำงานสมบูรณ์",
+      "cause_tag": "defrost_system",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานว่าทำงานสมบูรณ์",
+      "source_url": "https://partselect.com/Models/FRT21RRJD1/Instructions/?start=7"
+    },
+    {
+      "id": "RF13",
+      "device": "ตู้เย็น",
+      "brand_model": "GE (ตามหน้ารุ่น GTG25DBSARWW)",
+      "query_th": "ตู้เย็นอุ่นเกินไป มีน้ำแข็งเกาะที่คอยล์ช่องแช่แข็ง ละลายแล้วกลับมาเป็นอีก",
+      "confirmed_fix_th": "ละลายน้ำแข็งช่วยได้ชั่วคราวเท่านั้น เปลี่ยนเทอร์โมสตัทละลายน้ำแข็งแล้วหาย",
+      "cause_tag": "defrost_system",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานว่าแก้ได้",
+      "source_url": "https://partselect.com/Models/GTG25DBSARWW/Instructions/?start=7"
+    },
+    {
+      "id": "RF14",
+      "device": "ตู้เย็น",
+      "brand_model": "Samsung RF28HMEDBSR",
+      "query_th": "ตู้เย็นมีเสียงคลิก/แกรกจากพัดลมในช่องธรรมดา เสียงหายเมื่อเปิดประตูและกลับมาเมื่อปิด",
+      "confirmed_fix_th": "น้ำแข็งที่เกาะบนคอยล์ไปชนใบพัด ผู้เขียนใช้ไดร์เป่าผมละลายน้ำแข็งชั่วคราว (ได้ผลไม่กี่วัน) และแก้ถาวรโดยย้ายตำแหน่งเซนเซอร์ละลายน้ำแข็ง รายงานว่าไม่กลับมาอีกเกือบสามปี",
+      "cause_tag": "frost_buildup",
+      "fix_category": "workaround_not_in_manual",
+      "confirmation": "medium",
+      "confirmation_note": "บล็อกส่วนตัว ผลถาวรเป็นของผู้เขียนคนเดียว ผู้อ่านบางคนรายงานว่ากลับมาเป็นอีก",
+      "source_url": "https://blog.lincomatic.com/samsung-refrigerator-noisy-fan-quick-fix/"
+    },
+    {
+      "id": "RF15",
+      "device": "ตู้เย็น",
+      "brand_model": "ไม่ระบุยี่ห้อ (ตามหน้ารุ่น 95-1999-66-01)",
+      "query_th": "ช่องแช่แข็งมีน้ำหยด ของในช่องแช่แข็งละลาย แต่คอมเพรสเซอร์ยังเดิน",
+      "confirmed_fix_th": "เปลี่ยนเทอร์โมสตัทละลายน้ำแข็ง แล้วเปลี่ยนฮีตเตอร์ละลายน้ำแข็งที่วัดแล้วขาดวงจรสนิท ทั้งสองช่องกลับมารักษาอุณหภูมิได้",
+      "cause_tag": "defrost_system",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานผลว่าหาย/ใช้ได้",
+      "source_url": "https://partselect.com/Models/95-1999-66-01/Instructions/?start=8"
+    },
+    {
+      "id": "RF16",
+      "device": "ตู้เย็น",
+      "brand_model": "ไม่ระบุยี่ห้อ (ตามหน้ารุ่น 95-1999-66-01)",
+      "query_th": "ตู้เย็นมีน้ำรั่วจากถาดรองน้ำใต้ตู้",
+      "confirmed_fix_th": "เปลี่ยนถาดรองน้ำใหม่ (ต้องตัดแต่งบุชชิ่งกลางถาดเดิมที่ยึดกับคอมเพรสเซอร์) ผู้ใช้ยืนยันอีกสองวันต่อมาว่าไม่รั่ว",
+      "cause_tag": "drain_pan_leak",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานผลว่าหาย/ใช้ได้",
+      "source_url": "https://partselect.com/Models/95-1999-66-01/Instructions/?start=8"
+    },
+    {
+      "id": "RF17",
+      "device": "ตู้เย็น",
+      "brand_model": "ไม่ระบุยี่ห้อ (ตามหน้ารุ่น 95-1999-66-01)",
+      "query_th": "ตู้เย็นไม่เข้ารอบละลายน้ำแข็งเอง",
+      "confirmed_fix_th": "เปลี่ยนไทเมอร์ละลายน้ำแข็ง ผู้ใช้เขียนว่าใช้ได้ปกติ",
+      "cause_tag": "defrost_system",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานผลว่าหาย/ใช้ได้",
+      "source_url": "https://partselect.com/Models/95-1999-66-01/Instructions/?start=8"
+    },
+    {
+      "id": "RF18",
+      "device": "ตู้เย็น",
+      "brand_model": "ไม่ระบุยี่ห้อ (ตามหน้ารุ่น 95-1999-66-01)",
+      "query_th": "เครื่องทำน้ำแข็งในตู้เย็นมีเฟืองไม่ขบกัน เฟืองหลุดออกมา",
+      "confirmed_fix_th": "เปลี่ยนเฟืองที่สึก น้ำแข็งออกได้ดีหลังเปลี่ยน",
+      "cause_tag": "ice_maker",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานผลว่าหาย/ใช้ได้",
+      "source_url": "https://partselect.com/Models/95-1999-66-01/Instructions/?start=8"
+    },
+    {
+      "id": "RF19",
+      "device": "ตู้เย็น",
+      "brand_model": "ไม่ระบุยี่ห้อ (ตามหน้ารุ่น 25331434101)",
+      "query_th": "ตู้เย็นและช่องแช่แข็งอุ่นทั้งคู่",
+      "confirmed_fix_th": "เปลี่ยนเทอร์โมสตัทละลายน้ำแข็ง หลัง 24 ชั่วโมงทั้งสองช่องเย็นขึ้นมาก",
+      "cause_tag": "defrost_system",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานผลว่าหาย/ใช้ได้",
+      "source_url": "https://partselect.com/Models/25331434101/Instructions/?start=5"
+    },
+    {
+      "id": "RF20",
+      "device": "ตู้เย็น",
+      "brand_model": "Kenmore (ตามหน้ารุ่น 25336618890)",
+      "query_th": "ตู้เย็นและช่องแช่แข็งไม่เย็น",
+      "confirmed_fix_th": "เปลี่ยนเทอร์โมสตัทละลายน้ำแข็ง ผู้ใช้บอกว่าใช้ได้สมบูรณ์",
+      "cause_tag": "defrost_system",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานผลว่าหาย/ใช้ได้",
+      "source_url": "https://partselect.ca/Models/25336618890/Instructions/?start=9"
+    },
+    {
+      "id": "RF21",
+      "device": "ตู้เย็น",
+      "brand_model": "Kenmore (ตามหน้ารุ่น 25336618890)",
+      "query_th": "ตู้เย็นมีน้ำแข็งเกาะหนาและเครื่องเดินไม่หยุด",
+      "confirmed_fix_th": "เปลี่ยนไทเมอร์ละลายน้ำแข็งแล้วไม่หาย จึงทดสอบและเปลี่ยนเทอร์โมสตัทละลายน้ำแข็ง ผู้ใช้เขียนว่าแก้ปัญหาได้",
+      "cause_tag": "defrost_system",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานผลว่าหาย/ใช้ได้",
+      "source_url": "https://partselect.ca/Models/25336618890/Instructions/?start=9"
+    },
+    {
+      "id": "RF22",
+      "device": "ตู้เย็น",
+      "brand_model": "Kenmore (ตามหน้ารุ่น 25336618890)",
+      "query_th": "ช่องแช่แข็งไม่แข็งหลังใช้มาสิบปี",
+      "confirmed_fix_th": "เปลี่ยนคาปาซิเตอร์ ช่องแช่แข็งกลับมาทำงานดี",
+      "cause_tag": "start_relay",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานผลว่าหาย/ใช้ได้",
+      "source_url": "https://partselect.ca/Models/25336618890/Instructions/?start=9"
+    },
+    {
+      "id": "RF23",
+      "device": "ตู้เย็น",
+      "brand_model": "Kenmore (ตามหน้ารุ่น 25336618890)",
+      "query_th": "ช่องแช่แข็งไม่แข็ง",
+      "confirmed_fix_th": "เปลี่ยนมอเตอร์พัดลม พัดลมกลับมาหมุนปกติ (รุ่นเก่าอาจต้องยึดขายึดมอเตอร์ใหม่)",
+      "cause_tag": "evaporator_fan",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานผลว่าหาย/ใช้ได้",
+      "source_url": "https://partselect.ca/Models/25336618890/Instructions/?start=9"
+    },
+    {
+      "id": "RF24",
+      "device": "ตู้เย็น",
+      "brand_model": "Frigidaire (ไม่ระบุรุ่น)",
+      "query_th": "ตู้เย็นอุ่น คอยล์ในช่องแช่แข็งเป็นน้ำแข็งก้อนแข็ง และเมื่อละลายแล้วพัดลมมีเสียงดัง",
+      "confirmed_fix_th": "เปลี่ยนไทเมอร์ละลายน้ำแข็ง ละลายน้ำแข็งด้วยไดร์เป่าผม และเปลี่ยนมอเตอร์พัดลมระเหยโดยต่อสายเข้ากับชุดสายเดิม ตู้เย็นใช้ได้",
+      "cause_tag": "defrost_system",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานผลว่าหาย/ใช้ได้",
+      "source_url": "https://partselect.com/Models/2539363012/Instructions/?start=9",
+      "alt_cause_tags": [
+        "evaporator_fan",
+        "frost_buildup"
+      ]
+    },
+    {
+      "id": "RF25",
+      "device": "ตู้เย็น",
+      "brand_model": "ไม่ระบุยี่ห้อ (ตามหน้ารุ่น 2539363012)",
+      "query_th": "คอยล์ช่องแช่แข็งเป็นน้ำแข็งเป็นพักๆ ไทเมอร์หยุดกลางรอบ",
+      "confirmed_fix_th": "ยืนยันว่าฮีตเตอร์ยังดีแล้วเปลี่ยนไทเมอร์และเทอร์โมสตัทละลายน้ำแข็ง ผู้ใช้รายงานว่าหาย",
+      "cause_tag": "defrost_system",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานผลว่าหาย/ใช้ได้",
+      "source_url": "https://partselect.com/Models/2539363012/Instructions/?start=9"
+    },
+    {
+      "id": "RF26",
+      "device": "ตู้เย็น",
+      "brand_model": "ไม่ระบุยี่ห้อ (ตามหน้ารุ่น 2539363012)",
+      "query_th": "คอมเพรสเซอร์ไม่สตาร์ท",
+      "confirmed_fix_th": "เปลี่ยนสตาร์ทแคป (start capacitor) ผู้ใช้รายงานว่าหาย",
+      "cause_tag": "start_relay",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานผลว่าหาย/ใช้ได้",
+      "source_url": "https://partselect.com/Models/2539363012/Instructions/?start=9"
+    },
+    {
+      "id": "RF27",
+      "device": "ตู้เย็น",
+      "brand_model": "ไม่ระบุยี่ห้อ (ตามหน้ารุ่น 2539363012)",
+      "query_th": "ช่องแช่แข็งมีน้ำแข็งเกาะจนลมไปช่องธรรมดาไม่ได้ ช่องธรรมดาอุ่นถึงราว 55°F",
+      "confirmed_fix_th": "ทดสอบเทอร์โมสตัทและฮีตเตอร์ด้วยการวัดความต่อเนื่อง แล้วเปลี่ยนไทเมอร์ละลายน้ำแข็ง ผู้ใช้รายงานว่าหาย",
+      "cause_tag": "defrost_system",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานผลว่าหาย/ใช้ได้",
+      "source_url": "https://partselect.com/Models/2539363012/Instructions/?start=9"
+    },
+    {
+      "id": "RF28",
+      "device": "ตู้เย็น",
+      "brand_model": "ไม่ระบุยี่ห้อ (ตามหน้ารุ่น FPZ19VFW1)",
+      "query_th": "พัดลมในช่องแช่แข็งไม่หมุน ช่องแช่แข็งไม่เย็น",
+      "confirmed_fix_th": "เปลี่ยนมอเตอร์พัดลม ช่องแช่แข็งกลับมาทำงาน (รุ่นเก่าอาจต้องยึดขายึดมอเตอร์ด้านหลังใหม่เพื่อให้ใบพัดไม่ชน)",
+      "cause_tag": "evaporator_fan",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานผลว่าหาย/ใช้ได้",
+      "source_url": "https://partselect.com/Models/FPZ19VFW1/Instructions/?start=6"
+    },
+    {
+      "id": "RF29",
+      "device": "ตู้เย็น",
+      "brand_model": "ไม่ระบุยี่ห้อ (ตามหน้ารุ่น FPZ19VFW1)",
+      "query_th": "ตู้เย็นรุ่นเก่า พัดลมช่องแช่แข็งไหม้",
+      "confirmed_fix_th": "หาพัดลมตัวแทนตรงรุ่นจากรหัสรุ่นแล้วเปลี่ยน ตู้เย็นกลับมาใช้ได้ดีมาก",
+      "cause_tag": "evaporator_fan",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานผลว่าหาย/ใช้ได้",
+      "source_url": "https://partselect.com/Models/FPZ19VFW1/Instructions/?start=6"
+    },
+    {
+      "id": "RF30",
+      "device": "ตู้เย็น",
+      "brand_model": "ไม่ระบุยี่ห้อ (ตามหน้ารุ่น RD19F6DT3A)",
+      "query_th": "ช่องแช่แข็งเย็น แต่ช่องธรรมดาอุ่น",
+      "confirmed_fix_th": "พัดลมระเหยไม่หมุน เปลี่ยนมอเตอร์พัดลม ช่องธรรมดากลับมาถึงอุณหภูมิที่ตั้งภายในราวหกชั่วโมง",
+      "cause_tag": "evaporator_fan",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานผลว่าหาย/ใช้ได้",
+      "source_url": "https://www.partselect.com/Models/RD19F6DT3A/Instructions/?start=4"
+    },
+    {
+      "id": "RF31",
+      "device": "ตู้เย็น",
+      "brand_model": "ไม่ระบุยี่ห้อ (ตามหน้ารุ่น RD19F6DT3A)",
+      "query_th": "ช่องธรรมดาอุ่น ช่องแช่แข็งเย็น คอยล์เป็นน้ำแข็ง ละลายแล้วก็กลับมาเป็นอีก",
+      "confirmed_fix_th": "ต่อไฟตรงให้แผ่นฮีตเตอร์เพื่อยืนยันว่ายังดี แล้วเปลี่ยนเทอร์โมสตัทละลายน้ำแข็ง ผู้ใช้รายงานว่าหาย",
+      "cause_tag": "defrost_system",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานผลว่าหาย/ใช้ได้",
+      "source_url": "https://www.partselect.com/Models/RD19F6DT3A/Instructions/?start=4"
+    },
+    {
+      "id": "RF32",
+      "device": "ตู้เย็น",
+      "brand_model": "ไม่ระบุยี่ห้อ (ตามหน้ารุ่น RD19F6DT3A)",
+      "query_th": "ช่องธรรมดาอุ่น ช่องแช่แข็งเย็น",
+      "confirmed_fix_th": "เปลี่ยนไทเมอร์ละลายน้ำแข็ง ผู้ใช้รายงานว่าหาย",
+      "cause_tag": "defrost_system",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานผลว่าหาย/ใช้ได้",
+      "source_url": "https://www.partselect.com/Models/RD19F6DT3A/Instructions/?start=4"
+    },
+    {
+      "id": "RF33",
+      "device": "ตู้เย็น",
+      "brand_model": "ไม่ระบุยี่ห้อ (ตามหน้ารุ่น F22CW8)",
+      "query_th": "ช่องธรรมดาอุ่นเกินไป ช่องแช่แข็งปกติ",
+      "confirmed_fix_th": "เปลี่ยนเทอร์โมสตัทช่องแช่แข็งและไทเมอร์ละลายน้ำแข็ง สัปดาห์ต่อมาช่องธรรมดาอยู่ที่ 35-40°F",
+      "cause_tag": "defrost_system",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานผลว่าหาย/ใช้ได้",
+      "source_url": "https://partselect.com/Models/F22CW8/Instructions/?start=3"
+    },
+    {
+      "id": "RF34",
+      "device": "ตู้เย็น",
+      "brand_model": "ตู้เย็นไซด์บายไซด์ (ตามหน้ารุ่น FRS20QRBW1)",
+      "query_th": "อุณหภูมิช่องธรรมดาสูงขึ้นเรื่อยๆ",
+      "confirmed_fix_th": "เปลี่ยนไทเมอร์และเทอร์โมสตัทละลายน้ำแข็ง แล้วพบว่าสาเหตุจริงคือขดฮีตเตอร์ละลายน้ำแข็งขาด จึงเปลี่ยนด้วย ใช้งานได้ดีมาก",
+      "cause_tag": "defrost_system",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานผลว่าหาย/ใช้ได้",
+      "source_url": "https://partselect.com/Models/FRS20QRBW1/Instructions/?start=9"
+    },
+    {
+      "id": "RF35",
+      "device": "ตู้เย็น",
+      "brand_model": "ไม่ระบุยี่ห้อ (ตามหน้ารุ่น FRS20QRBW1)",
+      "query_th": "ช่องธรรมดาอุ่น ช่องแช่แข็งเย็น (ตู้เย็นแบบฝาบนฟรอสต์ฟรี)",
+      "confirmed_fix_th": "เปลี่ยนไทเมอร์ละลายน้ำแข็ง (ราว 30 ดอลลาร์) ตู้เย็นกลับมาใช้ได้เหมือนใหม่",
+      "cause_tag": "defrost_system",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานผลว่าหาย/ใช้ได้",
+      "source_url": "https://partselect.com/Models/FRS20QRBW1/Instructions/?start=9"
+    },
+    {
+      "id": "RF36",
+      "device": "ตู้เย็น",
+      "brand_model": "ไม่ระบุยี่ห้อ (ตามหน้ารุ่น 25338307893)",
+      "query_th": "ช่องแช่แข็งมีน้ำแข็งเกาะ ช่องธรรมดาอุ่น แม้เปลี่ยนเทอร์โมสตัทและไทเมอร์แล้ว",
+      "confirmed_fix_th": "ใช้มัลติมิเตอร์พบขดฮีตเตอร์ละลายน้ำแข็งร้าว เปลี่ยนฮีตเตอร์ ตู้เย็นกลับมาเหมือนใหม่",
+      "cause_tag": "defrost_system",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานผลว่าหาย/ใช้ได้",
+      "source_url": "https://www.partselect.com/Models/25338307893/Instructions/?start=2"
+    },
+    {
+      "id": "RF37",
+      "device": "ตู้เย็น",
+      "brand_model": "ไม่ระบุยี่ห้อ (ตามหน้ารุ่น 25338307893)",
+      "query_th": "ช่องแช่แข็งมีน้ำแข็งเกาะมาก และช่องธรรมดาด้านล่างไม่เย็น",
+      "confirmed_fix_th": "เปลี่ยนพัดลมช่องแช่แข็ง ตู้เย็นทำงานตามปกติ",
+      "cause_tag": "evaporator_fan",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานผลว่าหาย/ใช้ได้",
+      "source_url": "https://www.partselect.com/Models/25338307893/Instructions/?start=2"
+    },
+    {
+      "id": "RF38",
+      "device": "ตู้เย็น",
+      "brand_model": "ตู้แช่แข็ง (ตามหน้ารุ่น GLFH1779GW2)",
+      "query_th": "คอมเพรสเซอร์ไม่ได้รับไฟ ตู้แช่แข็งไม่เย็น เปลี่ยนสตาร์ทแคปและไทเมอร์แล้วไม่หาย",
+      "confirmed_fix_th": "เปลี่ยนเทอร์โมสตัทควบคุมความเย็น (cold control) ตู้แช่แข็งสตาร์ทได้ถูกต้อง",
+      "cause_tag": "cold_control_thermostat",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานผลว่าหาย/ใช้ได้",
+      "source_url": "https://partselect.com/Models/GLFH1779GW2/Instructions/?start=2"
+    },
+    {
+      "id": "RF39",
+      "device": "ตู้เย็น",
+      "brand_model": "ตู้แช่แข็ง (ตามหน้ารุ่น GLFH1779GW2)",
+      "query_th": "ตู้แช่แข็งมีเสียงแหลมดัง และเฉพาะครึ่งล่างที่แข็ง",
+      "confirmed_fix_th": "เปลี่ยนมอเตอร์พัดลมระเหยและต้องเจาะเกลียวใหม่ที่รูยึดสกรู ตู้กลับมาเงียบและทำงานเหมือนใหม่",
+      "cause_tag": "evaporator_fan",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานผลว่าหาย/ใช้ได้",
+      "source_url": "https://partselect.com/Models/GLFH1779GW2/Instructions/?start=2"
+    },
+    {
+      "id": "RF40",
+      "device": "ตู้เย็น",
+      "brand_model": "ตู้แช่แข็ง (ตามหน้ารุ่น GLFH1779GW2)",
+      "query_th": "ตู้แช่แข็งไม่ตัดรอบ มีน้ำแข็งจับรอบคอมเพรสเซอร์ และไม่แข็ง",
+      "confirmed_fix_th": "เปลี่ยนไทเมอร์ละลายน้ำแข็ง ตู้ทำงานตามปกติ",
+      "cause_tag": "defrost_system",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานผลว่าหาย/ใช้ได้",
+      "source_url": "https://partselect.com/Models/GLFH1779GW2/Instructions/?start=2"
+    },
+    {
+      "id": "RF41",
+      "device": "ตู้เย็น",
+      "brand_model": "ไม่ระบุยี่ห้อ (ตามหน้ารุ่น 25321411104)",
+      "query_th": "ตู้เย็นมีน้ำแข็งเกาะที่ขอบประตู",
+      "confirmed_fix_th": "ยางขอบประตูเสื่อม เปลี่ยนยางขอบประตูและทำให้ขอบแนบด้วยไดร์เป่าผม ใช้ได้ดี",
+      "cause_tag": "door_gasket",
+      "fix_category": "simple_part",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานผลว่าหาย/ใช้ได้",
+      "source_url": "https://partselect.com/Models/25321411104/Instructions/?start=4"
+    },
+    {
+      "id": "WM16",
+      "device": "เครื่องซักผ้า",
+      "brand_model": "ไม่ระบุยี่ห้อ (ตามหน้ารุ่น 11045966404)",
+      "query_th": "เครื่องซักผ้าไม่ระบายน้ำ ดึงเหรียญออกจากตะแกรงกรองปั๊มแล้วก็ยังไม่หาย",
+      "confirmed_fix_th": "เปลี่ยนปั๊มน้ำทิ้ง เครื่องกลับมาใช้ได้เหมือนใหม่",
+      "cause_tag": "drain_pump",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานผลว่าหาย/ใช้ได้",
+      "source_url": "https://partselect.com/Models/11045966404/Instructions/?start=9"
+    },
+    {
+      "id": "WM17",
+      "device": "เครื่องซักผ้า",
+      "brand_model": "ไม่ระบุยี่ห้อ (ตามหน้ารุ่น 11045966404)",
+      "query_th": "แผ่นกวนในถังซัก (baffle) หัก หลุดออกมาทำให้เสื้อผ้าเสียหาย",
+      "confirmed_fix_th": "ใส่แผ่นกวนอันใหม่เข้าที่ในถัง ผู้ใช้บอกว่าปัญหาจบ",
+      "cause_tag": "drum_baffle",
+      "fix_category": "simple_part",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานผลว่าหาย/ใช้ได้",
+      "source_url": "https://partselect.com/Models/11045966404/Instructions/?start=9"
+    },
+    {
+      "id": "WM18",
+      "device": "เครื่องซักผ้า",
+      "brand_model": "ไม่ระบุยี่ห้อ (ตามหน้ารุ่น 11045966404)",
+      "query_th": "เครื่องซักผ้าขึ้น DL (ล็อกประตู) และไม่เริ่มทำงาน",
+      "confirmed_fix_th": "ถอดฝาด้านบนแล้วเปลี่ยนตัวล็อกประตู ผู้ใช้บอกว่าใช้ได้ดีมาก",
+      "cause_tag": "lid_switch",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานผลว่าหาย/ใช้ได้",
+      "source_url": "https://partselect.com/Models/11045966404/Instructions/?start=9"
+    },
+    {
+      "id": "WM19",
+      "device": "เครื่องซักผ้า",
+      "brand_model": "Kenmore (ตามหน้ารุ่น 1106824573)",
+      "query_th": "เครื่องซักผ้าฝาบนปั่นแห้งไม่หยุดเมื่อเปิดฝา",
+      "confirmed_fix_th": "เปลี่ยนสวิตช์ฝาและใช้ตัวกระตุ้น (actuator) เดิม เครื่องทำงานดี (เรื่องนี้เกี่ยวกับความปลอดภัย ควรเตือนอันตรายจากถังหมุน)",
+      "cause_tag": "lid_switch",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานผลว่าหาย/ใช้ได้",
+      "source_url": "https://partselect.ca/Models/1106824573/Instructions/?start=3"
+    },
+    {
+      "id": "WM20",
+      "device": "เครื่องซักผ้า",
+      "brand_model": "Maytag รุ่นเก่า (ตามหน้ารุ่น 1106824573)",
+      "query_th": "เครื่องซักผ้ารุ่นเก่าหยุดทำงานเมื่อปิดฝา",
+      "confirmed_fix_th": "เปลี่ยนสวิตช์ฝาโดยใช้ขั้วต่อ 'ฝาปิด' ของสวิตช์ใหม่ ผู้ใช้บอกว่าทำงานสมบูรณ์",
+      "cause_tag": "lid_switch",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานผลว่าหาย/ใช้ได้",
+      "source_url": "https://partselect.ca/Models/1106824573/Instructions/?start=3"
+    },
+    {
+      "id": "WM21",
+      "device": "เครื่องซักผ้า",
+      "brand_model": "ไม่ระบุยี่ห้อ (ตามหน้ารุ่น LA5715XPW3)",
+      "query_th": "เครื่องซักผ้าไม่เข้าสู่การปั่นแห้ง",
+      "confirmed_fix_th": "เปลี่ยนสวิตช์บานพับฝาแล้วยังไม่หาย พบว่าบานพับฝาร้าวและงอ จึงดัดบานพับให้ตรง เครื่องทำงานได้ (สวิตช์และแบริ่งใหม่ไม่จำเป็น)",
+      "cause_tag": "lid_hinge",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานผลว่าหาย/ใช้ได้",
+      "source_url": "https://www.partselect.com/Models/LA5715XPW3/Instructions/?start=4",
+      "alt_cause_tags": [
+        "lid_switch"
+      ]
+    },
+    {
+      "id": "WM22",
+      "device": "เครื่องซักผ้า",
+      "brand_model": "ไม่ระบุยี่ห้อ (ตามหน้ารุ่น LA5715XPW3)",
+      "query_th": "ประตูเครื่องซักผ้าเด้งเปิดระหว่างซัก",
+      "confirmed_fix_th": "เปลี่ยนสลักประตูและแผ่นรับสลัก ให้ช่างปรับระดับเครื่อง และเสริมตัวยึดบริเวณแผ่นรับสลัก ประตูปิดแน่นตลอดรอบ",
+      "cause_tag": "door_latch",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานผลว่าหาย/ใช้ได้",
+      "source_url": "https://www.partselect.com/Models/LA5715XPW3/Instructions/?start=4"
+    },
+    {
+      "id": "WM23",
+      "device": "เครื่องซักผ้า",
+      "brand_model": "ไม่ระบุยี่ห้อ (ตามหน้ารุ่น 11029842991)",
+      "query_th": "เครื่องซักผ้าไม่เข้าสู่รอบปั่นแห้ง",
+      "confirmed_fix_th": "เปลี่ยนชุดคลัตช์ ผู้ใช้บอกว่าทำงานสมบูรณ์",
+      "cause_tag": "clutch",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานผลว่าหาย/ใช้ได้",
+      "source_url": "https://www.partselect.com/Models/11029842991/Instructions"
+    },
+    {
+      "id": "WM24",
+      "device": "เครื่องซักผ้า",
+      "brand_model": "ไม่ระบุยี่ห้อ (ตามหน้ารุ่น 11029842991)",
+      "query_th": "ถังซักกระแทกตัวเครื่องตอนปั่น",
+      "confirmed_fix_th": "เปลี่ยนสปริงรองรับถัง (suspension springs) การปั่นเงียบลงมาก",
+      "cause_tag": "suspension_strap",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานผลว่าหาย/ใช้ได้",
+      "source_url": "https://www.partselect.com/Models/11029842991/Instructions"
+    },
+    {
+      "id": "WM25",
+      "device": "เครื่องซักผ้า",
+      "brand_model": "ไม่ระบุยี่ห้อ (ตามหน้ารุ่น 11029842991)",
+      "query_th": "เครื่องซักผ้าเติมน้ำเย็นช้ามาก",
+      "confirmed_fix_th": "เปลี่ยนวาล์วน้ำเย็นขาเข้า ผู้ใช้บอกว่าทำงานสมบูรณ์",
+      "cause_tag": "water_inlet_valve",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานผลว่าหาย/ใช้ได้",
+      "source_url": "https://www.partselect.com/Models/11029842991/Instructions"
+    },
+    {
+      "id": "WM26",
+      "device": "เครื่องซักผ้า",
+      "brand_model": "Samsung W5451ANW/XAA",
+      "query_th": "เครื่องซักผ้าไม่ระบายน้ำ ดูเหมือนค้าง และขึ้นรหัส nd เป็นครั้งคราว",
+      "confirmed_fix_th": "มอเตอร์ปั๊มน้ำทิ้งไหม้ เปลี่ยนปั๊ม เครื่องกลับมาทำงานและระบายน้ำเร็วกว่าเดิม",
+      "cause_tag": "drain_pump",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานผลว่าหาย/ใช้ได้",
+      "source_url": "https://www.appliancepartspros.com/diy-stories-for-samsung-drain-pump-dc31-00054a-ap4202690-page3.html"
+    },
+    {
+      "id": "WM27",
+      "device": "เครื่องซักผ้า",
+      "brand_model": "Samsung WF448AAP/XAA02",
+      "query_th": "เครื่องซักผ้าขึ้นรหัสว่าน้ำไม่ระบาย",
+      "confirmed_fix_th": "เปลี่ยนปั๊มน้ำทิ้ง ผู้ใช้บอกว่าใช้ได้ดีแล้ว",
+      "cause_tag": "drain_pump",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานผลว่าหาย/ใช้ได้",
+      "source_url": "https://www.appliancepartspros.com/diy-stories-for-samsung-drain-pump-dc31-00054a-ap4202690-page3.html"
+    },
+    {
+      "id": "WM28",
+      "device": "เครื่องซักผ้า",
+      "brand_model": "ไม่ระบุรุ่น (รหัส ND มักพบในเครื่อง Samsung)",
+      "query_th": "เครื่องซักผ้าขึ้น ND และปั๊มไม่ทำงาน",
+      "confirmed_fix_th": "เปลี่ยนชุดมอเตอร์ปั๊มน้ำทิ้ง หลังประกอบพบรอยรั่วที่ท่อน้ำออกหลัก แก้ด้วยแคลมป์ แล้วใช้งานได้",
+      "cause_tag": "drain_pump",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานผลว่าหาย/ใช้ได้",
+      "source_url": "https://www.appliancepartspros.com/diy-stories-for-samsung-drain-pump-dc31-00054a-ap4202690-page3.html"
+    },
+    {
+      "id": "WM29",
+      "device": "เครื่องซักผ้า",
+      "brand_model": "ไม่ระบุรุ่น",
+      "query_th": "ถังซักไม่ระบายน้ำ ล้างเศษในสายแล้วก็ไม่ออก",
+      "confirmed_fix_th": "รันรอบปั่นอย่างเดียวและตรวจใบพัดปั๊มเพื่อยืนยันว่าปั๊มเสีย แล้วเปลี่ยนปั๊มน้ำทิ้ง เครื่องทำงานได้",
+      "cause_tag": "drain_pump",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานผลว่าหาย/ใช้ได้",
+      "source_url": "https://www.appliancepartspros.com/diy-stories-for-samsung-drain-pump-dc31-00054a-ap4202690-page3.html"
+    },
+    {
+      "id": "WM30",
+      "device": "เครื่องซักผ้า",
+      "brand_model": "Samsung WF316LAW/XAA-0000",
+      "query_th": "เครื่องซักผ้า Samsung ปั๊มน้ำทิ้งเสียและระบายน้ำไม่ได้",
+      "confirmed_fix_th": "เปลี่ยนปั๊มใหม่ใช้เวลาราวห้านาที ผู้ใช้พอใจผลมาก",
+      "cause_tag": "drain_pump",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานผลว่าหาย/ใช้ได้",
+      "source_url": "https://www.appliancepartspros.com/diy-stories-for-samsung-drain-pump-dc31-00054a-ap4202690-page3.html"
+    },
+    {
+      "id": "WM31",
+      "device": "เครื่องซักผ้า",
+      "brand_model": "Whirlpool GHW9200LW0",
+      "query_th": "เครื่องซักผ้า Whirlpool ขึ้น F2",
+      "confirmed_fix_th": "เปลี่ยนชุดปั๊มน้ำทิ้ง ผู้ใช้บอกว่าไม่ต้องซื้อเครื่องใหม่",
+      "cause_tag": "drain_pump",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "medium",
+      "confirmation_note": "ผู้ใช้ไม่ได้เขียนผลชัด แต่ข้อความสื่อว่าเครื่องกลับมาใช้ได้",
+      "source_url": "https://www.appliancepartspros.com/diy-stories-for-whirlpool-washer-drain-pump-280187-ap3953640-page7.html"
+    },
+    {
+      "id": "WM32",
+      "device": "เครื่องซักผ้า",
+      "brand_model": "GE Profile WPGT9350COPL",
+      "query_th": "เครื่องซักผ้าไม่ระบายน้ำ",
+      "confirmed_fix_th": "เปลี่ยนปั๊มโดยดูวิดีโอ ใช้เวลาราว 30 นาที เครื่องทำงานปกติอีกครั้ง",
+      "cause_tag": "drain_pump",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานผลว่าหาย/ใช้ได้",
+      "source_url": "https://www.appliancepartspros.com/diy-stories-for-ge-pump-asm-drain-wh23x10020-ap3207353.html"
+    },
+    {
+      "id": "WM33",
+      "device": "เครื่องซักผ้า",
+      "brand_model": "ไม่ระบุรุ่น (ตามหน้าอะไหล่ปั๊ม GE)",
+      "query_th": "เครื่องซักผ้ามีน้ำรั่วจากปั๊มน้ำทิ้งลงพื้น",
+      "confirmed_fix_th": "เปลี่ยนปั๊ม พบว่าซีลและแบริ่งสึกจนเซาะผิวเรือนปั๊มเป็นร่อง หลังเปลี่ยนไม่รั่ว",
+      "cause_tag": "drain_pump",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานผลว่าหาย/ใช้ได้",
+      "source_url": "https://www.appliancepartspros.com/diy-stories-for-ge-pump-asm-drain-wh23x10020-ap3207353.html"
+    },
+    {
+      "id": "MW12",
+      "device": "ไมโครเวฟ",
+      "brand_model": "ไม่ระบุยี่ห้อ (ตามหน้ารุ่น KMHS120ESS)",
+      "query_th": "ไมโครเวฟทำงานๆ หยุดๆ",
+      "confirmed_fix_th": "พบสวิตช์ตัวหนึ่งวัดความต่อเนื่องไม่เสถียร เปลี่ยนสวิตช์ตัวบนและตัวล่าง เครื่องกลับมาทำงาน",
+      "cause_tag": "door_switch_latch",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานผลว่าหาย/ใช้ได้",
+      "source_url": "https://www.partselect.com/Models/KMHS120ESS/Instructions/?start=4"
+    },
+    {
+      "id": "MW13",
+      "device": "ไมโครเวฟ",
+      "brand_model": "ไม่ระบุยี่ห้อ (ตามหน้ารุ่น KMHS120ESS)",
+      "query_th": "ไมโครเวฟมีประกายไฟ",
+      "confirmed_fix_th": "เปลี่ยนมอเตอร์ขับและตัวต่อแกน ประกายไฟหยุด (เรื่องนี้เกี่ยวกับความปลอดภัย ควรให้หยุดใช้และแนะนำศูนย์บริการ)",
+      "cause_tag": "drive_motor_coupling",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานผลว่าหาย/ใช้ได้",
+      "source_url": "https://www.partselect.com/Models/KMHS120ESS/Instructions/?start=4"
+    },
+    {
+      "id": "MW14",
+      "device": "ไมโครเวฟ",
+      "brand_model": "ไม่ระบุยี่ห้อ (ตามหน้ารุ่น GH6177XPB5)",
+      "query_th": "ไมโครเวฟเบรกเกอร์ตก แล้วไม่มีไฟเลย",
+      "confirmed_fix_th": "เปลี่ยนฟิวส์ ยังไม่ทำงาน จึงพบและเปลี่ยนฟิวส์ตัวที่สองที่ขาด จึงใช้ได้",
+      "cause_tag": "blown_fuse",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานผลว่าหาย/ใช้ได้",
+      "source_url": "https://www.partselect.com/Models/GH6177XPB5/Instructions/?start=2"
+    },
+    {
+      "id": "MW15",
+      "device": "ไมโครเวฟ",
+      "brand_model": "ไมโครเวฟติดเหนือเตา (ตามหน้ารุ่น GH6177XPB5)",
+      "query_th": "ไมโครเวฟไม่เริ่มทำงานเพราะไม่รับรู้ว่าประตูปิด",
+      "confirmed_fix_th": "ตรวจสปริงและตัวโยก (cam rocker) แล้วเปลี่ยนสวิตช์ประตูหนึ่งในสองตัว เครื่องกลับมาปกติ",
+      "cause_tag": "door_switch_latch",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานผลว่าหาย/ใช้ได้",
+      "source_url": "https://www.partselect.com/Models/GH6177XPB5/Instructions/?start=2"
+    },
+    {
+      "id": "MW16",
+      "device": "ไมโครเวฟ",
+      "brand_model": "ไม่ระบุยี่ห้อ (ตามหน้ารุ่น GH6177XPB5)",
+      "query_th": "หน้าจอขึ้นให้ปิดประตูทั้งที่ปิดแล้ว และไฟในเตาติดค้าง",
+      "confirmed_fix_th": "ใช้มัลติมิเตอร์ทดสอบไมโครสวิตช์ 3 ตัว พบตัวที่ต้องกดแรงกว่าปกติจึงเปลี่ยน เครื่องทำงานดี",
+      "cause_tag": "door_switch_latch",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานผลว่าหาย/ใช้ได้",
+      "source_url": "https://www.partselect.com/Models/GH6177XPB5/Instructions/?start=2"
+    },
+    {
+      "id": "MW17",
+      "device": "ไมโครเวฟ",
+      "brand_model": "ไม่ระบุยี่ห้อ (ตามหน้ารุ่น JES1651SJ03)",
+      "query_th": "จานไมโครเวฟไม่หมุน หลังจานแก้วหนักไปค้างจนเฟืองพลาสติกของมอเตอร์แตก",
+      "confirmed_fix_th": "เปลี่ยนมอเตอร์และแหวนรองจานหมุน (ต้องถอดตัวเครื่องภายนอก) ใช้งานได้",
+      "cause_tag": "turntable_motor",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานผลว่าหาย/ใช้ได้",
+      "source_url": "https://www.partselect.com/Models/JES1651SJ03/Instructions/?start=5",
+      "alt_cause_tags": [
+        "turntable_coupler"
+      ]
+    },
+    {
+      "id": "MW18",
+      "device": "ไมโครเวฟ",
+      "brand_model": "ไม่ระบุยี่ห้อ (ตามหน้ารุ่น JES1651SJ03)",
+      "query_th": "จานไมโครเวฟหมุนฝืดและมอเตอร์สึก เพราะล้อนำทางสีขาวมีรอยแบน",
+      "confirmed_fix_th": "เปลี่ยนมอเตอร์และแหวนนำทาง ผู้ใช้บอกว่าชิ้นส่วนใหม่ใช้ได้ดี",
+      "cause_tag": "turntable_motor",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานผลว่าหาย/ใช้ได้",
+      "source_url": "https://www.partselect.com/Models/JES1651SJ03/Instructions/?start=5",
+      "alt_cause_tags": [
+        "turntable_coupler"
+      ]
+    },
+    {
+      "id": "MW19",
+      "device": "ไมโครเวฟ",
+      "brand_model": "ไม่ระบุยี่ห้อ (ตามหน้ารุ่น JES1651SJ03)",
+      "query_th": "ไฟในไมโครเวฟติดๆ ดับๆ จานไม่หมุนและไม่ร้อน บางครั้งหมุนทั้งที่เปิดประตู",
+      "confirmed_fix_th": "สวิตช์อินเตอร์ล็อกตัวหนึ่งค้างอยู่ในสถานะกดหลังประตูเปิดปิด เปลี่ยนสวิตช์ตัวนั้น ผู้ใช้เขียนว่าแก้ปัญหาได้",
+      "cause_tag": "door_switch_latch",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานผลว่าหาย/ใช้ได้",
+      "source_url": "https://www.partselect.com/Models/JES1651SJ03/Instructions/?start=5"
+    },
+    {
+      "id": "MW20",
+      "device": "ไมโครเวฟ",
+      "brand_model": "ไม่ระบุยี่ห้อ (ตามหน้ารุ่น 66339)",
+      "query_th": "ไมโครเวฟไม่หมุนและไม่ร้อน",
+      "confirmed_fix_th": "เปลี่ยนสวิตช์ประตูทั้งสามตัว ใช้ได้เหมือนใหม่",
+      "cause_tag": "door_switch_latch",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานผลว่าหาย/ใช้ได้",
+      "source_url": "https://www.partselect.com/Models/66339/Instructions/"
+    },
+    {
+      "id": "MW21",
+      "device": "ไมโครเวฟ",
+      "brand_model": "ไม่ระบุยี่ห้อ (ตามหน้ารุ่น 66339)",
+      "query_th": "ตัวนับเวลาเดินแต่ไม่ปรุงอาหาร และไม่ได้ยินเสียงทำความร้อน",
+      "confirmed_fix_th": "เปลี่ยนสวิตช์ประตูสองตัว ใช้งานได้",
+      "cause_tag": "door_switch_latch",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานผลว่าหาย/ใช้ได้",
+      "source_url": "https://www.partselect.com/Models/66339/Instructions/"
+    },
+    {
+      "id": "MW22",
+      "device": "ไมโครเวฟ",
+      "brand_model": "ไมโครเวฟติดเหนือเตา (ตามหน้ารุ่น 66339)",
+      "query_th": "ประตูไมโครเวฟปิดไม่เข้า",
+      "confirmed_fix_th": "เปลี่ยนสลักประตูและใส่สปริงกลับ เครื่องใช้ได้ทันทีหลังประกอบ",
+      "cause_tag": "door_switch_latch",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานผลว่าหาย/ใช้ได้",
+      "source_url": "https://www.partselect.com/Models/66339/Instructions/",
+      "alt_cause_tags": [
+        "door_latch"
+      ]
+    },
+    {
+      "id": "MW23",
+      "device": "ไมโครเวฟ",
+      "brand_model": "ไม่ระบุยี่ห้อ (ตามหน้ารุ่น 66339)",
+      "query_th": "ไมโครเวฟมีพัดลมทำงานเองเมื่อเปิดประตู",
+      "confirmed_fix_th": "ใส่ไมโครสวิตช์ทั้งสามตัวเข้าที่ใหม่ให้แน่น พัดลมไม่ทำงานเองอีก",
+      "cause_tag": "door_switch_latch",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานผลว่าหาย/ใช้ได้",
+      "source_url": "https://www.partselect.com/Models/66339/Instructions/"
+    },
+    {
+      "id": "MW24",
+      "device": "ไมโครเวฟ",
+      "brand_model": "ไม่ระบุยี่ห้อ (ตามหน้ารุ่น 66339)",
+      "query_th": "ประตูไมโครเวฟปิดไม่สนิท สวิตช์ไม่ถูกกด",
+      "confirmed_fix_th": "ทดสอบสวิตช์แล้วเปลี่ยนก้านพลาสติกที่ประตู ใช้ได้ปกติ",
+      "cause_tag": "door_latch",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานผลว่าหาย/ใช้ได้",
+      "source_url": "https://www.partselect.com/Models/66339/Instructions/",
+      "alt_cause_tags": [
+        "door_switch_latch"
+      ]
+    },
+    {
+      "id": "MW25",
+      "device": "ไมโครเวฟ",
+      "brand_model": "ไม่ระบุยี่ห้อ (ตามหน้ารุ่น TMH14XMD0)",
+      "query_th": "หลอดไฟในไมโครเวฟขาด และฐานหลอดแตกค้างอยู่ในซ็อกเก็ต",
+      "confirmed_fix_th": "ถอดปลั๊ก ใช้คีมปากแหลมจับและหมุนฐานหลอดออก แล้วใส่หลอดใหม่ ไฟกลับมาติด",
+      "cause_tag": "lamp",
+      "fix_category": "disassembly_or_electrical",
+      "confirmation": "high",
+      "confirmation_note": "ผู้ใช้รายงานผลว่าหาย/ใช้ได้",
+      "source_url": "https://www.partselect.com/Models/TMH14XMD0/Instructions/?start=3"
+    }
+  ],
+  "excluded": [
+    {
+      "source_url": "https://www.ifixit.com/Answers/View/675581/LG+Front+Load+Washer+OE+Error+(Not+draining+correctly)",
+      "reason": "ติดป้าย SOLVED แต่เจ้าของกระทู้ยังรายงานว่า OE ไม่หาย"
+    },
+    {
+      "source_url": "https://www.ifixit.com/Answers/View/587384/Fridge+and+freezer+not+cooling.",
+      "reason": "ไม่มีการยืนยันว่าแก้ได้ (Whirlpool GX5FHTXVY00)"
+    },
+    {
+      "source_url": "https://www.ifixit.com/Answers/View/248452/fridge+and+freezer+running+warm",
+      "reason": "ติดป้าย SOLVED แต่ไม่มีวิธีแก้ที่ยืนยัน"
+    },
+    {
+      "source_url": "https://ts.ifixit.com/Answers/View/821521/Refrigerator+not+cooling+at+all+after+replacing+condenser+fan",
+      "reason": "คอมเพรสเซอร์กลับมาเดิน แต่ไม่ได้ยืนยันว่าเย็นตามปกติ"
+    },
+    {
+      "source_url": "https://forum.appliancepartspros.com/t/fridge-not-cooling-no-frost-on-coils/369462",
+      "reason": "ไม่มีคำตอบ/ผลลัพธ์ในกระทู้"
+    },
+    {
+      "source_url": "https://forums.anandtech.com/threads/refrigerator-not-cooling-but-the-freezer-is-working-just-fine-help.2173431/post-31891909",
+      "reason": "เจ้าของกระทู้ไม่ได้รายงานผลหลังปรับ"
+    },
+    {
+      "source_url": "https://forums.anandtech.com/threads/refrigerators-freezer-compartment-doesnt-work-properly.2616004",
+      "reason": "ไม่หาย สรุปเปลี่ยนตู้ใหม่"
+    },
+    {
+      "source_url": "https://forums.anandtech.com/threads/my-clothes-washer-wont-drain-any-ideas.1957105/post-21666334",
+      "reason": "ไม่ได้รายงานผลซ่อม"
+    },
+    {
+      "source_url": "https://forum.appliancepartspros.com/posts/t558367-whirlpool-washer-won-t-always-spin",
+      "reason": "เป็นคำถาม ไม่มีคำตอบ"
+    },
+    {
+      "source_url": "https://www.appliancepartspros.com/questions-for-ge-cover-wave-guid-wb39x10034-ap4980541.html",
+      "reason": "คำถามเรื่องประกายไฟ ไม่มีรายงานผลซ่อม"
+    },
+    {
+      "source_url": "https://www.tractorbynet.com/forums/threads/front-loading-washer-disaster.390459/latest",
+      "reason": "ไม่ได้รายงานผลการทดสอบหลังแก้"
+    },
+    {
+      "source_url": "https://www.appliancepartspros.com/diy-story-samsung-washer-drain-diy5722876.html",
+      "reason": "ผู้ใช้ไม่ได้ระบุผลชัดเจนหลังเปลี่ยนปั๊ม"
+    },
+    {
+      "source_url": "https://www.partselect.com/Models/GFSS2HCYCSS/Instructions/",
+      "reason": "เปิดหน้าไม่ได้"
+    }
+  ]
+}

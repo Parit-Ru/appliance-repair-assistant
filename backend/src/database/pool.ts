@@ -44,7 +44,6 @@ function buildPoolOptions(): mysql.PoolOptions {
   };
 }
 
-/** สร้าง pool แล้วลองต่อหนึ่งครั้ง (ต่อไม่ได้ = โยน error ให้บูตล้ม) */
 export async function createDbPool(): Promise<mysql.Pool> {
   const options = buildPoolOptions();
   logger.log(

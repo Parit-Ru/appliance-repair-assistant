@@ -35,7 +35,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     return () => setUnauthorizedHandler(undefined)
   }, [navigate, queryClient])
 
-  //ตอนเปิดแอปยืนยัน token ที่จำไว้
   useEffect(() => {
     const token = getStoredToken()
     if (token === undefined) return

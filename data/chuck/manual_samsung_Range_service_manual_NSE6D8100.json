@@ -1,0 +1,223 @@
+[
+  {
+    "chunk_id": "manual_Samsung_Range_NSE6D8100_p4_power_cord_defective",
+    "device_category": "Range",
+    "brand": "Samsung",
+    "model": "NSE6D*8100****",
+    "source": "Samsung ELEC RANGE Service Manual (30\" Slide-In Self-Cleaning Electric Range, model code NSE6D*8100****)",
+    "page": 4,
+    "content": "If the power cord is defective it must be replaced by a qualified service agent with a UL listed range cord.",
+    "metadata": {
+      "symptom": "If the power cord is defective",
+      "possible_cause": null,
+      "solution": "it must be replaced by a qualified service agent with a UL listed range cord.",
+      "severity": "medium",
+      "difficulty": "hard",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Range_NSE6D8100_p6_self_clean_f_code",
+    "device_category": "Range",
+    "brand": "Samsung",
+    "model": "NSE6D*8100****",
+    "source": "Samsung ELEC RANGE Service Manual (30\" Slide-In Self-Cleaning Electric Range, model code NSE6D*8100****)",
+    "page": 6,
+    "content": "In the event the self-clean mode “F” code goes on, or three long beeps sound, oven is malfunctioning in the self-clean mode. Turn off or disconnect appliance from power supply and have serviced by a qualified technician.",
+    "metadata": {
+      "symptom": "In the event the self-clean mode “F” code goes on, or three long beeps sound, oven is malfunctioning in the self-clean mode.",
+      "possible_cause": null,
+      "solution": "Turn off or disconnect appliance from power supply and have serviced by a qualified technician.",
+      "severity": "high",
+      "difficulty": "hard",
+      "safety_warning": "ก่อนทำงานกับเตาให้ตัดไฟโดยถอดฟิวส์หรือปิดเบรกเกอร์ เพื่อป้องกันไฟฟ้าดูด (คู่มือหน้า 5 และ 4) และภายในเตาร้อนมากขณะเตาทำงาน (คู่มือหน้า 4)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Range_NSE6D8100_p6_broken_cooktop",
+    "device_category": "Range",
+    "brand": "Samsung",
+    "model": "NSE6D*8100****",
+    "source": "Samsung ELEC RANGE Service Manual (30\" Slide-In Self-Cleaning Electric Range, model code NSE6D*8100****)",
+    "page": 6,
+    "content": "Do Not Cook on Broken Cook-Top 1. If cook top should break, cleaning solutions and spillovers may penetrate the broken cook top and create a risk of electric shock. 2. Contact a qualified technician immediately.",
+    "metadata": {
+      "symptom": "Do Not Cook on Broken Cook-Top",
+      "possible_cause": null,
+      "solution": "1. If cook top should break, cleaning solutions and spillovers may penetrate the broken cook top and create a risk of electric shock.\n2. Contact a qualified technician immediately.",
+      "severity": "high",
+      "difficulty": "hard",
+      "safety_warning": "ถ้าพื้นผิวเตาแตก น้ำยาทำความสะอาดและของเหลวที่ล้นอาจซึมเข้าไป ทำให้เสี่ยงไฟฟ้าดูด (คู่มือหน้า 6)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Range_NSE6D8100_p49_c20_oven_sensor",
+    "device_category": "Range",
+    "brand": "Samsung",
+    "model": "NSE6D*8100****",
+    "source": "Samsung ELEC RANGE Service Manual (30\" Slide-In Self-Cleaning Electric Range, model code NSE6D*8100****)",
+    "page": 49,
+    "content": "C-20 Oven sensor opened (over 2950Ω) Oven sensor shorted. (Under 930Ω) 1. Disconnect power. Open the back cover. Disconnect sensor harness from control Measure sensor resistance :1080Ω at the room temperature → If there are any problems, replace oven sensor. 2. If there is not any problem with oven sensor, Please check whether there is a damaged terminal or wire harness. 3. Check resistance of oven sensor connector on Main PCB (Normal:2850Ω)",
+    "metadata": {
+      "symptom": "C-20 Oven sensor opened (over 2950Ω) Oven sensor shorted. (Under 930Ω)",
+      "possible_cause": null,
+      "solution": "1. Disconnect power. Open the back cover. Disconnect sensor harness from control Measure sensor resistance :1080Ω at the room temperature → If there are any problems, replace oven sensor.\n2. If there is not any problem with oven sensor, Please check whether there is a damaged terminal or wire harness.\n3. Check resistance of oven sensor connector on Main PCB (Normal:2850Ω)",
+      "severity": "medium",
+      "difficulty": "hard",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Range_NSE6D8100_p50_c21_oven_heating_over",
+    "device_category": "Range",
+    "brand": "Samsung",
+    "model": "NSE6D*8100****",
+    "source": "Samsung ELEC RANGE Service Manual (30\" Slide-In Self-Cleaning Electric Range, model code NSE6D*8100****)",
+    "page": 50,
+    "content": "C-21 Oven heating over 1. Disconnect power . Open the back cover . Disconnect sensor harness from control .Measure sensor resistance :1080Ω at the room temperature → If there are any problems, replace oven sensor . 2. Check the broil, bake and convection heater . Check the resistance of the each heater . 3. Check whether DLB, Broil, Bake and Convection heater relay are working normally . 4. Check whether there is any disconnection of harness which is linked with main PCB on main PCB . 5. Check the resistance of oven sensor connector on display PCB . (Normal : 2850Ω)",
+    "metadata": {
+      "symptom": "C-21 Oven heating over",
+      "possible_cause": null,
+      "solution": "1. Disconnect power . Open the back cover . Disconnect sensor harness from control .Measure sensor resistance :1080Ω at the room temperature → If there are any problems, replace oven sensor .\n2. Check the broil, bake and convection heater . Check the resistance of the each heater .\n3. Check whether DLB, Broil, Bake and Convection heater relay are working normally .\n4. Check whether there is any disconnection of harness which is linked with main PCB on main PCB .\n5. Check the resistance of oven sensor connector on display PCB . (Normal : 2850Ω)",
+      "severity": "medium",
+      "difficulty": "hard",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Range_NSE6D8100_p52_cd1_door_lock",
+    "device_category": "Range",
+    "brand": "Samsung",
+    "model": "NSE6D*8100****",
+    "source": "Samsung ELEC RANGE Service Manual (30\" Slide-In Self-Cleaning Electric Range, model code NSE6D*8100****)",
+    "page": 52,
+    "content": "C-d1 Door locking information 1. Disconnect power . Open the back cover .Check whether harness has been connected with door lock switch and motor . 2. Confirm whether resistance value of door lock motor is normal. 3. With operating door lockout, measure a voltage of connector on harness which is linked with door lock motor . (Normal Voltage : AC 120V) 4. Check whether door locking switch is working.",
+    "metadata": {
+      "symptom": "C-d1 Door locking information",
+      "possible_cause": null,
+      "solution": "1. Disconnect power . Open the back cover .Check whether harness has been connected with door lock switch and motor .\n2. Confirm whether resistance value of door lock motor is normal.\n3. With operating door lockout, measure a voltage of connector on harness which is linked with door lock motor . (Normal Voltage : AC 120V)\n4. Check whether door locking switch is working.",
+      "severity": "medium",
+      "difficulty": "hard",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Range_NSE6D8100_p53_cf0_main_sub_comm",
+    "device_category": "Range",
+    "brand": "Samsung",
+    "model": "NSE6D*8100****",
+    "source": "Samsung ELEC RANGE Service Manual (30\" Slide-In Self-Cleaning Electric Range, model code NSE6D*8100****)",
+    "page": 53,
+    "content": "C-F0 Main ↔ Sub module communication information Sub ↔ LCD communication information 1. Check Wire Harness (Main : CN300 / Sub : CN100) 2. Replace Sub PCB 3. Replace Main PCB",
+    "metadata": {
+      "symptom": "C-F0 Main ↔ Sub module communication information Sub ↔ LCD communication information",
+      "possible_cause": null,
+      "solution": "1. Check Wire Harness (Main : CN300 / Sub : CN100)\n2. Replace Sub PCB\n3. Replace Main PCB",
+      "severity": "medium",
+      "difficulty": "hard",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Range_NSE6D8100_p54_cf2_sub_touch_comm",
+    "device_category": "Range",
+    "brand": "Samsung",
+    "model": "NSE6D*8100****",
+    "source": "Samsung ELEC RANGE Service Manual (30\" Slide-In Self-Cleaning Electric Range, model code NSE6D*8100****)",
+    "page": 54,
+    "content": "C-F2 Sub↔Touch communication information 1. Check if touch film tail is connected fully. 2. Replace sub PCB. 3. Replace Assy Touch.",
+    "metadata": {
+      "symptom": "C-F2 Sub↔Touch communication information",
+      "possible_cause": null,
+      "solution": "1. Check if touch film tail is connected fully.\n2. Replace sub PCB.\n3. Replace Assy Touch.",
+      "severity": "medium",
+      "difficulty": "hard",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Range_NSE6D8100_p55_bad_line",
+    "device_category": "Range",
+    "brand": "Samsung",
+    "model": "NSE6D*8100****",
+    "source": "Samsung ELEC RANGE Service Manual (30\" Slide-In Self-Cleaning Electric Range, model code NSE6D*8100****)",
+    "page": 55,
+    "content": "bAd LInE This error code displays if power connection is installed improperly. Make sure the terminal block L1, L2, N is installed properly.",
+    "metadata": {
+      "symptom": "bAd LInE This error code displays if power connection is installed improperly.",
+      "possible_cause": null,
+      "solution": "Make sure the terminal block L1, L2, N is installed properly.",
+      "severity": "medium",
+      "difficulty": "hard",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Range_NSE6D8100_p67_no_display",
+    "device_category": "Range",
+    "brand": "Samsung",
+    "model": "NSE6D*8100****",
+    "source": "Samsung ELEC RANGE Service Manual (30\" Slide-In Self-Cleaning Electric Range, model code NSE6D*8100****)",
+    "page": 67,
+    "content": "No display 1. Make sure that power cord is connected 2. Insert the power cord",
+    "metadata": {
+      "symptom": "No display",
+      "possible_cause": null,
+      "solution": "1. Make sure that power cord is connected\n2. Insert the power cord",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": "สายไฟและสายเคเบิลไฟฟ้าต้องไม่สัมผัสตัวเตา และถ้าสายไฟชำรุดต้องให้ผู้ให้บริการที่มีคุณสมบัติเปลี่ยนด้วยสายไฟเรนจ์ที่ได้รับรอง UL (คู่มือหน้า 4) ส่วนการติดตั้งและต่อสายดินต้องทำโดยช่างที่มีคุณสมบัติ (คู่มือหน้า 5)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Range_NSE6D8100_p68_touch_keypad_not_working",
+    "device_category": "Range",
+    "brand": "Samsung",
+    "model": "NSE6D*8100****",
+    "source": "Samsung ELEC RANGE Service Manual (30\" Slide-In Self-Cleaning Electric Range, model code NSE6D*8100****)",
+    "page": 68,
+    "content": "Touch Keypad is not working properly 1. Make sure the Door lock feature is not turned on . 2. Touch the Start/Set keypad for three or more seconds. 3. Make sure the Sabbath feature is not turned on. 4. Touch the back key for three or more seconds.",
+    "metadata": {
+      "symptom": "Touch Keypad is not working properly",
+      "possible_cause": null,
+      "solution": "1. Make sure the Door lock feature is not turned on .\n2. Touch the Start/Set keypad for three or more seconds.\n3. Make sure the Sabbath feature is not turned on.\n4. Touch the back key for three or more seconds.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Range_NSE6D8100_p70_wifi_not_working",
+    "device_category": "Range",
+    "brand": "Samsung",
+    "model": "NSE6D*8100****",
+    "source": "Samsung ELEC RANGE Service Manual (30\" Slide-In Self-Cleaning Electric Range, model code NSE6D*8100****)",
+    "page": 70,
+    "content": "Wi-Fi Connection is not working 1. Check whether Wi-Fi icon shown. 2. If the Wi-Fi icon is not displayed, register the range to SmartThings app by referring to the following instructions. 3. Make sure that the mobile phone is connected to 2.4GHz Wi-Fi network. 4. Do not use the hidden AP in the wireless router settings during the device registration. 5. Use a unique SSID consisting of the alphabetic letters and the numeric digits without any blank. 6. For Wi-Fi security protocols, WPA2-PSK_AES is recommended. 7. Press time key and back key for 3 sec. (Long press) 8. If network version is shown normally, try to use SMART CONTROL feature again.",
+    "metadata": {
+      "symptom": "Wi-Fi Connection is not working",
+      "possible_cause": null,
+      "solution": "1. Check whether Wi-Fi icon shown.\n2. If the Wi-Fi icon is not displayed, register the range to SmartThings app by referring to the following instructions.\n3. Make sure that the mobile phone is connected to 2.4GHz Wi-Fi network.\n4. Do not use the hidden AP in the wireless router settings during the device registration.\n5. Use a unique SSID consisting of the alphabetic letters and the numeric digits without any blank.\n6. For Wi-Fi security protocols, WPA2-PSK_AES is recommended.\n7. Press time key and back key for 3 sec. (Long press)\n8. If network version is shown normally, try to use SMART CONTROL feature again.",
+      "severity": "low",
+      "difficulty": "medium",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Range_NSE6D8100_p71_oven_not_operating",
+    "device_category": "Range",
+    "brand": "Samsung",
+    "model": "NSE6D*8100****",
+    "source": "Samsung ELEC RANGE Service Manual (30\" Slide-In Self-Cleaning Electric Range, model code NSE6D*8100****)",
+    "page": 71,
+    "content": "Oven not operating (No power, No display) check circuit breaker.",
+    "metadata": {
+      "symptom": "Oven not operating (No power, No display)",
+      "possible_cause": null,
+      "solution": "check circuit breaker.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": "ห้ามซ่อมหรือเปลี่ยนชิ้นส่วนใดของเตาเอง นอกจากที่คู่มือแนะนำไว้โดยเฉพาะ งานซ่อมอื่นทั้งหมดต้องให้ช่างที่มีคุณสมบัติทำ (คู่มือหน้า 5)"
+    }
+  }
+]

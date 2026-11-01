@@ -1,5 +1,5 @@
 import { request } from './http'
-import type { DraftDetail, DraftGraph, DraftPublishResult, DraftSummary, DraftUploadInput } from './types'
+import type { DraftDetail, DraftFlow, DraftPublishResult, DraftSummary, DraftUploadInput } from './types'
 
 export const DRAFT_POLL_MS = 3000
 
@@ -29,8 +29,8 @@ export async function getDraft(id: string): Promise<DraftDetail> {
 }
 
 /** PUT /admin/drafts/:id — แก้แผนผัง แล้ว backend ตรวจใหม่ (ผลตรวจมาจาก backend เท่านั้น) */
-export async function updateDraft(id: string, graphs: DraftGraph[]): Promise<DraftDetail> {
-  return request(`/admin/drafts/${encodeURIComponent(id)}`, { method: 'PUT', body: { graphs } })
+export async function updateDraft(id: string, flows: DraftFlow[]): Promise<DraftDetail> {
+  return request(`/admin/drafts/${encodeURIComponent(id)}`, { method: 'PUT', body: { flows } })
 }
 
 /** POST /admin/drafts/:id/reject */

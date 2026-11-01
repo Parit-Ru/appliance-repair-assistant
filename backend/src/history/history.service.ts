@@ -1,12 +1,12 @@
 import type { SessionOwner } from '../auth/session-owner';
 import { ApiError } from '../common/api-error';
 import { isoFromEpoch } from '../common/helpers';
-import { getCurrentNode, getOutcomeKind, submitAction as engineSubmitAction } from '../traversal-engine/traversal-engine';
-import { TraversalError } from '../traversal-engine/types';
-import type { RenderedNode, SessionHistoryEntry, SessionState, TroubleshootingGraph } from '../traversal-engine/types';
-import { GraphRepository } from '../traversal/graph.repository';
-import type { ManualSummary } from '../traversal/graph.repository';
-import type { HistoryDetailDto, HistoryFeedbackDto, HistoryGraphInfo, HistoryListItemDto, HistoryListResponseDto, HistoryQuery, HistoryStepDto } from './history.dto';
+import { getCurrentState, getOutcomeKind, submitAction as engineSubmitAction } from '../state-machine/state-machine';
+import { ExecutionError } from '../state-machine/types';
+import type { RenderedState, SessionHistoryEntry, SessionState, TroubleshootingFlow } from '../state-machine/types';
+import { FlowRepository } from '../execution/flow.repository';
+import type { ManualSummary } from '../execution/flow.repository';
+import type { HistoryDetailDto, HistoryFeedbackDto, HistoryFlowInfo, HistoryListItemDto, HistoryListResponseDto, HistoryQuery, HistoryStepDto } from './history.dto';
 import { HistoryStore } from './history.store';
 import type { CompletedSession, CompletedSessionSummary } from './history.store';
 
@@ -17,7 +17,7 @@ const historyNotFound = (sessionId: string) =>
 export class HistoryService {
   constructor(
     private readonly store: HistoryStore,
-    private readonly graphRepository: GraphRepository,
+    private readonly flowRepository: FlowRepository,
   ) {}
 
   /** GET /history */
@@ -47,10 +47,10 @@ export class HistoryService {
   async detail(owner: SessionOwner, sessionId: string): Promise<HistoryDetailDto> {
     const session = await this.requireOwned(sessionId, owner);
     const feedback = await this.store.findFeedback(sessionId);
-    const graph = this.graphRepository.findById(session.graphId);
-    const steps = graph ? await this.store.findSteps(sessionId) : [];
+    const flow = this.flowRepository.findById(session.flowId);
+    const steps = flow ? await this.store.findSteps(sessionId) : [];
 
-    return this.buildDetail(session, graph, steps, feedback ?? null);
+    return this.buildDetail(session, flow, steps, feedback ?? null);
   }
 
   /** DELETE /history/:id */
@@ -79,35 +79,35 @@ export class HistoryService {
   }
 
   private manualsById(): Map<string, ManualSummary> {
-    return new Map(this.graphRepository.listManuals().map((manual) => [manual.manualId, manual]));
+    return new Map(this.flowRepository.listManuals().map((manual) => [manual.manualId, manual]));
   }
 
   private toListItem(summary: CompletedSessionSummary, manuals: Map<string, ManualSummary>): HistoryListItemDto {
-    const graph = this.graphRepository.findById(summary.graphId);
-    const outcomeKind = graph ? getOutcomeKind(graph, summary.currentNodeId) : null;
+    const flow = this.flowRepository.findById(summary.flowId);
+    const outcomeKind = flow ? getOutcomeKind(flow, summary.currentStateId) : null;
 
     return {
       sessionId: summary.sessionId,
-      graphId: summary.graphId,
+      flowId: summary.flowId,
       startedAt: isoFromEpoch(summary.startedAtEpoch),
       outcomeKind,
-      graph: graphInfoOf(graph, manuals),
+      flow: flowInfoOf(flow, manuals),
     };
   }
 
   private buildDetail(
     session: CompletedSession,
-    graph: TroubleshootingGraph | undefined,
+    flow: TroubleshootingFlow | undefined,
     entries: SessionHistoryEntry[],
     feedback: HistoryFeedbackDto | null,
   ): HistoryDetailDto {
     const base = {
       sessionId: session.sessionId,
-      graphId: session.graphId,
+      flowId: session.flowId,
       startedAt: isoFromEpoch(session.startedAtEpoch),
       modelSelection: session.modelSelection,
       confidence: session.confidence,
-      graph: graphInfoOf(graph, this.manualsById()),
+      flow: flowInfoOf(flow, this.manualsById()),
       outcome: session.outcomeText,
       feedback,
     };
@@ -117,105 +117,105 @@ export class HistoryService {
       outcomeKind: null,
       available: false,
       steps: [],
-      finalNode: null,
+      finalState: null,
       safetyWarnings: [],
       reference: null,
     };
 
-    if (!graph) return unavailable;
+    if (!flow) return unavailable;
 
-    const finalNode = renderNodeIfPresent(graph, session.currentNodeId, session.variables);
-    if (!finalNode || !finalNode.isTerminal || !finalNode.outcomeKind) return unavailable;
+    const finalState = renderStateIfPresent(flow, session.currentStateId, session.variables);
+    if (!finalState || !finalState.isTerminal || !finalState.outcomeKind) return unavailable;
 
-    // เดินขั้นตอนที่บันทึกไว้ซ้ำผ่าน engine ในผังปัจจุบัน ต้องไปจบที่โหนดเดิม
+    // เดินขั้นตอนที่บันทึกไว้ซ้ำผ่าน engine ในผังปัจจุบัน ต้องไปจบที่สถานะเดิม
     // กันกรณีผังถูกแก้ทางเดิน (on_yes/on_no/next เปลี่ยน) แล้วเราโชว์ขั้นเก่าคู่กับข้อสรุปใหม่ที่ไม่เกี่ยวกัน
-    if (!replayReaches(graph, entries, session.currentNodeId)) return unavailable;
+    if (!replayReaches(flow, entries, session.currentStateId)) return unavailable;
 
     const steps: HistoryStepDto[] = [];
     for (const entry of entries) {
-      const node = renderNodeIfPresent(graph, entry.nodeId, session.variables);
-      if (!node || !entry.action) return unavailable;
-      steps.push({ node, action: entry.action });
+      const state = renderStateIfPresent(flow, entry.stateId, session.variables);
+      if (!state || !entry.action) return unavailable;
+      steps.push({ state, action: entry.action });
     }
 
     const safetyWarnings: string[] = [];
-    for (const node of [...steps.map((step) => step.node), finalNode]) {
-      const warning = node.safetyWarning?.trim();
+    for (const state of [...steps.map((step) => step.state), finalState]) {
+      const warning = state.safetyWarning?.trim();
       if (warning && !safetyWarnings.includes(warning)) safetyWarnings.push(warning);
     }
 
     return {
       ...base,
-      outcomeKind: finalNode.outcomeKind,
+      outcomeKind: finalState.outcomeKind,
       available: true,
       steps,
-      finalNode,
+      finalState,
       safetyWarnings,
-      reference: finalNode.reference,
+      reference: finalState.reference,
     };
   }
 }
 
-function graphInfoOf(
-  graph: TroubleshootingGraph | undefined,
+function flowInfoOf(
+  flow: TroubleshootingFlow | undefined,
   manuals: Map<string, ManualSummary>,
-): HistoryGraphInfo | null {
-  if (!graph) return null;
+): HistoryFlowInfo | null {
+  if (!flow) return null;
   return {
-    manualId: graph.manual_id,
-    entrySymptom: graph.entry_symptom,
-    entrySymptomTh: graph.entry_symptom_th,
-    deviceCategory: graph.device_category,
-    brand: graph.brand,
-    modelPattern: graph.model_pattern,
-    displayName: manuals.get(graph.manual_id)?.displayName,
+    manualId: flow.manual_id,
+    entrySymptom: flow.entry_symptom,
+    entrySymptomTh: flow.entry_symptom_th,
+    deviceCategory: flow.device_category,
+    brand: flow.brand,
+    modelPattern: flow.model_pattern,
+    displayName: manuals.get(flow.manual_id)?.displayName,
   };
 }
 
-function renderNodeIfPresent(
-  graph: TroubleshootingGraph,
-  nodeId: string,
+function renderStateIfPresent(
+  flow: TroubleshootingFlow,
+  stateId: string,
   variables: Record<string, string>,
-): RenderedNode | undefined {
-  if (!graph.nodes.some((node) => node.node_id === nodeId)) return undefined;
+): RenderedState | undefined {
+  if (!flow.states.some((state) => state.state_id === stateId)) return undefined;
 
   const session: SessionState = {
     sessionId: 'history-view',
-    graphId: graph.graph_id,
-    currentNodeId: nodeId,
+    flowId: flow.flow_id,
+    currentStateId: stateId,
     status: 'completed',
     variables,
     history: [],
   };
-  return getCurrentNode(session, graph);
+  return getCurrentState(session, flow);
 }
 
 /*
- เดินตามขั้นที่บันทึกไว้ผ่าน submitAction ของ engine เริ่มจากโหนดแรกของผังปัจจุบัน
-ผ่านเมื่อ: แต่ละขั้นอยู่ที่โหนดเดียวกับที่บันทึก, engine ยอมรับ action ทุกตัว, และจบที่โหนดสุดท้ายเดิมในสถานะ completed*/
+ เดินตามขั้นที่บันทึกไว้ผ่าน submitAction ของ engine เริ่มจากสถานะแรกของผังปัจจุบัน
+ผ่านเมื่อ: แต่ละขั้นอยู่ที่สถานะเดียวกับที่บันทึก, engine ยอมรับ action ทุกตัว, และจบที่สถานะสุดท้ายเดิมในสถานะ completed*/
 function replayReaches(
-  graph: TroubleshootingGraph,
+  flow: TroubleshootingFlow,
   entries: SessionHistoryEntry[],
-  finalNodeId: string,
+  finalStateId: string,
 ): boolean {
-  let state: SessionState = {
+  let replay: SessionState = {
     sessionId: 'history-replay',
-    graphId: graph.graph_id,
-    currentNodeId: graph.entry_node,
+    flowId: flow.flow_id,
+    currentStateId: flow.initial_state,
     status: 'in_progress',
     variables: {},
     history: [],
   };
 
   for (const entry of entries) {
-    if (!entry.action || state.currentNodeId !== entry.nodeId) return false;
+    if (!entry.action || replay.currentStateId !== entry.stateId) return false;
     try {
-      state = engineSubmitAction(state, graph, entry.action).session;
+      replay = engineSubmitAction(replay, flow, entry.action).session;
     } catch (error) {
-      if (error instanceof TraversalError) return false;
+      if (error instanceof ExecutionError) return false;
       throw error;
     }
   }
 
-  return state.status === 'completed' && state.currentNodeId === finalNodeId;
+  return replay.status === 'completed' && replay.currentStateId === finalStateId;
 }

@@ -62,7 +62,7 @@ export function SymptomsPage() {
       <div aria-live="polite" className="space-y-4">
         {search.isError && <SearchErrorNotice error={search.error} />}
 
-        {search.isSuccess && <SymptomSearchResults result={search.data} startingId={startingId} isStarting={isStarting} onSelect={(graphId) => start(graphId, { query: search.data.query, manualId, modelSelection })} />}
+        {search.isSuccess && <SymptomSearchResults result={search.data} startingId={startingId} isStarting={isStarting} onSelect={(flowId) => start(flowId, { query: search.data.query, manualId, modelSelection })} />}
       </div>
 
       {startError && <ErrorNotice error={startError} />}

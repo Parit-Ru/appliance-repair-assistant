@@ -84,7 +84,7 @@ function ModelStep({ category, manuals, onBack }: { category: DeviceCategory; ma
   const [typed, setTyped] = useState('')
   const [isUnknown, setIsUnknown] = useState(false)
 
-  // โหมดไม่ทราบรุ่นไม่กรอง (ช่องพิมพ์ถูกซ่อน จะได้ไม่มีตัวกรองที่มองไม่เห็น)
+  // โหมดไม่ทราบรุ่นไม่กรอง 
   const shown = isUnknown || typed.trim() === '' ? manuals : manuals.filter((m) => manualMatches(m, typed))
 
   function pick(manual: ManualSummary) {
@@ -124,7 +124,7 @@ function ModelStep({ category, manuals, onBack }: { category: DeviceCategory; ma
                 <span className="min-w-0 flex-1">
                   <span className="block font-semibold">{manual.brand} {manualTitle(manual)}</span>
                   {manual.displayName !== undefined && <span className="block font-mono text-sm text-ink-faint">{manual.modelPattern}</span>}
-                  <span className="block text-sm text-ink-soft">{manual.graphCount} อาการ</span>
+                  <span className="block text-sm text-ink-soft">{manual.flowCount} อาการ</span>
                 </span>
                 <Icon name="chevron-right" className="h-5 w-5 shrink-0 text-ink-faint" />
               </button>

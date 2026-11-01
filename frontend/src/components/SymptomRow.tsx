@@ -1,13 +1,13 @@
-import type { GraphSummary } from '../api/types'
+import type { FlowSummary } from '../api/types'
 import { formatScore } from '../lib/textInput'
 import { symptomName } from '../lib/symptoms'
 import { Icon } from './ui/Icon'
 
 interface SymptomRowProps {
-  summary: Pick<GraphSummary, 'graphId' | 'entrySymptom' | 'entrySymptomTh'>
+  summary: Pick<FlowSummary, 'flowId' | 'entrySymptom' | 'entrySymptomTh'>
   isStarting: boolean
   disabled: boolean
-  onSelect: (graphId: string) => void
+  onSelect: (flowId: string) => void
   score?: number
   matchedText?: string
 }
@@ -20,7 +20,7 @@ export function SymptomRow({ summary, isStarting, disabled, onSelect, score, mat
 
   return (
     <li className="border-b border-line">
-      <button type="button" disabled={isStarting || disabled} aria-busy={isStarting || undefined} className={classes} onClick={() => onSelect(summary.graphId)}>
+      <button type="button" disabled={isStarting || disabled} aria-busy={isStarting || undefined} className={classes} onClick={() => onSelect(summary.flowId)}>
         <span className="min-w-0 flex-1">
           <span className="block font-semibold">{symptomName(summary)}</span>
 

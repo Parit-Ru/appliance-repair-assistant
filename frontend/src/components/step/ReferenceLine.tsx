@@ -1,9 +1,9 @@
 import { useState } from 'react'
-import type { NodeReference } from '../../api/types'
+import type { StateReference } from '../../api/types'
 import { Button } from '../ui/Button'
 
 interface ReferenceLineProps {
-  reference: NodeReference
+  reference: StateReference
   manualLabel?: string
 }
 
@@ -12,7 +12,7 @@ function formatPages(pageRange: [number, number]): string {
   if (first === last) return `หน้า ${first}`
   return `หน้า ${first}–${last}`
 }
-function formatSourceLine(reference: NodeReference, manualLabel?: string): string {
+function formatSourceLine(reference: StateReference, manualLabel?: string): string {
   const manual = manualLabel === undefined ? reference.source : `คู่มือ ${manualLabel}`
   return `ที่มาของขั้นตอนนี้: ${manual} ${formatPages(reference.pageRange)}`
 }

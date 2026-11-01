@@ -9,10 +9,10 @@ export function useStartSymptom() {
   const [startingId, setStartingId] = useState<string | null>(null)
 
 
-  function start(graphId: string, options: { query?: string; manualId?: string; modelSelection?: ModelSelection } = {}) {
-    setStartingId(graphId)
+  function start(flowId: string, options: { query?: string; manualId?: string; modelSelection?: ModelSelection } = {}) {
+    setStartingId(flowId)
     startSession.mutate(
-      { graphId, ...options },
+      { flowId, ...options },
       { onSuccess: (session) => navigate(`/session/${session.sessionId}`, { state: { modelSelection: options.modelSelection } }) },
     )
   }

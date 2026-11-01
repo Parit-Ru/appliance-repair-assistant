@@ -6,7 +6,7 @@ import type { IconName } from '../ui/Icon'
 import { StepCard } from './StepCard'
 import type { StepProps } from './StepView'
 
-interface OutcomeStepProps extends Pick<StepProps, 'node' | 'manualLabel'> {
+interface OutcomeStepProps extends Pick<StepProps, 'state' | 'manualLabel'> {
   form?: ReactNode
   actions?: ReactNode
 }
@@ -25,8 +25,8 @@ const OUTCOME_ICONS: Record<OutcomeKind, IconName> = {
   handoff_unknown: 'wrench',
 }
 
-export function OutcomeStep({ node, manualLabel, form, actions }: OutcomeStepProps) {
-  const kind: OutcomeKind = node.outcomeKind ?? 'handoff_unknown'
+export function OutcomeStep({ state, manualLabel, form, actions }: OutcomeStepProps) {
+  const kind: OutcomeKind = state.outcomeKind ?? 'handoff_unknown'
   const headingClasses = ['flex items-start gap-2 font-semibold', OUTCOME_COLOR_CLASSES[kind]].join(' ')
 
   return (
@@ -37,9 +37,9 @@ export function OutcomeStep({ node, manualLabel, form, actions }: OutcomeStepPro
           {OUTCOME_TITLES[kind]}
         </span>
       }
-      reference={node.reference}
+      reference={state.reference}
       manualLabel={manualLabel}>
-      <p className="leading-relaxed">{node.text}</p>
+      <p className="leading-relaxed">{state.text}</p>
       {form !== undefined && <div className="mt-5 border-t border-line pt-5">{form}</div>}
       {actions !== undefined && <div className="mt-5 space-y-3">{actions}</div>}
     </StepCard>

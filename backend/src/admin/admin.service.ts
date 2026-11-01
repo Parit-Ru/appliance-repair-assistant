@@ -1,21 +1,21 @@
 /**
- * admin.service.ts — ประกอบข้อมูลสำหรับ /admin/* จาก AdminStore + ผังในหน่วยความจำ (GraphRepository)
+ * admin.service.ts — ประกอบข้อมูลสำหรับ /admin/* จาก AdminStore + ผังในหน่วยความจำ (FlowRepository)
  *
  * กฎ:
  *   - ส่งเฉพาะช่องที่ประกาศใน admin.dto.ts โดยหยิบทีละช่อง ไม่ spread แถวจากฐานข้อมูล
  *     (ต่อให้ store เผลอคืนช่องเกิน เช่น email ก็ไม่หลุดออก response)
  *   - ไม่เติมตัวเลขเอง: ตัวหารเป็น 0 → null (ไม่ใช่ 0) · ผังหาย → deviceCategory/outcomeKind เป็น null
- *   - outcome ของ session ที่จบ = outcome_kind ของโหนดสุดท้าย ณ ผังปัจจุบัน (เหมือนหน้าประวัติ)
- *     ผังถูก seed ใหม่จนหาโหนดไม่เจอ → นับเป็น 'unknown'
+ *   - outcome ของ session ที่จบ = outcome_kind ของสถานะสุดท้าย ณ ผังปัจจุบัน (เหมือนหน้าประวัติ)
+ *     ผังถูก seed ใหม่จนหาสถานะไม่เจอ → นับเป็น 'unknown'
  *
  * ข้อจำกัดที่รู้ (บันทึกใน docs/auth/auth-step3.md):
- *   - ตาราง sessions/graphs ใช้ร่วมกับโปรเจกต์เก่า แยกด้วย graph_id ไม่ได้ ตัวเลขรวมจึงรวม session ของโปรเจกต์เก่าด้วย
+ *   - ตาราง sessions/flows ใช้ร่วมกับโปรเจกต์เก่า แยกด้วย flow_id ไม่ได้ ตัวเลขรวมจึงรวม session ของโปรเจกต์เก่าด้วย
  */
 
 
 import { isoFromEpoch, round3 } from '../common/helpers';
-import { getOutcomeKind } from '../traversal-engine/traversal-engine';
-import { GraphRepository } from '../traversal/graph.repository';
+import { getOutcomeKind } from '../state-machine/state-machine';
+import { FlowRepository } from '../execution/flow.repository';
 import { dayIndexToDate, dayIndexToEpoch, thaiDayIndex, TOP_LIMIT, totalPagesOf } from './admin.dto';
 import type { AdminFeedbackItemDto, AdminFeedbackPageDto, AdminSummaryDto, FeedbackQuery, SummaryQuery } from './admin.dto';
 import { AdminStore } from './admin.store';
@@ -23,7 +23,7 @@ import { AdminStore } from './admin.store';
 export class AdminService {
   constructor(
     private readonly store: AdminStore,
-    private readonly graphRepository: GraphRepository,
+    private readonly flowRepository: FlowRepository,
   ) {}
 
   /** GET /admin/feedback */
@@ -31,16 +31,16 @@ export class AdminService {
     const { rows, total } = await this.store.listFeedback(query, query.pageSize, (query.page - 1) * query.pageSize);
 
     const items = rows.map((row): AdminFeedbackItemDto => {
-      const graph = this.graphRepository.findById(row.graphId);
+      const flow = this.flowRepository.findById(row.flowId);
       return {
         sessionId: row.sessionId,
         helpful: row.helpful,
         comment: row.comment,
         createdAt: isoFromEpoch(row.createdEpoch),
         updatedAt: isoFromEpoch(row.updatedEpoch),
-        graphId: row.graphId,
-        deviceCategory: graph?.device_category ?? null,
-        brand: graph?.brand ?? null,
+        flowId: row.flowId,
+        deviceCategory: flow?.device_category ?? null,
+        brand: flow?.brand ?? null,
         ownerType: row.ownerType,
       };
     });
@@ -54,11 +54,11 @@ export class AdminService {
     const firstIndex = todayIndex - (query.days - 1);
     const window = { fromEpoch: dayIndexToEpoch(firstIndex), toEpoch: dayIndexToEpoch(todayIndex + 1) };
 
-    const [totals, feedback, graphCounts, endNodes, perDay] = await Promise.all([
+    const [totals, feedback, flowCounts, endStates, perDay] = await Promise.all([
       this.store.sessionTotals(window),
       this.store.feedbackTotals(window),
-      this.store.graphCounts(window),
-      this.store.completedEndNodes(window),
+      this.store.flowCounts(window),
+      this.store.completedEndStates(window),
       this.store.perDay(window),
     ]);
 
@@ -70,25 +70,25 @@ export class AdminService {
       handoff_unknown: 0,
       unknown: 0,
     };
-    for (const end of endNodes) {
-      const graph = this.graphRepository.findById(end.graphId);
-      const kind = graph ? getOutcomeKind(graph, end.nodeId) : null;
+    for (const end of endStates) {
+      const flow = this.flowRepository.findById(end.flowId);
+      const kind = flow ? getOutcomeKind(flow, end.stateId) : null;
       outcomes[kind ?? 'unknown'] += end.count;
     }
 
-    // top graphs / devices
-    const topGraphs = [...graphCounts]
-      .sort((a, b) => b.count - a.count || a.graphId.localeCompare(b.graphId))
+    // top flows / devices
+    const topFlows = [...flowCounts]
+      .sort((a, b) => b.count - a.count || a.flowId.localeCompare(b.flowId))
       .slice(0, TOP_LIMIT)
       .map((entry) => ({
-        graphId: entry.graphId,
-        entrySymptomTh: this.graphRepository.findById(entry.graphId)?.entry_symptom_th ?? null,
+        flowId: entry.flowId,
+        entrySymptomTh: this.flowRepository.findById(entry.flowId)?.entry_symptom_th ?? null,
         count: entry.count,
       }));
 
     const deviceTotals = new Map<string, number>();
-    for (const entry of graphCounts) {
-      const category = this.graphRepository.findById(entry.graphId)?.device_category ?? 'unknown';
+    for (const entry of flowCounts) {
+      const category = this.flowRepository.findById(entry.flowId)?.device_category ?? 'unknown';
       deviceTotals.set(category, (deviceTotals.get(category) ?? 0) + entry.count);
     }
     const topDevices = [...deviceTotals.entries()]
@@ -127,7 +127,7 @@ export class AdminService {
         sampleSize: totals.confidenceSamples,
       },
       outcomes,
-      topGraphs,
+      topFlows,
       topDevices,
       perDay: perDayFilled,
     };

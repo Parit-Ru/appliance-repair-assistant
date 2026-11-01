@@ -5,9 +5,9 @@
   "model_pattern": "GE83MDT",
   "source_manual": "Samsung Microwave Oven User Manual GE83MDT (GE83MDT_XST_DE68-04111E)",
   "count": 9,
-  "graphs": [
+  "flows": [
     {
-      "graph_id": "samsung_ge83mdt_um_normal_conditions",
+      "flow_id": "samsung_ge83mdt_um_normal_conditions",
       "device_category": "Microwave",
       "brand": "Samsung",
       "model_pattern": "GE83MDT",
@@ -28,10 +28,10 @@
       "source_chunk_id": "manual_Samsung_Microwave_GE83MDT_p37_normal_conditions",
       "severity": "low",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "พบอาการอย่างใดอย่างหนึ่ง: ไอน้ำควบแน่นภายในเตา ลมไหลรอบประตูและตัวเตา แสงสะท้อนรอบประตูและตัวเตา หรือไอน้ำออกจากรอบประตูหรือช่องระบายอากาศ ใช่หรือไม่?",
           "safety_critical": false,
@@ -39,13 +39,13 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n1n",
+          "state_id": "n1n",
           "type": "resolution",
           "content": "เป็นเรื่องปกติ ไม่ใช่ความผิดปกติของเตา (คู่มือหน้า 37) ระวังไอร้อนเมื่อเปิดประตู โดยยืนห่างช่วงแขน (คู่มือหน้า 10)",
           "outcome_kind": "normal_behavior"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ติดต่อ Samsung Customer Care ประเทศไทย โทร 0-2689-3232 หรือ 1800-29-3232 หรือเว็บไซต์ www.samsung.com/th (คู่มือหน้า 40) พร้อมแจ้งรุ่นเครื่อง หมายเลขเครื่อง (ปกติพิมพ์อยู่ด้านหลังเตา) รายละเอียดการรับประกัน และคำอธิบายอาการให้ชัดเจน (คู่มือหน้า 37)",
           "outcome_kind": "handoff_unknown"
@@ -53,7 +53,7 @@
       ]
     },
     {
-      "graph_id": "samsung_ge83mdt_um_not_start",
+      "flow_id": "samsung_ge83mdt_um_not_start",
       "device_category": "Microwave",
       "brand": "Samsung",
       "model_pattern": "GE83MDT",
@@ -73,10 +73,10 @@
       "source_chunk_id": "manual_Samsung_Microwave_GE83MDT_p37_not_start",
       "severity": "low",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "ประตูเตาปิดสนิทแล้วใช่หรือไม่?",
           "safety_critical": false,
@@ -84,7 +84,7 @@
           "on_no": "n1f"
         },
         {
-          "node_id": "n1f",
+          "state_id": "n1f",
           "type": "instruction",
           "content": "ปิดประตูให้สนิทแล้วกดปุ่ม Start อีกครั้ง (คู่มือหน้า 37) ต้องไม่มีสิ่งของหรือเศษอาหารขวางที่ประตูและซีลประตู (คู่มือหน้า 10)",
           "safety_critical": true,
@@ -93,7 +93,7 @@
           "next": "n1v"
         },
         {
-          "node_id": "n1v",
+          "state_id": "n1v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
           "safety_critical": false,
@@ -102,7 +102,7 @@
           "on_no": "n2"
         },
         {
-          "node_id": "n2",
+          "state_id": "n2",
           "type": "checkpoint",
           "question": "เตาถูกล็อกอยู่ด้วยโปรแกรมความปลอดภัยสำหรับเด็ก (Child Safety) ใช่หรือไม่?",
           "safety_critical": false,
@@ -110,7 +110,7 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n2f",
+          "state_id": "n2f",
           "type": "instruction",
           "content": "ปลดล็อกเตาโดยกดปุ่ม Stop และปุ่ม Clock พร้อมกันอีกครั้ง แล้วเตาจะใช้งานได้ตามปกติ (คู่มือหน้า 27)",
           "safety_critical": false,
@@ -118,7 +118,7 @@
           "next": "n2v"
         },
         {
-          "node_id": "n2v",
+          "state_id": "n2v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
           "safety_critical": false,
@@ -127,13 +127,13 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "เตาเริ่มทำงานตามปกติแล้ว",
           "outcome_kind": "user_fixed"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ติดต่อ Samsung Customer Care ประเทศไทย โทร 0-2689-3232 หรือ 1800-29-3232 หรือเว็บไซต์ www.samsung.com/th (คู่มือหน้า 40) พร้อมแจ้งรุ่นเครื่อง หมายเลขเครื่อง (ปกติพิมพ์อยู่ด้านหลังเตา) รายละเอียดการรับประกัน และคำอธิบายอาการให้ชัดเจน (คู่มือหน้า 37)",
           "outcome_kind": "handoff_unknown"
@@ -141,7 +141,7 @@
       ]
     },
     {
-      "graph_id": "samsung_ge83mdt_um_not_cooked_at_all",
+      "flow_id": "samsung_ge83mdt_um_not_cooked_at_all",
       "device_category": "Microwave",
       "brand": "Samsung",
       "model_pattern": "GE83MDT",
@@ -161,10 +161,10 @@
       "source_chunk_id": "manual_Samsung_Microwave_GE83MDT_p37_not_cooked_at_all",
       "severity": "medium",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "ตั้งเวลาถูกต้องและกดปุ่ม Start แล้วใช่หรือไม่?",
           "safety_critical": false,
@@ -172,7 +172,7 @@
           "on_no": "n1f"
         },
         {
-          "node_id": "n1f",
+          "state_id": "n1f",
           "type": "instruction",
           "content": "ตั้งเวลาให้ถูกต้องและกดปุ่ม Start: กดปุ่ม Microwave เลือกระดับกำลังไฟโดยกดปุ่มซ้ำ ตั้งเวลาปรุงด้วยปุ่ม 10 min, 1 min และ 10 s แล้วกดปุ่ม Start (คู่มือหน้า 15 และ 37)",
           "safety_critical": true,
@@ -181,7 +181,7 @@
           "next": "n1v"
         },
         {
-          "node_id": "n1v",
+          "state_id": "n1v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
           "safety_critical": false,
@@ -190,7 +190,7 @@
           "on_no": "n2"
         },
         {
-          "node_id": "n2",
+          "state_id": "n2",
           "type": "checkpoint",
           "question": "ประตูเตาปิดสนิทแล้วใช่หรือไม่?",
           "safety_critical": false,
@@ -198,7 +198,7 @@
           "on_no": "n2f"
         },
         {
-          "node_id": "n2f",
+          "state_id": "n2f",
           "type": "instruction",
           "content": "ปิดประตูให้สนิทแล้วเริ่มปรุงอีกครั้ง (คู่มือหน้า 37)",
           "safety_critical": true,
@@ -207,7 +207,7 @@
           "next": "n2v"
         },
         {
-          "node_id": "n2v",
+          "state_id": "n2v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
           "safety_critical": false,
@@ -216,7 +216,7 @@
           "on_no": "n3"
         },
         {
-          "node_id": "n3",
+          "state_id": "n3",
           "type": "checkpoint",
           "question": "ใช้ไฟฟ้าเกินกำลังของวงจรทำให้ฟิวส์ขาดหรือเบรกเกอร์ตัดไฟ ใช่หรือไม่?",
           "safety_critical": false,
@@ -224,19 +224,19 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n3e",
+          "state_id": "n3e",
           "type": "escalation",
           "content": "คู่มือหน้า 37 ให้ตรวจว่าวงจรไฟฟ้าโหลดเกินจนฟิวส์ขาดหรือเบรกเกอร์ตัดหรือไม่ แต่ไม่ได้ระบุวิธีแก้ที่ผู้ใช้ทำเองได้ ห้ามซ่อมเตาเอง (คู่มือหน้า 8) ห้ามใช้ปลั๊กแปลงหลายทางหรือสายต่อพ่วง (คู่มือหน้า 9) ให้ติดต่อ Samsung Customer Care ประเทศไทย โทร 0-2689-3232 หรือ 1800-29-3232 หรือเว็บไซต์ www.samsung.com/th (คู่มือหน้า 40)",
           "outcome_kind": "handoff_informed"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "อาหารสุกตามปกติแล้ว",
           "outcome_kind": "user_fixed"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ติดต่อ Samsung Customer Care ประเทศไทย โทร 0-2689-3232 หรือ 1800-29-3232 หรือเว็บไซต์ www.samsung.com/th (คู่มือหน้า 40) พร้อมแจ้งรุ่นเครื่อง หมายเลขเครื่อง (ปกติพิมพ์อยู่ด้านหลังเตา) รายละเอียดการรับประกัน และคำอธิบายอาการให้ชัดเจน (คู่มือหน้า 37)",
           "outcome_kind": "handoff_unknown"
@@ -244,7 +244,7 @@
       ]
     },
     {
-      "graph_id": "samsung_ge83mdt_um_over_under_cooked",
+      "flow_id": "samsung_ge83mdt_um_over_under_cooked",
       "device_category": "Microwave",
       "brand": "Samsung",
       "model_pattern": "GE83MDT",
@@ -264,10 +264,10 @@
       "source_chunk_id": "manual_Samsung_Microwave_GE83MDT_p37_over_under_cooked",
       "severity": "low",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "ตั้งเวลาปรุงเหมาะสมกับชนิดอาหารแล้วใช่หรือไม่?",
           "safety_critical": false,
@@ -275,7 +275,7 @@
           "on_no": "n1f"
         },
         {
-          "node_id": "n1f",
+          "state_id": "n1f",
           "type": "instruction",
           "content": "ตั้งเวลาปรุงให้เหมาะสมกับชนิดอาหาร: ใช้เวลาตามคำแนะนำของโปรแกรมหรือสูตรในคู่มือ เพิ่มเวลาปรุงได้โดยกดปุ่ม +30 s หนึ่งครั้งต่อทุก 30 วินาทีที่ต้องการเพิ่ม แล้วกดปุ่ม Start (คู่มือหน้า 16) ใช้เวลาสั้นลงสำหรับอาหารปริมาณน้อย (คู่มือหน้า 10)",
           "safety_critical": true,
@@ -284,7 +284,7 @@
           "next": "n1v"
         },
         {
-          "node_id": "n1v",
+          "state_id": "n1v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
           "safety_critical": false,
@@ -293,7 +293,7 @@
           "on_no": "n2"
         },
         {
-          "node_id": "n2",
+          "state_id": "n2",
           "type": "checkpoint",
           "question": "เลือกระดับกำลังไฟเหมาะสมแล้วใช่หรือไม่?",
           "safety_critical": false,
@@ -301,7 +301,7 @@
           "on_no": "n2f"
         },
         {
-          "node_id": "n2f",
+          "state_id": "n2f",
           "type": "instruction",
           "content": "เลือกระดับกำลังไฟให้เหมาะสม: ถ้าเลือกกำลังไฟสูงขึ้นต้องลดเวลาปรุง ถ้าเลือกกำลังไฟต่ำลงต้องเพิ่มเวลาปรุง (คู่มือหน้า 16) เปลี่ยนระดับกำลังไฟโดยกดปุ่ม Microwave ซ้ำจนแสดงค่ากำลังไฟที่ต้องการ (คู่มือหน้า 15)",
           "safety_critical": true,
@@ -310,7 +310,7 @@
           "next": "n2v"
         },
         {
-          "node_id": "n2v",
+          "state_id": "n2v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
           "safety_critical": false,
@@ -319,13 +319,13 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "อาหารสุกตามต้องการแล้ว",
           "outcome_kind": "user_fixed"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ติดต่อ Samsung Customer Care ประเทศไทย โทร 0-2689-3232 หรือ 1800-29-3232 หรือเว็บไซต์ www.samsung.com/th (คู่มือหน้า 40) พร้อมแจ้งรุ่นเครื่อง หมายเลขเครื่อง (ปกติพิมพ์อยู่ด้านหลังเตา) รายละเอียดการรับประกัน และคำอธิบายอาการให้ชัดเจน (คู่มือหน้า 37)",
           "outcome_kind": "handoff_unknown"
@@ -333,7 +333,7 @@
       ]
     },
     {
-      "graph_id": "samsung_ge83mdt_um_light_not_working",
+      "flow_id": "samsung_ge83mdt_um_light_not_working",
       "device_category": "Microwave",
       "brand": "Samsung",
       "model_pattern": "GE83MDT",
@@ -353,10 +353,10 @@
       "source_chunk_id": "manual_Samsung_Microwave_GE83MDT_p37_light_not_working",
       "severity": "low",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "ประตูเปิดค้างไว้นาน หรือเตาอยู่ในโหมดประหยัดพลังงาน (Energy save) หรือไม่?",
           "safety_critical": false,
@@ -364,7 +364,7 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n1f",
+          "state_id": "n1f",
           "type": "instruction",
           "content": "ปิดประตูแล้วเปิดใหม่ หรือกดปุ่ม Energy Saving เพื่อยกเลิกโหมดประหยัดพลังงาน (คู่มือหน้า 16) หน้า 15 ระบุว่าถ้าเปิดประตูทิ้งไว้ ไฟภายในจะดับเองหลังผ่านไป 5 นาที",
           "safety_critical": false,
@@ -372,7 +372,7 @@
           "next": "n1v"
         },
         {
-          "node_id": "n1v",
+          "state_id": "n1v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
           "safety_critical": false,
@@ -381,13 +381,13 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "ไฟในเตาสว่างตามปกติแล้ว",
           "outcome_kind": "user_fixed"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "หลอดไฟไม่ควรเปลี่ยนเองเพื่อความปลอดภัย ให้ติดต่อศูนย์บริการ Samsung ที่ได้รับอนุญาตที่ใกล้ที่สุด เพื่อให้ช่างผู้มีคุณสมบัติเป็นผู้เปลี่ยนหลอดไฟ (คู่มือหน้า 37) ติดต่อ Samsung Customer Care ประเทศไทย โทร 0-2689-3232 หรือ 1800-29-3232 หรือเว็บไซต์ www.samsung.com/th (คู่มือหน้า 40)",
           "outcome_kind": "handoff_informed"
@@ -395,7 +395,7 @@
       ]
     },
     {
-      "graph_id": "samsung_ge83mdt_um_radio_tv_interference",
+      "flow_id": "samsung_ge83mdt_um_radio_tv_interference",
       "device_category": "Microwave",
       "brand": "Samsung",
       "model_pattern": "GE83MDT",
@@ -415,10 +415,10 @@
       "source_chunk_id": "manual_Samsung_Microwave_GE83MDT_p37_radio_tv_interference",
       "severity": "low",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "เห็นสัญญาณรบกวนเล็กน้อยบนโทรทัศน์หรือวิทยุขณะเตาทำงานใช่หรือไม่?",
           "safety_critical": false,
@@ -426,7 +426,7 @@
           "on_no": "n2"
         },
         {
-          "node_id": "n1f",
+          "state_id": "n1f",
           "type": "instruction",
           "content": "เป็นเรื่องปกติ หากต้องการแก้ปัญหา ให้ย้ายเตาไปติดตั้งให้ห่างจากโทรทัศน์ วิทยุ และเสาอากาศ (คู่มือหน้า 37)",
           "safety_critical": true,
@@ -435,7 +435,7 @@
           "next": "n1v"
         },
         {
-          "node_id": "n1v",
+          "state_id": "n1v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
           "safety_critical": false,
@@ -444,7 +444,7 @@
           "on_no": "n2"
         },
         {
-          "node_id": "n2",
+          "state_id": "n2",
           "type": "checkpoint",
           "question": "จอแสดงผลของเตารีเซ็ตเองหรือเวลาหายไปใช่หรือไม่?",
           "safety_critical": false,
@@ -452,7 +452,7 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n2f",
+          "state_id": "n2f",
           "type": "instruction",
           "content": "ถอดปลั๊กไฟของเตาแล้วเสียบกลับ จากนั้นตั้งเวลาใหม่ (คู่มือหน้า 37) วิธีตั้งเวลา: กดปุ่ม Clock ตั้งชั่วโมงด้วยปุ่ม h และนาทีด้วยปุ่ม min แล้วกดปุ่ม Clock อีกครั้งเพื่อเริ่มนาฬิกา (คู่มือหน้า 15) ให้ทำขณะเตาไม่ได้ทำงาน เพราะไม่ควรปิดเตาด้วยการถอดปลั๊กขณะเตากำลังทำงาน (คู่มือหน้า 9)",
           "safety_critical": true,
@@ -461,7 +461,7 @@
           "next": "n2v"
         },
         {
-          "node_id": "n2v",
+          "state_id": "n2v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
           "safety_critical": false,
@@ -470,13 +470,13 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "เตาและจอแสดงผลทำงานตามปกติแล้ว",
           "outcome_kind": "user_fixed"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ติดต่อ Samsung Customer Care ประเทศไทย โทร 0-2689-3232 หรือ 1800-29-3232 หรือเว็บไซต์ www.samsung.com/th (คู่มือหน้า 40) พร้อมแจ้งรุ่นเครื่อง หมายเลขเครื่อง (ปกติพิมพ์อยู่ด้านหลังเตา) รายละเอียดการรับประกัน และคำอธิบายอาการให้ชัดเจน (คู่มือหน้า 37)",
           "outcome_kind": "handoff_unknown"
@@ -484,7 +484,7 @@
       ]
     },
     {
-      "graph_id": "samsung_ge83mdt_um_smoke_smell_initial",
+      "flow_id": "samsung_ge83mdt_um_smoke_smell_initial",
       "device_category": "Microwave",
       "brand": "Samsung",
       "model_pattern": "GE83MDT",
@@ -504,10 +504,10 @@
       "source_chunk_id": "manual_Samsung_Microwave_GE83MDT_p37_smoke_smell_initial",
       "severity": "medium",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "เพิ่งเริ่มใช้เตาครั้งแรกหรือเตาเพิ่งใช้ชิ้นส่วนใหม่ และมีควันกับกลิ่นเหม็นออกมาใช่หรือไม่?",
           "safety_critical": false,
@@ -515,13 +515,13 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n1n",
+          "state_id": "n1n",
           "type": "resolution",
           "content": "เป็นภาวะชั่วคราวจากการที่ชิ้นส่วนใหม่ได้รับความร้อน ควันและกลิ่นจะหายหมดหลังเตาทำงานประมาณ 10 นาที (คู่มือหน้า 37) ถ้าต้องการให้กลิ่นหายเร็วขึ้น ให้เปิดเตาโดยวางเลมอนหรือน้ำมะนาวไว้ในเตา (คู่มือหน้า 37) วิธีของหน้า 7: วางถ้วยน้ำมะนาวเจือจางไว้ในเตา อุ่นด้วยกำลังสูงสุด 10 นาที (คู่มือหน้า 7) ถ้ามีควันออกมา ให้ปิดเครื่องหรือถอดปลั๊กและปิดประตูไว้ (คู่มือหน้า 4) ถ้าควันไม่หายหรือมีกลิ่นไหม้ ให้ถอดปลั๊กทันทีและติดต่อศูนย์บริการ (คู่มือหน้า 5)",
           "outcome_kind": "normal_behavior"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ถ้าเตามีเสียงผิดปกติ กลิ่นไหม้ ควัน ประกายไฟ หรือรู้สึกว่ามีไฟฟ้าออกมาจากเตา ให้ถอดปลั๊กและหยุดใช้เตา (คู่มือหน้า 5) แล้วติดต่อ Samsung Customer Care ประเทศไทย โทร 0-2689-3232 หรือ 1800-29-3232 หรือเว็บไซต์ www.samsung.com/th (คู่มือหน้า 40) พร้อมแจ้งรุ่นเครื่องและอาการ ห้ามซ่อมเตาเอง (คู่มือหน้า 8)",
           "outcome_kind": "handoff_informed"
@@ -529,7 +529,7 @@
       ]
     },
     {
-      "graph_id": "samsung_ge83mdt_um_arcing",
+      "flow_id": "samsung_ge83mdt_um_arcing",
       "device_category": "Microwave",
       "brand": "Samsung",
       "model_pattern": "GE83MDT",
@@ -550,10 +550,10 @@
       "source_chunk_id": "manual_Samsung_Microwave_GE83MDT_p37_arcing",
       "severity": "medium",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "ใช้จานชามที่มีขอบโลหะ เช่น ขอบทองหรือเงิน หรือไม่?",
           "safety_critical": false,
@@ -561,7 +561,7 @@
           "on_no": "n2"
         },
         {
-          "node_id": "n1f",
+          "state_id": "n1f",
           "type": "instruction",
           "content": "เปิดประตูเพื่อหยุดชั่วคราว หรือกดปุ่ม Stop เพื่อหยุดทั้งหมด และกดปุ่ม Stop อีกครั้งเพื่อยกเลิกการตั้งค่า (คู่มือหน้า 16) แล้วนำภาชนะนั้นออก และเปลี่ยนเป็นภาชนะที่ใช้กับไมโครเวฟได้ ห้ามใช้จานชามขอบทองหรือเงิน (คู่มือหน้า 10 และ 37)",
           "safety_critical": true,
@@ -570,7 +570,7 @@
           "next": "n1v"
         },
         {
-          "node_id": "n1v",
+          "state_id": "n1v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
           "safety_critical": false,
@@ -579,7 +579,7 @@
           "on_no": "n2"
         },
         {
-          "node_id": "n2",
+          "state_id": "n2",
           "type": "checkpoint",
           "question": "ลืมส้อมหรือภาชนะโลหะอื่นไว้ในเตาหรือไม่?",
           "safety_critical": false,
@@ -587,7 +587,7 @@
           "on_no": "n3"
         },
         {
-          "node_id": "n2f",
+          "state_id": "n2f",
           "type": "instruction",
           "content": "เปิดประตูเพื่อหยุดชั่วคราว หรือกดปุ่ม Stop เพื่อหยุดทั้งหมด และกดปุ่ม Stop อีกครั้งเพื่อยกเลิกการตั้งค่า (คู่มือหน้า 16) แล้วนำส้อมหรือภาชนะโลหะออกจากเตา ห้ามใช้ภาชนะโลหะระหว่างปรุงด้วยไมโครเวฟ (คู่มือหน้า 10 และ 37)",
           "safety_critical": true,
@@ -596,7 +596,7 @@
           "next": "n2v"
         },
         {
-          "node_id": "n2v",
+          "state_id": "n2v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
           "safety_critical": false,
@@ -605,7 +605,7 @@
           "on_no": "n3"
         },
         {
-          "node_id": "n3",
+          "state_id": "n3",
           "type": "checkpoint",
           "question": "ฟอยล์อะลูมิเนียมอยู่ใกล้ผนังด้านในเตามากเกินไปหรือไม่?",
           "safety_critical": false,
@@ -613,7 +613,7 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n3f",
+          "state_id": "n3f",
           "type": "instruction",
           "content": "เปิดประตูเพื่อหยุดชั่วคราว หรือกดปุ่ม Stop เพื่อหยุดทั้งหมด และกดปุ่ม Stop อีกครั้งเพื่อยกเลิกการตั้งค่า (คู่มือหน้า 16) แล้วนำฟอยล์ออกหรือจัดให้อยู่ห่างจากผนังเตา คู่มือระบุว่าใช้ฟอยล์ได้ในปริมาณน้อยเพื่อป้องกันอาหารสุกเกิน และอาจเกิดประกายไฟถ้าฟอยล์อยู่ใกล้ผนังเตาหรือใช้ฟอยล์มากเกินไป (คู่มือหน้า 28 และ 37)",
           "safety_critical": true,
@@ -622,7 +622,7 @@
           "next": "n3v"
         },
         {
-          "node_id": "n3v",
+          "state_id": "n3v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
           "safety_critical": false,
@@ -631,13 +631,13 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "ไม่มีประกายไฟภายในเตาแล้ว",
           "outcome_kind": "user_fixed"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ถ้าเตามีเสียงผิดปกติ กลิ่นไหม้ ควัน ประกายไฟ หรือรู้สึกว่ามีไฟฟ้าออกมาจากเตา ให้ถอดปลั๊กและหยุดใช้เตา (คู่มือหน้า 5) แล้วติดต่อ Samsung Customer Care ประเทศไทย โทร 0-2689-3232 หรือ 1800-29-3232 หรือเว็บไซต์ www.samsung.com/th (คู่มือหน้า 40) พร้อมแจ้งรุ่นเครื่องและอาการ ห้ามซ่อมเตาเอง (คู่มือหน้า 8)",
           "outcome_kind": "handoff_informed"
@@ -645,7 +645,7 @@
       ]
     },
     {
-      "graph_id": "samsung_ge83mdt_um_code_se",
+      "flow_id": "samsung_ge83mdt_um_code_se",
       "device_category": "Microwave",
       "brand": "Samsung",
       "model_pattern": "GE83MDT",
@@ -668,10 +668,10 @@
       "source_chunk_id": "manual_Samsung_Microwave_GE83MDT_p37_code_se",
       "severity": "medium",
       "difficulty": "medium",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "หน้าจอแสดงรหัส SE ใช่หรือไม่?",
           "safety_critical": false,
@@ -679,7 +679,7 @@
           "on_no": "n_nomatch"
         },
         {
-          "node_id": "n2",
+          "state_id": "n2",
           "type": "instruction",
           "content": "ทำความสะอาดปุ่มควบคุม และตรวจว่ามีน้ำอยู่บนพื้นผิวรอบปุ่มหรือไม่ (คู่มือหน้า 37)",
           "safety_critical": true,
@@ -688,7 +688,7 @@
           "next": "n2v"
         },
         {
-          "node_id": "n2v",
+          "state_id": "n2v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว รหัสบนจอหายไปและเครื่องทำงานปกติหรือไม่?",
           "safety_critical": false,
@@ -697,7 +697,7 @@
           "on_no": "n3"
         },
         {
-          "node_id": "n3",
+          "state_id": "n3",
           "type": "instruction",
           "content": "ปิดเตาแล้วลองตั้งค่าใหม่ (คู่มือหน้า 37)",
           "safety_critical": false,
@@ -705,7 +705,7 @@
           "next": "n3v"
         },
         {
-          "node_id": "n3v",
+          "state_id": "n3v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว รหัสบนจอหายไปและเครื่องทำงานปกติหรือไม่?",
           "safety_critical": false,
@@ -714,19 +714,19 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "รหัสหายไปและเตาทำงานปกติแล้ว",
           "outcome_kind": "user_fixed"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ทำตามรายการตรวจแล้วข้อความ SE ยังแสดงอยู่ ให้ติดต่อ Samsung Customer Care ประเทศไทย โทร 0-2689-3232 หรือ 1800-29-3232 หรือเว็บไซต์ www.samsung.com/th (คู่มือหน้า 40) พร้อมแจ้งรุ่นเครื่อง รหัส และสิ่งที่ได้ตรวจไปแล้ว (คู่มือหน้า 37)",
           "outcome_kind": "handoff_informed"
         },
         {
-          "node_id": "n_nomatch",
+          "state_id": "n_nomatch",
           "type": "escalation",
           "content": "รหัสที่แสดงไม่ใช่ SE ให้เลือกรหัสตามที่ปรากฏบนจอ หรือติดต่อศูนย์บริการ Samsung พร้อมแจ้งรหัสที่เห็น",
           "outcome_kind": "handoff_unknown"

@@ -5,7 +5,7 @@ import { Notice } from '../ui/Notice'
 import { StepCard } from './StepCard'
 import type { StepProps } from './StepView'
 
-export function SafetyGateStep({ node, onAction, isPending, manualLabel }: StepProps) {
+export function SafetyGateStep({ state, onAction, isPending, manualLabel }: StepProps) {
   const [acknowledged, setAcknowledged] = useState(false)
 
   return (
@@ -14,11 +14,11 @@ export function SafetyGateStep({ node, onAction, isPending, manualLabel }: StepP
       tone="danger"
       notice={
         <Notice tone="danger" title="คำเตือนก่อนทำขั้นตอนนี้">
-          {node.safetyWarning}
+          {state.safetyWarning}
         </Notice>
       }
-      heading={node.text}
-      reference={node.reference}
+      heading={state.text}
+      reference={state.reference}
       manualLabel={manualLabel}
     >
       <div className="space-y-4">

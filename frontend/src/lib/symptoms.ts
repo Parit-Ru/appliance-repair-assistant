@@ -1,8 +1,7 @@
-import type { DeviceCategory, GraphSummary } from '../api/types'
+import type { DeviceCategory, FlowSummary } from '../api/types'
 
 /*
- * ศัพท์: 1 GraphSummary = เครื่องสถานะ 1 ชุด = 1 อาการ
- * (ในโค้ดยังเรียกว่า graph ตามชื่อเดิม)
+ * ศัพท์: 1 FlowSummary = ผังขั้นตอน (เครื่องสถานะ) 1 ชุด = 1 อาการ
  */
 
 /**
@@ -16,7 +15,7 @@ import type { DeviceCategory, GraphSummary } from '../api/types'
  */
 const thaiCollator = new Intl.Collator('th')
 
-type SymptomLabel = Pick<GraphSummary, 'entrySymptom' | 'entrySymptomTh'>
+type SymptomLabel = Pick<FlowSummary, 'entrySymptom' | 'entrySymptomTh'>
 export function symptomName(summary: SymptomLabel): string {
   return summary.entrySymptomTh ?? summary.entrySymptom
 }
@@ -26,28 +25,28 @@ interface SymptomGroup {
   deviceCategory: DeviceCategory
   brand: string
   modelPattern: string
-  symptoms: GraphSummary[]
+  symptoms: FlowSummary[]
 }
 
-export function groupSymptoms(graphs: GraphSummary[]): SymptomGroup[] {
+export function groupSymptoms(flows: FlowSummary[]): SymptomGroup[] {
   const groups = new Map<string, SymptomGroup>()
 
-  for (const graph of graphs) {
-    const key = graph.manualId
+  for (const flow of flows) {
+    const key = flow.manualId
 
     let group = groups.get(key)
     if (group === undefined) {
       group = {
-        manualId: graph.manualId,
-        deviceCategory: graph.deviceCategory,
-        brand: graph.brand,
-        modelPattern: graph.modelPattern,
+        manualId: flow.manualId,
+        deviceCategory: flow.deviceCategory,
+        brand: flow.brand,
+        modelPattern: flow.modelPattern,
         symptoms: [],
       }
       groups.set(key, group)
     }
 
-    group.symptoms.push(graph)
+    group.symptoms.push(flow)
   }
 
   for (const group of groups.values()) {

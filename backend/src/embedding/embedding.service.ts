@@ -36,13 +36,13 @@ export class EmbeddingService {
     const started = Date.now();
     this.extractor = (await pipeline('feature-extraction', EMBEDDING_MODEL_ID, {
       dtype: EMBEDDING_DTYPE,
-      session_options: { intraOpNumThreads: 1 }, 
+      session_options: { intraOpNumThreads: 1 },
     })) as unknown as FeatureExtractor;
 
     this.logger.log(`โหลดโมเดลเสร็จใน ${Date.now() - started} ms`);
   }
 
-  /** แปลงข้อความเป็นเวกเตอร์ 384 มิติ */
+  // แปลงข้อความเป็นเวกเตอร์ 384 มิติ
   async embed(text: string): Promise<Float32Array> {
     if (!this.extractor) {
       throw new Error('EmbeddingService: ยังไม่ได้เรียก load()');

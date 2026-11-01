@@ -1,8 +1,8 @@
-import type { HistoryGraphInfo, OutcomeKind } from '../api/types'
+import type { HistoryFlowInfo, OutcomeKind } from '../api/types'
 import { symptomName } from './symptoms'
 
 export const HISTORY_RETENTION_DAYS = 90
-export const GRAPH_CHANGED_MESSAGE = 'ข้อมูลผังเปลี่ยนไปแล้ว ดูรายละเอียดไม่ได้'
+export const FLOW_CHANGED_MESSAGE = 'ข้อมูลผังเปลี่ยนไปแล้ว ดูรายละเอียดไม่ได้'
 
 export const STATUS_BADGE_CLASSES: Record<OutcomeKind, string> = {
   user_fixed: 'border-success/40 text-success',
@@ -18,6 +18,6 @@ export function formatStartedAt(iso: string): string {
   return Number.isNaN(date.getTime()) ? '' : dateTimeFormatter.format(date)
 }
 
-export function historyTitle(graph: HistoryGraphInfo | null): string {
-  return graph === null ? GRAPH_CHANGED_MESSAGE : symptomName(graph)
+export function historyTitle(flow: HistoryFlowInfo | null): string {
+  return flow === null ? FLOW_CHANGED_MESSAGE : symptomName(flow)
 }

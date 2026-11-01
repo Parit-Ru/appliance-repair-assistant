@@ -1,0 +1,325 @@
+[
+  {
+    "chunk_id": "manual_Samsung_Range_NSI6D9500_p5_power_cord_defective",
+    "device_category": "Range",
+    "brand": "Samsung",
+    "model": "NSI6D*9500****",
+    "source": "Samsung INDUCTION RANGE Service Manual (model code NSI6D*9500****)",
+    "page": 5,
+    "content": "If the power cord is defective it must be replaced by a qualified service agent with a UL listed range cord.",
+    "metadata": {
+      "symptom": "If the power cord is defective",
+      "possible_cause": null,
+      "solution": "it must be replaced by a qualified service agent with a UL listed range cord.",
+      "severity": "medium",
+      "difficulty": "hard",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Range_NSI6D9500_p7_self_clean_f_code",
+    "device_category": "Range",
+    "brand": "Samsung",
+    "model": "NSI6D*9500****",
+    "source": "Samsung INDUCTION RANGE Service Manual (model code NSI6D*9500****)",
+    "page": 7,
+    "content": "In the event the self-clean mode “F” code goes on, or three long beeps sound, oven is malfunctioning in the self-clean mode. Turn off or disconnect appliance from power supply and have serviced by a qualified technician.",
+    "metadata": {
+      "symptom": "In the event the self-clean mode “F” code goes on, or three long beeps sound, oven is malfunctioning in the self-clean mode.",
+      "possible_cause": null,
+      "solution": "Turn off or disconnect appliance from power supply and have serviced by a qualified technician.",
+      "severity": "high",
+      "difficulty": "hard",
+      "safety_warning": "ก่อนทำงานกับเตาให้ตัดไฟโดยถอดฟิวส์หรือปิดเบรกเกอร์ เพื่อป้องกันไฟฟ้าดูด (คู่มือหน้า 6 และ 5) และภายในเตาร้อนมากขณะเตาทำงาน (คู่มือหน้า 5)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Range_NSI6D9500_p7_broken_cooktop",
+    "device_category": "Range",
+    "brand": "Samsung",
+    "model": "NSI6D*9500****",
+    "source": "Samsung INDUCTION RANGE Service Manual (model code NSI6D*9500****)",
+    "page": 7,
+    "content": "Do Not Cook on Broken Cook-Top 1. If cook top should break, cleaning solutions and spillovers may penetrate the broken cook top and create a risk of electric shock. 2. Contact a qualified technician immediately.",
+    "metadata": {
+      "symptom": "Do Not Cook on Broken Cook-Top",
+      "possible_cause": null,
+      "solution": "1. If cook top should break, cleaning solutions and spillovers may penetrate the broken cook top and create a risk of electric shock.\n2. Contact a qualified technician immediately.",
+      "severity": "high",
+      "difficulty": "hard",
+      "safety_warning": "ถ้าพื้นผิวเตาแตก น้ำยาทำความสะอาดและของเหลวที่ล้นอาจซึมเข้าไป ทำให้เสี่ยงไฟฟ้าดูด (คู่มือหน้า 7)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Range_NSI6D9500_p53_c20_oven_sensor",
+    "device_category": "Range",
+    "brand": "Samsung",
+    "model": "NSI6D*9500****",
+    "source": "Samsung INDUCTION RANGE Service Manual (model code NSI6D*9500****)",
+    "page": 53,
+    "content": "C-20 Oven sensor opened (over 2950Ω) Oven sensor shorted. (Under 930Ω) 1. Disconnect power. Open the back cover. Disconnect sensor harness from control Measure sensor resistance :1080Ω at the room temperature → If there are any problems, replace oven sensor. 2. If there is not any problem with oven sensor, Please check whether there is a damaged terminal or wire harness. 3. Check resistance of oven sensor connector on Sub PCB (Normal:2850Ω)",
+    "metadata": {
+      "symptom": "C-20 Oven sensor opened (over 2950Ω) Oven sensor shorted. (Under 930Ω)",
+      "possible_cause": null,
+      "solution": "1. Disconnect power. Open the back cover. Disconnect sensor harness from control Measure sensor resistance :1080Ω at the room temperature → If there are any problems, replace oven sensor.\n2. If there is not any problem with oven sensor, Please check whether there is a damaged terminal or wire harness.\n3. Check resistance of oven sensor connector on Sub PCB (Normal:2850Ω)",
+      "severity": "medium",
+      "difficulty": "hard",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Range_NSI6D9500_p54_c21_oven_heating_over",
+    "device_category": "Range",
+    "brand": "Samsung",
+    "model": "NSI6D*9500****",
+    "source": "Samsung INDUCTION RANGE Service Manual (model code NSI6D*9500****)",
+    "page": 54,
+    "content": "C-21 Oven heating over 1. Disconnect power. Open the back cover. Disconnect sensor harness from control. Measure sensor resistance :1080Ω at the room temperature → If there are any problems, replace oven sensor. 2. Check the broil, bake and convection heater. Check the resistance of the each heater. 3. Check whether DLB, Broil, Bake and Convection heater relay are working normally. 4. Check whether there is any disconnection of harness which is linked with main PCB on sub PCB. 5. Check the resistance of oven sensor connector on sub PCB. (Normal : 2850Ω)",
+    "metadata": {
+      "symptom": "C-21 Oven heating over",
+      "possible_cause": null,
+      "solution": "1. Disconnect power. Open the back cover. Disconnect sensor harness from control. Measure sensor resistance :1080Ω at the room temperature → If there are any problems, replace oven sensor.\n2. Check the broil, bake and convection heater. Check the resistance of the each heater.\n3. Check whether DLB, Broil, Bake and Convection heater relay are working normally.\n4. Check whether there is any disconnection of harness which is linked with main PCB on sub PCB.\n5. Check the resistance of oven sensor connector on sub PCB. (Normal : 2850Ω)",
+      "severity": "medium",
+      "difficulty": "hard",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Range_NSI6D9500_p55_cd1_door_lock",
+    "device_category": "Range",
+    "brand": "Samsung",
+    "model": "NSI6D*9500****",
+    "source": "Samsung INDUCTION RANGE Service Manual (model code NSI6D*9500****)",
+    "page": 55,
+    "content": "C-d1 Door locking information 1. Disconnect power. Open the back cover.Check whether harness has been connected with door lock switch and motor. 2. Confirm whether resistance value of door lock motor is normal. 3. With operating door lockout, measure a voltage of connector on harness which is linked with door lock motor. (Normal Voltage : AC 120V) 4. Check whether door locking switch is working.",
+    "metadata": {
+      "symptom": "C-d1 Door locking information",
+      "possible_cause": null,
+      "solution": "1. Disconnect power. Open the back cover.Check whether harness has been connected with door lock switch and motor.\n2. Confirm whether resistance value of door lock motor is normal.\n3. With operating door lockout, measure a voltage of connector on harness which is linked with door lock motor. (Normal Voltage : AC 120V)\n4. Check whether door locking switch is working.",
+      "severity": "medium",
+      "difficulty": "hard",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Range_NSI6D9500_p56_cf2_sub_touch_comm",
+    "device_category": "Range",
+    "brand": "Samsung",
+    "model": "NSI6D*9500****",
+    "source": "Samsung INDUCTION RANGE Service Manual (model code NSI6D*9500****)",
+    "page": 56,
+    "content": "C-F2 Sub ↔ Touch communication information 1. Check if touch film tail is connected fully. 2. Replace sub PCB. 3. Replace Assy Touch.",
+    "metadata": {
+      "symptom": "C-F2 Sub ↔ Touch communication information",
+      "possible_cause": null,
+      "solution": "1. Check if touch film tail is connected fully.\n2. Replace sub PCB.\n3. Replace Assy Touch.",
+      "severity": "medium",
+      "difficulty": "hard",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Range_NSI6D9500_p56_f2_sub_ih_touch_comm",
+    "device_category": "Range",
+    "brand": "Samsung",
+    "model": "NSI6D*9500****",
+    "source": "Samsung INDUCTION RANGE Service Manual (model code NSI6D*9500****)",
+    "page": 56,
+    "content": "F2 Sub (IH) ↔ Touch communication information 1. Check if touch film tail is connected fully. 2. Replace sub PCB. 3. Replace Assy Touch.",
+    "metadata": {
+      "symptom": "F2 Sub (IH) ↔ Touch communication information",
+      "possible_cause": null,
+      "solution": "1. Check if touch film tail is connected fully.\n2. Replace sub PCB.\n3. Replace Assy Touch.",
+      "severity": "medium",
+      "difficulty": "hard",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Range_NSI6D9500_p57_bad_line",
+    "device_category": "Range",
+    "brand": "Samsung",
+    "model": "NSI6D*9500****",
+    "source": "Samsung INDUCTION RANGE Service Manual (model code NSI6D*9500****)",
+    "page": 57,
+    "content": "bAd LInE This error code displays if power connection is installed improperly. Make sure the terminal block L1, L2, N is installed properly.",
+    "metadata": {
+      "symptom": "bAd LInE This error code displays if power connection is installed improperly.",
+      "possible_cause": null,
+      "solution": "Make sure the terminal block L1, L2, N is installed properly.",
+      "severity": "medium",
+      "difficulty": "hard",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Range_NSI6D9500_p58_no_display",
+    "device_category": "Range",
+    "brand": "Samsung",
+    "model": "NSI6D*9500****",
+    "source": "Samsung INDUCTION RANGE Service Manual (model code NSI6D*9500****)",
+    "page": 58,
+    "content": "No display 1. Make sure that power cord is connected 2. Insert the power cord.",
+    "metadata": {
+      "symptom": "No display",
+      "possible_cause": null,
+      "solution": "1. Make sure that power cord is connected\n2. Insert the power cord.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": "สายไฟและสายเคเบิลไฟฟ้าต้องไม่สัมผัสตัวเตา และถ้าสายไฟชำรุดต้องให้ผู้ให้บริการที่มีคุณสมบัติเปลี่ยนด้วยสายไฟเรนจ์ที่ได้รับรอง UL (คู่มือหน้า 5) ส่วนการติดตั้งและต่อสายดินต้องทำโดยช่างที่มีคุณสมบัติ (คู่มือหน้า 6)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Range_NSI6D9500_p59_touch_keypad_not_working",
+    "device_category": "Range",
+    "brand": "Samsung",
+    "model": "NSI6D*9500****",
+    "source": "Samsung INDUCTION RANGE Service Manual (model code NSI6D*9500****)",
+    "page": 59,
+    "content": "Touch Keypad is not working properly 1. Make sure the Door lock feature is not turned on. 2. Touch the Start/Set keypad for three or more seconds. 3. Make sure the Sabbath feature is not turned on. 4. Touch the bake and timer key for three or more seconds.",
+    "metadata": {
+      "symptom": "Touch Keypad is not working properly",
+      "possible_cause": null,
+      "solution": "1. Make sure the Door lock feature is not turned on.\n2. Touch the Start/Set keypad for three or more seconds.\n3. Make sure the Sabbath feature is not turned on.\n4. Touch the bake and timer key for three or more seconds.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Range_NSI6D9500_p61_c0_top_sensor",
+    "device_category": "Range",
+    "brand": "Samsung",
+    "model": "NSI6D*9500****",
+    "source": "Samsung INDUCTION RANGE Service Manual (model code NSI6D*9500****)",
+    "page": 61,
+    "content": "C0 Top Sensor Open Error (Sensor-Top) Top Sensor Short Error (Sensor-Top) 1. It occurs due to a defective sensor, misplaced wires, a defective PCB and when A/D value that MICOM senses rises over 252. Also, it may occur when the ambient temperature falls under -10˚C. 2. It occurs due to a defective sensor, misplaced wires, a defective PCB and when A/D value that MICOM senses falls under 10.",
+    "metadata": {
+      "symptom": "C0 Top Sensor Open Error (Sensor-Top) Top Sensor Short Error (Sensor-Top)",
+      "possible_cause": null,
+      "solution": "1. It occurs due to a defective sensor, misplaced wires, a defective PCB and when A/D value that MICOM senses rises over 252. Also, it may occur when the ambient temperature falls under -10˚C.\n2. It occurs due to a defective sensor, misplaced wires, a defective PCB and when A/D value that MICOM senses falls under 10.",
+      "severity": "medium",
+      "difficulty": "hard",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Range_NSI6D9500_p61_c2_igbt_sensor",
+    "device_category": "Range",
+    "brand": "Samsung",
+    "model": "NSI6D*9500****",
+    "source": "Samsung INDUCTION RANGE Service Manual (model code NSI6D*9500****)",
+    "page": 61,
+    "content": "C2 IGBT Sensor Open Error (Assy-Inverter Module) IGBT Sensor Short Error (Assy-Inverter Module) 1. It occurs due to a defective sensor, misplaced wires, a defective PCB and when A/D value that MICOM senses rises over 239. Also, it may occur when the ambient temperature falls under -10˚C. 2. It occurs due to a defective sensor, misplaced wires, a defective PCB and when A/D value that MICOM senses falls under 10.",
+    "metadata": {
+      "symptom": "C2 IGBT Sensor Open Error (Assy-Inverter Module) IGBT Sensor Short Error (Assy-Inverter Module)",
+      "possible_cause": null,
+      "solution": "1. It occurs due to a defective sensor, misplaced wires, a defective PCB and when A/D value that MICOM senses rises over 239. Also, it may occur when the ambient temperature falls under -10˚C.\n2. It occurs due to a defective sensor, misplaced wires, a defective PCB and when A/D value that MICOM senses falls under 10.",
+      "severity": "medium",
+      "difficulty": "hard",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Range_NSI6D9500_p61_c1_over_temperature",
+    "device_category": "Range",
+    "brand": "Samsung",
+    "model": "NSI6D*9500****",
+    "source": "Samsung INDUCTION RANGE Service Manual (model code NSI6D*9500****)",
+    "page": 61,
+    "content": "C1 Over Temperature Error 1. It occurs when the temperature of the Top Sensor rises very highly. (Estimated temperature of ceramic glass’s surface is more than 250˚C.) 2. ex: Place a empty cookware on the burner and operate the induction cooktop.",
+    "metadata": {
+      "symptom": "C1 Over Temperature Error",
+      "possible_cause": null,
+      "solution": "1. It occurs when the temperature of the Top Sensor rises very highly. (Estimated temperature of ceramic glass’s surface is more than 250˚C.)\n2. ex: Place a empty cookware on the burner and operate the induction cooktop.",
+      "severity": "medium",
+      "difficulty": "easy",
+      "safety_warning": "หัวเตาและบริเวณใกล้หัวเตาอาจร้อนแม้มีสีเข้ม และร้อนพอจะทำให้ผิวหนังไหม้ ห้ามสัมผัสหรือให้เสื้อผ้าและวัสดุไวไฟสัมผัส จนกว่าจะเย็นพอ (คู่มือหน้า 6)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Range_NSI6D9500_p61_pan_detection_error",
+    "device_category": "Range",
+    "brand": "Samsung",
+    "model": "NSI6D*9500****",
+    "source": "Samsung INDUCTION RANGE Service Manual (model code NSI6D*9500****)",
+    "page": 61,
+    "content": "Pan Detection Error 1. It occurs when the cookware is unsuitable or too small or no cookware has been placed on the cooking zone. 2. If the suitable cookware is placed again, the induction cooktop will operate normally.",
+    "metadata": {
+      "symptom": "Pan Detection Error",
+      "possible_cause": null,
+      "solution": "1. It occurs when the cookware is unsuitable or too small or no cookware has been placed on the cooking zone.\n2. If the suitable cookware is placed again, the induction cooktop will operate normally.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Range_NSI6D9500_p61_a2_dc_motor_locking",
+    "device_category": "Range",
+    "brand": "Samsung",
+    "model": "NSI6D*9500****",
+    "source": "Samsung INDUCTION RANGE Service Manual (model code NSI6D*9500****)",
+    "page": 61,
+    "content": "A2 DC Motor Locking Error It occurs when the DC Motor cannot operate due to defects of PCB, wiring or some disturbance on motor blade.",
+    "metadata": {
+      "symptom": "A2 DC Motor Locking Error",
+      "possible_cause": null,
+      "solution": "It occurs when the DC Motor cannot operate due to defects of PCB, wiring or some disturbance on motor blade.",
+      "severity": "medium",
+      "difficulty": "hard",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Range_NSI6D9500_p61_f0_communications_error",
+    "device_category": "Range",
+    "brand": "Samsung",
+    "model": "NSI6D*9500****",
+    "source": "Samsung INDUCTION RANGE Service Manual (model code NSI6D*9500****)",
+    "page": 61,
+    "content": "F0 Communications Error It occures when the communication between Main PCB and Inverter Module PCB is interrupted, due to defects of PCB, wiring mistake.",
+    "metadata": {
+      "symptom": "F0 Communications Error",
+      "possible_cause": null,
+      "solution": "It occures when the communication between Main PCB and Inverter Module PCB is interrupted, due to defects of PCB, wiring mistake.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": "สายไฟและสายเคเบิลไฟฟ้าต้องไม่สัมผัสตัวเตา และถ้าสายไฟชำรุดต้องให้ผู้ให้บริการที่มีคุณสมบัติเปลี่ยนด้วยสายไฟเรนจ์ที่ได้รับรอง UL (คู่มือหน้า 5) ส่วนการติดตั้งและต่อสายดินต้องทำโดยช่างที่มีคุณสมบัติ (คู่มือหน้า 6)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Range_NSI6D9500_p69_wifi_not_working",
+    "device_category": "Range",
+    "brand": "Samsung",
+    "model": "NSI6D*9500****",
+    "source": "Samsung INDUCTION RANGE Service Manual (model code NSI6D*9500****)",
+    "page": 69,
+    "content": "Wi-Fi Connection is not working 1. Check whether Wi-Fi icon shown. 2. If the Wi-Fi icon is not displayed, register the range to SmartThings app by referring to the following instructions. 3. Make sure that the mobile phone is connected to 2.4GHz Wi-Fi network. 4. Do not use the hidden AP in the wireless router settings during the device registration. 5. Use a unique SSID consisting of the alphabetic letters and the numeric digits without any blank. 6. For Wi-Fi security protocols, WPA2-PSK_AES is recommended. 7. Press and for 3sec. (Long press) 8. If network version is shown normally, try to use SMART CONTROL feature again.",
+    "metadata": {
+      "symptom": "Wi-Fi Connection is not working",
+      "possible_cause": null,
+      "solution": "1. Check whether Wi-Fi icon shown.\n2. If the Wi-Fi icon is not displayed, register the range to SmartThings app by referring to the following instructions.\n3. Make sure that the mobile phone is connected to 2.4GHz Wi-Fi network.\n4. Do not use the hidden AP in the wireless router settings during the device registration.\n5. Use a unique SSID consisting of the alphabetic letters and the numeric digits without any blank.\n6. For Wi-Fi security protocols, WPA2-PSK_AES is recommended.\n7. Press and for 3sec. (Long press)\n8. If network version is shown normally, try to use SMART CONTROL feature again.",
+      "severity": "low",
+      "difficulty": "medium",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Range_NSI6D9500_p94_smell_smoke_first_use",
+    "device_category": "Range",
+    "brand": "Samsung",
+    "model": "NSI6D*9500****",
+    "source": "Samsung INDUCTION RANGE Service Manual (model code NSI6D*9500****)",
+    "page": 94,
+    "content": "It has smell or smoke when oven has been started initially. 1. This is in normal state. 2. It has smell or smoke with burning dirt in oven or a foreign substance when oven has been working initially. 3. Ventilate after getting self cleaning mode to work.",
+    "metadata": {
+      "symptom": "It has smell or smoke when oven has been started initially.",
+      "possible_cause": null,
+      "solution": "1. This is in normal state.\n2. It has smell or smoke with burning dirt in oven or a foreign substance when oven has been working initially.\n3. Ventilate after getting self cleaning mode to work.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  }
+]

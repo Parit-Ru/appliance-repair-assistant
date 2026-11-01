@@ -1,11 +1,11 @@
 import { isPlainObject } from '../common/helpers';
 import { invalidDraftRequest } from './drafts.errors';
-import { DEVICE_CATEGORIES } from './graph-validator';
-import type { ValidationReport } from './graph-validator';
+import { DEVICE_CATEGORIES } from './flow-validator';
+import type { ValidationReport } from './flow-validator';
 import { MAX_RANGE_PAGES } from './pdf-text';
 import type { PageText } from './pdf-text';
 import type { DraftMeta } from './draft-manual';
-import type { DraftGraph } from './draft-schema';
+import type { DraftFlow } from './draft-schema';
 
 const DRAFT_STATUSES = ['drafting', 'ready', 'failed', 'rejected', 'published'] as const;
 export type DraftStatus = (typeof DRAFT_STATUSES)[number];
@@ -80,12 +80,12 @@ export function parseUploadFields(body: unknown): UploadFields {
 }
 
 /** body ของ PUT /admin/drafts/:id */
-export function parseUpdateBody(body: unknown): { graphs: unknown } {
+export function parseUpdateBody(body: unknown): { flows: unknown } {
   const source = asObject(body);
-  const extra = Object.keys(source).filter((key) => key !== 'graphs');
+  const extra = Object.keys(source).filter((key) => key !== 'flows');
   if (extra.length > 0) throw invalidDraftRequest(`ฟิลด์ที่ไม่อนุญาต: ${extra.join(', ')}`);
-  if (source.graphs === undefined) throw invalidDraftRequest('ต้องมี graphs');
-  return { graphs: source.graphs };
+  if (source.flows === undefined) throw invalidDraftRequest('ต้องมี flows');
+  return { flows: source.flows };
 }
 
 /** body ของ POST /admin/drafts/:id/publish → { acknowledgedWarnings } */
@@ -114,7 +114,7 @@ export interface DraftSummaryDto {
   sourceManual: string;
   pageFrom: number;
   pageTo: number;
-  graphCount: number | null;
+  flowCount: number | null;
   progress: { done: number; total: number };
   error: { code: string; message: string } | null;
   validationCounts: { errors: number; warnings: number } | null;
@@ -125,7 +125,7 @@ export interface DraftSummaryDto {
 export interface DraftDetailDto extends DraftSummaryDto {
   meta: DraftMeta;
   pages: PageText[];
-  graphs: DraftGraph[] | null;
+  flows: DraftFlow[] | null;
   validation: ValidationReport | null;
   llm: { model: string | null; promptVersion: string | null };
   reviewedAt: string | null;
@@ -135,6 +135,6 @@ export interface DraftDetailDto extends DraftSummaryDto {
 export interface PublishResultDto {
   id: string;
   status: 'published';
-  graphIds: string[];
+  flowIds: string[];
   searchIndex: { indexed: boolean; reason?: string };
 }

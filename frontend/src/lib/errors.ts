@@ -44,21 +44,21 @@ const MESSAGES: Record<string, ErrorDescription> = {
     detail: 'การตรวจนี้อาจหมดอายุหรือถูกยกเลิกไปแล้ว เลือกอาการเพื่อเริ่มตรวจใหม่',
     recovery: 'back-to-symptoms',
   },
-  GRAPH_MANUAL_MISMATCH: {
+  FLOW_MANUAL_MISMATCH: {
     title: 'อาการนี้ไม่ใช่ของรุ่นที่เลือก',
     detail: 'ระบบไม่เริ่มตรวจให้ เพราะขั้นตอนของอาการนี้เป็นของคนละรุ่นกับที่เลือกไว้ กลับไปเลือกรุ่นและอาการใหม่',
     recovery: 'back-to-symptoms',
   },
-  GRAPH_NOT_FOUND: {
+  FLOW_NOT_FOUND: {
     title: 'ไม่พบอาการนี้',
     detail: 'อาการนี้ไม่มีในระบบแล้ว เลือกอาการอื่นจากรายการ',
     recovery: 'back-to-symptoms',
   },
-  GRAPH_NODE_MISSING: {
+  FLOW_STATE_MISSING: {
     title: 'ข้อมูลขั้นตอนของอาการนี้ไม่สมบูรณ์',
     detail: 'ระบบหยุดการตรวจไว้เพื่อไม่ให้แสดงขั้นตอนที่ผิด แจ้งรหัสด้านล่างให้ผู้ดูแลระบบ แล้วเลือกอาการอื่นไปก่อน',
     recovery: 'back-to-symptoms',
-    code: 'GRAPH_NODE_MISSING',
+    code: 'FLOW_STATE_MISSING',
   },
 
   INVALID_QUERY: {

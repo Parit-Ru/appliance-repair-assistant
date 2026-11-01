@@ -28,12 +28,10 @@ export class TokenService {
     return new TokenService(secret, expiresIn);
   }
 
-  // ออกบัตร: payload มีแค่ sub (user id) และ role
   sign(payload: { sub: string; role: Role }): string {
     return jwt.sign(payload, this.secret, { algorithm: 'HS256', expiresIn: this.expiresIn });
   }
 
-  // ตรวจลายเซ็นและวันหมดอายุ ผ่าน = คืนข้อมูลในบัตร · ไม่ผ่าน = โยน error 
   verify(token: string): { sub?: unknown; role?: unknown } {
     const payload = jwt.verify(token, this.secret, { algorithms: ['HS256'] });
     return typeof payload === 'string' ? {} : payload;

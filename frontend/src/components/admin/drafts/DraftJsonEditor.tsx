@@ -1,23 +1,23 @@
 import { useId, useState } from 'react'
 import { useUpdateDraft } from '../../../api/queries'
-import type { DraftGraph } from '../../../api/types'
+import type { DraftFlow } from '../../../api/types'
 import { ErrorNotice } from '../../ErrorNotice'
 import { Button } from '../../ui/Button'
 
 interface DraftJsonEditorProps {
   draftId: string
-  graphs: DraftGraph[]
+  flows: DraftFlow[]
 }
 
-function format(graphs: DraftGraph[]): string {
-  return JSON.stringify(graphs, null, 2)
+function format(flows: DraftFlow[]): string {
+  return JSON.stringify(flows, null, 2)
 }
 
-export function DraftJsonEditor({ draftId, graphs }: DraftJsonEditorProps) {
+export function DraftJsonEditor({ draftId, flows }: DraftJsonEditorProps) {
   const textareaId = useId()
   const hintId = useId()
   const update = useUpdateDraft(draftId)
-  const [text, setText] = useState(() => format(graphs))
+  const [text, setText] = useState(() => format(flows))
   const [localError, setLocalError] = useState<string | null>(null)
   const [saved, setSaved] = useState(false)
 
@@ -35,10 +35,10 @@ export function DraftJsonEditor({ draftId, graphs }: DraftJsonEditorProps) {
       return
     }
     setLocalError(null)
-    update.mutate(parsed as DraftGraph[], { onSuccess: () => setSaved(true) })
+    update.mutate(parsed as DraftFlow[], { onSuccess: () => setSaved(true) })
   }
 
-  const changed = text !== format(graphs)
+  const changed = text !== format(flows)
 
   return (
     <section aria-label="แก้แผนผังขั้นตอน" className="space-y-3 rounded-xl border border-line bg-panel p-5">
@@ -82,7 +82,7 @@ export function DraftJsonEditor({ draftId, graphs }: DraftJsonEditorProps) {
           variant="secondary"
           disabled={!changed || update.isPending}
           onClick={() => {
-            setText(format(graphs))
+            setText(format(flows))
             setLocalError(null)
           }}
         >

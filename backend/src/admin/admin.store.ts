@@ -14,7 +14,7 @@ interface FeedbackRecord {
   comment: string | null;
   createdEpoch: number;
   updatedEpoch: number;
-  graphId: string;
+  flowId: string;
   ownerType: OwnerType;
 }
 
@@ -82,7 +82,7 @@ export class AdminStore {
       `SELECT f.session_id, f.helpful, f.\`comment\`,
               UNIX_TIMESTAMP(f.created_at) AS created_epoch,
               UNIX_TIMESTAMP(f.updated_at) AS updated_epoch,
-              s.graph_id,
+              s.flow_id,
               ${OWNER_TYPE_SQL} AS owner_type
          FROM session_feedback f
          JOIN sessions s ON s.session_id = f.session_id
@@ -100,7 +100,7 @@ export class AdminStore {
         comment: row.comment === null || row.comment === undefined ? null : String(row.comment),
         createdEpoch: num(row.created_epoch),
         updatedEpoch: num(row.updated_epoch),
-        graphId: String(row.graph_id),
+        flowId: String(row.flow_id),
         ownerType: row.owner_type as OwnerType,
       })),
     };
@@ -147,29 +147,29 @@ export class AdminStore {
     return { total: num(rows[0]?.total), helpful: num(rows[0]?.helpful_count) };
   }
 
-  async graphCounts(window: Window): Promise<Array<{ graphId: string; count: number }>> {
+  async flowCounts(window: Window): Promise<Array<{ flowId: string; count: number }>> {
     const [rows] = await this.pool.query<Row[]>(
-      `SELECT graph_id, COUNT(*) AS n
+      `SELECT flow_id, COUNT(*) AS n
          FROM sessions
         WHERE UNIX_TIMESTAMP(created_at) >= ? AND UNIX_TIMESTAMP(created_at) < ?
-        GROUP BY graph_id`,
+        GROUP BY flow_id`,
       [window.fromEpoch, window.toEpoch],
     );
-    return rows.map((row) => ({ graphId: String(row.graph_id), count: num(row.n) }));
+    return rows.map((row) => ({ flowId: String(row.flow_id), count: num(row.n) }));
   }
 
-  async completedEndNodes(window: Window): Promise<Array<{ graphId: string; nodeId: string; count: number }>> {
+  async completedEndStates(window: Window): Promise<Array<{ flowId: string; stateId: string; count: number }>> {
     const [rows] = await this.pool.query<Row[]>(
-      `SELECT graph_id, current_node_id, COUNT(*) AS n
+      `SELECT flow_id, current_state_id, COUNT(*) AS n
          FROM sessions
         WHERE status = 'completed'
           AND UNIX_TIMESTAMP(created_at) >= ? AND UNIX_TIMESTAMP(created_at) < ?
-        GROUP BY graph_id, current_node_id`,
+        GROUP BY flow_id, current_state_id`,
       [window.fromEpoch, window.toEpoch],
     );
     return rows.map((row) => ({
-      graphId: String(row.graph_id),
-      nodeId: String(row.current_node_id),
+      flowId: String(row.flow_id),
+      stateId: String(row.current_state_id),
       count: num(row.n),
     }));
   }

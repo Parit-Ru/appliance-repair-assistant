@@ -5,9 +5,9 @@
   "model_pattern": "NLDVBAS4M-1005",
   "source_manual": "Samsung TV e-Manual NLDVBAS4M-1005 (NLDVBAS4M-1005-ENG-IR_170511.0)",
   "count": 35,
-  "graphs": [
+  "flows": [
     {
-      "graph_id": "samsung_tv5_um_analogue_signal_weak",
+      "flow_id": "samsung_tv5_um_analogue_signal_weak",
       "device_category": "Television",
       "brand": "Samsung",
       "model_pattern": "NLDVBAS4M-1005",
@@ -28,17 +28,17 @@
       "source_chunk_id": "manual_Samsung_Television_NLDVBAS4M_p26_analogue_signal_weak",
       "severity": "low",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "instruction",
           "content": "ปรับจูนช่องด้วยตนเองด้วย Fine Tune (ใช้ได้กับช่องอนาล็อกเท่านั้น): MENU > Broadcasting > Channel Settings > Fine Tune ช่องที่ปรับจูนแล้วจะมีเครื่องหมาย * และถ้าต้องการยกเลิกการปรับจูนให้เลือก Reset (คู่มือหน้า 23 และ 26)",
           "safety_critical": false,
           "next": "n1v"
         },
         {
-          "node_id": "n1v",
+          "state_id": "n1v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -47,13 +47,13 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "สัญญาณช่องอนาล็อกชัดขึ้นแล้ว",
           "outcome_kind": "user_fixed"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
           "outcome_kind": "handoff_unknown"
@@ -61,7 +61,7 @@
       ]
     },
     {
-      "graph_id": "samsung_tv5_um_digital_signal_weak_static_ghosting",
+      "flow_id": "samsung_tv5_um_digital_signal_weak_static_ghosting",
       "device_category": "Television",
       "brand": "Samsung",
       "model_pattern": "NLDVBAS4M-1005",
@@ -83,17 +83,17 @@
       "source_chunk_id": "manual_Samsung_Television_NLDVBAS4M_p43_digital_signal_weak_static_ghosting",
       "severity": "low",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "instruction",
           "content": "เปิดฟีเจอร์ Digital Clean View เพื่อลดสัญญาณรบกวนและภาพซ้อนเมื่อสัญญาณอ่อน: MENU > Picture > Picture Options > Digital Clean View ถ้าสัญญาณอ่อนให้ลองตัวเลือกอื่นไปจนกว่าจะได้ภาพที่ดีที่สุด (คู่มือหน้า 42 และ 43)",
           "safety_critical": false,
           "next": "n1v"
         },
         {
-          "node_id": "n1v",
+          "state_id": "n1v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -102,13 +102,13 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "ภาพชัดขึ้นแล้ว",
           "outcome_kind": "user_fixed"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
           "outcome_kind": "handoff_unknown"
@@ -116,7 +116,7 @@
       ]
     },
     {
-      "graph_id": "samsung_tv5_um_screen_not_natural_film_mode",
+      "flow_id": "samsung_tv5_um_screen_not_natural_film_mode",
       "device_category": "Television",
       "brand": "Samsung",
       "model_pattern": "NLDVBAS4M-1005",
@@ -136,17 +136,17 @@
       "source_chunk_id": "manual_Samsung_Television_NLDVBAS4M_p44_screen_not_natural_film_mode",
       "severity": "low",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "instruction",
           "content": "เปลี่ยนตัวเลือก Film Mode เป็น Off, Auto1 หรือ Auto2: MENU > Picture > Picture Options > Film Mode (ใช้ได้ในโหมด TV และโหมดอินพุตภายนอกที่รองรับสัญญาณ SD และ HD ยกเว้นเมื่อต่อกับพีซี) (คู่มือหน้า 44)",
           "safety_critical": false,
           "next": "n1v"
         },
         {
-          "node_id": "n1v",
+          "state_id": "n1v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -155,13 +155,13 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "ภาพดูเป็นธรรมชาติแล้ว",
           "outcome_kind": "user_fixed"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
           "outcome_kind": "handoff_unknown"
@@ -169,7 +169,7 @@
       ]
     },
     {
-      "graph_id": "samsung_tv5_um_digital_reception_poor",
+      "flow_id": "samsung_tv5_um_digital_reception_poor",
       "device_category": "Television",
       "brand": "Samsung",
       "model_pattern": "NLDVBAS4M-1005",
@@ -190,17 +190,17 @@
       "source_chunk_id": "manual_Samsung_Television_NLDVBAS4M_p106_digital_reception_poor",
       "severity": "low",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "instruction",
           "content": "ดูความแรงของสัญญาณที่ MENU > Support > Self Diagnosis > Signal Information (ใช้ได้กับช่องดิจิทัลเท่านั้น) (คู่มือหน้า 105 และ 106)",
           "safety_critical": false,
           "next": "n1v"
         },
         {
-          "node_id": "n1v",
+          "state_id": "n1v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -208,14 +208,14 @@
           "on_no": "n2"
         },
         {
-          "node_id": "n2",
+          "state_id": "n2",
           "type": "instruction",
           "content": "ปรับสายอากาศเพื่อเพิ่มความแรงของสัญญาณ (คู่มือหน้า 106)",
           "safety_critical": false,
           "next": "n2v"
         },
         {
-          "node_id": "n2v",
+          "state_id": "n2v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -224,13 +224,13 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "รับสัญญาณช่องดิจิทัลได้ดีขึ้นแล้ว",
           "outcome_kind": "user_fixed"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ถ้าตรวจตามขั้นตอนแล้วยังไม่หาย ให้ดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และผลที่เห็นจาก Self Diagnosis (คู่มือหน้า 105)",
           "outcome_kind": "handoff_unknown"
@@ -238,7 +238,7 @@
       ]
     },
     {
-      "graph_id": "samsung_tv5_um_picture_problem_picture_test",
+      "flow_id": "samsung_tv5_um_picture_problem_picture_test",
       "device_category": "Television",
       "brand": "Samsung",
       "model_pattern": "NLDVBAS4M-1005",
@@ -259,17 +259,17 @@
       "source_chunk_id": "manual_Samsung_Television_NLDVBAS4M_p105_picture_problem_picture_test",
       "severity": "low",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "instruction",
           "content": "ใช้ Picture Test ตรวจปัญหาของภาพ: MENU > Support > Self Diagnosis > Picture Test ขั้นตอน Self Diagnosis อาจใช้เวลาไม่กี่วินาที ซึ่งเป็นการทำงานปกติของทีวี (คู่มือหน้า 105)",
           "safety_critical": false,
           "next": "n1v"
         },
         {
-          "node_id": "n1v",
+          "state_id": "n1v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -277,13 +277,13 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "ภาพปกติแล้ว",
           "outcome_kind": "user_fixed"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ถ้าตรวจตามขั้นตอนแล้วยังไม่หาย ให้ดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และผลที่เห็นจาก Self Diagnosis (คู่มือหน้า 105)",
           "outcome_kind": "handoff_unknown"
@@ -291,7 +291,7 @@
       ]
     },
     {
-      "graph_id": "samsung_tv5_um_no_sound_from_tv_speakers",
+      "flow_id": "samsung_tv5_um_no_sound_from_tv_speakers",
       "device_category": "Television",
       "brand": "Samsung",
       "model_pattern": "NLDVBAS4M-1005",
@@ -312,10 +312,10 @@
       "source_chunk_id": "manual_Samsung_Television_NLDVBAS4M_p105_no_sound_from_tv_speakers",
       "severity": "low",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "Sound Output ตั้งเป็น TV Speaker แล้วใช่หรือไม่?",
           "safety_critical": false,
@@ -323,14 +323,14 @@
           "on_no": "n1f"
         },
         {
-          "node_id": "n1f",
+          "state_id": "n1f",
           "type": "instruction",
           "content": "ตั้ง Sound Output เป็น TV Speaker ในเมนู Sound: MENU > Sound > Sound Output (คู่มือหน้า 105 และ 49)",
           "safety_critical": false,
           "next": "n1v"
         },
         {
-          "node_id": "n1v",
+          "state_id": "n1v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -339,14 +339,14 @@
           "on_no": "n2"
         },
         {
-          "node_id": "n2",
+          "state_id": "n2",
           "type": "instruction",
           "content": "ทดสอบเสียงด้วยเสียงเพลงในตัวทีวี: MENU > Support > Self Diagnosis > Sound Test เสียงเพลงทดสอบจะดังแม้กดปุ่ม MUTE ไว้ (คู่มือหน้า 105)",
           "safety_critical": false,
           "next": "n2v"
         },
         {
-          "node_id": "n2v",
+          "state_id": "n2v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -354,13 +354,13 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "มีเสียงแล้ว",
           "outcome_kind": "user_fixed"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ถ้าตรวจตามขั้นตอนแล้วยังไม่หาย ให้ดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และผลที่เห็นจาก Self Diagnosis (คู่มือหน้า 105)",
           "outcome_kind": "handoff_unknown"
@@ -368,7 +368,7 @@
       ]
     },
     {
-      "graph_id": "samsung_tv5_um_sound_echo_speaker_and_receiver",
+      "flow_id": "samsung_tv5_um_sound_echo_speaker_and_receiver",
       "device_category": "Television",
       "brand": "Samsung",
       "model_pattern": "NLDVBAS4M-1005",
@@ -389,10 +389,10 @@
       "source_chunk_id": "manual_Samsung_Television_NLDVBAS4M_p29_sound_echo_speaker_and_receiver",
       "severity": "low",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "instruction",
           "content": "ใช้ฟังก์ชันลำโพงทีวี (TV Speaker) เพียงอย่างเดียว: MENU > Sound > Sound Output > TV Speaker เพื่อไม่ให้เสียงออกทั้งลำโพงทีวีและเครื่องรับเสียงพร้อมกัน (คู่มือหน้า 29 และ 49)",
           "safety_critical": false,
@@ -400,7 +400,7 @@
           "next": "n1v"
         },
         {
-          "node_id": "n1v",
+          "state_id": "n1v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -409,13 +409,13 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "ไม่มีเสียงสะท้อนแล้ว",
           "outcome_kind": "user_fixed"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
           "outcome_kind": "handoff_unknown"
@@ -423,7 +423,7 @@
       ]
     },
     {
-      "graph_id": "samsung_tv5_um_sound_mode_disabled",
+      "flow_id": "samsung_tv5_um_sound_mode_disabled",
       "device_category": "Television",
       "brand": "Samsung",
       "model_pattern": "NLDVBAS4M-1005",
@@ -442,10 +442,10 @@
       "source_chunk_id": "manual_Samsung_Television_NLDVBAS4M_p48_sound_mode_disabled",
       "severity": "low",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "Sound Output ตั้งเป็น Audio Out/Optical อยู่ใช่หรือไม่?",
           "safety_critical": false,
@@ -453,13 +453,13 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n1n",
+          "state_id": "n1n",
           "type": "resolution",
           "content": "ถ้า Sound Output ตั้งเป็น Audio Out/Optical จะใช้ Sound Mode ไม่ได้ (คู่มือหน้า 48)",
           "outcome_kind": "normal_behavior"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
           "outcome_kind": "handoff_unknown"
@@ -467,7 +467,7 @@
       ]
     },
     {
-      "graph_id": "samsung_tv5_um_sound_effect_disabled",
+      "flow_id": "samsung_tv5_um_sound_effect_disabled",
       "device_category": "Television",
       "brand": "Samsung",
       "model_pattern": "NLDVBAS4M-1005",
@@ -486,10 +486,10 @@
       "source_chunk_id": "manual_Samsung_Television_NLDVBAS4M_p50_sound_effect_disabled",
       "severity": "low",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "Sound Output ตั้งเป็น Audio Out/Optical อยู่ใช่หรือไม่?",
           "safety_critical": false,
@@ -497,13 +497,13 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n1n",
+          "state_id": "n1n",
           "type": "resolution",
           "content": "ถ้า Sound Output ตั้งเป็น Audio Out/Optical จะใช้ Sound Effect ไม่ได้ (คู่มือหน้า 50)",
           "outcome_kind": "normal_behavior"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
           "outcome_kind": "handoff_unknown"
@@ -511,7 +511,7 @@
       ]
     },
     {
-      "graph_id": "samsung_tv5_um_source_volume_not_applied",
+      "flow_id": "samsung_tv5_um_source_volume_not_applied",
       "device_category": "Television",
       "brand": "Samsung",
       "model_pattern": "NLDVBAS4M-1005",
@@ -530,10 +530,10 @@
       "source_chunk_id": "manual_Samsung_Television_NLDVBAS4M_p51_source_volume_not_applied",
       "severity": "low",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "Auto Volume ที่ทีวีตั้งเป็น Off แล้วใช่หรือไม่?",
           "safety_critical": false,
@@ -541,14 +541,14 @@
           "on_no": "n1f"
         },
         {
-          "node_id": "n1f",
+          "state_id": "n1f",
           "type": "instruction",
           "content": "ตั้ง Auto Volume เป็น Off ที่ทีวี: MENU > Sound > Speaker Settings > Auto Volume เพื่อให้ใช้ปุ่มปรับเสียงของอุปกรณ์ต้นทางได้ (คู่มือหน้า 51)",
           "safety_critical": false,
           "next": "n1v"
         },
         {
-          "node_id": "n1v",
+          "state_id": "n1v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -557,13 +557,13 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "ปรับเสียงจากอุปกรณ์ต้นทางได้แล้ว",
           "outcome_kind": "user_fixed"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
           "outcome_kind": "handoff_unknown"
@@ -571,7 +571,7 @@
       ]
     },
     {
-      "graph_id": "samsung_tv5_um_bluetooth_audio_unavailable",
+      "flow_id": "samsung_tv5_um_bluetooth_audio_unavailable",
       "device_category": "Television",
       "brand": "Samsung",
       "model_pattern": "NLDVBAS4M-1005",
@@ -590,10 +590,10 @@
       "source_chunk_id": "manual_Samsung_Television_NLDVBAS4M_p49_bluetooth_audio_unavailable",
       "severity": "low",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "Sound Mirroring ปิดอยู่แล้วใช่หรือไม่?",
           "safety_critical": false,
@@ -601,14 +601,14 @@
           "on_no": "n1f"
         },
         {
-          "node_id": "n1f",
+          "state_id": "n1f",
           "type": "instruction",
           "content": "ปิด Sound Mirroring ที่ MENU > Sound > Sound Mirroring เพราะฟังก์ชัน Bluetooth Audio ใช้ได้เมื่อ Sound Mirroring ปิดอยู่ (คู่มือหน้า 49 และ 54)",
           "safety_critical": false,
           "next": "n1v"
         },
         {
-          "node_id": "n1v",
+          "state_id": "n1v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -617,13 +617,13 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "เลือก Bluetooth Audio ได้แล้ว",
           "outcome_kind": "user_fixed"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
           "outcome_kind": "handoff_unknown"
@@ -631,7 +631,7 @@
       ]
     },
     {
-      "graph_id": "samsung_tv5_um_sound_menu_in_sound_mirroring",
+      "flow_id": "samsung_tv5_um_sound_menu_in_sound_mirroring",
       "device_category": "Television",
       "brand": "Samsung",
       "model_pattern": "NLDVBAS4M-1005",
@@ -650,10 +650,10 @@
       "source_chunk_id": "manual_Samsung_Television_NLDVBAS4M_p54_sound_menu_in_sound_mirroring",
       "severity": "low",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "Sound Mirroring เปิดอยู่ใช่หรือไม่?",
           "safety_critical": false,
@@ -661,13 +661,13 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n1n",
+          "state_id": "n1n",
           "type": "resolution",
           "content": "ขณะอยู่ในโหมด Sound Mirroring จะใช้เมนู Sound ไม่ได้ (คู่มือหน้า 54)",
           "outcome_kind": "normal_behavior"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
           "outcome_kind": "handoff_unknown"
@@ -675,7 +675,7 @@
       ]
     },
     {
-      "graph_id": "samsung_tv5_um_bluetooth_tv_not_found",
+      "flow_id": "samsung_tv5_um_bluetooth_tv_not_found",
       "device_category": "Television",
       "brand": "Samsung",
       "model_pattern": "NLDVBAS4M-1005",
@@ -694,17 +694,17 @@
       "source_chunk_id": "manual_Samsung_Television_NLDVBAS4M_p122_bluetooth_tv_not_found",
       "severity": "low",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "instruction",
           "content": "เปิดบลูทูธบนมือถือ รอให้มือถือค้นหาอุปกรณ์ แล้วเลือกทีวีจากรายการ (คู่มือหน้า 122)",
           "safety_critical": false,
           "next": "n1v"
         },
         {
-          "node_id": "n1v",
+          "state_id": "n1v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -713,14 +713,14 @@
           "on_no": "n2"
         },
         {
-          "node_id": "n2",
+          "state_id": "n2",
           "type": "instruction",
           "content": "ถ้าไม่พบทีวี ให้ปิดแล้วเปิดทั้งทีวีและอุปกรณ์มือถือ (คู่มือหน้า 122)",
           "safety_critical": false,
           "next": "n2v"
         },
         {
-          "node_id": "n2v",
+          "state_id": "n2v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -729,14 +729,14 @@
           "on_no": "n3"
         },
         {
-          "node_id": "n3",
+          "state_id": "n3",
           "type": "instruction",
           "content": "เลือก Allow ในหน้าต่างป๊อปอัปบนทีวีเพื่อเชื่อมต่อกับมือถือ (คู่มือหน้า 122)",
           "safety_critical": false,
           "next": "n3v"
         },
         {
-          "node_id": "n3v",
+          "state_id": "n3v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -745,13 +745,13 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "เชื่อมต่อมือถือกับทีวีผ่านบลูทูธได้แล้ว",
           "outcome_kind": "user_fixed"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
           "outcome_kind": "handoff_unknown"
@@ -759,7 +759,7 @@
       ]
     },
     {
-      "graph_id": "samsung_tv5_um_smart_view_not_available",
+      "flow_id": "samsung_tv5_um_smart_view_not_available",
       "device_category": "Television",
       "brand": "Samsung",
       "model_pattern": "NLDVBAS4M-1005",
@@ -778,10 +778,10 @@
       "source_chunk_id": "manual_Samsung_Television_NLDVBAS4M_p57_smart_view_not_available",
       "severity": "low",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "มือถือรองรับฟังก์ชัน mirroring เช่น AllShare Cast หรือ Smart View ใช่หรือไม่?",
           "safety_critical": false,
@@ -789,14 +789,14 @@
           "on_no": "n1f"
         },
         {
-          "node_id": "n1f",
+          "state_id": "n1f",
           "type": "instruction",
           "content": "ตรวจว่ามือถือรองรับฟังก์ชัน mirroring (เช่น AllShare Cast และ Smart View) โดยดูที่เว็บไซต์ของผู้ผลิตมือถือ เพราะ Smart View ใช้ได้เฉพาะมือถือที่รองรับ mirroring (คู่มือหน้า 57)",
           "safety_critical": false,
           "next": "n1v"
         },
         {
-          "node_id": "n1v",
+          "state_id": "n1v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -805,13 +805,13 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "ใช้ Smart View ได้แล้ว",
           "outcome_kind": "user_fixed"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
           "outcome_kind": "handoff_unknown"
@@ -819,7 +819,7 @@
       ]
     },
     {
-      "graph_id": "samsung_tv5_um_wireless_network_not_in_list",
+      "flow_id": "samsung_tv5_um_wireless_network_not_in_list",
       "device_category": "Television",
       "brand": "Samsung",
       "model_pattern": "NLDVBAS4M-1005",
@@ -840,17 +840,17 @@
       "source_chunk_id": "manual_Samsung_Television_NLDVBAS4M_p60_wireless_network_not_in_list",
       "severity": "low",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "instruction",
           "content": "เตรียมชื่อ (SSID) และรหัสผ่านของเราเตอร์ไร้สายก่อนเชื่อมต่อ แล้วไปที่ MENU > Network > Network Settings (คู่มือหน้า 60)",
           "safety_critical": false,
           "next": "n1v"
         },
         {
-          "node_id": "n1v",
+          "state_id": "n1v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -859,14 +859,14 @@
           "on_no": "n2"
         },
         {
-          "node_id": "n2",
+          "state_id": "n2",
           "type": "instruction",
           "content": "ถ้าไม่เห็นเครือข่ายที่ต้องการในรายการ ให้เลือก Add Network แล้วพิมพ์ชื่อเครือข่าย (SSID) เอง (คู่มือหน้า 60)",
           "safety_critical": false,
           "next": "n2v"
         },
         {
-          "node_id": "n2v",
+          "state_id": "n2v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -875,14 +875,14 @@
           "on_no": "n3"
         },
         {
-          "node_id": "n3",
+          "state_id": "n3",
           "type": "instruction",
           "content": "ถ้าเครือข่ายตั้งความปลอดภัยไว้ ให้ใส่รหัสผ่าน ถ้าไม่ได้ตั้งความปลอดภัย ทีวีจะข้ามแป้นพิมพ์บนหน้าจอและพยายามเชื่อมต่อทันที (คู่มือหน้า 60)",
           "safety_critical": false,
           "next": "n3v"
         },
         {
-          "node_id": "n3v",
+          "state_id": "n3v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -891,13 +891,13 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "เชื่อมต่อเครือข่ายไร้สายได้แล้ว",
           "outcome_kind": "user_fixed"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
           "outcome_kind": "handoff_unknown"
@@ -905,7 +905,7 @@
       ]
     },
     {
-      "graph_id": "samsung_tv5_um_wifi_direct_cannot_connect",
+      "flow_id": "samsung_tv5_um_wifi_direct_cannot_connect",
       "device_category": "Television",
       "brand": "Samsung",
       "model_pattern": "NLDVBAS4M-1005",
@@ -924,10 +924,10 @@
       "source_chunk_id": "manual_Samsung_Television_NLDVBAS4M_p63_wifi_direct_cannot_connect",
       "severity": "low",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "เปิดฟังก์ชัน Wi-Fi Direct บนมือถือแล้วใช่หรือไม่?",
           "safety_critical": false,
@@ -935,14 +935,14 @@
           "on_no": "n1f"
         },
         {
-          "node_id": "n1f",
+          "state_id": "n1f",
           "type": "instruction",
           "content": "เปิดฟังก์ชัน Wi-Fi Direct บนมือถือ แล้วเปิด MENU > Network > Wi-Fi Direct บนทีวี (คู่มือหน้า 62 และ 63)",
           "safety_critical": false,
           "next": "n1v"
         },
         {
-          "node_id": "n1v",
+          "state_id": "n1v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -951,14 +951,14 @@
           "on_no": "n2"
         },
         {
-          "node_id": "n2",
+          "state_id": "n2",
           "type": "instruction",
           "content": "วางมือถือให้ใกล้ทีวีขณะเปิด Wi-Fi Direct จะมีหน้าต่างยืนยันการอนุญาตเชื่อมต่อขึ้นที่มุมซ้ายล่างของหน้าจอ ให้เลือกอนุญาตเพื่อเชื่อมต่อ (คู่มือหน้า 63)",
           "safety_critical": false,
           "next": "n2v"
         },
         {
-          "node_id": "n2v",
+          "state_id": "n2v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -967,13 +967,13 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "เชื่อมต่อมือถือด้วย Wi-Fi Direct ได้แล้ว",
           "outcome_kind": "user_fixed"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
           "outcome_kind": "handoff_unknown"
@@ -981,7 +981,7 @@
       ]
     },
     {
-      "graph_id": "samsung_tv5_um_clock_reset_after_power_cord",
+      "flow_id": "samsung_tv5_um_clock_reset_after_power_cord",
       "device_category": "Television",
       "brand": "Samsung",
       "model_pattern": "NLDVBAS4M-1005",
@@ -1002,17 +1002,17 @@
       "source_chunk_id": "manual_Samsung_Television_NLDVBAS4M_p66_clock_reset_after_power_cord",
       "severity": "low",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "instruction",
           "content": "ตั้งนาฬิกาใหม่ที่ MENU > System > Time > Clock เพราะถ้าถอดสายไฟต้องตั้งนาฬิกาใหม่ (คู่มือหน้า 66)",
           "safety_critical": false,
           "next": "n1v"
         },
         {
-          "node_id": "n1v",
+          "state_id": "n1v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -1021,13 +1021,13 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "ตั้งนาฬิกาเสร็จแล้ว",
           "outcome_kind": "user_fixed"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
           "outcome_kind": "handoff_unknown"
@@ -1035,7 +1035,7 @@
       ]
     },
     {
-      "graph_id": "samsung_tv5_um_auto_clock_incorrect",
+      "flow_id": "samsung_tv5_um_auto_clock_incorrect",
       "device_category": "Television",
       "brand": "Samsung",
       "model_pattern": "NLDVBAS4M-1005",
@@ -1056,10 +1056,10 @@
       "source_chunk_id": "manual_Samsung_Television_NLDVBAS4M_p67_auto_clock_incorrect",
       "severity": "low",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "ต่อสายอากาศ (aerial) กับทีวีแล้วใช่หรือไม่?",
           "safety_critical": false,
@@ -1067,14 +1067,14 @@
           "on_no": "n1f"
         },
         {
-          "node_id": "n1f",
+          "state_id": "n1f",
           "type": "instruction",
           "content": "ต่อสายอากาศเพราะการตั้งเวลาอัตโนมัติต้องต่อสายอากาศไว้ (คู่มือหน้า 67)",
           "safety_critical": false,
           "next": "n1v"
         },
         {
-          "node_id": "n1v",
+          "state_id": "n1v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -1083,14 +1083,14 @@
           "on_no": "n2"
         },
         {
-          "node_id": "n2",
+          "state_id": "n2",
           "type": "instruction",
           "content": "ตั้งเวลาด้วยตนเอง: MENU > System > Time > Clock > Clock Mode > Manual แล้วตั้งวันที่และเวลาที่ Clock Set เพราะเวลาอัตโนมัติอาจไม่ถูกต้องขึ้นกับสถานีและสัญญาณ (คู่มือหน้า 67 และ 68)",
           "safety_critical": false,
           "next": "n2v"
         },
         {
-          "node_id": "n2v",
+          "state_id": "n2v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -1099,13 +1099,13 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "เวลาถูกต้องแล้ว",
           "outcome_kind": "user_fixed"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
           "outcome_kind": "handoff_unknown"
@@ -1113,7 +1113,7 @@
       ]
     },
     {
-      "graph_id": "samsung_tv5_um_on_timer_usb_not_operating",
+      "flow_id": "samsung_tv5_um_on_timer_usb_not_operating",
       "device_category": "Television",
       "brand": "Samsung",
       "model_pattern": "NLDVBAS4M-1005",
@@ -1133,10 +1133,10 @@
       "source_chunk_id": "manual_Samsung_Television_NLDVBAS4M_p73_on_timer_usb_not_operating",
       "severity": "low",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "มีไฟล์เพลงใน USB และเลือกโฟลเดอร์ที่มีไฟล์เพลงไว้แล้วใช่หรือไม่?",
           "safety_critical": false,
@@ -1144,14 +1144,14 @@
           "on_no": "n1f"
         },
         {
-          "node_id": "n1f",
+          "state_id": "n1f",
           "type": "instruction",
           "content": "ตรวจว่ามีไฟล์เพลงใน USB และเลือกโฟลเดอร์ที่มีไฟล์เพลงไว้ เพราะถ้าไม่มีหรือไม่ได้เลือก ฟังก์ชันตั้งเวลาจะทำงานไม่ถูกต้อง (คู่มือหน้า 73)",
           "safety_critical": false,
           "next": "n1v"
         },
         {
-          "node_id": "n1v",
+          "state_id": "n1v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -1160,7 +1160,7 @@
           "on_no": "n2"
         },
         {
-          "node_id": "n2",
+          "state_id": "n2",
           "type": "checkpoint",
           "question": "มีไฟล์ภาพใน USB เพียงไฟล์เดียวใช่หรือไม่?",
           "safety_critical": false,
@@ -1168,14 +1168,14 @@
           "on_no": "n3"
         },
         {
-          "node_id": "n2f",
+          "state_id": "n2f",
           "type": "instruction",
           "content": "เพิ่มไฟล์ภาพให้มากกว่าหนึ่งไฟล์ เพราะถ้ามีไฟล์ภาพเดียว สไลด์โชว์จะไม่เล่น (คู่มือหน้า 73)",
           "safety_critical": false,
           "next": "n2v"
         },
         {
-          "node_id": "n2v",
+          "state_id": "n2v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -1184,7 +1184,7 @@
           "on_no": "n3"
         },
         {
-          "node_id": "n3",
+          "state_id": "n3",
           "type": "checkpoint",
           "question": "ชื่อโฟลเดอร์ยาวเกินไปใช่หรือไม่?",
           "safety_critical": false,
@@ -1192,14 +1192,14 @@
           "on_no": "n4"
         },
         {
-          "node_id": "n3f",
+          "state_id": "n3f",
           "type": "instruction",
           "content": "ตั้งชื่อโฟลเดอร์ให้สั้นลง เพราะถ้าชื่อโฟลเดอร์ยาวเกินไป จะเลือกโฟลเดอร์นั้นไม่ได้ (คู่มือหน้า 73)",
           "safety_critical": false,
           "next": "n3v"
         },
         {
-          "node_id": "n3v",
+          "state_id": "n3v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -1208,7 +1208,7 @@
           "on_no": "n4"
         },
         {
-          "node_id": "n4",
+          "state_id": "n4",
           "type": "checkpoint",
           "question": "ใช้ USB หลายตัวชนิดเดียวกันและโฟลเดอร์ของแต่ละตัวชื่อซ้ำกันใช่หรือไม่?",
           "safety_critical": false,
@@ -1216,14 +1216,14 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n4f",
+          "state_id": "n4f",
           "type": "instruction",
           "content": "ตั้งชื่อโฟลเดอร์ของ USB แต่ละตัวให้ต่างกัน เพราะ USB แต่ละตัวที่ใช้จะถูกกำหนดโฟลเดอร์ของตัวเอง (คู่มือหน้า 73)",
           "safety_critical": false,
           "next": "n4v"
         },
         {
-          "node_id": "n4v",
+          "state_id": "n4v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -1232,13 +1232,13 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "On Timer ทำงานกับ USB ได้แล้ว",
           "outcome_kind": "user_fixed"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
           "outcome_kind": "handoff_unknown"
@@ -1246,7 +1246,7 @@
       ]
     },
     {
-      "graph_id": "samsung_tv5_um_on_timer_usb_device_not_recognised",
+      "flow_id": "samsung_tv5_um_on_timer_usb_device_not_recognised",
       "device_category": "Television",
       "brand": "Samsung",
       "model_pattern": "NLDVBAS4M-1005",
@@ -1265,10 +1265,10 @@
       "source_chunk_id": "manual_Samsung_Television_NLDVBAS4M_p74_on_timer_usb_device_not_recognised",
       "severity": "low",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "ใช้ USB ที่มีแบตเตอรี่ในตัว เครื่องเล่น MP3 หรือ PMP ใช่หรือไม่?",
           "safety_critical": false,
@@ -1276,14 +1276,14 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n1f",
+          "state_id": "n1f",
           "type": "instruction",
           "content": "เปลี่ยนไปใช้ USB memory stick หรือ multi card reader ตามที่คู่มือแนะนำสำหรับ On Timer เพราะอุปกรณ์ชนิดนี้ของบางผู้ผลิตใช้เวลานานในการถูกรู้จัก จึงอาจใช้ On Timer ไม่ได้ (คู่มือหน้า 74)",
           "safety_critical": false,
           "next": "n1v"
         },
         {
-          "node_id": "n1v",
+          "state_id": "n1v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -1292,13 +1292,13 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "On Timer ทำงานได้แล้ว",
           "outcome_kind": "user_fixed"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
           "outcome_kind": "handoff_unknown"
@@ -1306,7 +1306,7 @@
       ]
     },
     {
-      "graph_id": "samsung_tv5_um_tv_turns_off_by_itself",
+      "flow_id": "samsung_tv5_um_tv_turns_off_by_itself",
       "device_category": "Television",
       "brand": "Samsung",
       "model_pattern": "NLDVBAS4M-1005",
@@ -1327,10 +1327,10 @@
       "source_chunk_id": "manual_Samsung_Television_NLDVBAS4M_p76_tv_turns_off_by_itself",
       "severity": "low",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "เปิด Auto Power Off ไว้ใช่หรือไม่?",
           "safety_critical": false,
@@ -1338,14 +1338,14 @@
           "on_no": "n2"
         },
         {
-          "node_id": "n1f",
+          "state_id": "n1f",
           "type": "instruction",
           "content": "ตั้ง Auto Power Off เป็น Off ที่ MENU > System > Eco Solution > Auto Power Off เพราะทีวีจะปิดเองเมื่อไม่มีการใช้งานนาน 4 ชั่วโมง (คู่มือหน้า 76)",
           "safety_critical": false,
           "next": "n1v"
         },
         {
-          "node_id": "n1v",
+          "state_id": "n1v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -1354,7 +1354,7 @@
           "on_no": "n2"
         },
         {
-          "node_id": "n2",
+          "state_id": "n2",
           "type": "checkpoint",
           "question": "ทีวีไม่ได้รับสัญญาณและตั้ง No Signal Power Off ไว้ใช่หรือไม่?",
           "safety_critical": false,
@@ -1362,14 +1362,14 @@
           "on_no": "n3"
         },
         {
-          "node_id": "n2f",
+          "state_id": "n2f",
           "type": "instruction",
           "content": "ปรับเวลาที่ No Signal Power Off ที่ MENU > System > Eco Solution > No Signal Power Off ซึ่งใช้กำหนดว่าจะให้ทีวีเปิดค้างไว้นานเท่าไรเมื่อไม่ได้รับสัญญาณ (คู่มือหน้า 76)",
           "safety_critical": false,
           "next": "n2v"
         },
         {
-          "node_id": "n2v",
+          "state_id": "n2v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -1378,7 +1378,7 @@
           "on_no": "n3"
         },
         {
-          "node_id": "n3",
+          "state_id": "n3",
           "type": "checkpoint",
           "question": "ตั้ง Sleep Timer ไว้ใช่หรือไม่?",
           "safety_critical": false,
@@ -1386,14 +1386,14 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n3f",
+          "state_id": "n3f",
           "type": "instruction",
           "content": "ยกเลิก Sleep Timer ด้วยการเลือก Off ที่ MENU > System > Time > Sleep Timer (คู่มือหน้า 69)",
           "safety_critical": false,
           "next": "n3v"
         },
         {
-          "node_id": "n3v",
+          "state_id": "n3v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -1402,13 +1402,13 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "ทีวีไม่ปิดเองแล้ว",
           "outcome_kind": "user_fixed"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
           "outcome_kind": "handoff_unknown"
@@ -1416,7 +1416,7 @@
       ]
     },
     {
-      "graph_id": "samsung_tv5_um_brightness_changes_eco_sensor",
+      "flow_id": "samsung_tv5_um_brightness_changes_eco_sensor",
       "device_category": "Television",
       "brand": "Samsung",
       "model_pattern": "NLDVBAS4M-1005",
@@ -1436,10 +1436,10 @@
       "source_chunk_id": "manual_Samsung_Television_NLDVBAS4M_p75_brightness_changes_eco_sensor",
       "severity": "low",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "เปิด Eco Sensor ไว้และแสงในห้องเปลี่ยนไปใช่หรือไม่?",
           "safety_critical": false,
@@ -1447,20 +1447,20 @@
           "on_no": "n2"
         },
         {
-          "node_id": "n1n",
+          "state_id": "n1n",
           "type": "resolution",
           "content": "ถ้าเปิด Eco Sensor ความสว่างของหน้าจออาจเปลี่ยนไป (มืดลงหรือสว่างขึ้นเล็กน้อย) ตามความเข้มของแสงรอบข้าง (คู่มือหน้า 75)",
           "outcome_kind": "normal_behavior"
         },
         {
-          "node_id": "n2",
+          "state_id": "n2",
           "type": "instruction",
           "content": "ถ้าไม่ต้องการให้ Eco Sensor ทำงาน ให้ปรับ Backlight เพราะเมื่อปรับ Backlight ทีวีจะตั้ง Eco Sensor เป็น Off ให้ (คู่มือหน้า 75)",
           "safety_critical": false,
           "next": "n2v"
         },
         {
-          "node_id": "n2v",
+          "state_id": "n2v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -1469,13 +1469,13 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "ความสว่างหน้าจอคงที่แล้ว",
           "outcome_kind": "user_fixed"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
           "outcome_kind": "handoff_unknown"
@@ -1483,7 +1483,7 @@
       ]
     },
     {
-      "graph_id": "samsung_tv5_um_screen_fit_picture_off_centre",
+      "flow_id": "samsung_tv5_um_screen_fit_picture_off_centre",
       "device_category": "Television",
       "brand": "Samsung",
       "model_pattern": "NLDVBAS4M-1005",
@@ -1504,17 +1504,17 @@
       "source_chunk_id": "manual_Samsung_Television_NLDVBAS4M_p36_screen_fit_picture_off_centre",
       "severity": "low",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "instruction",
           "content": "เลือก Position แล้วกดปุ่ม ENTER จากนั้นกดปุ่ม ▲/▼/◄/► เพื่อเลื่อนภาพให้อยู่กึ่งกลาง (Picture Size > Position ใช้ได้เมื่อเลือก Screen Fit หรือ Wide Zoom) (คู่มือหน้า 35 และ 36)",
           "safety_critical": false,
           "next": "n1v"
         },
         {
-          "node_id": "n1v",
+          "state_id": "n1v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -1523,14 +1523,14 @@
           "on_no": "n2"
         },
         {
-          "node_id": "n2",
+          "state_id": "n2",
           "type": "instruction",
           "content": "ถ้าต้องการคืนตำแหน่งที่ปรับไว้ ให้เลือก Reset ในหน้าจอ Position ภาพจะกลับไปตำแหน่งเริ่มต้น (คู่มือหน้า 36)",
           "safety_critical": false,
           "next": "n2v"
         },
         {
-          "node_id": "n2v",
+          "state_id": "n2v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -1539,13 +1539,13 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "ภาพอยู่กึ่งกลางแล้ว",
           "outcome_kind": "user_fixed"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
           "outcome_kind": "handoff_unknown"
@@ -1553,7 +1553,7 @@
       ]
     },
     {
-      "graph_id": "samsung_tv5_um_game_mode_screen_shakes",
+      "flow_id": "samsung_tv5_um_game_mode_screen_shakes",
       "device_category": "Television",
       "brand": "Samsung",
       "model_pattern": "NLDVBAS4M-1005",
@@ -1572,10 +1572,10 @@
       "source_chunk_id": "manual_Samsung_Television_NLDVBAS4M_p79_game_mode_screen_shakes",
       "severity": "low",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "จอสั่นเล็กน้อยตอนเปิดเมนูทีวีในโหมดเกม (Game Mode) ใช่หรือไม่?",
           "safety_critical": false,
@@ -1583,13 +1583,13 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n1n",
+          "state_id": "n1n",
           "type": "resolution",
           "content": "ถ้าเปิดเมนูทีวีขณะอยู่ในโหมดเกม หน้าจอจะสั่นเล็กน้อย (คู่มือหน้า 79) และถ้าต้องการถอดเครื่องเกมแล้วต่ออุปกรณ์ภายนอกอื่น ให้ตั้ง Game Mode เป็น Off ในเมนูตั้งค่า (MENU > System > General)",
           "outcome_kind": "normal_behavior"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
           "outcome_kind": "handoff_unknown"
@@ -1597,7 +1597,7 @@
       ]
     },
     {
-      "graph_id": "samsung_tv5_um_game_mode_picture_quality",
+      "flow_id": "samsung_tv5_um_game_mode_picture_quality",
       "device_category": "Television",
       "brand": "Samsung",
       "model_pattern": "NLDVBAS4M-1005",
@@ -1616,10 +1616,10 @@
       "source_chunk_id": "manual_Samsung_Television_NLDVBAS4M_p80_game_mode_picture_quality",
       "severity": "low",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "เปิด Game Mode ไว้หลังต่อเครื่องเล่นเกมใช่หรือไม่?",
           "safety_critical": false,
@@ -1627,13 +1627,13 @@
           "on_no": "n2"
         },
         {
-          "node_id": "n1n",
+          "state_id": "n1n",
           "type": "resolution",
           "content": "หลังต่อเครื่องเล่นเกมและเปิด Game Mode อาจเห็นคุณภาพภาพลดลง และเมื่อเปิด Game Mode ทีวีจะตั้ง Picture Mode และ Sound Mode เป็น Game (คู่มือหน้า 80)",
           "outcome_kind": "normal_behavior"
         },
         {
-          "node_id": "n2",
+          "state_id": "n2",
           "type": "checkpoint",
           "question": "พยายามเปิด Game Mode ในโหมด TV ใช่หรือไม่?",
           "safety_critical": false,
@@ -1641,13 +1641,13 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n2n",
+          "state_id": "n2n",
           "type": "resolution",
           "content": "Game Mode ใช้ไม่ได้ในโหมด TV (คู่มือหน้า 80)",
           "outcome_kind": "normal_behavior"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
           "outcome_kind": "handoff_unknown"
@@ -1655,7 +1655,7 @@
       ]
     },
     {
-      "graph_id": "samsung_tv5_um_settings_reset_after_software_update",
+      "flow_id": "samsung_tv5_um_settings_reset_after_software_update",
       "device_category": "Television",
       "brand": "Samsung",
       "model_pattern": "NLDVBAS4M-1005",
@@ -1674,10 +1674,10 @@
       "source_chunk_id": "manual_Samsung_Television_NLDVBAS4M_p107_settings_reset_after_software_update",
       "severity": "low",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "ค่าภาพและเสียงกลับเป็นค่าเริ่มต้นหลังอัปเดตซอฟต์แวร์ใช่หรือไม่?",
           "safety_critical": false,
@@ -1685,13 +1685,13 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n1n",
+          "state_id": "n1n",
           "type": "resolution",
           "content": "เมื่ออัปเกรดซอฟต์แวร์ ค่าภาพและเสียงที่ตั้งไว้จะกลับเป็นค่าเริ่มต้น คู่มือแนะนำให้จดการตั้งค่าไว้ก่อนอัปเกรดเพื่อตั้งค่าใหม่ได้ง่าย (คู่มือหน้า 107)",
           "outcome_kind": "normal_behavior"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
           "outcome_kind": "handoff_unknown"
@@ -1699,7 +1699,7 @@
       ]
     },
     {
-      "graph_id": "samsung_tv5_um_screen_turns_on_auto_update",
+      "flow_id": "samsung_tv5_um_screen_turns_on_auto_update",
       "device_category": "Television",
       "brand": "Samsung",
       "model_pattern": "NLDVBAS4M-1005",
@@ -1718,10 +1718,10 @@
       "source_chunk_id": "manual_Samsung_Television_NLDVBAS4M_p109_screen_turns_on_auto_update",
       "severity": "low",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "ทีวีตั้ง Auto Update ไว้ และหน้าจอสว่างเล็กน้อยในเวลาที่ตั้งไว้ใช่หรือไม่?",
           "safety_critical": false,
@@ -1729,13 +1729,13 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n1n",
+          "state_id": "n1n",
           "type": "resolution",
           "content": "Auto Update จะอัปเกรดซอฟต์แวร์เองในเวลาที่เลือก และเพราะไฟเลี้ยงของเครื่องเปิดภายใน หน้าจออาจสว่างเล็กน้อย ซึ่งอาจเกิดต่อเนื่องนานกว่า 1 ชั่วโมงจนกว่าการอัปเกรดจะเสร็จ (คู่มือหน้า 109)",
           "outcome_kind": "normal_behavior"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
           "outcome_kind": "handoff_unknown"
@@ -1743,7 +1743,7 @@
       ]
     },
     {
-      "graph_id": "samsung_tv5_um_store_demo_picture_reset",
+      "flow_id": "samsung_tv5_um_store_demo_picture_reset",
       "device_category": "Television",
       "brand": "Samsung",
       "model_pattern": "NLDVBAS4M-1005",
@@ -1764,17 +1764,17 @@
       "source_chunk_id": "manual_Samsung_Television_NLDVBAS4M_p110_store_demo_picture_reset",
       "severity": "low",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "instruction",
           "content": "เปลี่ยน Use Mode เป็น Home Use: MENU > Support > Use Mode คู่มือแนะนำอย่างยิ่งให้เลือก Home Use เพราะ Store Demo ใช้สำหรับร้านค้าเท่านั้น ถ้าเลือก Store Demo บางฟังก์ชันจะใช้ไม่ได้และค่าภาพจะถูกรีเซ็ตทุก 5 นาที (คู่มือหน้า 110)",
           "safety_critical": false,
           "next": "n1v"
         },
         {
-          "node_id": "n1v",
+          "state_id": "n1v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -1783,13 +1783,13 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "ค่าภาพที่ตั้งไว้ไม่ถูกรีเซ็ตแล้ว",
           "outcome_kind": "user_fixed"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
           "outcome_kind": "handoff_unknown"
@@ -1797,7 +1797,7 @@
       ]
     },
     {
-      "graph_id": "samsung_tv5_um_usb_not_recognised_files_not_played",
+      "flow_id": "samsung_tv5_um_usb_not_recognised_files_not_played",
       "device_category": "Television",
       "brand": "Samsung",
       "model_pattern": "NLDVBAS4M-1005",
@@ -1818,10 +1818,10 @@
       "source_chunk_id": "manual_Samsung_Television_NLDVBAS4M_p91_usb_not_recognised_files_not_played",
       "severity": "low",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "ใช้สายต่อพ่วง USB (extension cable) อยู่ใช่หรือไม่?",
           "safety_critical": false,
@@ -1829,14 +1829,14 @@
           "on_no": "n2"
         },
         {
-          "node_id": "n1f",
+          "state_id": "n1f",
           "type": "instruction",
           "content": "ต่ออุปกรณ์ USB เข้าที่พอร์ต USB ของทีวีโดยตรง และไม่ใช้ USB HUB เพราะถ้าใช้สายต่อพ่วง ทีวีอาจไม่รู้จักอุปกรณ์หรืออ่านไฟล์ในอุปกรณ์ไม่ได้ (คู่มือหน้า 87 และ 90)",
           "safety_critical": false,
           "next": "n1v"
         },
         {
-          "node_id": "n1v",
+          "state_id": "n1v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -1845,7 +1845,7 @@
           "on_no": "n2"
         },
         {
-          "node_id": "n2",
+          "state_id": "n2",
           "type": "checkpoint",
           "question": "อุปกรณ์ USB ต้องการไฟสูง (เกิน 500mA หรือ 5V) หรือเป็นฮาร์ดดิสก์ (HDD) ใช่หรือไม่? (คู่มือหน้า 90)",
           "safety_critical": false,
@@ -1853,14 +1853,14 @@
           "on_no": "n3"
         },
         {
-          "node_id": "n2f",
+          "state_id": "n2f",
           "type": "instruction",
           "content": "เปลี่ยนไปใช้อุปกรณ์ที่ไม่ต้องการไฟสูง เพราะอุปกรณ์ที่ต้องการไฟสูงอาจไม่รองรับ และฮาร์ดดิสก์ (HDD) ที่ต่อกับ USB ไม่รองรับ (คู่มือหน้า 90)",
           "safety_critical": false,
           "next": "n2v"
         },
         {
-          "node_id": "n2v",
+          "state_id": "n2v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -1869,7 +1869,7 @@
           "on_no": "n3"
         },
         {
-          "node_id": "n3",
+          "state_id": "n3",
           "type": "checkpoint",
           "question": "อุปกรณ์ไม่ใช่ชนิด USB Mass Storage Class (MSC) หรือต่อแบบ MTP ใช่หรือไม่?",
           "safety_critical": false,
@@ -1877,14 +1877,14 @@
           "on_no": "n4"
         },
         {
-          "node_id": "n3f",
+          "state_id": "n3f",
           "type": "instruction",
           "content": "ใช้อุปกรณ์ชนิด USB Mass Storage Class (MSC) เช่น thumb drive หรือ flash card reader เพราะรองรับเฉพาะชนิดนี้ และไม่รองรับ MTP (Media Transfer Protocol) (คู่มือหน้า 86 และ 87)",
           "safety_critical": false,
           "next": "n3v"
         },
         {
-          "node_id": "n3v",
+          "state_id": "n3v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -1893,7 +1893,7 @@
           "on_no": "n4"
         },
         {
-          "node_id": "n4",
+          "state_id": "n4",
           "type": "instruction",
           "content": "ต่ออุปกรณ์ USB เข้ากับพีซี ฟอร์แมตอุปกรณ์ แล้วตรวจสอบการเชื่อมต่อ (คู่มือหน้า 91) ก่อนต่ออุปกรณ์กับทีวีให้สำรองไฟล์ไว้ก่อนเพื่อป้องกันไฟล์เสียหายหรือสูญหาย (คู่มือหน้า 87)",
           "safety_critical": false,
@@ -1901,7 +1901,7 @@
           "next": "n4v"
         },
         {
-          "node_id": "n4v",
+          "state_id": "n4v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -1910,13 +1910,13 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "ทีวีรู้จักอุปกรณ์ USB และเล่นไฟล์ได้แล้ว",
           "outcome_kind": "user_fixed"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
           "outcome_kind": "handoff_unknown"
@@ -1924,7 +1924,7 @@
       ]
     },
     {
-      "graph_id": "samsung_tv5_um_deleted_file_still_listed",
+      "flow_id": "samsung_tv5_um_deleted_file_still_listed",
       "device_category": "Television",
       "brand": "Samsung",
       "model_pattern": "NLDVBAS4M-1005",
@@ -1943,17 +1943,17 @@
       "source_chunk_id": "manual_Samsung_Television_NLDVBAS4M_p91_deleted_file_still_listed",
       "severity": "low",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "instruction",
           "content": "ใช้ฟังก์ชัน “Empty the Recycle Bin” บนพีซีเพื่อลบไฟล์นั้นถาวร (คู่มือหน้า 91)",
           "safety_critical": false,
           "next": "n1v"
         },
         {
-          "node_id": "n1v",
+          "state_id": "n1v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -1962,13 +1962,13 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "ไฟล์ที่ลบแล้วไม่ปรากฏในรายการอีก",
           "outcome_kind": "user_fixed"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
           "outcome_kind": "handoff_unknown"
@@ -1976,7 +1976,7 @@
       ]
     },
     {
-      "graph_id": "samsung_tv5_um_files_over_4000_not_shown",
+      "flow_id": "samsung_tv5_um_files_over_4000_not_shown",
       "device_category": "Television",
       "brand": "Samsung",
       "model_pattern": "NLDVBAS4M-1005",
@@ -1995,10 +1995,10 @@
       "source_chunk_id": "manual_Samsung_Television_NLDVBAS4M_p91_files_over_4000_not_shown",
       "severity": "low",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "อุปกรณ์ USB เก็บไฟล์และโฟลเดอร์รวมกันมากกว่าประมาณ 4000 รายการใช่หรือไม่?",
           "safety_critical": false,
@@ -2006,13 +2006,13 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n1n",
+          "state_id": "n1n",
           "type": "resolution",
           "content": "ถ้ามีไฟล์และโฟลเดอร์ในอุปกรณ์ USB รวมกันมากกว่าประมาณ 4000 รายการ ไฟล์และโฟลเดอร์อาจไม่ปรากฏและบางโฟลเดอร์อาจเปิดไม่ได้ (คู่มือหน้า 91)",
           "outcome_kind": "normal_behavior"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
           "outcome_kind": "handoff_unknown"
@@ -2020,7 +2020,7 @@
       ]
     },
     {
-      "graph_id": "samsung_tv5_um_file_format_not_supported_message",
+      "flow_id": "samsung_tv5_um_file_format_not_supported_message",
       "device_category": "Television",
       "brand": "Samsung",
       "model_pattern": "NLDVBAS4M-1005",
@@ -2039,10 +2039,10 @@
       "source_chunk_id": "manual_Samsung_Television_NLDVBAS4M_p88_file_format_not_supported_message",
       "severity": "low",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "ทีวีแสดงข้อความ “This file format is not supported.” ใช่หรือไม่?",
           "safety_critical": false,
@@ -2050,7 +2050,7 @@
           "on_no": "n_nomatch"
         },
         {
-          "node_id": "n2",
+          "state_id": "n2",
           "type": "checkpoint",
           "question": "ไฟล์เป็นไฟล์ที่ไม่รองรับหรือไฟล์เสียหายใช่หรือไม่?",
           "safety_critical": false,
@@ -2058,19 +2058,19 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n2n",
+          "state_id": "n2n",
           "type": "resolution",
           "content": "ข้อความนี้จะแสดงเมื่อเป็นไฟล์ที่ไม่รองรับหรือไฟล์เสียหาย และความละเอียดภาพ JPEG สูงสุดที่รองรับคือ 15360 x 8640 พิกเซล (คู่มือหน้า 88)",
           "outcome_kind": "normal_behavior"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
           "outcome_kind": "handoff_unknown"
         },
         {
-          "node_id": "n_nomatch",
+          "state_id": "n_nomatch",
           "type": "escalation",
           "content": "ทีวีไม่ได้แสดงข้อความ This file format is not supported ให้เลือกอาการที่ตรงกับที่เห็น หรือดูข้อมูลศูนย์บริการได้ที่ MENU > Support > Contact Samsung (คู่มือหน้า 111)",
           "outcome_kind": "handoff_unknown"
@@ -2078,7 +2078,7 @@
       ]
     },
     {
-      "graph_id": "samsung_tv5_um_mp3_drm_cannot_play",
+      "flow_id": "samsung_tv5_um_mp3_drm_cannot_play",
       "device_category": "Television",
       "brand": "Samsung",
       "model_pattern": "NLDVBAS4M-1005",
@@ -2098,10 +2098,10 @@
       "source_chunk_id": "manual_Samsung_Television_NLDVBAS4M_p89_mp3_drm_cannot_play",
       "severity": "low",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "ไฟล์ MP3 ดาวน์โหลดมาจากเว็บไซต์ที่ไม่ฟรีและมี DRM ใช่หรือไม่?",
           "safety_critical": false,
@@ -2109,13 +2109,13 @@
           "on_no": "n2"
         },
         {
-          "node_id": "n1n",
+          "state_id": "n1n",
           "type": "resolution",
           "content": "ไฟล์ MP3 ที่มี DRM ซึ่งดาวน์โหลดจากเว็บไซต์ที่ไม่ฟรีจะเล่นไม่ได้ (คู่มือหน้า 89)",
           "outcome_kind": "normal_behavior"
         },
         {
-          "node_id": "n2",
+          "state_id": "n2",
           "type": "checkpoint",
           "question": "ต่อสมาร์ตโฟนหรือแท็บเล็ตกับทีวีด้วยโหมด PTP ใช่หรือไม่?",
           "safety_critical": false,
@@ -2123,13 +2123,13 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n2n",
+          "state_id": "n2n",
           "type": "resolution",
           "content": "โหมดการเชื่อมต่อ PTP ใช้ได้เต็มที่กับกล้องดิจิทัลเท่านั้น เมื่อต่อสมาร์ตโฟนหรือแท็บเล็ตกับทีวีด้วยโหมด PTP ทีวีอาจไม่รู้จักอุปกรณ์ (คู่มือหน้า 89)",
           "outcome_kind": "normal_behavior"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
           "outcome_kind": "handoff_unknown"
@@ -2137,7 +2137,7 @@
       ]
     },
     {
-      "graph_id": "samsung_tv5_um_music_sound_abnormal",
+      "flow_id": "samsung_tv5_um_music_sound_abnormal",
       "device_category": "Television",
       "brand": "Samsung",
       "model_pattern": "NLDVBAS4M-1005",
@@ -2157,17 +2157,17 @@
       "source_chunk_id": "manual_Samsung_Television_NLDVBAS4M_p101_music_sound_abnormal",
       "severity": "low",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "instruction",
           "content": "ปรับ Equaliser ในเมนู Sound: MENU > Sound > Sound Effect > Equaliser เพราะไฟล์เพลงที่ถูกปรับระดับเสียงเกินอาจทำให้เสียงผิดปกติ (คู่มือหน้า 101 และ 50)",
           "safety_critical": false,
           "next": "n1v"
         },
         {
-          "node_id": "n1v",
+          "state_id": "n1v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -2176,7 +2176,7 @@
           "on_no": "n2"
         },
         {
-          "node_id": "n2",
+          "state_id": "n2",
           "type": "checkpoint",
           "question": "ไฟล์เพลงที่ไม่แสดงมีนามสกุลที่ทีวีไม่รองรับใช่หรือไม่?",
           "safety_critical": false,
@@ -2184,19 +2184,19 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n2n",
+          "state_id": "n2n",
           "type": "resolution",
           "content": "ทีวีแสดงเฉพาะไฟล์ที่มีนามสกุลไฟล์เพลงที่รองรับ นามสกุลอื่นจะไม่แสดงแม้เก็บไว้ในอุปกรณ์ USB เดียวกัน (คู่มือหน้า 101)",
           "outcome_kind": "normal_behavior"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "เสียงเพลงปกติแล้ว",
           "outcome_kind": "user_fixed"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
           "outcome_kind": "handoff_unknown"
@@ -2204,7 +2204,7 @@
       ]
     },
     {
-      "graph_id": "samsung_tv5_um_family_tv_mode_cannot_use",
+      "flow_id": "samsung_tv5_um_family_tv_mode_cannot_use",
       "device_category": "Television",
       "brand": "Samsung",
       "model_pattern": "NLDVBAS4M-1005",
@@ -2225,10 +2225,10 @@
       "source_chunk_id": "manual_Samsung_Television_NLDVBAS4M_p117_family_tv_mode_cannot_use",
       "severity": "low",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "ต่ออุปกรณ์ USB กับทีวีแล้วใช่หรือไม่?",
           "safety_critical": false,
@@ -2236,14 +2236,14 @@
           "on_no": "n1f"
         },
         {
-          "node_id": "n1f",
+          "state_id": "n1f",
           "type": "instruction",
           "content": "ต่ออุปกรณ์ USB เข้ากับทีวี เพราะต้องต่ออุปกรณ์ USB จึงจะใช้ Family TV Mode ได้ (คู่มือหน้า 117)",
           "safety_critical": false,
           "next": "n1v"
         },
         {
-          "node_id": "n1v",
+          "state_id": "n1v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -2252,7 +2252,7 @@
           "on_no": "n2"
         },
         {
-          "node_id": "n2",
+          "state_id": "n2",
           "type": "checkpoint",
           "question": "อุปกรณ์ USB มีพื้นที่ว่างมากกว่า 5MB แล้วใช่หรือไม่?",
           "safety_critical": false,
@@ -2260,14 +2260,14 @@
           "on_no": "n2f"
         },
         {
-          "node_id": "n2f",
+          "state_id": "n2f",
           "type": "instruction",
           "content": "ทำให้อุปกรณ์ USB มีพื้นที่ว่างมากกว่า 5MB เพราะ Family TV Mode ใช้ได้เมื่อมีพื้นที่ว่างมากกว่า 5MB เท่านั้น (คู่มือหน้า 117)",
           "safety_critical": false,
           "next": "n2v"
         },
         {
-          "node_id": "n2v",
+          "state_id": "n2v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -2276,7 +2276,7 @@
           "on_no": "n3"
         },
         {
-          "node_id": "n3",
+          "state_id": "n3",
           "type": "checkpoint",
           "question": "ปิดทีวีหรือถอดอุปกรณ์ USB ขณะใช้ Family TV Mode ใช่หรือไม่?",
           "safety_critical": false,
@@ -2284,14 +2284,14 @@
           "on_no": "n4"
         },
         {
-          "node_id": "n3f",
+          "state_id": "n3f",
           "type": "instruction",
           "content": "อย่าปิดทีวีหรือถอดอุปกรณ์ USB ขณะใช้ Family TV Mode เพราะไฟล์อาจไม่ถูกบันทึกหรือเล่นไม่ได้ (คู่มือหน้า 117)",
           "safety_critical": false,
           "next": "n3v"
         },
         {
-          "node_id": "n3v",
+          "state_id": "n3v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -2300,7 +2300,7 @@
           "on_no": "n4"
         },
         {
-          "node_id": "n4",
+          "state_id": "n4",
           "type": "checkpoint",
           "question": "สัญญาณออกอากาศอ่อนลงหรือหายไปขณะใช้ Family TV Mode ใช่หรือไม่?",
           "safety_critical": false,
@@ -2308,13 +2308,13 @@
           "on_no": "n5"
         },
         {
-          "node_id": "n4n",
+          "state_id": "n4n",
           "type": "resolution",
           "content": "ถ้าความแรงของสัญญาณออกอากาศลดลงหรือหายไปขณะใช้ Family TV Mode ไฟล์นั้นอาจไม่ถูกบันทึกหรือเล่นไม่ได้ (คู่มือหน้า 117)",
           "outcome_kind": "normal_behavior"
         },
         {
-          "node_id": "n5",
+          "state_id": "n5",
           "type": "checkpoint",
           "question": "กำลังใช้ Media Play, PIP หรือดูช่องที่ไม่มีสัญญาณ ช่องข้อมูล ช่องที่ถูกเข้ารหัส ช่องที่ไม่มีบริการ หรือช่องที่ล็อกโดย Parental lock อยู่ใช่หรือไม่?",
           "safety_critical": false,
@@ -2322,19 +2322,19 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n5n",
+          "state_id": "n5n",
           "type": "resolution",
           "content": "Family TV Mode ใช้ไม่ได้ขณะ Media Play ทำงาน ขณะใช้ PIP ขณะไม่มีสัญญาณ และในช่องข้อมูล (data service) ช่องที่ถูกเข้ารหัส (scrambled) ช่องที่ไม่มีบริการ และช่องที่ล็อกโดย Parental lock (คู่มือหน้า 118)",
           "outcome_kind": "normal_behavior"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "ใช้ Family TV Mode ได้แล้ว",
           "outcome_kind": "user_fixed"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
           "outcome_kind": "handoff_unknown"

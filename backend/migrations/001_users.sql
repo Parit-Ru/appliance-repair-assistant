@@ -1,5 +1,5 @@
 -- 001_users: บัญชีผู้ใช้ (users)
--- ไม่พึ่งตารางอื่น — ต้องสร้างก่อน เพราะ sessions และ graph_drafts อ้างถึง
+-- ไม่พึ่งตารางอื่น — ต้องสร้างก่อน เพราะ sessions และ flow_drafts อ้างถึง
 -- ทุกตาราง: InnoDB, utf8mb4, utf8mb4_unicode_ci (ต้องตรงกันทั้งหมด ไม่งั้น FOREIGN KEY สร้างไม่ได้)
 -- รายละเอียดว่าแต่ละตารางเก็บอะไร ดู docs/reference/DATABASE.md
 

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { useGraphs, useManuals } from '../api/queries'
+import { useFlows, useManuals } from '../api/queries'
 import { SlowServerNotice } from '../components/SlowServerNotice'
 import { SymptomRow } from '../components/SymptomRow'
 import { ErrorNotice } from '../components/ErrorNotice'
@@ -16,12 +16,12 @@ const LINK_CLASSES = 'text-accent underline-offset-4 hover:underline'
 export function AllSymptomsPage() {
   const { manualId, modelSelection } = useChosenModel()
   const manuals = useManuals()
-  const graphs = useGraphs(manualId)
+  const flows = useFlows(manualId)
   const { start, startingId, isStarting, error: startError } = useStartSymptom()
 
-  const isSlow = useSlowWait(graphs.isPending || isStarting)
+  const isSlow = useSlowWait(flows.isPending || isStarting)
 
-  const groups = graphs.isSuccess ? groupSymptoms(graphs.data) : []
+  const groups = flows.isSuccess ? groupSymptoms(flows.data) : []
 
   return (
     <div className="space-y-6">
@@ -52,15 +52,15 @@ export function AllSymptomsPage() {
       {startError && <ErrorNotice error={startError} />}
 
       <section className="space-y-6">
-        {graphs.isPending && (
+        {flows.isPending && (
           <LoadingText>กำลังโหลดรายการอาการ</LoadingText>
         )}
 
-        {graphs.isError && (
-          <ErrorNotice error={graphs.error} onRetry={() => void graphs.refetch()} />
+        {flows.isError && (
+          <ErrorNotice error={flows.error} onRetry={() => void flows.refetch()} />
         )}
 
-        {graphs.isSuccess && graphs.data.length === 0 && <p className="text-ink-soft">ยังไม่มีอาการให้เลือก</p>}
+        {flows.isSuccess && flows.data.length === 0 && <p className="text-ink-soft">ยังไม่มีอาการให้เลือก</p>}
 
         {groups.map((group) => {
           const manual = manuals.data?.find((m) => m.manualId === group.manualId)
@@ -83,11 +83,11 @@ export function AllSymptomsPage() {
               <ul className="mt-2 border-t border-line">
                 {group.symptoms.map((summary) => (
                   <SymptomRow
-                    key={summary.graphId}
+                    key={summary.flowId}
                     summary={summary}
-                    isStarting={isStarting && startingId === summary.graphId}
-                    disabled={isStarting && startingId !== summary.graphId}
-                    onSelect={(graphId) => start(graphId, startOptions({ manualId, modelSelection }, summary.manualId))}
+                    isStarting={isStarting && startingId === summary.flowId}
+                    disabled={isStarting && startingId !== summary.flowId}
+                    onSelect={(flowId) => start(flowId, startOptions({ manualId, modelSelection }, summary.manualId))}
                   />
                 ))}
               </ul>

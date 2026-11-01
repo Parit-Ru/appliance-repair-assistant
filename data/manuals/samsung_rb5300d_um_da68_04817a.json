@@ -5,9 +5,9 @@
   "model_pattern": "RB5300D",
   "source_manual": "Samsung Refrigerator User Manual RB5300D (DA68-04817A_BMF_RB5300D_EN_MES_CFR_251017)",
   "count": 26,
-  "graphs": [
+  "flows": [
     {
-      "graph_id": "samsung_rb5300d_um_not_cooling",
+      "flow_id": "samsung_rb5300d_um_not_cooling",
       "device_category": "Refrigerator",
       "brand": "Samsung",
       "model_pattern": "RB5300D",
@@ -29,10 +29,10 @@
       "source_chunk_id": "manual_Samsung_Refrigerator_RB5300D_p41_not_cooling",
       "severity": "medium",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "เสียบปลั๊กตู้เย็นแน่นเข้ากับเต้ารับแล้วใช่หรือไม่?",
           "safety_critical": false,
@@ -40,7 +40,7 @@
           "on_no": "n1f"
         },
         {
-          "node_id": "n1f",
+          "state_id": "n1f",
           "type": "instruction",
           "content": "เสียบปลั๊กให้แน่นเข้ากับเต้ารับ โดยให้สายไฟห้อยลงด้านล่าง ถ้าเต้ารับหลวมห้ามเสียบปลั๊ก (คู่มือหน้า 7, 8 และ 41)",
           "safety_critical": true,
@@ -49,7 +49,7 @@
           "next": "n1v"
         },
         {
-          "node_id": "n1v",
+          "state_id": "n1v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
           "safety_critical": false,
@@ -58,7 +58,7 @@
           "on_no": "n2"
         },
         {
-          "node_id": "n2",
+          "state_id": "n2",
           "type": "checkpoint",
           "question": "ตั้งอุณหภูมิไว้เย็นพอแล้วใช่หรือไม่?",
           "safety_critical": false,
@@ -66,7 +66,7 @@
           "on_no": "n2f"
         },
         {
-          "node_id": "n2f",
+          "state_id": "n2f",
           "type": "instruction",
           "content": "ตั้งอุณหภูมิให้ต่ำลง — ช่องแช่เย็น: กดปุ่ม Fridge เพื่อเลือกอุณหภูมิ (ปรับได้ระหว่าง 34 °F ถึง 44 °F หรือ 1 °C ถึง 7 °C) ช่องแช่แข็ง: กดปุ่ม Freezer เพื่อตั้งอุณหภูมิ (ปรับได้ระหว่าง 5 °F ถึง -8 °F หรือ -15 °C ถึง -23 °C) ค่าที่คู่มือแนะนำคือช่องแช่แข็ง -2 °F (-19 °C) และช่องแช่เย็น 38 °F (3 °C) (คู่มือหน้า 21 และ 22)",
           "safety_critical": false,
@@ -74,7 +74,7 @@
           "next": "n2v"
         },
         {
-          "node_id": "n2v",
+          "state_id": "n2v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
           "safety_critical": false,
@@ -83,7 +83,7 @@
           "on_no": "n3"
         },
         {
-          "node_id": "n3",
+          "state_id": "n3",
           "type": "checkpoint",
           "question": "ตู้เย็นอยู่ห่างจากแสงแดดโดยตรงและแหล่งความร้อนแล้วใช่หรือไม่?",
           "safety_critical": false,
@@ -91,7 +91,7 @@
           "on_no": "n3f"
         },
         {
-          "node_id": "n3f",
+          "state_id": "n3f",
           "type": "instruction",
           "content": "ย้ายตู้เย็นให้ห่างจากแสงแดดโดยตรงและแหล่งความร้อน (คู่มือหน้า 17 และ 41) ถ้าจำเป็นต้องเคลื่อนย้าย ให้ใช้กระดาษหนาหรือผ้า เช่น พรมเก่า ปูตามทางเคลื่อนย้ายเพื่อป้องกันพื้น (คู่มือหน้า 18)",
           "safety_critical": true,
@@ -100,7 +100,7 @@
           "next": "n3v"
         },
         {
-          "node_id": "n3v",
+          "state_id": "n3v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
           "safety_critical": false,
@@ -109,7 +109,7 @@
           "on_no": "n4"
         },
         {
-          "node_id": "n4",
+          "state_id": "n4",
           "type": "checkpoint",
           "question": "เว้นระยะจากด้านหลังอย่างน้อย 2 นิ้ว (50 มม.) และด้านข้างอย่างน้อย 1 นิ้ว (25 มม.) แล้วใช่หรือไม่?",
           "safety_critical": false,
@@ -117,7 +117,7 @@
           "on_no": "n4f"
         },
         {
-          "node_id": "n4f",
+          "state_id": "n4f",
           "type": "instruction",
           "content": "เว้นระยะจากด้านหลังอย่างน้อย 2 นิ้ว (50 มม.) และจากด้านข้างอย่างน้อย 1 นิ้ว (25 มม.) (คู่มือหน้า 41) หน้า 18 ระบุว่าแนะนำให้เว้นระยะมากกว่า 1 นิ้ว (25 มม.) ตามแผนภาพ",
           "safety_critical": true,
@@ -126,7 +126,7 @@
           "next": "n4v"
         },
         {
-          "node_id": "n4v",
+          "state_id": "n4v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
           "safety_critical": false,
@@ -135,7 +135,7 @@
           "on_no": "n5"
         },
         {
-          "node_id": "n5",
+          "state_id": "n5",
           "type": "checkpoint",
           "question": "ไม่ได้เปิดใช้โหมด Vacation ใช่หรือไม่? (ถ้าไม่มีหรือไม่ได้ใช้โหมดนี้ ให้ตอบใช่)",
           "safety_critical": false,
@@ -143,7 +143,7 @@
           "on_no": "n5f"
         },
         {
-          "node_id": "n5f",
+          "state_id": "n5f",
           "type": "instruction",
           "content": "ยกเลิกโหมด Vacation โดยกดปุ่ม Vacation ค้างไว้สามวินาที อุณหภูมิช่องแช่เย็นจะกลับไปเป็นค่าที่ตั้งไว้ก่อนหน้า (คู่มือหน้า 22) หรือปรับอุณหภูมิ โหมด Vacation จะถูกปิดเมื่อปรับอุณหภูมิ (คู่มือหน้า 22)",
           "safety_critical": false,
@@ -151,7 +151,7 @@
           "next": "n5v"
         },
         {
-          "node_id": "n5v",
+          "state_id": "n5v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
           "safety_critical": false,
@@ -160,7 +160,7 @@
           "on_no": "n6"
         },
         {
-          "node_id": "n6",
+          "state_id": "n6",
           "type": "checkpoint",
           "question": "ไม่ได้ใส่อาหารมากเกินไปและอาหารไม่บังช่องระบายอากาศใช่หรือไม่?",
           "safety_critical": false,
@@ -168,7 +168,7 @@
           "on_no": "n6f"
         },
         {
-          "node_id": "n6f",
+          "state_id": "n6f",
           "type": "instruction",
           "content": "ไม่ใส่อาหารในตู้เย็นมากเกินไป และไม่ให้อาหารบังช่องระบายอากาศ อย่าวางอาหารใกล้ช่องระบายด้านหลังตู้ (คู่มือหน้า 12 และ 41)",
           "safety_critical": true,
@@ -177,7 +177,7 @@
           "next": "n6v"
         },
         {
-          "node_id": "n6v",
+          "state_id": "n6v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
           "safety_critical": false,
@@ -186,13 +186,13 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "ตู้เย็นกลับมาเย็นหรือทำงานตามปกติแล้ว",
           "outcome_kind": "user_fixed"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้เยี่ยมชม www.samsung.com หรือโทร Samsung Customer Care 1-800-SAMSUNG (726-7864) (คู่มือหน้า 41) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
           "outcome_kind": "handoff_unknown"
@@ -200,7 +200,7 @@
       ]
     },
     {
-      "graph_id": "samsung_rb5300d_um_over_cooling",
+      "flow_id": "samsung_rb5300d_um_over_cooling",
       "device_category": "Refrigerator",
       "brand": "Samsung",
       "model_pattern": "RB5300D",
@@ -221,10 +221,10 @@
       "source_chunk_id": "manual_Samsung_Refrigerator_RB5300D_p41_over_cooling",
       "severity": "low",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "ปรับตั้งอุณหภูมิให้สูงขึ้นแล้วใช่หรือไม่?",
           "safety_critical": false,
@@ -232,7 +232,7 @@
           "on_no": "n1f"
         },
         {
-          "node_id": "n1f",
+          "state_id": "n1f",
           "type": "instruction",
           "content": "ตั้งอุณหภูมิให้สูงขึ้น — ช่องแช่เย็น: กดปุ่ม Fridge เพื่อเลือกอุณหภูมิ (ปรับได้ระหว่าง 34 °F ถึง 44 °F หรือ 1 °C ถึง 7 °C) ช่องแช่แข็ง: กดปุ่ม Freezer เพื่อตั้งอุณหภูมิ (ปรับได้ระหว่าง 5 °F ถึง -8 °F หรือ -15 °C ถึง -23 °C) ค่าที่คู่มือแนะนำคือช่องแช่แข็ง -2 °F (-19 °C) และช่องแช่เย็น 38 °F (3 °C) (คู่มือหน้า 21 และ 22)",
           "safety_critical": false,
@@ -240,7 +240,7 @@
           "next": "n1v"
         },
         {
-          "node_id": "n1v",
+          "state_id": "n1v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
           "safety_critical": false,
@@ -249,13 +249,13 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "ตู้เย็นไม่เย็นจัดเกินไปแล้ว",
           "outcome_kind": "user_fixed"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้เยี่ยมชม www.samsung.com หรือโทร Samsung Customer Care 1-800-SAMSUNG (726-7864) (คู่มือหน้า 41) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
           "outcome_kind": "handoff_unknown"
@@ -263,7 +263,7 @@
       ]
     },
     {
-      "graph_id": "samsung_rb5300d_um_interior_wall_hot",
+      "flow_id": "samsung_rb5300d_um_interior_wall_hot",
       "device_category": "Refrigerator",
       "brand": "Samsung",
       "model_pattern": "RB5300D",
@@ -283,10 +283,10 @@
       "source_chunk_id": "manual_Samsung_Refrigerator_RB5300D_p41_interior_wall_hot",
       "severity": "low",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "ส่วนที่ร้อนอยู่ที่มุมด้านหน้าของตู้เย็น (front corners) ใช่หรือไม่?",
           "safety_critical": false,
@@ -294,13 +294,13 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n1n",
+          "state_id": "n1n",
           "type": "resolution",
           "content": "ตู้เย็นมีท่อกันความร้อน (heat-proof piping) ที่มุมด้านหน้า เพื่อป้องกันการเกิดหยดน้ำควบแน่น ถ้าอุณหภูมิแวดล้อมสูงขึ้น อุปกรณ์นี้อาจทำงานได้ไม่เต็มประสิทธิภาพ นี่ไม่ใช่ความขัดข้องของระบบ (คู่มือหน้า 41)",
           "outcome_kind": "normal_behavior"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้เยี่ยมชม www.samsung.com หรือโทร Samsung Customer Care 1-800-SAMSUNG (726-7864) (คู่มือหน้า 41) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
           "outcome_kind": "handoff_unknown"
@@ -308,7 +308,7 @@
       ]
     },
     {
-      "graph_id": "samsung_rb5300d_um_odours",
+      "flow_id": "samsung_rb5300d_um_odours",
       "device_category": "Refrigerator",
       "brand": "Samsung",
       "model_pattern": "RB5300D",
@@ -328,10 +328,10 @@
       "source_chunk_id": "manual_Samsung_Refrigerator_RB5300D_p42_odours",
       "severity": "low",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "ทำความสะอาดตู้เย็นและนำอาหารที่เสียออกแล้วใช่หรือไม่?",
           "safety_critical": false,
@@ -339,7 +339,7 @@
           "on_no": "n1f"
         },
         {
-          "node_id": "n1f",
+          "state_id": "n1f",
           "type": "instruction",
           "content": "ทำความสะอาดตู้เย็นและนำอาหารที่เสียออก: ถอดปลั๊ก > เช็ดภายในและภายนอกด้วยผ้านุ่มไม่เป็นขุยหรือกระดาษเช็ดมือที่เปียกหมาดๆ > เช็ดให้แห้งสนิทด้วยผ้าแห้งหรือกระดาษเช็ดมือ > เสียบปลั๊กกลับ (คู่มือหน้า 40 และ 42)",
           "safety_critical": true,
@@ -348,7 +348,7 @@
           "next": "n1v"
         },
         {
-          "node_id": "n1v",
+          "state_id": "n1v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
           "safety_critical": false,
@@ -357,7 +357,7 @@
           "on_no": "n2"
         },
         {
-          "node_id": "n2",
+          "state_id": "n2",
           "type": "checkpoint",
           "question": "ห่ออาหารที่มีกลิ่นแรงมิดชิดแล้วใช่หรือไม่?",
           "safety_critical": false,
@@ -365,7 +365,7 @@
           "on_no": "n2f"
         },
         {
-          "node_id": "n2f",
+          "state_id": "n2f",
           "type": "instruction",
           "content": "ห่ออาหารที่มีกลิ่นแรงให้มิดชิดหรือใส่ภาชนะที่ปิดสนิท (คู่มือหน้า 12 และ 42)",
           "safety_critical": false,
@@ -373,7 +373,7 @@
           "next": "n2v"
         },
         {
-          "node_id": "n2v",
+          "state_id": "n2v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
           "safety_critical": false,
@@ -382,13 +382,13 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "กลิ่นในตู้เย็นหายแล้ว",
           "outcome_kind": "user_fixed"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้เยี่ยมชม www.samsung.com หรือโทร Samsung Customer Care 1-800-SAMSUNG (726-7864) (คู่มือหน้า 41) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
           "outcome_kind": "handoff_unknown"
@@ -396,7 +396,7 @@
       ]
     },
     {
-      "graph_id": "samsung_rb5300d_um_frost_vents",
+      "flow_id": "samsung_rb5300d_um_frost_vents",
       "device_category": "Refrigerator",
       "brand": "Samsung",
       "model_pattern": "RB5300D",
@@ -415,10 +415,10 @@
       "source_chunk_id": "manual_Samsung_Refrigerator_RB5300D_p42_frost_vents",
       "severity": "low",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "มีอาหารบังช่องระบายอากาศของตู้เย็นหรือไม่?",
           "safety_critical": false,
@@ -426,7 +426,7 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n1f",
+          "state_id": "n1f",
           "type": "instruction",
           "content": "ย้ายอาหารที่บังช่องระบายอากาศของตู้เย็นออก (คู่มือหน้า 42)",
           "safety_critical": true,
@@ -435,7 +435,7 @@
           "next": "n1v"
         },
         {
-          "node_id": "n1v",
+          "state_id": "n1v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
           "safety_critical": false,
@@ -444,13 +444,13 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "น้ำแข็งรอบช่องระบายอากาศไม่เกิดขึ้นอีกแล้ว",
           "outcome_kind": "user_fixed"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้เยี่ยมชม www.samsung.com หรือโทร Samsung Customer Care 1-800-SAMSUNG (726-7864) (คู่มือหน้า 41) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
           "outcome_kind": "handoff_unknown"
@@ -458,7 +458,7 @@
       ]
     },
     {
-      "graph_id": "samsung_rb5300d_um_frost_walls",
+      "flow_id": "samsung_rb5300d_um_frost_walls",
       "device_category": "Refrigerator",
       "brand": "Samsung",
       "model_pattern": "RB5300D",
@@ -478,10 +478,10 @@
       "source_chunk_id": "manual_Samsung_Refrigerator_RB5300D_p42_frost_walls",
       "severity": "low",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "มีอาหารขวางไม่ให้ประตูตู้เย็นปิดสนิทหรือไม่?",
           "safety_critical": false,
@@ -489,7 +489,7 @@
           "on_no": "n2"
         },
         {
-          "node_id": "n1f",
+          "state_id": "n1f",
           "type": "instruction",
           "content": "ย้ายอาหารที่ขวางประตูออก แล้วปิดประตูให้สนิท (คู่มือหน้า 42)",
           "safety_critical": false,
@@ -497,7 +497,7 @@
           "next": "n1v"
         },
         {
-          "node_id": "n1v",
+          "state_id": "n1v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
           "safety_critical": false,
@@ -506,7 +506,7 @@
           "on_no": "n2"
         },
         {
-          "node_id": "n2",
+          "state_id": "n2",
           "type": "checkpoint",
           "question": "ทำความสะอาดซีลประตู (door gasket) แล้วใช่หรือไม่?",
           "safety_critical": false,
@@ -514,7 +514,7 @@
           "on_no": "n2f"
         },
         {
-          "node_id": "n2f",
+          "state_id": "n2f",
           "type": "instruction",
           "content": "ทำความสะอาดซีลประตู (door gasket) ด้วยฟองน้ำสะอาดหรือผ้านุ่มกับผงซักฟอกอ่อนในน้ำอุ่น ห้ามใช้สารขัดถูหรือสารทำความสะอาดรุนแรงกับซีล (คู่มือหน้า 13 และ 42)",
           "safety_critical": true,
@@ -523,7 +523,7 @@
           "next": "n2v"
         },
         {
-          "node_id": "n2v",
+          "state_id": "n2v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
           "safety_critical": false,
@@ -532,13 +532,13 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "ไม่มีน้ำแข็งเกาะที่ผนังด้านในอีกแล้ว",
           "outcome_kind": "user_fixed"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้เยี่ยมชม www.samsung.com หรือโทร Samsung Customer Care 1-800-SAMSUNG (726-7864) (คู่มือหน้า 41) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
           "outcome_kind": "handoff_unknown"
@@ -546,7 +546,7 @@
       ]
     },
     {
-      "graph_id": "samsung_rb5300d_um_fruit_frozen",
+      "flow_id": "samsung_rb5300d_um_fruit_frozen",
       "device_category": "Refrigerator",
       "brand": "Samsung",
       "model_pattern": "RB5300D",
@@ -567,10 +567,10 @@
       "source_chunk_id": "manual_Samsung_Refrigerator_RB5300D_p42_fruit_frozen",
       "severity": "low",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "เก็บผักหรือผลไม้ไว้ในช่อง Fresh/Chef Zone หรือไม่?",
           "safety_critical": false,
@@ -578,7 +578,7 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n1f",
+          "state_id": "n1f",
           "type": "instruction",
           "content": "นำผักและผลไม้ออกจากช่อง Fresh/Chef Zone ช่องนี้ใช้เก็บเฉพาะเนื้อสัตว์หรือปลา (คู่มือหน้า 42)",
           "safety_critical": false,
@@ -586,7 +586,7 @@
           "next": "n1v"
         },
         {
-          "node_id": "n1v",
+          "state_id": "n1v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
           "safety_critical": false,
@@ -595,13 +595,13 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "ผักและผลไม้ไม่แข็งอีกแล้ว",
           "outcome_kind": "user_fixed"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้เยี่ยมชม www.samsung.com หรือโทร Samsung Customer Care 1-800-SAMSUNG (726-7864) (คู่มือหน้า 41) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
           "outcome_kind": "handoff_unknown"
@@ -609,7 +609,7 @@
       ]
     },
     {
-      "graph_id": "samsung_rb5300d_um_condensation",
+      "flow_id": "samsung_rb5300d_um_condensation",
       "device_category": "Refrigerator",
       "brand": "Samsung",
       "model_pattern": "RB5300D",
@@ -629,10 +629,10 @@
       "source_chunk_id": "manual_Samsung_Refrigerator_RB5300D_p42_condensation",
       "severity": "low",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "เปิดประตูตู้เย็นค้างไว้นานหรือไม่?",
           "safety_critical": false,
@@ -640,7 +640,7 @@
           "on_no": "n2"
         },
         {
-          "node_id": "n1f",
+          "state_id": "n1f",
           "type": "instruction",
           "content": "เช็ดความชื้นออก และไม่เปิดประตูทิ้งไว้นาน (คู่มือหน้า 42)",
           "safety_critical": false,
@@ -648,7 +648,7 @@
           "next": "n1v"
         },
         {
-          "node_id": "n1v",
+          "state_id": "n1v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
           "safety_critical": false,
@@ -657,7 +657,7 @@
           "on_no": "n2"
         },
         {
-          "node_id": "n2",
+          "state_id": "n2",
           "type": "checkpoint",
           "question": "ห่ออาหารที่มีความชื้นสูงมิดชิดแล้วใช่หรือไม่?",
           "safety_critical": false,
@@ -665,7 +665,7 @@
           "on_no": "n2f"
         },
         {
-          "node_id": "n2f",
+          "state_id": "n2f",
           "type": "instruction",
           "content": "ห่ออาหารที่มีความชื้นสูงให้มิดชิดหรือใส่ภาชนะที่ปิดสนิท (คู่มือหน้า 12 และ 42)",
           "safety_critical": false,
@@ -673,7 +673,7 @@
           "next": "n2v"
         },
         {
-          "node_id": "n2v",
+          "state_id": "n2v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
           "safety_critical": false,
@@ -682,13 +682,13 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "ไม่มีหยดน้ำเกาะที่ผนังด้านในแล้ว",
           "outcome_kind": "user_fixed"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้เยี่ยมชม www.samsung.com หรือโทร Samsung Customer Care 1-800-SAMSUNG (726-7864) (คู่มือหน้า 41) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
           "outcome_kind": "handoff_unknown"
@@ -696,7 +696,7 @@
       ]
     },
     {
-      "graph_id": "samsung_rb5300d_um_alarm",
+      "flow_id": "samsung_rb5300d_um_alarm",
       "device_category": "Refrigerator",
       "brand": "Samsung",
       "model_pattern": "RB5300D",
@@ -718,10 +718,10 @@
       "source_chunk_id": "manual_Samsung_Refrigerator_RB5300D_p43_alarm",
       "severity": "low",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "ประตูตู้เย็นเปิดค้างอยู่นานเกินสองนาทีหรือไม่?",
           "safety_critical": false,
@@ -729,7 +729,7 @@
           "on_no": "n2"
         },
         {
-          "node_id": "n1f",
+          "state_id": "n1f",
           "type": "instruction",
           "content": "ปิดประตูให้สนิท เสียงเตือนจะดังจนกว่าจะปิดประตู (คู่มือหน้า 43)",
           "safety_critical": false,
@@ -737,7 +737,7 @@
           "next": "n1v"
         },
         {
-          "node_id": "n1v",
+          "state_id": "n1v",
           "type": "checkpoint",
           "question": "หลังปิดประตูแล้ว เสียงเตือนหยุดหรือไม่?",
           "safety_critical": false,
@@ -745,7 +745,7 @@
           "on_no": "n2"
         },
         {
-          "node_id": "n2",
+          "state_id": "n2",
           "type": "instruction",
           "content": "กดปุ่มใดก็ได้เพื่อปิดเสียงเตือน (คู่มือหน้า 43) ถ้าเสียงเตือนมาจากอุณหภูมิในตู้สูงและคงสูงอยู่นาน จอจะกะพริบและเสียงเตือนจะดังจนกว่าตู้จะเย็นลงถึงอุณหภูมิปกติ (คู่มือหน้า 43)",
           "safety_critical": false,
@@ -753,7 +753,7 @@
           "next": "n2v"
         },
         {
-          "node_id": "n2v",
+          "state_id": "n2v",
           "type": "checkpoint",
           "question": "เสียงเตือนหยุดแล้วและไม่ดังซ้ำหลังผ่านไปสิบสองชั่วโมงใช่หรือไม่?",
           "safety_critical": false,
@@ -761,13 +761,13 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "เสียงเตือนหยุดแล้ว",
           "outcome_kind": "user_fixed"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "เสียงเตือนยังดังซ้ำหลังผ่านไปสิบสองชั่วโมง ติดต่อศูนย์บริการ Samsung ในพื้นที่ (คู่มือหน้า 43) หรือโทร Samsung Customer Care 1-800-SAMSUNG (726-7864) (คู่มือหน้า 41) พร้อมแจ้งรุ่นเครื่องและอาการที่เกิดขึ้น",
           "outcome_kind": "handoff_informed"
@@ -775,7 +775,7 @@
       ]
     },
     {
-      "graph_id": "samsung_rb5300d_um_sound_start_stop",
+      "flow_id": "samsung_rb5300d_um_sound_start_stop",
       "device_category": "Refrigerator",
       "brand": "Samsung",
       "model_pattern": "RB5300D",
@@ -796,10 +796,10 @@
       "source_chunk_id": "manual_Samsung_Refrigerator_RB5300D_p44_sound_start_stop",
       "severity": "low",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "เสียงที่ได้ยินเป็นเสียงคลิก จิ๊บ หรือหึ่ง ในช่วงที่ตู้เย็นเริ่มหรือสิ้นสุดการทำงานใช่หรือไม่?",
           "safety_critical": false,
@@ -807,13 +807,13 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n1n",
+          "state_id": "n1n",
           "type": "resolution",
           "content": "เป็นเสียงปกติ: เมื่อตู้เย็นเริ่มหรือสิ้นสุดการทำงานอาจมีเสียงคล้ายเครื่องยนต์รถติด และเสียงจะเบาลงเมื่อการทำงานคงที่ (คู่มือหน้า 44)",
           "outcome_kind": "normal_behavior"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "เสียงที่ได้ยินไม่ตรงกับเสียงปกติที่คู่มือระบุ (คู่มือหน้า 44 และ 45) ให้เยี่ยมชม www.samsung.com หรือโทร Samsung Customer Care 1-800-SAMSUNG (726-7864) (คู่มือหน้า 41) พร้อมแจ้งรุ่นเครื่องและลักษณะเสียง ถ้าตู้เย็นมีกลิ่นไหม้หรือควัน ให้ถอดปลั๊กทันทีแล้วติดต่อศูนย์บริการ Samsung (คู่มือหน้า 11) การเรียกบริการสำหรับเสียงปกติ ผู้ใช้อาจต้องเสียค่าใช้จ่าย (คู่มือหน้า 44)",
           "outcome_kind": "handoff_unknown"
@@ -821,7 +821,7 @@
       ]
     },
     {
-      "graph_id": "samsung_rb5300d_um_sound_fan",
+      "flow_id": "samsung_rb5300d_um_sound_fan",
       "device_category": "Refrigerator",
       "brand": "Samsung",
       "model_pattern": "RB5300D",
@@ -841,10 +841,10 @@
       "source_chunk_id": "manual_Samsung_Refrigerator_RB5300D_p44_sound_fan",
       "severity": "low",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "เสียงที่ได้ยินเป็นเสียงซ่าหรือเสียงพัดลมหมุนขณะตู้เย็นกำลังทำงานใช่หรือไม่?",
           "safety_critical": false,
@@ -852,13 +852,13 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n1n",
+          "state_id": "n1n",
           "type": "resolution",
           "content": "เป็นเสียงปกติ: เสียงนี้เกิดขึ้นได้ขณะพัดลมทำงาน และเมื่อตู้เย็นถึงอุณหภูมิที่ตั้งไว้ จะไม่มีเสียงพัดลม (คู่มือหน้า 44)",
           "outcome_kind": "normal_behavior"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "เสียงที่ได้ยินไม่ตรงกับเสียงปกติที่คู่มือระบุ (คู่มือหน้า 44 และ 45) ให้เยี่ยมชม www.samsung.com หรือโทร Samsung Customer Care 1-800-SAMSUNG (726-7864) (คู่มือหน้า 41) พร้อมแจ้งรุ่นเครื่องและลักษณะเสียง ถ้าตู้เย็นมีกลิ่นไหม้หรือควัน ให้ถอดปลั๊กทันทีแล้วติดต่อศูนย์บริการ Samsung (คู่มือหน้า 11) การเรียกบริการสำหรับเสียงปกติ ผู้ใช้อาจต้องเสียค่าใช้จ่าย (คู่มือหน้า 44)",
           "outcome_kind": "handoff_unknown"
@@ -866,7 +866,7 @@
       ]
     },
     {
-      "graph_id": "samsung_rb5300d_um_sound_defrost",
+      "flow_id": "samsung_rb5300d_um_sound_defrost",
       "device_category": "Refrigerator",
       "brand": "Samsung",
       "model_pattern": "RB5300D",
@@ -887,10 +887,10 @@
       "source_chunk_id": "manual_Samsung_Refrigerator_RB5300D_p44_sound_defrost",
       "severity": "low",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "เสียงที่ได้ยินเป็นเสียงฟู่คล้ายน้ำหยดลงบนของร้อนในช่วงที่ตู้เย็นละลายน้ำแข็ง (defrost) ใช่หรือไม่?",
           "safety_critical": false,
@@ -898,13 +898,13 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n1n",
+          "state_id": "n1n",
           "type": "resolution",
           "content": "เป็นเสียงปกติ: ในรอบละลายน้ำแข็ง (defrost) น้ำอาจหยดลงบนฮีตเตอร์ละลายน้ำแข็งและเกิดเสียงฟู่ (คู่มือหน้า 44)",
           "outcome_kind": "normal_behavior"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "เสียงที่ได้ยินไม่ตรงกับเสียงปกติที่คู่มือระบุ (คู่มือหน้า 44 และ 45) ให้เยี่ยมชม www.samsung.com หรือโทร Samsung Customer Care 1-800-SAMSUNG (726-7864) (คู่มือหน้า 41) พร้อมแจ้งรุ่นเครื่องและลักษณะเสียง ถ้าตู้เย็นมีกลิ่นไหม้หรือควัน ให้ถอดปลั๊กทันทีแล้วติดต่อศูนย์บริการ Samsung (คู่มือหน้า 11) การเรียกบริการสำหรับเสียงปกติ ผู้ใช้อาจต้องเสียค่าใช้จ่าย (คู่มือหน้า 44)",
           "outcome_kind": "handoff_unknown"
@@ -912,7 +912,7 @@
       ]
     },
     {
-      "graph_id": "samsung_rb5300d_um_sound_bubbling",
+      "flow_id": "samsung_rb5300d_um_sound_bubbling",
       "device_category": "Refrigerator",
       "brand": "Samsung",
       "model_pattern": "RB5300D",
@@ -932,10 +932,10 @@
       "source_chunk_id": "manual_Samsung_Refrigerator_RB5300D_p45_sound_bubbling",
       "severity": "low",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "เสียงที่ได้ยินเป็นเสียงคล้ายฟองหรือน้ำเดือดขณะตู้เย็นกำลังทำความเย็นหรือแช่แข็งใช่หรือไม่?",
           "safety_critical": false,
@@ -943,13 +943,13 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n1n",
+          "state_id": "n1n",
           "type": "resolution",
           "content": "เป็นเสียงปกติ: ขณะตู้เย็นทำความเย็นหรือแช่แข็ง ก๊าซทำความเย็นเคลื่อนที่ผ่านท่อปิดและทำให้เกิดเสียงคล้ายฟอง (คู่มือหน้า 45)",
           "outcome_kind": "normal_behavior"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "เสียงที่ได้ยินไม่ตรงกับเสียงปกติที่คู่มือระบุ (คู่มือหน้า 44 และ 45) ให้เยี่ยมชม www.samsung.com หรือโทร Samsung Customer Care 1-800-SAMSUNG (726-7864) (คู่มือหน้า 41) พร้อมแจ้งรุ่นเครื่องและลักษณะเสียง ถ้าตู้เย็นมีกลิ่นไหม้หรือควัน ให้ถอดปลั๊กทันทีแล้วติดต่อศูนย์บริการ Samsung (คู่มือหน้า 11) การเรียกบริการสำหรับเสียงปกติ ผู้ใช้อาจต้องเสียค่าใช้จ่าย (คู่มือหน้า 44)",
           "outcome_kind": "handoff_unknown"
@@ -957,7 +957,7 @@
       ]
     },
     {
-      "graph_id": "samsung_rb5300d_um_sound_cracking",
+      "flow_id": "samsung_rb5300d_um_sound_cracking",
       "device_category": "Refrigerator",
       "brand": "Samsung",
       "model_pattern": "RB5300D",
@@ -978,10 +978,10 @@
       "source_chunk_id": "manual_Samsung_Refrigerator_RB5300D_p45_sound_cracking",
       "severity": "low",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "เสียงที่ได้ยินเป็นเสียงแก๊กหรือเสียงเคาะ ขณะอุณหภูมิในตู้เย็นเปลี่ยน ในรอบละลายน้ำแข็ง หรือขณะชิ้นส่วนอิเล็กทรอนิกส์ทำงานใช่หรือไม่?",
           "safety_critical": false,
@@ -989,13 +989,13 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n1n",
+          "state_id": "n1n",
           "type": "resolution",
           "content": "เป็นเสียงปกติ: เมื่ออุณหภูมิตู้เย็นเพิ่มหรือลด ชิ้นส่วนพลาสติกจะหดและขยายตัวและเกิดเสียงเคาะ เสียงนี้เกิดในรอบละลายน้ำแข็งหรือเมื่อชิ้นส่วนอิเล็กทรอนิกส์ทำงาน (คู่มือหน้า 45)",
           "outcome_kind": "normal_behavior"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "เสียงที่ได้ยินไม่ตรงกับเสียงปกติที่คู่มือระบุ (คู่มือหน้า 44 และ 45) ให้เยี่ยมชม www.samsung.com หรือโทร Samsung Customer Care 1-800-SAMSUNG (726-7864) (คู่มือหน้า 41) พร้อมแจ้งรุ่นเครื่องและลักษณะเสียง ถ้าตู้เย็นมีกลิ่นไหม้หรือควัน ให้ถอดปลั๊กทันทีแล้วติดต่อศูนย์บริการ Samsung (คู่มือหน้า 11) การเรียกบริการสำหรับเสียงปกติ ผู้ใช้อาจต้องเสียค่าใช้จ่าย (คู่มือหน้า 44)",
           "outcome_kind": "handoff_unknown"
@@ -1003,7 +1003,7 @@
       ]
     },
     {
-      "graph_id": "samsung_rb5300d_um_sound_ice_maker",
+      "flow_id": "samsung_rb5300d_um_sound_ice_maker",
       "device_category": "Refrigerator",
       "brand": "Samsung",
       "model_pattern": "RB5300D",
@@ -1022,10 +1022,10 @@
       "source_chunk_id": "manual_Samsung_Refrigerator_RB5300D_p45_sound_ice_maker",
       "severity": "low",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "ตู้เย็นรุ่นนี้มีเครื่องทำน้ำแข็ง และเสียงหึ่งเกิดขึ้นตอนที่วาล์วน้ำเปิดเพื่อเติมน้ำใช่หรือไม่?",
           "safety_critical": false,
@@ -1033,13 +1033,13 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n1n",
+          "state_id": "n1n",
           "type": "resolution",
           "content": "เป็นเสียงปกติ: สำหรับรุ่นที่มีเครื่องทำน้ำแข็ง เมื่อวาล์วน้ำเปิดเพื่อเติมน้ำเข้าเครื่องทำน้ำแข็งอาจมีเสียงหึ่ง (คู่มือหน้า 45)",
           "outcome_kind": "normal_behavior"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "เสียงที่ได้ยินไม่ตรงกับเสียงปกติที่คู่มือระบุ (คู่มือหน้า 44 และ 45) ให้เยี่ยมชม www.samsung.com หรือโทร Samsung Customer Care 1-800-SAMSUNG (726-7864) (คู่มือหน้า 41) พร้อมแจ้งรุ่นเครื่องและลักษณะเสียง ถ้าตู้เย็นมีกลิ่นไหม้หรือควัน ให้ถอดปลั๊กทันทีแล้วติดต่อศูนย์บริการ Samsung (คู่มือหน้า 11) การเรียกบริการสำหรับเสียงปกติ ผู้ใช้อาจต้องเสียค่าใช้จ่าย (คู่มือหน้า 44)",
           "outcome_kind": "handoff_unknown"
@@ -1047,7 +1047,7 @@
       ]
     },
     {
-      "graph_id": "samsung_rb5300d_um_sound_whoosh",
+      "flow_id": "samsung_rb5300d_um_sound_whoosh",
       "device_category": "Refrigerator",
       "brand": "Samsung",
       "model_pattern": "RB5300D",
@@ -1066,10 +1066,10 @@
       "source_chunk_id": "manual_Samsung_Refrigerator_RB5300D_p45_sound_whoosh",
       "severity": "low",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "เสียงลมวูบเกิดขึ้นตอนเปิดหรือปิดประตูตู้เย็นใช่หรือไม่?",
           "safety_critical": false,
@@ -1077,13 +1077,13 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n1n",
+          "state_id": "n1n",
           "type": "resolution",
           "content": "เป็นเสียงปกติ: เกิดจากการปรับสมดุลความดันเมื่อเปิดและปิดประตูตู้เย็น อาจมีเสียงลมวูบ (คู่มือหน้า 45)",
           "outcome_kind": "normal_behavior"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "เสียงที่ได้ยินไม่ตรงกับเสียงปกติที่คู่มือระบุ (คู่มือหน้า 44 และ 45) ให้เยี่ยมชม www.samsung.com หรือโทร Samsung Customer Care 1-800-SAMSUNG (726-7864) (คู่มือหน้า 41) พร้อมแจ้งรุ่นเครื่องและลักษณะเสียง ถ้าตู้เย็นมีกลิ่นไหม้หรือควัน ให้ถอดปลั๊กทันทีแล้วติดต่อศูนย์บริการ Samsung (คู่มือหน้า 11) การเรียกบริการสำหรับเสียงปกติ ผู้ใช้อาจต้องเสียค่าใช้จ่าย (คู่มือหน้า 44)",
           "outcome_kind": "handoff_unknown"
@@ -1091,7 +1091,7 @@
       ]
     },
     {
-      "graph_id": "samsung_rb5300d_um_st_app_not_found",
+      "flow_id": "samsung_rb5300d_um_st_app_not_found",
       "device_category": "Refrigerator",
       "brand": "Samsung",
       "model_pattern": "RB5300D",
@@ -1111,10 +1111,10 @@
       "source_chunk_id": "manual_Samsung_Refrigerator_RB5300D_p46_st_app_not_found",
       "severity": "low",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "โทรศัพท์ของคุณใช้ระบบปฏิบัติการเวอร์ชันเก่าที่ผู้ผลิตระบบปฏิบัติการอาจหยุดอัปเดตแอปให้แล้วใช่หรือไม่?",
           "safety_critical": false,
@@ -1122,13 +1122,13 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n1n",
+          "state_id": "n1n",
           "type": "resolution",
           "content": "เวอร์ชันซอฟต์แวร์ของแอป SmartThings ที่รองรับเปลี่ยนแปลงได้ตามนโยบายสนับสนุนระบบปฏิบัติการของผู้ผลิต และนโยบายอัปเดตแอปสำหรับระบบปฏิบัติการเวอร์ชันเดิมอาจถูกระงับด้วยเหตุผลด้านการใช้งานหรือความปลอดภัย จึงอาจหาแอปไม่พบ ไม่ใช่ความผิดปกติของตู้เย็น (คู่มือหน้า 46)",
           "outcome_kind": "normal_behavior"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ยังแก้ปัญหาการใช้แอป SmartThings ไม่ได้ ติดต่อ st.service@samsung.com (คู่มือหน้า 24) หรือโทร Samsung Customer Care 1-800-SAMSUNG (726-7864) (คู่มือหน้า 41) พร้อมแจ้งรุ่นตู้เย็น รุ่นโทรศัพท์ เวอร์ชันระบบปฏิบัติการ และอาการที่เกิดขึ้น",
           "outcome_kind": "handoff_informed"
@@ -1136,7 +1136,7 @@
       ]
     },
     {
-      "graph_id": "samsung_rb5300d_um_st_fails_to_operate",
+      "flow_id": "samsung_rb5300d_um_st_fails_to_operate",
       "device_category": "Refrigerator",
       "brand": "Samsung",
       "model_pattern": "RB5300D",
@@ -1156,10 +1156,10 @@
       "source_chunk_id": "manual_Samsung_Refrigerator_RB5300D_p46_st_fails_to_operate",
       "severity": "low",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "ตู้เย็นของคุณไม่ใช่รุ่นที่รองรับ SmartThings (ไม่ใช่ applicable model) ใช่หรือไม่?",
           "safety_critical": false,
@@ -1167,13 +1167,13 @@
           "on_no": "n2"
         },
         {
-          "node_id": "n1n",
+          "state_id": "n1n",
           "type": "resolution",
           "content": "แอป SmartThings ใช้ได้เฉพาะรุ่นที่รองรับเท่านั้น (applicable models only) ถ้าตู้เย็นไม่ใช่รุ่นที่รองรับ จะใช้งานแอปไม่ได้ ซึ่งไม่ใช่ความผิดปกติ (คู่มือหน้า 46)",
           "outcome_kind": "normal_behavior"
         },
         {
-          "node_id": "n2",
+          "state_id": "n2",
           "type": "checkpoint",
           "question": "คุณใช้แอป Samsung Smart Refrigerator รุ่นเก่าอยู่ใช่หรือไม่?",
           "safety_critical": false,
@@ -1181,7 +1181,7 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n2f",
+          "state_id": "n2f",
           "type": "instruction",
           "content": "แอป Samsung Smart Refrigerator รุ่นเก่าเชื่อมต่อกับรุ่น Samsung Smart Home ไม่ได้ ให้ติดตั้งและใช้แอป SmartThings จาก Google Play Store, Galaxy Apps หรือ Apple App Store แทน (คู่มือหน้า 24 และ 46)",
           "safety_critical": false,
@@ -1189,7 +1189,7 @@
           "next": "n2v"
         },
         {
-          "node_id": "n2v",
+          "state_id": "n2v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -1197,13 +1197,13 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "เชื่อมต่อและใช้งานแอป SmartThings ได้แล้ว",
           "outcome_kind": "user_fixed"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ยังแก้ปัญหาการใช้แอป SmartThings ไม่ได้ ติดต่อ st.service@samsung.com (คู่มือหน้า 24) หรือโทร Samsung Customer Care 1-800-SAMSUNG (726-7864) (คู่มือหน้า 41) พร้อมแจ้งรุ่นตู้เย็น รุ่นโทรศัพท์ เวอร์ชันระบบปฏิบัติการ และอาการที่เกิดขึ้น",
           "outcome_kind": "handoff_informed"
@@ -1211,7 +1211,7 @@
       ]
     },
     {
-      "graph_id": "samsung_rb5300d_um_st_not_connected",
+      "flow_id": "samsung_rb5300d_um_st_not_connected",
       "device_category": "Refrigerator",
       "brand": "Samsung",
       "model_pattern": "RB5300D",
@@ -1231,10 +1231,10 @@
       "source_chunk_id": "manual_Samsung_Refrigerator_RB5300D_p46_st_not_connected",
       "severity": "low",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "ล็อกอินบัญชี Samsung ในแอป SmartThings แล้วใช่หรือไม่?",
           "safety_critical": false,
@@ -1242,7 +1242,7 @@
           "on_no": "n1f"
         },
         {
-          "node_id": "n1f",
+          "state_id": "n1f",
           "type": "instruction",
           "content": "ล็อกอินบัญชี Samsung ในแอป SmartThings (คู่มือหน้า 46) ถ้ายังไม่มีบัญชี ให้ทำตามคำแนะนำบนหน้าจอของแอปเพื่อสร้างบัญชีฟรี (คู่มือหน้า 25)",
           "safety_critical": false,
@@ -1250,7 +1250,7 @@
           "next": "n1v"
         },
         {
-          "node_id": "n1v",
+          "state_id": "n1v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -1258,7 +1258,7 @@
           "on_no": "n2"
         },
         {
-          "node_id": "n2",
+          "state_id": "n2",
           "type": "checkpoint",
           "question": "เราเตอร์ทำงานปกติใช่หรือไม่?",
           "safety_critical": false,
@@ -1266,7 +1266,7 @@
           "on_no": "n2f"
         },
         {
-          "node_id": "n2f",
+          "state_id": "n2f",
           "type": "instruction",
           "content": "ตรวจให้แน่ใจว่าเราเตอร์ทำงานปกติ (คู่มือหน้า 46)",
           "safety_critical": false,
@@ -1274,7 +1274,7 @@
           "next": "n2v"
         },
         {
-          "node_id": "n2v",
+          "state_id": "n2v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -1282,7 +1282,7 @@
           "on_no": "n3"
         },
         {
-          "node_id": "n3",
+          "state_id": "n3",
           "type": "checkpoint",
           "question": "ไอคอน Wi-Fi บนจอตู้เย็นดับอยู่ (ยังไม่เชื่อมต่อเครือข่าย) ใช่หรือไม่?",
           "safety_critical": false,
@@ -1290,7 +1290,7 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n3f",
+          "state_id": "n3f",
           "type": "instruction",
           "content": "เชื่อมต่อตู้เย็นกับแอป SmartThings: ต้องเปิด Wi-Fi ของตู้เย็นก่อน (กดปุ่ม Fridge ค้างไว้สิบวินาทีเพื่อสลับเปิดหรือปิด Wi-Fi จอจะแสดงสถานะ Wi-Fi ห้าวินาที คู่มือหน้า 23) > เปิดอุปกรณ์ที่ต้องการเชื่อมต่อแล้วเปิดแอป SmartThings บนโทรศัพท์ > ถ้ามีป๊อปอัปว่าพบอุปกรณ์ใหม่ ให้แตะ ADD NOW ถ้าไม่มี ให้แตะปุ่ม + แล้วเลือกอุปกรณ์จากรายการ > ถ้าไม่มีในรายการ ให้แตะ Supported Devices เลือกประเภทอุปกรณ์ (Refrigerator) และรุ่นที่ตรงกัน > ทำตามคำแนะนำในแอปเพื่อตั้งค่า (คู่มือหน้า 25)",
           "safety_critical": false,
@@ -1298,7 +1298,7 @@
           "next": "n3v"
         },
         {
-          "node_id": "n3v",
+          "state_id": "n3v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -1306,13 +1306,13 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "แอป SmartThings เชื่อมต่อกับตู้เย็นได้แล้ว",
           "outcome_kind": "user_fixed"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ยังแก้ปัญหาการใช้แอป SmartThings ไม่ได้ ติดต่อ st.service@samsung.com (คู่มือหน้า 24) หรือโทร Samsung Customer Care 1-800-SAMSUNG (726-7864) (คู่มือหน้า 41) พร้อมแจ้งรุ่นตู้เย็น รุ่นโทรศัพท์ เวอร์ชันระบบปฏิบัติการ และอาการที่เกิดขึ้น",
           "outcome_kind": "handoff_informed"
@@ -1320,7 +1320,7 @@
       ]
     },
     {
-      "graph_id": "samsung_rb5300d_um_st_login",
+      "flow_id": "samsung_rb5300d_um_st_login",
       "device_category": "Refrigerator",
       "brand": "Samsung",
       "model_pattern": "RB5300D",
@@ -1340,10 +1340,10 @@
       "source_chunk_id": "manual_Samsung_Refrigerator_RB5300D_p46_st_login",
       "severity": "low",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "มีบัญชี Samsung และล็อกอินด้วยบัญชีนั้นแล้วใช่หรือไม่?",
           "safety_critical": false,
@@ -1351,7 +1351,7 @@
           "on_no": "n1f"
         },
         {
-          "node_id": "n1f",
+          "state_id": "n1f",
           "type": "instruction",
           "content": "ล็อกอินด้วยบัญชี Samsung ถ้ายังไม่มีบัญชี ให้ทำตามคำแนะนำบนหน้าจอของแอปเพื่อสร้างบัญชี (คู่มือหน้า 46)",
           "safety_critical": false,
@@ -1359,7 +1359,7 @@
           "next": "n1v"
         },
         {
-          "node_id": "n1v",
+          "state_id": "n1v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -1367,13 +1367,13 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "ล็อกอินเข้าแอปได้แล้ว",
           "outcome_kind": "user_fixed"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ยังแก้ปัญหาการใช้แอป SmartThings ไม่ได้ ติดต่อ st.service@samsung.com (คู่มือหน้า 24) หรือโทร Samsung Customer Care 1-800-SAMSUNG (726-7864) (คู่มือหน้า 41) พร้อมแจ้งรุ่นตู้เย็น รุ่นโทรศัพท์ เวอร์ชันระบบปฏิบัติการ และอาการที่เกิดขึ้น",
           "outcome_kind": "handoff_informed"
@@ -1381,7 +1381,7 @@
       ]
     },
     {
-      "graph_id": "samsung_rb5300d_um_st_register_error",
+      "flow_id": "samsung_rb5300d_um_st_register_error",
       "device_category": "Refrigerator",
       "brand": "Samsung",
       "model_pattern": "RB5300D",
@@ -1401,17 +1401,17 @@
       "source_chunk_id": "manual_Samsung_Refrigerator_RB5300D_p46_st_register_error",
       "severity": "low",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "instruction",
           "content": "รอสักครู่แล้วลองลงทะเบียนตู้เย็นอีกครั้ง (คู่มือหน้า 46) การเชื่อมต่อแบบ Easy Connection อาจล้มเหลวเพราะระยะห่างจากเราเตอร์ (AP) หรือสัญญาณรบกวนทางไฟฟ้าจากสภาพแวดล้อมรอบข้าง",
           "safety_critical": false,
           "next": "n1v"
         },
         {
-          "node_id": "n1v",
+          "state_id": "n1v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
           "safety_critical": false,
@@ -1420,13 +1420,13 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "ลงทะเบียนตู้เย็นสำเร็จแล้ว",
           "outcome_kind": "user_fixed"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ยังแก้ปัญหาการใช้แอป SmartThings ไม่ได้ ติดต่อ st.service@samsung.com (คู่มือหน้า 24) หรือโทร Samsung Customer Care 1-800-SAMSUNG (726-7864) (คู่มือหน้า 41) พร้อมแจ้งรุ่นตู้เย็น รุ่นโทรศัพท์ เวอร์ชันระบบปฏิบัติการ และอาการที่เกิดขึ้น",
           "outcome_kind": "handoff_informed"
@@ -1434,7 +1434,7 @@
       ]
     },
     {
-      "graph_id": "samsung_rb5300d_um_st_connected_not_run",
+      "flow_id": "samsung_rb5300d_um_st_connected_not_run",
       "device_category": "Refrigerator",
       "brand": "Samsung",
       "model_pattern": "RB5300D",
@@ -1454,17 +1454,17 @@
       "source_chunk_id": "manual_Samsung_Refrigerator_RB5300D_p46_st_connected_not_run",
       "severity": "low",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "instruction",
           "content": "ปิดแอป SmartThings แล้วเปิดใหม่ หรือตัดการเชื่อมต่อแล้วเชื่อมต่อเราเตอร์ใหม่ (คู่มือหน้า 46)",
           "safety_critical": false,
           "next": "n1v"
         },
         {
-          "node_id": "n1v",
+          "state_id": "n1v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
           "safety_critical": false,
@@ -1473,7 +1473,7 @@
           "on_no": "n2"
         },
         {
-          "node_id": "n2",
+          "state_id": "n2",
           "type": "instruction",
           "content": "ปิดตู้เย็นแล้วเปิดใหม่หลังผ่านไป 1 นาที (คู่มือหน้า 46) ถ้าปิดโดยถอดปลั๊ก ให้รออย่างน้อยห้านาทีก่อนเสียบปลั๊กกลับ (คู่มือหน้า 12)",
           "safety_critical": true,
@@ -1482,7 +1482,7 @@
           "next": "n2v"
         },
         {
-          "node_id": "n2v",
+          "state_id": "n2v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
           "safety_critical": false,
@@ -1491,13 +1491,13 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "แอป SmartThings ใช้งานกับตู้เย็นได้ตามปกติแล้ว",
           "outcome_kind": "user_fixed"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ยังแก้ปัญหาการใช้แอป SmartThings ไม่ได้ ติดต่อ st.service@samsung.com (คู่มือหน้า 24) หรือโทร Samsung Customer Care 1-800-SAMSUNG (726-7864) (คู่มือหน้า 41) พร้อมแจ้งรุ่นตู้เย็น รุ่นโทรศัพท์ เวอร์ชันระบบปฏิบัติการ และอาการที่เกิดขึ้น",
           "outcome_kind": "handoff_informed"
@@ -1505,7 +1505,7 @@
       ]
     },
     {
-      "graph_id": "samsung_rb5300d_um_st_wifi_blinking",
+      "flow_id": "samsung_rb5300d_um_st_wifi_blinking",
       "device_category": "Refrigerator",
       "brand": "Samsung",
       "model_pattern": "RB5300D",
@@ -1524,10 +1524,10 @@
       "source_chunk_id": "manual_Samsung_Refrigerator_RB5300D_p46_st_wifi_blinking",
       "severity": "low",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "เชื่อมต่อตู้เย็นกับแอป SmartThings สำเร็จแล้วใช่หรือไม่?",
           "safety_critical": false,
@@ -1535,7 +1535,7 @@
           "on_no": "n1f"
         },
         {
-          "node_id": "n1f",
+          "state_id": "n1f",
           "type": "instruction",
           "content": "เชื่อมต่อตู้เย็นกับแอป SmartThings: ต้องเปิด Wi-Fi ของตู้เย็นก่อน (กดปุ่ม Fridge ค้างไว้สิบวินาทีเพื่อสลับเปิดหรือปิด Wi-Fi จอจะแสดงสถานะ Wi-Fi ห้าวินาที คู่มือหน้า 23) > เปิดอุปกรณ์ที่ต้องการเชื่อมต่อแล้วเปิดแอป SmartThings บนโทรศัพท์ > ถ้ามีป๊อปอัปว่าพบอุปกรณ์ใหม่ ให้แตะ ADD NOW ถ้าไม่มี ให้แตะปุ่ม + แล้วเลือกอุปกรณ์จากรายการ > ถ้าไม่มีในรายการ ให้แตะ Supported Devices เลือกประเภทอุปกรณ์ (Refrigerator) และรุ่นที่ตรงกัน > ทำตามคำแนะนำในแอปเพื่อตั้งค่า (คู่มือหน้า 25)",
           "safety_critical": false,
@@ -1543,7 +1543,7 @@
           "next": "n1v"
         },
         {
-          "node_id": "n1v",
+          "state_id": "n1v",
           "type": "checkpoint",
           "question": "หลังเชื่อมต่อแล้ว ไอคอน Wi-Fi หยุดกะพริบหรือไม่?",
           "safety_critical": false,
@@ -1551,7 +1551,7 @@
           "on_no": "n2"
         },
         {
-          "node_id": "n2",
+          "state_id": "n2",
           "type": "checkpoint",
           "question": "เชื่อมต่อไม่สำเร็จ หรือไม่ต้องการใช้แอปใช่หรือไม่?",
           "safety_critical": false,
@@ -1559,7 +1559,7 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n2f",
+          "state_id": "n2f",
           "type": "instruction",
           "content": "กดปุ่ม Fridge ค้างไว้สิบวินาที ไฟแสดงจะหยุดกะพริบและจอแสดงอุณหภูมิแสดง “O FF” (คู่มือหน้า 46)",
           "safety_critical": false,
@@ -1567,7 +1567,7 @@
           "next": "n2v"
         },
         {
-          "node_id": "n2v",
+          "state_id": "n2v",
           "type": "checkpoint",
           "question": "ไอคอน Wi-Fi หยุดกะพริบและจอแสดงอุณหภูมิแสดง “O FF” หรือไม่?",
           "safety_critical": false,
@@ -1575,13 +1575,13 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "ไอคอน Wi-Fi หยุดกะพริบแล้ว",
           "outcome_kind": "user_fixed"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ยังแก้ปัญหาการใช้แอป SmartThings ไม่ได้ ติดต่อ st.service@samsung.com (คู่มือหน้า 24) หรือโทร Samsung Customer Care 1-800-SAMSUNG (726-7864) (คู่มือหน้า 41) พร้อมแจ้งรุ่นตู้เย็น รุ่นโทรศัพท์ เวอร์ชันระบบปฏิบัติการ และอาการที่เกิดขึ้น",
           "outcome_kind": "handoff_informed"
@@ -1589,7 +1589,7 @@
       ]
     },
     {
-      "graph_id": "samsung_rb5300d_um_sg_requirements",
+      "flow_id": "samsung_rb5300d_um_sg_requirements",
       "device_category": "Refrigerator",
       "brand": "Samsung",
       "model_pattern": "RB5300D",
@@ -1609,10 +1609,10 @@
       "source_chunk_id": "manual_Samsung_Refrigerator_RB5300D_p47_sg_requirements",
       "severity": "low",
       "difficulty": "medium",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "มีเราเตอร์ไร้สาย (access point) ตู้เย็น Samsung รุ่นที่รองรับ Energy Management และสมาร์ตโฟนครบแล้วใช่หรือไม่?",
           "safety_critical": false,
@@ -1620,7 +1620,7 @@
           "on_no": "n1f"
         },
         {
-          "node_id": "n1f",
+          "state_id": "n1f",
           "type": "instruction",
           "content": "จัดหาอุปกรณ์ให้ครบ: เราเตอร์ไร้สาย (access point) ตู้เย็น Samsung ที่รองรับ Energy Management และสมาร์ตโฟน (คู่มือหน้า 47)",
           "safety_critical": false,
@@ -1628,7 +1628,7 @@
           "next": "n1v"
         },
         {
-          "node_id": "n1v",
+          "state_id": "n1v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว ใช้ฟังก์ชัน Energy Management หรือ Smart Grid ได้ตามต้องการหรือไม่?",
           "safety_critical": false,
@@ -1636,7 +1636,7 @@
           "on_no": "n2"
         },
         {
-          "node_id": "n2",
+          "state_id": "n2",
           "type": "checkpoint",
           "question": "เชื่อมต่อตู้เย็นกับเครือข่าย Wi-Fi ที่บ้านและลงทะเบียนบริการ EMS กับบริษัทไฟฟ้าแล้วใช่หรือไม่?",
           "safety_critical": false,
@@ -1644,7 +1644,7 @@
           "on_no": "n2f"
         },
         {
-          "node_id": "n2f",
+          "state_id": "n2f",
           "type": "instruction",
           "content": "เชื่อมต่อตู้เย็นกับเครือข่าย Wi-Fi ที่บ้าน และลงทะเบียนบริการ EMS กับบริษัทไฟฟ้า บริษัทไฟฟ้าต้องมีระบบ EMS (Energy Management System) ที่รองรับ SEP (Smart Energy profile) (คู่มือหน้า 47) คู่มือหน้า 27 ระบุว่าต้องมีสัญญาแยกต่างหากกับบริษัทไฟฟ้า",
           "safety_critical": false,
@@ -1652,7 +1652,7 @@
           "next": "n2v"
         },
         {
-          "node_id": "n2v",
+          "state_id": "n2v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว ใช้ฟังก์ชัน Energy Management หรือ Smart Grid ได้ตามต้องการหรือไม่?",
           "safety_critical": false,
@@ -1660,7 +1660,7 @@
           "on_no": "n3"
         },
         {
-          "node_id": "n3",
+          "state_id": "n3",
           "type": "checkpoint",
           "question": "ติดตั้งและเปิดแอป SmartThings บนสมาร์ตโฟนแล้วใช่หรือไม่?",
           "safety_critical": false,
@@ -1668,14 +1668,14 @@
           "on_no": "n3f"
         },
         {
-          "node_id": "n3f",
+          "state_id": "n3f",
           "type": "instruction",
           "content": "ดาวน์โหลดแอป SmartThings จาก Google Play Store, Apple App Store หรือ Samsung Galaxy Apps แล้วติดตั้งและเปิดแอปบนสมาร์ตโฟน (คู่มือหน้า 47)",
           "safety_critical": false,
           "next": "n3v"
         },
         {
-          "node_id": "n3v",
+          "state_id": "n3v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว ใช้ฟังก์ชัน Energy Management หรือ Smart Grid ได้ตามต้องการหรือไม่?",
           "safety_critical": false,
@@ -1683,13 +1683,13 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "ใช้ฟังก์ชัน Energy Management และ Smart Grid ได้แล้ว",
           "outcome_kind": "user_fixed"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ยังใช้ฟังก์ชัน Energy Management หรือ Smart Grid ไม่ได้ ให้เยี่ยมชม www.samsung.com หรือโทร Samsung Customer Care 1-800-SAMSUNG (726-7864) (คู่มือหน้า 41) พร้อมแจ้งรุ่นตู้เย็น อาการ และสิ่งที่ได้ตรวจไปแล้ว คู่มือหน้า 27 ระบุว่าฟังก์ชัน Smart Grid ต้องมีสัญญาในการใช้บริการแยกต่างหากกับบริษัทไฟฟ้า",
           "outcome_kind": "handoff_informed"
@@ -1697,7 +1697,7 @@
       ]
     },
     {
-      "graph_id": "samsung_rb5300d_um_sg_em_not_working",
+      "flow_id": "samsung_rb5300d_um_sg_em_not_working",
       "device_category": "Refrigerator",
       "brand": "Samsung",
       "model_pattern": "RB5300D",
@@ -1716,10 +1716,10 @@
       "source_chunk_id": "manual_Samsung_Refrigerator_RB5300D_p47_sg_em_not_working",
       "severity": "low",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "เราเตอร์ที่บ้านทำงานปกติ มีบริการอินเทอร์เน็ตและการเชื่อมต่อที่เหมาะสม และสมาร์ตโฟนที่เชื่อมกับเราเตอร์เปิดเว็บได้ใช่หรือไม่?",
           "safety_critical": false,
@@ -1727,7 +1727,7 @@
           "on_no": "n1f"
         },
         {
-          "node_id": "n1f",
+          "state_id": "n1f",
           "type": "instruction",
           "content": "ตรวจให้แน่ใจว่าเราเตอร์ที่บ้านทำงานปกติและมีบริการอินเทอร์เน็ตกับการเชื่อมต่อที่เหมาะสม: เชื่อมต่อสมาร์ตโฟนกับเราเตอร์ (AP, access point) แล้วตรวจว่าเปิดเว็บบนสมาร์ตโฟนได้ (คู่มือหน้า 47)",
           "safety_critical": false,
@@ -1735,7 +1735,7 @@
           "next": "n1v"
         },
         {
-          "node_id": "n1v",
+          "state_id": "n1v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว ใช้ฟังก์ชัน Energy Management หรือ Smart Grid ได้ตามต้องการหรือไม่?",
           "safety_critical": false,
@@ -1743,7 +1743,7 @@
           "on_no": "n2"
         },
         {
-          "node_id": "n2",
+          "state_id": "n2",
           "type": "checkpoint",
           "question": "ตู้เย็นเชื่อมต่อกับเราเตอร์ (AP) แล้วใช่หรือไม่?",
           "safety_critical": false,
@@ -1751,7 +1751,7 @@
           "on_no": "n2f"
         },
         {
-          "node_id": "n2f",
+          "state_id": "n2f",
           "type": "instruction",
           "content": "เชื่อมต่อตู้เย็นกับแอป SmartThings: ต้องเปิด Wi-Fi ของตู้เย็นก่อน (กดปุ่ม Fridge ค้างไว้สิบวินาทีเพื่อสลับเปิดหรือปิด Wi-Fi จอจะแสดงสถานะ Wi-Fi ห้าวินาที คู่มือหน้า 23) > เปิดอุปกรณ์ที่ต้องการเชื่อมต่อแล้วเปิดแอป SmartThings บนโทรศัพท์ > ถ้ามีป๊อปอัปว่าพบอุปกรณ์ใหม่ ให้แตะ ADD NOW ถ้าไม่มี ให้แตะปุ่ม + แล้วเลือกอุปกรณ์จากรายการ > ถ้าไม่มีในรายการ ให้แตะ Supported Devices เลือกประเภทอุปกรณ์ (Refrigerator) และรุ่นที่ตรงกัน > ทำตามคำแนะนำในแอปเพื่อตั้งค่า (คู่มือหน้า 25)",
           "safety_critical": false,
@@ -1759,7 +1759,7 @@
           "next": "n2v"
         },
         {
-          "node_id": "n2v",
+          "state_id": "n2v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว ใช้ฟังก์ชัน Energy Management หรือ Smart Grid ได้ตามต้องการหรือไม่?",
           "safety_critical": false,
@@ -1767,13 +1767,13 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "ฟังก์ชัน Energy Management ทำงานปกติแล้ว",
           "outcome_kind": "user_fixed"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ยังใช้ฟังก์ชัน Energy Management หรือ Smart Grid ไม่ได้ ให้เยี่ยมชม www.samsung.com หรือโทร Samsung Customer Care 1-800-SAMSUNG (726-7864) (คู่มือหน้า 41) พร้อมแจ้งรุ่นตู้เย็น อาการ และสิ่งที่ได้ตรวจไปแล้ว คู่มือหน้า 27 ระบุว่าฟังก์ชัน Smart Grid ต้องมีสัญญาในการใช้บริการแยกต่างหากกับบริษัทไฟฟ้า",
           "outcome_kind": "handoff_informed"
@@ -1781,7 +1781,7 @@
       ]
     },
     {
-      "graph_id": "samsung_rb5300d_um_sg_delay_defrost",
+      "flow_id": "samsung_rb5300d_um_sg_delay_defrost",
       "device_category": "Refrigerator",
       "brand": "Samsung",
       "model_pattern": "RB5300D",
@@ -1800,10 +1800,10 @@
       "source_chunk_id": "manual_Samsung_Refrigerator_RB5300D_p47_sg_delay_defrost",
       "severity": "low",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "เราเตอร์ที่บ้านทำงานปกติและมีบริการอินเทอร์เน็ตกับการเชื่อมต่อที่เหมาะสมใช่หรือไม่?",
           "safety_critical": false,
@@ -1811,7 +1811,7 @@
           "on_no": "n1f"
         },
         {
-          "node_id": "n1f",
+          "state_id": "n1f",
           "type": "instruction",
           "content": "ตรวจให้แน่ใจว่าเราเตอร์ที่บ้านทำงานปกติและมีบริการอินเทอร์เน็ตกับการเชื่อมต่อที่เหมาะสม: เชื่อมต่อสมาร์ตโฟนกับเราเตอร์ (AP, access point) แล้วตรวจว่าเปิดเว็บบนสมาร์ตโฟนได้ (คู่มือหน้า 47)",
           "safety_critical": false,
@@ -1819,7 +1819,7 @@
           "next": "n1v"
         },
         {
-          "node_id": "n1v",
+          "state_id": "n1v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว ใช้ฟังก์ชัน Energy Management หรือ Smart Grid ได้ตามต้องการหรือไม่?",
           "safety_critical": false,
@@ -1827,13 +1827,13 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "ฟังก์ชัน Delay Defrost ทำงานปกติแล้ว",
           "outcome_kind": "user_fixed"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ยังใช้ฟังก์ชัน Energy Management หรือ Smart Grid ไม่ได้ ให้เยี่ยมชม www.samsung.com หรือโทร Samsung Customer Care 1-800-SAMSUNG (726-7864) (คู่มือหน้า 41) พร้อมแจ้งรุ่นตู้เย็น อาการ และสิ่งที่ได้ตรวจไปแล้ว คู่มือหน้า 27 ระบุว่าฟังก์ชัน Smart Grid ต้องมีสัญญาในการใช้บริการแยกต่างหากกับบริษัทไฟฟ้า",
           "outcome_kind": "handoff_informed"

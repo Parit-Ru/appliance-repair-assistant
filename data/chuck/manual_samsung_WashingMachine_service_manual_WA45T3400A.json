@@ -1,0 +1,495 @@
+[
+  {
+    "chunk_id": "manual_Samsung_WashingMachine_WA45T3400A_p19_1c_water_level_sensor",
+    "device_category": "Washing Machine",
+    "brand": "Samsung",
+    "model": "WA45T3400A*",
+    "source": "Samsung Top-Loading Washer Service Manual (WA45T3400A*, model code WA45T3400AV/A4, WA45T3400AP/A4, WA45T3400AW/A4)",
+    "page": 19,
+    "content": "1C The WaterLevel sensor is not working properly. 1. Check WaterLevel Sensor wire harness. 2. If the information code remains, contact a customer service centre. 3. When the washer displays “1C”, the washer do draining for 3 minutes. During this time, the Power button is inoperative.",
+    "metadata": {
+      "symptom": "1C The WaterLevel sensor is not working properly.",
+      "possible_cause": null,
+      "solution": "1. Check WaterLevel Sensor wire harness.\n2. If the information code remains, contact a customer service centre.\n3. When the washer displays “1C”, the washer do draining for 3 minutes. During this time, the Power button is inoperative.",
+      "severity": "medium",
+      "difficulty": "hard",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_WashingMachine_WA45T3400A_p19_3c_motor",
+    "device_category": "Washing Machine",
+    "brand": "Samsung",
+    "model": "WA45T3400A*",
+    "source": "Samsung Top-Loading Washer Service Manual (WA45T3400A*, model code WA45T3400AV/A4, WA45T3400AP/A4, WA45T3400AW/A4)",
+    "page": 19,
+    "content": "3C Check the motor for operation. 1. Try restarting the cycle. 2. If the problem continues, call for service.",
+    "metadata": {
+      "symptom": "3C Check the motor for operation.",
+      "possible_cause": null,
+      "solution": "1. Try restarting the cycle.\n2. If the problem continues, call for service.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_WashingMachine_WA45T3400A_p19_4c_no_water_supply",
+    "device_category": "Washing Machine",
+    "brand": "Samsung",
+    "model": "WA45T3400A*",
+    "source": "Samsung Top-Loading Washer Service Manual (WA45T3400A*, model code WA45T3400AV/A4, WA45T3400AP/A4, WA45T3400AW/A4)",
+    "page": 19,
+    "content": "4C Water is not supplied. 1. Make sure the water taps are open. 2. Make sure the water hoses are not clogged. 3. Make sure the water taps are not frozen. 4. Make sure the washing machine is operating with sufficient water pressure. 5. Make sure that the cold water tap and the hot water tap are properly connected. 6. Clean the mesh filter as it may be clogged. 7. When the washer displays “4C”, the washer do draining for 3 minutes. During this time, the Power button is inoperative.",
+    "metadata": {
+      "symptom": "4C Water is not supplied.",
+      "possible_cause": null,
+      "solution": "1. Make sure the water taps are open.\n2. Make sure the water hoses are not clogged.\n3. Make sure the water taps are not frozen.\n4. Make sure the washing machine is operating with sufficient water pressure.\n5. Make sure that the cold water tap and the hot water tap are properly connected.\n6. Clean the mesh filter as it may be clogged.\n7. When the washer displays “4C”, the washer do draining for 3 minutes. During this time, the Power button is inoperative.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": "ถอดปลั๊กไฟของเครื่องก่อนทำงานกับชิ้นส่วนไฟฟ้า เพื่อป้องกันไฟฟ้าดูด (คู่มือหน้า 1) และห้ามฉีดน้ำใส่ตัวเครื่องโดยตรงเมื่อทำความสะอาด เพราะอาจเกิดไฟฟ้าดูดหรือไฟไหม้ (คู่มือหน้า 3)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_WashingMachine_WA45T3400A_p19_4c2_cold_hose",
+    "device_category": "Washing Machine",
+    "brand": "Samsung",
+    "model": "WA45T3400A*",
+    "source": "Samsung Top-Loading Washer Service Manual (WA45T3400A*, model code WA45T3400AV/A4, WA45T3400AP/A4, WA45T3400AW/A4)",
+    "page": 19,
+    "content": "4C2 Make sure the cold water supply hose is firmly connected to the cold water tap. 1. Make sure the cold water supply hose is firmly connected to the cold water tap. 2. If it is connected to the hot water tap, the laundry may be deformed with some cycles.",
+    "metadata": {
+      "symptom": "4C2 Make sure the cold water supply hose is firmly connected to the cold water tap.",
+      "possible_cause": null,
+      "solution": "1. Make sure the cold water supply hose is firmly connected to the cold water tap.\n2. If it is connected to the hot water tap, the laundry may be deformed with some cycles.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_WashingMachine_WA45T3400A_p19_5c_no_drain",
+    "device_category": "Washing Machine",
+    "brand": "Samsung",
+    "model": "WA45T3400A*",
+    "source": "Samsung Top-Loading Washer Service Manual (WA45T3400A*, model code WA45T3400AV/A4, WA45T3400AP/A4, WA45T3400AW/A4)",
+    "page": 19,
+    "content": "5C Water is not draining. 1. Make sure the drain hose is not frozen or clogged. 2. Make sure the drain hose is positioned correctly, depending on the connection type. 3. Clean the debris filter as it may be clogged. 4. Make sure the drain hose is straightened all the way to the drain system. 5. If the information code remains, contact a customer service centre.",
+    "metadata": {
+      "symptom": "5C Water is not draining.",
+      "possible_cause": null,
+      "solution": "1. Make sure the drain hose is not frozen or clogged.\n2. Make sure the drain hose is positioned correctly, depending on the connection type.\n3. Clean the debris filter as it may be clogged.\n4. Make sure the drain hose is straightened all the way to the drain system.\n5. If the information code remains, contact a customer service centre.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": "ถอดปลั๊กไฟของเครื่องก่อนทำงานกับชิ้นส่วนไฟฟ้า เพื่อป้องกันไฟฟ้าดูด (คู่มือหน้า 1) และห้ามฉีดน้ำใส่ตัวเครื่องโดยตรงเมื่อทำความสะอาด เพราะอาจเกิดไฟฟ้าดูดหรือไฟไหม้ (คู่มือหน้า 3)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_WashingMachine_WA45T3400A_p19_9c1_over_voltage",
+    "device_category": "Washing Machine",
+    "brand": "Samsung",
+    "model": "WA45T3400A*",
+    "source": "Samsung Top-Loading Washer Service Manual (WA45T3400A*, model code WA45T3400AV/A4, WA45T3400AP/A4, WA45T3400AW/A4)",
+    "page": 19,
+    "content": "9C1 The electronic control needs to be checked (Over Voltage Error). 1. Check the PCB and wire harness. 2. Check if power is supplied properly. 3. If the information code remains, contact a customer service centre.",
+    "metadata": {
+      "symptom": "9C1 The electronic control needs to be checked (Over Voltage Error).",
+      "possible_cause": null,
+      "solution": "1. Check the PCB and wire harness.\n2. Check if power is supplied properly.\n3. If the information code remains, contact a customer service centre.",
+      "severity": "medium",
+      "difficulty": "hard",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_WashingMachine_WA45T3400A_p19_9c2_low_voltage",
+    "device_category": "Washing Machine",
+    "brand": "Samsung",
+    "model": "WA45T3400A*",
+    "source": "Samsung Top-Loading Washer Service Manual (WA45T3400A*, model code WA45T3400AV/A4, WA45T3400AP/A4, WA45T3400AW/A4)",
+    "page": 19,
+    "content": "9C2 Low voltage detected 1. Check if the power cord is plugged in. 2. If the information code remains, contact a customer service centre.",
+    "metadata": {
+      "symptom": "9C2 Low voltage detected",
+      "possible_cause": null,
+      "solution": "1. Check if the power cord is plugged in.\n2. If the information code remains, contact a customer service centre.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": "เวลาถอดปลั๊กให้จับที่ตัวปลั๊กแล้วดึงออกจากเต้ารับ ไม่ดึงที่สายไฟ และห้ามต่อเครื่องใช้ไฟฟ้าหลายเครื่องกับเต้ารับเดียวกันพร้อมกัน เพราะเสี่ยงไฟไหม้จากความร้อนสูง (คู่มือหน้า 1) ให้ตรวจปลั๊กและเต้ารับว่าไม่เสียหาย แบน ขาด หรือเสื่อมสภาพ ถ้าเต้ารับในบ้านชำรุดให้เรียกช่างไฟมาเปลี่ยน (คู่มือหน้า 2)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_WashingMachine_WA45T3400A_p19_ac6_inverter_comm",
+    "device_category": "Washing Machine",
+    "brand": "Samsung",
+    "model": "WA45T3400A*",
+    "source": "Samsung Top-Loading Washer Service Manual (WA45T3400A*, model code WA45T3400AV/A4, WA45T3400AP/A4, WA45T3400AW/A4)",
+    "page": 19,
+    "content": "AC6 Inverter Communication problem 1. Check the Inverter PCB and wire harness. 2. If the information code remains, contact a customer service centre.",
+    "metadata": {
+      "symptom": "AC6 Inverter Communication problem",
+      "possible_cause": null,
+      "solution": "1. Check the Inverter PCB and wire harness.\n2. If the information code remains, contact a customer service centre.",
+      "severity": "medium",
+      "difficulty": "hard",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_WashingMachine_WA45T3400A_p19_dc_door_open",
+    "device_category": "Washing Machine",
+    "brand": "Samsung",
+    "model": "WA45T3400A*",
+    "source": "Samsung Top-Loading Washer Service Manual (WA45T3400A*, model code WA45T3400AV/A4, WA45T3400AP/A4, WA45T3400AW/A4)",
+    "page": 19,
+    "content": "dC Operating the washer with the door open. 1. Make sure the door is properly closed. 2. Make sure laundry is not caught in the door.",
+    "metadata": {
+      "symptom": "dC Operating the washer with the door open.",
+      "possible_cause": null,
+      "solution": "1. Make sure the door is properly closed.\n2. Make sure laundry is not caught in the door.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_WashingMachine_WA45T3400A_p19_hc_high_temp",
+    "device_category": "Washing Machine",
+    "brand": "Samsung",
+    "model": "WA45T3400A*",
+    "source": "Samsung Top-Loading Washer Service Manual (WA45T3400A*, model code WA45T3400AV/A4, WA45T3400AP/A4, WA45T3400AW/A4)",
+    "page": 19,
+    "content": "HC High temperature heating check. If the information code remains, contact a customer service centre.",
+    "metadata": {
+      "symptom": "HC High temperature heating check.",
+      "possible_cause": null,
+      "solution": "If the information code remains, contact a customer service centre.",
+      "severity": "medium",
+      "difficulty": "hard",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_WashingMachine_WA45T3400A_p19_lc_drain_hose",
+    "device_category": "Washing Machine",
+    "brand": "Samsung",
+    "model": "WA45T3400A*",
+    "source": "Samsung Top-Loading Washer Service Manual (WA45T3400A*, model code WA45T3400AV/A4, WA45T3400AP/A4, WA45T3400AW/A4)",
+    "page": 19,
+    "content": "LC Check the drain hose. 1. Make sure the end of the drain hose is placed on the floor. 2. Make sure the drain hose is not clogged. 3. If the information code remains, contact a customer service centre. 4. When the washer displays “LC”, the washer do draining for 3 minutes. During this time, the Power button is inoperative.",
+    "metadata": {
+      "symptom": "LC Check the drain hose.",
+      "possible_cause": null,
+      "solution": "1. Make sure the end of the drain hose is placed on the floor.\n2. Make sure the drain hose is not clogged.\n3. If the information code remains, contact a customer service centre.\n4. When the washer displays “LC”, the washer do draining for 3 minutes. During this time, the Power button is inoperative.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_WashingMachine_WA45T3400A_p20_oc_overflow",
+    "device_category": "Washing Machine",
+    "brand": "Samsung",
+    "model": "WA45T3400A*",
+    "source": "Samsung Top-Loading Washer Service Manual (WA45T3400A*, model code WA45T3400AV/A4, WA45T3400AP/A4, WA45T3400AW/A4)",
+    "page": 20,
+    "content": "OC Water is overflowed. 1. Restart after spinning. 2. If the information code remains on the display, contact a local Samsung service center.",
+    "metadata": {
+      "symptom": "OC Water is overflowed.",
+      "possible_cause": null,
+      "solution": "1. Restart after spinning.\n2. If the information code remains on the display, contact a local Samsung service center.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_WashingMachine_WA45T3400A_p20_pc_clutch_position",
+    "device_category": "Washing Machine",
+    "brand": "Samsung",
+    "model": "WA45T3400A*",
+    "source": "Samsung Top-Loading Washer Service Manual (WA45T3400A*, model code WA45T3400AV/A4, WA45T3400AP/A4, WA45T3400AW/A4)",
+    "page": 20,
+    "content": "PC When position of the clutch can't be detected. If the information code remains, contact a customer service center.",
+    "metadata": {
+      "symptom": "PC When position of the clutch can't be detected.",
+      "possible_cause": null,
+      "solution": "If the information code remains, contact a customer service center.",
+      "severity": "medium",
+      "difficulty": "hard",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_WashingMachine_WA45T3400A_p20_pc1_clutch_hall",
+    "device_category": "Washing Machine",
+    "brand": "Samsung",
+    "model": "WA45T3400A*",
+    "source": "Samsung Top-Loading Washer Service Manual (WA45T3400A*, model code WA45T3400AV/A4, WA45T3400AP/A4, WA45T3400AW/A4)",
+    "page": 20,
+    "content": "PC1 After position of the clutch is detected, if the signal of the clutch hall goes wrong. If the information code remains, contact a customer service center.",
+    "metadata": {
+      "symptom": "PC1 After position of the clutch is detected, if the signal of the clutch hall goes wrong.",
+      "possible_cause": null,
+      "solution": "If the information code remains, contact a customer service center.",
+      "severity": "medium",
+      "difficulty": "hard",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_WashingMachine_WA45T3400A_p20_ub_spin_unbalanced",
+    "device_category": "Washing Machine",
+    "brand": "Samsung",
+    "model": "WA45T3400A*",
+    "source": "Samsung Top-Loading Washer Service Manual (WA45T3400A*, model code WA45T3400AV/A4, WA45T3400AP/A4, WA45T3400AW/A4)",
+    "page": 20,
+    "content": "Ub Spinning does not work. 1. Make sure laundry is spread out evenly. 2. Make sure the washing machine is on a flat, stable surface. 3. Redistribute the load.",
+    "metadata": {
+      "symptom": "Ub Spinning does not work.",
+      "possible_cause": null,
+      "solution": "1. Make sure laundry is spread out evenly.\n2. Make sure the washing machine is on a flat, stable surface.\n3. Redistribute the load.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_WashingMachine_WA45T3400A_p20_ur_additional_rinse",
+    "device_category": "Washing Machine",
+    "brand": "Samsung",
+    "model": "WA45T3400A*",
+    "source": "Samsung Top-Loading Washer Service Manual (WA45T3400A*, model code WA45T3400AV/A4, WA45T3400AP/A4, WA45T3400AW/A4)",
+    "page": 20,
+    "content": "Ur Display for additional rinsing. 1. Show additional rinsing in sensing unbalance. 2. Method of releasing the display. 3. Any key input.",
+    "metadata": {
+      "symptom": "Ur Display for additional rinsing.",
+      "possible_cause": null,
+      "solution": "1. Show additional rinsing in sensing unbalance.\n2. Method of releasing the display.\n3. Any key input.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_WashingMachine_WA45T3400A_p25_ue_unbalance",
+    "device_category": "Washing Machine",
+    "brand": "Samsung",
+    "model": "WA45T3400A*",
+    "source": "Samsung Top-Loading Washer Service Manual (WA45T3400A*, model code WA45T3400AV/A4, WA45T3400AP/A4, WA45T3400AW/A4)",
+    "page": 25,
+    "content": "UE Check the type of laundry. Check whether it may cause an unbalanced situation. 1. Check the type of laundry. Check whether it may cause an unbalanced situation. 2. Educate the consumer in this case is to press pause reposition the load or remove a few items. Press start to continue and complete the wash cycle.",
+    "metadata": {
+      "symptom": "UE Check the type of laundry. Check whether it may cause an unbalanced situation.",
+      "possible_cause": null,
+      "solution": "1. Check the type of laundry. Check whether it may cause an unbalanced situation.\n2. Educate the consumer in this case is to press pause reposition the load or remove a few items. Press start to continue and complete the wash cycle.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_WashingMachine_WA45T3400A_p25_bc2_switch_error",
+    "device_category": "Washing Machine",
+    "brand": "Samsung",
+    "model": "WA45T3400A*",
+    "source": "Samsung Top-Loading Washer Service Manual (WA45T3400A*, model code WA45T3400AV/A4, WA45T3400AP/A4, WA45T3400AW/A4)",
+    "page": 25,
+    "content": "BC2 Check whether either the Power switch or a tact switch is continually pressed. Check whether either the Power switch or a tact switch is continually pressed.",
+    "metadata": {
+      "symptom": "BC2 Check whether either the Power switch or a tact switch is continually pressed.",
+      "possible_cause": null,
+      "solution": "Check whether either the Power switch or a tact switch is continually pressed.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_WashingMachine_WA45T3400A_p28_will_not_start",
+    "device_category": "Washing Machine",
+    "brand": "Samsung",
+    "model": "WA45T3400A*",
+    "source": "Samsung Top-Loading Washer Service Manual (WA45T3400A*, model code WA45T3400AV/A4, WA45T3400AP/A4, WA45T3400AW/A4)",
+    "page": 28,
+    "content": "Will Not Start 1. Plug the unit into the wall outlet. 2. Check fuse or reset circuit breaker. 3. Push any key to turn on the washer and press the Start/Pause key to run the washer. 4. Close door and push the Start/Pause key to run the washer. 5. Check if washer is in a pause, soak or suds process. Wait briefly and it may start. 6. Check for restricted drain system. 7. Check Water Supply.",
+    "metadata": {
+      "symptom": "Will Not Start",
+      "possible_cause": null,
+      "solution": "1. Plug the unit into the wall outlet.\n2. Check fuse or reset circuit breaker.\n3. Push any key to turn on the washer and press the Start/Pause key to run the washer.\n4. Close door and push the Start/Pause key to run the washer.\n5. Check if washer is in a pause, soak or suds process. Wait briefly and it may start.\n6. Check for restricted drain system.\n7. Check Water Supply.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": "เวลาถอดปลั๊กให้จับที่ตัวปลั๊กแล้วดึงออกจากเต้ารับ ไม่ดึงที่สายไฟ และห้ามต่อเครื่องใช้ไฟฟ้าหลายเครื่องกับเต้ารับเดียวกันพร้อมกัน เพราะเสี่ยงไฟไหม้จากความร้อนสูง (คู่มือหน้า 1) ให้ตรวจปลั๊กและเต้ารับว่าไม่เสียหาย แบน ขาด หรือเสื่อมสภาพ ถ้าเต้ารับในบ้านชำรุดให้เรียกช่างไฟมาเปลี่ยน (คู่มือหน้า 2)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_WashingMachine_WA45T3400A_p28_leaking",
+    "device_category": "Washing Machine",
+    "brand": "Samsung",
+    "model": "WA45T3400A*",
+    "source": "Samsung Top-Loading Washer Service Manual (WA45T3400A*, model code WA45T3400AV/A4, WA45T3400AP/A4, WA45T3400AW/A4)",
+    "page": 28,
+    "content": "Leaking 1. Make sure inlet hose connections are not leaking. Check for rubber gasket damage due to over tightening. 2. Check standpipe for leak. Wrap a dry rag around the standpipe opening. If rag becomes wet, leak is fault of home plumbing. 3. Be sure the standpipe is capable of accepting the flow of water from the washer. 4. Make sure end of drain hose is correctly inserted and secured to drain standpipe. 5. Hot water pressurization may force door open.",
+    "metadata": {
+      "symptom": "Leaking",
+      "possible_cause": null,
+      "solution": "1. Make sure inlet hose connections are not leaking. Check for rubber gasket damage due to over tightening.\n2. Check standpipe for leak. Wrap a dry rag around the standpipe opening. If rag becomes wet, leak is fault of home plumbing.\n3. Be sure the standpipe is capable of accepting the flow of water from the washer.\n4. Make sure end of drain hose is correctly inserted and secured to drain standpipe.\n5. Hot water pressurization may force door open.",
+      "severity": "medium",
+      "difficulty": "medium",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_WashingMachine_WA45T3400A_p28_will_not_spin",
+    "device_category": "Washing Machine",
+    "brand": "Samsung",
+    "model": "WA45T3400A*",
+    "source": "Samsung Top-Loading Washer Service Manual (WA45T3400A*, model code WA45T3400AV/A4, WA45T3400AP/A4, WA45T3400AW/A4)",
+    "page": 28,
+    "content": "Will Not Spin 1. Make sure to close the door completely. 2. Check for water left inside the washer. If so, go to “Will Not Drain”. 3. Check Possible unbalanced load scenario in normal mode.",
+    "metadata": {
+      "symptom": "Will Not Spin",
+      "possible_cause": null,
+      "solution": "1. Make sure to close the door completely.\n2. Check for water left inside the washer. If so, go to “Will Not Drain”.\n3. Check Possible unbalanced load scenario in normal mode.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_WashingMachine_WA45T3400A_p28_no_water_fill",
+    "device_category": "Washing Machine",
+    "brand": "Samsung",
+    "model": "WA45T3400A*",
+    "source": "Samsung Top-Loading Washer Service Manual (WA45T3400A*, model code WA45T3400AV/A4, WA45T3400AP/A4, WA45T3400AW/A4)",
+    "page": 28,
+    "content": "No Water Fill 1. Check if water taps are turned on fully. 2. Check if there is any kink in inlet hoses. 3. Check if inlet screens are clogged up. 4. Check if water has enough pressure.",
+    "metadata": {
+      "symptom": "No Water Fill",
+      "possible_cause": null,
+      "solution": "1. Check if water taps are turned on fully.\n2. Check if there is any kink in inlet hoses.\n3. Check if inlet screens are clogged up.\n4. Check if water has enough pressure.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": "ถอดปลั๊กไฟของเครื่องก่อนทำงานกับชิ้นส่วนไฟฟ้า เพื่อป้องกันไฟฟ้าดูด (คู่มือหน้า 1) และห้ามฉีดน้ำใส่ตัวเครื่องโดยตรงเมื่อทำความสะอาด เพราะอาจเกิดไฟฟ้าดูดหรือไฟไหม้ (คู่มือหน้า 3)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_WashingMachine_WA45T3400A_p28_tub_full_of_suds",
+    "device_category": "Washing Machine",
+    "brand": "Samsung",
+    "model": "WA45T3400A*",
+    "source": "Samsung Top-Loading Washer Service Manual (WA45T3400A*, model code WA45T3400AV/A4, WA45T3400AP/A4, WA45T3400AW/A4)",
+    "page": 28,
+    "content": "Tub Full of Suds 1. Use HE (High-Efficiency) or low sudsing detergent specially formulated for front load washers. 2. Reduce the amount of detergent for that specific load size and soil level. Keep in mind that towel creates more suds generally. 3. Reduce the amount of detergent when water is soft, or laundry is small or lightly soiled. 4. Do one more washing cycle with cold water and a table spoon of salt without detergent.",
+    "metadata": {
+      "symptom": "Tub Full of Suds",
+      "possible_cause": null,
+      "solution": "1. Use HE (High-Efficiency) or low sudsing detergent specially formulated for front load washers.\n2. Reduce the amount of detergent for that specific load size and soil level. Keep in mind that towel creates more suds generally.\n3. Reduce the amount of detergent when water is soft, or laundry is small or lightly soiled.\n4. Do one more washing cycle with cold water and a table spoon of salt without detergent.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_WashingMachine_WA45T3400A_p29_wet_clothes",
+    "device_category": "Washing Machine",
+    "brand": "Samsung",
+    "model": "WA45T3400A*",
+    "source": "Samsung Top-Loading Washer Service Manual (WA45T3400A*, model code WA45T3400AV/A4, WA45T3400AP/A4, WA45T3400AW/A4)",
+    "page": 29,
+    "content": "Wet Clothes 1. Unbalance due to not enough load. Put additional load. 2. Due to excessive suds by using general detergent. Use HE (High-Efficiency) or reduce its quantity. 3. Low Spin Speed or Drain Only was selected.",
+    "metadata": {
+      "symptom": "Wet Clothes",
+      "possible_cause": null,
+      "solution": "1. Unbalance due to not enough load. Put additional load.\n2. Due to excessive suds by using general detergent. Use HE (High-Efficiency) or reduce its quantity.\n3. Low Spin Speed or Drain Only was selected.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_WashingMachine_WA45T3400A_p29_will_not_unlock",
+    "device_category": "Washing Machine",
+    "brand": "Samsung",
+    "model": "WA45T3400A*",
+    "source": "Samsung Top-Loading Washer Service Manual (WA45T3400A*, model code WA45T3400AV/A4, WA45T3400AP/A4, WA45T3400AW/A4)",
+    "page": 29,
+    "content": "Will Not Unlock Display shows “LO”. Turn off and on the unit. If “LO” keeps illuminating, check PCB and Door Lock Switch.",
+    "metadata": {
+      "symptom": "Will Not Unlock",
+      "possible_cause": null,
+      "solution": "Display shows “LO”. Turn off and on the unit. If “LO” keeps illuminating, check PCB and Door Lock Switch.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_WashingMachine_WA45T3400A_p29_no_key_operation",
+    "device_category": "Washing Machine",
+    "brand": "Samsung",
+    "model": "WA45T3400A*",
+    "source": "Samsung Top-Loading Washer Service Manual (WA45T3400A*, model code WA45T3400AV/A4, WA45T3400AP/A4, WA45T3400AW/A4)",
+    "page": 29,
+    "content": "No Key Operation 1. Option and Function buttons respond differently according to each cycle. 2. Child Lock is being activated. To exit, hold down Spin level key and soil level key simultaneously until it sends out a beeping sound. 3. When “End“ illuminates on the display, only Power button works. Press Power button and make new cycle selections. 4. Child Lock feature has been selected. To disable feature press and hold Temp and Spin simultaneously until a beep is heard.",
+    "metadata": {
+      "symptom": "No Key Operation",
+      "possible_cause": null,
+      "solution": "1. Option and Function buttons respond differently according to each cycle.\n2. Child Lock is being activated. To exit, hold down Spin level key and soil level key simultaneously until it sends out a beeping sound.\n3. When “End“ illuminates on the display, only Power button works. Press Power button and make new cycle selections.\n4. Child Lock feature has been selected. To disable feature press and hold Temp and Spin simultaneously until a beep is heard.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_WashingMachine_WA45T3400A_p29_will_not_drain",
+    "device_category": "Washing Machine",
+    "brand": "Samsung",
+    "model": "WA45T3400A*",
+    "source": "Samsung Top-Loading Washer Service Manual (WA45T3400A*, model code WA45T3400AV/A4, WA45T3400AP/A4, WA45T3400AW/A4)",
+    "page": 29,
+    "content": "Will Not Drain 1. Check for any kink on the drain hose. If any, straight it out. 2. Check for any restriction in the drain hose. 3. Close the door and press the Start/Pause Button. For safety reasons, the washer does not tumble or spin with the door open. 4. When it is freezing outside, check if it is frozen inside the drain hose.",
+    "metadata": {
+      "symptom": "Will Not Drain",
+      "possible_cause": null,
+      "solution": "1. Check for any kink on the drain hose. If any, straight it out.\n2. Check for any restriction in the drain hose.\n3. Close the door and press the Start/Pause Button. For safety reasons, the washer does not tumble or spin with the door open.\n4. When it is freezing outside, check if it is frozen inside the drain hose.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_WashingMachine_WA45T3400A_p29_wrong_water_temperature",
+    "device_category": "Washing Machine",
+    "brand": "Samsung",
+    "model": "WA45T3400A*",
+    "source": "Samsung Top-Loading Washer Service Manual (WA45T3400A*, model code WA45T3400AV/A4, WA45T3400AP/A4, WA45T3400AW/A4)",
+    "page": 29,
+    "content": "Wrong Water Temperature 1. Check if both of the water taps are fully open. 2. Too Hot/Too Cold: Reduced amount of water is supplied while PCB controls the influx to regulate the actual temperature of the water in the tub. This may appear to be significantly hotter/colder than expected. 3. Check if the temperature selection is correct. 4. Disconnect inlet hoses from the Water Valve and remove any residue in the inlet screens.",
+    "metadata": {
+      "symptom": "Wrong Water Temperature",
+      "possible_cause": null,
+      "solution": "1. Check if both of the water taps are fully open.\n2. Too Hot/Too Cold: Reduced amount of water is supplied while PCB controls the influx to regulate the actual temperature of the water in the tub. This may appear to be significantly hotter/colder than expected.\n3. Check if the temperature selection is correct.\n4. Disconnect inlet hoses from the Water Valve and remove any residue in the inlet screens.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": "ถอดปลั๊กไฟของเครื่องก่อนทำงานกับชิ้นส่วนไฟฟ้า เพื่อป้องกันไฟฟ้าดูด (คู่มือหน้า 1) และห้ามฉีดน้ำใส่ตัวเครื่องโดยตรงเมื่อทำความสะอาด เพราะอาจเกิดไฟฟ้าดูดหรือไฟไหม้ (คู่มือหน้า 3)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_WashingMachine_WA45T3400A_p29_noisy_vibration_walking",
+    "device_category": "Washing Machine",
+    "brand": "Samsung",
+    "model": "WA45T3400A*",
+    "source": "Samsung Top-Loading Washer Service Manual (WA45T3400A*, model code WA45T3400AV/A4, WA45T3400AP/A4, WA45T3400AW/A4)",
+    "page": 29,
+    "content": "Noisy and/or Vibration/Walking 1. Check if the washer is leveled and the lock nuts are tightened up on the bottom plate. 2. Check if all of the shipping bolts and spacers are removed from the back panel. 3. Check if load is big enough and there is no unbalance. If there is not enough load, put in a few towels to balance it. 4. Remove various trouble contributors (such as dust coat on the floor).",
+    "metadata": {
+      "symptom": "Noisy and/or Vibration/Walking",
+      "possible_cause": null,
+      "solution": "1. Check if the washer is leveled and the lock nuts are tightened up on the bottom plate.\n2. Check if all of the shipping bolts and spacers are removed from the back panel.\n3. Check if load is big enough and there is no unbalance. If there is not enough load, put in a few towels to balance it.\n4. Remove various trouble contributors (such as dust coat on the floor).",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": "ถอดปลั๊กไฟของเครื่องก่อนทำงานกับชิ้นส่วนไฟฟ้า เพื่อป้องกันไฟฟ้าดูด (คู่มือหน้า 1) และห้ามฉีดน้ำใส่ตัวเครื่องโดยตรงเมื่อทำความสะอาด เพราะอาจเกิดไฟฟ้าดูดหรือไฟไหม้ (คู่มือหน้า 3)"
+    }
+  }
+]

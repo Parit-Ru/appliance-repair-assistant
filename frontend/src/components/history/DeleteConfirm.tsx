@@ -8,11 +8,6 @@ interface DeleteConfirmProps {
   error: Error | null
 }
 
-/**
- * ขั้นยืนยันก่อนลบรายการประวัติ (ลบทั้ง session บนเซิร์ฟเวอร์ กู้คืนไม่ได้)
- * ใช้ร่วมกันทั้งแถวในรายการและหน้ารายละเอียด · แสดงในหน้าเอง ไม่ใช้ window.confirm
- * เพื่อให้ปุ่มอยู่ในโฟลว์ของหน้า และอ่านได้ด้วยโปรแกรมอ่านหน้าจอ
- */
 export function DeleteConfirm({ onConfirm, onCancel, isDeleting, error }: DeleteConfirmProps) {
   return (
     <div className="mt-3 space-y-3 rounded-lg border border-danger/40 bg-danger/10 p-4 text-sm">

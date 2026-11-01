@@ -71,9 +71,9 @@ function DraftRow({ draft }: { draft: DraftSummary }) {
           AI กำลังร่าง {draft.progress.done}/{draft.progress.total} ช่วงหน้า
         </p>
       )}
-      {draft.graphCount !== null && (
+      {draft.flowCount !== null && (
         <p className="text-sm text-ink-soft">
-          {draft.graphCount} แผนผังขั้นตอน
+          {draft.flowCount} แผนผังขั้นตอน
           {draft.validationCounts && ` · ข้อผิดพลาด ${draft.validationCounts.errors} · คำเตือน ${draft.validationCounts.warnings}`}
         </p>
       )}

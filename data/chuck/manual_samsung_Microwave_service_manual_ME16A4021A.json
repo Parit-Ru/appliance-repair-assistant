@@ -1,0 +1,53 @@
+[
+  {
+    "chunk_id": "manual_Samsung_Microwave_ME16A4021A_p5_oven_operates_with_door_open",
+    "device_category": "Microwave",
+    "brand": "Samsung",
+    "model": "ME16A4021A*/ME16K3000A*",
+    "source": "Samsung Microwave Oven Service Manual (ME16A4021A* / ME16K3000A*, July 2022)",
+    "page": 5,
+    "content": "If the oven operates with the door open 1. Instruct the user not to operate the oven and contact the manufacturer and the center for devices and radiological health immediately. 2. Instruct owner not to use oven until it has been brought into compliance.",
+    "metadata": {
+      "symptom": "If the oven operates with the door open",
+      "possible_cause": null,
+      "solution": "1. Instruct the user not to operate the oven and contact the manufacturer and the center for devices and radiological health immediately.\n2. Instruct owner not to use oven until it has been brought into compliance.",
+      "severity": "medium",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Microwave_ME16A4021A_p31_key_short_error_se",
+    "device_category": "Microwave",
+    "brand": "Samsung",
+    "model": "ME16A4021A*/ME16K3000A*",
+    "source": "Samsung Microwave Oven Service Manual (ME16A4021A* / ME16K3000A*, July 2022)",
+    "page": 31,
+    "content": "-SE- Key Short Error (10 seconds) Turn off set and restart.",
+    "metadata": {
+      "symptom": "-SE- Key Short Error (10 seconds)",
+      "possible_cause": null,
+      "solution": "Turn off set and restart.",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": "ห้ามเปิดตัวเครื่องหรือแตะวงจรไฟฟ้าของเตา เพราะวงจรของหม้อแปลงแรงสูงมีไฟฟ้าแรงสูงกระแสสูงซึ่งอันตรายอย่างยิ่งขณะเตาได้รับไฟ (คู่มือหน้า 6)"
+    }
+  },
+  {
+    "chunk_id": "manual_Samsung_Microwave_ME16A4021A_p34_control_panel_buttons_do_not_work",
+    "device_category": "Microwave",
+    "brand": "Samsung",
+    "model": "ME16A4021A*/ME16K3000A*",
+    "source": "Samsung Microwave Oven Service Manual (ME16A4021A* / ME16K3000A*, July 2022)",
+    "page": 34,
+    "content": "Buttons of the control panel do not work. 1. Are button pressed in the correct order? 2. Refer to User Manual",
+    "metadata": {
+      "symptom": "Buttons of the control panel do not work.",
+      "possible_cause": null,
+      "solution": "1. Are button pressed in the correct order?\n2. Refer to User Manual",
+      "severity": "low",
+      "difficulty": "easy",
+      "safety_warning": null
+    }
+  }
+]

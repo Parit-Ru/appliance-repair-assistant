@@ -1,16 +1,16 @@
-import type { RenderedNode, TraversalAction } from '../api/types'
+import type { RenderedState, ExecutionAction } from '../api/types'
 
 export type TrailMarker = 'dot' | 'switch-off'
 
 export interface TrailEntry {
-  nodeId: string
+  stateId: string
   text: string
   answerLabel: string
   marker: TrailMarker
 }
 
-export function toTrailEntry(node: RenderedNode, action: TraversalAction): TrailEntry {
-  const passed = { nodeId: node.nodeId, text: node.text }
+export function toTrailEntry(state: RenderedState, action: ExecutionAction): TrailEntry {
+  const passed = { stateId: state.stateId, text: state.text }
 
   switch (action.type) {
     case 'answer':

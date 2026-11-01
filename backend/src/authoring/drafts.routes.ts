@@ -5,7 +5,7 @@
                                         displayName?, pageFrom, pageTo → 202 { id, status: 'drafting' }
     GET  /admin/drafts                  รายการร่าง (ล่าสุด 100)
     GET  /admin/drafts/:id              รายละเอียด: ผังร่าง + ข้อความหน้าต้นฉบับ + รายงาน validator + ความคืบหน้า
-    PUT  /admin/drafts/:id              { graphs } แก้ผัง (เฉพาะ ready) ตรวจใหม่ทุกครั้ง
+    PUT  /admin/drafts/:id              { flows } แก้ผัง (เฉพาะ ready) ตรวจใหม่ทุกครั้ง
     POST /admin/drafts/:id/reject       { reason? }
     POST /admin/drafts/:id/publish      { acknowledgedWarnings? } error ≥ 1 = 409 DRAFT_INVALID · warning ≥ 1 ไม่มี flag = 409
 
@@ -91,7 +91,7 @@ export function draftsRoutes(drafts: DraftsService): Router {
   );
 
   router.put('/:id',asyncRoute(async (request, response) => {
-      response.json(await drafts.update(request.params.id, parseUpdateBody(request.body).graphs));
+      response.json(await drafts.update(request.params.id, parseUpdateBody(request.body).flows));
     }),
   );
 

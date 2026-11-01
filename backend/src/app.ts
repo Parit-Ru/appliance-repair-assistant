@@ -25,11 +25,11 @@ import { createGroqClientFromEnv } from './rephrase/groq-llm.client';
 import { RephraseService } from './rephrase/rephrase.service';
 import { symptomSearchRoutes } from './symptom-search/symptom-search.routes';
 import { SymptomSearchService } from './symptom-search/symptom-search.service';
-import { EquipmentRepository } from './traversal/equipment.repository';
-import { GraphRepository } from './traversal/graph.repository';
-import { SessionStore } from './traversal/session.store';
-import { traversalRoutes } from './traversal/traversal.routes';
-import { TraversalService } from './traversal/traversal.service';
+import { EquipmentRepository } from './execution/equipment.repository';
+import { FlowRepository } from './execution/flow.repository';
+import { SessionStore } from './execution/session.store';
+import { executionRoutes } from './execution/execution.routes';
+import { ExecutionService } from './execution/execution.service';
 
 function createRephraseService(): RephraseService {
   const client = createGroqClientFromEnv();
@@ -46,17 +46,17 @@ export async function createApp(): Promise<express.Express> {
   const tokens = TokenService.fromEnv();
   const pool = await createDbPool();
 
-  const graphs = new GraphRepository(pool);
+  const flows = new FlowRepository(pool);
   const equipment = new EquipmentRepository(pool);
-  const symptomSearch = new SymptomSearchService(new EmbeddingService(), graphs);
-  const traversal = new TraversalService(graphs, equipment, new SessionStore(pool), symptomSearch, createRephraseService());
+  const symptomSearch = new SymptomSearchService(new EmbeddingService(), flows);
+  const execution = new ExecutionService(flows, equipment, new SessionStore(pool), symptomSearch, createRephraseService());
   const users = new UsersStore(pool);
   const auth = new AuthService(users, tokens);
-  const history = new HistoryService(new HistoryStore(pool), graphs);
-  const admin = new AdminService(new AdminStore(pool), graphs);
-  const drafts = new DraftsService(new DraftsStore(pool), graphs, symptomSearch, new UnpdfTextExtractor(), createDraftLlmFromEnv());
+  const history = new HistoryService(new HistoryStore(pool), flows);
+  const admin = new AdminService(new AdminStore(pool), flows);
+  const drafts = new DraftsService(new DraftsStore(pool), flows, symptomSearch, new UnpdfTextExtractor(), createDraftLlmFromEnv());
 
-  await graphs.load(); 
+  await flows.load(); 
   await equipment.load();
   symptomSearch.start();
   await drafts.failInterruptedDrafts();
@@ -71,7 +71,7 @@ export async function createApp(): Promise<express.Express> {
   app.use('/health', healthRoutes(pool));
   app.use('/auth', authRoutes(auth, requireAuth));
   app.use('/symptom-search', symptomSearchRoutes(symptomSearch));
-  app.use('/traversal', traversalRoutes(traversal, optionalAuth));
+  app.use('/execution', executionRoutes(execution, optionalAuth));
   app.use('/history', historyRoutes(history, optionalAuth));
   app.use('/admin', adminArea(requireAuth, requireAdmin, (router) => {
     router.use(adminRoutes(admin));

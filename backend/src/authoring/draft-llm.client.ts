@@ -1,6 +1,5 @@
 import type { DraftMeta } from './draft-manual';
 import type { PageText } from './pdf-text';
-/** เปลี่ยนเลขนี้ทุกครั้งที่แก้ prompt — เก็บใน graph_drafts.prompt_version ไว้ย้อนดูว่าร่างมาจาก prompt ไหน */
 export const PROMPT_VERSION = 'v1';
 
 const ENDPOINT = 'https://api.groq.com/openai/v1/chat/completions';

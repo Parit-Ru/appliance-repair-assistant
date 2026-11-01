@@ -1,11 +1,9 @@
-
 import { ApiError } from '../common/api-error';
 const MAX_PDF_PAGES = 200;
 export const MAX_RANGE_PAGES = 10;
 const MAX_PAGE_CHARS = 12_000;
 const MIN_TOTAL_CHARS = 50;
 
-/** error ของการอ่าน PDF (ApiError รหัสละตัว · errorHandler (common/error-handler.ts) แปลงเป็น response) */
 const pdfUnreadable = (detail?: string) =>
   new ApiError(422, 'PDF_UNREADABLE', `อ่านไฟล์ PDF ไม่ได้ (ไฟล์เสียหรือมีรหัสผ่าน)${detail ? `: ${detail}` : ''}`);
 
@@ -17,9 +15,7 @@ const pdfPageRange = (message: string) => new ApiError(400, 'INVALID_DRAFT_REQUE
 const pdfNoText = () =>
   new ApiError(422, 'PDF_NO_TEXT', 'ไม่พบข้อความใน PDF ช่วงหน้าที่เลือก — ไม่รองรับไฟล์ที่เป็นภาพสแกน ต้องเป็น PDF ที่เลือกคัดลอกข้อความได้');
 
-const pdfPageTooLong = (page: number) =>
-  new ApiError(
-    422,
+const pdfPageTooLong = (page: number) =>new ApiError(422,
     'PDF_PAGE_TOO_LONG',
     `หน้า ${page} มีข้อความยาวเกิน ${MAX_PAGE_CHARS} ตัวอักษร ระบบไม่ตัดทิ้งให้เพราะอาจทำให้คำเตือนหาย — เลือกหน้าอื่นหรือแบ่งช่วงใหม่`,
   );
@@ -55,7 +51,7 @@ function loadUnpdf(): UnpdfModule {
   return require('unpdf') as UnpdfModule;
 }
 
-/** ช่องว่างซ้ำ ช่องเดียว  เก็บการขึ้นบรรทัดไว้ */
+//ช่องว่างซ้ำ ช่องเดียว  เก็บการขึ้นบรรทัดไว้ 
 function normalizePageText(text: string): string {
   return text
     .replace(/[ \t ]+/g, ' ')

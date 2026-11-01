@@ -5,9 +5,9 @@
   "model_pattern": "WA**R526***/WA**T526***/WA**T516***",
   "source_manual": "Samsung Washing Machine User Manual WA**R526***/WA**T526***/WA**T516*** (DC68-04088A-03_WA5000R_WA10R526_EN_TH_MY)",
   "count": 31,
-  "graphs": [
+  "flows": [
     {
-      "graph_id": "samsung_wa5000r_um_does_not_turn_on",
+      "flow_id": "samsung_wa5000r_um_does_not_turn_on",
       "device_category": "Washing Machine",
       "brand": "Samsung",
       "model_pattern": "WA**R526***/WA**T526***/WA**T516***",
@@ -26,10 +26,10 @@
       "source_chunk_id": "manual_Samsung_WashingMachine_WA5000R_p35_does_not_turn_on",
       "severity": "medium",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "ไฟฟ้าที่ใช้ตรงกับพิกัดของเครื่องใช่หรือไม่?",
           "safety_critical": false,
@@ -37,7 +37,7 @@
           "on_no": "n1f"
         },
         {
-          "node_id": "n1f",
+          "state_id": "n1f",
           "type": "instruction",
           "content": "ใช้เต้ารับที่จ่ายไฟตรงตามพิกัดของเครื่อง (AC 220–240 V/50 Hz) ห้ามใช้หม้อแปลงไฟ (คู่มือหน้า 6 และ 42)",
           "safety_critical": true,
@@ -46,7 +46,7 @@
           "next": "n1v"
         },
         {
-          "node_id": "n1v",
+          "state_id": "n1v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
           "safety_critical": false,
@@ -55,7 +55,7 @@
           "on_no": "n2"
         },
         {
-          "node_id": "n2",
+          "state_id": "n2",
           "type": "checkpoint",
           "question": "เสียบปลั๊กเข้าเต้ารับสนิทแล้วใช่หรือไม่?",
           "safety_critical": false,
@@ -63,7 +63,7 @@
           "on_no": "n2f"
         },
         {
-          "node_id": "n2f",
+          "state_id": "n2f",
           "type": "instruction",
           "content": "เสียบปลั๊กให้แน่นเข้ากับเต้ารับที่ใช้กับเครื่องนี้เท่านั้น ไม่ใช้ปลั๊กพ่วง (คู่มือหน้า 6 และ 35)",
           "safety_critical": true,
@@ -72,7 +72,7 @@
           "next": "n2v"
         },
         {
-          "node_id": "n2v",
+          "state_id": "n2v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
           "safety_critical": false,
@@ -81,7 +81,7 @@
           "on_no": "n3"
         },
         {
-          "node_id": "n3",
+          "state_id": "n3",
           "type": "checkpoint",
           "question": "ฟิวส์ไม่ขาดและเบรกเกอร์ไม่ตัดอยู่ใช่หรือไม่?",
           "safety_critical": false,
@@ -89,7 +89,7 @@
           "on_no": "n3f"
         },
         {
-          "node_id": "n3f",
+          "state_id": "n3f",
           "type": "instruction",
           "content": "ตรวจฟิวส์หรือรีเซ็ตเบรกเกอร์ (คู่มือหน้า 35)",
           "safety_critical": true,
@@ -98,7 +98,7 @@
           "next": "n3v"
         },
         {
-          "node_id": "n3v",
+          "state_id": "n3v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
           "safety_critical": false,
@@ -107,13 +107,13 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "เครื่องเปิดติดแล้ว",
           "outcome_kind": "user_fixed"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ (ไฟฟ้าตามพิกัด ปลั๊ก ฟิวส์/เบรกเกอร์) ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่องและสิ่งที่ได้ตรวจไปแล้ว",
           "outcome_kind": "handoff_unknown"
@@ -121,7 +121,7 @@
       ]
     },
     {
-      "graph_id": "samsung_wa5000r_um_does_not_start",
+      "flow_id": "samsung_wa5000r_um_does_not_start",
       "device_category": "Washing Machine",
       "brand": "Samsung",
       "model_pattern": "WA**R526***/WA**T526***/WA**T516***",
@@ -140,10 +140,10 @@
       "source_chunk_id": "manual_Samsung_WashingMachine_WA5000R_p35_does_not_start",
       "severity": "medium",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "ปิดฝาเครื่องสนิทแล้วหรือไม่?",
           "safety_critical": false,
@@ -151,14 +151,14 @@
           "on_no": "n1f"
         },
         {
-          "node_id": "n1f",
+          "state_id": "n1f",
           "type": "instruction",
           "content": "ปิดฝาเครื่องให้สนิท",
           "safety_critical": false,
           "next": "n1v"
         },
         {
-          "node_id": "n1v",
+          "state_id": "n1v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -166,7 +166,7 @@
           "on_no": "n2"
         },
         {
-          "node_id": "n2",
+          "state_id": "n2",
           "type": "checkpoint",
           "question": "เปิดก๊อกน้ำแล้วหรือไม่?",
           "safety_critical": false,
@@ -174,14 +174,14 @@
           "on_no": "n2f"
         },
         {
-          "node_id": "n2f",
+          "state_id": "n2f",
           "type": "instruction",
           "content": "เปิดก๊อกน้ำ",
           "safety_critical": false,
           "next": "n2v"
         },
         {
-          "node_id": "n2v",
+          "state_id": "n2v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -189,7 +189,7 @@
           "on_no": "n3"
         },
         {
-          "node_id": "n3",
+          "state_id": "n3",
           "type": "checkpoint",
           "question": "กด START/PAUSE เพื่อเริ่มเครื่องแล้วหรือไม่?",
           "safety_critical": false,
@@ -197,7 +197,7 @@
           "on_no": "n3f"
         },
         {
-          "node_id": "n3f",
+          "state_id": "n3f",
           "type": "instruction",
           "content": "กดปุ่ม START/PAUSE เพื่อเริ่มการทำงาน (คู่มือหน้า 26)",
           "safety_critical": false,
@@ -205,7 +205,7 @@
           "next": "n3v"
         },
         {
-          "node_id": "n3v",
+          "state_id": "n3v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -213,7 +213,7 @@
           "on_no": "n4"
         },
         {
-          "node_id": "n4",
+          "state_id": "n4",
           "type": "checkpoint",
           "question": "Child Lock ไม่ได้เปิดใช้งานอยู่ใช่หรือไม่?",
           "safety_critical": false,
@@ -221,7 +221,7 @@
           "on_no": "n4f"
         },
         {
-          "node_id": "n4f",
+          "state_id": "n4f",
           "type": "instruction",
           "content": "ปลดล็อกเด็ก (Child Lock) โดยกดปุ่ม Wash Time และ Rinse Times ค้างพร้อมกันประมาณ 3 วินาที ไฟแสดงสถานะ Child Lock จะดับ ถ้าในถังมีน้ำ ให้เริ่มเครื่องใหม่แล้วกดสองปุ่มค้างพร้อมกัน 3 วินาทีอีกครั้ง (คู่มือหน้า 20)",
           "safety_critical": false,
@@ -229,7 +229,7 @@
           "next": "n4v"
         },
         {
-          "node_id": "n4v",
+          "state_id": "n4v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -237,7 +237,7 @@
           "on_no": "n5"
         },
         {
-          "node_id": "n5",
+          "state_id": "n5",
           "type": "checkpoint",
           "question": "ได้ยินเสียงคลิกหลายครั้งก่อนเครื่องเริ่มเติมน้ำใช่หรือไม่?",
           "safety_critical": false,
@@ -245,13 +245,13 @@
           "on_no": "n6"
         },
         {
-          "node_id": "n5n",
+          "state_id": "n5n",
           "type": "resolution",
           "content": "เป็นการทำงานปกติ เครื่องกำลังตรวจว่าฝาล็อกอยู่หรือไม่ และระบายน้ำสั้นๆ ก่อนเริ่มเติมน้ำ (คู่มือหน้า 35)",
           "outcome_kind": "normal_behavior"
         },
         {
-          "node_id": "n6",
+          "state_id": "n6",
           "type": "checkpoint",
           "question": "ฝาเครื่องถูกเปิดระหว่างรอบปั่นแห้งใช่หรือไม่?",
           "safety_critical": false,
@@ -259,7 +259,7 @@
           "on_no": "n7"
         },
         {
-          "node_id": "n6f",
+          "state_id": "n6f",
           "type": "instruction",
           "content": "ปิดฝาเครื่อง แล้วกดปุ่ม START/PAUSE เพื่อทำงานต่อ (คู่มือหน้า 35)",
           "safety_critical": true,
@@ -268,7 +268,7 @@
           "next": "n6v"
         },
         {
-          "node_id": "n6v",
+          "state_id": "n6v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
           "safety_critical": false,
@@ -277,7 +277,7 @@
           "on_no": "n7"
         },
         {
-          "node_id": "n7",
+          "state_id": "n7",
           "type": "checkpoint",
           "question": "เครื่องอยู่ในโหมดสแตนด์บายหรือกำลังแช่ผ้าใช่หรือไม่?",
           "safety_critical": false,
@@ -285,13 +285,13 @@
           "on_no": "n8"
         },
         {
-          "node_id": "n7n",
+          "state_id": "n7n",
           "type": "resolution",
           "content": "ให้รอสักครู่ เครื่องจะทำงานต่อเอง (คู่มือหน้า 35)",
           "outcome_kind": "normal_behavior"
         },
         {
-          "node_id": "n8",
+          "state_id": "n8",
           "type": "checkpoint",
           "question": "ฟิวส์ไม่ขาดและเบรกเกอร์ไม่ตัดอยู่ใช่หรือไม่?",
           "safety_critical": false,
@@ -299,7 +299,7 @@
           "on_no": "n8f"
         },
         {
-          "node_id": "n8f",
+          "state_id": "n8f",
           "type": "instruction",
           "content": "ตรวจฟิวส์หรือรีเซ็ตเบรกเกอร์ (คู่มือหน้า 35)",
           "safety_critical": true,
@@ -308,7 +308,7 @@
           "next": "n8v"
         },
         {
-          "node_id": "n8v",
+          "state_id": "n8v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
           "safety_critical": false,
@@ -317,13 +317,13 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "เครื่องซักผ้าเริ่มทำงานแล้ว",
           "outcome_kind": "user_fixed"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ (ฝาเครื่อง ก๊อกน้ำ ปุ่ม START/PAUSE Child Lock ฟิวส์/เบรกเกอร์) ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่องและสิ่งที่ได้ตรวจไปแล้ว",
           "outcome_kind": "handoff_unknown"
@@ -331,7 +331,7 @@
       ]
     },
     {
-      "graph_id": "samsung_wa5000r_um_water_not_supplied",
+      "flow_id": "samsung_wa5000r_um_water_not_supplied",
       "device_category": "Washing Machine",
       "brand": "Samsung",
       "model_pattern": "WA**R526***/WA**T526***/WA**T516***",
@@ -350,10 +350,10 @@
       "source_chunk_id": "manual_Samsung_WashingMachine_WA5000R_p35_water_not_supplied",
       "severity": "medium",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "หลังเลือกการจ่ายน้ำ กด START/PAUSE แล้วหรือไม่?",
           "safety_critical": false,
@@ -361,7 +361,7 @@
           "on_no": "n1f"
         },
         {
-          "node_id": "n1f",
+          "state_id": "n1f",
           "type": "instruction",
           "content": "กดปุ่ม START/PAUSE เพื่อเริ่มการทำงาน (คู่มือหน้า 26)",
           "safety_critical": false,
@@ -369,7 +369,7 @@
           "next": "n1v"
         },
         {
-          "node_id": "n1v",
+          "state_id": "n1v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -377,7 +377,7 @@
           "on_no": "n2"
         },
         {
-          "node_id": "n2",
+          "state_id": "n2",
           "type": "checkpoint",
           "question": "เปิดก๊อกน้ำแล้วหรือไม่?",
           "safety_critical": false,
@@ -385,14 +385,14 @@
           "on_no": "n2f"
         },
         {
-          "node_id": "n2f",
+          "state_id": "n2f",
           "type": "instruction",
           "content": "เปิดก๊อกน้ำ",
           "safety_critical": false,
           "next": "n2v"
         },
         {
-          "node_id": "n2v",
+          "state_id": "n2v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -400,7 +400,7 @@
           "on_no": "n3"
         },
         {
-          "node_id": "n3",
+          "state_id": "n3",
           "type": "checkpoint",
           "question": "ตะแกรงกรอง (filter net) ที่ข้อต่อสายน้ำเข้าอุดตันหรือไม่?",
           "safety_critical": false,
@@ -408,7 +408,7 @@
           "on_no": "n4"
         },
         {
-          "node_id": "n3f",
+          "state_id": "n3f",
           "type": "instruction",
           "content": "ทำความสะอาดตะแกรงกรองโดยใช้แปรงสีฟันขัด (คู่มือหน้า 35) ถ้าต้องถอดตะแกรงออกจากช่องน้ำเข้า ให้ทำตามหัวข้อ Mesh filter: ถอดปลั๊กและปิดก๊อกน้ำ > ถอดสายน้ำเข้า > ใช้คีมดึงตะแกรงกรอง (mesh filter) ออกจากช่องน้ำเข้า > ล้างตะแกรงด้วยน้ำไหลและแปรงขนนุ่ม > ใส่ตะแกรงกลับและขันให้แน่นกันน้ำรั่ว (คู่มือหน้า 33)",
           "safety_critical": true,
@@ -417,7 +417,7 @@
           "next": "n3v"
         },
         {
-          "node_id": "n3v",
+          "state_id": "n3v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
           "safety_critical": false,
@@ -426,7 +426,7 @@
           "on_no": "n4"
         },
         {
-          "node_id": "n4",
+          "state_id": "n4",
           "type": "checkpoint",
           "question": "น้ำประปาถูกตัดอยู่ใช่หรือไม่?",
           "safety_critical": false,
@@ -434,13 +434,13 @@
           "on_no": "n5"
         },
         {
-          "node_id": "n4n",
+          "state_id": "n4n",
           "type": "resolution",
           "content": "ถ้าน้ำประปาถูกตัด ให้ปิดก๊อกน้ำและปิดเครื่อง (คู่มือหน้า 35) แล้วรอจนน้ำประปากลับมาจึงใช้งานใหม่",
           "outcome_kind": "normal_behavior"
         },
         {
-          "node_id": "n5",
+          "state_id": "n5",
           "type": "checkpoint",
           "question": "สายน้ำเข้าตรง ไม่หักงอใช่หรือไม่?",
           "safety_critical": false,
@@ -448,14 +448,14 @@
           "on_no": "n5f"
         },
         {
-          "node_id": "n5f",
+          "state_id": "n5f",
           "type": "instruction",
           "content": "จัดสายน้ำเข้าให้ตรง",
           "safety_critical": false,
           "next": "n5v"
         },
         {
-          "node_id": "n5v",
+          "state_id": "n5v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -463,14 +463,14 @@
           "on_no": "n6"
         },
         {
-          "node_id": "n6",
+          "state_id": "n6",
           "type": "instruction",
           "content": "เปิดและปิดฝาเครื่อง แล้วกดปุ่ม START/PAUSE (คู่มือหน้า 35)",
           "safety_critical": false,
           "next": "n6v"
         },
         {
-          "node_id": "n6v",
+          "state_id": "n6v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
           "safety_critical": false,
@@ -479,7 +479,7 @@
           "on_no": "n7"
         },
         {
-          "node_id": "n7",
+          "state_id": "n7",
           "type": "checkpoint",
           "question": "แรงดันน้ำต่ำและเครื่องเริ่มซักช้ากว่าปกติใช่หรือไม่?",
           "safety_critical": false,
@@ -487,13 +487,13 @@
           "on_no": "n8"
         },
         {
-          "node_id": "n7n",
+          "state_id": "n7n",
           "type": "resolution",
           "content": "ถ้าแรงดันน้ำต่ำ เครื่องจะใช้เวลานานกว่าจะเริ่มซัก (คู่มือหน้า 35)",
           "outcome_kind": "normal_behavior"
         },
         {
-          "node_id": "n8",
+          "state_id": "n8",
           "type": "checkpoint",
           "question": "ระดับน้ำสูงเท่าที่ต้องการหรือไม่?",
           "safety_critical": false,
@@ -501,7 +501,7 @@
           "on_no": "n8f"
         },
         {
-          "node_id": "n8f",
+          "state_id": "n8f",
           "type": "instruction",
           "content": "กดปุ่ม Water Level เพื่อปรับระดับน้ำ (คู่มือหน้า 27 และ 35)",
           "safety_critical": false,
@@ -509,7 +509,7 @@
           "next": "n8v"
         },
         {
-          "node_id": "n8v",
+          "state_id": "n8v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -517,13 +517,13 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "น้ำเข้าเครื่องได้ตามปกติแล้ว",
           "outcome_kind": "user_fixed"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
           "outcome_kind": "handoff_unknown"
@@ -531,7 +531,7 @@
       ]
     },
     {
-      "graph_id": "samsung_wa5000r_um_detergent_remains_in_dispenser",
+      "flow_id": "samsung_wa5000r_um_detergent_remains_in_dispenser",
       "device_category": "Washing Machine",
       "brand": "Samsung",
       "model_pattern": "WA**R526***/WA**T526***/WA**T516***",
@@ -550,10 +550,10 @@
       "source_chunk_id": "manual_Samsung_WashingMachine_WA5000R_p35_detergent_remains_in_dispenser",
       "severity": "low",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "แรงดันน้ำตอนเครื่องทำงานไม่เพียงพอใช่หรือไม่?",
           "safety_critical": false,
@@ -561,13 +561,13 @@
           "on_no": "n2"
         },
         {
-          "node_id": "n1e",
+          "state_id": "n1e",
           "type": "escalation",
           "content": "คู่มือให้ตรวจแรงดันน้ำแต่ไม่ระบุวิธีแก้ ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่อง (ช่วงแรงดันน้ำที่เครื่องรองรับอยู่ในตารางหน้า 42)",
           "outcome_kind": "handoff_informed"
         },
         {
-          "node_id": "n2",
+          "state_id": "n2",
           "type": "checkpoint",
           "question": "ใส่ลิ้นชักผงซักฟอกเข้าที่ถูกต้องแล้วหรือไม่?",
           "safety_critical": false,
@@ -575,7 +575,7 @@
           "on_no": "n2f"
         },
         {
-          "node_id": "n2f",
+          "state_id": "n2f",
           "type": "instruction",
           "content": "ใส่ลิ้นชักผงซักฟอกกลับเข้าที่ให้สนิท (คู่มือหน้า 34)",
           "safety_critical": false,
@@ -583,7 +583,7 @@
           "next": "n2v"
         },
         {
-          "node_id": "n2v",
+          "state_id": "n2v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -591,7 +591,7 @@
           "on_no": "n3"
         },
         {
-          "node_id": "n3",
+          "state_id": "n3",
           "type": "instruction",
           "content": "ล้างลิ้นชักผงซักฟอก: ยกขอบด้านหน้าของลิ้นชักขึ้นเล็กน้อยแล้วดึงเลื่อนเปิด > ถอด wing distributor (A) และ rinse cap (B) ออกจากลิ้นชัก > ล้างลิ้นชัก distributor และ rinse cap ด้วยน้ำไหลและแปรงนุ่ม > ปิด rinse cap และใส่ distributor กลับ แล้วใส่ลิ้นชักกลับเข้าที่ (คู่มือหน้า 34)",
           "safety_critical": true,
@@ -600,7 +600,7 @@
           "next": "n3v"
         },
         {
-          "node_id": "n3v",
+          "state_id": "n3v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -608,13 +608,13 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "ผงซักฟอกไม่ค้างในช่องแล้ว",
           "outcome_kind": "user_fixed"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
           "outcome_kind": "handoff_unknown"
@@ -622,7 +622,7 @@
       ]
     },
     {
-      "graph_id": "samsung_wa5000r_um_vibrates_makes_noise",
+      "flow_id": "samsung_wa5000r_um_vibrates_makes_noise",
       "device_category": "Washing Machine",
       "brand": "Samsung",
       "model_pattern": "WA**R526***/WA**T526***/WA**T516***",
@@ -641,10 +641,10 @@
       "source_chunk_id": "manual_Samsung_WashingMachine_WA5000R_p36_vibrates_makes_noise",
       "severity": "low",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "เครื่องตั้งบนพื้นที่ได้ระดับใช่หรือไม่?",
           "safety_critical": false,
@@ -652,7 +652,7 @@
           "on_no": "n1f"
         },
         {
-          "node_id": "n1f",
+          "state_id": "n1f",
           "type": "instruction",
           "content": "ปรับขาปรับระดับ (levelling feet) ด้วยมือให้เครื่องได้ระดับ เมื่อได้ระดับแล้วให้ขันนอต (B) ถ้ามี (บางรุ่นไม่มีนอต) ติดตั้งบนพื้นแข็งเรียบ ไม่มีแท่นหรืออิฐรอง และเว้นห่างผนังข้างละ 10 ซม. (คู่มือหน้า 12 และ 14)",
           "safety_critical": false,
@@ -660,7 +660,7 @@
           "next": "n1v"
         },
         {
-          "node_id": "n1v",
+          "state_id": "n1v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -668,7 +668,7 @@
           "on_no": "n2"
         },
         {
-          "node_id": "n2",
+          "state_id": "n2",
           "type": "checkpoint",
           "question": "เครื่องไม่สัมผัสกับวัตถุอื่นใช่หรือไม่?",
           "safety_critical": false,
@@ -676,7 +676,7 @@
           "on_no": "n2f"
         },
         {
-          "node_id": "n2f",
+          "state_id": "n2f",
           "type": "instruction",
           "content": "ขยับเครื่องให้ห่างจากวัตถุอื่น",
           "safety_critical": false,
@@ -684,7 +684,7 @@
           "next": "n2v"
         },
         {
-          "node_id": "n2v",
+          "state_id": "n2v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -692,7 +692,7 @@
           "on_no": "n3"
         },
         {
-          "node_id": "n3",
+          "state_id": "n3",
           "type": "checkpoint",
           "question": "ผ้าในถังมีน้ำหนักสมดุลใช่หรือไม่?",
           "safety_critical": false,
@@ -700,7 +700,7 @@
           "on_no": "n3f"
         },
         {
-          "node_id": "n3f",
+          "state_id": "n3f",
           "type": "instruction",
           "content": "จัดผ้าในถังให้สมดุล",
           "safety_critical": false,
@@ -708,7 +708,7 @@
           "next": "n3v"
         },
         {
-          "node_id": "n3v",
+          "state_id": "n3v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -716,7 +716,7 @@
           "on_no": "n4"
         },
         {
-          "node_id": "n4",
+          "state_id": "n4",
           "type": "checkpoint",
           "question": "ผ้ากระจายเสมอกันทั่วถังใช่หรือไม่?",
           "safety_critical": false,
@@ -724,14 +724,14 @@
           "on_no": "n4f"
         },
         {
-          "node_id": "n4f",
+          "state_id": "n4f",
           "type": "instruction",
           "content": "กระจายผ้าให้เสมอกันทั่วถัง แล้วเริ่มเครื่องใหม่ (คู่มือหน้า 36)",
           "safety_critical": false,
           "next": "n4v"
         },
         {
-          "node_id": "n4v",
+          "state_id": "n4v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -739,7 +739,7 @@
           "on_no": "n5"
         },
         {
-          "node_id": "n5",
+          "state_id": "n5",
           "type": "checkpoint",
           "question": "พื้นที่รอบเครื่องไม่มีวัตถุวางอยู่ใช่หรือไม่?",
           "safety_critical": false,
@@ -747,7 +747,7 @@
           "on_no": "n5f"
         },
         {
-          "node_id": "n5f",
+          "state_id": "n5f",
           "type": "instruction",
           "content": "ย้ายวัตถุออกจากพื้นที่รอบเครื่อง",
           "safety_critical": false,
@@ -755,7 +755,7 @@
           "next": "n5v"
         },
         {
-          "node_id": "n5v",
+          "state_id": "n5v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -763,7 +763,7 @@
           "on_no": "n6"
         },
         {
-          "node_id": "n6",
+          "state_id": "n6",
           "type": "checkpoint",
           "question": "เสียงที่ได้ยินเป็นเสียงครางต่ำขณะเครื่องทำงานใช่หรือไม่?",
           "safety_critical": false,
@@ -771,13 +771,13 @@
           "on_no": "n7"
         },
         {
-          "node_id": "n6n",
+          "state_id": "n6n",
           "type": "resolution",
           "content": "เสียงครางต่ำ (humming) เกิดขึ้นได้ตามปกติขณะเครื่องทำงาน (คู่มือหน้า 36)",
           "outcome_kind": "normal_behavior"
         },
         {
-          "node_id": "n7",
+          "state_id": "n7",
           "type": "checkpoint",
           "question": "มีวัตถุ เช่น เหรียญ อยู่ในเครื่องหรือไม่?",
           "safety_critical": false,
@@ -785,7 +785,7 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n7f",
+          "state_id": "n7f",
           "type": "instruction",
           "content": "หลังซักเสร็จ นำวัตถุเหล่านั้นออกจากเครื่อง (คู่มือหน้า 36)",
           "safety_critical": true,
@@ -794,7 +794,7 @@
           "next": "n7v"
         },
         {
-          "node_id": "n7v",
+          "state_id": "n7v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -802,13 +802,13 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "เครื่องไม่สั่นหรือเสียงดังผิดปกติแล้ว",
           "outcome_kind": "user_fixed"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
           "outcome_kind": "handoff_unknown"
@@ -816,7 +816,7 @@
       ]
     },
     {
-      "graph_id": "samsung_wa5000r_um_stops",
+      "flow_id": "samsung_wa5000r_um_stops",
       "device_category": "Washing Machine",
       "brand": "Samsung",
       "model_pattern": "WA**R526***/WA**T526***/WA**T516***",
@@ -835,10 +835,10 @@
       "source_chunk_id": "manual_Samsung_WashingMachine_WA5000R_p36_stops",
       "severity": "medium",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "เสียบปลั๊กเข้ากับเต้ารับที่มีไฟอยู่หรือไม่?",
           "safety_critical": false,
@@ -846,7 +846,7 @@
           "on_no": "n1f"
         },
         {
-          "node_id": "n1f",
+          "state_id": "n1f",
           "type": "instruction",
           "content": "เสียบปลั๊กให้แน่นเข้ากับเต้ารับที่มีไฟ (คู่มือหน้า 36)",
           "safety_critical": true,
@@ -855,7 +855,7 @@
           "next": "n1v"
         },
         {
-          "node_id": "n1v",
+          "state_id": "n1v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
           "safety_critical": false,
@@ -864,7 +864,7 @@
           "on_no": "n2"
         },
         {
-          "node_id": "n2",
+          "state_id": "n2",
           "type": "checkpoint",
           "question": "ฟิวส์ไม่ขาดและเบรกเกอร์ไม่ตัดอยู่ใช่หรือไม่?",
           "safety_critical": false,
@@ -872,7 +872,7 @@
           "on_no": "n2f"
         },
         {
-          "node_id": "n2f",
+          "state_id": "n2f",
           "type": "instruction",
           "content": "ตรวจฟิวส์หรือรีเซ็ตเบรกเกอร์ (คู่มือหน้า 36)",
           "safety_critical": true,
@@ -881,7 +881,7 @@
           "next": "n2v"
         },
         {
-          "node_id": "n2v",
+          "state_id": "n2v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
           "safety_critical": false,
@@ -890,7 +890,7 @@
           "on_no": "n3"
         },
         {
-          "node_id": "n3",
+          "state_id": "n3",
           "type": "checkpoint",
           "question": "ปิดฝาเครื่องสนิทและกด START/PAUSE เพื่อเริ่มเครื่องแล้วหรือไม่?",
           "safety_critical": false,
@@ -898,7 +898,7 @@
           "on_no": "n3f"
         },
         {
-          "node_id": "n3f",
+          "state_id": "n3f",
           "type": "instruction",
           "content": "ปิดฝาเครื่อง แล้วกดปุ่ม START/PAUSE เพื่อเริ่มเครื่อง เพื่อความปลอดภัย เครื่องจะไม่ปั่นถ้าฝาไม่ปิด (คู่มือหน้า 36)",
           "safety_critical": false,
@@ -906,7 +906,7 @@
           "next": "n3v"
         },
         {
-          "node_id": "n3v",
+          "state_id": "n3v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -914,7 +914,7 @@
           "on_no": "n4"
         },
         {
-          "node_id": "n4",
+          "state_id": "n4",
           "type": "checkpoint",
           "question": "เครื่องเพิ่งทำเสียงคลิกหลายครั้งก่อนเริ่มเติมน้ำใช่หรือไม่?",
           "safety_critical": false,
@@ -922,13 +922,13 @@
           "on_no": "n5"
         },
         {
-          "node_id": "n4n",
+          "state_id": "n4n",
           "type": "resolution",
           "content": "เป็นการทำงานปกติ เครื่องกำลังตรวจว่าฝาล็อกอยู่หรือไม่ และระบายน้ำสั้นๆ ก่อนเติมน้ำ (คู่มือหน้า 36)",
           "outcome_kind": "normal_behavior"
         },
         {
-          "node_id": "n5",
+          "state_id": "n5",
           "type": "checkpoint",
           "question": "รอบการซักอยู่ในช่วงหยุดพักหรือแช่ผ้าใช่หรือไม่?",
           "safety_critical": false,
@@ -936,13 +936,13 @@
           "on_no": "n6"
         },
         {
-          "node_id": "n5n",
+          "state_id": "n5n",
           "type": "resolution",
           "content": "ในรอบซักอาจมีช่วงหยุดพักหรือแช่ผ้า ให้รอสักครู่ เครื่องอาจเริ่มทำงานต่อเอง (คู่มือหน้า 36)",
           "outcome_kind": "normal_behavior"
         },
         {
-          "node_id": "n6",
+          "state_id": "n6",
           "type": "checkpoint",
           "question": "ตะแกรงกรองของสายน้ำเข้าที่ก๊อกน้ำไม่อุดตันใช่หรือไม่?",
           "safety_critical": false,
@@ -950,7 +950,7 @@
           "on_no": "n6f"
         },
         {
-          "node_id": "n6f",
+          "state_id": "n6f",
           "type": "instruction",
           "content": "ล้างตะแกรงกรองสายน้ำเข้า: ถอดปลั๊กและปิดก๊อกน้ำ > ถอดสายน้ำเข้า > ใช้คีมดึงตะแกรงกรอง (mesh filter) ออกจากช่องน้ำเข้า > ล้างตะแกรงด้วยน้ำไหลและแปรงขนนุ่ม > ใส่ตะแกรงกลับและขันให้แน่นกันน้ำรั่ว (คู่มือหน้า 33)",
           "safety_critical": true,
@@ -959,7 +959,7 @@
           "next": "n6v"
         },
         {
-          "node_id": "n6v",
+          "state_id": "n6v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
           "safety_critical": false,
@@ -968,7 +968,7 @@
           "on_no": "n7"
         },
         {
-          "node_id": "n7",
+          "state_id": "n7",
           "type": "checkpoint",
           "question": "ไฟตกชั่วคราวหรือไฟฟ้าแรงดันต่ำใช่หรือไม่?",
           "safety_critical": false,
@@ -976,19 +976,19 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n7n",
+          "state_id": "n7n",
           "type": "resolution",
           "content": "ปัญหานี้เกิดชั่วคราวจากแรงดันไฟต่ำ และจะหายเมื่อไฟฟ้ากลับมาปกติ (คู่มือหน้า 36)",
           "outcome_kind": "normal_behavior"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "เครื่องกลับมาทำงานต่อแล้ว",
           "outcome_kind": "user_fixed"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
           "outcome_kind": "handoff_unknown"
@@ -996,7 +996,7 @@
       ]
     },
     {
-      "graph_id": "samsung_wa5000r_um_wrong_water_temperature",
+      "flow_id": "samsung_wa5000r_um_wrong_water_temperature",
       "device_category": "Washing Machine",
       "brand": "Samsung",
       "model_pattern": "WA**R526***/WA**T526***/WA**T516***",
@@ -1015,10 +1015,10 @@
       "source_chunk_id": "manual_Samsung_WashingMachine_WA5000R_p37_wrong_water_temperature",
       "severity": "low",
       "difficulty": "medium",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "เปิดก๊อกน้ำทั้งสองก๊อกสุดแล้วหรือไม่?",
           "safety_critical": false,
@@ -1026,14 +1026,14 @@
           "on_no": "n1f"
         },
         {
-          "node_id": "n1f",
+          "state_id": "n1f",
           "type": "instruction",
           "content": "เปิดก๊อกน้ำทั้งสองก๊อกให้สุด",
           "safety_critical": false,
           "next": "n1v"
         },
         {
-          "node_id": "n1v",
+          "state_id": "n1v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -1041,7 +1041,7 @@
           "on_no": "n2"
         },
         {
-          "node_id": "n2",
+          "state_id": "n2",
           "type": "checkpoint",
           "question": "เลือกอุณหภูมิน้ำถูกต้องแล้วหรือไม่?",
           "safety_critical": false,
@@ -1049,7 +1049,7 @@
           "on_no": "n2f"
         },
         {
-          "node_id": "n2f",
+          "state_id": "n2f",
           "type": "instruction",
           "content": "เลือกอุณหภูมิน้ำให้ถูกต้อง",
           "safety_critical": false,
@@ -1057,7 +1057,7 @@
           "next": "n2v"
         },
         {
-          "node_id": "n2v",
+          "state_id": "n2v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -1065,7 +1065,7 @@
           "on_no": "n3"
         },
         {
-          "node_id": "n3",
+          "state_id": "n3",
           "type": "checkpoint",
           "question": "ต่อสายน้ำเข้ากับก๊อกถูกต้อง (ร้อนกับร้อน เย็นกับเย็น) หรือไม่?",
           "safety_critical": false,
@@ -1073,7 +1073,7 @@
           "on_no": "n3f"
         },
         {
-          "node_id": "n3f",
+          "state_id": "n3f",
           "type": "instruction",
           "content": "ต่อสายน้ำให้ตรงกับก๊อกที่ถูกต้อง แล้วล้างท่อน้ำ (Flush water lines) (คู่มือหน้า 37)",
           "safety_critical": true,
@@ -1082,7 +1082,7 @@
           "next": "n3v"
         },
         {
-          "node_id": "n3v",
+          "state_id": "n3v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
           "safety_critical": false,
@@ -1091,7 +1091,7 @@
           "on_no": "n4"
         },
         {
-          "node_id": "n4",
+          "state_id": "n4",
           "type": "checkpoint",
           "question": "ตะแกรงกรองของสายน้ำเข้าอุดตันหรือไม่?",
           "safety_critical": false,
@@ -1099,7 +1099,7 @@
           "on_no": "n5"
         },
         {
-          "node_id": "n4f",
+          "state_id": "n4f",
           "type": "instruction",
           "content": "ล้างตะแกรงกรองสายน้ำเข้า: ถอดปลั๊กและปิดก๊อกน้ำ > ถอดสายน้ำเข้า > ใช้คีมดึงตะแกรงกรอง (mesh filter) ออกจากช่องน้ำเข้า > ล้างตะแกรงด้วยน้ำไหลและแปรงขนนุ่ม > ใส่ตะแกรงกลับและขันให้แน่นกันน้ำรั่ว (คู่มือหน้า 33)",
           "safety_critical": true,
@@ -1108,7 +1108,7 @@
           "next": "n4v"
         },
         {
-          "node_id": "n4v",
+          "state_id": "n4v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
           "safety_critical": false,
@@ -1117,7 +1117,7 @@
           "on_no": "n5"
         },
         {
-          "node_id": "n5",
+          "state_id": "n5",
           "type": "checkpoint",
           "question": "เห็นอุณหภูมิน้ำเปลี่ยนระหว่างเติมน้ำ หรือเห็นแต่น้ำร้อนหรือน้ำเย็นผ่านช่องใส่ผงซักฟอกใช่หรือไม่?",
           "safety_critical": false,
@@ -1125,19 +1125,19 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n5n",
+          "state_id": "n5n",
           "type": "resolution",
           "content": "เป็นการทำงานปกติของระบบควบคุมอุณหภูมิน้ำอัตโนมัติ ซึ่งตรวจอุณหภูมิน้ำที่เข้ามาระหว่างเติมน้ำ (คู่มือหน้า 37)",
           "outcome_kind": "normal_behavior"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "น้ำเข้าเครื่องมีอุณหภูมิถูกต้องแล้ว",
           "outcome_kind": "user_fixed"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
           "outcome_kind": "handoff_unknown"
@@ -1145,7 +1145,7 @@
       ]
     },
     {
-      "graph_id": "samsung_wa5000r_um_does_not_drain_or_spin",
+      "flow_id": "samsung_wa5000r_um_does_not_drain_or_spin",
       "device_category": "Washing Machine",
       "brand": "Samsung",
       "model_pattern": "WA**R526***/WA**T526***/WA**T516***",
@@ -1164,10 +1164,10 @@
       "source_chunk_id": "manual_Samsung_WashingMachine_WA5000R_p37_does_not_drain_or_spin",
       "severity": "medium",
       "difficulty": "medium",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "ฟิวส์ไม่ขาดและเบรกเกอร์ไม่ตัดอยู่ใช่หรือไม่?",
           "safety_critical": false,
@@ -1175,7 +1175,7 @@
           "on_no": "n1f"
         },
         {
-          "node_id": "n1f",
+          "state_id": "n1f",
           "type": "instruction",
           "content": "ตรวจฟิวส์หรือรีเซ็ตเบรกเกอร์ (คู่มือหน้า 37)",
           "safety_critical": true,
@@ -1184,7 +1184,7 @@
           "next": "n1v"
         },
         {
-          "node_id": "n1v",
+          "state_id": "n1v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
           "safety_critical": false,
@@ -1193,7 +1193,7 @@
           "on_no": "n2"
         },
         {
-          "node_id": "n2",
+          "state_id": "n2",
           "type": "checkpoint",
           "question": "แรงดันไฟฟ้าปกติใช่หรือไม่?",
           "safety_critical": false,
@@ -1201,7 +1201,7 @@
           "on_no": "n2f"
         },
         {
-          "node_id": "n2f",
+          "state_id": "n2f",
           "type": "instruction",
           "content": "ใช้เต้ารับที่จ่ายไฟตรงตามพิกัดของเครื่อง (AC 220–240 V/50 Hz) (คู่มือหน้า 42)",
           "safety_critical": true,
@@ -1210,7 +1210,7 @@
           "next": "n2v"
         },
         {
-          "node_id": "n2v",
+          "state_id": "n2v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
           "safety_critical": false,
@@ -1219,7 +1219,7 @@
           "on_no": "n3"
         },
         {
-          "node_id": "n3",
+          "state_id": "n3",
           "type": "checkpoint",
           "question": "เสียบปลั๊กเข้าเต้ารับสนิทแล้วใช่หรือไม่?",
           "safety_critical": false,
@@ -1227,7 +1227,7 @@
           "on_no": "n3f"
         },
         {
-          "node_id": "n3f",
+          "state_id": "n3f",
           "type": "instruction",
           "content": "เสียบปลั๊กให้แน่นเข้ากับเต้ารับ (คู่มือหน้า 37)",
           "safety_critical": true,
@@ -1236,7 +1236,7 @@
           "next": "n3v"
         },
         {
-          "node_id": "n3v",
+          "state_id": "n3v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
           "safety_critical": false,
@@ -1245,7 +1245,7 @@
           "on_no": "n4"
         },
         {
-          "node_id": "n4",
+          "state_id": "n4",
           "type": "checkpoint",
           "question": "สายระบายน้ำชี้ลงด้านล่างใช่หรือไม่? (เฉพาะรุ่นระบายน้ำแบบธรรมชาติ ถ้าไม่ใช่ให้ตอบใช่)",
           "safety_critical": false,
@@ -1253,14 +1253,14 @@
           "on_no": "n4f"
         },
         {
-          "node_id": "n4f",
+          "state_id": "n4f",
           "type": "instruction",
           "content": "จัดสายระบายน้ำให้ชี้ลงด้านล่าง",
           "safety_critical": false,
           "next": "n4v"
         },
         {
-          "node_id": "n4v",
+          "state_id": "n4v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -1268,7 +1268,7 @@
           "on_no": "n5"
         },
         {
-          "node_id": "n5",
+          "state_id": "n5",
           "type": "checkpoint",
           "question": "สายระบายน้ำไม่อุดตันและไม่หักงอใช่หรือไม่?",
           "safety_critical": false,
@@ -1276,7 +1276,7 @@
           "on_no": "n5f"
         },
         {
-          "node_id": "n5f",
+          "state_id": "n5f",
           "type": "instruction",
           "content": "ทำให้สายระบายน้ำโล่ง และจัดสายให้ตรง ไม่หักงอ (คู่มือหน้า 37)",
           "safety_critical": false,
@@ -1284,7 +1284,7 @@
           "next": "n5v"
         },
         {
-          "node_id": "n5v",
+          "state_id": "n5v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -1292,7 +1292,7 @@
           "on_no": "n6"
         },
         {
-          "node_id": "n6",
+          "state_id": "n6",
           "type": "checkpoint",
           "question": "พบการติดขัดในระบบระบายน้ำที่เครื่องต่ออยู่ใช่หรือไม่?",
           "safety_critical": false,
@@ -1300,13 +1300,13 @@
           "on_no": "n7"
         },
         {
-          "node_id": "n6e",
+          "state_id": "n6e",
           "type": "escalation",
           "content": "คู่มือระบุให้เรียกช่างเมื่อพบการติดขัดของระบบระบายน้ำ ติดต่อศูนย์บริการ Samsung หรือผู้ดูแลท่อระบายน้ำ (คู่มือหน้า 37)",
           "outcome_kind": "handoff_informed"
         },
         {
-          "node_id": "n7",
+          "state_id": "n7",
           "type": "checkpoint",
           "question": "ปิดฝาเครื่องสนิทและกด START/PAUSE แล้วหรือไม่? (เพื่อความปลอดภัย เครื่องจะไม่ปั่นถ้าฝาไม่ปิด)",
           "safety_critical": false,
@@ -1314,7 +1314,7 @@
           "on_no": "n7f"
         },
         {
-          "node_id": "n7f",
+          "state_id": "n7f",
           "type": "instruction",
           "content": "ปิดฝาเครื่อง แล้วกด START/PAUSE (คู่มือหน้า 37)",
           "safety_critical": false,
@@ -1322,7 +1322,7 @@
           "next": "n7v"
         },
         {
-          "node_id": "n7v",
+          "state_id": "n7v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -1330,13 +1330,13 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "เครื่องระบายน้ำและปั่นแห้งได้ตามปกติแล้ว",
           "outcome_kind": "user_fixed"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
           "outcome_kind": "handoff_unknown"
@@ -1344,7 +1344,7 @@
       ]
     },
     {
-      "graph_id": "samsung_wa5000r_um_load_wet_end_of_cycle",
+      "flow_id": "samsung_wa5000r_um_load_wet_end_of_cycle",
       "device_category": "Washing Machine",
       "brand": "Samsung",
       "model_pattern": "WA**R526***/WA**T526***/WA**T516***",
@@ -1363,10 +1363,10 @@
       "source_chunk_id": "manual_Samsung_WashingMachine_WA5000R_p37_load_wet_end_of_cycle",
       "severity": "low",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "เลือกความเร็วปั่นแห้งสูง (High) หรือสูงพิเศษ (Extra High) แล้วหรือไม่? (เฉพาะรุ่นที่มี ถ้ารุ่นของคุณไม่มีตัวเลือกนี้ให้ตอบใช่)",
           "safety_critical": false,
@@ -1374,7 +1374,7 @@
           "on_no": "n1f"
         },
         {
-          "node_id": "n1f",
+          "state_id": "n1f",
           "type": "instruction",
           "content": "เลือกความเร็วปั่นแห้งเป็น High หรือ Extra High (คู่มือหน้า 37)",
           "safety_critical": false,
@@ -1382,7 +1382,7 @@
           "next": "n1v"
         },
         {
-          "node_id": "n1v",
+          "state_id": "n1v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -1390,7 +1390,7 @@
           "on_no": "n2"
         },
         {
-          "node_id": "n2",
+          "state_id": "n2",
           "type": "checkpoint",
           "question": "ใช้ผงซักฟอกประสิทธิภาพสูง (HE) หรือไม่?",
           "safety_critical": false,
@@ -1398,14 +1398,14 @@
           "on_no": "n2f"
         },
         {
-          "node_id": "n2f",
+          "state_id": "n2f",
           "type": "instruction",
           "content": "ใช้ผงซักฟอก HE เพื่อลดฟองมากเกินไป (คู่มือหน้า 37)",
           "safety_critical": false,
           "next": "n2v"
         },
         {
-          "node_id": "n2v",
+          "state_id": "n2v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -1413,7 +1413,7 @@
           "on_no": "n3"
         },
         {
-          "node_id": "n3",
+          "state_id": "n3",
           "type": "checkpoint",
           "question": "ซักผ้าน้อยมาก (หนึ่งหรือสองชิ้น) หรือไม่?",
           "safety_critical": false,
@@ -1421,7 +1421,7 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n3f",
+          "state_id": "n3f",
           "type": "instruction",
           "content": "ซักผ้าให้มากขึ้นให้พอดีกับรอบซัก เพราะผ้าจำนวนน้อยอาจไม่สมดุลและปั่นไม่สุด (คู่มือหน้า 37)",
           "safety_critical": false,
@@ -1429,7 +1429,7 @@
           "next": "n3v"
         },
         {
-          "node_id": "n3v",
+          "state_id": "n3v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -1437,13 +1437,13 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "ผ้าไม่เปียกหลังจบรอบซักแล้ว",
           "outcome_kind": "user_fixed"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
           "outcome_kind": "handoff_unknown"
@@ -1451,7 +1451,7 @@
       ]
     },
     {
-      "graph_id": "samsung_wa5000r_um_leaks_water",
+      "flow_id": "samsung_wa5000r_um_leaks_water",
       "device_category": "Washing Machine",
       "brand": "Samsung",
       "model_pattern": "WA**R526***/WA**T526***/WA**T516***",
@@ -1470,10 +1470,10 @@
       "source_chunk_id": "manual_Samsung_WashingMachine_WA5000R_p38_leaks_water",
       "severity": "medium",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "ข้อต่อสายทุกจุดแน่น และยางรองของสายน้ำเข้า (rubber packing) อยู่ตำแหน่งถูกต้องใช่หรือไม่?",
           "safety_critical": false,
@@ -1481,7 +1481,7 @@
           "on_no": "n1f"
         },
         {
-          "node_id": "n1f",
+          "state_id": "n1f",
           "type": "instruction",
           "content": "ขันข้อต่อสายทุกจุดให้แน่น และจัดยางรองของสายน้ำเข้าให้อยู่ตำแหน่งที่ถูกต้อง แล้วขันให้แน่นอีกครั้ง (คู่มือหน้า 38)",
           "safety_critical": true,
@@ -1490,7 +1490,7 @@
           "next": "n1v"
         },
         {
-          "node_id": "n1v",
+          "state_id": "n1v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -1498,7 +1498,7 @@
           "on_no": "n2"
         },
         {
-          "node_id": "n2",
+          "state_id": "n2",
           "type": "checkpoint",
           "question": "ปลายสายระบายน้ำเสียบถูกต้องและยึดแน่นกับระบบระบายน้ำหรือไม่?",
           "safety_critical": false,
@@ -1506,7 +1506,7 @@
           "on_no": "n2f"
         },
         {
-          "node_id": "n2f",
+          "state_id": "n2f",
           "type": "instruction",
           "content": "เสียบปลายสายระบายน้ำให้ถูกต้องและยึดให้แน่นกับระบบระบายน้ำ (คู่มือหน้า 38)",
           "safety_critical": true,
@@ -1515,7 +1515,7 @@
           "next": "n2v"
         },
         {
-          "node_id": "n2v",
+          "state_id": "n2v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -1523,7 +1523,7 @@
           "on_no": "n3"
         },
         {
-          "node_id": "n3",
+          "state_id": "n3",
           "type": "checkpoint",
           "question": "ไม่ได้ใส่ผ้าเกินความจุของเครื่องใช่หรือไม่?",
           "safety_critical": false,
@@ -1531,7 +1531,7 @@
           "on_no": "n3f"
         },
         {
-          "node_id": "n3f",
+          "state_id": "n3f",
           "type": "instruction",
           "content": "ลดปริมาณผ้าไม่ให้ใส่เกินความจุ",
           "safety_critical": false,
@@ -1539,7 +1539,7 @@
           "next": "n3v"
         },
         {
-          "node_id": "n3v",
+          "state_id": "n3v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -1547,7 +1547,7 @@
           "on_no": "n4"
         },
         {
-          "node_id": "n4",
+          "state_id": "n4",
           "type": "checkpoint",
           "question": "ใช้ผงซักฟอกประสิทธิภาพสูง (HE) หรือไม่?",
           "safety_critical": false,
@@ -1555,14 +1555,14 @@
           "on_no": "n4f"
         },
         {
-          "node_id": "n4f",
+          "state_id": "n4f",
           "type": "instruction",
           "content": "ใช้ผงซักฟอก HE เพื่อป้องกันฟองมากเกินไป (คู่มือหน้า 38)",
           "safety_critical": false,
           "next": "n4v"
         },
         {
-          "node_id": "n4v",
+          "state_id": "n4v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -1570,7 +1570,7 @@
           "on_no": "n5"
         },
         {
-          "node_id": "n5",
+          "state_id": "n5",
           "type": "checkpoint",
           "question": "สายน้ำเข้าไม่หักงอใช่หรือไม่?",
           "safety_critical": false,
@@ -1578,14 +1578,14 @@
           "on_no": "n5f"
         },
         {
-          "node_id": "n5f",
+          "state_id": "n5f",
           "type": "instruction",
           "content": "จัดสายน้ำเข้าให้ตรง ไม่หักงอ (คู่มือหน้า 38)",
           "safety_critical": false,
           "next": "n5v"
         },
         {
-          "node_id": "n5v",
+          "state_id": "n5v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -1593,7 +1593,7 @@
           "on_no": "n6"
         },
         {
-          "node_id": "n6",
+          "state_id": "n6",
           "type": "checkpoint",
           "question": "แรงดันน้ำที่ก๊อกแรงเกินไปใช่หรือไม่?",
           "safety_critical": false,
@@ -1601,14 +1601,14 @@
           "on_no": "n7"
         },
         {
-          "node_id": "n6f",
+          "state_id": "n6f",
           "type": "instruction",
           "content": "หรี่ก๊อกน้ำลงเล็กน้อย (คู่มือหน้า 38)",
           "safety_critical": false,
           "next": "n6v"
         },
         {
-          "node_id": "n6v",
+          "state_id": "n6v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -1616,7 +1616,7 @@
           "on_no": "n7"
         },
         {
-          "node_id": "n7",
+          "state_id": "n7",
           "type": "checkpoint",
           "question": "น้ำรั่วออกจากตัวก๊อกน้ำเองใช่หรือไม่?",
           "safety_critical": false,
@@ -1624,19 +1624,19 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n7e",
+          "state_id": "n7e",
           "type": "escalation",
           "content": "คู่มือระบุให้ซ่อมก๊อกน้ำ ติดต่อช่างประปา (คู่มือหน้า 38)",
           "outcome_kind": "handoff_informed"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "เครื่องไม่รั่วแล้ว",
           "outcome_kind": "user_fixed"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
           "outcome_kind": "handoff_unknown"
@@ -1644,7 +1644,7 @@
       ]
     },
     {
-      "graph_id": "samsung_wa5000r_um_excessive_suds",
+      "flow_id": "samsung_wa5000r_um_excessive_suds",
       "device_category": "Washing Machine",
       "brand": "Samsung",
       "model_pattern": "WA**R526***/WA**T526***/WA**T516***",
@@ -1663,10 +1663,10 @@
       "source_chunk_id": "manual_Samsung_WashingMachine_WA5000R_p38_excessive_suds",
       "severity": "low",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "ใช้ผงซักฟอกประสิทธิภาพสูง (HE) หรือไม่?",
           "safety_critical": false,
@@ -1674,14 +1674,14 @@
           "on_no": "n1f"
         },
         {
-          "node_id": "n1f",
+          "state_id": "n1f",
           "type": "instruction",
           "content": "ใช้ผงซักฟอก HE เพื่อป้องกันฟองมากเกินไป คู่มือไม่แนะนำผงซักฟอกที่ไม่ใช่ HE (คู่มือหน้า 38)",
           "safety_critical": false,
           "next": "n1v"
         },
         {
-          "node_id": "n1v",
+          "state_id": "n1v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -1689,7 +1689,7 @@
           "on_no": "n2"
         },
         {
-          "node_id": "n2",
+          "state_id": "n2",
           "type": "checkpoint",
           "question": "ลดปริมาณผงซักฟอกแล้วหรือไม่ เมื่อใช้น้ำอ่อน ซักผ้าน้อย หรือผ้าไม่สกปรกมาก?",
           "safety_critical": false,
@@ -1697,14 +1697,14 @@
           "on_no": "n2f"
         },
         {
-          "node_id": "n2f",
+          "state_id": "n2f",
           "type": "instruction",
           "content": "ลดปริมาณผงซักฟอกลงสำหรับน้ำอ่อน ผ้าน้อย หรือผ้าไม่สกปรกมาก (คู่มือหน้า 38)",
           "safety_critical": false,
           "next": "n2v"
         },
         {
-          "node_id": "n2v",
+          "state_id": "n2v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -1712,13 +1712,13 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "ฟองลดลงแล้ว",
           "outcome_kind": "user_fixed"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
           "outcome_kind": "handoff_unknown"
@@ -1726,7 +1726,7 @@
       ]
     },
     {
-      "graph_id": "samsung_wa5000r_um_frozen",
+      "flow_id": "samsung_wa5000r_um_frozen",
       "device_category": "Washing Machine",
       "brand": "Samsung",
       "model_pattern": "WA**R526***/WA**T526***/WA**T516***",
@@ -1745,10 +1745,10 @@
       "source_chunk_id": "manual_Samsung_WashingMachine_WA5000R_p38_frozen",
       "severity": "medium",
       "difficulty": "medium",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "อุณหภูมิต่ำจนคุณสงสัยว่าถังซัก สายน้ำเข้า หรือสายระบายน้ำแข็งตัวใช่หรือไม่?",
           "safety_critical": false,
@@ -1756,7 +1756,7 @@
           "on_no": "n_nomatch"
         },
         {
-          "node_id": "n2",
+          "state_id": "n2",
           "type": "instruction",
           "content": "ถอดปลั๊ก แล้วใช้น้ำอุ่นถอดสายน้ำเข้าและสายระบายน้ำ แช่สายทั้งสองในน้ำอุ่น (คู่มือหน้า 38)",
           "safety_critical": true,
@@ -1765,28 +1765,28 @@
           "next": "n3"
         },
         {
-          "node_id": "n3",
+          "state_id": "n3",
           "type": "instruction",
           "content": "เติมน้ำอุ่นลงในถังซัก แล้วรอประมาณ 10 นาที (คู่มือหน้า 38)",
           "safety_critical": false,
           "next": "n4"
         },
         {
-          "node_id": "n4",
+          "state_id": "n4",
           "type": "instruction",
           "content": "วางผ้าร้อนบนข้อต่อสายระบายน้ำ (คู่มือหน้า 38)",
           "safety_critical": false,
           "next": "n5"
         },
         {
-          "node_id": "n5",
+          "state_id": "n5",
           "type": "instruction",
           "content": "ต่อสายน้ำเข้าและสายระบายน้ำกลับ แล้วตรวจว่าน้ำเข้าเครื่องได้ปกติ (คู่มือหน้า 38)",
           "safety_critical": false,
           "next": "n6"
         },
         {
-          "node_id": "n6",
+          "state_id": "n6",
           "type": "checkpoint",
           "question": "เครื่องรับน้ำและทำงานได้ปกติแล้วหรือไม่?",
           "safety_critical": false,
@@ -1795,19 +1795,19 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "เครื่องกลับมาทำงานปกติแล้ว",
           "outcome_kind": "user_fixed"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ทำตามขั้นตอนแก้ปัญหาสายแข็งตัวแล้วเครื่องยังไม่ทำงานปกติ ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่องและสิ่งที่ได้ทำไปแล้ว",
           "outcome_kind": "handoff_unknown"
         },
         {
-          "node_id": "n_nomatch",
+          "state_id": "n_nomatch",
           "type": "escalation",
           "content": "อาการไม่ตรงกับกรณีที่คู่มือระบุ (ถังซักหรือสายแข็งตัว) ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่องและอาการที่พบ",
           "outcome_kind": "handoff_unknown"
@@ -1815,7 +1815,7 @@
       ]
     },
     {
-      "graph_id": "samsung_wa5000r_um_water_drains_out_immediately",
+      "flow_id": "samsung_wa5000r_um_water_drains_out_immediately",
       "device_category": "Washing Machine",
       "brand": "Samsung",
       "model_pattern": "WA**R526***/WA**T526***/WA**T516***",
@@ -1834,10 +1834,10 @@
       "source_chunk_id": "manual_Samsung_WashingMachine_WA5000R_p38_water_drains_out_immediately",
       "severity": "low",
       "difficulty": "medium",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "สายระบายน้ำไม่อุดตัน และแขวนอยู่บนตะขอสายระบายน้ำ (drain hose hook) ใช่หรือไม่?",
           "safety_critical": false,
@@ -1845,7 +1845,7 @@
           "on_no": "n1f"
         },
         {
-          "node_id": "n1f",
+          "state_id": "n1f",
           "type": "instruction",
           "content": "แขวนสายระบายน้ำบนตะขอสายระบายน้ำ ทำให้สายไม่อุดตัน แล้วเติมน้ำครึ่งถังและลองปั่นแห้งอีกครั้ง (คู่มือหน้า 38)",
           "safety_critical": false,
@@ -1853,7 +1853,7 @@
           "next": "n1v"
         },
         {
-          "node_id": "n1v",
+          "state_id": "n1v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -1861,7 +1861,7 @@
           "on_no": "n2"
         },
         {
-          "node_id": "n2",
+          "state_id": "n2",
           "type": "instruction",
           "content": "ยกปลายสายระบายน้ำขึ้นเพื่อไม่ให้น้ำไหลออก เติมน้ำครึ่งถัง แล้วปล่อยสายระบายน้ำและเริ่มปั่นแห้ง (คู่มือหน้า 38)",
           "safety_critical": false,
@@ -1869,7 +1869,7 @@
           "next": "n2v"
         },
         {
-          "node_id": "n2v",
+          "state_id": "n2v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -1877,7 +1877,7 @@
           "on_no": "n3"
         },
         {
-          "node_id": "n3",
+          "state_id": "n3",
           "type": "checkpoint",
           "question": "ติดตั้งสายระบายน้ำถูกต้องแล้วใช่หรือไม่?",
           "safety_critical": false,
@@ -1885,7 +1885,7 @@
           "on_no": "n3f"
         },
         {
-          "node_id": "n3f",
+          "state_id": "n3f",
           "type": "instruction",
           "content": "จัดตำแหน่งสายระบายน้ำให้ถูกต้องตามประเภทการต่อ — แบบทั่วไป (General type): กดวงแหวนต่อ (joint ring) ค้างแล้วสอดเข้าสายระบาย จากนั้นเสียบสายเข้าช่องระบายและยึดด้วยวงแหวนต่อให้แน่น ปรับความยาวสายได้ (คู่มือหน้า 17) — แบบปั๊ม (Pump type): เปิดฝาครอบสาย (hose cap) ถ้ามี สอดสายระบายแล้วขันด้วยวงแหวนต่อ ต่อปลายอีกด้านเข้ากับท่อยืน (standpipe) หรืออ่างที่สูงจากพื้น 90–100 ซม. โดยท่อยืนต้องครอบสายระบายให้มิด และปลายสายต้องไม่จมน้ำ (คู่มือหน้า 12 และ 18)",
           "safety_critical": true,
@@ -1894,7 +1894,7 @@
           "next": "n3v"
         },
         {
-          "node_id": "n3v",
+          "state_id": "n3v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -1902,13 +1902,13 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "น้ำไม่ระบายออกทันทีแล้ว",
           "outcome_kind": "user_fixed"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
           "outcome_kind": "handoff_unknown"
@@ -1916,7 +1916,7 @@
       ]
     },
     {
-      "graph_id": "samsung_wa5000r_um_stains_on_clothes",
+      "flow_id": "samsung_wa5000r_um_stains_on_clothes",
       "device_category": "Washing Machine",
       "brand": "Samsung",
       "model_pattern": "WA**R526***/WA**T526***/WA**T516***",
@@ -1935,10 +1935,10 @@
       "source_chunk_id": "manual_Samsung_WashingMachine_WA5000R_p38_stains_on_clothes",
       "severity": "low",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "instruction",
           "content": "ทำความสะอาด Magic filter: กดส่วนบนของกล่องกรอง (filter case) เพื่อถอดออก > ปลดล็อกฝาครอบแล้วล้างตัวกรองด้วยน้ำไหลและแปรง > ปิดฝาครอบและใส่กล่องกรองกลับที่เดิมจนได้ยินเสียงคลิก (คู่มือหน้า 31)",
           "safety_critical": true,
@@ -1947,7 +1947,7 @@
           "next": "n1v"
         },
         {
-          "node_id": "n1v",
+          "state_id": "n1v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -1955,13 +1955,13 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "ผ้าไม่มีคราบแล้ว",
           "outcome_kind": "user_fixed"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ทำความสะอาด Magic filter แล้วผ้ายังมีคราบ ติดต่อศูนย์บริการ Samsung ในพื้นที่ (คู่มือหน้า 38) พร้อมแจ้งรุ่นเครื่องและสิ่งที่ได้ทำไปแล้ว",
           "outcome_kind": "handoff_unknown"
@@ -1969,7 +1969,7 @@
       ]
     },
     {
-      "graph_id": "samsung_wa5000r_um_has_odours",
+      "flow_id": "samsung_wa5000r_um_has_odours",
       "device_category": "Washing Machine",
       "brand": "Samsung",
       "model_pattern": "WA**R526***/WA**T526***/WA**T516***",
@@ -1988,10 +1988,10 @@
       "source_chunk_id": "manual_Samsung_WashingMachine_WA5000R_p38_has_odours",
       "severity": "low",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "ใช้ผงซักฟอกในปริมาณที่เหมาะสมจนไม่เกิดฟองสะสมตามซอกใช่หรือไม่?",
           "safety_critical": false,
@@ -1999,7 +1999,7 @@
           "on_no": "n1f"
         },
         {
-          "node_id": "n1f",
+          "state_id": "n1f",
           "type": "instruction",
           "content": "ใช้ผงซักฟอก HE และลดปริมาณผงซักฟอกเมื่อใช้น้ำอ่อน ซักผ้าน้อย หรือผ้าไม่สกปรกมาก (คู่มือหน้า 38)",
           "safety_critical": false,
@@ -2007,7 +2007,7 @@
           "next": "n1v"
         },
         {
-          "node_id": "n1v",
+          "state_id": "n1v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -2015,7 +2015,7 @@
           "on_no": "n2"
         },
         {
-          "node_id": "n2",
+          "state_id": "n2",
           "type": "checkpoint",
           "question": "ทำความสะอาดถังซักด้วยรอบ ECO TUB CLEAN เป็นประจำหรือไม่?",
           "safety_critical": false,
@@ -2023,7 +2023,7 @@
           "on_no": "n2f"
         },
         {
-          "node_id": "n2f",
+          "state_id": "n2f",
           "type": "instruction",
           "content": "ทำรอบ ECO TUB CLEAN: นำผ้าออกจากถัง > กด POWER เปิดเครื่อง > กด Cycle เลือก ECO TUB CLEAN > กด START/PAUSE (คู่มือหน้า 27, 28 และ 31)",
           "safety_critical": false,
@@ -2031,7 +2031,7 @@
           "next": "n2v"
         },
         {
-          "node_id": "n2v",
+          "state_id": "n2v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่? (ให้เวลาตามสมควร)",
           "safety_critical": false,
@@ -2040,7 +2040,7 @@
           "on_no": "n3"
         },
         {
-          "node_id": "n3",
+          "state_id": "n3",
           "type": "checkpoint",
           "question": "ผึ่งหรือเช็ดภายในเครื่องให้แห้งหลังจบรอบซักหรือไม่?",
           "safety_critical": false,
@@ -2048,7 +2048,7 @@
           "on_no": "n3f"
         },
         {
-          "node_id": "n3f",
+          "state_id": "n3f",
           "type": "instruction",
           "content": "ทำให้ภายในเครื่องแห้งหลังจบรอบซัก",
           "safety_critical": false,
@@ -2056,7 +2056,7 @@
           "next": "n3v"
         },
         {
-          "node_id": "n3v",
+          "state_id": "n3v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -2064,13 +2064,13 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "กลิ่นเหม็นหายแล้ว",
           "outcome_kind": "user_fixed"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
           "outcome_kind": "handoff_unknown"
@@ -2078,7 +2078,7 @@
       ]
     },
     {
-      "graph_id": "samsung_wa5000r_um_code_1c",
+      "flow_id": "samsung_wa5000r_um_code_1c",
       "device_category": "Washing Machine",
       "brand": "Samsung",
       "model_pattern": "WA**R526***/WA**T526***/WA**T516***",
@@ -2100,10 +2100,10 @@
       "source_chunk_id": "manual_Samsung_WashingMachine_WA5000R_p39_code_1c",
       "severity": "medium",
       "difficulty": "medium",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "หน้าจอแสดงรหัส 1C ใช่หรือไม่?",
           "safety_critical": false,
@@ -2111,13 +2111,13 @@
           "on_no": "n_nomatch"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "คู่มือหน้า 39 ให้ตรวจชุดสายไฟของเซนเซอร์ระดับน้ำ ซึ่งอยู่ภายในเครื่อง ห้ามถอดแยกหรือซ่อมเอง (คู่มือหน้า 8) ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่องและรหัส 1C",
           "outcome_kind": "handoff_informed"
         },
         {
-          "node_id": "n_nomatch",
+          "state_id": "n_nomatch",
           "type": "escalation",
           "content": "รหัสที่แสดงไม่ใช่ 1C ให้เลือกรหัสตามที่ปรากฏบนจอ หรือติดต่อศูนย์บริการ Samsung พร้อมแจ้งรหัสที่เห็น",
           "outcome_kind": "handoff_unknown"
@@ -2125,7 +2125,7 @@
       ]
     },
     {
-      "graph_id": "samsung_wa5000r_um_code_3c",
+      "flow_id": "samsung_wa5000r_um_code_3c",
       "device_category": "Washing Machine",
       "brand": "Samsung",
       "model_pattern": "WA**R526***/WA**T526***/WA**T516***",
@@ -2146,10 +2146,10 @@
       "source_chunk_id": "manual_Samsung_WashingMachine_WA5000R_p39_code_3c",
       "severity": "medium",
       "difficulty": "medium",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "หน้าจอแสดงรหัส 3C ใช่หรือไม่?",
           "safety_critical": false,
@@ -2157,7 +2157,7 @@
           "on_no": "n_nomatch"
         },
         {
-          "node_id": "n2",
+          "state_id": "n2",
           "type": "instruction",
           "content": "กดปุ่ม POWER ปิดเครื่อง แล้วกด POWER เปิดเครื่องและกด START/PAUSE เริ่มรอบการทำงานใหม่ (คู่มือหน้า 26)",
           "safety_critical": false,
@@ -2165,7 +2165,7 @@
           "next": "n2v"
         },
         {
-          "node_id": "n2v",
+          "state_id": "n2v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว รหัสบนจอหายไปและเครื่องทำงานปกติหรือไม่?",
           "safety_critical": false,
@@ -2173,19 +2173,19 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "รหัสหายไปและเครื่องทำงานปกติแล้ว",
           "outcome_kind": "user_fixed"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ทำตามรายการตรวจแล้วรหัส 3C ยังแสดงอยู่ ติดต่อศูนย์บริการ Samsung ในพื้นที่ (คู่มือหน้า 39) พร้อมแจ้งรุ่นเครื่อง รหัส และสิ่งที่ได้ตรวจไปแล้ว",
           "outcome_kind": "handoff_unknown"
         },
         {
-          "node_id": "n_nomatch",
+          "state_id": "n_nomatch",
           "type": "escalation",
           "content": "รหัสที่แสดงไม่ใช่ 3C ให้เลือกรหัสตามที่ปรากฏบนจอ หรือติดต่อศูนย์บริการ Samsung พร้อมแจ้งรหัสที่เห็น",
           "outcome_kind": "handoff_unknown"
@@ -2193,7 +2193,7 @@
       ]
     },
     {
-      "graph_id": "samsung_wa5000r_um_code_4c",
+      "flow_id": "samsung_wa5000r_um_code_4c",
       "device_category": "Washing Machine",
       "brand": "Samsung",
       "model_pattern": "WA**R526***/WA**T526***/WA**T516***",
@@ -2214,10 +2214,10 @@
       "source_chunk_id": "manual_Samsung_WashingMachine_WA5000R_p39_code_4c",
       "severity": "medium",
       "difficulty": "medium",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "หน้าจอแสดงรหัส 4C ใช่หรือไม่?",
           "safety_critical": false,
@@ -2225,7 +2225,7 @@
           "on_no": "n_nomatch"
         },
         {
-          "node_id": "n2",
+          "state_id": "n2",
           "type": "checkpoint",
           "question": "เปิดก๊อกน้ำแล้วหรือไม่?",
           "safety_critical": false,
@@ -2233,14 +2233,14 @@
           "on_no": "n2f"
         },
         {
-          "node_id": "n2f",
+          "state_id": "n2f",
           "type": "instruction",
           "content": "เปิดก๊อกน้ำ",
           "safety_critical": false,
           "next": "n2v"
         },
         {
-          "node_id": "n2v",
+          "state_id": "n2v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -2248,7 +2248,7 @@
           "on_no": "n3"
         },
         {
-          "node_id": "n3",
+          "state_id": "n3",
           "type": "checkpoint",
           "question": "สายน้ำเข้าไม่อุดตันใช่หรือไม่?",
           "safety_critical": false,
@@ -2256,7 +2256,7 @@
           "on_no": "n3f"
         },
         {
-          "node_id": "n3f",
+          "state_id": "n3f",
           "type": "instruction",
           "content": "ทำให้สายน้ำเข้าโล่ง ไม่อุดตัน",
           "safety_critical": false,
@@ -2264,7 +2264,7 @@
           "next": "n3v"
         },
         {
-          "node_id": "n3v",
+          "state_id": "n3v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
@@ -2272,7 +2272,7 @@
           "on_no": "n4"
         },
         {
-          "node_id": "n4",
+          "state_id": "n4",
           "type": "checkpoint",
           "question": "ก๊อกน้ำไม่แข็งตัวใช่หรือไม่?",
           "safety_critical": false,
@@ -2280,7 +2280,7 @@
           "on_no": "n4f"
         },
         {
-          "node_id": "n4f",
+          "state_id": "n4f",
           "type": "instruction",
           "content": "แก้ปัญหาสายแข็งตัว: ถอดปลั๊ก > ใช้น้ำอุ่นถอดสายน้ำเข้าและสายระบายน้ำ แล้วแช่ในน้ำอุ่น > เติมน้ำอุ่นลงในถังซักและรอประมาณ 10 นาที > วางผ้าร้อนบนข้อต่อสายระบายน้ำ > ต่อสายน้ำเข้าและสายระบายกลับ แล้วตรวจว่าน้ำเข้าปกติ (คู่มือหน้า 38)",
           "safety_critical": true,
@@ -2289,7 +2289,7 @@
           "next": "n4v"
         },
         {
-          "node_id": "n4v",
+          "state_id": "n4v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว รหัสบนจอหายไปและเครื่องทำงานปกติหรือไม่?",
           "safety_critical": false,
@@ -2297,7 +2297,7 @@
           "on_no": "n5"
         },
         {
-          "node_id": "n5",
+          "state_id": "n5",
           "type": "checkpoint",
           "question": "แรงดันน้ำไม่เพียงพอใช่หรือไม่?",
           "safety_critical": false,
@@ -2305,13 +2305,13 @@
           "on_no": "n6"
         },
         {
-          "node_id": "n5e",
+          "state_id": "n5e",
           "type": "escalation",
           "content": "คู่มือให้ตรวจแรงดันน้ำแต่ไม่ระบุวิธีแก้ ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่องและรหัส 4C (ช่วงแรงดันน้ำที่เครื่องรองรับอยู่ในตารางหน้า 42)",
           "outcome_kind": "handoff_informed"
         },
         {
-          "node_id": "n6",
+          "state_id": "n6",
           "type": "checkpoint",
           "question": "ต่อสายน้ำเย็นกับก๊อกน้ำเย็น และสายน้ำร้อนกับก๊อกน้ำร้อนถูกต้องหรือไม่?",
           "safety_critical": false,
@@ -2319,7 +2319,7 @@
           "on_no": "n6f"
         },
         {
-          "node_id": "n6f",
+          "state_id": "n6f",
           "type": "instruction",
           "content": "ต่อสายน้ำเข้ากับก๊อกน้ำร้อน/เย็นให้ถูกต้อง",
           "safety_critical": true,
@@ -2328,7 +2328,7 @@
           "next": "n6v"
         },
         {
-          "node_id": "n6v",
+          "state_id": "n6v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว รหัสบนจอหายไปและเครื่องทำงานปกติหรือไม่?",
           "safety_critical": false,
@@ -2336,7 +2336,7 @@
           "on_no": "n7"
         },
         {
-          "node_id": "n7",
+          "state_id": "n7",
           "type": "instruction",
           "content": "ล้างตะแกรงกรองสายน้ำเข้า: ถอดปลั๊กและปิดก๊อกน้ำ > ถอดสายน้ำเข้า > ใช้คีมดึงตะแกรงกรอง (mesh filter) ออกจากช่องน้ำเข้า > ล้างตะแกรงด้วยน้ำไหลและแปรงขนนุ่ม > ใส่ตะแกรงกลับและขันให้แน่นกันน้ำรั่ว (คู่มือหน้า 33)",
           "safety_critical": true,
@@ -2345,7 +2345,7 @@
           "next": "n7v"
         },
         {
-          "node_id": "n7v",
+          "state_id": "n7v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว รหัสบนจอหายไปและเครื่องทำงานปกติหรือไม่?",
           "safety_critical": false,
@@ -2353,19 +2353,19 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "รหัสหายไปและเครื่องทำงานปกติแล้ว",
           "outcome_kind": "user_fixed"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ทำตามรายการตรวจแล้วรหัส 4C ยังแสดงอยู่ ติดต่อศูนย์บริการ Samsung ในพื้นที่ (คู่มือหน้า 39) พร้อมแจ้งรุ่นเครื่อง รหัส และสิ่งที่ได้ตรวจไปแล้ว",
           "outcome_kind": "handoff_unknown"
         },
         {
-          "node_id": "n_nomatch",
+          "state_id": "n_nomatch",
           "type": "escalation",
           "content": "รหัสที่แสดงไม่ใช่ 4C ให้เลือกรหัสตามที่ปรากฏบนจอ หรือติดต่อศูนย์บริการ Samsung พร้อมแจ้งรหัสที่เห็น",
           "outcome_kind": "handoff_unknown"
@@ -2373,7 +2373,7 @@
       ]
     },
     {
-      "graph_id": "samsung_wa5000r_um_code_4c2",
+      "flow_id": "samsung_wa5000r_um_code_4c2",
       "device_category": "Washing Machine",
       "brand": "Samsung",
       "model_pattern": "WA**R526***/WA**T526***/WA**T516***",
@@ -2394,10 +2394,10 @@
       "source_chunk_id": "manual_Samsung_WashingMachine_WA5000R_p39_code_4c2",
       "severity": "low",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "หน้าจอแสดงรหัส 4C2 ใช่หรือไม่?",
           "safety_critical": false,
@@ -2405,7 +2405,7 @@
           "on_no": "n_nomatch"
         },
         {
-          "node_id": "n2",
+          "state_id": "n2",
           "type": "checkpoint",
           "question": "สายน้ำเย็นต่อเข้ากับก๊อกน้ำเย็นแน่นหรือไม่ (ไม่ได้ต่อเข้ากับก๊อกน้ำร้อน)?",
           "safety_critical": false,
@@ -2413,7 +2413,7 @@
           "on_no": "n2f"
         },
         {
-          "node_id": "n2f",
+          "state_id": "n2f",
           "type": "instruction",
           "content": "ต่อสายน้ำเย็นเข้ากับก๊อกน้ำเย็นให้แน่น ถ้าต่อเข้ากับก๊อกน้ำร้อน ผ้าอาจเสียรูปในบางรอบ (คู่มือหน้า 39)",
           "safety_critical": true,
@@ -2422,7 +2422,7 @@
           "next": "n2v"
         },
         {
-          "node_id": "n2v",
+          "state_id": "n2v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว รหัสบนจอหายไปและเครื่องทำงานปกติหรือไม่?",
           "safety_critical": false,
@@ -2430,19 +2430,19 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "รหัสหายไปและเครื่องทำงานปกติแล้ว",
           "outcome_kind": "user_fixed"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ทำตามรายการตรวจแล้วรหัส 4C2 ยังแสดงอยู่ ติดต่อศูนย์บริการ Samsung ในพื้นที่ (คู่มือหน้า 39) พร้อมแจ้งรุ่นเครื่อง รหัส และสิ่งที่ได้ตรวจไปแล้ว",
           "outcome_kind": "handoff_unknown"
         },
         {
-          "node_id": "n_nomatch",
+          "state_id": "n_nomatch",
           "type": "escalation",
           "content": "รหัสที่แสดงไม่ใช่ 4C2 ให้เลือกรหัสตามที่ปรากฏบนจอ หรือติดต่อศูนย์บริการ Samsung พร้อมแจ้งรหัสที่เห็น",
           "outcome_kind": "handoff_unknown"
@@ -2450,7 +2450,7 @@
       ]
     },
     {
-      "graph_id": "samsung_wa5000r_um_code_5c",
+      "flow_id": "samsung_wa5000r_um_code_5c",
       "device_category": "Washing Machine",
       "brand": "Samsung",
       "model_pattern": "WA**R526***/WA**T526***/WA**T516***",
@@ -2471,10 +2471,10 @@
       "source_chunk_id": "manual_Samsung_WashingMachine_WA5000R_p39_code_5c",
       "severity": "medium",
       "difficulty": "medium",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "หน้าจอแสดงรหัส 5C ใช่หรือไม่?",
           "safety_critical": false,
@@ -2482,7 +2482,7 @@
           "on_no": "n_nomatch"
         },
         {
-          "node_id": "n2",
+          "state_id": "n2",
           "type": "checkpoint",
           "question": "สายระบายน้ำไม่แข็งตัวใช่หรือไม่?",
           "safety_critical": false,
@@ -2490,7 +2490,7 @@
           "on_no": "n2f"
         },
         {
-          "node_id": "n2f",
+          "state_id": "n2f",
           "type": "instruction",
           "content": "แก้ปัญหาสายแข็งตัว: ถอดปลั๊ก > ใช้น้ำอุ่นถอดสายน้ำเข้าและสายระบายน้ำ แล้วแช่ในน้ำอุ่น > เติมน้ำอุ่นลงในถังซักและรอประมาณ 10 นาที > วางผ้าร้อนบนข้อต่อสายระบายน้ำ > ต่อสายน้ำเข้าและสายระบายกลับ แล้วตรวจว่าน้ำเข้าปกติ (คู่มือหน้า 38)",
           "safety_critical": true,
@@ -2499,7 +2499,7 @@
           "next": "n2v"
         },
         {
-          "node_id": "n2v",
+          "state_id": "n2v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว รหัสบนจอหายไปและเครื่องทำงานปกติหรือไม่?",
           "safety_critical": false,
@@ -2507,7 +2507,7 @@
           "on_no": "n3"
         },
         {
-          "node_id": "n3",
+          "state_id": "n3",
           "type": "checkpoint",
           "question": "สายระบายน้ำไม่อุดตันใช่หรือไม่?",
           "safety_critical": false,
@@ -2515,7 +2515,7 @@
           "on_no": "n3f"
         },
         {
-          "node_id": "n3f",
+          "state_id": "n3f",
           "type": "instruction",
           "content": "ทำให้สายระบายน้ำโล่ง ไม่อุดตัน",
           "safety_critical": false,
@@ -2523,7 +2523,7 @@
           "next": "n3v"
         },
         {
-          "node_id": "n3v",
+          "state_id": "n3v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว รหัสบนจอหายไปและเครื่องทำงานปกติหรือไม่?",
           "safety_critical": false,
@@ -2531,7 +2531,7 @@
           "on_no": "n4"
         },
         {
-          "node_id": "n4",
+          "state_id": "n4",
           "type": "checkpoint",
           "question": "วางสายระบายน้ำถูกตำแหน่งตามประเภทการต่อท่อหรือไม่?",
           "safety_critical": false,
@@ -2539,7 +2539,7 @@
           "on_no": "n4f"
         },
         {
-          "node_id": "n4f",
+          "state_id": "n4f",
           "type": "instruction",
           "content": "จัดตำแหน่งสายระบายน้ำให้ถูกต้องตามประเภทการต่อ — แบบทั่วไป (General type): กดวงแหวนต่อ (joint ring) ค้างแล้วสอดเข้าสายระบาย จากนั้นเสียบสายเข้าช่องระบายและยึดด้วยวงแหวนต่อให้แน่น ปรับความยาวสายได้ (คู่มือหน้า 17) — แบบปั๊ม (Pump type): เปิดฝาครอบสาย (hose cap) ถ้ามี สอดสายระบายแล้วขันด้วยวงแหวนต่อ ต่อปลายอีกด้านเข้ากับท่อยืน (standpipe) หรืออ่างที่สูงจากพื้น 90–100 ซม. โดยท่อยืนต้องครอบสายระบายให้มิด และปลายสายต้องไม่จมน้ำ (คู่มือหน้า 12 และ 18)",
           "safety_critical": true,
@@ -2548,7 +2548,7 @@
           "next": "n4v"
         },
         {
-          "node_id": "n4v",
+          "state_id": "n4v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว รหัสบนจอหายไปและเครื่องทำงานปกติหรือไม่?",
           "safety_critical": false,
@@ -2556,7 +2556,7 @@
           "on_no": "n5"
         },
         {
-          "node_id": "n5",
+          "state_id": "n5",
           "type": "instruction",
           "content": "ทำความสะอาดตัวกรอง (debris filter): (ก) Magic filter — กดส่วนบนของกล่องกรอง (filter case) เพื่อถอดออก > ปลดล็อกฝาครอบแล้วล้างตัวกรองด้วยน้ำไหลและแปรง > ปิดฝาครอบและใส่กล่องกรองกลับที่เดิมจนได้ยินเสียงคลิก (คู่มือหน้า 31) (ข) เฉพาะรุ่นที่มี Pump filter — วางผ้าหรือผ้าเช็ดพื้นไว้ใต้ Pump filter > หมุนลูกบิดตัวกรองทวนเข็มนาฬิกาเพื่อถอดออก > ล้างตัวกรองด้วยน้ำไหลและแปรงนุ่ม > ใส่ตัวกรองกลับแล้วหมุนตามเข็มนาฬิกาจนล็อกเข้าที่ (คู่มือหน้า 32)",
           "safety_critical": true,
@@ -2565,7 +2565,7 @@
           "next": "n5v"
         },
         {
-          "node_id": "n5v",
+          "state_id": "n5v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว รหัสบนจอหายไปและเครื่องทำงานปกติหรือไม่?",
           "safety_critical": false,
@@ -2573,7 +2573,7 @@
           "on_no": "n6"
         },
         {
-          "node_id": "n6",
+          "state_id": "n6",
           "type": "checkpoint",
           "question": "สายระบายน้ำตรงตลอดแนวไปยังระบบระบายน้ำหรือไม่?",
           "safety_critical": false,
@@ -2581,14 +2581,14 @@
           "on_no": "n6f"
         },
         {
-          "node_id": "n6f",
+          "state_id": "n6f",
           "type": "instruction",
           "content": "จัดสายระบายน้ำให้ตรงตลอดแนวไปยังระบบระบายน้ำ",
           "safety_critical": false,
           "next": "n6v"
         },
         {
-          "node_id": "n6v",
+          "state_id": "n6v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว รหัสบนจอหายไปและเครื่องทำงานปกติหรือไม่?",
           "safety_critical": false,
@@ -2596,19 +2596,19 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "รหัสหายไปและเครื่องทำงานปกติแล้ว",
           "outcome_kind": "user_fixed"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ทำตามรายการตรวจแล้วรหัส 5C ยังแสดงอยู่ ติดต่อศูนย์บริการ Samsung ในพื้นที่ (คู่มือหน้า 39) พร้อมแจ้งรุ่นเครื่อง รหัส และสิ่งที่ได้ตรวจไปแล้ว",
           "outcome_kind": "handoff_unknown"
         },
         {
-          "node_id": "n_nomatch",
+          "state_id": "n_nomatch",
           "type": "escalation",
           "content": "รหัสที่แสดงไม่ใช่ 5C ให้เลือกรหัสตามที่ปรากฏบนจอ หรือติดต่อศูนย์บริการ Samsung พร้อมแจ้งรหัสที่เห็น",
           "outcome_kind": "handoff_unknown"
@@ -2616,7 +2616,7 @@
       ]
     },
     {
-      "graph_id": "samsung_wa5000r_um_code_9c1",
+      "flow_id": "samsung_wa5000r_um_code_9c1",
       "device_category": "Washing Machine",
       "brand": "Samsung",
       "model_pattern": "WA**R526***/WA**T526***/WA**T516***",
@@ -2638,10 +2638,10 @@
       "source_chunk_id": "manual_Samsung_WashingMachine_WA5000R_p40_code_9c1",
       "severity": "medium",
       "difficulty": "medium",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "หน้าจอแสดงรหัส 9C1 ใช่หรือไม่?",
           "safety_critical": false,
@@ -2649,7 +2649,7 @@
           "on_no": "n_nomatch"
         },
         {
-          "node_id": "n2",
+          "state_id": "n2",
           "type": "checkpoint",
           "question": "ไฟฟ้าที่จ่ายให้เครื่องปกติใช่หรือไม่?",
           "safety_critical": false,
@@ -2657,7 +2657,7 @@
           "on_no": "n2f"
         },
         {
-          "node_id": "n2f",
+          "state_id": "n2f",
           "type": "instruction",
           "content": "ใช้เต้ารับที่จ่ายไฟตรงตามพิกัดของเครื่อง (AC 220–240 V/50 Hz) (คู่มือหน้า 42)",
           "safety_critical": true,
@@ -2666,7 +2666,7 @@
           "next": "n2v"
         },
         {
-          "node_id": "n2v",
+          "state_id": "n2v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว รหัสบนจอหายไปและเครื่องทำงานปกติหรือไม่?",
           "safety_critical": false,
@@ -2675,19 +2675,19 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "รหัสหายไปและเครื่องทำงานปกติแล้ว",
           "outcome_kind": "user_fixed"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ตรวจไฟฟ้าแล้วรหัส 9C1 ยังแสดงอยู่ การตรวจแผงวงจร (PCB) และชุดสายไฟตามหน้า 40 เป็นงานภายในเครื่อง ห้ามถอดแยกหรือซ่อมเอง (คู่มือหน้า 8) ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่องและรหัส 9C1",
           "outcome_kind": "handoff_informed"
         },
         {
-          "node_id": "n_nomatch",
+          "state_id": "n_nomatch",
           "type": "escalation",
           "content": "รหัสที่แสดงไม่ใช่ 9C1 ให้เลือกรหัสตามที่ปรากฏบนจอ หรือติดต่อศูนย์บริการ Samsung พร้อมแจ้งรหัสที่เห็น",
           "outcome_kind": "handoff_unknown"
@@ -2695,7 +2695,7 @@
       ]
     },
     {
-      "graph_id": "samsung_wa5000r_um_code_9c2",
+      "flow_id": "samsung_wa5000r_um_code_9c2",
       "device_category": "Washing Machine",
       "brand": "Samsung",
       "model_pattern": "WA**R526***/WA**T526***/WA**T516***",
@@ -2718,10 +2718,10 @@
       "source_chunk_id": "manual_Samsung_WashingMachine_WA5000R_p40_code_9c2",
       "severity": "low",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "หน้าจอแสดงรหัส 9C2 ใช่หรือไม่?",
           "safety_critical": false,
@@ -2729,7 +2729,7 @@
           "on_no": "n_nomatch"
         },
         {
-          "node_id": "n2",
+          "state_id": "n2",
           "type": "checkpoint",
           "question": "เสียบปลั๊กเครื่องอยู่ใช่หรือไม่?",
           "safety_critical": false,
@@ -2737,7 +2737,7 @@
           "on_no": "n2f"
         },
         {
-          "node_id": "n2f",
+          "state_id": "n2f",
           "type": "instruction",
           "content": "เสียบปลั๊กให้แน่นเข้ากับเต้ารับที่มีไฟ (คู่มือหน้า 40)",
           "safety_critical": true,
@@ -2746,7 +2746,7 @@
           "next": "n2v"
         },
         {
-          "node_id": "n2v",
+          "state_id": "n2v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว รหัสบนจอหายไปและเครื่องทำงานปกติหรือไม่?",
           "safety_critical": false,
@@ -2755,19 +2755,19 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "รหัสหายไปและเครื่องทำงานปกติแล้ว",
           "outcome_kind": "user_fixed"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ทำตามรายการตรวจแล้วรหัส 9C2 ยังแสดงอยู่ ติดต่อศูนย์บริการ Samsung ในพื้นที่ (คู่มือหน้า 40) พร้อมแจ้งรุ่นเครื่อง รหัส และสิ่งที่ได้ตรวจไปแล้ว",
           "outcome_kind": "handoff_unknown"
         },
         {
-          "node_id": "n_nomatch",
+          "state_id": "n_nomatch",
           "type": "escalation",
           "content": "รหัสที่แสดงไม่ใช่ 9C2 ให้เลือกรหัสตามที่ปรากฏบนจอ หรือติดต่อศูนย์บริการ Samsung พร้อมแจ้งรหัสที่เห็น",
           "outcome_kind": "handoff_unknown"
@@ -2775,7 +2775,7 @@
       ]
     },
     {
-      "graph_id": "samsung_wa5000r_um_code_ac6",
+      "flow_id": "samsung_wa5000r_um_code_ac6",
       "device_category": "Washing Machine",
       "brand": "Samsung",
       "model_pattern": "WA**R526***/WA**T526***/WA**T516***",
@@ -2797,10 +2797,10 @@
       "source_chunk_id": "manual_Samsung_WashingMachine_WA5000R_p40_code_ac6",
       "severity": "medium",
       "difficulty": "medium",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "หน้าจอแสดงรหัส AC6 ใช่หรือไม่?",
           "safety_critical": false,
@@ -2808,13 +2808,13 @@
           "on_no": "n_nomatch"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "คู่มือหน้า 40 ให้ตรวจแผงวงจรอินเวอร์เตอร์ (Inverter PCB) และชุดสายไฟ ซึ่งอยู่ภายในเครื่อง ห้ามถอดแยกหรือซ่อมเอง (คู่มือหน้า 8) ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่องและรหัส AC6",
           "outcome_kind": "handoff_informed"
         },
         {
-          "node_id": "n_nomatch",
+          "state_id": "n_nomatch",
           "type": "escalation",
           "content": "รหัสที่แสดงไม่ใช่ AC6 ให้เลือกรหัสตามที่ปรากฏบนจอ หรือติดต่อศูนย์บริการ Samsung พร้อมแจ้งรหัสที่เห็น",
           "outcome_kind": "handoff_unknown"
@@ -2822,7 +2822,7 @@
       ]
     },
     {
-      "graph_id": "samsung_wa5000r_um_code_dc",
+      "flow_id": "samsung_wa5000r_um_code_dc",
       "device_category": "Washing Machine",
       "brand": "Samsung",
       "model_pattern": "WA**R526***/WA**T526***/WA**T516***",
@@ -2844,10 +2844,10 @@
       "source_chunk_id": "manual_Samsung_WashingMachine_WA5000R_p40_code_dc",
       "severity": "low",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "หน้าจอแสดงรหัส dC ใช่หรือไม่?",
           "safety_critical": false,
@@ -2855,7 +2855,7 @@
           "on_no": "n_nomatch"
         },
         {
-          "node_id": "n2",
+          "state_id": "n2",
           "type": "checkpoint",
           "question": "ปิดฝาเครื่องสนิทแล้วหรือไม่?",
           "safety_critical": false,
@@ -2863,14 +2863,14 @@
           "on_no": "n2f"
         },
         {
-          "node_id": "n2f",
+          "state_id": "n2f",
           "type": "instruction",
           "content": "ปิดฝาเครื่องให้สนิท",
           "safety_critical": false,
           "next": "n2v"
         },
         {
-          "node_id": "n2v",
+          "state_id": "n2v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว รหัสบนจอหายไปและเครื่องทำงานปกติหรือไม่?",
           "safety_critical": false,
@@ -2878,7 +2878,7 @@
           "on_no": "n3"
         },
         {
-          "node_id": "n3",
+          "state_id": "n3",
           "type": "checkpoint",
           "question": "ไม่มีผ้าติดอยู่ที่ฝาใช่หรือไม่?",
           "safety_critical": false,
@@ -2886,7 +2886,7 @@
           "on_no": "n3f"
         },
         {
-          "node_id": "n3f",
+          "state_id": "n3f",
           "type": "instruction",
           "content": "นำผ้าที่ติดอยู่ที่ฝาออก แล้วปิดฝาให้สนิท (คู่มือหน้า 40)",
           "safety_critical": true,
@@ -2895,7 +2895,7 @@
           "next": "n3v"
         },
         {
-          "node_id": "n3v",
+          "state_id": "n3v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว รหัสบนจอหายไปและเครื่องทำงานปกติหรือไม่?",
           "safety_critical": false,
@@ -2903,7 +2903,7 @@
           "on_no": "n4"
         },
         {
-          "node_id": "n4",
+          "state_id": "n4",
           "type": "checkpoint",
           "question": "Child Lock ไม่ได้เปิดใช้งานอยู่ใช่หรือไม่?",
           "safety_critical": false,
@@ -2911,7 +2911,7 @@
           "on_no": "n4f"
         },
         {
-          "node_id": "n4f",
+          "state_id": "n4f",
           "type": "instruction",
           "content": "ปลดล็อกเด็ก (Child Lock) โดยกดปุ่ม Wash Time และ Rinse Times ค้างพร้อมกันประมาณ 3 วินาที ไฟแสดงสถานะ Child Lock จะดับ ถ้าในถังมีน้ำ ให้เริ่มเครื่องใหม่แล้วกดสองปุ่มค้างพร้อมกัน 3 วินาทีอีกครั้ง (คู่มือหน้า 20)",
           "safety_critical": true,
@@ -2920,7 +2920,7 @@
           "next": "n4v"
         },
         {
-          "node_id": "n4v",
+          "state_id": "n4v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว รหัสบนจอหายไปและเครื่องทำงานปกติหรือไม่?",
           "safety_critical": false,
@@ -2928,19 +2928,19 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "รหัสหายไปและเครื่องทำงานปกติแล้ว",
           "outcome_kind": "user_fixed"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ทำตามรายการตรวจแล้วรหัส dC ยังแสดงอยู่ ติดต่อศูนย์บริการ Samsung ในพื้นที่ (คู่มือหน้า 41) พร้อมแจ้งรุ่นเครื่อง รหัส และสิ่งที่ได้ตรวจไปแล้ว",
           "outcome_kind": "handoff_unknown"
         },
         {
-          "node_id": "n_nomatch",
+          "state_id": "n_nomatch",
           "type": "escalation",
           "content": "รหัสที่แสดงไม่ใช่ dC ให้เลือกรหัสตามที่ปรากฏบนจอ หรือติดต่อศูนย์บริการ Samsung พร้อมแจ้งรหัสที่เห็น",
           "outcome_kind": "handoff_unknown"
@@ -2948,7 +2948,7 @@
       ]
     },
     {
-      "graph_id": "samsung_wa5000r_um_code_hc",
+      "flow_id": "samsung_wa5000r_um_code_hc",
       "device_category": "Washing Machine",
       "brand": "Samsung",
       "model_pattern": "WA**R526***/WA**T526***/WA**T516***",
@@ -2971,10 +2971,10 @@
       "source_chunk_id": "manual_Samsung_WashingMachine_WA5000R_p40_code_hc",
       "severity": "medium",
       "difficulty": "medium",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "หน้าจอแสดงรหัส HC ใช่หรือไม่?",
           "safety_critical": false,
@@ -2982,13 +2982,13 @@
           "on_no": "n_nomatch"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "คู่มือหน้า 40 ไม่ระบุวิธีที่ผู้ใช้ทำเองได้ ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่องและรหัส HC",
           "outcome_kind": "handoff_informed"
         },
         {
-          "node_id": "n_nomatch",
+          "state_id": "n_nomatch",
           "type": "escalation",
           "content": "รหัสที่แสดงไม่ใช่ HC ให้เลือกรหัสตามที่ปรากฏบนจอ หรือติดต่อศูนย์บริการ Samsung พร้อมแจ้งรหัสที่เห็น",
           "outcome_kind": "handoff_unknown"
@@ -2996,7 +2996,7 @@
       ]
     },
     {
-      "graph_id": "samsung_wa5000r_um_code_lc",
+      "flow_id": "samsung_wa5000r_um_code_lc",
       "device_category": "Washing Machine",
       "brand": "Samsung",
       "model_pattern": "WA**R526***/WA**T526***/WA**T516***",
@@ -3018,10 +3018,10 @@
       "source_chunk_id": "manual_Samsung_WashingMachine_WA5000R_p40_code_lc",
       "severity": "medium",
       "difficulty": "medium",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "หน้าจอแสดงรหัส LC ใช่หรือไม่?",
           "safety_critical": false,
@@ -3029,7 +3029,7 @@
           "on_no": "n_nomatch"
         },
         {
-          "node_id": "n2",
+          "state_id": "n2",
           "type": "checkpoint",
           "question": "ปลายสายระบายน้ำวางอยู่บนพื้นตามที่คู่มือระบุใช่หรือไม่?",
           "safety_critical": false,
@@ -3037,7 +3037,7 @@
           "on_no": "n2f"
         },
         {
-          "node_id": "n2f",
+          "state_id": "n2f",
           "type": "instruction",
           "content": "วางปลายสายระบายน้ำตามที่คู่มือหน้า 40 ระบุ (บนพื้น)",
           "safety_critical": false,
@@ -3045,7 +3045,7 @@
           "next": "n2v"
         },
         {
-          "node_id": "n2v",
+          "state_id": "n2v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว รหัสบนจอหายไปและเครื่องทำงานปกติหรือไม่?",
           "safety_critical": false,
@@ -3053,7 +3053,7 @@
           "on_no": "n3"
         },
         {
-          "node_id": "n3",
+          "state_id": "n3",
           "type": "checkpoint",
           "question": "สายระบายน้ำไม่อุดตันใช่หรือไม่?",
           "safety_critical": false,
@@ -3061,7 +3061,7 @@
           "on_no": "n3f"
         },
         {
-          "node_id": "n3f",
+          "state_id": "n3f",
           "type": "instruction",
           "content": "ทำให้สายระบายน้ำโล่ง ไม่อุดตัน",
           "safety_critical": false,
@@ -3069,7 +3069,7 @@
           "next": "n3v"
         },
         {
-          "node_id": "n3v",
+          "state_id": "n3v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว รหัสบนจอหายไปและเครื่องทำงานปกติหรือไม่?",
           "safety_critical": false,
@@ -3077,19 +3077,19 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "รหัสหายไปและเครื่องทำงานปกติแล้ว",
           "outcome_kind": "user_fixed"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ทำตามรายการตรวจแล้วรหัส LC ยังแสดงอยู่ ติดต่อศูนย์บริการ Samsung ในพื้นที่ (คู่มือหน้า 40) พร้อมแจ้งรุ่นเครื่อง รหัส และสิ่งที่ได้ตรวจไปแล้ว",
           "outcome_kind": "handoff_unknown"
         },
         {
-          "node_id": "n_nomatch",
+          "state_id": "n_nomatch",
           "type": "escalation",
           "content": "รหัสที่แสดงไม่ใช่ LC ให้เลือกรหัสตามที่ปรากฏบนจอ หรือติดต่อศูนย์บริการ Samsung พร้อมแจ้งรหัสที่เห็น",
           "outcome_kind": "handoff_unknown"
@@ -3097,7 +3097,7 @@
       ]
     },
     {
-      "graph_id": "samsung_wa5000r_um_code_oc",
+      "flow_id": "samsung_wa5000r_um_code_oc",
       "device_category": "Washing Machine",
       "brand": "Samsung",
       "model_pattern": "WA**R526***/WA**T526***/WA**T516***",
@@ -3119,10 +3119,10 @@
       "source_chunk_id": "manual_Samsung_WashingMachine_WA5000R_p40_code_oc",
       "severity": "medium",
       "difficulty": "medium",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "หน้าจอแสดงรหัส OC ใช่หรือไม่?",
           "safety_critical": false,
@@ -3130,7 +3130,7 @@
           "on_no": "n_nomatch"
         },
         {
-          "node_id": "n2",
+          "state_id": "n2",
           "type": "instruction",
           "content": "ปล่อยให้เครื่องปั่นแห้งจนจบ แล้วเริ่มรอบการทำงานใหม่ (คู่มือหน้า 40)",
           "safety_critical": true,
@@ -3139,7 +3139,7 @@
           "next": "n2v"
         },
         {
-          "node_id": "n2v",
+          "state_id": "n2v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว รหัสบนจอหายไปและเครื่องทำงานปกติหรือไม่?",
           "safety_critical": false,
@@ -3147,19 +3147,19 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "รหัสหายไปและเครื่องทำงานปกติแล้ว",
           "outcome_kind": "user_fixed"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ทำตามแล้วรหัส OC ยังแสดงอยู่ ติดต่อศูนย์บริการ Samsung ในพื้นที่ (คู่มือหน้า 40) พร้อมแจ้งรุ่นเครื่องและรหัส",
           "outcome_kind": "handoff_unknown"
         },
         {
-          "node_id": "n_nomatch",
+          "state_id": "n_nomatch",
           "type": "escalation",
           "content": "รหัสที่แสดงไม่ใช่ OC ให้เลือกรหัสตามที่ปรากฏบนจอ หรือติดต่อศูนย์บริการ Samsung พร้อมแจ้งรหัสที่เห็น",
           "outcome_kind": "handoff_unknown"
@@ -3167,7 +3167,7 @@
       ]
     },
     {
-      "graph_id": "samsung_wa5000r_um_code_pc",
+      "flow_id": "samsung_wa5000r_um_code_pc",
       "device_category": "Washing Machine",
       "brand": "Samsung",
       "model_pattern": "WA**R526***/WA**T526***/WA**T516***",
@@ -3189,10 +3189,10 @@
       "source_chunk_id": "manual_Samsung_WashingMachine_WA5000R_p40_code_pc",
       "severity": "medium",
       "difficulty": "medium",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "หน้าจอแสดงรหัส PC ใช่หรือไม่?",
           "safety_critical": false,
@@ -3200,13 +3200,13 @@
           "on_no": "n_nomatch"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "คู่มือหน้า 40 ไม่ระบุวิธีที่ผู้ใช้ทำเองได้ ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่องและรหัส PC",
           "outcome_kind": "handoff_informed"
         },
         {
-          "node_id": "n_nomatch",
+          "state_id": "n_nomatch",
           "type": "escalation",
           "content": "รหัสที่แสดงไม่ใช่ PC ให้เลือกรหัสตามที่ปรากฏบนจอ หรือติดต่อศูนย์บริการ Samsung พร้อมแจ้งรหัสที่เห็น",
           "outcome_kind": "handoff_unknown"
@@ -3214,7 +3214,7 @@
       ]
     },
     {
-      "graph_id": "samsung_wa5000r_um_code_pc1",
+      "flow_id": "samsung_wa5000r_um_code_pc1",
       "device_category": "Washing Machine",
       "brand": "Samsung",
       "model_pattern": "WA**R526***/WA**T526***/WA**T516***",
@@ -3236,10 +3236,10 @@
       "source_chunk_id": "manual_Samsung_WashingMachine_WA5000R_p40_code_pc1",
       "severity": "medium",
       "difficulty": "medium",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "หน้าจอแสดงรหัส PC1 ใช่หรือไม่?",
           "safety_critical": false,
@@ -3247,13 +3247,13 @@
           "on_no": "n_nomatch"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "คู่มือหน้า 40 ไม่ระบุวิธีที่ผู้ใช้ทำเองได้ ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่องและรหัส PC1",
           "outcome_kind": "handoff_informed"
         },
         {
-          "node_id": "n_nomatch",
+          "state_id": "n_nomatch",
           "type": "escalation",
           "content": "รหัสที่แสดงไม่ใช่ PC1 ให้เลือกรหัสตามที่ปรากฏบนจอ หรือติดต่อศูนย์บริการ Samsung พร้อมแจ้งรหัสที่เห็น",
           "outcome_kind": "handoff_unknown"
@@ -3261,7 +3261,7 @@
       ]
     },
     {
-      "graph_id": "samsung_wa5000r_um_code_ub",
+      "flow_id": "samsung_wa5000r_um_code_ub",
       "device_category": "Washing Machine",
       "brand": "Samsung",
       "model_pattern": "WA**R526***/WA**T526***/WA**T516***",
@@ -3283,10 +3283,10 @@
       "source_chunk_id": "manual_Samsung_WashingMachine_WA5000R_p41_code_ub",
       "severity": "low",
       "difficulty": "easy",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "หน้าจอแสดงรหัส Ub ใช่หรือไม่?",
           "safety_critical": false,
@@ -3294,7 +3294,7 @@
           "on_no": "n_nomatch"
         },
         {
-          "node_id": "n2",
+          "state_id": "n2",
           "type": "checkpoint",
           "question": "ผ้าในถังกระจายสม่ำเสมอหรือไม่?",
           "safety_critical": false,
@@ -3302,14 +3302,14 @@
           "on_no": "n2f"
         },
         {
-          "node_id": "n2f",
+          "state_id": "n2f",
           "type": "instruction",
           "content": "จัดผ้าในถังให้กระจายสม่ำเสมอ",
           "safety_critical": false,
           "next": "n2v"
         },
         {
-          "node_id": "n2v",
+          "state_id": "n2v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว รหัสบนจอหายไปและเครื่องทำงานปกติหรือไม่?",
           "safety_critical": false,
@@ -3317,7 +3317,7 @@
           "on_no": "n3"
         },
         {
-          "node_id": "n3",
+          "state_id": "n3",
           "type": "checkpoint",
           "question": "เครื่องตั้งบนพื้นที่เรียบและมั่นคงใช่หรือไม่?",
           "safety_critical": false,
@@ -3325,7 +3325,7 @@
           "on_no": "n3f"
         },
         {
-          "node_id": "n3f",
+          "state_id": "n3f",
           "type": "instruction",
           "content": "ปรับขาปรับระดับ (levelling feet) ด้วยมือให้เครื่องได้ระดับ เมื่อได้ระดับแล้วให้ขันนอต (B) ถ้ามี (บางรุ่นไม่มีนอต) ติดตั้งบนพื้นแข็งเรียบ ไม่มีแท่นหรืออิฐรอง และเว้นห่างผนังข้างละ 10 ซม. (คู่มือหน้า 12 และ 14)",
           "safety_critical": false,
@@ -3333,7 +3333,7 @@
           "next": "n3v"
         },
         {
-          "node_id": "n3v",
+          "state_id": "n3v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว รหัสบนจอหายไปและเครื่องทำงานปกติหรือไม่?",
           "safety_critical": false,
@@ -3341,7 +3341,7 @@
           "on_no": "n4"
         },
         {
-          "node_id": "n4",
+          "state_id": "n4",
           "type": "checkpoint",
           "question": "ซักผ้าเพียงชิ้นเดียว (เช่น เสื้อคลุมอาบน้ำหรือกางเกงยีนส์) หรือไม่?",
           "safety_critical": false,
@@ -3349,14 +3349,14 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n4f",
+          "state_id": "n4f",
           "type": "instruction",
           "content": "จัดผ้าใหม่ให้กระจายสมดุล คู่มือระบุว่าถ้าซักผ้าเพียงชิ้นเดียว ผลการปั่นแห้งอาจไม่น่าพอใจและจอจะแสดง “Ub” (คู่มือหน้า 41)",
           "safety_critical": false,
           "next": "n4v"
         },
         {
-          "node_id": "n4v",
+          "state_id": "n4v",
           "type": "checkpoint",
           "question": "หลังทำตามแล้ว รหัสบนจอหายไปและเครื่องทำงานปกติหรือไม่?",
           "safety_critical": false,
@@ -3364,19 +3364,19 @@
           "on_no": "n_escalate"
         },
         {
-          "node_id": "n_resolved",
+          "state_id": "n_resolved",
           "type": "resolution",
           "content": "รหัสหายไปและเครื่องทำงานปกติแล้ว",
           "outcome_kind": "user_fixed"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "ทำตามรายการตรวจแล้วรหัส Ub ยังแสดงอยู่ ติดต่อศูนย์บริการ Samsung ในพื้นที่ (คู่มือหน้า 41) พร้อมแจ้งรุ่นเครื่อง รหัส และสิ่งที่ได้ตรวจไปแล้ว",
           "outcome_kind": "handoff_unknown"
         },
         {
-          "node_id": "n_nomatch",
+          "state_id": "n_nomatch",
           "type": "escalation",
           "content": "รหัสที่แสดงไม่ใช่ Ub ให้เลือกรหัสตามที่ปรากฏบนจอ หรือติดต่อศูนย์บริการ Samsung พร้อมแจ้งรหัสที่เห็น",
           "outcome_kind": "handoff_unknown"
@@ -3384,7 +3384,7 @@
       ]
     },
     {
-      "graph_id": "samsung_wa5000r_um_code_9c4",
+      "flow_id": "samsung_wa5000r_um_code_9c4",
       "device_category": "Washing Machine",
       "brand": "Samsung",
       "model_pattern": "WA**R526***/WA**T526***/WA**T516***",
@@ -3406,10 +3406,10 @@
       "source_chunk_id": "manual_Samsung_WashingMachine_WA5000R_p41_code_9c4",
       "severity": "medium",
       "difficulty": "medium",
-      "entry_node": "n1",
-      "nodes": [
+      "initial_state": "n1",
+      "states": [
         {
-          "node_id": "n1",
+          "state_id": "n1",
           "type": "checkpoint",
           "question": "หน้าจอแสดงรหัส 9C4 ใช่หรือไม่?",
           "safety_critical": false,
@@ -3417,13 +3417,13 @@
           "on_no": "n_nomatch"
         },
         {
-          "node_id": "n_escalate",
+          "state_id": "n_escalate",
           "type": "escalation",
           "content": "คู่มือหน้า 41 ไม่ระบุวิธีที่ผู้ใช้ทำเองได้ ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่องและรหัส 9C4",
           "outcome_kind": "handoff_informed"
         },
         {
-          "node_id": "n_nomatch",
+          "state_id": "n_nomatch",
           "type": "escalation",
           "content": "รหัสที่แสดงไม่ใช่ 9C4 ให้เลือกรหัสตามที่ปรากฏบนจอ หรือติดต่อศูนย์บริการ Samsung พร้อมแจ้งรหัสที่เห็น",
           "outcome_kind": "handoff_unknown"

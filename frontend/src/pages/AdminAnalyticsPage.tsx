@@ -121,10 +121,10 @@ function SummaryBody({ data, dimmed }: { data: AdminSummary; dimmed: boolean }) 
 
       <BarList
         title="อาการที่ถูกตรวจมากสุด"
-        items={data.topGraphs.map((graph) => ({
-          key: graph.graphId,
-          label: graph.entrySymptomTh ?? graph.graphId,
-          value: graph.count,
+        items={data.topFlows.map((flow) => ({
+          key: flow.flowId,
+          label: flow.entrySymptomTh ?? flow.flowId,
+          value: flow.count,
         }))}/>
     </div>
   )

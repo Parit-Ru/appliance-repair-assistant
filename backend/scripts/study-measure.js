@@ -14,7 +14,7 @@
  *   node scripts/study-measure.js guard [--out ไฟล์.json]
  *       ลองส่งข้อความที่ "LLM อาจตอบ" 7 แบบ (ตัวอย่างที่แต่งขึ้นเพื่อทดสอบ) ผ่าน checkRephrase จริง
  *   node scripts/study-measure.js engine [--out ไฟล์.json]
- *       เดินผัง samsung_ge83mdt_um_not_cooked_at_all ด้วย traversal-engine จริง รวมกรณีที่ถูกปฏิเสธ
+ *       เดินผัง samsung_ge83mdt_um_not_cooked_at_all ด้วย state-machine จริง รวมกรณีที่ถูกปฏิเสธ
  *
  * หมายเหตุ Windows: คอนโซลอาจแสดงภาษาไทยเพี้ยน ให้ใส่ --out แล้วเปิดไฟล์ผลลัพธ์ (UTF-8) แทน
  */
@@ -82,11 +82,11 @@ async function runSearch(queryArgs, out) {
   const { EmbeddingService } = requireDist('embedding/embedding.service.js');
   const matcher = requireDist('symptom-search/symptom-matcher.js');
 
-  const graphs = [];
+  const flows = [];
   for (const manual of loadManuals()) {
-    for (const g of manual.graphs) {
-      graphs.push({
-        graph_id: g.graph_id,
+    for (const g of manual.flows) {
+      flows.push({
+        flow_id: g.flow_id,
         manual_id: manual.manual_id,
         entry_symptom: g.entry_symptom,
         entry_symptom_th: g.entry_symptom_th,
@@ -94,15 +94,15 @@ async function runSearch(queryArgs, out) {
       });
     }
   }
-  const manualOf = new Map(graphs.map((g) => [g.graph_id, g.manual_id]));
-  const nameOf = new Map(graphs.map((g) => [g.graph_id, g.entry_symptom]));
+  const manualOf = new Map(flows.map((g) => [g.flow_id, g.manual_id]));
+  const nameOf = new Map(flows.map((g) => [g.flow_id, g.entry_symptom]));
 
   const embedding = new EmbeddingService();
   const t0 = Date.now();
   await embedding.load();
   const loadMs = Date.now() - t0;
 
-  const texts = matcher.buildSymptomTexts(graphs);
+  const texts = matcher.buildSymptomTexts(flows);
   const cache = new Map();
   const index = [];
   const t1 = Date.now();
@@ -127,19 +127,19 @@ async function runSearch(queryArgs, out) {
   const results = [];
   for (const [query, manualId] of queries) {
     const vector = await embedding.embed(query);
-    const candidates = manualId ? index.filter((i) => manualOf.get(i.graphId) === manualId) : index;
-    const ranked = matcher.rankGraphs(vector, candidates);
+    const candidates = manualId ? index.filter((i) => manualOf.get(i.flowId) === manualId) : index;
+    const ranked = matcher.rankFlows(vector, candidates);
     results.push({
       query,
       manualId,
       candidateTexts: candidates.length,
-      graphsPassingThreshold: ranked.filter((r) => r.score >= MATCH_THRESHOLD).length,
-      returned: matcher.selectMatches(ranked, MATCH_THRESHOLD, MAX_RESULTS).map((r) => r.graphId),
+      flowsPassingThreshold: ranked.filter((r) => r.score >= MATCH_THRESHOLD).length,
+      returned: matcher.selectMatches(ranked, MATCH_THRESHOLD, MAX_RESULTS).map((r) => r.flowId),
       top5: ranked.slice(0, 5).map((r) => ({
-        graphId: r.graphId,
+        flowId: r.flowId,
         score: Math.round(r.score * 1000) / 1000,
         matchedText: r.matchedText,
-        entrySymptom: String(nameOf.get(r.graphId)).slice(0, 60),
+        entrySymptom: String(nameOf.get(r.flowId)).slice(0, 60),
       })),
     });
   }
@@ -151,7 +151,7 @@ async function runSearch(queryArgs, out) {
         threshold: MATCH_THRESHOLD,
         maxResults: MAX_RESULTS,
         vectorDimension: sample.length,
-        graphs: graphs.length,
+        flows: flows.length,
         symptomTexts: texts.length,
         uniqueTexts: cache.size,
         loadModelMs: loadMs,
@@ -216,10 +216,10 @@ function runGuard(out) {
 
 // ---------------------------------------------------------------- engine
 function runEngine(out) {
-  const engine = requireDist('traversal-engine/traversal-engine.js');
+  const engine = requireDist('state-machine/state-machine.js');
   const manual = loadManuals().find((m) => m.manual_id === DEFAULT_MANUAL);
-  const source = manual.graphs.find((g) => g.graph_id.endsWith('not_cooked_at_all'));
-  const graph = {
+  const source = manual.flows.find((g) => g.flow_id.endsWith('not_cooked_at_all'));
+  const flow = {
     ...source,
     manual_id: manual.manual_id,
     device_category: manual.device_category,
@@ -233,11 +233,11 @@ function runEngine(out) {
       log.push({
         label,
         ok: true,
-        node: r.node.nodeId,
-        type: r.node.type,
-        isTerminal: r.node.isTerminal,
-        outcomeKind: r.node.outcomeKind ?? null,
-        requiresSafetyConfirmation: r.node.requiresSafetyConfirmation,
+        state: r.state.stateId,
+        type: r.state.type,
+        isTerminal: r.state.isTerminal,
+        outcomeKind: r.state.outcomeKind ?? null,
+        requiresSafetyConfirmation: r.state.requiresSafetyConfirmation,
         status: r.session.status,
         historyLength: r.session.history.length,
       });
@@ -248,15 +248,15 @@ function runEngine(out) {
     }
   };
 
-  let s = step('เริ่ม', () => engine.startSession(graph, 0.95));
-  s = step('n1: answer yes', () => engine.submitAction(s.session, graph, { type: 'answer', value: 'yes' }));
-  step('n2: continue (ผิดชนิดกับ checkpoint)', () => engine.submitAction(s.session, graph, { type: 'continue' }));
-  s = step('n2: answer no', () => engine.submitAction(s.session, graph, { type: 'answer', value: 'no' }));
-  step('n2f (safety): continue', () => engine.submitAction(s.session, graph, { type: 'continue' }));
-  step('n2f (safety): answer yes', () => engine.submitAction(s.session, graph, { type: 'answer', value: 'yes' }));
-  s = step('n2f (safety): confirm_safety', () => engine.submitAction(s.session, graph, { type: 'confirm_safety' }));
-  s = step('n2v: answer yes', () => engine.submitAction(s.session, graph, { type: 'answer', value: 'yes' }));
-  step('หลังจบ: ส่ง action เพิ่ม', () => engine.submitAction(s.session, graph, { type: 'answer', value: 'yes' }));
+  let s = step('เริ่ม', () => engine.startSession(flow, 0.95));
+  s = step('n1: answer yes', () => engine.submitAction(s.session, flow, { type: 'answer', value: 'yes' }));
+  step('n2: continue (ผิดชนิดกับ checkpoint)', () => engine.submitAction(s.session, flow, { type: 'continue' }));
+  s = step('n2: answer no', () => engine.submitAction(s.session, flow, { type: 'answer', value: 'no' }));
+  step('n2f (safety): continue', () => engine.submitAction(s.session, flow, { type: 'continue' }));
+  step('n2f (safety): answer yes', () => engine.submitAction(s.session, flow, { type: 'answer', value: 'yes' }));
+  s = step('n2f (safety): confirm_safety', () => engine.submitAction(s.session, flow, { type: 'confirm_safety' }));
+  s = step('n2v: answer yes', () => engine.submitAction(s.session, flow, { type: 'answer', value: 'yes' }));
+  step('หลังจบ: ส่ง action เพิ่ม', () => engine.submitAction(s.session, flow, { type: 'answer', value: 'yes' }));
 
   emit(JSON.stringify({ steps: log, history: s.session.history }, null, 2), out);
 }

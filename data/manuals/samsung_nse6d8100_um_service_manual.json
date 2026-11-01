@@ -1,0 +1,776 @@
+{
+  "manual_id": "samsung_nse6d8100_um_service_manual",
+  "device_category": "Range",
+  "brand": "Samsung",
+  "model_pattern": "NSE6D*8100****",
+  "source_manual": "Samsung ELEC RANGE Service Manual (30\" Slide-In Self-Cleaning Electric Range, model code NSE6D*8100****)",
+  "count": 13,
+  "flows": [
+    {
+      "flow_id": "samsung_nse6d8100_um_power_cord_defective",
+      "device_category": "Range",
+      "brand": "Samsung",
+      "model_pattern": "NSE6D*8100****",
+      "entry_symptom": "If the power cord is defective",
+      "entry_symptom_th": "สายไฟของเตาชำรุดหรือเสียหาย",
+      "entry_symptom_aliases": [
+        "สายไฟเตาชำรุด",
+        "สายไฟเตาเสียหาย",
+        "สายไฟเตาขาด",
+        "range power cord damaged",
+        "oven power cord defective"
+      ],
+      "source": "Samsung ELEC RANGE Service Manual (30\" Slide-In Self-Cleaning Electric Range, model code NSE6D*8100****)",
+      "page_range": [
+        4,
+        4
+      ],
+      "source_chunk_id": "manual_Samsung_Range_NSE6D8100_p4_power_cord_defective",
+      "severity": "medium",
+      "difficulty": "hard",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "สายไฟของเตาชำรุดหรือเสียหายใช่หรือไม่?",
+          "on_yes": "n_escalate",
+          "on_no": "n_nomatch"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "ตามคู่มือหน้า 4 ถ้าสายไฟชำรุด ต้องให้ผู้ให้บริการที่มีคุณสมบัติเปลี่ยนด้วยสายไฟเรนจ์ที่ได้รับรอง UL (UL listed range cord) ห้ามเปลี่ยนสายไฟเอง ให้ติดต่อศูนย์บริการ SAMSUNG หรือตัวแทนจำหน่าย (คู่มือหน้า 4 ระบุว่างานซ่อมต้องทำโดยช่างที่ได้รับอนุญาตเท่านั้น ถ้าต้องซ่อมให้ติดต่อ SAMSUNG Service Center หรือตัวแทนจำหน่าย) และอย่าถอดแยกหรือซ่อมแซมเตาเอง (คู่มือหน้า 5 ห้ามซ่อมหรือเปลี่ยนชิ้นส่วนใดเองนอกจากที่คู่มือแนะนำ)",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_nomatch",
+          "type": "escalation",
+          "content": "ถ้าไม่ใช่อาการนี้ ให้เลือกอาการที่ตรงกับที่เห็น หรือติดต่อศูนย์บริการ SAMSUNG หรือตัวแทนจำหน่าย (คู่มือหน้า 4 ระบุว่างานซ่อมต้องทำโดยช่างที่ได้รับอนุญาตเท่านั้น ถ้าต้องซ่อมให้ติดต่อ SAMSUNG Service Center หรือตัวแทนจำหน่าย) และอย่าถอดแยกหรือซ่อมแซมเตาเอง (คู่มือหน้า 5 ห้ามซ่อมหรือเปลี่ยนชิ้นส่วนใดเองนอกจากที่คู่มือแนะนำ)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_nse6d8100_um_self_clean_f_code",
+      "device_category": "Range",
+      "brand": "Samsung",
+      "model_pattern": "NSE6D*8100****",
+      "entry_symptom": "In the event the self-clean mode “F” code goes on, or three long beeps sound, oven is malfunctioning in the self-clean mode.",
+      "entry_symptom_th": "ระหว่างโหมดทำความสะอาดตัวเอง (Self-Clean) มีรหัส F ขึ้น หรือมีเสียงบี๊บยาวสามครั้ง",
+      "entry_symptom_aliases": [
+        "เตาขึ้นรหัส F ตอน self clean",
+        "self clean ขึ้น F",
+        "เตาบี๊บยาว 3 ครั้งตอนทำความสะอาด",
+        "self-clean F code",
+        "oven three long beeps self clean"
+      ],
+      "source": "Samsung ELEC RANGE Service Manual (30\" Slide-In Self-Cleaning Electric Range, model code NSE6D*8100****)",
+      "page_range": [
+        6,
+        6
+      ],
+      "source_chunk_id": "manual_Samsung_Range_NSE6D8100_p6_self_clean_f_code",
+      "severity": "high",
+      "difficulty": "hard",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "ระหว่างโหมดทำความสะอาดตัวเอง (Self-Clean) มีรหัส “F” ขึ้นที่จอ หรือมีเสียงบี๊บยาวสามครั้ง ใช่หรือไม่? (คู่มือหน้า 6)",
+          "on_yes": "n2",
+          "on_no": "n_nomatch"
+        },
+        {
+          "state_id": "n2",
+          "type": "instruction",
+          "content": "ปิดเตา หรือถอดเครื่องออกจากแหล่งจ่ายไฟ (Turn off or disconnect appliance from power supply) (คู่มือหน้า 6)",
+          "safety_critical": true,
+          "safety_warning": "ก่อนทำงานกับเตาให้ตัดไฟโดยถอดฟิวส์หรือปิดเบรกเกอร์ เพื่อป้องกันไฟฟ้าดูด (คู่มือหน้า 5 และ 4) และภายในเตาร้อนมากขณะเตาทำงาน (คู่มือหน้า 4)",
+          "author_note": "ข้อความเตือนนี้มาจากหัวข้อความปลอดภัยหน้า 4 และ 5 ผู้พัฒนาโยงมาใช้กับขั้นตอนปิดเตาหรือถอดไฟ คู่มือหน้า 6 บอกเพียง 'Turn off or disconnect appliance from power supply' ไม่ได้อธิบายวิธีถอดไฟ และขั้นตอนนี้เป็นขั้นตอนหยุดใช้งานก่อนส่งช่าง จึงไม่มี checkpoint ถามว่าแก้ได้หรือไม่",
+          "next": "n_escalate"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "ตามคู่มือหน้า 6 รหัส “F” หรือเสียงบี๊บยาวสามครั้งแสดงว่าเตาทำงานผิดปกติในโหมด Self-Clean และต้องให้ช่างที่มีคุณสมบัติตรวจซ่อม ให้ติดต่อศูนย์บริการ SAMSUNG หรือตัวแทนจำหน่าย (คู่มือหน้า 4 ระบุว่างานซ่อมต้องทำโดยช่างที่ได้รับอนุญาตเท่านั้น ถ้าต้องซ่อมให้ติดต่อ SAMSUNG Service Center หรือตัวแทนจำหน่าย) และอย่าถอดแยกหรือซ่อมแซมเตาเอง (คู่มือหน้า 5 ห้ามซ่อมหรือเปลี่ยนชิ้นส่วนใดเองนอกจากที่คู่มือแนะนำ)",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_nomatch",
+          "type": "escalation",
+          "content": "ถ้าไม่ใช่อาการนี้ ให้เลือกอาการที่ตรงกับที่เห็น หรือติดต่อศูนย์บริการ SAMSUNG หรือตัวแทนจำหน่าย (คู่มือหน้า 4 ระบุว่างานซ่อมต้องทำโดยช่างที่ได้รับอนุญาตเท่านั้น ถ้าต้องซ่อมให้ติดต่อ SAMSUNG Service Center หรือตัวแทนจำหน่าย) และอย่าถอดแยกหรือซ่อมแซมเตาเอง (คู่มือหน้า 5 ห้ามซ่อมหรือเปลี่ยนชิ้นส่วนใดเองนอกจากที่คู่มือแนะนำ)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_nse6d8100_um_broken_cooktop",
+      "device_category": "Range",
+      "brand": "Samsung",
+      "model_pattern": "NSE6D*8100****",
+      "entry_symptom": "Do Not Cook on Broken Cook-Top",
+      "entry_symptom_th": "พื้นผิวเตา (cook top) แตกหรือร้าว",
+      "entry_symptom_aliases": [
+        "กระจกเตาแตก",
+        "หน้าเตาแตก",
+        "หน้าเตาร้าว",
+        "cooktop cracked",
+        "range cook top broken"
+      ],
+      "source": "Samsung ELEC RANGE Service Manual (30\" Slide-In Self-Cleaning Electric Range, model code NSE6D*8100****)",
+      "page_range": [
+        6,
+        6
+      ],
+      "source_chunk_id": "manual_Samsung_Range_NSE6D8100_p6_broken_cooktop",
+      "severity": "high",
+      "difficulty": "hard",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "พื้นผิวเตา (cook top) แตกหรือร้าวใช่หรือไม่? (คู่มือหน้า 6)",
+          "on_yes": "n2",
+          "on_no": "n_nomatch"
+        },
+        {
+          "state_id": "n2",
+          "type": "instruction",
+          "content": "หยุดประกอบอาหารบนพื้นผิวเตาที่แตก (Do Not Cook on Broken Cook-Top) (คู่มือหน้า 6)",
+          "safety_critical": true,
+          "safety_warning": "ถ้าพื้นผิวเตาแตก น้ำยาทำความสะอาดและของเหลวที่ล้นอาจซึมเข้าไป ทำให้เสี่ยงไฟฟ้าดูด (คู่มือหน้า 6)",
+          "author_note": "ข้อความเตือนมาจากหน้า 6 หัวข้อ 'Do Not Cook on Broken Cook-Top' โดยตรง",
+          "next": "n_escalate"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "ตามคู่มือหน้า 6 ให้ติดต่อช่างที่มีคุณสมบัติทันที ติดต่อศูนย์บริการ SAMSUNG หรือตัวแทนจำหน่าย (คู่มือหน้า 4 ระบุว่างานซ่อมต้องทำโดยช่างที่ได้รับอนุญาตเท่านั้น ถ้าต้องซ่อมให้ติดต่อ SAMSUNG Service Center หรือตัวแทนจำหน่าย) และอย่าถอดแยกหรือซ่อมแซมเตาเอง (คู่มือหน้า 5 ห้ามซ่อมหรือเปลี่ยนชิ้นส่วนใดเองนอกจากที่คู่มือแนะนำ)",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_nomatch",
+          "type": "escalation",
+          "content": "ถ้าไม่ใช่อาการนี้ ให้เลือกอาการที่ตรงกับที่เห็น หรือติดต่อศูนย์บริการ SAMSUNG หรือตัวแทนจำหน่าย (คู่มือหน้า 4 ระบุว่างานซ่อมต้องทำโดยช่างที่ได้รับอนุญาตเท่านั้น ถ้าต้องซ่อมให้ติดต่อ SAMSUNG Service Center หรือตัวแทนจำหน่าย) และอย่าถอดแยกหรือซ่อมแซมเตาเอง (คู่มือหน้า 5 ห้ามซ่อมหรือเปลี่ยนชิ้นส่วนใดเองนอกจากที่คู่มือแนะนำ)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_nse6d8100_um_c20_oven_sensor",
+      "device_category": "Range",
+      "brand": "Samsung",
+      "model_pattern": "NSE6D*8100****",
+      "entry_symptom": "C-20 Oven sensor opened (over 2950Ω) Oven sensor shorted. (Under 930Ω)",
+      "entry_symptom_th": "จอเตาแสดงรหัส C-20 (เซนเซอร์อุณหภูมิเตา)",
+      "entry_symptom_aliases": [
+        "เตาขึ้น C-20",
+        "เตาขึ้น C20",
+        "oven C-20 error",
+        "range C-20",
+        "oven sensor error C-20"
+      ],
+      "source": "Samsung ELEC RANGE Service Manual (30\" Slide-In Self-Cleaning Electric Range, model code NSE6D*8100****)",
+      "page_range": [
+        49,
+        49
+      ],
+      "source_chunk_id": "manual_Samsung_Range_NSE6D8100_p49_c20_oven_sensor",
+      "severity": "medium",
+      "difficulty": "hard",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "จอเตาแสดงรหัส C-20 ใช่หรือไม่?",
+          "on_yes": "n_escalate",
+          "on_no": "n_nomatch"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "รหัส C-20 หมายถึงเซนเซอร์อุณหภูมิเตาเปิดวงจร (เกิน 2950Ω) หรือลัดวงจร (ต่ำกว่า 930Ω) (คู่มือหน้า 49) ขั้นตอนแก้ไขตามคู่มือต้องถอดไฟ เปิดฝาหลัง ถอดสายเซนเซอร์ และวัดค่าความต้านทาน (คู่มือหน้า 49) ซึ่งเป็นงานของช่าง ให้ติดต่อศูนย์บริการ SAMSUNG หรือตัวแทนจำหน่าย (คู่มือหน้า 4 ระบุว่างานซ่อมต้องทำโดยช่างที่ได้รับอนุญาตเท่านั้น ถ้าต้องซ่อมให้ติดต่อ SAMSUNG Service Center หรือตัวแทนจำหน่าย) และอย่าถอดแยกหรือซ่อมแซมเตาเอง (คู่มือหน้า 5 ห้ามซ่อมหรือเปลี่ยนชิ้นส่วนใดเองนอกจากที่คู่มือแนะนำ) พร้อมแจ้งรหัส C-20",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_nomatch",
+          "type": "escalation",
+          "content": "ถ้าจอไม่ได้แสดงรหัส C-20 ให้เลือกอาการที่ตรงกับที่เห็น หรือติดต่อศูนย์บริการ SAMSUNG หรือตัวแทนจำหน่าย (คู่มือหน้า 4 ระบุว่างานซ่อมต้องทำโดยช่างที่ได้รับอนุญาตเท่านั้น ถ้าต้องซ่อมให้ติดต่อ SAMSUNG Service Center หรือตัวแทนจำหน่าย) และอย่าถอดแยกหรือซ่อมแซมเตาเอง (คู่มือหน้า 5 ห้ามซ่อมหรือเปลี่ยนชิ้นส่วนใดเองนอกจากที่คู่มือแนะนำ)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_nse6d8100_um_c21_oven_heating_over",
+      "device_category": "Range",
+      "brand": "Samsung",
+      "model_pattern": "NSE6D*8100****",
+      "entry_symptom": "C-21 Oven heating over",
+      "entry_symptom_th": "จอเตาแสดงรหัส C-21 (เตาร้อนเกิน)",
+      "entry_symptom_aliases": [
+        "เตาขึ้น C-21",
+        "เตาขึ้น C21",
+        "oven C-21 error",
+        "range C-21",
+        "oven heating over C-21"
+      ],
+      "source": "Samsung ELEC RANGE Service Manual (30\" Slide-In Self-Cleaning Electric Range, model code NSE6D*8100****)",
+      "page_range": [
+        50,
+        50
+      ],
+      "source_chunk_id": "manual_Samsung_Range_NSE6D8100_p50_c21_oven_heating_over",
+      "severity": "medium",
+      "difficulty": "hard",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "จอเตาแสดงรหัส C-21 ใช่หรือไม่?",
+          "on_yes": "n_escalate",
+          "on_no": "n_nomatch"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "รหัส C-21 หมายถึงเตาร้อนเกิน (Oven heating over) (คู่มือหน้า 50) ขั้นตอนแก้ไขตามคู่มือต้องถอดไฟ เปิดฝาหลัง ถอดสายเซนเซอร์ วัดความต้านทานของเซนเซอร์และไส้ความร้อน และตรวจรีเลย์บนแผงวงจร (คู่มือหน้า 50) ซึ่งเป็นงานของช่าง ให้ติดต่อศูนย์บริการ SAMSUNG หรือตัวแทนจำหน่าย (คู่มือหน้า 4 ระบุว่างานซ่อมต้องทำโดยช่างที่ได้รับอนุญาตเท่านั้น ถ้าต้องซ่อมให้ติดต่อ SAMSUNG Service Center หรือตัวแทนจำหน่าย) และอย่าถอดแยกหรือซ่อมแซมเตาเอง (คู่มือหน้า 5 ห้ามซ่อมหรือเปลี่ยนชิ้นส่วนใดเองนอกจากที่คู่มือแนะนำ) พร้อมแจ้งรหัส C-21",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_nomatch",
+          "type": "escalation",
+          "content": "ถ้าจอไม่ได้แสดงรหัส C-21 ให้เลือกอาการที่ตรงกับที่เห็น หรือติดต่อศูนย์บริการ SAMSUNG หรือตัวแทนจำหน่าย (คู่มือหน้า 4 ระบุว่างานซ่อมต้องทำโดยช่างที่ได้รับอนุญาตเท่านั้น ถ้าต้องซ่อมให้ติดต่อ SAMSUNG Service Center หรือตัวแทนจำหน่าย) และอย่าถอดแยกหรือซ่อมแซมเตาเอง (คู่มือหน้า 5 ห้ามซ่อมหรือเปลี่ยนชิ้นส่วนใดเองนอกจากที่คู่มือแนะนำ)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_nse6d8100_um_cd1_door_lock",
+      "device_category": "Range",
+      "brand": "Samsung",
+      "model_pattern": "NSE6D*8100****",
+      "entry_symptom": "C-d1 Door locking information",
+      "entry_symptom_th": "จอเตาแสดงรหัส C-d1 (การล็อกประตู)",
+      "entry_symptom_aliases": [
+        "เตาขึ้น C-d1",
+        "เตาขึ้น Cd1",
+        "oven C-d1 error",
+        "range door lock error C-d1",
+        "ประตูเตาล็อกไม่ได้ C-d1"
+      ],
+      "source": "Samsung ELEC RANGE Service Manual (30\" Slide-In Self-Cleaning Electric Range, model code NSE6D*8100****)",
+      "page_range": [
+        52,
+        52
+      ],
+      "source_chunk_id": "manual_Samsung_Range_NSE6D8100_p52_cd1_door_lock",
+      "severity": "medium",
+      "difficulty": "hard",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "จอเตาแสดงรหัส C-d1 ใช่หรือไม่?",
+          "on_yes": "n_escalate",
+          "on_no": "n_nomatch"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "รหัส C-d1 เป็นข้อมูลเกี่ยวกับการล็อกประตู (Door locking information) (คู่มือหน้า 52) ขั้นตอนแก้ไขตามคู่มือต้องถอดไฟ เปิดฝาหลัง ตรวจสายที่ต่อกับสวิตช์และมอเตอร์ล็อกประตู และวัดความต้านทานและแรงดัน (คู่มือหน้า 52) ซึ่งเป็นงานของช่าง ให้ติดต่อศูนย์บริการ SAMSUNG หรือตัวแทนจำหน่าย (คู่มือหน้า 4 ระบุว่างานซ่อมต้องทำโดยช่างที่ได้รับอนุญาตเท่านั้น ถ้าต้องซ่อมให้ติดต่อ SAMSUNG Service Center หรือตัวแทนจำหน่าย) และอย่าถอดแยกหรือซ่อมแซมเตาเอง (คู่มือหน้า 5 ห้ามซ่อมหรือเปลี่ยนชิ้นส่วนใดเองนอกจากที่คู่มือแนะนำ) พร้อมแจ้งรหัส C-d1",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_nomatch",
+          "type": "escalation",
+          "content": "ถ้าจอไม่ได้แสดงรหัส C-d1 ให้เลือกอาการที่ตรงกับที่เห็น หรือติดต่อศูนย์บริการ SAMSUNG หรือตัวแทนจำหน่าย (คู่มือหน้า 4 ระบุว่างานซ่อมต้องทำโดยช่างที่ได้รับอนุญาตเท่านั้น ถ้าต้องซ่อมให้ติดต่อ SAMSUNG Service Center หรือตัวแทนจำหน่าย) และอย่าถอดแยกหรือซ่อมแซมเตาเอง (คู่มือหน้า 5 ห้ามซ่อมหรือเปลี่ยนชิ้นส่วนใดเองนอกจากที่คู่มือแนะนำ)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_nse6d8100_um_cf0_main_sub_comm",
+      "device_category": "Range",
+      "brand": "Samsung",
+      "model_pattern": "NSE6D*8100****",
+      "entry_symptom": "C-F0 Main ↔ Sub module communication information Sub ↔ LCD communication information",
+      "entry_symptom_th": "จอเตาแสดงรหัส C-F0 (การสื่อสารระหว่างแผงวงจร)",
+      "entry_symptom_aliases": [
+        "เตาขึ้น C-F0",
+        "เตาขึ้น CF0",
+        "oven C-F0 error",
+        "range C-F0",
+        "main sub communication C-F0"
+      ],
+      "source": "Samsung ELEC RANGE Service Manual (30\" Slide-In Self-Cleaning Electric Range, model code NSE6D*8100****)",
+      "page_range": [
+        53,
+        53
+      ],
+      "source_chunk_id": "manual_Samsung_Range_NSE6D8100_p53_cf0_main_sub_comm",
+      "severity": "medium",
+      "difficulty": "hard",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "จอเตาแสดงรหัส C-F0 ใช่หรือไม่?",
+          "on_yes": "n_escalate",
+          "on_no": "n_nomatch"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "รหัส C-F0 เป็นข้อมูลเกี่ยวกับการสื่อสารระหว่างโมดูล Main กับ Sub และระหว่าง Sub กับจอ LCD (คู่มือหน้า 53) ขั้นตอนแก้ไขตามคู่มือต้องตรวจสายระหว่างแผงวงจร Main กับ Sub และเปลี่ยนแผงวงจร Sub หรือ Main (คู่มือหน้า 53) ซึ่งเป็นงานของช่าง ให้ติดต่อศูนย์บริการ SAMSUNG หรือตัวแทนจำหน่าย (คู่มือหน้า 4 ระบุว่างานซ่อมต้องทำโดยช่างที่ได้รับอนุญาตเท่านั้น ถ้าต้องซ่อมให้ติดต่อ SAMSUNG Service Center หรือตัวแทนจำหน่าย) และอย่าถอดแยกหรือซ่อมแซมเตาเอง (คู่มือหน้า 5 ห้ามซ่อมหรือเปลี่ยนชิ้นส่วนใดเองนอกจากที่คู่มือแนะนำ) พร้อมแจ้งรหัส C-F0",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_nomatch",
+          "type": "escalation",
+          "content": "ถ้าจอไม่ได้แสดงรหัส C-F0 ให้เลือกอาการที่ตรงกับที่เห็น หรือติดต่อศูนย์บริการ SAMSUNG หรือตัวแทนจำหน่าย (คู่มือหน้า 4 ระบุว่างานซ่อมต้องทำโดยช่างที่ได้รับอนุญาตเท่านั้น ถ้าต้องซ่อมให้ติดต่อ SAMSUNG Service Center หรือตัวแทนจำหน่าย) และอย่าถอดแยกหรือซ่อมแซมเตาเอง (คู่มือหน้า 5 ห้ามซ่อมหรือเปลี่ยนชิ้นส่วนใดเองนอกจากที่คู่มือแนะนำ)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_nse6d8100_um_cf2_sub_touch_comm",
+      "device_category": "Range",
+      "brand": "Samsung",
+      "model_pattern": "NSE6D*8100****",
+      "entry_symptom": "C-F2 Sub↔Touch communication information",
+      "entry_symptom_th": "จอเตาแสดงรหัส C-F2 (การสื่อสารระหว่างแผงวงจร Sub กับแผงสัมผัส)",
+      "entry_symptom_aliases": [
+        "เตาขึ้น C-F2",
+        "เตาขึ้น CF2",
+        "oven C-F2 error",
+        "range C-F2",
+        "touch communication C-F2"
+      ],
+      "source": "Samsung ELEC RANGE Service Manual (30\" Slide-In Self-Cleaning Electric Range, model code NSE6D*8100****)",
+      "page_range": [
+        54,
+        54
+      ],
+      "source_chunk_id": "manual_Samsung_Range_NSE6D8100_p54_cf2_sub_touch_comm",
+      "severity": "medium",
+      "difficulty": "hard",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "จอเตาแสดงรหัส C-F2 ใช่หรือไม่?",
+          "on_yes": "n_escalate",
+          "on_no": "n_nomatch"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "รหัส C-F2 เป็นข้อมูลเกี่ยวกับการสื่อสารระหว่างแผงวงจร Sub กับแผงสัมผัส (Touch) (คู่มือหน้า 54) ขั้นตอนแก้ไขตามคู่มือต้องตรวจว่าสายแผ่นฟิล์มสัมผัสเสียบแน่นสนิท และเปลี่ยนแผงวงจร Sub หรือชุดแผงสัมผัส (คู่มือหน้า 54) ซึ่งเป็นงานของช่าง ให้ติดต่อศูนย์บริการ SAMSUNG หรือตัวแทนจำหน่าย (คู่มือหน้า 4 ระบุว่างานซ่อมต้องทำโดยช่างที่ได้รับอนุญาตเท่านั้น ถ้าต้องซ่อมให้ติดต่อ SAMSUNG Service Center หรือตัวแทนจำหน่าย) และอย่าถอดแยกหรือซ่อมแซมเตาเอง (คู่มือหน้า 5 ห้ามซ่อมหรือเปลี่ยนชิ้นส่วนใดเองนอกจากที่คู่มือแนะนำ) พร้อมแจ้งรหัส C-F2",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_nomatch",
+          "type": "escalation",
+          "content": "ถ้าจอไม่ได้แสดงรหัส C-F2 ให้เลือกอาการที่ตรงกับที่เห็น หรือติดต่อศูนย์บริการ SAMSUNG หรือตัวแทนจำหน่าย (คู่มือหน้า 4 ระบุว่างานซ่อมต้องทำโดยช่างที่ได้รับอนุญาตเท่านั้น ถ้าต้องซ่อมให้ติดต่อ SAMSUNG Service Center หรือตัวแทนจำหน่าย) และอย่าถอดแยกหรือซ่อมแซมเตาเอง (คู่มือหน้า 5 ห้ามซ่อมหรือเปลี่ยนชิ้นส่วนใดเองนอกจากที่คู่มือแนะนำ)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_nse6d8100_um_bad_line",
+      "device_category": "Range",
+      "brand": "Samsung",
+      "model_pattern": "NSE6D*8100****",
+      "entry_symptom": "bAd LInE This error code displays if power connection is installed improperly.",
+      "entry_symptom_th": "จอเตาแสดงรหัส bAd LInE (ต่อสายไฟเข้าเครื่องไม่ถูกต้อง)",
+      "entry_symptom_aliases": [
+        "เตาขึ้น bAd LInE",
+        "เตาขึ้น bad line",
+        "oven bAd LInE error",
+        "range bad line",
+        "ต่อสายไฟเตาไม่ถูกต้อง"
+      ],
+      "source": "Samsung ELEC RANGE Service Manual (30\" Slide-In Self-Cleaning Electric Range, model code NSE6D*8100****)",
+      "page_range": [
+        55,
+        55
+      ],
+      "source_chunk_id": "manual_Samsung_Range_NSE6D8100_p55_bad_line",
+      "severity": "medium",
+      "difficulty": "hard",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "จอเตาแสดงรหัส bAd LInE ใช่หรือไม่?",
+          "on_yes": "n_escalate",
+          "on_no": "n_nomatch"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "รหัส bAd LInE จะแสดงเมื่อการต่อสายไฟเข้าเครื่องติดตั้งไม่ถูกต้อง (คู่มือหน้า 55) ขั้นตอนแก้ไขตามคู่มือต้องถอดปลั๊กสายไฟ ตรวจการต่อสาย L1, L2, N ที่ terminal block และขั้วต่อบนแผงวงจรหลัก ซึ่งการติดตั้งและต่อสายดินต้องทำโดยช่างที่มีคุณสมบัติ (คู่มือหน้า 5) (คู่มือหน้า 55) ซึ่งเป็นงานของช่าง ให้ติดต่อศูนย์บริการ SAMSUNG หรือตัวแทนจำหน่าย (คู่มือหน้า 4 ระบุว่างานซ่อมต้องทำโดยช่างที่ได้รับอนุญาตเท่านั้น ถ้าต้องซ่อมให้ติดต่อ SAMSUNG Service Center หรือตัวแทนจำหน่าย) และอย่าถอดแยกหรือซ่อมแซมเตาเอง (คู่มือหน้า 5 ห้ามซ่อมหรือเปลี่ยนชิ้นส่วนใดเองนอกจากที่คู่มือแนะนำ) พร้อมแจ้งรหัส bAd LInE",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_nomatch",
+          "type": "escalation",
+          "content": "ถ้าจอไม่ได้แสดงรหัส bAd LInE ให้เลือกอาการที่ตรงกับที่เห็น หรือติดต่อศูนย์บริการ SAMSUNG หรือตัวแทนจำหน่าย (คู่มือหน้า 4 ระบุว่างานซ่อมต้องทำโดยช่างที่ได้รับอนุญาตเท่านั้น ถ้าต้องซ่อมให้ติดต่อ SAMSUNG Service Center หรือตัวแทนจำหน่าย) และอย่าถอดแยกหรือซ่อมแซมเตาเอง (คู่มือหน้า 5 ห้ามซ่อมหรือเปลี่ยนชิ้นส่วนใดเองนอกจากที่คู่มือแนะนำ)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_nse6d8100_um_no_display",
+      "device_category": "Range",
+      "brand": "Samsung",
+      "model_pattern": "NSE6D*8100****",
+      "entry_symptom": "No display",
+      "entry_symptom_th": "จอเตาไม่แสดงผล",
+      "entry_symptom_aliases": [
+        "จอเตาไม่ติด",
+        "เตาไม่มีไฟที่จอ",
+        "จอเตาดับ",
+        "oven no display",
+        "range display not working"
+      ],
+      "source": "Samsung ELEC RANGE Service Manual (30\" Slide-In Self-Cleaning Electric Range, model code NSE6D*8100****)",
+      "page_range": [
+        67,
+        67
+      ],
+      "source_chunk_id": "manual_Samsung_Range_NSE6D8100_p67_no_display",
+      "severity": "low",
+      "difficulty": "easy",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "จอเตาไม่แสดงผลใช่หรือไม่?",
+          "on_yes": "n2",
+          "on_no": "n_nomatch"
+        },
+        {
+          "state_id": "n2",
+          "type": "checkpoint",
+          "question": "สายไฟของเตาเสียบอยู่ในเต้ารับแล้วใช่หรือไม่?",
+          "on_yes": "n_escalate",
+          "on_no": "n2f"
+        },
+        {
+          "state_id": "n2f",
+          "type": "instruction",
+          "content": "เสียบสายไฟของเตา (Insert the power cord) แล้วดูว่าจอแสดงผลหรือไม่ (คู่มือหน้า 67)",
+          "safety_critical": true,
+          "safety_warning": "สายไฟและสายเคเบิลไฟฟ้าต้องไม่สัมผัสตัวเตา และถ้าสายไฟชำรุดต้องให้ผู้ให้บริการที่มีคุณสมบัติเปลี่ยนด้วยสายไฟเรนจ์ที่ได้รับรอง UL (คู่มือหน้า 4) ส่วนการติดตั้งและต่อสายดินต้องทำโดยช่างที่มีคุณสมบัติ (คู่มือหน้า 5)",
+          "author_note": "ข้อความเตือนนี้มาจากหัวข้อความปลอดภัยหน้า 4 และ 5 ผู้พัฒนาโยงมาใช้กับขั้นตอนเสียบสายไฟ คู่มือหน้า 67 บอกเพียง 'Insert the power cord' ไม่ได้อธิบายรายละเอียดการเสียบ",
+          "next": "n2v"
+        },
+        {
+          "state_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n_resolved",
+          "type": "resolution",
+          "content": "จอเตาแสดงผลได้แล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "ถ้าเสียบสายไฟแล้วจอยังไม่แสดงผล ขั้นตอนต่อไปตามคู่มือคือวัดแรงดันที่ขั้วต่อสายไฟ ตรวจขั้วต่อหางจอ LED วัดแรงดัน 5V ที่ขั้วต่อบนแผงวงจร ตรวจสายสื่อสาร Main-Sub และเปลี่ยนแผงวงจร Sub (คู่มือหน้า 67) ซึ่งเป็นงานของช่าง ให้ติดต่อศูนย์บริการ SAMSUNG หรือตัวแทนจำหน่าย (คู่มือหน้า 4 ระบุว่างานซ่อมต้องทำโดยช่างที่ได้รับอนุญาตเท่านั้น ถ้าต้องซ่อมให้ติดต่อ SAMSUNG Service Center หรือตัวแทนจำหน่าย) และอย่าถอดแยกหรือซ่อมแซมเตาเอง (คู่มือหน้า 5 ห้ามซ่อมหรือเปลี่ยนชิ้นส่วนใดเองนอกจากที่คู่มือแนะนำ)",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_nomatch",
+          "type": "escalation",
+          "content": "ถ้าไม่ใช่อาการนี้ ให้เลือกอาการที่ตรงกับที่เห็น หรือติดต่อศูนย์บริการ SAMSUNG หรือตัวแทนจำหน่าย (คู่มือหน้า 4 ระบุว่างานซ่อมต้องทำโดยช่างที่ได้รับอนุญาตเท่านั้น ถ้าต้องซ่อมให้ติดต่อ SAMSUNG Service Center หรือตัวแทนจำหน่าย) และอย่าถอดแยกหรือซ่อมแซมเตาเอง (คู่มือหน้า 5 ห้ามซ่อมหรือเปลี่ยนชิ้นส่วนใดเองนอกจากที่คู่มือแนะนำ)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_nse6d8100_um_touch_keypad_not_working",
+      "device_category": "Range",
+      "brand": "Samsung",
+      "model_pattern": "NSE6D*8100****",
+      "entry_symptom": "Touch Keypad is not working properly",
+      "entry_symptom_th": "ปุ่มสัมผัสบนแผงควบคุมเตาทำงานไม่ปกติ",
+      "entry_symptom_aliases": [
+        "ปุ่มเตากดไม่ได้",
+        "ปุ่มสัมผัสเตาไม่ตอบสนอง",
+        "แผงควบคุมเตากดไม่ติด",
+        "range touch keypad not working",
+        "oven touch keys not responding"
+      ],
+      "source": "Samsung ELEC RANGE Service Manual (30\" Slide-In Self-Cleaning Electric Range, model code NSE6D*8100****)",
+      "page_range": [
+        68,
+        68
+      ],
+      "source_chunk_id": "manual_Samsung_Range_NSE6D8100_p68_touch_keypad_not_working",
+      "severity": "low",
+      "difficulty": "easy",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "ปุ่มสัมผัสบนแผงควบคุมเตาทำงานไม่ปกติใช่หรือไม่?",
+          "on_yes": "n2",
+          "on_no": "n_nomatch"
+        },
+        {
+          "state_id": "n2",
+          "type": "checkpoint",
+          "question": "ฟังก์ชัน Door lock เปิดอยู่หรือไม่?",
+          "on_yes": "n2f",
+          "on_no": "n3"
+        },
+        {
+          "state_id": "n2f",
+          "type": "instruction",
+          "content": "แตะปุ่ม Start/Set ค้างไว้สามวินาทีขึ้นไป แล้วลองกดปุ่มอีกครั้ง (คู่มือหน้า 68)",
+          "author_note": "คู่มือหน้า 68 สั่งให้แตะปุ่ม Start/Set ค้างไว้เมื่อ Door lock เปิดอยู่ ส่วนหน้า 10 ระบุว่าฟังก์ชัน Lock ใช้ปุ่ม Lamp / Lock กดค้าง 3 วินาที ผู้พัฒนาทำตามหน้า 68 ตามที่เขียน และไม่นำสองหน้ามาผสมกัน",
+          "next": "n2v"
+        },
+        {
+          "state_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "state_id": "n3",
+          "type": "checkpoint",
+          "question": "โหมด Sabbath เปิดอยู่หรือไม่?",
+          "on_yes": "n3f",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n3f",
+          "type": "instruction",
+          "content": "แตะปุ่ม Back ค้างไว้สามวินาทีขึ้นไป แล้วลองกดปุ่มอีกครั้ง (คู่มือหน้า 68)",
+          "author_note": "คู่มือไม่ได้อธิบายว่าโหมด Sabbath คืออะไรหรือดูสถานะได้อย่างไร ผู้พัฒนาจึงไม่เพิ่มรายละเอียด",
+          "next": "n3v"
+        },
+        {
+          "state_id": "n3v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n_resolved",
+          "type": "resolution",
+          "content": "ปุ่มสัมผัสทำงานได้ปกติแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "ถ้าปลดล็อกประตูและโหมด Sabbath แล้วปุ่มสัมผัสยังไม่ทำงานปกติ ขั้นตอนต่อไปตามคู่มือคือตรวจขั้วต่อหางแผงควบคุมจอแสดงผล (CNS701) และเปลี่ยนแผงวงจร Sub (คู่มือหน้า 68) ซึ่งเป็นงานของช่าง ให้ติดต่อศูนย์บริการ SAMSUNG หรือตัวแทนจำหน่าย (คู่มือหน้า 4 ระบุว่างานซ่อมต้องทำโดยช่างที่ได้รับอนุญาตเท่านั้น ถ้าต้องซ่อมให้ติดต่อ SAMSUNG Service Center หรือตัวแทนจำหน่าย) และอย่าถอดแยกหรือซ่อมแซมเตาเอง (คู่มือหน้า 5 ห้ามซ่อมหรือเปลี่ยนชิ้นส่วนใดเองนอกจากที่คู่มือแนะนำ)",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_nomatch",
+          "type": "escalation",
+          "content": "ถ้าไม่ใช่อาการนี้ ให้เลือกอาการที่ตรงกับที่เห็น หรือติดต่อศูนย์บริการ SAMSUNG หรือตัวแทนจำหน่าย (คู่มือหน้า 4 ระบุว่างานซ่อมต้องทำโดยช่างที่ได้รับอนุญาตเท่านั้น ถ้าต้องซ่อมให้ติดต่อ SAMSUNG Service Center หรือตัวแทนจำหน่าย) และอย่าถอดแยกหรือซ่อมแซมเตาเอง (คู่มือหน้า 5 ห้ามซ่อมหรือเปลี่ยนชิ้นส่วนใดเองนอกจากที่คู่มือแนะนำ)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_nse6d8100_um_wifi_not_working",
+      "device_category": "Range",
+      "brand": "Samsung",
+      "model_pattern": "NSE6D*8100****",
+      "entry_symptom": "Wi-Fi Connection is not working",
+      "entry_symptom_th": "เตาเชื่อมต่อ Wi-Fi ไม่ได้",
+      "entry_symptom_aliases": [
+        "เตาต่อ wifi ไม่ได้",
+        "เตา wifi ไม่ติด",
+        "smart control ใช้ไม่ได้",
+        "range wifi not working",
+        "oven SmartThings not connecting"
+      ],
+      "source": "Samsung ELEC RANGE Service Manual (30\" Slide-In Self-Cleaning Electric Range, model code NSE6D*8100****)",
+      "page_range": [
+        70,
+        70
+      ],
+      "source_chunk_id": "manual_Samsung_Range_NSE6D8100_p70_wifi_not_working",
+      "severity": "low",
+      "difficulty": "medium",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "เตาเชื่อมต่อ Wi-Fi ไม่ได้ใช่หรือไม่?",
+          "on_yes": "n2",
+          "on_no": "n_nomatch"
+        },
+        {
+          "state_id": "n2",
+          "type": "checkpoint",
+          "question": "มีไอคอน Wi-Fi แสดงบนจอเตาใช่หรือไม่? (คู่มือหน้า 70)",
+          "on_yes": "n3",
+          "on_no": "n2f"
+        },
+        {
+          "state_id": "n2f",
+          "type": "instruction",
+          "content": "ลงทะเบียนเตากับแอป SmartThings (register the range to SmartThings app) โดยตรวจดังนี้ (คู่มือหน้า 70): โทรศัพท์ต้องเชื่อมต่อเครือข่าย Wi-Fi 2.4GHz, ไม่ใช้ AP แบบซ่อน (hidden AP) ในการตั้งค่าเราเตอร์ขณะลงทะเบียนอุปกรณ์, ใช้ SSID ที่ไม่ซ้ำและประกอบด้วยตัวอักษรกับตัวเลขโดยไม่มีช่องว่าง, และแนะนำให้ใช้โปรโตคอลความปลอดภัย WPA2-PSK_AES",
+          "next": "n2v"
+        },
+        {
+          "state_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังลงทะเบียนเตากับแอป SmartThings แล้ว เชื่อมต่อ Wi-Fi และใช้ Smart Control ได้หรือไม่?",
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n3"
+        },
+        {
+          "state_id": "n3",
+          "type": "instruction",
+          "content": "กดปุ่ม Time (ไอคอนนาฬิกา) และปุ่ม Back (ไอคอนลูกศรย้อนกลับ) ค้างไว้ 3 วินาที (คู่มือหน้า 70) จอจะแสดงชื่อโปรเจกต์ เวอร์ชัน Main เวอร์ชัน Panel เวอร์ชัน Display เวอร์ชัน Touch และเวอร์ชัน Network PCB",
+          "author_note": "ไอคอนปุ่มดูจากภาพหน้า 70 ปุ่มบนแผงของแต่ละรุ่นอาจต่างกัน และหน้า 10 เรียกปุ่มนาฬิกาว่า Clock / Setting",
+          "next": "n3q"
+        },
+        {
+          "state_id": "n3q",
+          "type": "checkpoint",
+          "question": "จอแสดงเวอร์ชันของ Network PCB ตามปกติหรือไม่?",
+          "on_yes": "n3y",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n3y",
+          "type": "instruction",
+          "content": "ลองใช้ฟังก์ชัน Smart Control อีกครั้ง (คู่มือหน้า 70)",
+          "next": "n3v"
+        },
+        {
+          "state_id": "n3v",
+          "type": "checkpoint",
+          "question": "ตอนนี้ใช้ Smart Control ได้แล้วหรือไม่?",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate2"
+        },
+        {
+          "state_id": "n_resolved",
+          "type": "resolution",
+          "content": "เชื่อมต่อ Wi-Fi และใช้ Smart Control ได้แล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "ถ้าเวอร์ชัน Network ผิดปกติ ขั้นตอนต่อไปตามคู่มือคือตรวจโมดูล Wi-Fi และวัดแรงดันขาเข้า 12V ของโมดูล ถ้าแรงดันมีปัญหาให้เปลี่ยนแผงวงจร Sub (คู่มือหน้า 70) ซึ่งเป็นงานของช่าง ให้ติดต่อศูนย์บริการ SAMSUNG หรือตัวแทนจำหน่าย (คู่มือหน้า 4 ระบุว่างานซ่อมต้องทำโดยช่างที่ได้รับอนุญาตเท่านั้น ถ้าต้องซ่อมให้ติดต่อ SAMSUNG Service Center หรือตัวแทนจำหน่าย) และอย่าถอดแยกหรือซ่อมแซมเตาเอง (คู่มือหน้า 5 ห้ามซ่อมหรือเปลี่ยนชิ้นส่วนใดเองนอกจากที่คู่มือแนะนำ)",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_escalate2",
+          "type": "escalation",
+          "content": "ถ้าเวอร์ชัน Network ปกติแต่ยังใช้ Smart Control ไม่ได้ คู่มือหน้า 70 ไม่ได้ระบุขั้นตอนต่อไป ให้ติดต่อศูนย์บริการ SAMSUNG หรือตัวแทนจำหน่าย (คู่มือหน้า 4 ระบุว่างานซ่อมต้องทำโดยช่างที่ได้รับอนุญาตเท่านั้น ถ้าต้องซ่อมให้ติดต่อ SAMSUNG Service Center หรือตัวแทนจำหน่าย) และอย่าถอดแยกหรือซ่อมแซมเตาเอง (คู่มือหน้า 5 ห้ามซ่อมหรือเปลี่ยนชิ้นส่วนใดเองนอกจากที่คู่มือแนะนำ)",
+          "outcome_kind": "handoff_unknown"
+        },
+        {
+          "state_id": "n_nomatch",
+          "type": "escalation",
+          "content": "ถ้าไม่ใช่อาการนี้ ให้เลือกอาการที่ตรงกับที่เห็น หรือติดต่อศูนย์บริการ SAMSUNG หรือตัวแทนจำหน่าย (คู่มือหน้า 4 ระบุว่างานซ่อมต้องทำโดยช่างที่ได้รับอนุญาตเท่านั้น ถ้าต้องซ่อมให้ติดต่อ SAMSUNG Service Center หรือตัวแทนจำหน่าย) และอย่าถอดแยกหรือซ่อมแซมเตาเอง (คู่มือหน้า 5 ห้ามซ่อมหรือเปลี่ยนชิ้นส่วนใดเองนอกจากที่คู่มือแนะนำ)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_nse6d8100_um_oven_not_operating",
+      "device_category": "Range",
+      "brand": "Samsung",
+      "model_pattern": "NSE6D*8100****",
+      "entry_symptom": "Oven not operating (No power, No display)",
+      "entry_symptom_th": "เตาไม่ทำงาน (ไม่มีไฟ จอไม่แสดงผล)",
+      "entry_symptom_aliases": [
+        "เตาไม่ทำงาน",
+        "เตาไม่มีไฟ",
+        "เตาไม่ติด",
+        "oven not operating",
+        "range no power"
+      ],
+      "source": "Samsung ELEC RANGE Service Manual (30\" Slide-In Self-Cleaning Electric Range, model code NSE6D*8100****)",
+      "page_range": [
+        71,
+        71
+      ],
+      "source_chunk_id": "manual_Samsung_Range_NSE6D8100_p71_oven_not_operating",
+      "severity": "low",
+      "difficulty": "easy",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "เตาไม่ทำงานเลย (ไม่มีไฟและจอไม่แสดงผล) ใช่หรือไม่?",
+          "on_yes": "n2",
+          "on_no": "n_nomatch"
+        },
+        {
+          "state_id": "n2",
+          "type": "instruction",
+          "content": "ตรวจสอบเบรกเกอร์วงจรไฟฟ้าของเตา (check circuit breaker) (คู่มือหน้า 71)",
+          "safety_critical": true,
+          "safety_warning": "ห้ามซ่อมหรือเปลี่ยนชิ้นส่วนใดของเตาเอง นอกจากที่คู่มือแนะนำไว้โดยเฉพาะ งานซ่อมอื่นทั้งหมดต้องให้ช่างที่มีคุณสมบัติทำ (คู่มือหน้า 5)",
+          "author_note": "ข้อความเตือนนี้มาจากหัวข้อความปลอดภัยหน้า 5 ของคู่มือ ผู้พัฒนาโยงมาใช้กับขั้นตอนที่เกี่ยวกับระบบไฟฟ้าของเตา และคู่มือบอกเพียง 'check circuit breaker' ไม่ได้อธิบายวิธีตรวจหรือให้รีเซ็ต ผู้พัฒนาจึงไม่เพิ่มรายละเอียด",
+          "next": "n2v"
+        },
+        {
+          "state_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังตรวจเบรกเกอร์แล้ว เตาทำงานและจอแสดงผลได้ตามปกติหรือไม่?",
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n_resolved",
+          "type": "resolution",
+          "content": "เตาทำงานและจอแสดงผลได้ตามปกติแล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "ถ้าตรวจเบรกเกอร์แล้วเตายังไม่ทำงาน ขั้นตอนต่อไปตามคู่มือคือวัดแรงดันไฟเข้าที่ terminal block ตรวจสายที่ต่อกับ terminal block วัดแรงดันที่ขั้วต่อบนแผงวงจรหลัก (Main PCB) ตรวจเทอร์โมสตัท และตรวจสายระหว่างแผงวงจร Sub กับ Main (คู่มือหน้า 71) ซึ่งเป็นงานของช่าง ให้ติดต่อศูนย์บริการ SAMSUNG หรือตัวแทนจำหน่าย (คู่มือหน้า 4 ระบุว่างานซ่อมต้องทำโดยช่างที่ได้รับอนุญาตเท่านั้น ถ้าต้องซ่อมให้ติดต่อ SAMSUNG Service Center หรือตัวแทนจำหน่าย) และอย่าถอดแยกหรือซ่อมแซมเตาเอง (คู่มือหน้า 5 ห้ามซ่อมหรือเปลี่ยนชิ้นส่วนใดเองนอกจากที่คู่มือแนะนำ)",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_nomatch",
+          "type": "escalation",
+          "content": "ถ้าไม่ใช่อาการนี้ ให้เลือกอาการที่ตรงกับที่เห็น หรือติดต่อศูนย์บริการ SAMSUNG หรือตัวแทนจำหน่าย (คู่มือหน้า 4 ระบุว่างานซ่อมต้องทำโดยช่างที่ได้รับอนุญาตเท่านั้น ถ้าต้องซ่อมให้ติดต่อ SAMSUNG Service Center หรือตัวแทนจำหน่าย) และอย่าถอดแยกหรือซ่อมแซมเตาเอง (คู่มือหน้า 5 ห้ามซ่อมหรือเปลี่ยนชิ้นส่วนใดเองนอกจากที่คู่มือแนะนำ)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    }
+  ]
+}

@@ -12,7 +12,7 @@
 4. จด URL ที่ Render ให้ เช่น `https://appliance-repair-backend.onrender.com` (ถ้าชื่อซ้ำกับคนอื่น Render จะต่อท้ายตัวอักษรสุ่ม ใช้ URL ที่ Render แสดงจริง)
 5. **ตรวจ backend ก่อนไปต่อ:**
    - `<URL>/health` ต้องได้ `"status":"ok"` และ `"database":"ok"` (ถ้า `database` เป็น `error` ดู `databaseError` และเช็คว่า Aiven ไม่ได้จำกัด IP)
-   - `<URL>/traversal/graphs` ต้องได้รายการผัง 13 รายการ
+   - `<URL>/execution/flows` ต้องได้รายการผังขั้นตอน (หลังเปลี่ยนศัพท์ — ก่อนหน้านี้คือ `/traversal/graphs`)
    - `<URL>/symptom-search/status` ต้องได้ `"state":"disabled"` (ตั้งใจปิดไว้)
 
 ## ขั้นที่ 2 — frontend บน GitHub Pages
@@ -34,9 +34,31 @@
 - **ระบบค้นหาอาการปิดอยู่** (`SYMPTOM_SEARCH_ENABLED=false`, ยังไม่ได้คัดลอก `backend/model/`) ปุ่มค้นหาจะขึ้น "ระบบค้นหาไม่พร้อมใช้งาน" แต่เลือกจากรายการได้ปกติ
 - **Render free หลับหลังไม่มีคนใช้ ~15 นาที** คำขอแรกตอนตื่นช้า (frontend ขึ้นกล่อง "เซิร์ฟเวอร์กำลังเริ่มทำงาน" หลังรอ 4 วินาที)
 - **ฐานข้อมูลใช้ร่วมกับ FixStep** ห้ามรัน `npm run migrate`/`seed` กับฐานนี้โดยไม่ตั้งใจ (migration 001–007 รันแล้ว) และ session ของสองระบบอยู่ตารางเดียวกัน
-- **migration 006/007 รันกับ DB แล้ว (15 ต.ค.) และโค้ดใหม่ต้องใช้คอลัมน์ของมัน** (ถ้าตั้งฐานข้อมูลใหม่/ตัวอื่น ต้องรันก่อนบูต) ลำดับที่ถูก: `node scripts/run-migrations.js --status` → `npm run migrate` → จึง push/deploy โค้ด (ถ้า deploy ก่อน `GraphRepository` โหลดไม่ได้และ backend ไม่ขึ้น) · แผน/รายละเอียด: `docs/features/PLAN-MODEL-SELECTION.md` §9
+- **migration 006/007 รันกับ DB แล้ว (15 ต.ค.) และโค้ดใหม่ต้องใช้คอลัมน์ของมัน** (ถ้าตั้งฐานข้อมูลใหม่/ตัวอื่น ต้องรันก่อนบูต) ลำดับที่ถูก: `node scripts/run-migrations.js --status` → `npm run migrate` → จึง push/deploy โค้ด (ถ้า deploy ก่อน `FlowRepository` โหลดไม่ได้และ backend ไม่ขึ้น) · แผน/รายละเอียด: `docs/features/PLAN-MODEL-SELECTION.md` §9
 - `/health` ส่งข้อความ error ของ MySQL ออกสาธารณะตอนฐานล่ม (อาจเผยชื่อโฮสต์) ถ้าห่วง แก้ได้ที่ `backend/src/health/health.routes.ts`
 - ยังไม่มีเทสอัตโนมัติ (เฟส T) และยังไม่เคยรัน backend ใหม่กับ MySQL จริง — การ deploy ขั้นที่ 1 ข้อ 5 คือครั้งแรกที่ได้ทดสอบจริง
+
+## เปลี่ยนศัพท์ graph/node → flow/state — อ่านก่อน deploy branch `flow-state-rename`
+
+**สถานะ ณ ตอนเขียน:** ยังไม่ได้ทำอะไรกับ DB จริง (Aiven) และยังไม่ merge เข้า `main` — branch `main` ที่ deploy อยู่ยังใช้ตาราง `graphs`/`nodes` และ API `/traversal/*`
+
+**แนวทาง:** ไม่มี migration เปลี่ยนชื่อ — แก้ `002_flows.sql`, `004_sessions.sql`, `006_flow_drafts.sql` ตรงๆ แล้วให้ **สร้างฐานข้อมูลใหม่ทั้งหมด** (ลบฐานเดิม → `npm run migrate` → seed ใหม่) ฐานที่สร้างจากไฟล์ migration รุ่นเดิมใช้กับโค้ดนี้ไม่ได้ (ตาราง `graphs`/`nodes` ไม่มี `flows`/`states`/`state_transitions`)
+
+**ทำไมต้องระวัง:**
+- DB ตัวนี้ **ใช้ร่วมกับ FixStep** (ตาราง `sessions` ฯลฯ อยู่ร่วมกัน) — การลบฐานเดิมจะลบข้อมูลของ FixStep ด้วย ต้องยืนยันก่อนว่า FixStep ใช้ DB นี้อยู่หรือไม่ ถ้าใช่ ให้สร้างฐานใหม่เป็นอีกชื่อ (`DB_NAME` ใหม่) แทนการลบ
+- การลบฐานทำให้ **session / ประวัติการซ่อม / feedback / บัญชีผู้ใช้ / ร่างผังที่ยังไม่ publish หายทั้งหมด** และผังที่ admin publish ผ่านหน้าเว็บไม่อยู่ใน `data/manuals/` (seed ไม่คืนให้) ต้องสำรองก่อนถ้าต้องการเก็บ (snapshot ของ Aiven หรือ `backup-graph-tables.js` ของ branch `main`)
+- สร้างฐานใหม่แล้วต้อง `npm run seed:admin` สร้าง admin ใหม่ และ `npm run seed:equipment`
+- API เปลี่ยน path (`/traversal/*` → `/execution/*`, `/graphs` → `/flows`) และชื่อ field ใน JSON (`graphId`→`flowId`, `node`→`state`, `nodeId`→`stateId`, `graphCount`→`flowCount`) → frontend กับ backend ต้อง deploy **พร้อมกัน**
+- ช่วงที่ฐานใหม่ยังไม่พร้อมหรือ backend รุ่นเก่ายังรันอยู่ ระบบใช้งานไม่ได้ (backend รุ่นใหม่บูตไม่ขึ้นบนฐานเดิม และรุ่นเดิมบูตไม่ขึ้นบนฐานใหม่)
+
+**ลำดับที่ควรทำ (ผมยังไม่ได้รันขั้นใดบน Aiven):**
+1. สำรองข้อมูล / ตกลงเรื่อง FixStep ตามด้านบน และตั้ง `DB_NAME` ของฐานใหม่
+2. `cd backend && npm run migrate` (001–006) → `npm run seed:equipment` → seed ผัง 21 ไฟล์ตาม `data/runseed.txt` → `npm run seed:admin`
+3. deploy backend (Render) แล้ว deploy frontend (`npm run deploy`) ต่อเนื่องกัน
+4. ตรวจหลัง deploy: `<URL>/health` → `ok` · `<URL>/execution/flows` ได้ 631 ผัง · เดินผังจนจบ 1 อาการ
+5. ถ้าผิดพลาด: Rollback backend/frontend กลับรุ่น `main` แล้วชี้ `DB_NAME` กลับฐานเดิม (ถ้าไม่ได้ลบ)
+
+ผลทดสอบก่อนส่งงาน (MySQL 8.0.43 ในเครื่อง ไม่ใช่ Aiven): สร้างฐานจาก 001–006 ที่แก้แล้ว + seed 21 ไฟล์ ได้ flows 631 · states 4,739 · state_transitions 5,399 · เดินครบทุกผัง (yes/no) ผ่าน API ตรงกับที่จำลองจากไฟล์ข้อมูล
 
 ## ย้อนกลับ
 

@@ -1,6 +1,6 @@
 import { ApiError } from '../common/api-error';
 import { isPlainObject } from '../common/helpers';
-import type { DeviceCategory } from '../traversal-engine/types';
+import type { DeviceCategory } from '../state-machine/types';
 export const MAX_QUERY_LENGTH = 200;
 export const MAX_MANUAL_ID_LENGTH = 80;
 
@@ -46,7 +46,7 @@ export function parseSearchBody(body: unknown): SearchBody {
 }
 
 interface SymptomMatchDto {
-  graphId: string;
+  flowId: string;
   entrySymptom: string;
   entrySymptomTh?: string;
   deviceCategory: DeviceCategory;
@@ -70,7 +70,7 @@ export interface SearchStatusDto {
   model: string;
   dtype: string;
   indexedTexts: number;
-  indexedGraphs: number;
+  indexedFlows: number;
   loadMs: number | null;
   modelFilesFoundLocally: boolean;
   error: string | null;

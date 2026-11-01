@@ -2,14 +2,14 @@ import { createLogger } from '../common/logger';
 
 import { checkRephrase } from './rephrase-guard';
 
-type RephraseNodeType = 'checkpoint' | 'instruction' | 'input' | 'resolution' | 'escalation';
+type RephraseStateType = 'checkpoint' | 'instruction' | 'input' | 'resolution' | 'escalation';
 
 export interface LlmClient {
   rephrase(text: string, signal: AbortSignal): Promise<string>;
 }
 
 interface RephraseContext {
-  nodeType: RephraseNodeType;
+  stateType: RephraseStateType;
   safetyCritical: boolean;
 }
 
@@ -37,7 +37,7 @@ export class RephraseService {
 
     if (!this.options.enabled || !this.llm) return keep;
     if (original.trim() === '') return keep;
-    if (ctx.safetyCritical || ctx.nodeType === 'resolution' || ctx.nodeType === 'escalation') return keep;
+    if (ctx.safetyCritical || ctx.stateType === 'resolution' || ctx.stateType === 'escalation') return keep;
 
     const cached = this.cache.get(original);
     if (cached !== undefined) return { text: cached, rephrased: true };

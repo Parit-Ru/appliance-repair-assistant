@@ -6,7 +6,7 @@ function IssueList({ issues }: { issues: ValidationIssue[] }) {
   return (
     <ul className="space-y-1">
       {issues.map((issue, index) => (
-        <li key={`${issue.code}-${issue.graphId ?? ''}-${issue.nodeId ?? ''}-${index}`} className="text-sm">
+        <li key={`${issue.code}-${issue.flowId ?? ''}-${issue.stateId ?? ''}-${index}`} className="text-sm">
           <span className="font-mono text-xs text-ink-faint">[{issue.code}]</span> <span className="text-ink-soft">{issueLocation(issue)}:</span> {issue.message}
         </li>
       ))}
@@ -30,7 +30,7 @@ export function ValidationReportPanel({ report }: { report: ValidationReport | n
     <section aria-label="รายงานการตรวจ" className="space-y-3">
       <h2 className="text-lg font-semibold">รายงานการตรวจ</h2>
       <p className="text-sm text-ink-soft">
-        ตรวจ {report.stats.graphs} แผนผังขั้นตอน · {report.stats.nodes} โหนด · ข้อผิดพลาด {report.errors.length} · คำเตือน {report.warnings.length}
+        ตรวจ {report.stats.flows} แผนผังขั้นตอน · {report.stats.states} สถานะ · ข้อผิดพลาด {report.errors.length} · คำเตือน {report.warnings.length}
       </p>
 
       {report.errors.length === 0 ? (
@@ -47,7 +47,7 @@ export function ValidationReportPanel({ report }: { report: ValidationReport | n
 
       {risks.length > 0 && (
         <Notice tone="danger" title={`คำเตือนคำเสี่ยง ${risks.length} ข้อ — อาจขาดด่านความปลอดภัย`}>
-          <p className="mb-2">ข้อความในโหนดหรือหน้าต้นฉบับพูดถึงไฟฟ้า ปลั๊ก แก๊ส ความร้อน หรือการรื้อเครื่อง แต่ไม่มีขั้นตอนที่บังคับยืนยันความปลอดภัย ตรวจว่า AI ไม่ได้ข้ามคำเตือนของคู่มือ</p>
+          <p className="mb-2">ข้อความในสถานะหรือหน้าต้นฉบับพูดถึงไฟฟ้า ปลั๊ก แก๊ส ความร้อน หรือการรื้อเครื่อง แต่ไม่มีขั้นตอนที่บังคับยืนยันความปลอดภัย ตรวจว่า AI ไม่ได้ข้ามคำเตือนของคู่มือ</p>
           <IssueList issues={risks} />
         </Notice>
       )}

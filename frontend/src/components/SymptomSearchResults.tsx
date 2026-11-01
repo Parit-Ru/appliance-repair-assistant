@@ -6,7 +6,7 @@ interface SymptomSearchResultsProps {
   result: SymptomSearchResponse
   startingId: string | null
   isStarting: boolean
-  onSelect: (graphId: string) => void
+  onSelect: (flowId: string) => void
 }
 
 export function SymptomSearchResults({ result, startingId, isStarting, onSelect }: SymptomSearchResultsProps) {
@@ -25,7 +25,7 @@ export function SymptomSearchResults({ result, startingId, isStarting, onSelect 
 
       <ul className="border-t border-line">
         {result.matches.map((match) => (
-          <SymptomRow key={match.graphId} summary={match} score={match.score} matchedText={match.matchedText} isStarting={isStarting && startingId === match.graphId} disabled={isStarting && startingId !== match.graphId} onSelect={onSelect} />
+          <SymptomRow key={match.flowId} summary={match} score={match.score} matchedText={match.matchedText} isStarting={isStarting && startingId === match.flowId} disabled={isStarting && startingId !== match.flowId} onSelect={onSelect} />
         ))}
       </ul>
     </section>

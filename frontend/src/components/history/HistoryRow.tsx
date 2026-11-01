@@ -16,8 +16,8 @@ interface HistoryRowProps {
 export function HistoryRow({ item }: HistoryRowProps) {
   const [isConfirming, setIsConfirming] = useState(false)
   const remove = useDeleteHistory()
-  const { graph, outcomeKind } = item
-  const title = historyTitle(graph)
+  const { flow, outcomeKind } = item
+  const title = historyTitle(flow)
 
   return (
     <li className="border-b border-line py-3">
@@ -29,10 +29,10 @@ export function HistoryRow({ item }: HistoryRowProps) {
           <span className="min-w-0 flex-1">
             <span className="block font-semibold">{title}</span>
 
-            {graph !== null && (
+            {flow !== null && (
               <span className="block text-sm text-ink-soft">
-                {DEVICE_CATEGORY_LABELS[graph.deviceCategory]} · {graph.brand}{' '}
-                <code className="font-mono">{manualTitle(graph)}</code>
+                {DEVICE_CATEGORY_LABELS[flow.deviceCategory]} · {flow.brand}{' '}
+                <code className="font-mono">{manualTitle(flow)}</code>
               </span>
             )}
 

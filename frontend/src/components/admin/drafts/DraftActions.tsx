@@ -27,9 +27,9 @@ export function DraftActions({ draft, onRefresh }: { draft: DraftDetail; onRefre
     return (
       <div role="status">
         <Notice tone="info" title="เผยแพร่แล้ว">
-          <p>แผนผังขั้นตอนใหม่ {result.graphIds.length} อัน ใช้งานได้ทันทีโดยไม่ต้องรีสตาร์ต:</p>
+          <p>แผนผังขั้นตอนใหม่ {result.flowIds.length} อัน ใช้งานได้ทันทีโดยไม่ต้องรีสตาร์ต:</p>
           <ul className="mt-1 list-disc pl-5 font-mono text-xs">
-            {result.graphIds.map((id) => (
+            {result.flowIds.map((id) => (
               <li key={id}>{id}</li>
             ))}
           </ul>
@@ -53,7 +53,7 @@ export function DraftActions({ draft, onRefresh }: { draft: DraftDetail; onRefre
         <div className="space-y-3">
           <label className="flex gap-3 text-sm text-ink">
             <input type="checkbox" className={CHECKBOX_CLASSES} checked={reviewed} onChange={(e) => setReviewed(e.target.checked)} disabled={busy} />
-            <span>ฉันตรวจข้อความทุกโหนดเทียบกับหน้าต้นฉบับ และตรวจด่านความปลอดภัย (ขั้นตอนที่เกี่ยวกับไฟฟ้า แก๊ส ความร้อน) ครบแล้ว</span>
+            <span>ฉันตรวจข้อความทุกสถานะเทียบกับหน้าต้นฉบับ และตรวจด่านความปลอดภัย (ขั้นตอนที่เกี่ยวกับไฟฟ้า แก๊ส ความร้อน) ครบแล้ว</span>
           </label>
           {warnings > 0 && (
             <label className="flex gap-3 text-sm text-ink">

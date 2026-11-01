@@ -1,11 +1,11 @@
 import type { ReactNode } from 'react'
-import type { OutcomeKind, RenderedNode } from '../../api/types'
+import type { OutcomeKind, RenderedState } from '../../api/types'
 import type { TrailEntry, TrailMarker } from '../../lib/trail'
 import { Icon } from '../ui/Icon'
 
 interface PathRailProps {
   entries: TrailEntry[]
-  current: RenderedNode
+  current: RenderedState
   children: ReactNode
 }
 
@@ -27,12 +27,12 @@ function PastMarker({ marker }: { marker: TrailMarker }) {
   return <span className="h-3 w-3 rounded-full border-2 border-ink-faint" />
 }
 
-function CurrentMarker({ node }: { node: RenderedNode }) {
-  if (node.isTerminal) {
-    const kind: OutcomeKind = node.outcomeKind ?? 'handoff_unknown'
+function CurrentMarker({ state }: { state: RenderedState }) {
+  if (state.isTerminal) {
+    const kind: OutcomeKind = state.outcomeKind ?? 'handoff_unknown'
     return <span className={`h-3 w-3 rounded-sm ${OUTCOME_MARKER_CLASSES[kind]}`} />
   }
-  if (node.requiresSafetyConfirmation) {
+  if (state.requiresSafetyConfirmation) {
     return <Icon name="switch-on" className="h-5 w-3 text-danger" />
   }
   return <span className="h-3 w-3 rounded-full bg-accent" />
@@ -44,7 +44,7 @@ export function PathRail({ entries, current, children }: PathRailProps) {
   return (
     <ol aria-label="เส้นทางการตรวจ">
       {entries.map((entry, index) => (
-        <li key={`${index}-${entry.nodeId}`} className="relative pb-6 pl-8 md:pl-10">
+        <li key={`${index}-${entry.stateId}`} className="relative pb-6 pl-8 md:pl-10">
           <span aria-hidden className={`${LINE_CLASSES} bottom-0 ${index === 0 ? 'top-3' : 'top-0'}`} />
           <span aria-hidden className={`${MARKER_BOX_CLASSES} top-0 h-6`}>
             <PastMarker marker={entry.marker} />
@@ -57,7 +57,7 @@ export function PathRail({ entries, current, children }: PathRailProps) {
       <li aria-current="step" className="relative pl-8 md:pl-10">
         {hasPast && <span aria-hidden className={`${LINE_CLASSES} top-0 h-6 md:h-7`} />}
         <span aria-hidden className={`${MARKER_BOX_CLASSES} top-5 h-5 md:top-6`}>
-          <CurrentMarker node={current} />
+          <CurrentMarker state={current} />
         </span>
 
         {children}

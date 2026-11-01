@@ -1,16 +1,16 @@
 """
-FixBot Graph Path Simulator
+FixBot Flow Path Simulator
 
-Walks every possible path through each graph and reports:
+Walks every possible path through each flow and reports:
 - Total distinct paths and their outcomes
 - Longest path (UX concern: how many questions before an answer?)
 - Paths that reach escalation vs resolution
-- Safety gate coverage: are safety_critical nodes reachable on every dangerous path?
+- Safety gate coverage: are safety_critical states reachable on every dangerous path?
 - Semantic smells the schema validator cannot detect
 
 Usage:
-    python simulate_paths.py --all <graphs_directory>
-    python simulate_paths.py <graph_file.json>
+    python simulate_paths.py --all <flows_directory>
+    python simulate_paths.py <flow_file.json>
 """
 
 import json
@@ -21,41 +21,41 @@ from pathlib import Path
 MAX_PATH_LENGTH = 40  # guard against runaway loops
 
 
-def enumerate_paths(graph: dict, max_paths: int = 500) -> list[dict]:
+def enumerate_paths(flow: dict, max_paths: int = 500) -> list[dict]:
     """
-    Walk all distinct paths from entry_node to any terminal node.
+    Walk all distinct paths from initial_state to any terminal state.
     Retry loops are traversed at most once (loop edge taken one time only).
     """
-    nodes = {n["node_id"]: n for n in graph["nodes"]}
-    entry = graph["entry_node"]
+    states = {n["state_id"]: n for n in flow["states"]}
+    entry = flow["initial_state"]
     paths = []
 
-    def walk(node_id, trail, answers, edge_counts):
+    def walk(state_id, trail, answers, edge_counts):
         if len(trail) > MAX_PATH_LENGTH or len(paths) >= max_paths:
             return
 
-        node = nodes.get(node_id)
-        if node is None:
+        state = states.get(state_id)
+        if state is None:
             return
 
-        trail = trail + [node_id]
-        ntype = node["type"]
+        trail = trail + [state_id]
+        ntype = state["type"]
 
         if ntype in ("resolution", "escalation"):
             paths.append({
                 "trail": trail,
                 "answers": answers,
                 "outcome": ntype,
-                "confidence": node.get("confidence"),
-                "terminal_node": node_id,
-                "questions_asked": sum(1 for n in trail if nodes[n]["type"] == "checkpoint"),
-                "safety_nodes_hit": [n for n in trail if nodes[n].get("safety_critical")],
+                "confidence": state.get("confidence"),
+                "terminal_state": state_id,
+                "questions_asked": sum(1 for n in trail if states[n]["type"] == "checkpoint"),
+                "safety_states_hit": [n for n in trail if states[n].get("safety_critical")],
             })
             return
 
         if ntype == "instruction":
-            target = node["next"]
-            key = (node_id, "next", target)
+            target = state["next"]
+            key = (state_id, "next", target)
             if edge_counts.get(key, 0) >= 1:
                 return  # already took this loop edge once
             walk(target, trail, answers, {**edge_counts, key: edge_counts.get(key, 0) + 1})
@@ -63,11 +63,11 @@ def enumerate_paths(graph: dict, max_paths: int = 500) -> list[dict]:
 
         if ntype == "checkpoint":
             for answer, edge in (("yes", "on_yes"), ("no", "on_no")):
-                target = node[edge]
-                key = (node_id, edge, target)
+                target = state[edge]
+                key = (state_id, edge, target)
                 if edge_counts.get(key, 0) >= 1:
                     continue
-                walk(target, trail, answers + [(node_id, answer)],
+                walk(target, trail, answers + [(state_id, answer)],
                      {**edge_counts, key: edge_counts.get(key, 0) + 1})
             return
 
@@ -75,9 +75,9 @@ def enumerate_paths(graph: dict, max_paths: int = 500) -> list[dict]:
     return paths
 
 
-def analyze(graph: dict) -> dict:
-    nodes = {n["node_id"]: n for n in graph["nodes"]}
-    paths = enumerate_paths(graph)
+def analyze(flow: dict) -> dict:
+    states = {n["state_id"]: n for n in flow["states"]}
+    paths = enumerate_paths(flow)
 
     resolutions = [p for p in paths if p["outcome"] == "resolution"]
     escalations = [p for p in paths if p["outcome"] == "escalation"]
@@ -88,7 +88,7 @@ def analyze(graph: dict) -> dict:
     if paths and len(escalations) / len(paths) > 0.75:
         findings.append(
             f"{len(escalations)}/{len(paths)} paths end in escalation — "
-            f"graph may be too quick to give up"
+            f"flow may be too quick to give up"
         )
 
     # --- Smell 2: no resolution path at all ---
@@ -101,30 +101,30 @@ def analyze(graph: dict) -> dict:
         if longest["questions_asked"] > 6:
             findings.append(
                 f"Longest path asks {longest['questions_asked']} questions "
-                f"before an answer — consider splitting the graph"
+                f"before an answer — consider splitting the flow"
             )
 
     # --- Smell 4: instant escalation (1 question, no attempt to help) ---
     instant = [p for p in escalations if p["questions_asked"] <= 1]
     if instant and len(instant) == len(escalations) and not resolutions:
-        findings.append("All escalations happen after 1 question — graph does no real work")
+        findings.append("All escalations happen after 1 question — flow does no real work")
 
-    # --- Smell 5: safety node bypassable ---
-    safety_nodes = [nid for nid, n in nodes.items() if n.get("safety_critical")]
-    if safety_nodes:
-        # Are there paths reaching a resolution WITHOUT hitting any safety node,
-        # when safety nodes exist on other paths to the same resolution?
-        for res_id in {p["terminal_node"] for p in resolutions}:
-            to_res = [p for p in resolutions if p["terminal_node"] == res_id]
-            with_safety = [p for p in to_res if p["safety_nodes_hit"]]
-            without = [p for p in to_res if not p["safety_nodes_hit"]]
+    # --- Smell 5: safety state bypassable ---
+    safety_states = [nid for nid, n in states.items() if n.get("safety_critical")]
+    if safety_states:
+        # Are there paths reaching a resolution WITHOUT hitting any safety state,
+        # when safety states exist on other paths to the same resolution?
+        for res_id in {p["terminal_state"] for p in resolutions}:
+            to_res = [p for p in resolutions if p["terminal_state"] == res_id]
+            with_safety = [p for p in to_res if p["safety_states_hit"]]
+            without = [p for p in to_res if not p["safety_states_hit"]]
             if with_safety and without:
                 findings.append(
                     f"Resolution '{res_id}' reachable both with and without safety gates "
                     f"({len(with_safety)} guarded, {len(without)} unguarded) — verify this is intended"
                 )
 
-    # --- Smell 6: resolution nodes missing explicit outcome_kind ---
+    # --- Smell 6: resolution states missing explicit outcome_kind ---
     # A 'resolution' can mean two very different things:
     #   (a) the user performed a fix and it worked
     #   (b) nothing was wrong — the behavior is normal by design
@@ -132,33 +132,33 @@ def analyze(graph: dict) -> dict:
     # explicit field we cannot tell them apart, so flag any that lack one.
     seen_missing = set()
     for p in resolutions:
-        node = nodes[p["terminal_node"]]
-        if "outcome_kind" not in node and p["terminal_node"] not in seen_missing:
-            seen_missing.add(p["terminal_node"])
+        state = states[p["terminal_state"]]
+        if "outcome_kind" not in state and p["terminal_state"] not in seen_missing:
+            seen_missing.add(p["terminal_state"])
             findings.append(
-                f"Resolution '{p['terminal_node']}' has no 'outcome_kind' — "
+                f"Resolution '{p['terminal_state']}' has no 'outcome_kind' — "
                 f"cannot distinguish 'user fixed it' from 'this is normal behavior'"
             )
 
     # --- Smell 7: escalation with high confidence ---
     for p in escalations:
-        node = nodes[p["terminal_node"]]
-        if node.get("confidence") == "high":
+        state = states[p["terminal_state"]]
+        if state.get("confidence") == "high":
             findings.append(
-                f"Escalation '{p['terminal_node']}' has confidence='high' — "
+                f"Escalation '{p['terminal_state']}' has confidence='high' — "
                 f"ambiguous: high confidence in WHAT? (that escalation is correct, or in a diagnosis?)"
             )
             break
 
     return {
-        "graph_id": graph["graph_id"],
+        "flow_id": flow["flow_id"],
         "total_paths": len(paths),
         "resolutions": len(resolutions),
         "escalations": len(escalations),
         "max_questions": max((p["questions_asked"] for p in paths), default=0),
         "min_questions": min((p["questions_asked"] for p in paths), default=0),
-        "node_count": len(nodes),
-        "safety_nodes": len([n for n in nodes.values() if n.get("safety_critical")]),
+        "state_count": len(states),
+        "safety_states": len([n for n in states.values() if n.get("safety_critical")]),
         "findings": findings,
         "paths": paths,
     }
@@ -166,10 +166,10 @@ def analyze(graph: dict) -> dict:
 
 def print_report(result: dict, verbose: bool = False):
     print(f"\n{'='*70}")
-    print(f"{result['graph_id']}")
+    print(f"{result['flow_id']}")
     print(f"{'='*70}")
-    print(f"  Nodes: {result['node_count']}  |  Paths: {result['total_paths']}  |  "
-          f"Safety gates: {result['safety_nodes']}")
+    print(f"  States: {result['state_count']}  |  Paths: {result['total_paths']}  |  "
+          f"Safety gates: {result['safety_states']}")
     print(f"  Outcomes: {result['resolutions']} resolution / {result['escalations']} escalation")
     print(f"  Questions asked: min {result['min_questions']}, max {result['max_questions']}")
 
@@ -185,7 +185,7 @@ def print_report(result: dict, verbose: bool = False):
         for i, p in enumerate(result["paths"], 1):
             ans = " → ".join(f"{nid}={a}" for nid, a in p["answers"]) or "(no questions)"
             print(f"    [{i}] {ans}")
-            print(f"        → {p['outcome']} ({p['confidence']}) at {p['terminal_node']}")
+            print(f"        → {p['outcome']} ({p['confidence']}) at {p['terminal_state']}")
 
 
 def main():
@@ -210,18 +210,18 @@ def main():
     else:
         manual_files = [Path(args[0])]
 
-    graphs_to_check = []
+    flows_to_check = []
     for mf in manual_files:
         raw = json.loads(mf.read_text(encoding="utf-8"))
         manual_id = raw.get("manual_id", mf.stem)
         print(f"\n{'#'*70}")
         print(f"# คู่มือ: {manual_id}")
         print(f"{'#'*70}")
-        graphs_to_check.extend(raw.get("graphs", []))
+        flows_to_check.extend(raw.get("flows", []))
 
     all_results = []
-    for graph in graphs_to_check:
-        result = analyze(graph)
+    for flow in flows_to_check:
+        result = analyze(flow)
         all_results.append(result)
         print_report(result, verbose)
 
@@ -231,17 +231,17 @@ def main():
     print(f"{'='*70}")
     total_paths = sum(r["total_paths"] for r in all_results)
     total_findings = sum(len(r["findings"]) for r in all_results)
-    print(f"  Graphs analyzed: {len(all_results)}")
+    print(f"  Flows analyzed: {len(all_results)}")
     print(f"  Total distinct paths: {total_paths}")
     print(f"  Total findings: {total_findings}")
-    print(f"  Avg paths per graph: {total_paths / len(all_results):.1f}")
-    print(f"  Graphs with findings: {sum(1 for r in all_results if r['findings'])}/{len(all_results)}")
+    print(f"  Avg paths per flow: {total_paths / len(all_results):.1f}")
+    print(f"  Flows with findings: {sum(1 for r in all_results if r['findings'])}/{len(all_results)}")
 
     # Group findings by type
-    print(f"\n  FINDINGS BY GRAPH:")
+    print(f"\n  FINDINGS BY FLOW:")
     for r in all_results:
         if r["findings"]:
-            print(f"    {r['graph_id']}: {len(r['findings'])}")
+            print(f"    {r['flow_id']}: {len(r['findings'])}")
 
 
 if __name__ == "__main__":

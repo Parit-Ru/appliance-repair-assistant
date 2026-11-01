@@ -1,0 +1,183 @@
+{
+  "manual_id": "samsung_me16a4021a_um_service_manual",
+  "device_category": "Microwave",
+  "brand": "Samsung",
+  "model_pattern": "ME16A4021A*/ME16K3000A*",
+  "source_manual": "Samsung Microwave Oven Service Manual (ME16A4021A* / ME16K3000A*, July 2022)",
+  "count": 3,
+  "flows": [
+    {
+      "flow_id": "samsung_me16a4021a_um_oven_operates_with_door_open",
+      "device_category": "Microwave",
+      "brand": "Samsung",
+      "model_pattern": "ME16A4021A*/ME16K3000A*",
+      "entry_symptom": "If the oven operates with the door open",
+      "entry_symptom_th": "เตาไมโครเวฟทำงานทั้งที่ประตูเปิดอยู่",
+      "entry_symptom_aliases": [
+        "ไมโครเวฟเปิดประตูแล้วยังทำงาน",
+        "ประตูไมโครเวฟเปิดอยู่แต่เตายังเดิน",
+        "ไมโครเวฟทำงานตอนประตูไม่ปิด",
+        "microwave runs with door open",
+        "microwave door open still works"
+      ],
+      "source": "Samsung Microwave Oven Service Manual (ME16A4021A* / ME16K3000A*, July 2022)",
+      "page_range": [
+        5,
+        5
+      ],
+      "source_chunk_id": "manual_Samsung_Microwave_ME16A4021A_p5_oven_operates_with_door_open",
+      "severity": "medium",
+      "difficulty": "easy",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "เตาไมโครเวฟยังทำงานอยู่ทั้งที่ประตูเปิดอยู่ใช่หรือไม่?",
+          "on_yes": "n_escalate",
+          "on_no": "n_nomatch"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "ห้ามใช้เตาต่อ และติดต่อผู้ผลิตทันที (คู่มือหน้า 5 ระบุให้ผู้ใช้ไม่ใช้เตาที่ทำงานทั้งที่ประตูเปิด และให้ติดต่อผู้ผลิตและ the center for devices and radiological health ทันที) อย่าใช้เตาจนกว่าจะได้รับการซ่อมให้ผ่านมาตรฐานแล้ว (คู่มือหน้า 5) ให้ติดต่อศูนย์บริการ Samsung (คู่มือหน้า 5 ระบุว่างานที่เกินขอบเขตต้องแจ้ง Central Service Center) และอย่าเปิดตัวเครื่องเองเพราะมีไฟฟ้าแรงสูงกระแสสูง (คู่มือหน้า 6)",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_nomatch",
+          "type": "escalation",
+          "content": "ถ้าไม่ใช่กรณีที่เตาทำงานขณะประตูเปิด ให้เลือกอาการที่ตรงกับที่เห็น หรือติดต่อศูนย์บริการ Samsung (คู่มือหน้า 5 ระบุว่างานที่เกินขอบเขตต้องแจ้ง Central Service Center) และอย่าเปิดตัวเครื่องเองเพราะมีไฟฟ้าแรงสูงกระแสสูง (คู่มือหน้า 6)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_me16a4021a_um_key_short_error_se",
+      "device_category": "Microwave",
+      "brand": "Samsung",
+      "model_pattern": "ME16A4021A*/ME16K3000A*",
+      "entry_symptom": "-SE- Key Short Error (10 seconds)",
+      "entry_symptom_th": "จอแสดง -SE- (Key Short Error)",
+      "entry_symptom_aliases": [
+        "ไมโครเวฟขึ้น SE",
+        "ไมโครเวฟขึ้น -SE-",
+        "ไมโครเวฟขึ้น error ปุ่ม",
+        "microwave SE error",
+        "microwave key short error"
+      ],
+      "source": "Samsung Microwave Oven Service Manual (ME16A4021A* / ME16K3000A*, July 2022)",
+      "page_range": [
+        31,
+        31
+      ],
+      "source_chunk_id": "manual_Samsung_Microwave_ME16A4021A_p31_key_short_error_se",
+      "severity": "low",
+      "difficulty": "easy",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "จอเตาไมโครเวฟแสดงรหัส -SE- ใช่หรือไม่?",
+          "on_yes": "n2",
+          "on_no": "n_nomatch"
+        },
+        {
+          "state_id": "n2",
+          "type": "instruction",
+          "content": "ปิดเตาแล้วเริ่มใช้งานใหม่ (Turn off set and restart) จากนั้นลองสั่งงานอีกครั้งเพื่อดูว่าทำงานปกติหรือไม่ (คู่มือหน้า 31 และ 32)",
+          "safety_critical": true,
+          "safety_warning": "ห้ามเปิดตัวเครื่องหรือแตะวงจรไฟฟ้าของเตา เพราะวงจรของหม้อแปลงแรงสูงมีไฟฟ้าแรงสูงกระแสสูงซึ่งอันตรายอย่างยิ่งขณะเตาได้รับไฟ (คู่มือหน้า 6)",
+          "author_note": "ข้อความเตือนนี้มาจากหัวข้อ Special High Voltage Precautions หน้า 6 ของคู่มือ ผู้พัฒนาโยงมาใช้กับขั้นตอนที่ต้องปิดและเปิดเตาใหม่ และคู่มือไม่ได้อธิบายวิธี 'turn off set' ผู้พัฒนาจึงไม่เพิ่มรายละเอียดเช่นการถอดปลั๊ก",
+          "next": "n2v"
+        },
+        {
+          "state_id": "n2v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n_resolved",
+          "type": "resolution",
+          "content": "รหัส -SE- หายแล้ว เตาทำงานปกติ",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "ถ้ายังขึ้น -SE- หลังปิดและเปิดเตาใหม่ ขั้นตอนต่อไปตามคู่มือคือตรวจแผ่นเมมเบรนและขั้วต่อ แล้วเปลี่ยนแผงควบคุมหรือแผงวงจร (PCB) (คู่มือหน้า 32) ซึ่งเป็นงานของช่าง ให้ติดต่อศูนย์บริการ Samsung (คู่มือหน้า 5 ระบุว่างานที่เกินขอบเขตต้องแจ้ง Central Service Center) และอย่าเปิดตัวเครื่องเองเพราะมีไฟฟ้าแรงสูงกระแสสูง (คู่มือหน้า 6)",
+          "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_nomatch",
+          "type": "escalation",
+          "content": "ถ้าจอไม่ได้แสดง -SE- ให้เลือกอาการที่ตรงกับที่เห็น หรือติดต่อศูนย์บริการ Samsung (คู่มือหน้า 5 ระบุว่างานที่เกินขอบเขตต้องแจ้ง Central Service Center) และอย่าเปิดตัวเครื่องเองเพราะมีไฟฟ้าแรงสูงกระแสสูง (คู่มือหน้า 6)",
+          "outcome_kind": "handoff_unknown"
+        }
+      ]
+    },
+    {
+      "flow_id": "samsung_me16a4021a_um_control_panel_buttons_do_not_work",
+      "device_category": "Microwave",
+      "brand": "Samsung",
+      "model_pattern": "ME16A4021A*/ME16K3000A*",
+      "entry_symptom": "Buttons of the control panel do not work.",
+      "entry_symptom_th": "ปุ่มบนแผงควบคุมไมโครเวฟกดไม่ติด",
+      "entry_symptom_aliases": [
+        "ปุ่มไมโครเวฟกดไม่ได้",
+        "ไมโครเวฟกดปุ่มแล้วไม่ทำงาน",
+        "แผงควบคุมไมโครเวฟไม่ตอบสนอง",
+        "microwave buttons not working",
+        "microwave control panel not responding"
+      ],
+      "source": "Samsung Microwave Oven Service Manual (ME16A4021A* / ME16K3000A*, July 2022)",
+      "page_range": [
+        34,
+        34
+      ],
+      "source_chunk_id": "manual_Samsung_Microwave_ME16A4021A_p34_control_panel_buttons_do_not_work",
+      "severity": "low",
+      "difficulty": "easy",
+      "initial_state": "n1",
+      "states": [
+        {
+          "state_id": "n1",
+          "type": "checkpoint",
+          "question": "กดปุ่มตามลำดับที่ถูกต้องใช่หรือไม่?",
+          "on_yes": "n_escalate",
+          "on_no": "n1f"
+        },
+        {
+          "state_id": "n1f",
+          "type": "instruction",
+          "content": "กดปุ่มตามลำดับที่ถูกต้องตามที่ระบุในคู่มือผู้ใช้ของรุ่นนี้ (Refer to User Manual) (คู่มือหน้า 34)",
+          "author_note": "คู่มือเล่มนี้ (Service Manual) ไม่ได้ระบุลำดับการกดปุ่ม ให้ผู้ใช้ดูคู่มือผู้ใช้ ข้อมูลจำเพาะหน้า 8 ระบุว่ารุ่นนี้มี Child Safety Lock แต่คู่มือเล่มนี้ไม่อธิบายวิธีปลดล็อก ผู้พัฒนาจึงไม่ใส่",
+          "next": "n1v"
+        },
+        {
+          "state_id": "n1v",
+          "type": "checkpoint",
+          "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
+          "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
+          "on_yes": "n_resolved",
+          "on_no": "n_escalate"
+        },
+        {
+          "state_id": "n_resolved",
+          "type": "resolution",
+          "content": "ปุ่มบนแผงควบคุมใช้งานได้แล้ว",
+          "outcome_kind": "user_fixed"
+        },
+        {
+          "state_id": "n_escalate",
+          "type": "escalation",
+          "content": "ถ้ากดปุ่มตามลำดับที่ถูกต้องแล้วปุ่มยังไม่ทำงาน ขั้นตอนต่อไปตามคู่มือคือตรวจขั้วต่อของแผงควบคุมและเปลี่ยนแผงวงจร (PCB) (คู่มือหน้า 34) ซึ่งเป็นงานของช่าง ให้ติดต่อศูนย์บริการ Samsung (คู่มือหน้า 5 ระบุว่างานที่เกินขอบเขตต้องแจ้ง Central Service Center) และอย่าเปิดตัวเครื่องเองเพราะมีไฟฟ้าแรงสูงกระแสสูง (คู่มือหน้า 6)",
+          "outcome_kind": "handoff_informed"
+        }
+      ]
+    }
+  ]
+}
