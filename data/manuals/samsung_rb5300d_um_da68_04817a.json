@@ -164,7 +164,7 @@
           "type": "checkpoint",
           "question": "ไม่ได้ใส่อาหารมากเกินไปและอาหารไม่บังช่องระบายอากาศใช่หรือไม่?",
           "safety_critical": false,
-          "on_yes": "n_escalate",
+          "on_yes": "n_escalate_in",
           "on_no": "n6f"
         },
         {
@@ -183,7 +183,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -192,9 +192,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้เยี่ยมชม www.samsung.com หรือโทร Samsung Customer Care 1-800-SAMSUNG (726-7864) (คู่มือหน้า 41) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้เยี่ยมชม www.samsung.com หรือโทร Samsung Customer Care 1-800-SAMSUNG (726-7864) (คู่มือหน้า 41) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -228,7 +240,7 @@
           "type": "checkpoint",
           "question": "ปรับตั้งอุณหภูมิให้สูงขึ้นแล้วใช่หรือไม่?",
           "safety_critical": false,
-          "on_yes": "n_escalate",
+          "on_yes": "n_escalate_in",
           "on_no": "n1f"
         },
         {
@@ -246,7 +258,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -255,9 +267,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้เยี่ยมชม www.samsung.com หรือโทร Samsung Customer Care 1-800-SAMSUNG (726-7864) (คู่มือหน้า 41) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้เยี่ยมชม www.samsung.com หรือโทร Samsung Customer Care 1-800-SAMSUNG (726-7864) (คู่มือหน้า 41) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -291,7 +315,7 @@
           "question": "ส่วนที่ร้อนอยู่ที่มุมด้านหน้าของตู้เย็น (front corners) ใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n1n",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n1n",
@@ -300,9 +324,21 @@
           "outcome_kind": "normal_behavior"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้เยี่ยมชม www.samsung.com หรือโทร Samsung Customer Care 1-800-SAMSUNG (726-7864) (คู่มือหน้า 41) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้เยี่ยมชม www.samsung.com หรือโทร Samsung Customer Care 1-800-SAMSUNG (726-7864) (คู่มือหน้า 41) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -361,7 +397,7 @@
           "type": "checkpoint",
           "question": "ห่ออาหารที่มีกลิ่นแรงมิดชิดแล้วใช่หรือไม่?",
           "safety_critical": false,
-          "on_yes": "n_escalate",
+          "on_yes": "n_escalate_in",
           "on_no": "n2f"
         },
         {
@@ -379,7 +415,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -388,9 +424,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้เยี่ยมชม www.samsung.com หรือโทร Samsung Customer Care 1-800-SAMSUNG (726-7864) (คู่มือหน้า 41) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้เยี่ยมชม www.samsung.com หรือโทร Samsung Customer Care 1-800-SAMSUNG (726-7864) (คู่มือหน้า 41) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -423,7 +471,7 @@
           "question": "มีอาหารบังช่องระบายอากาศของตู้เย็นหรือไม่?",
           "safety_critical": false,
           "on_yes": "n1f",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n1f",
@@ -441,7 +489,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -450,9 +498,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้เยี่ยมชม www.samsung.com หรือโทร Samsung Customer Care 1-800-SAMSUNG (726-7864) (คู่มือหน้า 41) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้เยี่ยมชม www.samsung.com หรือโทร Samsung Customer Care 1-800-SAMSUNG (726-7864) (คู่มือหน้า 41) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -510,7 +570,7 @@
           "type": "checkpoint",
           "question": "ทำความสะอาดซีลประตู (door gasket) แล้วใช่หรือไม่?",
           "safety_critical": false,
-          "on_yes": "n_escalate",
+          "on_yes": "n_escalate_in",
           "on_no": "n2f"
         },
         {
@@ -529,7 +589,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -538,9 +598,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้เยี่ยมชม www.samsung.com หรือโทร Samsung Customer Care 1-800-SAMSUNG (726-7864) (คู่มือหน้า 41) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้เยี่ยมชม www.samsung.com หรือโทร Samsung Customer Care 1-800-SAMSUNG (726-7864) (คู่มือหน้า 41) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -575,7 +647,7 @@
           "question": "เก็บผักหรือผลไม้ไว้ในช่อง Fresh/Chef Zone หรือไม่?",
           "safety_critical": false,
           "on_yes": "n1f",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n1f",
@@ -592,7 +664,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -601,9 +673,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้เยี่ยมชม www.samsung.com หรือโทร Samsung Customer Care 1-800-SAMSUNG (726-7864) (คู่มือหน้า 41) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้เยี่ยมชม www.samsung.com หรือโทร Samsung Customer Care 1-800-SAMSUNG (726-7864) (คู่มือหน้า 41) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -661,7 +745,7 @@
           "type": "checkpoint",
           "question": "ห่ออาหารที่มีความชื้นสูงมิดชิดแล้วใช่หรือไม่?",
           "safety_critical": false,
-          "on_yes": "n_escalate",
+          "on_yes": "n_escalate_in",
           "on_no": "n2f"
         },
         {
@@ -679,7 +763,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -688,9 +772,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้เยี่ยมชม www.samsung.com หรือโทร Samsung Customer Care 1-800-SAMSUNG (726-7864) (คู่มือหน้า 41) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้เยี่ยมชม www.samsung.com หรือโทร Samsung Customer Care 1-800-SAMSUNG (726-7864) (คู่มือหน้า 41) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -758,7 +854,7 @@
           "question": "เสียงเตือนหยุดแล้วและไม่ดังซ้ำหลังผ่านไปสิบสองชั่วโมงใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -767,9 +863,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "เสียงเตือนยังดังซ้ำหลังผ่านไปสิบสองชั่วโมง ติดต่อศูนย์บริการ Samsung ในพื้นที่ (คู่มือหน้า 43) หรือโทร Samsung Customer Care 1-800-SAMSUNG (726-7864) (คู่มือหน้า 41) พร้อมแจ้งรุ่นเครื่องและอาการที่เกิดขึ้น",
+          "content": "เสียงเตือนยังดังซ้ำหลังผ่านไปสิบสองชั่วโมง ติดต่อศูนย์บริการ Samsung ในพื้นที่ (คู่มือหน้า 43) หรือโทร Samsung Customer Care 1-800-SAMSUNG (726-7864) (คู่มือหน้า 41) พร้อมแจ้งรุ่นเครื่องและอาการที่เกิดขึ้น (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_informed"
         }
       ]
@@ -804,7 +912,7 @@
           "question": "เสียงที่ได้ยินเป็นเสียงคลิก จิ๊บ หรือหึ่ง ในช่วงที่ตู้เย็นเริ่มหรือสิ้นสุดการทำงานใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n1n",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n1n",
@@ -813,9 +921,21 @@
           "outcome_kind": "normal_behavior"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "เสียงที่ได้ยินไม่ตรงกับเสียงปกติที่คู่มือระบุ (คู่มือหน้า 44 และ 45) ให้เยี่ยมชม www.samsung.com หรือโทร Samsung Customer Care 1-800-SAMSUNG (726-7864) (คู่มือหน้า 41) พร้อมแจ้งรุ่นเครื่องและลักษณะเสียง ถ้าตู้เย็นมีกลิ่นไหม้หรือควัน ให้ถอดปลั๊กทันทีแล้วติดต่อศูนย์บริการ Samsung (คู่มือหน้า 11) การเรียกบริการสำหรับเสียงปกติ ผู้ใช้อาจต้องเสียค่าใช้จ่าย (คู่มือหน้า 44)",
+          "content": "เสียงที่ได้ยินไม่ตรงกับเสียงปกติที่คู่มือระบุ (คู่มือหน้า 44 และ 45) ให้เยี่ยมชม www.samsung.com หรือโทร Samsung Customer Care 1-800-SAMSUNG (726-7864) (คู่มือหน้า 41) พร้อมแจ้งรุ่นเครื่องและลักษณะเสียง ถ้าตู้เย็นมีกลิ่นไหม้หรือควัน ให้ถอดปลั๊กทันทีแล้วติดต่อศูนย์บริการ Samsung (คู่มือหน้า 11) การเรียกบริการสำหรับเสียงปกติ ผู้ใช้อาจต้องเสียค่าใช้จ่าย (คู่มือหน้า 44) (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -849,7 +969,7 @@
           "question": "เสียงที่ได้ยินเป็นเสียงซ่าหรือเสียงพัดลมหมุนขณะตู้เย็นกำลังทำงานใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n1n",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n1n",
@@ -858,9 +978,21 @@
           "outcome_kind": "normal_behavior"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "เสียงที่ได้ยินไม่ตรงกับเสียงปกติที่คู่มือระบุ (คู่มือหน้า 44 และ 45) ให้เยี่ยมชม www.samsung.com หรือโทร Samsung Customer Care 1-800-SAMSUNG (726-7864) (คู่มือหน้า 41) พร้อมแจ้งรุ่นเครื่องและลักษณะเสียง ถ้าตู้เย็นมีกลิ่นไหม้หรือควัน ให้ถอดปลั๊กทันทีแล้วติดต่อศูนย์บริการ Samsung (คู่มือหน้า 11) การเรียกบริการสำหรับเสียงปกติ ผู้ใช้อาจต้องเสียค่าใช้จ่าย (คู่มือหน้า 44)",
+          "content": "เสียงที่ได้ยินไม่ตรงกับเสียงปกติที่คู่มือระบุ (คู่มือหน้า 44 และ 45) ให้เยี่ยมชม www.samsung.com หรือโทร Samsung Customer Care 1-800-SAMSUNG (726-7864) (คู่มือหน้า 41) พร้อมแจ้งรุ่นเครื่องและลักษณะเสียง ถ้าตู้เย็นมีกลิ่นไหม้หรือควัน ให้ถอดปลั๊กทันทีแล้วติดต่อศูนย์บริการ Samsung (คู่มือหน้า 11) การเรียกบริการสำหรับเสียงปกติ ผู้ใช้อาจต้องเสียค่าใช้จ่าย (คู่มือหน้า 44) (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -895,7 +1027,7 @@
           "question": "เสียงที่ได้ยินเป็นเสียงฟู่คล้ายน้ำหยดลงบนของร้อนในช่วงที่ตู้เย็นละลายน้ำแข็ง (defrost) ใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n1n",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n1n",
@@ -904,9 +1036,21 @@
           "outcome_kind": "normal_behavior"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "เสียงที่ได้ยินไม่ตรงกับเสียงปกติที่คู่มือระบุ (คู่มือหน้า 44 และ 45) ให้เยี่ยมชม www.samsung.com หรือโทร Samsung Customer Care 1-800-SAMSUNG (726-7864) (คู่มือหน้า 41) พร้อมแจ้งรุ่นเครื่องและลักษณะเสียง ถ้าตู้เย็นมีกลิ่นไหม้หรือควัน ให้ถอดปลั๊กทันทีแล้วติดต่อศูนย์บริการ Samsung (คู่มือหน้า 11) การเรียกบริการสำหรับเสียงปกติ ผู้ใช้อาจต้องเสียค่าใช้จ่าย (คู่มือหน้า 44)",
+          "content": "เสียงที่ได้ยินไม่ตรงกับเสียงปกติที่คู่มือระบุ (คู่มือหน้า 44 และ 45) ให้เยี่ยมชม www.samsung.com หรือโทร Samsung Customer Care 1-800-SAMSUNG (726-7864) (คู่มือหน้า 41) พร้อมแจ้งรุ่นเครื่องและลักษณะเสียง ถ้าตู้เย็นมีกลิ่นไหม้หรือควัน ให้ถอดปลั๊กทันทีแล้วติดต่อศูนย์บริการ Samsung (คู่มือหน้า 11) การเรียกบริการสำหรับเสียงปกติ ผู้ใช้อาจต้องเสียค่าใช้จ่าย (คู่มือหน้า 44) (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -940,7 +1084,7 @@
           "question": "เสียงที่ได้ยินเป็นเสียงคล้ายฟองหรือน้ำเดือดขณะตู้เย็นกำลังทำความเย็นหรือแช่แข็งใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n1n",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n1n",
@@ -949,9 +1093,21 @@
           "outcome_kind": "normal_behavior"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "เสียงที่ได้ยินไม่ตรงกับเสียงปกติที่คู่มือระบุ (คู่มือหน้า 44 และ 45) ให้เยี่ยมชม www.samsung.com หรือโทร Samsung Customer Care 1-800-SAMSUNG (726-7864) (คู่มือหน้า 41) พร้อมแจ้งรุ่นเครื่องและลักษณะเสียง ถ้าตู้เย็นมีกลิ่นไหม้หรือควัน ให้ถอดปลั๊กทันทีแล้วติดต่อศูนย์บริการ Samsung (คู่มือหน้า 11) การเรียกบริการสำหรับเสียงปกติ ผู้ใช้อาจต้องเสียค่าใช้จ่าย (คู่มือหน้า 44)",
+          "content": "เสียงที่ได้ยินไม่ตรงกับเสียงปกติที่คู่มือระบุ (คู่มือหน้า 44 และ 45) ให้เยี่ยมชม www.samsung.com หรือโทร Samsung Customer Care 1-800-SAMSUNG (726-7864) (คู่มือหน้า 41) พร้อมแจ้งรุ่นเครื่องและลักษณะเสียง ถ้าตู้เย็นมีกลิ่นไหม้หรือควัน ให้ถอดปลั๊กทันทีแล้วติดต่อศูนย์บริการ Samsung (คู่มือหน้า 11) การเรียกบริการสำหรับเสียงปกติ ผู้ใช้อาจต้องเสียค่าใช้จ่าย (คู่มือหน้า 44) (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -986,7 +1142,7 @@
           "question": "เสียงที่ได้ยินเป็นเสียงแก๊กหรือเสียงเคาะ ขณะอุณหภูมิในตู้เย็นเปลี่ยน ในรอบละลายน้ำแข็ง หรือขณะชิ้นส่วนอิเล็กทรอนิกส์ทำงานใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n1n",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n1n",
@@ -995,9 +1151,21 @@
           "outcome_kind": "normal_behavior"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "เสียงที่ได้ยินไม่ตรงกับเสียงปกติที่คู่มือระบุ (คู่มือหน้า 44 และ 45) ให้เยี่ยมชม www.samsung.com หรือโทร Samsung Customer Care 1-800-SAMSUNG (726-7864) (คู่มือหน้า 41) พร้อมแจ้งรุ่นเครื่องและลักษณะเสียง ถ้าตู้เย็นมีกลิ่นไหม้หรือควัน ให้ถอดปลั๊กทันทีแล้วติดต่อศูนย์บริการ Samsung (คู่มือหน้า 11) การเรียกบริการสำหรับเสียงปกติ ผู้ใช้อาจต้องเสียค่าใช้จ่าย (คู่มือหน้า 44)",
+          "content": "เสียงที่ได้ยินไม่ตรงกับเสียงปกติที่คู่มือระบุ (คู่มือหน้า 44 และ 45) ให้เยี่ยมชม www.samsung.com หรือโทร Samsung Customer Care 1-800-SAMSUNG (726-7864) (คู่มือหน้า 41) พร้อมแจ้งรุ่นเครื่องและลักษณะเสียง ถ้าตู้เย็นมีกลิ่นไหม้หรือควัน ให้ถอดปลั๊กทันทีแล้วติดต่อศูนย์บริการ Samsung (คู่มือหน้า 11) การเรียกบริการสำหรับเสียงปกติ ผู้ใช้อาจต้องเสียค่าใช้จ่าย (คู่มือหน้า 44) (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -1030,7 +1198,7 @@
           "question": "ตู้เย็นรุ่นนี้มีเครื่องทำน้ำแข็ง และเสียงหึ่งเกิดขึ้นตอนที่วาล์วน้ำเปิดเพื่อเติมน้ำใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n1n",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n1n",
@@ -1039,9 +1207,21 @@
           "outcome_kind": "normal_behavior"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "เสียงที่ได้ยินไม่ตรงกับเสียงปกติที่คู่มือระบุ (คู่มือหน้า 44 และ 45) ให้เยี่ยมชม www.samsung.com หรือโทร Samsung Customer Care 1-800-SAMSUNG (726-7864) (คู่มือหน้า 41) พร้อมแจ้งรุ่นเครื่องและลักษณะเสียง ถ้าตู้เย็นมีกลิ่นไหม้หรือควัน ให้ถอดปลั๊กทันทีแล้วติดต่อศูนย์บริการ Samsung (คู่มือหน้า 11) การเรียกบริการสำหรับเสียงปกติ ผู้ใช้อาจต้องเสียค่าใช้จ่าย (คู่มือหน้า 44)",
+          "content": "เสียงที่ได้ยินไม่ตรงกับเสียงปกติที่คู่มือระบุ (คู่มือหน้า 44 และ 45) ให้เยี่ยมชม www.samsung.com หรือโทร Samsung Customer Care 1-800-SAMSUNG (726-7864) (คู่มือหน้า 41) พร้อมแจ้งรุ่นเครื่องและลักษณะเสียง ถ้าตู้เย็นมีกลิ่นไหม้หรือควัน ให้ถอดปลั๊กทันทีแล้วติดต่อศูนย์บริการ Samsung (คู่มือหน้า 11) การเรียกบริการสำหรับเสียงปกติ ผู้ใช้อาจต้องเสียค่าใช้จ่าย (คู่มือหน้า 44) (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -1074,7 +1254,7 @@
           "question": "เสียงลมวูบเกิดขึ้นตอนเปิดหรือปิดประตูตู้เย็นใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n1n",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n1n",
@@ -1083,9 +1263,21 @@
           "outcome_kind": "normal_behavior"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "เสียงที่ได้ยินไม่ตรงกับเสียงปกติที่คู่มือระบุ (คู่มือหน้า 44 และ 45) ให้เยี่ยมชม www.samsung.com หรือโทร Samsung Customer Care 1-800-SAMSUNG (726-7864) (คู่มือหน้า 41) พร้อมแจ้งรุ่นเครื่องและลักษณะเสียง ถ้าตู้เย็นมีกลิ่นไหม้หรือควัน ให้ถอดปลั๊กทันทีแล้วติดต่อศูนย์บริการ Samsung (คู่มือหน้า 11) การเรียกบริการสำหรับเสียงปกติ ผู้ใช้อาจต้องเสียค่าใช้จ่าย (คู่มือหน้า 44)",
+          "content": "เสียงที่ได้ยินไม่ตรงกับเสียงปกติที่คู่มือระบุ (คู่มือหน้า 44 และ 45) ให้เยี่ยมชม www.samsung.com หรือโทร Samsung Customer Care 1-800-SAMSUNG (726-7864) (คู่มือหน้า 41) พร้อมแจ้งรุ่นเครื่องและลักษณะเสียง ถ้าตู้เย็นมีกลิ่นไหม้หรือควัน ให้ถอดปลั๊กทันทีแล้วติดต่อศูนย์บริการ Samsung (คู่มือหน้า 11) การเรียกบริการสำหรับเสียงปกติ ผู้ใช้อาจต้องเสียค่าใช้จ่าย (คู่มือหน้า 44) (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -1119,7 +1311,7 @@
           "question": "โทรศัพท์ของคุณใช้ระบบปฏิบัติการเวอร์ชันเก่าที่ผู้ผลิตระบบปฏิบัติการอาจหยุดอัปเดตแอปให้แล้วใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n1n",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n1n",
@@ -1128,9 +1320,21 @@
           "outcome_kind": "normal_behavior"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ยังแก้ปัญหาการใช้แอป SmartThings ไม่ได้ ติดต่อ st.service@samsung.com (คู่มือหน้า 24) หรือโทร Samsung Customer Care 1-800-SAMSUNG (726-7864) (คู่มือหน้า 41) พร้อมแจ้งรุ่นตู้เย็น รุ่นโทรศัพท์ เวอร์ชันระบบปฏิบัติการ และอาการที่เกิดขึ้น",
+          "content": "ยังแก้ปัญหาการใช้แอป SmartThings ไม่ได้ ติดต่อ st.service@samsung.com (คู่มือหน้า 24) หรือโทร Samsung Customer Care 1-800-SAMSUNG (726-7864) (คู่มือหน้า 41) พร้อมแจ้งรุ่นตู้เย็น รุ่นโทรศัพท์ เวอร์ชันระบบปฏิบัติการ และอาการที่เกิดขึ้น (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_informed"
         }
       ]
@@ -1178,7 +1382,7 @@
           "question": "คุณใช้แอป Samsung Smart Refrigerator รุ่นเก่าอยู่ใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n2f",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n2f",
@@ -1194,7 +1398,7 @@
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -1203,9 +1407,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ยังแก้ปัญหาการใช้แอป SmartThings ไม่ได้ ติดต่อ st.service@samsung.com (คู่มือหน้า 24) หรือโทร Samsung Customer Care 1-800-SAMSUNG (726-7864) (คู่มือหน้า 41) พร้อมแจ้งรุ่นตู้เย็น รุ่นโทรศัพท์ เวอร์ชันระบบปฏิบัติการ และอาการที่เกิดขึ้น",
+          "content": "ยังแก้ปัญหาการใช้แอป SmartThings ไม่ได้ ติดต่อ st.service@samsung.com (คู่มือหน้า 24) หรือโทร Samsung Customer Care 1-800-SAMSUNG (726-7864) (คู่มือหน้า 41) พร้อมแจ้งรุ่นตู้เย็น รุ่นโทรศัพท์ เวอร์ชันระบบปฏิบัติการ และอาการที่เกิดขึ้น (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_informed"
         }
       ]
@@ -1287,7 +1503,7 @@
           "question": "ไอคอน Wi-Fi บนจอตู้เย็นดับอยู่ (ยังไม่เชื่อมต่อเครือข่าย) ใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n3f",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n3f",
@@ -1303,7 +1519,7 @@
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -1312,9 +1528,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ยังแก้ปัญหาการใช้แอป SmartThings ไม่ได้ ติดต่อ st.service@samsung.com (คู่มือหน้า 24) หรือโทร Samsung Customer Care 1-800-SAMSUNG (726-7864) (คู่มือหน้า 41) พร้อมแจ้งรุ่นตู้เย็น รุ่นโทรศัพท์ เวอร์ชันระบบปฏิบัติการ และอาการที่เกิดขึ้น",
+          "content": "ยังแก้ปัญหาการใช้แอป SmartThings ไม่ได้ ติดต่อ st.service@samsung.com (คู่มือหน้า 24) หรือโทร Samsung Customer Care 1-800-SAMSUNG (726-7864) (คู่มือหน้า 41) พร้อมแจ้งรุ่นตู้เย็น รุ่นโทรศัพท์ เวอร์ชันระบบปฏิบัติการ และอาการที่เกิดขึ้น (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_informed"
         }
       ]
@@ -1347,7 +1575,7 @@
           "type": "checkpoint",
           "question": "มีบัญชี Samsung และล็อกอินด้วยบัญชีนั้นแล้วใช่หรือไม่?",
           "safety_critical": false,
-          "on_yes": "n_escalate",
+          "on_yes": "n_escalate_in",
           "on_no": "n1f"
         },
         {
@@ -1364,7 +1592,7 @@
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -1373,9 +1601,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ยังแก้ปัญหาการใช้แอป SmartThings ไม่ได้ ติดต่อ st.service@samsung.com (คู่มือหน้า 24) หรือโทร Samsung Customer Care 1-800-SAMSUNG (726-7864) (คู่มือหน้า 41) พร้อมแจ้งรุ่นตู้เย็น รุ่นโทรศัพท์ เวอร์ชันระบบปฏิบัติการ และอาการที่เกิดขึ้น",
+          "content": "ยังแก้ปัญหาการใช้แอป SmartThings ไม่ได้ ติดต่อ st.service@samsung.com (คู่มือหน้า 24) หรือโทร Samsung Customer Care 1-800-SAMSUNG (726-7864) (คู่มือหน้า 41) พร้อมแจ้งรุ่นตู้เย็น รุ่นโทรศัพท์ เวอร์ชันระบบปฏิบัติการ และอาการที่เกิดขึ้น (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_informed"
         }
       ]
@@ -1417,7 +1657,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -1426,9 +1666,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ยังแก้ปัญหาการใช้แอป SmartThings ไม่ได้ ติดต่อ st.service@samsung.com (คู่มือหน้า 24) หรือโทร Samsung Customer Care 1-800-SAMSUNG (726-7864) (คู่มือหน้า 41) พร้อมแจ้งรุ่นตู้เย็น รุ่นโทรศัพท์ เวอร์ชันระบบปฏิบัติการ และอาการที่เกิดขึ้น",
+          "content": "ยังแก้ปัญหาการใช้แอป SmartThings ไม่ได้ ติดต่อ st.service@samsung.com (คู่มือหน้า 24) หรือโทร Samsung Customer Care 1-800-SAMSUNG (726-7864) (คู่มือหน้า 41) พร้อมแจ้งรุ่นตู้เย็น รุ่นโทรศัพท์ เวอร์ชันระบบปฏิบัติการ และอาการที่เกิดขึ้น (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_informed"
         }
       ]
@@ -1488,7 +1740,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -1497,9 +1749,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ยังแก้ปัญหาการใช้แอป SmartThings ไม่ได้ ติดต่อ st.service@samsung.com (คู่มือหน้า 24) หรือโทร Samsung Customer Care 1-800-SAMSUNG (726-7864) (คู่มือหน้า 41) พร้อมแจ้งรุ่นตู้เย็น รุ่นโทรศัพท์ เวอร์ชันระบบปฏิบัติการ และอาการที่เกิดขึ้น",
+          "content": "ยังแก้ปัญหาการใช้แอป SmartThings ไม่ได้ ติดต่อ st.service@samsung.com (คู่มือหน้า 24) หรือโทร Samsung Customer Care 1-800-SAMSUNG (726-7864) (คู่มือหน้า 41) พร้อมแจ้งรุ่นตู้เย็น รุ่นโทรศัพท์ เวอร์ชันระบบปฏิบัติการ และอาการที่เกิดขึ้น (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_informed"
         }
       ]
@@ -1556,7 +1820,7 @@
           "question": "เชื่อมต่อไม่สำเร็จ หรือไม่ต้องการใช้แอปใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n2f",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n2f",
@@ -1572,7 +1836,7 @@
           "question": "ไอคอน Wi-Fi หยุดกะพริบและจอแสดงอุณหภูมิแสดง “O FF” หรือไม่?",
           "safety_critical": false,
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -1581,9 +1845,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ยังแก้ปัญหาการใช้แอป SmartThings ไม่ได้ ติดต่อ st.service@samsung.com (คู่มือหน้า 24) หรือโทร Samsung Customer Care 1-800-SAMSUNG (726-7864) (คู่มือหน้า 41) พร้อมแจ้งรุ่นตู้เย็น รุ่นโทรศัพท์ เวอร์ชันระบบปฏิบัติการ และอาการที่เกิดขึ้น",
+          "content": "ยังแก้ปัญหาการใช้แอป SmartThings ไม่ได้ ติดต่อ st.service@samsung.com (คู่มือหน้า 24) หรือโทร Samsung Customer Care 1-800-SAMSUNG (726-7864) (คู่มือหน้า 41) พร้อมแจ้งรุ่นตู้เย็น รุ่นโทรศัพท์ เวอร์ชันระบบปฏิบัติการ และอาการที่เกิดขึ้น (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_informed"
         }
       ]
@@ -1664,7 +1940,7 @@
           "type": "checkpoint",
           "question": "ติดตั้งและเปิดแอป SmartThings บนสมาร์ตโฟนแล้วใช่หรือไม่?",
           "safety_critical": false,
-          "on_yes": "n_escalate",
+          "on_yes": "n_escalate_in",
           "on_no": "n3f"
         },
         {
@@ -1680,7 +1956,7 @@
           "question": "หลังทำตามแล้ว ใช้ฟังก์ชัน Energy Management หรือ Smart Grid ได้ตามต้องการหรือไม่?",
           "safety_critical": false,
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -1689,9 +1965,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ยังใช้ฟังก์ชัน Energy Management หรือ Smart Grid ไม่ได้ ให้เยี่ยมชม www.samsung.com หรือโทร Samsung Customer Care 1-800-SAMSUNG (726-7864) (คู่มือหน้า 41) พร้อมแจ้งรุ่นตู้เย็น อาการ และสิ่งที่ได้ตรวจไปแล้ว คู่มือหน้า 27 ระบุว่าฟังก์ชัน Smart Grid ต้องมีสัญญาในการใช้บริการแยกต่างหากกับบริษัทไฟฟ้า",
+          "content": "ยังใช้ฟังก์ชัน Energy Management หรือ Smart Grid ไม่ได้ ให้เยี่ยมชม www.samsung.com หรือโทร Samsung Customer Care 1-800-SAMSUNG (726-7864) (คู่มือหน้า 41) พร้อมแจ้งรุ่นตู้เย็น อาการ และสิ่งที่ได้ตรวจไปแล้ว คู่มือหน้า 27 ระบุว่าฟังก์ชัน Smart Grid ต้องมีสัญญาในการใช้บริการแยกต่างหากกับบริษัทไฟฟ้า (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_informed"
         }
       ]
@@ -1747,7 +2035,7 @@
           "type": "checkpoint",
           "question": "ตู้เย็นเชื่อมต่อกับเราเตอร์ (AP) แล้วใช่หรือไม่?",
           "safety_critical": false,
-          "on_yes": "n_escalate",
+          "on_yes": "n_escalate_in",
           "on_no": "n2f"
         },
         {
@@ -1764,7 +2052,7 @@
           "question": "หลังทำตามแล้ว ใช้ฟังก์ชัน Energy Management หรือ Smart Grid ได้ตามต้องการหรือไม่?",
           "safety_critical": false,
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -1773,9 +2061,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ยังใช้ฟังก์ชัน Energy Management หรือ Smart Grid ไม่ได้ ให้เยี่ยมชม www.samsung.com หรือโทร Samsung Customer Care 1-800-SAMSUNG (726-7864) (คู่มือหน้า 41) พร้อมแจ้งรุ่นตู้เย็น อาการ และสิ่งที่ได้ตรวจไปแล้ว คู่มือหน้า 27 ระบุว่าฟังก์ชัน Smart Grid ต้องมีสัญญาในการใช้บริการแยกต่างหากกับบริษัทไฟฟ้า",
+          "content": "ยังใช้ฟังก์ชัน Energy Management หรือ Smart Grid ไม่ได้ ให้เยี่ยมชม www.samsung.com หรือโทร Samsung Customer Care 1-800-SAMSUNG (726-7864) (คู่มือหน้า 41) พร้อมแจ้งรุ่นตู้เย็น อาการ และสิ่งที่ได้ตรวจไปแล้ว คู่มือหน้า 27 ระบุว่าฟังก์ชัน Smart Grid ต้องมีสัญญาในการใช้บริการแยกต่างหากกับบริษัทไฟฟ้า (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_informed"
         }
       ]
@@ -1807,7 +2107,7 @@
           "type": "checkpoint",
           "question": "เราเตอร์ที่บ้านทำงานปกติและมีบริการอินเทอร์เน็ตกับการเชื่อมต่อที่เหมาะสมใช่หรือไม่?",
           "safety_critical": false,
-          "on_yes": "n_escalate",
+          "on_yes": "n_escalate_in",
           "on_no": "n1f"
         },
         {
@@ -1824,7 +2124,7 @@
           "question": "หลังทำตามแล้ว ใช้ฟังก์ชัน Energy Management หรือ Smart Grid ได้ตามต้องการหรือไม่?",
           "safety_critical": false,
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -1833,9 +2133,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ยังใช้ฟังก์ชัน Energy Management หรือ Smart Grid ไม่ได้ ให้เยี่ยมชม www.samsung.com หรือโทร Samsung Customer Care 1-800-SAMSUNG (726-7864) (คู่มือหน้า 41) พร้อมแจ้งรุ่นตู้เย็น อาการ และสิ่งที่ได้ตรวจไปแล้ว คู่มือหน้า 27 ระบุว่าฟังก์ชัน Smart Grid ต้องมีสัญญาในการใช้บริการแยกต่างหากกับบริษัทไฟฟ้า",
+          "content": "ยังใช้ฟังก์ชัน Energy Management หรือ Smart Grid ไม่ได้ ให้เยี่ยมชม www.samsung.com หรือโทร Samsung Customer Care 1-800-SAMSUNG (726-7864) (คู่มือหน้า 41) พร้อมแจ้งรุ่นตู้เย็น อาการ และสิ่งที่ได้ตรวจไปแล้ว คู่มือหน้า 27 ระบุว่าฟังก์ชัน Smart Grid ต้องมีสัญญาในการใช้บริการแยกต่างหากกับบริษัทไฟฟ้า (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_informed"
         }
       ]

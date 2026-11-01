@@ -11,7 +11,7 @@
 
 import type { TroubleshootingFlow, TroubleshootingState } from '../../backend/src/state-machine/types';
 import type { DeviceCategory } from '../../backend/src/state-machine/types';
-import type { DeviceMatch, DeviceSearchResult } from './engine';
+import type { CrossDeviceSearchResult, DeviceMatch, DeviceSearchResult } from './engine';
 
 // ---------- ชนิดข้อมูล ----------
 
@@ -66,6 +66,8 @@ export interface PooledFlow {
   pageRange: [number, number];
   /** ไม่มี resolution ที่เดินถึงได้จาก initial_state */
   escalationOnly: boolean;
+  /** มี state ประเภท escalation ที่เดินถึงได้จาก initial_state (อย่างน้อยหนึ่งเส้นทาง — ไม่ได้แปลว่าผู้ใช้ทุกคนจะผ่าน) */
+  hasEscalationPath: boolean;
   hasSafety: boolean;
   match: FlowCauseMatch;
 }
@@ -92,6 +94,10 @@ export interface CaseScore {
   top1_escalation_only: boolean | null;
   /** มีผังในกลุ่ม top-1 ที่มี state safety_critical หรือ safety_warning อย่างน้อยหนึ่งผัง */
   has_safety: boolean | null;
+  /** (เพิ่มหลังรันรอบแรก) มีผังในกลุ่ม top-1 ที่มี state escalation เดินถึงได้จาก initial_state อย่างน้อยหนึ่งผัง */
+  has_escalation_path: boolean | null;
+  /** เฉพาะผังที่ระบบเรียงเป็นอันดับแรกจริง */
+  has_escalation_path_first_only: boolean | null;
   top1Pool: PooledFlow[];
   top3Pool: PooledFlow[];
 }
@@ -239,9 +245,11 @@ function reachableStates(flow: TroubleshootingFlow): TroubleshootingState[] {
   return [...seen].map((id) => byId.get(id) as TroubleshootingState);
 }
 
-export function flowFacts(flow: TroubleshootingFlow): { escalationOnly: boolean; hasSafety: boolean } {
+export function flowFacts(flow: TroubleshootingFlow): { escalationOnly: boolean; hasEscalationPath: boolean; hasSafety: boolean } {
+  const reachable = reachableStates(flow);
   return {
-    escalationOnly: !reachableStates(flow).some((s) => s.type === 'resolution'),
+    escalationOnly: !reachable.some((s) => s.type === 'resolution'),
+    hasEscalationPath: reachable.some((s) => s.type === 'escalation'),
     hasSafety: flow.states.some((s) => s.safety_critical === true || (s.safety_warning ?? '').trim() !== ''),
   };
 }
@@ -284,6 +292,8 @@ export function scoreCase(
       tie_count_is_lower_bound: false,
       top1_escalation_only: null,
       has_safety: null,
+      has_escalation_path: null,
+      has_escalation_path_first_only: null,
       top1Pool: [],
       top3Pool: [],
     };
@@ -326,8 +336,46 @@ export function scoreCase(
     tie_count_is_lower_bound: mayBeTruncated(pool1Raw, perManualCap),
     top1_escalation_only: top1Pool.every((p) => p.escalationOnly),
     has_safety: top1Pool.some((p) => p.hasSafety),
+    has_escalation_path: top1Pool.some((p) => p.hasEscalationPath),
+    has_escalation_path_first_only: top1Pool[0].hasEscalationPath,
     top1Pool,
     top3Pool,
+  };
+}
+
+// ---------- ค้นข้ามทุกอุปกรณ์ (ตรวจการชี้อุปกรณ์ · ไม่ใช่พฤติกรรมของหน้าเว็บ) ----------
+
+export interface CrossDeviceScore {
+  refused: boolean;
+  /** top-1 (กลุ่มที่ score เท่ากัน) มีผังของอุปกรณ์เดียวกับเคสอย่างน้อยหนึ่งผัง · null = ไม่มีผังใด >= เกณฑ์ */
+  top1_correct: boolean | null;
+  /** เฉพาะผังที่ระบบเรียงเป็นอันดับแรกจริง */
+  top1_first_only_correct: boolean | null;
+  /** ทุกผังในกลุ่ม top-1 เป็นอุปกรณ์เดียวกับเคส (เข้มสุด) */
+  top1_all_correct: boolean | null;
+  top1_tie_count: number | null;
+  /** กลุ่มเสมออาจใหญ่กว่าที่นับ (service คืนไม่เกิน maxResults ผัง) */
+  tie_count_is_lower_bound: boolean;
+  top1_devices: DeviceCategory[];
+  top1_flow_ids: string[];
+  bestScore: number | null;
+}
+
+export function scoreCrossDevice(device: DeviceCategory, search: CrossDeviceSearchResult, maxResults: number): CrossDeviceScore {
+  if (search.refused) {
+    return { refused: true, top1_correct: null, top1_first_only_correct: null, top1_all_correct: null, top1_tie_count: null, tie_count_is_lower_bound: false, top1_devices: [], top1_flow_ids: [], bestScore: search.bestScore };
+  }
+  const group = rankPool(search.matches, 1);
+  return {
+    refused: false,
+    top1_correct: group.some((m) => m.deviceCategory === device),
+    top1_first_only_correct: group[0].deviceCategory === device,
+    top1_all_correct: group.every((m) => m.deviceCategory === device),
+    top1_tie_count: group.length,
+    tie_count_is_lower_bound: group.length >= maxResults,
+    top1_devices: [...new Set(group.map((m) => m.deviceCategory))],
+    top1_flow_ids: group.map((m) => m.flowId),
+    bestScore: search.bestScore,
   };
 }
 

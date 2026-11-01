@@ -106,7 +106,7 @@
           "question": "ด้านหลังตู้เย็นชิดผนังมากเกินไปหรือไม่?",
           "safety_critical": false,
           "on_yes": "n_pull",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_pull",
@@ -123,7 +123,7 @@
           "question": "หลังเว้นระยะจากผนังแล้ว ตู้เย็นเริ่มเย็นลงหรือไม่? (ให้เวลาตามสมควร)",
           "safety_critical": false,
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -132,9 +132,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ (ปลั๊ก การตั้งอุณหภูมิ แหล่งความร้อน ระยะห่างจากผนัง) ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ (ปลั๊ก การตั้งอุณหภูมิ แหล่งความร้อน ระยะห่างจากผนัง) ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -191,8 +203,8 @@
           "type": "checkpoint",
           "question": "อุณหภูมิรอบตู้เย็นต่ำเกินไปหรือไม่? (เช่น ห้องที่เย็นมาก)",
           "safety_critical": false,
-          "on_yes": "n_escalate_ambient",
-          "on_no": "n_escalate"
+          "on_yes": "n_escalate_ambient_in",
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -201,15 +213,39 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_ambient_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate_ambient",
+          "on_invalid": "n_escalate_ambient_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate_ambient",
           "type": "escalation",
-          "content": "คู่มือระบุว่าอุณหภูมิรอบตู้เย็นต่ำเกินไปเป็นสาเหตุที่ต้องตรวจ แต่ไม่ได้ระบุวิธีแก้ ติดต่อศูนย์บริการ Samsung เพื่อขอคำแนะนำ พร้อมแจ้งรุ่นเครื่องและอุณหภูมิห้องโดยประมาณ",
+          "content": "คู่มือระบุว่าอุณหภูมิรอบตู้เย็นต่ำเกินไปเป็นสาเหตุที่ต้องตรวจ แต่ไม่ได้ระบุวิธีแก้ ติดต่อศูนย์บริการ Samsung เพื่อขอคำแนะนำ พร้อมแจ้งรุ่นเครื่องและอุณหภูมิห้องโดยประมาณ (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
         },
         {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ (การตั้งอุณหภูมิ อุณหภูมิรอบตู้เย็น) ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่องและอาการที่พบ",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ (การตั้งอุณหภูมิ อุณหภูมิรอบตู้เย็น) ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่องและอาการที่พบ (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -329,8 +365,8 @@
           "type": "checkpoint",
           "question": "เสียงดังมาจากคอมเพรสเซอร์ของตู้เย็นใช่หรือไม่?",
           "safety_critical": false,
-          "on_yes": "n_escalate_comp",
-          "on_no": "n_escalate"
+          "on_yes": "n_escalate_comp_in",
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -339,15 +375,39 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_comp_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate_comp",
+          "on_invalid": "n_escalate_comp_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate_comp",
           "type": "escalation",
-          "content": "คู่มือให้ตรวจว่าเสียงมาจากคอมเพรสเซอร์หรือไม่ แต่ไม่ระบุวิธีแก้ ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่องและลักษณะเสียง",
+          "content": "คู่มือให้ตรวจว่าเสียงมาจากคอมเพรสเซอร์หรือไม่ แต่ไม่ระบุวิธีแก้ ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่องและลักษณะเสียง (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
         },
         {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่องและลักษณะเสียง (ดังจากส่วนไหน ดังตอนไหน)",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่องและลักษณะเสียง (ดังจากส่วนไหน ดังตอนไหน) (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -380,7 +440,7 @@
           "question": "ความอุ่นหรือหยดน้ำเกิดที่มุมด้านหน้าหรือด้านข้างบริเวณผิวด้านนอกของตู้เย็น ใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n_normal",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_normal",
@@ -389,9 +449,21 @@
           "outcome_kind": "normal_behavior"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "อาการไม่ตรงกับกรณีที่คู่มือระบุ (ความอุ่นหรือหยดน้ำที่ผิวด้านนอกบริเวณมุมและด้านข้างด้านหน้า) ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่องและตำแหน่งที่พบ",
+          "content": "อาการไม่ตรงกับกรณีที่คู่มือระบุ (ความอุ่นหรือหยดน้ำที่ผิวด้านนอกบริเวณมุมและด้านข้างด้านหน้า) ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่องและตำแหน่งที่พบ (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -424,7 +496,7 @@
           "question": "เสียงที่ได้ยินเป็นเสียงเหมือนน้ำหรือของเหลวฟองอยู่ภายในตู้เย็น ใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n_normal",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_normal",
@@ -433,9 +505,21 @@
           "outcome_kind": "normal_behavior"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "เสียงไม่ตรงกับกรณีที่คู่มือระบุ หากเป็นเสียงผิดปกติอื่น ให้เลือกอาการ \"ตู้เย็นมีเสียงผิดปกติ\" หรือติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่อง",
+          "content": "เสียงไม่ตรงกับกรณีที่คู่มือระบุ หากเป็นเสียงผิดปกติอื่น ให้เลือกอาการ \"ตู้เย็นมีเสียงผิดปกติ\" หรือติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่อง (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -508,7 +592,7 @@
           "question": "หลังทำความสะอาดแล้ว กลิ่นเหม็นหายไปหรือไม่?",
           "safety_critical": false,
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -517,9 +601,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ (อาหารเสีย อาหารกลิ่นแรงไม่ห่อ การทำความสะอาด) ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่องและสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ (อาหารเสีย อาหารกลิ่นแรงไม่ห่อ การทำความสะอาด) ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่องและสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -575,7 +671,7 @@
           "type": "checkpoint",
           "question": "ประตูตู้เย็นปิดสนิทแล้วหรือไม่?",
           "safety_critical": false,
-          "on_yes": "n_escalate",
+          "on_yes": "n_escalate_in",
           "on_no": "n_close"
         },
         {
@@ -592,7 +688,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -601,9 +697,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ (ช่องลมออกถูกบัง ประตูปิดไม่สนิท) ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่องและสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ (ช่องลมออกถูกบัง ประตูปิดไม่สนิท) ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่องและสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -636,7 +744,7 @@
           "question": "มีอาหารที่มีน้ำมาก (เช่น ผักผลไม้) เก็บไว้โดยไม่มีฝาปิดในที่ความชื้นสูง หรือเปิดประตูตู้เย็นทิ้งไว้นานหรือไม่?",
           "safety_critical": false,
           "on_yes": "n_cover",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_cover",
@@ -653,7 +761,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -662,9 +770,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับกรณีที่คู่มือระบุ (อาหารน้ำมากไม่ปิดฝาในที่ชื้น หรือเปิดประตูนาน) ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่องและอาการที่พบ",
+          "content": "ไม่พบสาเหตุที่ตรงกับกรณีที่คู่มือระบุ (อาหารน้ำมากไม่ปิดฝาในที่ชื้น หรือเปิดประตูนาน) ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่องและอาการที่พบ (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -697,7 +817,7 @@
           "question": "หลอดไฟ LED ภายในหรือภายนอกตู้เย็นดับ ใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n_stop",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_stop",
@@ -705,18 +825,42 @@
           "content": "ห้ามถอดแยกฝาครอบหลอดไฟและหลอด LED ออกเอง (คู่มือหน้า 20)",
           "safety_critical": true,
           "safety_warning": "ห้ามถอดแยกฝาครอบหลอดไฟและหลอด LED ด้วยตนเอง (คู่มือหน้า 20)",
-          "next": "n_escalate_service"
+          "next": "n_escalate_service_in"
+        },
+        {
+          "state_id": "n_escalate_service_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate_service",
+          "on_invalid": "n_escalate_service_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
         },
         {
           "state_id": "n_escalate_service",
           "type": "escalation",
-          "content": "ติดต่อศูนย์บริการ Samsung เพื่อเปลี่ยนหลอดไฟ LED (คู่มือหน้า 20) พร้อมแจ้งรุ่นเครื่อง",
+          "content": "ติดต่อศูนย์บริการ Samsung เพื่อเปลี่ยนหลอดไฟ LED (คู่มือหน้า 20) พร้อมแจ้งรุ่นเครื่อง (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
         },
         {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "อาการไม่ตรงกับกรณีที่คู่มือระบุ (หลอดไฟ LED ดับ) ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่องและอาการที่พบ",
+          "content": "อาการไม่ตรงกับกรณีที่คู่มือระบุ (หลอดไฟ LED ดับ) ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่องและอาการที่พบ (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]

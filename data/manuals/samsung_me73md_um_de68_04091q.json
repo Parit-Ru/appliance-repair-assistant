@@ -36,7 +36,7 @@
           "question": "พบอาการอย่างใดอย่างหนึ่ง: ไอน้ำควบแน่นภายในเตา ลมไหลรอบประตูและตัวเตา แสงสะท้อนรอบประตูและตัวเตา หรือไอน้ำออกจากรอบประตูหรือช่องระบายอากาศ ใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n1n",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n1n",
@@ -45,9 +45,21 @@
           "outcome_kind": "normal_behavior"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ติดต่อตัวแทนจำหน่ายหรือบริการหลังการขายของ Samsung (คู่มือหน้า 20) โดยติดต่อ Samsung Customer Care ประเทศไทย โทร 0-2689-3232 หรือ 1800-29-3232 (โทรฟรี) หรือเว็บไซต์ www.samsung.com/th/support (คู่มือหน้า 24) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ติดต่อตัวแทนจำหน่ายหรือบริการหลังการขายของ Samsung (คู่มือหน้า 20) โดยติดต่อ Samsung Customer Care ประเทศไทย โทร 0-2689-3232 หรือ 1800-29-3232 (โทรฟรี) หรือเว็บไซต์ www.samsung.com/th/support (คู่มือหน้า 24) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -80,7 +92,7 @@
           "type": "checkpoint",
           "question": "ประตูเตาปิดสนิทแล้วใช่หรือไม่?",
           "safety_critical": false,
-          "on_yes": "n_escalate",
+          "on_yes": "n_escalate_in",
           "on_no": "n1f"
         },
         {
@@ -99,7 +111,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -108,9 +120,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ติดต่อตัวแทนจำหน่ายหรือบริการหลังการขายของ Samsung (คู่มือหน้า 20) โดยติดต่อ Samsung Customer Care ประเทศไทย โทร 0-2689-3232 หรือ 1800-29-3232 (โทรฟรี) หรือเว็บไซต์ www.samsung.com/th/support (คู่มือหน้า 24) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ติดต่อตัวแทนจำหน่ายหรือบริการหลังการขายของ Samsung (คู่มือหน้า 20) โดยติดต่อ Samsung Customer Care ประเทศไทย โทร 0-2689-3232 หรือ 1800-29-3232 (โทรฟรี) หรือเว็บไซต์ www.samsung.com/th/support (คู่มือหน้า 24) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -195,13 +219,25 @@
           "type": "checkpoint",
           "question": "ใช้ไฟฟ้าเกินกำลังของวงจรทำให้ฟิวส์ขาดหรือเบรกเกอร์ตัดไฟ ใช่หรือไม่?",
           "safety_critical": false,
-          "on_yes": "n3e",
-          "on_no": "n_escalate"
+          "on_yes": "n3e_in",
+          "on_no": "n_escalate_in"
+        },
+        {
+          "state_id": "n3e_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n3e",
+          "on_invalid": "n3e_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
         },
         {
           "state_id": "n3e",
           "type": "escalation",
-          "content": "คู่มือหน้า 20 ให้ตรวจว่าวงจรไฟฟ้าโหลดเกินจนฟิวส์ขาดหรือเบรกเกอร์ตัดหรือไม่ แต่ไม่ได้ระบุวิธีแก้ที่ผู้ใช้ทำเองได้ ห้ามซ่อมเตาเอง (คู่มือหน้า 8) ห้ามใช้ปลั๊กแปลงหลายทางหรือสายต่อพ่วง (คู่มือหน้า 4) ให้ติดต่อ Samsung Customer Care ประเทศไทย โทร 0-2689-3232 หรือ 1800-29-3232 (โทรฟรี) หรือเว็บไซต์ www.samsung.com/th/support (คู่มือหน้า 24)",
+          "content": "คู่มือหน้า 20 ให้ตรวจว่าวงจรไฟฟ้าโหลดเกินจนฟิวส์ขาดหรือเบรกเกอร์ตัดหรือไม่ แต่ไม่ได้ระบุวิธีแก้ที่ผู้ใช้ทำเองได้ ห้ามซ่อมเตาเอง (คู่มือหน้า 8) ห้ามใช้ปลั๊กแปลงหลายทางหรือสายต่อพ่วง (คู่มือหน้า 4) ให้ติดต่อ Samsung Customer Care ประเทศไทย โทร 0-2689-3232 หรือ 1800-29-3232 (โทรฟรี) หรือเว็บไซต์ www.samsung.com/th/support (คู่มือหน้า 24) (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_informed"
         },
         {
@@ -211,9 +247,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ติดต่อตัวแทนจำหน่ายหรือบริการหลังการขายของ Samsung (คู่มือหน้า 20) โดยติดต่อ Samsung Customer Care ประเทศไทย โทร 0-2689-3232 หรือ 1800-29-3232 (โทรฟรี) หรือเว็บไซต์ www.samsung.com/th/support (คู่มือหน้า 24) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ติดต่อตัวแทนจำหน่ายหรือบริการหลังการขายของ Samsung (คู่มือหน้า 20) โดยติดต่อ Samsung Customer Care ประเทศไทย โทร 0-2689-3232 หรือ 1800-29-3232 (โทรฟรี) หรือเว็บไซต์ www.samsung.com/th/support (คู่มือหน้า 24) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -272,7 +320,7 @@
           "type": "checkpoint",
           "question": "เลือกระดับกำลังไฟเหมาะสมแล้วใช่หรือไม่?",
           "safety_critical": false,
-          "on_yes": "n_escalate",
+          "on_yes": "n_escalate_in",
           "on_no": "n2f"
         },
         {
@@ -291,7 +339,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -300,9 +348,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ติดต่อตัวแทนจำหน่ายหรือบริการหลังการขายของ Samsung (คู่มือหน้า 20) โดยติดต่อ Samsung Customer Care ประเทศไทย โทร 0-2689-3232 หรือ 1800-29-3232 (โทรฟรี) หรือเว็บไซต์ www.samsung.com/th/support (คู่มือหน้า 24) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ติดต่อตัวแทนจำหน่ายหรือบริการหลังการขายของ Samsung (คู่มือหน้า 20) โดยติดต่อ Samsung Customer Care ประเทศไทย โทร 0-2689-3232 หรือ 1800-29-3232 (โทรฟรี) หรือเว็บไซต์ www.samsung.com/th/support (คู่มือหน้า 24) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -389,7 +449,7 @@
           "question": "ฟอยล์อะลูมิเนียมอยู่ใกล้ผนังด้านในเตามากเกินไปหรือไม่?",
           "safety_critical": false,
           "on_yes": "n3f",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n3f",
@@ -407,7 +467,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -416,9 +476,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ถ้าเตามีเสียงผิดปกติ กลิ่นไหม้ ควัน ประกายไฟ หรือรู้สึกว่ามีไฟฟ้าออกมาจากเตา ให้ถอดปลั๊กและหยุดใช้เตา (คู่มือหน้า 4) แล้วติดต่อ Samsung Customer Care ประเทศไทย โทร 0-2689-3232 หรือ 1800-29-3232 (โทรฟรี) หรือเว็บไซต์ www.samsung.com/th/support (คู่มือหน้า 24) พร้อมแจ้งรุ่นเครื่องและอาการ ห้ามซ่อมเตาเอง (คู่มือหน้า 8)",
+          "content": "ถ้าเตามีเสียงผิดปกติ กลิ่นไหม้ ควัน ประกายไฟ หรือรู้สึกว่ามีไฟฟ้าออกมาจากเตา ให้ถอดปลั๊กและหยุดใช้เตา (คู่มือหน้า 4) แล้วติดต่อ Samsung Customer Care ประเทศไทย โทร 0-2689-3232 หรือ 1800-29-3232 (โทรฟรี) หรือเว็บไซต์ www.samsung.com/th/support (คู่มือหน้า 24) พร้อมแจ้งรุ่นเครื่องและอาการ ห้ามซ่อมเตาเอง (คู่มือหน้า 8) (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_informed"
         }
       ]
@@ -478,7 +550,7 @@
           "question": "จอแสดงผลของเตารีเซ็ตเองหรือเวลาหายไปใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n2f",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n2f",
@@ -496,7 +568,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -505,9 +577,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ติดต่อตัวแทนจำหน่ายหรือบริการหลังการขายของ Samsung (คู่มือหน้า 20) โดยติดต่อ Samsung Customer Care ประเทศไทย โทร 0-2689-3232 หรือ 1800-29-3232 (โทรฟรี) หรือเว็บไซต์ www.samsung.com/th/support (คู่มือหน้า 24) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ติดต่อตัวแทนจำหน่ายหรือบริการหลังการขายของ Samsung (คู่มือหน้า 20) โดยติดต่อ Samsung Customer Care ประเทศไทย โทร 0-2689-3232 หรือ 1800-29-3232 (โทรฟรี) หรือเว็บไซต์ www.samsung.com/th/support (คู่มือหน้า 24) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]

@@ -63,6 +63,20 @@ export interface DeviceSearchResult {
   /** ผังที่ score >= threshold ทั้งหมดที่ service คืน (ไม่เกิน PER_MANUAL_CAP ต่อคู่มือ) เรียง score มากไปน้อย — ใช้หากลุ่มที่ score เสมอกัน */
   candidates: DeviceMatch[];
   refused: boolean;
+  /**
+   * ผลรายคู่มือ — หน้าเว็บจริงค้นในคู่มือเดียวที่ผู้ใช้เลือก (SymptomsPage ส่ง manualId เสมอ) ไม่ได้รวมทุกคู่มือของอุปกรณ์
+   * จึงใช้บอกว่า "ถ้าผู้ใช้เลือกคู่มือนี้" จะได้ผลอะไร (matchCount = 0 → หน้าเว็บแสดงข้อความแนะนำศูนย์บริการ)
+   */
+  perManual: Array<{ manualId: string; bestScore: number | null; matchCount: number }>;
+}
+
+/** ค้นข้ามทุกอุปกรณ์ (ไม่ส่ง manualId) — หน้าเว็บไม่ได้ทำแบบนี้ ใช้ตรวจว่าระบบ "ชี้อุปกรณ์ถูก" ไหมเมื่อไม่รู้อุปกรณ์ */
+export interface CrossDeviceSearchResult {
+  threshold: number;
+  bestScore: number | null;
+  /** ผังที่ score >= threshold เรียงมากไปน้อย ไม่เกิน 3 (MAX_RESULTS ของ service) */
+  matches: Array<DeviceMatch>;
+  refused: boolean;
 }
 
 export interface EvalEngine {
@@ -71,6 +85,7 @@ export interface EvalEngine {
   manuals: ManualSummary[];
   flowCount: number;
   searchDevice(query: string, device: DeviceCategory): Promise<DeviceSearchResult>;
+  searchAllDevices(query: string): Promise<CrossDeviceSearchResult>;
   getFlow(flowId: string): TroubleshootingFlow | undefined;
   /** ผังทุกอันของ device นี้ (ใช้ตรวจ seed ว่าคำไหนไม่เคยโผล่ใน device นั้นเลย) */
   flowsOfDevice(device: DeviceCategory): TroubleshootingFlow[];
@@ -128,10 +143,12 @@ export async function createEvalEngine(): Promise<EvalEngine> {
 
       // search() รับได้แค่ manualId · ค้นทีละคู่มือแล้วรวม — top-N รวม ⊆ ผลของแต่ละคู่มือ (service คืน top-3 ต่อคู่มือ) จึงไม่ตกหล่น
       const merged: DeviceMatch[] = [];
+      const perManual: DeviceSearchResult['perManual'] = [];
       let threshold = Number.NaN;
       let bestScore: number | null = null;
       for (const manualId of manualIds) {
         const result = await search.search(query, manualId);
+        perManual.push({ manualId, bestScore: result.bestScore, matchCount: result.matches.length });
         threshold = result.threshold;
         if (result.bestScore !== null && (bestScore === null || result.bestScore > bestScore)) {
           bestScore = result.bestScore;
@@ -144,7 +161,17 @@ export async function createEvalEngine(): Promise<EvalEngine> {
       merged.sort((a, b) => (b.score !== a.score ? b.score - a.score : a.flowId < b.flowId ? -1 : a.flowId > b.flowId ? 1 : 0));
       const matches = merged.slice(0, TOP_N);
 
-      return { device, manualsSearched: manualIds, threshold, bestScore, matches, candidates: merged, refused: matches.length === 0 };
+      return { device, manualsSearched: manualIds, threshold, bestScore, matches, candidates: merged, refused: matches.length === 0, perManual };
+    },
+
+    async searchAllDevices(query) {
+      const result = await search.search(query);
+      const matches: DeviceMatch[] = result.matches.map((m) => {
+        const flow = flows.findById(m.flowId);
+        if (flow === undefined) throw new Error(`ไม่พบผัง '${m.flowId}' ใน FlowRepository`);
+        return { ...m, manualId: flow.manual_id };
+      });
+      return { threshold: result.threshold, bestScore: result.bestScore, matches, refused: matches.length === 0 };
     },
 
     getFlow: (flowId) => flows.findById(flowId),

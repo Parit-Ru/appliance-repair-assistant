@@ -34,7 +34,7 @@
           "question": "ตอนดึงชั้นกระจกออก ชั้นไม่เลื่อนออกมาง่ายใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n_lift",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_lift",
@@ -49,7 +49,7 @@
           "question": "หลังยกชั้นขึ้นเล็กน้อยแล้วดึงอีกครั้ง ชั้นเลื่อนออกมาได้หรือไม่?",
           "safety_critical": false,
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -58,9 +58,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "คู่มือให้วิธีแก้เพียงข้อเดียวสำหรับอาการนี้ (ยกชั้นขึ้นเล็กน้อยแล้วดึงอีกครั้ง) หากยังดึงไม่ออก ให้ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่องและอาการที่พบ",
+          "content": "คู่มือให้วิธีแก้เพียงข้อเดียวสำหรับอาการนี้ (ยกชั้นขึ้นเล็กน้อยแล้วดึงอีกครั้ง) หากยังดึงไม่ออก ให้ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่องและอาการที่พบ (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -93,7 +105,7 @@
           "question": "ตอนดึงถาดเลื่อน (Moving Tray) ออก ถาดไม่เลื่อนออกมาง่ายใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n_lift",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_lift",
@@ -108,7 +120,7 @@
           "question": "หลังยกถาดขึ้นเล็กน้อยแล้วดึงอีกครั้ง ถาดเลื่อนออกมาได้หรือไม่?",
           "safety_critical": false,
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -117,9 +129,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "คู่มือให้วิธีแก้เพียงข้อเดียวสำหรับอาการนี้ (ยกถาดขึ้นเล็กน้อยแล้วดึงอีกครั้ง) หากยังดึงไม่ออก ให้ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่องและอาการที่พบ",
+          "content": "คู่มือให้วิธีแก้เพียงข้อเดียวสำหรับอาการนี้ (ยกถาดขึ้นเล็กน้อยแล้วดึงอีกครั้ง) หากยังดึงไม่ออก ให้ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่องและอาการที่พบ (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -159,7 +183,7 @@
           "question": "ถอดลิ้นชักผักและผลไม้ออกได้แล้วหรือไม่?",
           "safety_critical": false,
           "on_yes": "n3",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n3",
@@ -174,7 +198,7 @@
           "question": "ถอดชั้นรองลิ้นชักออกได้แล้วหรือไม่?",
           "safety_critical": false,
           "on_yes": "n5",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n5",
@@ -189,7 +213,7 @@
           "question": "ถอดแผ่นกั้นออกได้แล้วหรือไม่?",
           "safety_critical": false,
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -198,9 +222,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "คู่มือระบุเฉพาะวิธีดึงและยกชิ้นส่วนออก หากถอดไม่ออก ให้ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่องและชิ้นส่วนที่ถอดไม่ออก",
+          "content": "คู่มือระบุเฉพาะวิธีดึงและยกชิ้นส่วนออก หากถอดไม่ออก ให้ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่องและชิ้นส่วนที่ถอดไม่ออก (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -239,7 +275,7 @@
           "question": "ถอดช่องเก็บของที่ประตูออกได้แล้วหรือไม่?",
           "safety_critical": false,
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -248,9 +284,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "คู่มือระบุเฉพาะวิธียกขึ้นแล้วดึงตรงออก หากถอดไม่ออก ให้ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่อง",
+          "content": "คู่มือระบุเฉพาะวิธียกขึ้นแล้วดึงตรงออก หากถอดไม่ออก ให้ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่อง (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -283,7 +331,7 @@
           "question": "ไฟในห้องแช่เย็นไม่ติดเมื่อเปิดประตู ทั้งที่ตู้เย็นยังทำงานปกติ (จอแสดงผลติดหรือได้ยินเสียงเครื่องทำงาน) ใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n_unplug",
-          "on_no": "n_escalate_other"
+          "on_no": "n_escalate_other_in"
         },
         {
           "state_id": "n_unplug",
@@ -306,7 +354,7 @@
           "question": "ขั้วต่อสายของหลอดไฟ LED เสียบแน่นสนิทหรือไม่? (ดูให้แน่ใจว่าขั้วต่อไม่หลุดหลวม)",
           "safety_critical": false,
           "author_note": "ถ้อยคำคำถามเรียบเรียงจากขั้นตรวจ 'LED Lamp connected properly' ในคู่มือหน้า 57",
-          "on_yes": "n_escalate_lamp",
+          "on_yes": "n_escalate_lamp_in",
           "on_no": "n_fix_conn"
         },
         {
@@ -332,7 +380,7 @@
           "question": "ไฟในห้องแช่เย็นติดแล้วหรือไม่?",
           "safety_critical": false,
           "on_yes": "n_resolved",
-          "on_no": "n_escalate_lamp"
+          "on_no": "n_escalate_lamp_in"
         },
         {
           "state_id": "n_resolved",
@@ -341,15 +389,39 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_lamp_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate_lamp",
+          "on_invalid": "n_escalate_lamp_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate_lamp",
           "type": "escalation",
-          "content": "ขั้วต่อเสียบแน่นแล้วแต่ไฟในห้องแช่เย็นยังไม่ติด คู่มือหน้า 57 ให้ตรวจหลอดไฟ LED และเปลี่ยนหลอดไฟ LED หากเสีย ซึ่งต้องใช้ชิ้นส่วนใหม่ ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่องและอาการที่พบ",
+          "content": "ขั้วต่อเสียบแน่นแล้วแต่ไฟในห้องแช่เย็นยังไม่ติด คู่มือหน้า 57 ให้ตรวจหลอดไฟ LED และเปลี่ยนหลอดไฟ LED หากเสีย ซึ่งต้องใช้ชิ้นส่วนใหม่ ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่องและอาการที่พบ (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_escalate_other_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate_other",
+          "on_invalid": "n_escalate_other_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
         },
         {
           "state_id": "n_escalate_other",
           "type": "escalation",
-          "content": "อาการไม่ตรงกับกรณีที่คู่มือระบุ (ไฟในห้องแช่เย็นไม่ติดทั้งที่ตู้เย็นทำงานปกติ) หากตู้เย็นไม่มีไฟเข้าเลย ให้เลือกอาการ \"ตู้เย็นไม่มีไฟเข้า\" แทน หากยังไม่หาย ให้ติดต่อศูนย์บริการ Samsung",
+          "content": "อาการไม่ตรงกับกรณีที่คู่มือระบุ (ไฟในห้องแช่เย็นไม่ติดทั้งที่ตู้เย็นทำงานปกติ) หากตู้เย็นไม่มีไฟเข้าเลย ให้เลือกอาการ \"ตู้เย็นไม่มีไฟเข้า\" แทน หากยังไม่หาย ให้ติดต่อศูนย์บริการ Samsung (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -382,7 +454,7 @@
           "question": "ไฟในห้องแช่แข็งไม่ติดเมื่อเปิดประตู ทั้งที่ตู้เย็นยังทำงานปกติ (จอแสดงผลติดหรือได้ยินเสียงเครื่องทำงาน) ใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n_unplug",
-          "on_no": "n_escalate_other"
+          "on_no": "n_escalate_other_in"
         },
         {
           "state_id": "n_unplug",
@@ -405,7 +477,7 @@
           "question": "ขั้วต่อสายของหลอดไฟ LED เสียบแน่นสนิทหรือไม่? (ดูให้แน่ใจว่าขั้วต่อไม่หลุดหลวม)",
           "safety_critical": false,
           "author_note": "ถ้อยคำคำถามเรียบเรียงจากขั้นตรวจ 'LED Lamp connected properly' ในคู่มือหน้า 57",
-          "on_yes": "n_escalate_lamp",
+          "on_yes": "n_escalate_lamp_in",
           "on_no": "n_fix_conn"
         },
         {
@@ -431,7 +503,7 @@
           "question": "ไฟในห้องแช่แข็งติดแล้วหรือไม่?",
           "safety_critical": false,
           "on_yes": "n_resolved",
-          "on_no": "n_escalate_lamp"
+          "on_no": "n_escalate_lamp_in"
         },
         {
           "state_id": "n_resolved",
@@ -440,15 +512,39 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_lamp_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate_lamp",
+          "on_invalid": "n_escalate_lamp_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate_lamp",
           "type": "escalation",
-          "content": "ขั้วต่อเสียบแน่นแล้วแต่ไฟในห้องแช่แข็งยังไม่ติด คู่มือหน้า 57 ให้ตรวจหลอดไฟ LED และเปลี่ยนหลอดไฟ LED หากเสีย ซึ่งต้องใช้ชิ้นส่วนใหม่ ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่องและอาการที่พบ",
+          "content": "ขั้วต่อเสียบแน่นแล้วแต่ไฟในห้องแช่แข็งยังไม่ติด คู่มือหน้า 57 ให้ตรวจหลอดไฟ LED และเปลี่ยนหลอดไฟ LED หากเสีย ซึ่งต้องใช้ชิ้นส่วนใหม่ ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่องและอาการที่พบ (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_escalate_other_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate_other",
+          "on_invalid": "n_escalate_other_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
         },
         {
           "state_id": "n_escalate_other",
           "type": "escalation",
-          "content": "อาการไม่ตรงกับกรณีที่คู่มือระบุ (ไฟในห้องแช่แข็งไม่ติดทั้งที่ตู้เย็นทำงานปกติ) หากตู้เย็นไม่มีไฟเข้าเลย ให้เลือกอาการ \"ตู้เย็นไม่มีไฟเข้า\" แทน หากยังไม่หาย ให้ติดต่อศูนย์บริการ Samsung",
+          "content": "อาการไม่ตรงกับกรณีที่คู่มือระบุ (ไฟในห้องแช่แข็งไม่ติดทั้งที่ตู้เย็นทำงานปกติ) หากตู้เย็นไม่มีไฟเข้าเลย ให้เลือกอาการ \"ตู้เย็นไม่มีไฟเข้า\" แทน หากยังไม่หาย ให้ติดต่อศูนย์บริการ Samsung (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -481,7 +577,7 @@
           "question": "คอมเพรสเซอร์เพิ่งหยุดทำงานเพราะอุณหภูมิในตู้ถึงค่าที่ตั้งไว้ และยังไม่ถึง 5 นาที ใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n_wait",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_wait",
@@ -496,7 +592,7 @@
           "question": "รอครบ 5 นาทีแล้ว คอมเพรสเซอร์กลับมาทำงานหรือไม่?",
           "safety_critical": false,
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -505,9 +601,21 @@
           "outcome_kind": "normal_behavior"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับข้อมูลระดับผู้ใช้ในคู่มือ (การหน่วง 5 นาทีหรือช่วงละลายน้ำแข็ง) การตรวจต่อไปในคู่มือเป็นงานวัดบนแผงวงจร ซึ่งเป็นงานช่าง ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่องและอาการที่พบ",
+          "content": "ไม่พบสาเหตุที่ตรงกับข้อมูลระดับผู้ใช้ในคู่มือ (การหน่วง 5 นาทีหรือช่วงละลายน้ำแข็ง) การตรวจต่อไปในคู่มือเป็นงานวัดบนแผงวงจร ซึ่งเป็นงานช่าง ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่องและอาการที่พบ (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -540,7 +648,7 @@
           "question": "พัดลมไม่ทำงานทันทีหลังเพิ่งเปิดแล้วปิดประตู หรือหลังเสียบปลั๊ก/ไฟกลับมา ใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n_wait",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_wait",
@@ -555,7 +663,7 @@
           "question": "รอประมาณ 5 นาทีแล้ว พัดลมทำงานหรือไม่?",
           "safety_critical": false,
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -564,9 +672,21 @@
           "outcome_kind": "normal_behavior"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับข้อมูลระดับผู้ใช้ในคู่มือ การตรวจพัดลมต่อไปในคู่มือเป็นงานวัดแรงดันบนแผงวงจร ซึ่งเป็นงานช่าง ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่องและอาการที่พบ",
+          "content": "ไม่พบสาเหตุที่ตรงกับข้อมูลระดับผู้ใช้ในคู่มือ การตรวจพัดลมต่อไปในคู่มือเป็นงานวัดแรงดันบนแผงวงจร ซึ่งเป็นงานช่าง ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่องและอาการที่พบ (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -622,7 +742,7 @@
           "question": "มีสิ่งรบกวนการปิดประตู เช่น ขอบยางประตูพับ หรือมีอาหารขวางอยู่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n_clear",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_clear",
@@ -637,7 +757,7 @@
           "question": "หลังนำสิ่งที่ขวางออกแล้ว เสียงเตือนหยุดหรือไม่?",
           "safety_critical": false,
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -646,9 +766,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับข้อมูลระดับผู้ใช้ในคู่มือ (ประตูปิดไม่สนิทหรือมีสิ่งรบกวน) การตรวจสวิตช์ประตูและแผงวงจรต่อไปเป็นงานช่าง ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่องและอาการที่พบ",
+          "content": "ไม่พบสาเหตุที่ตรงกับข้อมูลระดับผู้ใช้ในคู่มือ (ประตูปิดไม่สนิทหรือมีสิ่งรบกวน) การตรวจสวิตช์ประตูและแผงวงจรต่อไปเป็นงานช่าง ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่องและอาการที่พบ (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -681,7 +813,7 @@
           "question": "ตู้เย็นมีเสียงบี๊บดังต่อเนื่อง และจอแสดงผลที่แผงด้านหน้าดับทั้งหมด ใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n_power_off",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_power_off",
@@ -707,7 +839,7 @@
           "question": "หลังเปิดตู้เย็นใหม่ เสียงบี๊บหยุดและจอแสดงผลกลับมาแสดงผลปกติหรือไม่?",
           "safety_critical": false,
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -716,9 +848,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับข้อมูลระดับผู้ใช้ในคู่มือ (โหมดทดสอบที่ค้างอยู่) ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่องและลักษณะเสียงที่ได้ยิน",
+          "content": "ไม่พบสาเหตุที่ตรงกับข้อมูลระดับผู้ใช้ในคู่มือ (โหมดทดสอบที่ค้างอยู่) ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่องและลักษณะเสียงที่ได้ยิน (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -750,7 +894,7 @@
           "type": "checkpoint",
           "question": "สายไฟหรือปลั๊กตู้เย็นมีรอยแตก สึกหรอ หรือชำรุดหรือไม่?",
           "safety_critical": false,
-          "on_yes": "n_escalate_cord",
+          "on_yes": "n_escalate_cord_in",
           "on_no": "n2"
         },
         {
@@ -758,7 +902,7 @@
           "type": "checkpoint",
           "question": "ปลั๊กตู้เย็นเสียบแน่นสนิทในเต้ารับหรือไม่? (ไม่หลวม)",
           "safety_critical": false,
-          "on_yes": "n_escalate_other",
+          "on_yes": "n_escalate_other_in",
           "on_no": "n_plug"
         },
         {
@@ -776,7 +920,7 @@
           "question": "หลังเสียบปลั๊กแน่นแล้ว ตู้เย็นมีไฟเข้า (จอแสดงผลติดหรือได้ยินเสียงเครื่องทำงาน) หรือไม่?",
           "safety_critical": false,
           "on_yes": "n_resolved",
-          "on_no": "n_escalate_other"
+          "on_no": "n_escalate_other_in"
         },
         {
           "state_id": "n_resolved",
@@ -785,15 +929,39 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_cord_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate_cord",
+          "on_invalid": "n_escalate_cord_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate_cord",
           "type": "escalation",
-          "content": "ห้ามใช้สายไฟหรือปลั๊กที่แตกหรือสึกหรอ ต้องซ่อมหรือเปลี่ยนสายไฟโดยทันที (คู่มือหน้า 4 และ 17) ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่อง",
+          "content": "ห้ามใช้สายไฟหรือปลั๊กที่แตกหรือสึกหรอ ต้องซ่อมหรือเปลี่ยนสายไฟโดยทันที (คู่มือหน้า 4 และ 17) ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่อง (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_escalate_other_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate_other",
+          "on_invalid": "n_escalate_other_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
         },
         {
           "state_id": "n_escalate_other",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุระดับผู้ใช้ที่ตรงกับคู่มือ ขั้นตรวจต่อไปในคู่มือคือฟิวส์และแรงดันไฟบนแผงวงจร ซึ่งเป็นงานช่าง ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่องและสิ่งที่ได้ตรวจแล้ว",
+          "content": "ไม่พบสาเหตุระดับผู้ใช้ที่ตรงกับคู่มือ ขั้นตรวจต่อไปในคู่มือคือฟิวส์และแรงดันไฟบนแผงวงจร ซึ่งเป็นงานช่าง ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่องและสิ่งที่ได้ตรวจแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -826,7 +994,7 @@
           "question": "หน้าจอ ไฟ และพัดลมในตู้ทำงานปกติ แต่คอมเพรสเซอร์ไม่เดินและตู้เย็นไม่เย็น ใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n_cancel",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_cancel",
@@ -843,7 +1011,7 @@
           "safety_critical": false,
           "author_note": "ระยะ 5 นาทีมาจากการหน่วงคอมเพรสเซอร์ในคู่มือหน้า 48 และ 52 ไม่ได้ระบุโดยตรงสำหรับการยกเลิกโหมดโชว์สินค้า",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -852,9 +1020,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับข้อมูลระดับผู้ใช้ในคู่มือ (โหมดโชว์สินค้า) ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่องและอาการที่พบ",
+          "content": "ไม่พบสาเหตุที่ตรงกับข้อมูลระดับผู้ใช้ในคู่มือ (โหมดโชว์สินค้า) ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่องและอาการที่พบ (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -887,7 +1067,7 @@
           "question": "ตอนเสียบปลั๊กเปิดตู้เย็นครั้งแรก ไฟ LED บนจอแสดงอุณหภูมิกะพริบทุก 0.5 วินาที (ไม่มีเสียงบี๊บ) ใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n_note",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_note",
@@ -910,7 +1090,7 @@
           "question": "หลังกดแล้ว ไฟหยุดกะพริบและหน้าจอกลับสู่การแสดงผลปกติหรือไม่?",
           "safety_critical": false,
           "on_yes": "n_resolved",
-          "on_no": "n_escalate_malfunction"
+          "on_no": "n_escalate_malfunction_in"
         },
         {
           "state_id": "n_resolved",
@@ -919,15 +1099,39 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_malfunction_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate_malfunction",
+          "on_invalid": "n_escalate_malfunction_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate_malfunction",
           "type": "escalation",
-          "content": "ไฟยังกะพริบหลังกดยกเลิกแล้ว บ่งชี้ว่าเซนเซอร์อุณหภูมิยังผิดปกติและต้องให้ช่างตรวจสอบ ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่องและอาการที่พบ",
+          "content": "ไฟยังกะพริบหลังกดยกเลิกแล้ว บ่งชี้ว่าเซนเซอร์อุณหภูมิยังผิดปกติและต้องให้ช่างตรวจสอบ ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่องและอาการที่พบ (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
         },
         {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "อาการไม่ตรงกับกรณีไฟ LED กะพริบจากการวินิจฉัยตัวเองที่ระบุในคู่มือ ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่องและอาการที่พบ",
+          "content": "อาการไม่ตรงกับกรณีไฟ LED กะพริบจากการวินิจฉัยตัวเองที่ระบุในคู่มือ ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่องและอาการที่พบ (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]

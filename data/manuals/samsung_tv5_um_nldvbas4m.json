@@ -44,7 +44,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -53,9 +53,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -99,7 +111,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -108,9 +120,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -152,7 +176,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -161,9 +185,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -221,7 +257,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -230,9 +266,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ถ้าตรวจตามขั้นตอนแล้วยังไม่หาย ให้ดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และผลที่เห็นจาก Self Diagnosis (คู่มือหน้า 105)",
+          "content": "ถ้าตรวจตามขั้นตอนแล้วยังไม่หาย ให้ดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และผลที่เห็นจาก Self Diagnosis (คู่มือหน้า 105) (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -274,7 +322,7 @@
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -283,9 +331,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ถ้าตรวจตามขั้นตอนแล้วยังไม่หาย ให้ดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และผลที่เห็นจาก Self Diagnosis (คู่มือหน้า 105)",
+          "content": "ถ้าตรวจตามขั้นตอนแล้วยังไม่หาย ให้ดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และผลที่เห็นจาก Self Diagnosis (คู่มือหน้า 105) (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -351,7 +411,7 @@
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -360,9 +420,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ถ้าตรวจตามขั้นตอนแล้วยังไม่หาย ให้ดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และผลที่เห็นจาก Self Diagnosis (คู่มือหน้า 105)",
+          "content": "ถ้าตรวจตามขั้นตอนแล้วยังไม่หาย ให้ดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และผลที่เห็นจาก Self Diagnosis (คู่มือหน้า 105) (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -406,7 +478,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -415,9 +487,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -450,7 +534,7 @@
           "question": "Sound Output ตั้งเป็น Audio Out/Optical อยู่ใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n1n",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n1n",
@@ -459,9 +543,21 @@
           "outcome_kind": "normal_behavior"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -494,7 +590,7 @@
           "question": "Sound Output ตั้งเป็น Audio Out/Optical อยู่ใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n1n",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n1n",
@@ -503,9 +599,21 @@
           "outcome_kind": "normal_behavior"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -537,7 +645,7 @@
           "type": "checkpoint",
           "question": "Auto Volume ที่ทีวีตั้งเป็น Off แล้วใช่หรือไม่?",
           "safety_critical": false,
-          "on_yes": "n_escalate",
+          "on_yes": "n_escalate_in",
           "on_no": "n1f"
         },
         {
@@ -554,7 +662,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -563,9 +671,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -597,7 +717,7 @@
           "type": "checkpoint",
           "question": "Sound Mirroring ปิดอยู่แล้วใช่หรือไม่?",
           "safety_critical": false,
-          "on_yes": "n_escalate",
+          "on_yes": "n_escalate_in",
           "on_no": "n1f"
         },
         {
@@ -614,7 +734,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -623,9 +743,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -658,7 +790,7 @@
           "question": "Sound Mirroring เปิดอยู่ใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n1n",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n1n",
@@ -667,9 +799,21 @@
           "outcome_kind": "normal_behavior"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -742,7 +886,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -751,9 +895,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -785,7 +941,7 @@
           "type": "checkpoint",
           "question": "มือถือรองรับฟังก์ชัน mirroring เช่น AllShare Cast หรือ Smart View ใช่หรือไม่?",
           "safety_critical": false,
-          "on_yes": "n_escalate",
+          "on_yes": "n_escalate_in",
           "on_no": "n1f"
         },
         {
@@ -802,7 +958,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -811,9 +967,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -888,7 +1056,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -897,9 +1065,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -964,7 +1144,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -973,9 +1153,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -1018,7 +1210,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -1027,9 +1219,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -1096,7 +1300,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -1105,9 +1309,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -1213,7 +1429,7 @@
           "question": "ใช้ USB หลายตัวชนิดเดียวกันและโฟลเดอร์ของแต่ละตัวชื่อซ้ำกันใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n4f",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n4f",
@@ -1229,7 +1445,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -1238,9 +1454,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -1273,7 +1501,7 @@
           "question": "ใช้ USB ที่มีแบตเตอรี่ในตัว เครื่องเล่น MP3 หรือ PMP ใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n1f",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n1f",
@@ -1289,7 +1517,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -1298,9 +1526,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -1383,7 +1623,7 @@
           "question": "ตั้ง Sleep Timer ไว้ใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n3f",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n3f",
@@ -1399,7 +1639,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -1408,9 +1648,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -1466,7 +1718,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -1475,9 +1727,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -1536,7 +1800,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -1545,9 +1809,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -1580,7 +1856,7 @@
           "question": "จอสั่นเล็กน้อยตอนเปิดเมนูทีวีในโหมดเกม (Game Mode) ใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n1n",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n1n",
@@ -1589,9 +1865,21 @@
           "outcome_kind": "normal_behavior"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -1638,7 +1926,7 @@
           "question": "พยายามเปิด Game Mode ในโหมด TV ใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n2n",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n2n",
@@ -1647,9 +1935,21 @@
           "outcome_kind": "normal_behavior"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -1682,7 +1982,7 @@
           "question": "ค่าภาพและเสียงกลับเป็นค่าเริ่มต้นหลังอัปเดตซอฟต์แวร์ใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n1n",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n1n",
@@ -1691,9 +1991,21 @@
           "outcome_kind": "normal_behavior"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -1726,7 +2038,7 @@
           "question": "ทีวีตั้ง Auto Update ไว้ และหน้าจอสว่างเล็กน้อยในเวลาที่ตั้งไว้ใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n1n",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n1n",
@@ -1735,9 +2047,21 @@
           "outcome_kind": "normal_behavior"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -1780,7 +2104,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -1789,9 +2113,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -1907,7 +2243,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -1916,9 +2252,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -1959,7 +2307,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -1968,9 +2316,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -2003,7 +2363,7 @@
           "question": "อุปกรณ์ USB เก็บไฟล์และโฟลเดอร์รวมกันมากกว่าประมาณ 4000 รายการใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n1n",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n1n",
@@ -2012,9 +2372,21 @@
           "outcome_kind": "normal_behavior"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -2047,7 +2419,7 @@
           "question": "ทีวีแสดงข้อความ “This file format is not supported.” ใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n2",
-          "on_no": "n_nomatch"
+          "on_no": "n_nomatch_in"
         },
         {
           "state_id": "n2",
@@ -2055,7 +2427,7 @@
           "question": "ไฟล์เป็นไฟล์ที่ไม่รองรับหรือไฟล์เสียหายใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n2n",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n2n",
@@ -2064,15 +2436,39 @@
           "outcome_kind": "normal_behavior"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
+        },
+        {
+          "state_id": "n_nomatch_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_nomatch",
+          "on_invalid": "n_nomatch_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
         },
         {
           "state_id": "n_nomatch",
           "type": "escalation",
-          "content": "ทีวีไม่ได้แสดงข้อความ This file format is not supported ให้เลือกอาการที่ตรงกับที่เห็น หรือดูข้อมูลศูนย์บริการได้ที่ MENU > Support > Contact Samsung (คู่มือหน้า 111)",
+          "content": "ทีวีไม่ได้แสดงข้อความ This file format is not supported ให้เลือกอาการที่ตรงกับที่เห็น หรือดูข้อมูลศูนย์บริการได้ที่ MENU > Support > Contact Samsung (คู่มือหน้า 111) (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -2120,7 +2516,7 @@
           "question": "ต่อสมาร์ตโฟนหรือแท็บเล็ตกับทีวีด้วยโหมด PTP ใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n2n",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n2n",
@@ -2129,9 +2525,21 @@
           "outcome_kind": "normal_behavior"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -2181,7 +2589,7 @@
           "question": "ไฟล์เพลงที่ไม่แสดงมีนามสกุลที่ทีวีไม่รองรับใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n2n",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n2n",
@@ -2196,9 +2604,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -2319,7 +2739,7 @@
           "question": "กำลังใช้ Media Play, PIP หรือดูช่องที่ไม่มีสัญญาณ ช่องข้อมูล ช่องที่ถูกเข้ารหัส ช่องที่ไม่มีบริการ หรือช่องที่ล็อกโดย Parental lock อยู่ใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n5n",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n5n",
@@ -2334,9 +2754,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยดูข้อมูลศูนย์บริการ (call centre) ของ Samsung และวิธีดาวน์โหลดผลิตภัณฑ์และซอฟต์แวร์ได้ที่ MENU > Support > Contact Samsung ซึ่งคู่มือระบุว่าใช้ดูข้อมูลนี้เมื่อทีวีทำงานไม่ถูกต้อง แล้วติดต่อศูนย์บริการ (คู่มือหน้า 111) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]

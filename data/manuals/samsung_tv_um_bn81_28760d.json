@@ -74,7 +74,7 @@
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -83,9 +83,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -145,7 +157,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -154,9 +166,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -254,7 +278,7 @@
           "question": "ใช้สาย component อยู่ใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n4f",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n4f",
@@ -270,7 +294,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -279,9 +303,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -340,7 +376,7 @@
           "question": "เปิด Auto Power Off หรือ Off Timer ไว้ใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n2f",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n2f",
@@ -356,7 +392,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -365,9 +401,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -434,7 +482,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -443,9 +491,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -556,7 +616,7 @@
           "type": "checkpoint",
           "question": "ถ้าทีวีรุ่นนี้ใช้ One Connect Box สาย One Connect ระหว่างทีวีกับกล่องต่อแน่นดีแล้วใช่หรือไม่?",
           "safety_critical": false,
-          "on_yes": "n_escalate",
+          "on_yes": "n_escalate_in",
           "on_no": "n4f"
         },
         {
@@ -573,7 +633,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -582,9 +642,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -641,7 +713,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -650,9 +722,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -711,7 +795,7 @@
           "question": "รับสัญญาณผ่านอุปกรณ์รับสัญญาณ เช่น set-top box หรือ IPTV ใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n2f",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n2f",
@@ -727,7 +811,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -736,9 +820,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ถ้าอาการยังคงอยู่ ให้ติดต่อผู้ให้บริการสัญญาณ (service provider) ของคุณ (คู่มือหน้า 276) ถ้าตรวจฝั่งทีวีแล้วยังไม่หาย ให้ขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305)",
+          "content": "ถ้าอาการยังคงอยู่ ให้ติดต่อผู้ให้บริการสัญญาณ (service provider) ของคุณ (คู่มือหน้า 276) ถ้าตรวจฝั่งทีวีแล้วยังไม่หาย ให้ขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -804,7 +900,7 @@
           "question": "ดูช่อง Samsung TV Plus อยู่และอินเทอร์เน็ตช้าใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n3f",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n3f",
@@ -820,7 +916,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -829,9 +925,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ถ้าอาการยังคงอยู่ ให้ติดต่อผู้ให้บริการสัญญาณ (service provider) ของคุณ (คู่มือหน้า 276) ถ้าตรวจฝั่งทีวีแล้วยังไม่หาย ให้ขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305)",
+          "content": "ถ้าอาการยังคงอยู่ ให้ติดต่อผู้ให้บริการสัญญาณ (service provider) ของคุณ (คู่มือหน้า 276) ถ้าตรวจฝั่งทีวีแล้วยังไม่หาย ให้ขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -874,7 +982,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -883,9 +991,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -981,7 +1101,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -990,9 +1110,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -1049,7 +1181,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -1058,9 +1190,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -1117,7 +1261,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -1126,9 +1270,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -1169,7 +1325,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -1178,9 +1334,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -1222,7 +1390,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -1231,9 +1399,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -1275,7 +1455,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -1284,9 +1464,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -1345,7 +1537,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -1354,9 +1546,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -1455,7 +1659,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -1464,9 +1668,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ถ้าอาการยังคงอยู่ ให้ติดต่อผู้ให้บริการสัญญาณ (service provider) ของคุณ (คู่มือหน้า 276) ถ้าตรวจฝั่งทีวีแล้วยังไม่หาย ให้ขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305)",
+          "content": "ถ้าอาการยังคงอยู่ ให้ติดต่อผู้ให้บริการสัญญาณ (service provider) ของคุณ (คู่มือหน้า 276) ถ้าตรวจฝั่งทีวีแล้วยังไม่หาย ให้ขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -1500,7 +1716,7 @@
           "question": "Digital Output Audio Format ตั้งเป็น Pass-through และใช้ซาวด์บาร์หรือ A/V receiver ที่ไม่รองรับ Dolby Digital+ ใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n1f",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n1f",
@@ -1516,7 +1732,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -1525,9 +1741,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -1601,7 +1829,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -1610,9 +1838,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -1687,7 +1927,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -1696,9 +1936,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -1741,7 +1993,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -1750,9 +2002,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -1834,7 +2098,7 @@
           "question": "ต่อด้วย HDMI-eARC ใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n3f",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n3f",
@@ -1850,7 +2114,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -1859,9 +2123,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -1919,7 +2195,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -1928,9 +2204,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -2011,7 +2299,7 @@
           "question": "ต่ออุปกรณ์ผ่านสาย Optical ใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n3n",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n3n",
@@ -2026,9 +2314,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -2063,7 +2363,7 @@
           "question": "ทีวีแสดงข้อความ Weak or No Signal หรือหาช่องไม่เจอใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n2",
-          "on_no": "n_nomatch"
+          "on_no": "n_nomatch_in"
         },
         {
           "state_id": "n2",
@@ -2103,7 +2403,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -2112,15 +2412,39 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ถ้าอาการยังคงอยู่ ให้ติดต่อผู้ให้บริการสัญญาณ (service provider) ของคุณ (คู่มือหน้า 276) ถ้าตรวจฝั่งทีวีแล้วยังไม่หาย ให้ขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305)",
+          "content": "ถ้าอาการยังคงอยู่ ให้ติดต่อผู้ให้บริการสัญญาณ (service provider) ของคุณ (คู่มือหน้า 276) ถ้าตรวจฝั่งทีวีแล้วยังไม่หาย ให้ขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
+        },
+        {
+          "state_id": "n_nomatch_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_nomatch",
+          "on_invalid": "n_nomatch_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
         },
         {
           "state_id": "n_nomatch",
           "type": "escalation",
-          "content": "ทีวีไม่ได้แสดง Weak or No Signal ให้เลือกอาการที่ตรงกับที่เห็น หรือขอรับบริการจาก Samsung ผ่าน Settings > Support > Device Care > Request Support (คู่มือหน้า 305)",
+          "content": "ทีวีไม่ได้แสดง Weak or No Signal ให้เลือกอาการที่ตรงกับที่เห็น หรือขอรับบริการจาก Samsung ผ่าน Settings > Support > Device Care > Request Support (คู่มือหน้า 305) (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -2203,7 +2527,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -2212,9 +2536,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ถ้าอาการยังคงอยู่ ให้ติดต่อผู้ให้บริการสัญญาณ (service provider) ของคุณ (คู่มือหน้า 276) ถ้าตรวจฝั่งทีวีแล้วยังไม่หาย ให้ขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305)",
+          "content": "ถ้าอาการยังคงอยู่ ให้ติดต่อผู้ให้บริการสัญญาณ (service provider) ของคุณ (คู่มือหน้า 276) ถ้าตรวจฝั่งทีวีแล้วยังไม่หาย ให้ขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -2271,7 +2607,7 @@
           "question": "ดูช่องผ่านอุปกรณ์ภายนอก เช่น set-top box หรือกล่องเคเบิลใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n2f",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n2f",
@@ -2287,7 +2623,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -2296,9 +2632,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -2369,7 +2717,7 @@
           "question": "กำลังบันทึกรายการหรือใช้ Timeshift อยู่ใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n3n",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n3n",
@@ -2384,9 +2732,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -2420,7 +2780,7 @@
           "question": "ทีวีแสดงข้อความ Mode Not Supported ใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n2",
-          "on_no": "n_nomatch"
+          "on_no": "n_nomatch_in"
         },
         {
           "state_id": "n2",
@@ -2436,7 +2796,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -2445,15 +2805,39 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
+        },
+        {
+          "state_id": "n_nomatch_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_nomatch",
+          "on_invalid": "n_nomatch_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
         },
         {
           "state_id": "n_nomatch",
           "type": "escalation",
-          "content": "ทีวีไม่ได้แสดงข้อความ Mode Not Supported ให้เลือกอาการที่ตรงกับที่เห็น หรือขอรับบริการจาก Samsung ผ่าน Settings > Support > Device Care > Request Support (คู่มือหน้า 305)",
+          "content": "ทีวีไม่ได้แสดงข้อความ Mode Not Supported ให้เลือกอาการที่ตรงกับที่เห็น หรือขอรับบริการจาก Samsung ผ่าน Settings > Support > Device Care > Request Support (คู่มือหน้า 305) (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -2542,7 +2926,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -2551,9 +2935,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -2643,7 +3039,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -2652,9 +3048,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -2736,7 +3144,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -2745,9 +3153,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ถ้าอาการยังคงอยู่ ให้ติดต่อผู้ให้บริการสัญญาณ (service provider) ของคุณ (คู่มือหน้า 276) ถ้าตรวจฝั่งทีวีแล้วยังไม่หาย ให้ขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305)",
+          "content": "ถ้าอาการยังคงอยู่ ให้ติดต่อผู้ให้บริการสัญญาณ (service provider) ของคุณ (คู่มือหน้า 276) ถ้าตรวจฝั่งทีวีแล้วยังไม่หาย ให้ขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -2824,7 +3244,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -2833,9 +3253,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -2975,7 +3407,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -2984,9 +3416,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -3051,7 +3495,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -3060,9 +3504,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -3127,7 +3583,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -3136,9 +3592,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -3171,7 +3639,7 @@
           "question": "ทีวีรุ่นนี้ใช้ Wireless One Connect และทีวีไม่พบอุปกรณ์ใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n2",
-          "on_no": "n_nomatch"
+          "on_no": "n_nomatch_in"
         },
         {
           "state_id": "n2",
@@ -3229,7 +3697,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -3238,15 +3706,39 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
+        },
+        {
+          "state_id": "n_nomatch_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_nomatch",
+          "on_invalid": "n_nomatch_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
         },
         {
           "state_id": "n_nomatch",
           "type": "escalation",
-          "content": "ทีวีรุ่นนี้ไม่ได้ใช้ Wireless One Connect ให้เลือกอาการอื่นที่ตรงกับที่เห็น หรือขอรับบริการจาก Samsung ผ่าน Settings > Support > Device Care > Request Support (คู่มือหน้า 305)",
+          "content": "ทีวีรุ่นนี้ไม่ได้ใช้ Wireless One Connect ให้เลือกอาการอื่นที่ตรงกับที่เห็น หรือขอรับบริการจาก Samsung ผ่าน Settings > Support > Device Care > Request Support (คู่มือหน้า 305) (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -3279,7 +3771,7 @@
           "question": "ทีวีแสดงข้อความ Wireless One Connect is disconnected ใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n2",
-          "on_no": "n_nomatch"
+          "on_no": "n_nomatch_in"
         },
         {
           "state_id": "n2",
@@ -3321,7 +3813,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -3330,15 +3822,39 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
+        },
+        {
+          "state_id": "n_nomatch_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_nomatch",
+          "on_invalid": "n_nomatch_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
         },
         {
           "state_id": "n_nomatch",
           "type": "escalation",
-          "content": "ทีวีไม่ได้แสดงข้อความ Wireless One Connect is disconnected ให้เลือกอาการอื่นที่ตรงกับที่เห็น หรือขอรับบริการจาก Samsung ผ่าน Settings > Support > Device Care > Request Support (คู่มือหน้า 305)",
+          "content": "ทีวีไม่ได้แสดงข้อความ Wireless One Connect is disconnected ให้เลือกอาการอื่นที่ตรงกับที่เห็น หรือขอรับบริการจาก Samsung ผ่าน Settings > Support > Device Care > Request Support (คู่มือหน้า 305) (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -3371,7 +3887,7 @@
           "question": "ทีวีแสดงข้อความ The signal strength is low. Adjust the location of your Wireless One Connect ใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n2",
-          "on_no": "n_nomatch"
+          "on_no": "n_nomatch_in"
         },
         {
           "state_id": "n2",
@@ -3387,7 +3903,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -3396,15 +3912,39 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
+        },
+        {
+          "state_id": "n_nomatch_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_nomatch",
+          "on_invalid": "n_nomatch_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
         },
         {
           "state_id": "n_nomatch",
           "type": "escalation",
-          "content": "ทีวีไม่ได้แสดงข้อความสัญญาณอ่อนของ Wireless One Connect ให้เลือกอาการอื่นที่ตรงกับที่เห็น หรือขอรับบริการจาก Samsung ผ่าน Settings > Support > Device Care > Request Support (คู่มือหน้า 305)",
+          "content": "ทีวีไม่ได้แสดงข้อความสัญญาณอ่อนของ Wireless One Connect ให้เลือกอาการอื่นที่ตรงกับที่เห็น หรือขอรับบริการจาก Samsung ผ่าน Settings > Support > Device Care > Request Support (คู่มือหน้า 305) (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -3437,7 +3977,7 @@
           "question": "ปรับตำแหน่ง Wireless One Connect แล้วแต่อุปกรณ์ยังไม่เชื่อมต่ออัตโนมัติใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n2",
-          "on_no": "n_nomatch"
+          "on_no": "n_nomatch_in"
         },
         {
           "state_id": "n2",
@@ -3483,7 +4023,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -3492,15 +4032,39 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
+        },
+        {
+          "state_id": "n_nomatch_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_nomatch",
+          "on_invalid": "n_nomatch_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
         },
         {
           "state_id": "n_nomatch",
           "type": "escalation",
-          "content": "ปัญหาที่พบไม่ใช่อุปกรณ์ไม่เชื่อมต่ออัตโนมัติหลังปรับตำแหน่ง ให้เลือกอาการอื่นที่ตรงกับที่เห็น หรือขอรับบริการจาก Samsung ผ่าน Settings > Support > Device Care > Request Support (คู่มือหน้า 305)",
+          "content": "ปัญหาที่พบไม่ใช่อุปกรณ์ไม่เชื่อมต่ออัตโนมัติหลังปรับตำแหน่ง ให้เลือกอาการอื่นที่ตรงกับที่เห็น หรือขอรับบริการจาก Samsung ผ่าน Settings > Support > Device Care > Request Support (คู่มือหน้า 305) (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -3633,7 +4197,7 @@
           "question": "ทีวีกำลังสแกนช่องหรือกำลังทำ Factory data reset อยู่ใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n5n",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n5n",
@@ -3648,9 +4212,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -3683,7 +4259,7 @@
           "question": "ทีวีกำลังตั้งค่า Anynet+ หรือกำลังสลับไปหน้าจอรับชมทีวีใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n1n",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n1n",
@@ -3692,9 +4268,21 @@
           "outcome_kind": "normal_behavior"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -3727,7 +4315,7 @@
           "question": "ทีวีกำลังทำ Factory data reset อยู่ใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n1n",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n1n",
@@ -3736,9 +4324,21 @@
           "outcome_kind": "normal_behavior"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -3813,7 +4413,7 @@
           "question": "รีโมตใช้แบตเตอรี่ (ถ่าน) ใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n3f",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n3f",
@@ -3829,7 +4429,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -3838,9 +4438,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -3948,7 +4560,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -3957,9 +4569,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -4024,7 +4648,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -4033,9 +4657,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -4118,7 +4754,7 @@
           "question": "การอัดหยุดเองเพราะสัญญาณอ่อนเกินไปใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n3n",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n3n",
@@ -4133,9 +4769,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -4168,7 +4816,7 @@
           "question": "พยายามอัดวิดีโอที่รับจากอุปกรณ์ภายนอกหรือ Samsung TV Plus ใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n1n",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n1n",
@@ -4177,9 +4825,21 @@
           "outcome_kind": "normal_behavior"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -4212,7 +4872,7 @@
           "question": "ทีวีแสดงข้อความ Format Device ขณะใช้ Timeshift หรืออัดรายการใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n2",
-          "on_no": "n_nomatch"
+          "on_no": "n_nomatch_in"
         },
         {
           "state_id": "n2",
@@ -4229,7 +4889,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -4238,15 +4898,39 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
+        },
+        {
+          "state_id": "n_nomatch_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_nomatch",
+          "on_invalid": "n_nomatch_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
         },
         {
           "state_id": "n_nomatch",
           "type": "escalation",
-          "content": "ทีวีไม่ได้แสดงข้อความ Format Device ให้เลือกอาการอื่นที่ตรงกับที่เห็น หรือขอรับบริการจาก Samsung ผ่าน Settings > Support > Device Care > Request Support (คู่มือหน้า 305)",
+          "content": "ทีวีไม่ได้แสดงข้อความ Format Device ให้เลือกอาการอื่นที่ตรงกับที่เห็น หรือขอรับบริการจาก Samsung ผ่าน Settings > Support > Device Care > Request Support (คู่มือหน้า 305) (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -4301,7 +4985,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -4310,9 +4994,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -4370,7 +5066,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -4379,9 +5075,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -4422,7 +5130,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -4431,9 +5139,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -4492,7 +5212,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -4501,9 +5221,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "บริการของแอปไม่ได้มาจากทีวีแต่มาจากผู้ให้บริการแอป ให้ดูส่วน Help ในเว็บไซต์ของผู้ให้บริการแอป (คู่มือหน้า 295) ถ้าปัญหาอยู่ที่ทีวี ให้ขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305)",
+          "content": "บริการของแอปไม่ได้มาจากทีวีแต่มาจากผู้ให้บริการแอป ให้ดูส่วน Help ในเว็บไซต์ของผู้ให้บริการแอป (คู่มือหน้า 295) ถ้าปัญหาอยู่ที่ทีวี ให้ขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_informed"
         }
       ]
@@ -4544,7 +5276,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -4553,9 +5285,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -4588,7 +5332,7 @@
           "question": "ไฟล์ที่เล่นเป็นไฟล์ที่ทีวีไม่รองรับหรือเป็นไฟล์ที่มีบิตเรตสูงใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n1n",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n1n",
@@ -4597,9 +5341,21 @@
           "outcome_kind": "normal_behavior"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -4641,7 +5397,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -4650,9 +5406,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -4694,7 +5462,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -4703,9 +5471,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -4747,7 +5527,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -4756,9 +5536,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -4800,7 +5592,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -4809,9 +5601,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -4869,7 +5673,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -4878,9 +5682,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -4954,7 +5770,7 @@
           "question": "รีโมตใช้แบตเตอรี่ (ถ่าน) ใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n3f",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n3f",
@@ -4970,7 +5786,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -4979,9 +5795,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -5014,7 +5842,7 @@
           "question": "ระหว่างรู้จำเสียง ทีวีแสดงข้อความ heavy load และใช้ฟังก์ชันไม่ได้ใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n2",
-          "on_no": "n_nomatch"
+          "on_no": "n_nomatch_in"
         },
         {
           "state_id": "n2",
@@ -5032,7 +5860,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -5041,15 +5869,39 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
+        },
+        {
+          "state_id": "n_nomatch_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_nomatch",
+          "on_invalid": "n_nomatch_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
         },
         {
           "state_id": "n_nomatch",
           "type": "escalation",
-          "content": "ทีวีไม่ได้แสดงข้อความ heavy load ให้เลือกอาการอื่นที่ตรงกับที่เห็น หรือขอรับบริการจาก Samsung ผ่าน Settings > Support > Device Care > Request Support (คู่มือหน้า 305)",
+          "content": "ทีวีไม่ได้แสดงข้อความ heavy load ให้เลือกอาการอื่นที่ตรงกับที่เห็น หรือขอรับบริการจาก Samsung ผ่าน Settings > Support > Device Care > Request Support (คู่มือหน้า 305) (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -5084,7 +5936,7 @@
           "question": "ทีวีร้อนหลังเปิดดูต่อเนื่องเป็นเวลานานใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n1n",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n1n",
@@ -5093,9 +5945,21 @@
           "outcome_kind": "normal_behavior"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ถ้าทีวีร้อนผิดปกติ ไม่ใช่เพียงร้อนหลังเปิดดูนาน ให้หยุดใช้และขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305)",
+          "content": "ถ้าทีวีร้อนผิดปกติ ไม่ใช่เพียงร้อนหลังเปิดดูนาน ให้หยุดใช้และขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_informed"
         }
       ]
@@ -5128,7 +5992,7 @@
           "question": "กลิ่นเป็นกลิ่นพลาสติกใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n1n",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n1n",
@@ -5137,9 +6001,21 @@
           "outcome_kind": "normal_behavior"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ถ้าเป็นกลิ่นไหม้หรือไม่ใช่กลิ่นพลาสติก ให้ถอดปลั๊กและหยุดใช้ทีวี แล้วขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305)",
+          "content": "ถ้าเป็นกลิ่นไหม้หรือไม่ใช่กลิ่นพลาสติก ให้ถอดปลั๊กและหยุดใช้ทีวี แล้วขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_informed"
         }
       ]
@@ -5182,7 +6058,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -5191,9 +6067,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -5237,7 +6125,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -5246,9 +6134,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -5293,7 +6193,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -5302,9 +6202,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -5346,7 +6258,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -5355,9 +6267,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -5390,7 +6314,7 @@
           "question": "จอดับแต่ได้ยินเสียง เช่น ขณะ SmartThings ทำงานหรือเชื่อมต่อเครือข่าย Wi-Fi ใหม่ ใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n1n",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n1n",
@@ -5399,9 +6323,21 @@
           "outcome_kind": "normal_behavior"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -5434,7 +6370,7 @@
           "question": "ได้ยินเสียงดังแปะจากตัวทีวีใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n1n",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n1n",
@@ -5443,9 +6379,21 @@
           "outcome_kind": "normal_behavior"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -5479,7 +6427,7 @@
           "question": "ได้ยินเสียงหึ่งเบาๆ จากทีวีใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n1n",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n1n",
@@ -5488,9 +6436,21 @@
           "outcome_kind": "normal_behavior"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ถ้าเสียงดังผิดปกติหรือมีกลิ่นไหม้ร่วมด้วย ให้ถอดปลั๊กและหยุดใช้ทีวี แล้วขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305)",
+          "content": "ถ้าเสียงดังผิดปกติหรือมีกลิ่นไหม้ร่วมด้วย ให้ถอดปลั๊กและหยุดใช้ทีวี แล้วขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_informed"
         }
       ]
@@ -5522,7 +6482,7 @@
           "type": "checkpoint",
           "question": "ช่องที่ดูอยู่เป็นช่องดิจิทัลแล้วใช่หรือไม่?",
           "safety_critical": false,
-          "on_yes": "n_escalate",
+          "on_yes": "n_escalate_in",
           "on_no": "n1f"
         },
         {
@@ -5539,7 +6499,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -5548,9 +6508,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ให้ขอความช่วยเหลือจาก Samsung โดยขอรับบริการจาก Samsung ผ่านเมนูของทีวี: Settings > Support > Device Care > Request Support เพื่อส่งคำขอบริการ แล้ว Samsung Contact Centre จะติดต่อกลับเพื่อนัดหมายหรือยืนยันการเข้าบริการ (คู่มือหน้า 305) หรือเปิด Settings > Support > About The TV เพื่อดูที่อยู่เว็บไซต์ Samsung หมายเลขโทรศัพท์ Call Centre รุ่นทีวี และเวอร์ชันซอฟต์แวร์ (คู่มือหน้า 305) หรือเปิด Settings > Support > Remote Management เพื่อให้ช่างของ Samsung ตรวจและแก้ไขทางไกลผ่านเว็บ (ต้องต่อเครือข่าย) (คู่มือหน้า 305) พร้อมแจ้งรุ่นทีวี อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]

@@ -85,7 +85,7 @@
           "type": "checkpoint",
           "question": "ฟิวส์ไม่ขาดและเบรกเกอร์ไม่ตัดอยู่ใช่หรือไม่?",
           "safety_critical": false,
-          "on_yes": "n_escalate",
+          "on_yes": "n_escalate_in",
           "on_no": "n3f"
         },
         {
@@ -104,7 +104,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -113,9 +113,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ (ไฟฟ้าตามพิกัด ปลั๊ก ฟิวส์/เบรกเกอร์) ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่องและสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ (ไฟฟ้าตามพิกัด ปลั๊ก ฟิวส์/เบรกเกอร์) ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่องและสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -295,7 +307,7 @@
           "type": "checkpoint",
           "question": "ฟิวส์ไม่ขาดและเบรกเกอร์ไม่ตัดอยู่ใช่หรือไม่?",
           "safety_critical": false,
-          "on_yes": "n_escalate",
+          "on_yes": "n_escalate_in",
           "on_no": "n8f"
         },
         {
@@ -314,7 +326,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -323,9 +335,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ (ฝาเครื่อง ก๊อกน้ำ ปุ่ม START/PAUSE Child Lock ฟิวส์/เบรกเกอร์) ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่องและสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ (ฝาเครื่อง ก๊อกน้ำ ปุ่ม START/PAUSE Child Lock ฟิวส์/เบรกเกอร์) ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่องและสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -497,7 +521,7 @@
           "type": "checkpoint",
           "question": "ระดับน้ำสูงเท่าที่ต้องการหรือไม่?",
           "safety_critical": false,
-          "on_yes": "n_escalate",
+          "on_yes": "n_escalate_in",
           "on_no": "n8f"
         },
         {
@@ -514,7 +538,7 @@
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -523,9 +547,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -557,13 +593,25 @@
           "type": "checkpoint",
           "question": "แรงดันน้ำตอนเครื่องทำงานไม่เพียงพอใช่หรือไม่?",
           "safety_critical": false,
-          "on_yes": "n1e",
+          "on_yes": "n1e_in",
           "on_no": "n2"
+        },
+        {
+          "state_id": "n1e_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n1e",
+          "on_invalid": "n1e_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
         },
         {
           "state_id": "n1e",
           "type": "escalation",
-          "content": "คู่มือให้ตรวจแรงดันน้ำแต่ไม่ระบุวิธีแก้ ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่อง (ช่วงแรงดันน้ำที่เครื่องรองรับอยู่ในตารางหน้า 42)",
+          "content": "คู่มือให้ตรวจแรงดันน้ำแต่ไม่ระบุวิธีแก้ ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่อง (ช่วงแรงดันน้ำที่เครื่องรองรับอยู่ในตารางหน้า 42) (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_informed"
         },
         {
@@ -605,7 +653,7 @@
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -614,9 +662,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -782,7 +842,7 @@
           "question": "มีวัตถุ เช่น เหรียญ อยู่ในเครื่องหรือไม่?",
           "safety_critical": false,
           "on_yes": "n7f",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n7f",
@@ -799,7 +859,7 @@
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -808,9 +868,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -973,7 +1045,7 @@
           "question": "ไฟตกชั่วคราวหรือไฟฟ้าแรงดันต่ำใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n7n",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n7n",
@@ -988,9 +1060,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -1122,7 +1206,7 @@
           "question": "เห็นอุณหภูมิน้ำเปลี่ยนระหว่างเติมน้ำ หรือเห็นแต่น้ำร้อนหรือน้ำเย็นผ่านช่องใส่ผงซักฟอกใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n5n",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n5n",
@@ -1137,9 +1221,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -1296,13 +1392,25 @@
           "type": "checkpoint",
           "question": "พบการติดขัดในระบบระบายน้ำที่เครื่องต่ออยู่ใช่หรือไม่?",
           "safety_critical": false,
-          "on_yes": "n6e",
+          "on_yes": "n6e_in",
           "on_no": "n7"
+        },
+        {
+          "state_id": "n6e_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n6e",
+          "on_invalid": "n6e_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
         },
         {
           "state_id": "n6e",
           "type": "escalation",
-          "content": "คู่มือระบุให้เรียกช่างเมื่อพบการติดขัดของระบบระบายน้ำ ติดต่อศูนย์บริการ Samsung หรือผู้ดูแลท่อระบายน้ำ (คู่มือหน้า 37)",
+          "content": "คู่มือระบุให้เรียกช่างเมื่อพบการติดขัดของระบบระบายน้ำ ติดต่อศูนย์บริการ Samsung หรือผู้ดูแลท่อระบายน้ำ (คู่มือหน้า 37) (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_informed"
         },
         {
@@ -1310,7 +1418,7 @@
           "type": "checkpoint",
           "question": "ปิดฝาเครื่องสนิทและกด START/PAUSE แล้วหรือไม่? (เพื่อความปลอดภัย เครื่องจะไม่ปั่นถ้าฝาไม่ปิด)",
           "safety_critical": false,
-          "on_yes": "n_escalate",
+          "on_yes": "n_escalate_in",
           "on_no": "n7f"
         },
         {
@@ -1327,7 +1435,7 @@
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -1336,9 +1444,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -1418,7 +1538,7 @@
           "question": "ซักผ้าน้อยมาก (หนึ่งหรือสองชิ้น) หรือไม่?",
           "safety_critical": false,
           "on_yes": "n3f",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n3f",
@@ -1434,7 +1554,7 @@
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -1443,9 +1563,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -1620,13 +1752,25 @@
           "type": "checkpoint",
           "question": "น้ำรั่วออกจากตัวก๊อกน้ำเองใช่หรือไม่?",
           "safety_critical": false,
-          "on_yes": "n7e",
-          "on_no": "n_escalate"
+          "on_yes": "n7e_in",
+          "on_no": "n_escalate_in"
+        },
+        {
+          "state_id": "n7e_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n7e",
+          "on_invalid": "n7e_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
         },
         {
           "state_id": "n7e",
           "type": "escalation",
-          "content": "คู่มือระบุให้ซ่อมก๊อกน้ำ ติดต่อช่างประปา (คู่มือหน้า 38)",
+          "content": "คู่มือระบุให้ซ่อมก๊อกน้ำ ติดต่อช่างประปา (คู่มือหน้า 38) (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_informed"
         },
         {
@@ -1636,9 +1780,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -1693,7 +1849,7 @@
           "type": "checkpoint",
           "question": "ลดปริมาณผงซักฟอกแล้วหรือไม่ เมื่อใช้น้ำอ่อน ซักผ้าน้อย หรือผ้าไม่สกปรกมาก?",
           "safety_critical": false,
-          "on_yes": "n_escalate",
+          "on_yes": "n_escalate_in",
           "on_no": "n2f"
         },
         {
@@ -1709,7 +1865,7 @@
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -1718,9 +1874,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -1753,7 +1921,7 @@
           "question": "อุณหภูมิต่ำจนคุณสงสัยว่าถังซัก สายน้ำเข้า หรือสายระบายน้ำแข็งตัวใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n2",
-          "on_no": "n_nomatch"
+          "on_no": "n_nomatch_in"
         },
         {
           "state_id": "n2",
@@ -1792,7 +1960,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -1801,15 +1969,39 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ทำตามขั้นตอนแก้ปัญหาสายแข็งตัวแล้วเครื่องยังไม่ทำงานปกติ ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่องและสิ่งที่ได้ทำไปแล้ว",
+          "content": "ทำตามขั้นตอนแก้ปัญหาสายแข็งตัวแล้วเครื่องยังไม่ทำงานปกติ ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่องและสิ่งที่ได้ทำไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
+        },
+        {
+          "state_id": "n_nomatch_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_nomatch",
+          "on_invalid": "n_nomatch_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
         },
         {
           "state_id": "n_nomatch",
           "type": "escalation",
-          "content": "อาการไม่ตรงกับกรณีที่คู่มือระบุ (ถังซักหรือสายแข็งตัว) ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่องและอาการที่พบ",
+          "content": "อาการไม่ตรงกับกรณีที่คู่มือระบุ (ถังซักหรือสายแข็งตัว) ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่องและอาการที่พบ (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -1881,7 +2073,7 @@
           "type": "checkpoint",
           "question": "ติดตั้งสายระบายน้ำถูกต้องแล้วใช่หรือไม่?",
           "safety_critical": false,
-          "on_yes": "n_escalate",
+          "on_yes": "n_escalate_in",
           "on_no": "n3f"
         },
         {
@@ -1899,7 +2091,7 @@
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -1908,9 +2100,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -1952,7 +2156,7 @@
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -1961,9 +2165,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ทำความสะอาด Magic filter แล้วผ้ายังมีคราบ ติดต่อศูนย์บริการ Samsung ในพื้นที่ (คู่มือหน้า 38) พร้อมแจ้งรุ่นเครื่องและสิ่งที่ได้ทำไปแล้ว",
+          "content": "ทำความสะอาด Magic filter แล้วผ้ายังมีคราบ ติดต่อศูนย์บริการ Samsung ในพื้นที่ (คู่มือหน้า 38) พร้อมแจ้งรุ่นเครื่องและสิ่งที่ได้ทำไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -2044,7 +2260,7 @@
           "type": "checkpoint",
           "question": "ผึ่งหรือเช็ดภายในเครื่องให้แห้งหลังจบรอบซักหรือไม่?",
           "safety_critical": false,
-          "on_yes": "n_escalate",
+          "on_yes": "n_escalate_in",
           "on_no": "n3f"
         },
         {
@@ -2061,7 +2277,7 @@
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -2070,9 +2286,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -2107,19 +2335,43 @@
           "type": "checkpoint",
           "question": "หน้าจอแสดงรหัส 1C ใช่หรือไม่?",
           "safety_critical": false,
-          "on_yes": "n_escalate",
-          "on_no": "n_nomatch"
+          "on_yes": "n_escalate_in",
+          "on_no": "n_nomatch_in"
+        },
+        {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
         },
         {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "คู่มือหน้า 39 ให้ตรวจชุดสายไฟของเซนเซอร์ระดับน้ำ ซึ่งอยู่ภายในเครื่อง ห้ามถอดแยกหรือซ่อมเอง (คู่มือหน้า 8) ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่องและรหัส 1C",
+          "content": "คู่มือหน้า 39 ให้ตรวจชุดสายไฟของเซนเซอร์ระดับน้ำ ซึ่งอยู่ภายในเครื่อง ห้ามถอดแยกหรือซ่อมเอง (คู่มือหน้า 8) ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่องและรหัส 1C (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_nomatch_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_nomatch",
+          "on_invalid": "n_nomatch_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
         },
         {
           "state_id": "n_nomatch",
           "type": "escalation",
-          "content": "รหัสที่แสดงไม่ใช่ 1C ให้เลือกรหัสตามที่ปรากฏบนจอ หรือติดต่อศูนย์บริการ Samsung พร้อมแจ้งรหัสที่เห็น",
+          "content": "รหัสที่แสดงไม่ใช่ 1C ให้เลือกรหัสตามที่ปรากฏบนจอ หรือติดต่อศูนย์บริการ Samsung พร้อมแจ้งรหัสที่เห็น (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -2154,7 +2406,7 @@
           "question": "หน้าจอแสดงรหัส 3C ใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n2",
-          "on_no": "n_nomatch"
+          "on_no": "n_nomatch_in"
         },
         {
           "state_id": "n2",
@@ -2170,7 +2422,7 @@
           "question": "หลังทำตามแล้ว รหัสบนจอหายไปและเครื่องทำงานปกติหรือไม่?",
           "safety_critical": false,
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -2179,15 +2431,39 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ทำตามรายการตรวจแล้วรหัส 3C ยังแสดงอยู่ ติดต่อศูนย์บริการ Samsung ในพื้นที่ (คู่มือหน้า 39) พร้อมแจ้งรุ่นเครื่อง รหัส และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ทำตามรายการตรวจแล้วรหัส 3C ยังแสดงอยู่ ติดต่อศูนย์บริการ Samsung ในพื้นที่ (คู่มือหน้า 39) พร้อมแจ้งรุ่นเครื่อง รหัส และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
+        },
+        {
+          "state_id": "n_nomatch_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_nomatch",
+          "on_invalid": "n_nomatch_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
         },
         {
           "state_id": "n_nomatch",
           "type": "escalation",
-          "content": "รหัสที่แสดงไม่ใช่ 3C ให้เลือกรหัสตามที่ปรากฏบนจอ หรือติดต่อศูนย์บริการ Samsung พร้อมแจ้งรหัสที่เห็น",
+          "content": "รหัสที่แสดงไม่ใช่ 3C ให้เลือกรหัสตามที่ปรากฏบนจอ หรือติดต่อศูนย์บริการ Samsung พร้อมแจ้งรหัสที่เห็น (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -2222,7 +2498,7 @@
           "question": "หน้าจอแสดงรหัส 4C ใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n2",
-          "on_no": "n_nomatch"
+          "on_no": "n_nomatch_in"
         },
         {
           "state_id": "n2",
@@ -2301,13 +2577,25 @@
           "type": "checkpoint",
           "question": "แรงดันน้ำไม่เพียงพอใช่หรือไม่?",
           "safety_critical": false,
-          "on_yes": "n5e",
+          "on_yes": "n5e_in",
           "on_no": "n6"
+        },
+        {
+          "state_id": "n5e_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n5e",
+          "on_invalid": "n5e_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
         },
         {
           "state_id": "n5e",
           "type": "escalation",
-          "content": "คู่มือให้ตรวจแรงดันน้ำแต่ไม่ระบุวิธีแก้ ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่องและรหัส 4C (ช่วงแรงดันน้ำที่เครื่องรองรับอยู่ในตารางหน้า 42)",
+          "content": "คู่มือให้ตรวจแรงดันน้ำแต่ไม่ระบุวิธีแก้ ติดต่อศูนย์บริการ Samsung พร้อมแจ้งรุ่นเครื่องและรหัส 4C (ช่วงแรงดันน้ำที่เครื่องรองรับอยู่ในตารางหน้า 42) (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_informed"
         },
         {
@@ -2350,7 +2638,7 @@
           "question": "หลังทำตามแล้ว รหัสบนจอหายไปและเครื่องทำงานปกติหรือไม่?",
           "safety_critical": false,
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -2359,15 +2647,39 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ทำตามรายการตรวจแล้วรหัส 4C ยังแสดงอยู่ ติดต่อศูนย์บริการ Samsung ในพื้นที่ (คู่มือหน้า 39) พร้อมแจ้งรุ่นเครื่อง รหัส และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ทำตามรายการตรวจแล้วรหัส 4C ยังแสดงอยู่ ติดต่อศูนย์บริการ Samsung ในพื้นที่ (คู่มือหน้า 39) พร้อมแจ้งรุ่นเครื่อง รหัส และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
+        },
+        {
+          "state_id": "n_nomatch_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_nomatch",
+          "on_invalid": "n_nomatch_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
         },
         {
           "state_id": "n_nomatch",
           "type": "escalation",
-          "content": "รหัสที่แสดงไม่ใช่ 4C ให้เลือกรหัสตามที่ปรากฏบนจอ หรือติดต่อศูนย์บริการ Samsung พร้อมแจ้งรหัสที่เห็น",
+          "content": "รหัสที่แสดงไม่ใช่ 4C ให้เลือกรหัสตามที่ปรากฏบนจอ หรือติดต่อศูนย์บริการ Samsung พร้อมแจ้งรหัสที่เห็น (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -2402,14 +2714,14 @@
           "question": "หน้าจอแสดงรหัส 4C2 ใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n2",
-          "on_no": "n_nomatch"
+          "on_no": "n_nomatch_in"
         },
         {
           "state_id": "n2",
           "type": "checkpoint",
           "question": "สายน้ำเย็นต่อเข้ากับก๊อกน้ำเย็นแน่นหรือไม่ (ไม่ได้ต่อเข้ากับก๊อกน้ำร้อน)?",
           "safety_critical": false,
-          "on_yes": "n_escalate",
+          "on_yes": "n_escalate_in",
           "on_no": "n2f"
         },
         {
@@ -2427,7 +2739,7 @@
           "question": "หลังทำตามแล้ว รหัสบนจอหายไปและเครื่องทำงานปกติหรือไม่?",
           "safety_critical": false,
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -2436,15 +2748,39 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ทำตามรายการตรวจแล้วรหัส 4C2 ยังแสดงอยู่ ติดต่อศูนย์บริการ Samsung ในพื้นที่ (คู่มือหน้า 39) พร้อมแจ้งรุ่นเครื่อง รหัส และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ทำตามรายการตรวจแล้วรหัส 4C2 ยังแสดงอยู่ ติดต่อศูนย์บริการ Samsung ในพื้นที่ (คู่มือหน้า 39) พร้อมแจ้งรุ่นเครื่อง รหัส และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
+        },
+        {
+          "state_id": "n_nomatch_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_nomatch",
+          "on_invalid": "n_nomatch_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
         },
         {
           "state_id": "n_nomatch",
           "type": "escalation",
-          "content": "รหัสที่แสดงไม่ใช่ 4C2 ให้เลือกรหัสตามที่ปรากฏบนจอ หรือติดต่อศูนย์บริการ Samsung พร้อมแจ้งรหัสที่เห็น",
+          "content": "รหัสที่แสดงไม่ใช่ 4C2 ให้เลือกรหัสตามที่ปรากฏบนจอ หรือติดต่อศูนย์บริการ Samsung พร้อมแจ้งรหัสที่เห็น (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -2479,7 +2815,7 @@
           "question": "หน้าจอแสดงรหัส 5C ใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n2",
-          "on_no": "n_nomatch"
+          "on_no": "n_nomatch_in"
         },
         {
           "state_id": "n2",
@@ -2577,7 +2913,7 @@
           "type": "checkpoint",
           "question": "สายระบายน้ำตรงตลอดแนวไปยังระบบระบายน้ำหรือไม่?",
           "safety_critical": false,
-          "on_yes": "n_escalate",
+          "on_yes": "n_escalate_in",
           "on_no": "n6f"
         },
         {
@@ -2593,7 +2929,7 @@
           "question": "หลังทำตามแล้ว รหัสบนจอหายไปและเครื่องทำงานปกติหรือไม่?",
           "safety_critical": false,
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -2602,15 +2938,39 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ทำตามรายการตรวจแล้วรหัส 5C ยังแสดงอยู่ ติดต่อศูนย์บริการ Samsung ในพื้นที่ (คู่มือหน้า 39) พร้อมแจ้งรุ่นเครื่อง รหัส และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ทำตามรายการตรวจแล้วรหัส 5C ยังแสดงอยู่ ติดต่อศูนย์บริการ Samsung ในพื้นที่ (คู่มือหน้า 39) พร้อมแจ้งรุ่นเครื่อง รหัส และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
+        },
+        {
+          "state_id": "n_nomatch_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_nomatch",
+          "on_invalid": "n_nomatch_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
         },
         {
           "state_id": "n_nomatch",
           "type": "escalation",
-          "content": "รหัสที่แสดงไม่ใช่ 5C ให้เลือกรหัสตามที่ปรากฏบนจอ หรือติดต่อศูนย์บริการ Samsung พร้อมแจ้งรหัสที่เห็น",
+          "content": "รหัสที่แสดงไม่ใช่ 5C ให้เลือกรหัสตามที่ปรากฏบนจอ หรือติดต่อศูนย์บริการ Samsung พร้อมแจ้งรหัสที่เห็น (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -2646,14 +3006,14 @@
           "question": "หน้าจอแสดงรหัส 9C1 ใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n2",
-          "on_no": "n_nomatch"
+          "on_no": "n_nomatch_in"
         },
         {
           "state_id": "n2",
           "type": "checkpoint",
           "question": "ไฟฟ้าที่จ่ายให้เครื่องปกติใช่หรือไม่?",
           "safety_critical": false,
-          "on_yes": "n_escalate",
+          "on_yes": "n_escalate_in",
           "on_no": "n2f"
         },
         {
@@ -2672,7 +3032,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -2681,15 +3041,39 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ตรวจไฟฟ้าแล้วรหัส 9C1 ยังแสดงอยู่ การตรวจแผงวงจร (PCB) และชุดสายไฟตามหน้า 40 เป็นงานภายในเครื่อง ห้ามถอดแยกหรือซ่อมเอง (คู่มือหน้า 8) ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่องและรหัส 9C1",
+          "content": "ตรวจไฟฟ้าแล้วรหัส 9C1 ยังแสดงอยู่ การตรวจแผงวงจร (PCB) และชุดสายไฟตามหน้า 40 เป็นงานภายในเครื่อง ห้ามถอดแยกหรือซ่อมเอง (คู่มือหน้า 8) ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่องและรหัส 9C1 (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_nomatch_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_nomatch",
+          "on_invalid": "n_nomatch_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
         },
         {
           "state_id": "n_nomatch",
           "type": "escalation",
-          "content": "รหัสที่แสดงไม่ใช่ 9C1 ให้เลือกรหัสตามที่ปรากฏบนจอ หรือติดต่อศูนย์บริการ Samsung พร้อมแจ้งรหัสที่เห็น",
+          "content": "รหัสที่แสดงไม่ใช่ 9C1 ให้เลือกรหัสตามที่ปรากฏบนจอ หรือติดต่อศูนย์บริการ Samsung พร้อมแจ้งรหัสที่เห็น (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -2726,14 +3110,14 @@
           "question": "หน้าจอแสดงรหัส 9C2 ใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n2",
-          "on_no": "n_nomatch"
+          "on_no": "n_nomatch_in"
         },
         {
           "state_id": "n2",
           "type": "checkpoint",
           "question": "เสียบปลั๊กเครื่องอยู่ใช่หรือไม่?",
           "safety_critical": false,
-          "on_yes": "n_escalate",
+          "on_yes": "n_escalate_in",
           "on_no": "n2f"
         },
         {
@@ -2752,7 +3136,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -2761,15 +3145,39 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ทำตามรายการตรวจแล้วรหัส 9C2 ยังแสดงอยู่ ติดต่อศูนย์บริการ Samsung ในพื้นที่ (คู่มือหน้า 40) พร้อมแจ้งรุ่นเครื่อง รหัส และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ทำตามรายการตรวจแล้วรหัส 9C2 ยังแสดงอยู่ ติดต่อศูนย์บริการ Samsung ในพื้นที่ (คู่มือหน้า 40) พร้อมแจ้งรุ่นเครื่อง รหัส และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
+        },
+        {
+          "state_id": "n_nomatch_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_nomatch",
+          "on_invalid": "n_nomatch_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
         },
         {
           "state_id": "n_nomatch",
           "type": "escalation",
-          "content": "รหัสที่แสดงไม่ใช่ 9C2 ให้เลือกรหัสตามที่ปรากฏบนจอ หรือติดต่อศูนย์บริการ Samsung พร้อมแจ้งรหัสที่เห็น",
+          "content": "รหัสที่แสดงไม่ใช่ 9C2 ให้เลือกรหัสตามที่ปรากฏบนจอ หรือติดต่อศูนย์บริการ Samsung พร้อมแจ้งรหัสที่เห็น (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -2804,19 +3212,43 @@
           "type": "checkpoint",
           "question": "หน้าจอแสดงรหัส AC6 ใช่หรือไม่?",
           "safety_critical": false,
-          "on_yes": "n_escalate",
-          "on_no": "n_nomatch"
+          "on_yes": "n_escalate_in",
+          "on_no": "n_nomatch_in"
+        },
+        {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
         },
         {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "คู่มือหน้า 40 ให้ตรวจแผงวงจรอินเวอร์เตอร์ (Inverter PCB) และชุดสายไฟ ซึ่งอยู่ภายในเครื่อง ห้ามถอดแยกหรือซ่อมเอง (คู่มือหน้า 8) ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่องและรหัส AC6",
+          "content": "คู่มือหน้า 40 ให้ตรวจแผงวงจรอินเวอร์เตอร์ (Inverter PCB) และชุดสายไฟ ซึ่งอยู่ภายในเครื่อง ห้ามถอดแยกหรือซ่อมเอง (คู่มือหน้า 8) ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่องและรหัส AC6 (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_nomatch_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_nomatch",
+          "on_invalid": "n_nomatch_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
         },
         {
           "state_id": "n_nomatch",
           "type": "escalation",
-          "content": "รหัสที่แสดงไม่ใช่ AC6 ให้เลือกรหัสตามที่ปรากฏบนจอ หรือติดต่อศูนย์บริการ Samsung พร้อมแจ้งรหัสที่เห็น",
+          "content": "รหัสที่แสดงไม่ใช่ AC6 ให้เลือกรหัสตามที่ปรากฏบนจอ หรือติดต่อศูนย์บริการ Samsung พร้อมแจ้งรหัสที่เห็น (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -2852,7 +3284,7 @@
           "question": "หน้าจอแสดงรหัส dC ใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n2",
-          "on_no": "n_nomatch"
+          "on_no": "n_nomatch_in"
         },
         {
           "state_id": "n2",
@@ -2907,7 +3339,7 @@
           "type": "checkpoint",
           "question": "Child Lock ไม่ได้เปิดใช้งานอยู่ใช่หรือไม่?",
           "safety_critical": false,
-          "on_yes": "n_escalate",
+          "on_yes": "n_escalate_in",
           "on_no": "n4f"
         },
         {
@@ -2925,7 +3357,7 @@
           "question": "หลังทำตามแล้ว รหัสบนจอหายไปและเครื่องทำงานปกติหรือไม่?",
           "safety_critical": false,
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -2934,15 +3366,39 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ทำตามรายการตรวจแล้วรหัส dC ยังแสดงอยู่ ติดต่อศูนย์บริการ Samsung ในพื้นที่ (คู่มือหน้า 41) พร้อมแจ้งรุ่นเครื่อง รหัส และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ทำตามรายการตรวจแล้วรหัส dC ยังแสดงอยู่ ติดต่อศูนย์บริการ Samsung ในพื้นที่ (คู่มือหน้า 41) พร้อมแจ้งรุ่นเครื่อง รหัส และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
+        },
+        {
+          "state_id": "n_nomatch_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_nomatch",
+          "on_invalid": "n_nomatch_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
         },
         {
           "state_id": "n_nomatch",
           "type": "escalation",
-          "content": "รหัสที่แสดงไม่ใช่ dC ให้เลือกรหัสตามที่ปรากฏบนจอ หรือติดต่อศูนย์บริการ Samsung พร้อมแจ้งรหัสที่เห็น",
+          "content": "รหัสที่แสดงไม่ใช่ dC ให้เลือกรหัสตามที่ปรากฏบนจอ หรือติดต่อศูนย์บริการ Samsung พร้อมแจ้งรหัสที่เห็น (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -2978,19 +3434,43 @@
           "type": "checkpoint",
           "question": "หน้าจอแสดงรหัส HC ใช่หรือไม่?",
           "safety_critical": false,
-          "on_yes": "n_escalate",
-          "on_no": "n_nomatch"
+          "on_yes": "n_escalate_in",
+          "on_no": "n_nomatch_in"
+        },
+        {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
         },
         {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "คู่มือหน้า 40 ไม่ระบุวิธีที่ผู้ใช้ทำเองได้ ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่องและรหัส HC",
+          "content": "คู่มือหน้า 40 ไม่ระบุวิธีที่ผู้ใช้ทำเองได้ ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่องและรหัส HC (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_nomatch_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_nomatch",
+          "on_invalid": "n_nomatch_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
         },
         {
           "state_id": "n_nomatch",
           "type": "escalation",
-          "content": "รหัสที่แสดงไม่ใช่ HC ให้เลือกรหัสตามที่ปรากฏบนจอ หรือติดต่อศูนย์บริการ Samsung พร้อมแจ้งรหัสที่เห็น",
+          "content": "รหัสที่แสดงไม่ใช่ HC ให้เลือกรหัสตามที่ปรากฏบนจอ หรือติดต่อศูนย์บริการ Samsung พร้อมแจ้งรหัสที่เห็น (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -3026,7 +3506,7 @@
           "question": "หน้าจอแสดงรหัส LC ใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n2",
-          "on_no": "n_nomatch"
+          "on_no": "n_nomatch_in"
         },
         {
           "state_id": "n2",
@@ -3057,7 +3537,7 @@
           "type": "checkpoint",
           "question": "สายระบายน้ำไม่อุดตันใช่หรือไม่?",
           "safety_critical": false,
-          "on_yes": "n_escalate",
+          "on_yes": "n_escalate_in",
           "on_no": "n3f"
         },
         {
@@ -3074,7 +3554,7 @@
           "question": "หลังทำตามแล้ว รหัสบนจอหายไปและเครื่องทำงานปกติหรือไม่?",
           "safety_critical": false,
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -3083,15 +3563,39 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ทำตามรายการตรวจแล้วรหัส LC ยังแสดงอยู่ ติดต่อศูนย์บริการ Samsung ในพื้นที่ (คู่มือหน้า 40) พร้อมแจ้งรุ่นเครื่อง รหัส และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ทำตามรายการตรวจแล้วรหัส LC ยังแสดงอยู่ ติดต่อศูนย์บริการ Samsung ในพื้นที่ (คู่มือหน้า 40) พร้อมแจ้งรุ่นเครื่อง รหัส และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
+        },
+        {
+          "state_id": "n_nomatch_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_nomatch",
+          "on_invalid": "n_nomatch_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
         },
         {
           "state_id": "n_nomatch",
           "type": "escalation",
-          "content": "รหัสที่แสดงไม่ใช่ LC ให้เลือกรหัสตามที่ปรากฏบนจอ หรือติดต่อศูนย์บริการ Samsung พร้อมแจ้งรหัสที่เห็น",
+          "content": "รหัสที่แสดงไม่ใช่ LC ให้เลือกรหัสตามที่ปรากฏบนจอ หรือติดต่อศูนย์บริการ Samsung พร้อมแจ้งรหัสที่เห็น (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -3127,7 +3631,7 @@
           "question": "หน้าจอแสดงรหัส OC ใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n2",
-          "on_no": "n_nomatch"
+          "on_no": "n_nomatch_in"
         },
         {
           "state_id": "n2",
@@ -3144,7 +3648,7 @@
           "question": "หลังทำตามแล้ว รหัสบนจอหายไปและเครื่องทำงานปกติหรือไม่?",
           "safety_critical": false,
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -3153,15 +3657,39 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ทำตามแล้วรหัส OC ยังแสดงอยู่ ติดต่อศูนย์บริการ Samsung ในพื้นที่ (คู่มือหน้า 40) พร้อมแจ้งรุ่นเครื่องและรหัส",
+          "content": "ทำตามแล้วรหัส OC ยังแสดงอยู่ ติดต่อศูนย์บริการ Samsung ในพื้นที่ (คู่มือหน้า 40) พร้อมแจ้งรุ่นเครื่องและรหัส (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
+        },
+        {
+          "state_id": "n_nomatch_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_nomatch",
+          "on_invalid": "n_nomatch_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
         },
         {
           "state_id": "n_nomatch",
           "type": "escalation",
-          "content": "รหัสที่แสดงไม่ใช่ OC ให้เลือกรหัสตามที่ปรากฏบนจอ หรือติดต่อศูนย์บริการ Samsung พร้อมแจ้งรหัสที่เห็น",
+          "content": "รหัสที่แสดงไม่ใช่ OC ให้เลือกรหัสตามที่ปรากฏบนจอ หรือติดต่อศูนย์บริการ Samsung พร้อมแจ้งรหัสที่เห็น (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -3196,19 +3724,43 @@
           "type": "checkpoint",
           "question": "หน้าจอแสดงรหัส PC ใช่หรือไม่?",
           "safety_critical": false,
-          "on_yes": "n_escalate",
-          "on_no": "n_nomatch"
+          "on_yes": "n_escalate_in",
+          "on_no": "n_nomatch_in"
+        },
+        {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
         },
         {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "คู่มือหน้า 40 ไม่ระบุวิธีที่ผู้ใช้ทำเองได้ ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่องและรหัส PC",
+          "content": "คู่มือหน้า 40 ไม่ระบุวิธีที่ผู้ใช้ทำเองได้ ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่องและรหัส PC (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_nomatch_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_nomatch",
+          "on_invalid": "n_nomatch_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
         },
         {
           "state_id": "n_nomatch",
           "type": "escalation",
-          "content": "รหัสที่แสดงไม่ใช่ PC ให้เลือกรหัสตามที่ปรากฏบนจอ หรือติดต่อศูนย์บริการ Samsung พร้อมแจ้งรหัสที่เห็น",
+          "content": "รหัสที่แสดงไม่ใช่ PC ให้เลือกรหัสตามที่ปรากฏบนจอ หรือติดต่อศูนย์บริการ Samsung พร้อมแจ้งรหัสที่เห็น (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -3243,19 +3795,43 @@
           "type": "checkpoint",
           "question": "หน้าจอแสดงรหัส PC1 ใช่หรือไม่?",
           "safety_critical": false,
-          "on_yes": "n_escalate",
-          "on_no": "n_nomatch"
+          "on_yes": "n_escalate_in",
+          "on_no": "n_nomatch_in"
+        },
+        {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
         },
         {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "คู่มือหน้า 40 ไม่ระบุวิธีที่ผู้ใช้ทำเองได้ ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่องและรหัส PC1",
+          "content": "คู่มือหน้า 40 ไม่ระบุวิธีที่ผู้ใช้ทำเองได้ ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่องและรหัส PC1 (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_nomatch_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_nomatch",
+          "on_invalid": "n_nomatch_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
         },
         {
           "state_id": "n_nomatch",
           "type": "escalation",
-          "content": "รหัสที่แสดงไม่ใช่ PC1 ให้เลือกรหัสตามที่ปรากฏบนจอ หรือติดต่อศูนย์บริการ Samsung พร้อมแจ้งรหัสที่เห็น",
+          "content": "รหัสที่แสดงไม่ใช่ PC1 ให้เลือกรหัสตามที่ปรากฏบนจอ หรือติดต่อศูนย์บริการ Samsung พร้อมแจ้งรหัสที่เห็น (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -3291,7 +3867,7 @@
           "question": "หน้าจอแสดงรหัส Ub ใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n2",
-          "on_no": "n_nomatch"
+          "on_no": "n_nomatch_in"
         },
         {
           "state_id": "n2",
@@ -3346,7 +3922,7 @@
           "question": "ซักผ้าเพียงชิ้นเดียว (เช่น เสื้อคลุมอาบน้ำหรือกางเกงยีนส์) หรือไม่?",
           "safety_critical": false,
           "on_yes": "n4f",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n4f",
@@ -3361,7 +3937,7 @@
           "question": "หลังทำตามแล้ว รหัสบนจอหายไปและเครื่องทำงานปกติหรือไม่?",
           "safety_critical": false,
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -3370,15 +3946,39 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ทำตามรายการตรวจแล้วรหัส Ub ยังแสดงอยู่ ติดต่อศูนย์บริการ Samsung ในพื้นที่ (คู่มือหน้า 41) พร้อมแจ้งรุ่นเครื่อง รหัส และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ทำตามรายการตรวจแล้วรหัส Ub ยังแสดงอยู่ ติดต่อศูนย์บริการ Samsung ในพื้นที่ (คู่มือหน้า 41) พร้อมแจ้งรุ่นเครื่อง รหัส และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
+        },
+        {
+          "state_id": "n_nomatch_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_nomatch",
+          "on_invalid": "n_nomatch_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
         },
         {
           "state_id": "n_nomatch",
           "type": "escalation",
-          "content": "รหัสที่แสดงไม่ใช่ Ub ให้เลือกรหัสตามที่ปรากฏบนจอ หรือติดต่อศูนย์บริการ Samsung พร้อมแจ้งรหัสที่เห็น",
+          "content": "รหัสที่แสดงไม่ใช่ Ub ให้เลือกรหัสตามที่ปรากฏบนจอ หรือติดต่อศูนย์บริการ Samsung พร้อมแจ้งรหัสที่เห็น (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -3413,19 +4013,43 @@
           "type": "checkpoint",
           "question": "หน้าจอแสดงรหัส 9C4 ใช่หรือไม่?",
           "safety_critical": false,
-          "on_yes": "n_escalate",
-          "on_no": "n_nomatch"
+          "on_yes": "n_escalate_in",
+          "on_no": "n_nomatch_in"
+        },
+        {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
         },
         {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "คู่มือหน้า 41 ไม่ระบุวิธีที่ผู้ใช้ทำเองได้ ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่องและรหัส 9C4",
+          "content": "คู่มือหน้า 41 ไม่ระบุวิธีที่ผู้ใช้ทำเองได้ ติดต่อศูนย์บริการ Samsung ในพื้นที่ พร้อมแจ้งรุ่นเครื่องและรหัส 9C4 (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_informed"
+        },
+        {
+          "state_id": "n_nomatch_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_nomatch",
+          "on_invalid": "n_nomatch_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
         },
         {
           "state_id": "n_nomatch",
           "type": "escalation",
-          "content": "รหัสที่แสดงไม่ใช่ 9C4 ให้เลือกรหัสตามที่ปรากฏบนจอ หรือติดต่อศูนย์บริการ Samsung พร้อมแจ้งรหัสที่เห็น",
+          "content": "รหัสที่แสดงไม่ใช่ 9C4 ให้เลือกรหัสตามที่ปรากฏบนจอ หรือติดต่อศูนย์บริการ Samsung พร้อมแจ้งรหัสที่เห็น (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]

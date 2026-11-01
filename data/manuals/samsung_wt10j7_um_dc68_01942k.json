@@ -86,7 +86,7 @@
           "question": "ตั้งเวลาซักไว้เกิน 15 นาที และเครื่องหยุดอยู่ในช่วงแช่ผ้าใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n3n",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n3n",
@@ -101,9 +101,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์ลูกค้าสัมพันธ์ Samsung ประเทศไทย โทร 1800-29-3232 (โทรฟรี-ใช้เบอร์บ้าน) หรือ 02-689-3232 (คู่มือหน้า 7) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์ลูกค้าสัมพันธ์ Samsung ประเทศไทย โทร 1800-29-3232 (โทรฟรี-ใช้เบอร์บ้าน) หรือ 02-689-3232 (คู่มือหน้า 7) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -136,7 +148,7 @@
           "type": "checkpoint",
           "question": "ปริมาณผ้าในถังซักไม่มากเกินไปใช่หรือไม่?",
           "safety_critical": false,
-          "on_yes": "n_escalate",
+          "on_yes": "n_escalate_in",
           "on_no": "n1f"
         },
         {
@@ -153,7 +165,7 @@
           "question": "หลังทำตามแล้ว อาการหายหรือไม่?",
           "safety_critical": false,
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -162,9 +174,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์ลูกค้าสัมพันธ์ Samsung ประเทศไทย โทร 1800-29-3232 (โทรฟรี-ใช้เบอร์บ้าน) หรือ 02-689-3232 (คู่มือหน้า 7) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์ลูกค้าสัมพันธ์ Samsung ประเทศไทย โทร 1800-29-3232 (โทรฟรี-ใช้เบอร์บ้าน) หรือ 02-689-3232 (คู่มือหน้า 7) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -223,7 +247,7 @@
           "type": "checkpoint",
           "question": "เครื่องตั้งบนพื้นที่เรียบไม่เอียงใช่หรือไม่?",
           "safety_critical": false,
-          "on_yes": "n_escalate",
+          "on_yes": "n_escalate_in",
           "on_no": "n2f"
         },
         {
@@ -241,7 +265,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -250,9 +274,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์ลูกค้าสัมพันธ์ Samsung ประเทศไทย โทร 1800-29-3232 (โทรฟรี-ใช้เบอร์บ้าน) หรือ 02-689-3232 (คู่มือหน้า 7) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์ลูกค้าสัมพันธ์ Samsung ประเทศไทย โทร 1800-29-3232 (โทรฟรี-ใช้เบอร์บ้าน) หรือ 02-689-3232 (คู่มือหน้า 7) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -285,7 +321,7 @@
           "type": "checkpoint",
           "question": "วางท่อน้ำทิ้งลงกับพื้นถูกต้องแล้วใช่หรือไม่?",
           "safety_critical": false,
-          "on_yes": "n_escalate",
+          "on_yes": "n_escalate_in",
           "on_no": "n1f"
         },
         {
@@ -303,7 +339,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -312,9 +348,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์ลูกค้าสัมพันธ์ Samsung ประเทศไทย โทร 1800-29-3232 (โทรฟรี-ใช้เบอร์บ้าน) หรือ 02-689-3232 (คู่มือหน้า 7) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์ลูกค้าสัมพันธ์ Samsung ประเทศไทย โทร 1800-29-3232 (โทรฟรี-ใช้เบอร์บ้าน) หรือ 02-689-3232 (คู่มือหน้า 7) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -373,7 +421,7 @@
           "question": "มีสิ่งแปลกปลอมหรือเสื้อผ้าตกลงไปในถังปั่นแล้วพันกับแกนใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n2f",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n2f",
@@ -391,7 +439,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -400,9 +448,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์ลูกค้าสัมพันธ์ Samsung ประเทศไทย โทร 1800-29-3232 (โทรฟรี-ใช้เบอร์บ้าน) หรือ 02-689-3232 (คู่มือหน้า 7) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์ลูกค้าสัมพันธ์ Samsung ประเทศไทย โทร 1800-29-3232 (โทรฟรี-ใช้เบอร์บ้าน) หรือ 02-689-3232 (คู่มือหน้า 7) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]
@@ -460,7 +520,7 @@
           "question": "ท่อน้ำทิ้งมีสิ่งสกปรกอุดตันใช่หรือไม่?",
           "safety_critical": false,
           "on_yes": "n2f",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n2f",
@@ -478,7 +538,7 @@
           "safety_critical": false,
           "author_note": "ระยะเวลาสังเกตผลไม่ระบุในคู่มือ",
           "on_yes": "n_resolved",
-          "on_no": "n_escalate"
+          "on_no": "n_escalate_in"
         },
         {
           "state_id": "n_resolved",
@@ -487,9 +547,21 @@
           "outcome_kind": "user_fixed"
         },
         {
+          "state_id": "n_escalate_in",
+          "type": "input",
+          "prompt": "ก่อนติดต่อศูนย์บริการ กรุณาพิมพ์รุ่นเครื่องหรือหมายเลขรุ่น (ดูได้ที่ป้ายด้านข้างหรือด้านหลังเครื่อง) เพื่อเตรียมแจ้งเจ้าหน้าที่",
+          "safety_critical": false,
+          "input_type": "model_number",
+          "pattern": "^S.{1,59}$",
+          "store_as": "model_number",
+          "next": "n_escalate",
+          "on_invalid": "n_escalate_in",
+          "author_note": "ผู้พัฒนาเพิ่มเอง ไม่ได้มาจากคู่มือ: เก็บเลขรุ่นไว้แจ้งเจ้าหน้าที่ก่อนส่งต่อ"
+        },
+        {
           "state_id": "n_escalate",
           "type": "escalation",
-          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์ลูกค้าสัมพันธ์ Samsung ประเทศไทย โทร 1800-29-3232 (โทรฟรี-ใช้เบอร์บ้าน) หรือ 02-689-3232 (คู่มือหน้า 7) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว",
+          "content": "ไม่พบสาเหตุที่ตรงกับรายการตรวจในคู่มือ ติดต่อศูนย์ลูกค้าสัมพันธ์ Samsung ประเทศไทย โทร 1800-29-3232 (โทรฟรี-ใช้เบอร์บ้าน) หรือ 02-689-3232 (คู่มือหน้า 7) พร้อมแจ้งรุ่นเครื่อง อาการ และสิ่งที่ได้ตรวจไปแล้ว (รุ่นที่คุณระบุ: {{model_number}})",
           "outcome_kind": "handoff_unknown"
         }
       ]

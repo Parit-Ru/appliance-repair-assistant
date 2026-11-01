@@ -8,8 +8,8 @@ import * as crypto from 'crypto';
 import * as fs from 'fs';
 import * as path from 'path';
 import { EVAL_DB_NAME, PER_MANUAL_CAP, TOP_N, createEvalEngine, deviceCategoryOf } from './lib/engine';
-import { baselineRate, buildSeedReport, renderSeedReport, scoreCase, stateText, validateCases } from './lib/scoring';
-import type { CaseScore, CauseSeed, PooledFlow, RealCase } from './lib/scoring';
+import { baselineRate, buildSeedReport, renderSeedReport, scoreCase, scoreCrossDevice, stateText, validateCases } from './lib/scoring';
+import type { CaseScore, CauseSeed, CrossDeviceScore, PooledFlow, RealCase } from './lib/scoring';
 import type { TroubleshootingFlow } from '../backend/src/state-machine/types';
 
 const EVAL_DIR = __dirname;
@@ -39,6 +39,11 @@ interface CaseRecord {
   baseline_rate: number;
   baseline_rate_primary_only: number;
   baseline_flows: { matched: number; total: number };
+  /** รายคู่มือของอุปกรณ์นี้ — หน้าเว็บค้นในคู่มือเดียวที่ผู้ใช้เลือก (no_match = หน้าเว็บจะแสดงข้อความแนะนำศูนย์บริการ) */
+  per_manual: Array<{ manual_id: string; best_score: number | null; match_count: number }>;
+  manuals_with_match: { with_match: number; total: number };
+  /** ค้นข้ามทุกอุปกรณ์ (ไม่ใช่พฤติกรรมของหน้าเว็บ) — ตรวจการชี้อุปกรณ์ */
+  cross_device: CrossDeviceScore;
   answer: { text: string; references: string[]; top1_first_flow: FlowDump | null };
   metrics: Omit<CaseScore, 'top1Pool' | 'top3Pool'>;
   top1_pool: PooledFlow[];
@@ -71,6 +76,17 @@ interface Rates {
   has_safety_pct: number | null;
   has_safety_first_only_pct: number | null;
   top1_escalation_only_pct: number | null;
+  /** (เพิ่มหลังรันรอบแรก) ตัวหาร = เคสที่ไม่ refused */
+  has_escalation_path_pct: number | null;
+  has_escalation_path_first_only_pct: number | null;
+  /** ตัวหาร = เคสที่การค้นข้ามอุปกรณ์ได้ผัง >= เกณฑ์ (cross_device_refused แยกรายงาน) */
+  cross_device_refused: number;
+  cross_device_top1_correct_pct: number | null;
+  cross_device_top1_correct_pct_refused_as_miss: number | null;
+  cross_device_first_only_correct_pct: number | null;
+  cross_device_all_correct_pct: number | null;
+  /** เฉลี่ยทุกเคส: สัดส่วนคู่มือของอุปกรณ์ที่ไม่มีผัง >= เกณฑ์ = โอกาสที่หน้าเว็บจะขึ้น "ไม่พบอาการ" ถ้าผู้ใช้เลือกคู่มือแบบสุ่ม */
+  manual_no_match_mean_pct: number | null;
   citation_presence_pct_all: number | null;
   citation_presence_pct_scored: number | null;
   baseline_mean_pct: number | null;
@@ -162,8 +178,8 @@ function answerText(dump: FlowDump | null, score: CaseScore): string {
   return `อาการที่จับคู่: ${dump.entry_symptom_th ?? dump.entry_symptom} (score ${dump.score}) ▸ ${outline}`;
 }
 
-function noteText(c: RealCase, score: CaseScore, categoryManuals: number): string {
-  const parts = [`ค้นเฉพาะอุปกรณ์ ${deviceCategoryOf(c.device)} (${categoryManuals} คู่มือ) ไม่ส่งยี่ห้อ/รุ่น`];
+function noteText(c: RealCase, score: CaseScore, categoryManuals: number, manualsWithMatch: number): string {
+  const parts = [`ค้นเฉพาะอุปกรณ์ ${deviceCategoryOf(c.device)} (${categoryManuals} คู่มือ) ไม่ส่งยี่ห้อ/รุ่น · คู่มือที่มีผัง >= เกณฑ์ ${manualsWithMatch}/${categoryManuals}`];
   if (score.refused) {
     parts.push(`best score ${score.bestScore ?? '-'} < ${score.threshold}${roundedAtThreshold(score)} ไม่คำนวณ cause_hit`);
     return parts.join(' ; ');
@@ -191,6 +207,9 @@ function summarize(records: CaseRecord[]): Rates {
   const causeHit = count((m) => m.cause_hit);
   const baselineMean = scored.length === 0 ? null : (scored.reduce((s, r) => s + r.baseline_rate, 0) / scored.length) * 100;
   const hitPct = pct(causeHit, scored.length);
+  const crossScored = records.filter((r) => !r.cross_device.refused);
+  const crossCount = (pick: (x: CrossDeviceScore) => boolean | null) => crossScored.filter((r) => pick(r.cross_device) === true).length;
+  const manualNoMatch = records.length === 0 ? null : (records.reduce((s, r) => s + (1 - r.manuals_with_match.with_match / r.manuals_with_match.total), 0) / records.length) * 100;
 
   return {
     n: records.length,
@@ -204,6 +223,14 @@ function summarize(records: CaseRecord[]): Rates {
     has_safety_pct: pct(count((m) => m.has_safety), scored.length),
     has_safety_first_only_pct: pct(count((m) => m.has_safety_first_only), scored.length),
     top1_escalation_only_pct: pct(count((m) => m.top1_escalation_only), scored.length),
+    has_escalation_path_pct: pct(count((m) => m.has_escalation_path), scored.length),
+    has_escalation_path_first_only_pct: pct(count((m) => m.has_escalation_path_first_only), scored.length),
+    cross_device_refused: records.length - crossScored.length,
+    cross_device_top1_correct_pct: pct(crossCount((x) => x.top1_correct), crossScored.length),
+    cross_device_top1_correct_pct_refused_as_miss: pct(crossCount((x) => x.top1_correct), records.length),
+    cross_device_first_only_correct_pct: pct(crossCount((x) => x.top1_first_only_correct), crossScored.length),
+    cross_device_all_correct_pct: pct(crossCount((x) => x.top1_all_correct), crossScored.length),
+    manual_no_match_mean_pct: manualNoMatch === null ? null : round1(manualNoMatch),
     citation_presence_pct_all: pct(records.filter((r) => r.citation_present).length, records.length),
     citation_presence_pct_scored: pct(scored.filter((r) => r.citation_present).length, scored.length),
     baseline_mean_pct: baselineMean === null ? null : round1(baselineMean),
@@ -236,6 +263,17 @@ function printSummary(overall: Rates, byDevice: Record<string, Rates>, byFix: Re
   console.log('\n-- แยกตาม fix_category --');
   console.log(table(Object.entries(byFix).map(([k, v]) => row(k, v))));
 
+  // ตัวชี้วัดที่เพิ่มหลังรันรอบแรก: has_escalation_path (ตัวหาร = ไม่ refused) · cross_device (ตัวหาร = เคสที่ค้นข้ามอุปกรณ์ได้ผัง >= เกณฑ์)
+  console.log('\n-- เพิ่มหลังรันรอบแรก: เส้นทางไปศูนย์บริการ / ค้นข้ามอุปกรณ์ / ผลรายคู่มือ --');
+  const head2 = ['กลุ่ม', 'esc_path%', 'esc_path_1st%', 'esc_only%', 'xdev_refused(เคส)', 'xdev_top1%', '(refused=พลาด)', 'xdev_1st%', 'xdev_ทุกผัง%', 'คู่มือไม่มีผล%(เฉลี่ย)'];
+  const row2 = (name: string, r: Rates) => [name, fmt(r.has_escalation_path_pct), fmt(r.has_escalation_path_first_only_pct), fmt(r.top1_escalation_only_pct), `${r.cross_device_refused}`, fmt(r.cross_device_top1_correct_pct), fmt(r.cross_device_top1_correct_pct_refused_as_miss), fmt(r.cross_device_first_only_correct_pct), fmt(r.cross_device_all_correct_pct), fmt(r.manual_no_match_mean_pct)];
+  console.log(head2.join(' | '));
+  console.log(table([row2('ทั้งหมด', overall)]));
+  console.log('-- แยกตาม device --');
+  console.log(table(Object.entries(byDevice).map(([k, v]) => row2(k, v))));
+  console.log('-- แยกตาม fix_category --');
+  console.log(table(Object.entries(byFix).map(([k, v]) => row2(k, v))));
+
   console.log('\n-- top1_hit เทียบ baseline_rate (เฉลี่ยบนเคสที่ไม่ refused) --');
   console.log(['device', 'เคส(scored)', 'cause_hit%', 'baseline%', 'lift(pp)'].join(' | '));
   for (const [k, v] of [['ทั้งหมด', overall] as const, ...Object.entries(byDevice)]) {
@@ -264,6 +302,13 @@ const CSV_COLUMNS: Array<[string, (r: CaseRecord) => string | number | boolean |
   ['top1_tie_count', (r) => r.metrics.top1_tie_count],
   ['top1_escalation_only', (r) => r.metrics.top1_escalation_only],
   ['has_safety_first_only', (r) => r.metrics.has_safety_first_only],
+  // เพิ่มหลังรันรอบแรก
+  ['has_escalation_path', (r) => r.metrics.has_escalation_path],
+  ['has_escalation_path_first_only', (r) => r.metrics.has_escalation_path_first_only],
+  ['cross_device_top1_correct', (r) => r.cross_device.top1_correct],
+  ['cross_device_top1_first_only_correct', (r) => r.cross_device.top1_first_only_correct],
+  ['cross_device_top1_devices', (r) => r.cross_device.top1_devices.join(';')],
+  ['manuals_with_match', (r) => `${r.manuals_with_match.with_match}/${r.manuals_with_match.total}`],
   ['best_score', (r) => r.best_score],
   ['baseline_rate', (r) => round1(r.baseline_rate * 100) / 100],
   ['baseline_rate_primary_only', (r) => round1(r.baseline_rate_primary_only * 100) / 100],
@@ -276,10 +321,67 @@ const CSV_COLUMNS: Array<[string, (r: CaseRecord) => string | number | boolean |
   ['confirmed_fix_th', (r) => r.confirmed_fix_th],
 ];
 
-function csvCell(value: string | number | boolean | null): string {
+function csvCell(value: string | number | boolean | null, keepNewlines = false): string {
   if (value === null) return '';
-  const text = typeof value === 'boolean' ? (value ? 'TRUE' : 'FALSE') : String(value).replace(/\r?\n/g, ' ');
-  return /[",]/.test(text) ? `"${text.replace(/"/g, '""')}"` : text;
+  const raw = typeof value === 'boolean' ? (value ? 'TRUE' : 'FALSE') : String(value);
+  const text = keepNewlines ? raw.replace(/\r\n/g, '\n') : raw.replace(/\r?\n/g, ' ');
+  return /[",\n]/.test(text) ? `"${text.replace(/"/g, '""')}"` : text;
+}
+
+// ---------- ไฟล์สุ่มให้กรอกคอลัมน์ J ด้วยมือ ----------
+
+/** seed คงที่ + โควตาต่ออุปกรณ์ · เลือกจากเลข id เท่านั้น (ไม่ดู cause_hit) · ประชากร = เคสที่ไม่ refused (เคส refused ไม่มีผังให้ตัดสิน และเติม J อัตโนมัติแล้ว) */
+const REVIEW_SAMPLE_SEED = 499;
+const REVIEW_SAMPLE_QUOTA: Array<[string, number]> = [['ตู้เย็น', 10], ['เครื่องซักผ้า', 10], ['ไมโครเวฟ', 10]];
+const REVIEW_CELL_LIMIT = 32000; // Excel จำกัด 32,767 ตัวอักษรต่อเซลล์
+
+function mulberry32(seed: number): () => number {
+  let a = seed >>> 0;
+  return () => {
+    a = (a + 0x6d2b79f5) | 0;
+    let t = Math.imul(a ^ (a >>> 15), 1 | a);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+function pickReviewSample(records: CaseRecord[]): { ids: Record<string, string[]>; population: Record<string, number> } {
+  const ids: Record<string, string[]> = {};
+  const population: Record<string, number> = {};
+  for (const [i, [device, quota]] of REVIEW_SAMPLE_QUOTA.entries()) {
+    const pool = records.filter((r) => r.device === device && !r.refused).map((r) => r.id).sort();
+    population[device] = pool.length;
+    const random = mulberry32(REVIEW_SAMPLE_SEED + i);
+    for (let k = pool.length - 1; k > 0; k--) {
+      const j = Math.floor(random() * (k + 1));
+      [pool[k], pool[j]] = [pool[j], pool[k]];
+    }
+    ids[device] = pool.slice(0, quota).sort();
+  }
+  return { ids, population };
+}
+
+/** ผังเป็นบรรทัดอ่านง่าย: เลข state · ชนิด · ข้อความ · ทางแยก (ใช่/ไม่/ถัดไป) · ⚠ คำเตือน */
+function readableSteps(flow: TroubleshootingFlow): string {
+  const lines: string[] = [];
+  for (const s of flow.states) {
+    const start = s.state_id === flow.initial_state ? ' (เริ่ม)' : '';
+    let next = '';
+    if (s.type === 'checkpoint') next = ` → ใช่: ${s.on_yes} / ไม่: ${s.on_no}`;
+    else if (s.type === 'instruction') next = ` → ถัดไป: ${s.next}`;
+    else if (s.type === 'input') next = ` → ถัดไป: ${s.next}`;
+    lines.push(`${s.state_id}${start} [${TYPE_LABEL[s.type] ?? s.type}] ${stateText(s)}${next}`);
+    if (s.safety_warning) lines.push(`   ⚠ ${s.safety_warning}`);
+  }
+  return lines.join('\n');
+}
+
+const REVIEW_COLUMNS = ['id', 'device', 'fix_category', 'อาการที่ผู้ใช้พิมพ์', 'วิธีแก้ที่ยืนยันแล้ว', 'ผังอันดับ 1 (flow_id)', 'อาการที่ผังจับคู่', 'score', 'ระบบอ้างอิง', 'ผังอื่นที่ score เท่ากัน', 'ขั้นตอนของผัง', 'ผลเทียบ (กรอก: ตรง / ตรงบางส่วน / ไม่ตรง)', 'เหตุผลที่ตัดสิน'];
+
+function toReviewCsv(rows: Array<Array<string | number>>): string {
+  const lines = [REVIEW_COLUMNS.map((h) => csvCell(h)).join(',')];
+  for (const r of rows) lines.push(r.map((v) => csvCell(v, true)).join(','));
+  return '﻿' + lines.join('\r\n') + '\r\n';
 }
 
 function toCsv(records: CaseRecord[]): string {
@@ -335,6 +437,7 @@ async function main(): Promise<void> {
     const started = Date.now();
     const search = await engine.searchDevice(c.query_th, category);
     const latency = Date.now() - started;
+    const cross = scoreCrossDevice(category, await engine.searchAllDevices(c.query_th), TOP_N);
 
     const score = scoreCase(c, search, (id) => engine.getFlow(id), seed, PER_MANUAL_CAP);
     scoreById.set(c.id, score);
@@ -367,12 +470,15 @@ async function main(): Promise<void> {
       baseline_rate: baseline.all.rate,
       baseline_rate_primary_only: baseline.primaryOnly.rate,
       baseline_flows: { matched: baseline.all.matched, total: baseline.all.total },
+      per_manual: search.perManual.map((m) => ({ manual_id: m.manualId, best_score: m.bestScore, match_count: m.matchCount })),
+      manuals_with_match: { with_match: search.perManual.filter((m) => m.matchCount > 0).length, total: search.perManual.length },
+      cross_device: cross,
       answer: { text: answerText(dump, score), references: shownRefs, top1_first_flow: dump },
       metrics,
       top1_pool: top1Pool,
       top3_pool: top3Pool,
       compare: score.refused ? REFUSED_COMPARE_LABEL : '',
-      note: noteText(c, score, search.manualsSearched.length),
+      note: noteText(c, score, search.manualsSearched.length, search.perManual.filter((m) => m.matchCount > 0).length),
     });
 
     if ((i + 1) % 10 === 0 || i + 1 === cases.length) console.log(`  ${i + 1}/${cases.length}`);
@@ -421,6 +527,9 @@ async function main(): Promise<void> {
         refused: 'ไม่มีผังของอุปกรณ์นั้นได้ similarity >= threshold · ไม่คำนวณ hit/safety/escalation_only (null)',
         has_safety: 'มีผังในกลุ่ม top-1 ที่มี state safety_critical หรือ safety_warning',
         has_safety_first_only: 'เฉพาะผังที่ระบบเรียงเป็นอันดับแรก',
+        has_escalation_path: '(เพิ่มหลังรันรอบแรก) มีผังในกลุ่ม top-1 ที่มี state ประเภท escalation เดินถึงได้จาก initial_state อย่างน้อย 1 เส้นทาง (ไม่ได้แปลว่าผู้ใช้ทุกคนจะผ่าน) · _first_only = เฉพาะผังที่เรียงเป็นอันดับแรก',
+        cross_device_top1_correct: '(เพิ่มหลังรันรอบแรก) ค้นโดยไม่ระบุอุปกรณ์/คู่มือ แล้วกลุ่ม top-1 (score เท่ากัน) มีผังของอุปกรณ์เดียวกับเคสอย่างน้อย 1 ผัง · _first_only = เฉพาะผังแรก · ตัวหาร = เคสที่ค้นข้ามอุปกรณ์ได้ผัง >= เกณฑ์ · หน้าเว็บไม่ได้ค้นแบบนี้',
+        manuals_with_match: 'จำนวนคู่มือของอุปกรณ์ที่มีผัง >= เกณฑ์ ต่อจำนวนคู่มือของอุปกรณ์ · คู่มือที่ไม่มีผล = หน้าเว็บจะขึ้น "ไม่พบอาการ" ถ้าผู้ใช้เลือกคู่มือนั้น',
         top1_escalation_only: 'ทุกผังในกลุ่ม top-1 ไม่มี resolution ที่เดินถึงได้จาก initial_state',
         baseline_rate: 'สัดส่วนผังทั้งหมดของอุปกรณ์เดียวกันที่ข้อความมีคำของ cause_tag + alt_cause_tags (กฎเดียวกับ hit) · baseline_rate_primary_only = เฉพาะ cause_tag',
         citation_present: 'ไม่ refused และทุกผังในกลุ่ม top-1 มี source และ page_range ที่เป็นตัวเลข (ค่าจากฐานข้อมูลตามจริง ไม่เดา)',
@@ -428,7 +537,9 @@ async function main(): Promise<void> {
         latency_ms: 'เวลา searchDevice ต่อเคส (embed + ค้นทุกคู่มือของอุปกรณ์) ไม่รวมการให้คะแนน',
       },
       caveats: [
-        'ค้นเฉพาะอุปกรณ์ (วนทุกคู่มือของอุปกรณ์นั้นแล้วรวมผล) ส่วนหน้าเว็บจริงค้นข้ามทุกอุปกรณ์ และแสดงข้อความแนะนำติดต่อศูนย์บริการเมื่อ matches ว่าง (SymptomSearchResults.tsx) → refused ที่นี่เป็นตัวแทนที่เข้มกว่า',
+        'แก้ข้อความรอบแรก: หน้าเว็บจริงบังคับเลือกอุปกรณ์แล้วเลือกรุ่น (คู่มือ) ก่อนค้น และส่ง manualId เสมอ (SymptomsPage.tsx) จึงค้นในคู่มือเดียว ไม่ได้ค้นข้ามอุปกรณ์ · eval รวมทุกคู่มือของอุปกรณ์ → refused ของ eval หลวมกว่าหน้าเว็บ (ใช้ manuals_with_match / manual_no_match_mean_pct ดูผลรายคู่มือ) · เมื่อ matches ว่างหน้าเว็บแสดงข้อความแนะนำศูนย์บริการ (SymptomSearchResults.tsx)',
+        'cross_device_* ค้นโดยไม่ระบุคู่มือ เพื่อตรวจว่าระบบชี้อุปกรณ์ถูกไหมเมื่อไม่รู้อุปกรณ์ — ไม่ใช่เส้นทางที่ผู้ใช้เจอจริง',
+        'has_escalation_path และ cross_device_* เพิ่มหลังเห็นผลรอบแรก (พฤติกรรม "แนะนำศูนย์บริการ" มาจาก fix_category ของชุดข้อมูลตั้งแต่ต้น แต่ยังไม่มีคอลัมน์วัด) · รายงานตัวเลขไม่ว่าผลเป็นอย่างไร',
         'score ที่ service ส่งออกปัด 3 ตำแหน่ง ผังที่เสมอกันเรียงด้วย flowId จึงนับ top-1 เป็นกลุ่ม',
         'คู่มือที่ยี่ห้อ/รุ่นตรงกับเคสมีน้อย (คู่มือที่ ingest เป็น Samsung ทั้งหมด) จึงไม่กรองด้วยยี่ห้อ/รุ่น',
         'cause_hit วัดว่าผังพูดถึงชิ้นส่วน/สาเหตุตามคำใน seed ไม่ได้วัดว่าระบบ "ฟันธง" สาเหตุ หรือลำดับขั้นตอนถูกต้อง',
@@ -439,17 +550,47 @@ async function main(): Promise<void> {
     cases: records,
   };
 
+  // ----- ไฟล์สุ่มให้กรอกคอลัมน์ J ด้วยมือ -----
+  const sample = pickReviewSample(records);
+  const reviewRows: Array<Array<string | number>> = [];
+  for (const [device, quota] of REVIEW_SAMPLE_QUOTA) {
+    if (sample.ids[device].length < quota) console.warn(`คำเตือน: ${device} สุ่มได้ ${sample.ids[device].length}/${quota} เคส (ประชากรที่ไม่ refused ${sample.population[device]})`);
+    for (const id of sample.ids[device]) {
+      const r = records.find((x) => x.id === id) as CaseRecord;
+      const first = scoreById.get(id)?.top1Pool[0];
+      const flow = first ? engine.getFlow(first.flowId) : undefined;
+      if (!first || !flow) throw new Error(`${id}: ไม่มีผังอันดับ 1 สำหรับไฟล์สุ่ม`);
+      const ties = (scoreById.get(id)?.top1Pool ?? []).slice(1).map((p) => `${p.flowId} (${p.entrySymptomTh ?? p.entrySymptom})`);
+      let steps = readableSteps(flow);
+      if (steps.length > REVIEW_CELL_LIMIT) {
+        console.warn(`คำเตือน: ${id} ขั้นตอนยาว ${steps.length} ตัวอักษร เกินที่ Excel รับต่อเซลล์ ตัดท้ายและระบุไว้`);
+        steps = steps.slice(0, REVIEW_CELL_LIMIT) + '\n[ตัดท้าย — ดูฉบับเต็มใน real-cases-*.json]';
+      }
+      reviewRows.push([r.id, r.device, r.fix_category, r.query_th, r.confirmed_fix_th, first.flowId, first.entrySymptomTh ?? first.entrySymptom, first.score, refText(first), ties.join(' ; '), steps, '', '']);
+    }
+  }
+
   fs.mkdirSync(args.outDir, { recursive: true });
   const base = outputBase(args.outDir, finishedAt, args.overwrite);
   const jsonPath = path.join(args.outDir, `${base}.json`);
   const csvPath = path.join(args.outDir, `${base}.csv`);
   const seedPath = path.join(args.outDir, base.replace('real-cases-', 'seed-review-') + '.md');
+  const reviewPath = path.join(args.outDir, base.replace('real-cases-', 'review-sample-') + '.csv');
+
+  (output.meta as Record<string, unknown>).review_sample = {
+    seed: REVIEW_SAMPLE_SEED,
+    method: 'สับ id (เรียงตัวอักษร) ของเคสที่ไม่ refused ต่ออุปกรณ์ด้วย mulberry32(seed + ลำดับอุปกรณ์) แล้วเอาตามโควตา · เลือกจาก id เท่านั้น ไม่ดูผล cause_hit · ไฟล์ไม่แสดง cause_hit/คำที่เจอ เพื่อให้ตัดสินแบบไม่รู้ผลอัตโนมัติ',
+    quota: Object.fromEntries(REVIEW_SAMPLE_QUOTA),
+    population_not_refused: sample.population,
+    ids: sample.ids,
+  };
 
   fs.writeFileSync(jsonPath, JSON.stringify(output, null, 2) + '\n', 'utf-8');
   fs.writeFileSync(csvPath, toCsv(records), 'utf-8');
   fs.writeFileSync(seedPath, renderSeedReport(buildSeedReport({ cases, scores: scoreById, seed, flowsOfCase: flowsOf })), 'utf-8');
+  fs.writeFileSync(reviewPath, toReviewCsv(reviewRows), 'utf-8');
 
-  console.log(`\nเขียนแล้ว:\n  ${jsonPath}\n  ${csvPath}\n  ${seedPath}`);
+  console.log(`\nเขียนแล้ว:\n  ${jsonPath}\n  ${csvPath}\n  ${seedPath}\n  ${reviewPath}`);
   await engine.close();
 }
 
