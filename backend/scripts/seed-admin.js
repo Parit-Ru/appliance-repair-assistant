@@ -1,25 +1,9 @@
-// seed-admin.js — สร้างบัญชี admin คนแรก (ทางเดียวที่สร้าง admin ได้; /auth/register สร้างได้แต่ user)
-//
-// อ่านจาก backend/.env:
-//   ADMIN_EMAIL          (บังคับ)
-//   ADMIN_PASSWORD       (บังคับ ยาว 8-72 ตัวอักษร และไม่เกิน 72 ไบต์ เหมือนกฎตอนสมัคร)
-//   ADMIN_DISPLAY_NAME   (ไม่บังคับ ค่าเริ่มต้น "Admin")
-//
-// รันซ้ำได้ปลอดภัย (idempotent):
-//   - ยังไม่มีอีเมลนี้            → สร้างบัญชี admin ใหม่
-//   - มีอยู่แล้วเป็น user         → ยกเป็น admin "โดยไม่เปลี่ยนรหัสผ่าน"
-//   - มีอยู่แล้วเป็น admin        → ไม่ทำอะไร
-// ไม่พิมพ์รหัสผ่านออกหน้าจอ · ไม่มีข้อมูลล็อกอินในโค้ด
-//
-// รัน: npm run seed:admin   (ต้องรัน npm run migrate ให้ถึง 010 ก่อน)
-
 require('dotenv/config');
 
 const crypto = require('node:crypto');
 const mysql = require('mysql2/promise');
 const bcrypt = require('bcryptjs');
 
-/** ต้องเท่ากับ BCRYPT_ROUNDS ใน src/auth/auth.service.ts */
 const BCRYPT_ROUNDS = 10;
 
 const MIN_PASSWORD_LENGTH = 8;
@@ -27,7 +11,7 @@ const MAX_PASSWORD_LENGTH = 72;
 const MAX_PASSWORD_BYTES = 72;
 const MAX_EMAIL_LENGTH = 255;
 const MAX_DISPLAY_NAME_LENGTH = 100;
-/** ให้เหมือน EMAIL_PATTERN ใน src/auth/auth.dto.ts */
+
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@.]+(\.[^\s@.]+)+$/;
 
 function connectionConfig() {

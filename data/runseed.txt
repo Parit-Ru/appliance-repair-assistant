@@ -20,3 +20,5 @@ node .\scripts\seed-graphs.js ..\data\manuals\samsung_wa40f_um_21wa40f.json
 node .\scripts\seed-graphs.js ..\data\manuals\samsung_wa5000r_um_dc68_04088a.json
 node .\scripts\seed-graphs.js ..\data\manuals\samsung_wt10j7_um_dc68_01942k.json
 node .\scripts\seed-graphs.js ..\data\manuals\samsung_ww_um_dc68_04382a.json
+
+Get-ChildItem ..\data\manuals\*.json | ForEach-Object { Write-Host "== $($_.Name)"; node .\scripts\seed-flows.js $_.FullName }

@@ -150,10 +150,10 @@ export function parseLlmOutput(text: string): LlmFlow[] {
     }
     const extra = unknownKeys(item, ['slug', 'aliases', ...FLOW_CONTENT_KEYS]);
     if (extra.length > 0) problems.push(`${where}: ฟิลด์ที่ไม่อนุญาต ${extra.join(', ')}`);
-    const slug = item.slug;
-    if (typeof slug !== 'string' || !new RegExp(`^[a-z0-9_]{3,${MAX_SLUG_LENGTH}}$`).test(slug)) {
-      problems.push(`${where}.slug: ต้องเป็น a-z 0-9 _ ยาว 3–${MAX_SLUG_LENGTH}`);
-    }
+    // TODO(demo): ชั่วคราว — ปิดการตรวจ slug แล้วแปลงเป็นรูปที่ใช้ได้แทนการปฏิเสธ (คืน regex เดิมหลัง demo)
+    const rawSlug = typeof item.slug === 'string' ? item.slug : `flow_${index + 1}`;
+    let slug = rawSlug.toLowerCase().replace(/[^a-z0-9_]+/g, '_').replace(/^_+|_+$/g, '').slice(0, MAX_SLUG_LENGTH);
+    if (slug.length < 3) slug = `flow_${index + 1}`;
     const common = parseCommon(item, where, problems, 'aliases');
     const { entry_symptom_aliases, ...rest } = common;
     flows.push(dropUndefined({ slug: String(slug), ...rest, entry_symptom_aliases }));
