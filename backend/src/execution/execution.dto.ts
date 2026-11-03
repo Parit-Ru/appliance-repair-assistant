@@ -192,6 +192,12 @@ export interface EquipmentItemDto {
   authorNote?: string;
 }
 
+/** ขั้นที่ผู้ใช้ผ่านมาแล้ว 1 ขั้น (state ที่อยู่ตอนนั้น + action ที่ส่ง) */
+export interface SessionTrailStepDto {
+  state: RenderedState;
+  action: ExecutionAction;
+}
+
 export interface SessionResponseDto {
   sessionId: string;
   flowId: string;
@@ -201,4 +207,8 @@ export interface SessionResponseDto {
   confidence: number | null;
   outcome: string | null;
   displayText: string | null;
+  /** เฉพาะ GET /execution/sessions/:id (ใช้ตอนกลับมาทำต่อ) · [] = ยังไม่ผ่านขั้นไหน หรือผังเปลี่ยนจนแสดงขั้นเก่าไม่ได้ */
+  trail?: SessionTrailStepDto[];
+  /** เฉพาะ GET /execution/sessions/:id · null = session ไม่ผ่านหน้าเลือกรุ่น */
+  modelSelection?: ModelSelection | null;
 }

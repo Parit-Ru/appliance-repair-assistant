@@ -8,7 +8,7 @@ import { FlowRepository } from '../execution/flow.repository';
 import type { ManualSummary } from '../execution/flow.repository';
 import type { HistoryDetailDto, HistoryFeedbackDto, HistoryFlowInfo, HistoryListItemDto, HistoryListResponseDto, HistoryQuery, HistoryStepDto } from './history.dto';
 import { HistoryStore } from './history.store';
-import type { CompletedSession, CompletedSessionSummary } from './history.store';
+import type { CompletedSession, SessionSummary } from './history.store';
 
 
 const historyNotFound = (sessionId: string) =>
@@ -22,11 +22,15 @@ export class HistoryService {
 
   /** GET /history */
   async list(owner: SessionOwner, query: HistoryQuery): Promise<HistoryListResponseDto> {
-    const summaries = await this.store.listCompleted(owner);
+    const summaries = await this.store.listSessions(owner);
     const manuals = this.manualsById();
 
+    // in_progress ขึ้นก่อน แล้วใหม่สุดก่อน (เรียงซ้ำจาก SQL เพื่อให้ผลคงที่แม้เวลาเท่ากัน)
     const sorted = [...summaries].sort(
-      (a, b) => b.startedAtEpoch - a.startedAtEpoch || b.sessionId.localeCompare(a.sessionId),
+      (a, b) =>
+        Number(b.status === 'in_progress') - Number(a.status === 'in_progress') ||
+        b.startedAtEpoch - a.startedAtEpoch ||
+        b.sessionId.localeCompare(a.sessionId),
     );
 
     const total = sorted.length;
@@ -55,7 +59,7 @@ export class HistoryService {
 
   /** DELETE /history/:id */
   async remove(owner: SessionOwner, sessionId: string): Promise<void> {
-    const deleted = await this.store.deleteCompleted(sessionId, owner);
+    const deleted = await this.store.deleteSession(sessionId, owner);
     if (!deleted) {
       throw historyNotFound(sessionId);
     }
@@ -82,7 +86,7 @@ export class HistoryService {
     return new Map(this.flowRepository.listManuals().map((manual) => [manual.manualId, manual]));
   }
 
-  private toListItem(summary: CompletedSessionSummary, manuals: Map<string, ManualSummary>): HistoryListItemDto {
+  private toListItem(summary: SessionSummary, manuals: Map<string, ManualSummary>): HistoryListItemDto {
     const flow = this.flowRepository.findById(summary.flowId);
     const outcomeKind = flow ? getOutcomeKind(flow, summary.currentStateId) : null;
 
@@ -90,6 +94,7 @@ export class HistoryService {
       sessionId: summary.sessionId,
       flowId: summary.flowId,
       startedAt: isoFromEpoch(summary.startedAtEpoch),
+      status: summary.status,
       outcomeKind,
       flow: flowInfoOf(flow, manuals),
     };

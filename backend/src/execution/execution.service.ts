@@ -8,8 +8,9 @@ import { EquipmentRepository } from './equipment.repository';
 import { SessionStore } from './session.store';
 import { SymptomSearchService } from '../symptom-search/symptom-search.service';
 import { RephraseService } from '../rephrase/rephrase.service';
-import type { ModelSelection, SessionResponseDto } from './execution.dto';
+import type { ModelSelection, SessionResponseDto, SessionTrailStepDto } from './execution.dto';
 import { getCurrentState, startSession as engineStartSession, submitAction as engineSubmitAction } from '../state-machine/state-machine';
+import { ExecutionError } from '../state-machine/types';
 import type { RenderedState, SessionState, ExecutionAction, TroubleshootingFlow } from '../state-machine/types';
 
 
@@ -26,6 +27,27 @@ const sessionNotCompleted = (sessionId: string) =>
 
 const outcomeAlreadySubmitted = (sessionId: string) =>
   new ApiError(409, 'OUTCOME_ALREADY_SUBMITTED', `session '${sessionId}' บันทึกผลลัพธ์ไปแล้ว ส่งซ้ำไม่ได้`);
+
+/**
+ * ขั้นที่ผ่านมาแล้วของ session สำหรับสร้างเส้นทางเดินตอนกลับมาทำต่อ (render อย่างเดียว ไม่เดินผัง)
+ * ผังถูกแก้จนหา state เก่าไม่เจอ → [] (แสดงเส้นทางเดิมไม่ได้ แต่เดินต่อจาก state ปัจจุบันได้ตามปกติ)
+ */
+function buildTrail(session: SessionState, flow: TroubleshootingFlow): SessionTrailStepDto[] {
+  try {
+    const trail: SessionTrailStepDto[] = [];
+    for (const entry of session.history) {
+      if (!entry.action) return [];
+      trail.push({
+        state: getCurrentState({ ...session, currentStateId: entry.stateId }, flow),
+        action: entry.action,
+      });
+    }
+    return trail;
+  } catch (error) {
+    if (error instanceof ExecutionError) return [];
+    throw error;
+  }
+}
 
 export class ExecutionService {
   constructor(
@@ -71,24 +93,26 @@ export class ExecutionService {
   }
 
   /** GET /execution/sessions/:id */
-  async getSession(sessionId: string, requesterUserId?: string): Promise<SessionResponseDto> {
-    await this.authorize(sessionId, requesterUserId);
+  async getSession(sessionId: string, owner: SessionOwner): Promise<SessionResponseDto> {
+    await this.authorize(sessionId, owner);
     const session = await this.requireSession(sessionId);
     const flow = this.requireFlow(session.flowId);
 
     const state = getCurrentState(session, flow);
     const outcome = session.status === 'completed' ? await this.sessionStore.findOutcome(sessionId) : null;
+    const modelSelection = await this.sessionStore.findModelSelection(sessionId);
 
-    return this.toResponse(session, state, flow, outcome);
+    const response = await this.toResponse(session, state, flow, outcome);
+    return { ...response, trail: buildTrail(session, flow), modelSelection };
   }
 
   /** POST /execution/sessions/:id/actions */
   async submitAction(
     sessionId: string,
     action: ExecutionAction,
-    requesterUserId?: string,
+    owner: SessionOwner,
   ): Promise<SessionResponseDto> {
-    await this.authorize(sessionId, requesterUserId);
+    await this.authorize(sessionId, owner);
     const session = await this.requireSession(sessionId);
     const flow = this.requireFlow(session.flowId);
 
@@ -114,9 +138,9 @@ export class ExecutionService {
   async submitOutcome(
     sessionId: string,
     text: string,
-    requesterUserId?: string,
+    owner: SessionOwner,
   ): Promise<SessionResponseDto> {
-    await this.authorize(sessionId, requesterUserId);
+    await this.authorize(sessionId, owner);
     const session = await this.requireSession(sessionId);
     const flow = this.requireFlow(session.flowId);
 
@@ -133,9 +157,9 @@ export class ExecutionService {
     return this.toResponse(session, state, flow, text);
   }
 
-  private async authorize(sessionId: string, requesterUserId?: string): Promise<void> {
-    const ownerUserId = await this.sessionStore.findUserId(sessionId);
-    if (ownerUserId !== null && ownerUserId !== requesterUserId) {
+  // ไม่ใช่เจ้าของ = 404 เหมือน session ไม่มีอยู่ (ไม่เปิดเผยว่ามีจริง)
+  private async authorize(sessionId: string, owner: SessionOwner): Promise<void> {
+    if (!(await this.sessionStore.isOwnedBy(sessionId, owner))) {
       throw sessionNotFound(sessionId);
     }
   }

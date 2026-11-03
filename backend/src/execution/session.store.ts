@@ -5,7 +5,8 @@ import type { SessionOwner } from '../auth/session-owner';
 import type { ModelSelection } from './execution.dto';
 import type { SessionHistoryEntry, SessionState, SessionStatus, ExecutionAction } from '../state-machine/types';
 
-const SESSION_TTL_HOURS = 24;
+// session ที่ยังไม่จบเก็บ 7 วัน (ต่ออายุทุกขั้น) เพื่อให้กลับมาทำต่อจากหน้าประวัติได้
+const SESSION_TTL_HOURS = 7 * 24;
 const COMPLETED_SESSION_TTL_DAYS = 90;
 const COMPLETED_SESSION_TTL_HOURS = COMPLETED_SESSION_TTL_DAYS * 24;
 
@@ -28,8 +29,12 @@ interface OutcomeRow extends RowDataPacket {
   outcome_text: string | null;
 }
 
+interface ModelSelectionRow extends RowDataPacket {
+  model_selection: ModelSelection | null;
+}
+
 interface OwnerRow extends RowDataPacket {
-  user_id: string | null;
+  owned: number;
 }
 
 export class SessionStore {
@@ -140,14 +145,20 @@ export class SessionStore {
       conn.release();
     }
   }
-  async findUserId(sessionId: string): Promise<string | null> {
+
+  /**
+   * session นี้เป็นของ owner นี้หรือไม่ (ใช้ ownerWhere ตัวเดียวกับหน้าประวัติ)
+   * ไม่ใช่เจ้าของ / session ไม่มีเจ้าของ / ไม่มี / หมดอายุ → false ทุกกรณี
+   */
+  async isOwnedBy(sessionId: string, owner: SessionOwner): Promise<boolean> {
+    const where = ownerWhere(owner);
     const [rows] = await this.pool.query<OwnerRow[]>(
-      `SELECT user_id
+      `SELECT 1 AS owned
          FROM sessions
-        WHERE session_id = ? AND expires_at > NOW()`,
-      [sessionId],
+        WHERE session_id = ? AND ${where.sql} AND expires_at > NOW()`,
+      [sessionId, ...where.params],
     );
-    return rows[0]?.user_id ?? null;
+    return rows.length === 1;
   }
 
   /**
@@ -179,6 +190,16 @@ export class SessionStore {
       [text, sessionId],
     );
     return result.affectedRows === 1;
+  }
+
+  async findModelSelection(sessionId: string): Promise<ModelSelection | null> {
+    const [rows] = await this.pool.query<ModelSelectionRow[]>(
+      `SELECT model_selection
+         FROM sessions
+        WHERE session_id = ? AND expires_at > NOW()`,
+      [sessionId],
+    );
+    return rows[0]?.model_selection ?? null;
   }
 
   async findOutcome(sessionId: string): Promise<string | null> {

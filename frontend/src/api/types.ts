@@ -38,6 +38,12 @@ export interface SymptomSearchResponse {
   matches: SymptomMatch[]
 }
 
+/** ขั้นที่ผ่านมาแล้ว 1 ขั้น (ตรงกับ SessionTrailStepDto ของ backend) */
+export interface SessionTrailStep {
+  state: RenderedState
+  action: ExecutionAction
+}
+
 export interface SessionResponse {
   sessionId: string
   flowId: string
@@ -47,6 +53,10 @@ export interface SessionResponse {
   confidence?: number | null
   outcome?: string | null
   displayText?: string | null
+  /** มีเฉพาะผลของ GET /execution/sessions/:id (ใช้สร้างเส้นทางเดิมตอนกลับมาทำต่อ) */
+  trail?: SessionTrailStep[]
+  /** มีเฉพาะผลของ GET · null = session ไม่ผ่านหน้าเลือกรุ่น */
+  modelSelection?: ModelSelection | null
 }
 
 export interface EquipmentItem {
@@ -78,6 +88,8 @@ export interface HistoryListItem {
   sessionId: string
   flowId: string
   startedAt: string
+  /** in_progress = ยังเดินผังไม่จบ (กดทำต่อได้) · completed = จบแล้ว */
+  status: SessionStatus
   outcomeKind: OutcomeKind | null
   flow: HistoryFlowInfo | null
 }

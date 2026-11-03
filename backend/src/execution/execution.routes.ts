@@ -25,19 +25,22 @@ export function executionRoutes(execution: ExecutionService, optionalAuth: Reque
   );
 
   router.get('/sessions/:id',optionalAuth,asyncRoute(async (request, response) => {
-      response.json(await execution.getSession(request.params.id, currentUser(request)?.sub));
+      const owner = resolveRequiredOwner(currentUser(request), request.headers['x-client-id']);
+      response.json(await execution.getSession(request.params.id, owner));
     }),
   );
 
   router.post('/sessions/:id/actions',optionalAuth,asyncRoute(async (request, response) => {
       const action = parseExecutionAction(request.body);
-      response.status(201).json(await execution.submitAction(request.params.id, action, currentUser(request)?.sub));
+      const owner = resolveRequiredOwner(currentUser(request), request.headers['x-client-id']);
+      response.status(201).json(await execution.submitAction(request.params.id, action, owner));
     }),
   );
 
   router.post('/sessions/:id/outcome',optionalAuth,asyncRoute(async (request, response) => {
       const { text } = parseOutcomeBody(request.body);
-      response.status(200).json(await execution.submitOutcome(request.params.id, text, currentUser(request)?.sub));
+      const owner = resolveRequiredOwner(currentUser(request), request.headers['x-client-id']);
+      response.status(200).json(await execution.submitOutcome(request.params.id, text, owner));
     }),
   );
 

@@ -11,6 +11,9 @@ export const STATUS_BADGE_CLASSES: Record<OutcomeKind, string> = {
   handoff_unknown: 'border-accent/40 text-accent',
 }
 
+export const IN_PROGRESS_LABEL = 'กำลังดำเนินการ'
+export const IN_PROGRESS_BADGE_CLASSES = 'border-accent bg-accent/10 text-accent'
+
 const dateTimeFormatter = new Intl.DateTimeFormat('th-TH', { dateStyle: 'medium', timeStyle: 'short' })
 
 export function formatStartedAt(iso: string): string {

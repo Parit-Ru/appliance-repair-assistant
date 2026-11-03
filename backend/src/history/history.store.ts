@@ -1,7 +1,7 @@
 import type { Pool, ResultSetHeader, RowDataPacket } from 'mysql2/promise';
 import { ownerWhere } from '../auth/session-owner';
 import type { SessionOwner } from '../auth/session-owner';
-import type { SessionHistoryEntry } from '../state-machine/types';
+import type { SessionHistoryEntry, SessionStatus } from '../state-machine/types';
 import { parseVariables, rowToHistoryEntry } from '../execution/session.store';
 import type { HistoryRow } from '../execution/session.store';
 import type { ModelSelection } from '../execution/execution.dto';
@@ -13,6 +13,7 @@ interface SummaryRow extends RowDataPacket {
   session_id: string;
   flow_id: string;
   current_state_id: string;
+  status: SessionStatus;
   created_epoch: string | number;
 }
 
@@ -28,14 +29,15 @@ interface FeedbackRow extends RowDataPacket {
   comment: string | null;
 }
 
-export interface CompletedSessionSummary {
+export interface SessionSummary {
   sessionId: string;
   flowId: string;
   currentStateId: string;
+  status: SessionStatus;
   startedAtEpoch: number;
 }
 
-export interface CompletedSession extends CompletedSessionSummary {
+export interface CompletedSession extends SessionSummary {
   variables: Record<string, string>;
   confidence: number | null;
   modelSelection: ModelSelection | null;
@@ -45,14 +47,15 @@ export interface CompletedSession extends CompletedSessionSummary {
 export class HistoryStore {
   constructor(private readonly pool: Pool) {}
 
-  async listCompleted(owner: SessionOwner): Promise<CompletedSessionSummary[]> {
+  // รวมทั้ง in_progress และ completed · in_progress ขึ้นก่อน แล้วใหม่สุดก่อน (ให้ของที่ค้างอยู่เห็นก่อนโดยไม่ต้องเปิดหน้า 2)
+  async listSessions(owner: SessionOwner): Promise<SessionSummary[]> {
     const where = ownerWhere(owner);
     const [rows] = await this.pool.query<SummaryRow[]>(
-      `SELECT session_id, flow_id, current_state_id,
+      `SELECT session_id, flow_id, current_state_id, status,
               UNIX_TIMESTAMP(created_at) AS created_epoch
          FROM sessions
-        WHERE ${where.sql} AND status = 'completed' AND expires_at > NOW()
-        ORDER BY created_at DESC
+        WHERE ${where.sql} AND expires_at > NOW()
+        ORDER BY (status = 'in_progress') DESC, created_at DESC
         LIMIT ?`,
       [...where.params, MAX_HISTORY_ROWS],
     );
@@ -62,7 +65,7 @@ export class HistoryStore {
   async findCompleted(sessionId: string, owner: SessionOwner): Promise<CompletedSession | undefined> {
     const where = ownerWhere(owner);
     const [rows] = await this.pool.query<DetailRow[]>(
-      `SELECT session_id, flow_id, current_state_id, variables, confidence,
+      `SELECT session_id, flow_id, current_state_id, status, variables, confidence,
               model_selection, outcome_text,
               UNIX_TIMESTAMP(created_at) AS created_epoch
          FROM sessions
@@ -92,11 +95,12 @@ export class HistoryStore {
     return rows.map(rowToHistoryEntry);
   }
 
-  async deleteCompleted(sessionId: string, owner: SessionOwner): Promise<boolean> {
+  // ลบได้ทุกสถานะ (รวมที่ยังไม่จบ) แต่ต้องเป็นของ owner นี้
+  async deleteSession(sessionId: string, owner: SessionOwner): Promise<boolean> {
     const where = ownerWhere(owner);
     const [result] = await this.pool.query<ResultSetHeader>(
       `DELETE FROM sessions
-        WHERE session_id = ? AND ${where.sql} AND status = 'completed' AND expires_at > NOW()`,
+        WHERE session_id = ? AND ${where.sql} AND expires_at > NOW()`,
       [sessionId, ...where.params],
     );
     return result.affectedRows === 1;
@@ -123,11 +127,12 @@ export class HistoryStore {
   }
 }
 
-function toSummary(row: SummaryRow): CompletedSessionSummary {
+function toSummary(row: SummaryRow): SessionSummary {
   return {
     sessionId: row.session_id,
     flowId: row.flow_id,
     currentStateId: row.current_state_id,
+    status: row.status,
     startedAtEpoch: Number(row.created_epoch),
   };
 }

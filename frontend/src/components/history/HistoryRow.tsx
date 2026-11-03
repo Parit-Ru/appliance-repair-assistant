@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useDeleteHistory } from '../../api/queries'
 import type { HistoryListItem } from '../../api/types'
-import { formatStartedAt, historyTitle, STATUS_BADGE_CLASSES } from '../../lib/historyView'
+import { formatStartedAt, historyTitle, IN_PROGRESS_BADGE_CLASSES, IN_PROGRESS_LABEL, STATUS_BADGE_CLASSES } from '../../lib/historyView'
 import { DEVICE_CATEGORY_LABELS, HISTORY_STATUS_LABELS } from '../../lib/labels'
 import { manualTitle } from '../../lib/models'
 import { Button } from '../ui/Button'
@@ -18,12 +18,15 @@ export function HistoryRow({ item }: HistoryRowProps) {
   const remove = useDeleteHistory()
   const { flow, outcomeKind } = item
   const title = historyTitle(flow)
+  const isInProgress = item.status === 'in_progress'
+  // ที่ยังไม่จบกลับไปหน้าเดินผัง (หน้ารายละเอียดประวัติมีเฉพาะที่จบแล้ว)
+  const href = isInProgress ? `/session/${item.sessionId}` : `/history/${item.sessionId}`
 
   return (
     <li className="border-b border-line py-3">
       <div className="flex items-start gap-2">
         <Link
-          to={`/history/${item.sessionId}`}
+          to={href}
           className="flex min-h-12 min-w-0 flex-1 items-center gap-3 rounded-lg px-1 py-1 transition hover:bg-panel focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
         >
           <span className="min-w-0 flex-1">
@@ -38,13 +41,19 @@ export function HistoryRow({ item }: HistoryRowProps) {
 
             <span className="mt-1 flex flex-wrap items-center gap-2 text-sm text-ink-faint">
               <time dateTime={item.startedAt}>{formatStartedAt(item.startedAt)}</time>
-              {outcomeKind !== null && (
+              {isInProgress && (
+                <span className={`rounded-full border px-2 py-0.5 text-xs font-semibold ${IN_PROGRESS_BADGE_CLASSES}`}>
+                  {IN_PROGRESS_LABEL}
+                </span>
+              )}
+              {!isInProgress && outcomeKind !== null && (
                 <span className={`rounded-full border px-2 py-0.5 text-xs font-semibold ${STATUS_BADGE_CLASSES[outcomeKind]}`}>
                   {HISTORY_STATUS_LABELS[outcomeKind]}
                 </span>
               )}
             </span>
           </span>
+          {isInProgress && <span className="shrink-0 text-sm font-semibold text-accent">ทำต่อ</span>}
           <Icon name="chevron-right" className="h-5 w-5 shrink-0 text-ink-faint" />
         </Link>
 

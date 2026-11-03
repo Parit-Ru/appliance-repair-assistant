@@ -119,7 +119,7 @@
 **แบบ B (หลังสอบ) — แยกระดับที่มาเป็นข้อมูลแบบมีโครงสร้าง**
 - เพิ่มฟิลด์ เช่น `provenance: 'manual' | 'manual_other_page' | 'author'` และ `safety_warning_provenance` ใน JSON 21 ไฟล์ + migration เพิ่มคอลัมน์ + seed ใหม่ แล้วแสดงป้ายแยก "คำเตือนนี้ผู้พัฒนาเพิ่มตามหลักความปลอดภัยทั่วไป" ตรงกล่องเตือนแดง
 - ไฟล์: 21 ไฟล์ใน `data/manuals/`, migration ใหม่ `007_…`, `seed-graphs.js`, ไฟล์ backend 3 ไฟล์ข้างบน, `SafetyGateStep.tsx`, `ReferenceLine.tsx`, `docs/reference/DATABASE.md`
-- **เวลา: 6–8 ชม.** + ต้อง seed DB ใหม่ → ไม่แนะนำก่อนวันที่ 2 พ.ย.
+- **เวลา: 6–8 ชม.** + ต้อง seed DB ใหม่ → ไม่แนะนำก่อนวันสอบ 7 พ.ย.
 
 ---
 

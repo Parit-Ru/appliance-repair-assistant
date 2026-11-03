@@ -37,14 +37,14 @@ export function HistoryPage() {
         <h1 className="text-2xl font-semibold">ประวัติการซ่อม</h1>
         {isLoggedIn ? (
           <>
-            <p className="text-ink-soft">การตรวจอาการที่จบแล้วในบัญชีของคุณ เปิดดูผลย้อนหลังหรือตรวจซ้ำได้</p>
+            <p className="text-ink-soft">การตรวจอาการในบัญชีของคุณ เปิดดูผลย้อนหลัง ตรวจซ้ำ หรือกลับมาทำต่อที่ค้างอยู่ได้</p>
             <p className="text-sm text-ink-faint">
               ประวัติผูกกับบัญชีและเก็บไว้ {HISTORY_RETENTION_DAYS} วัน เข้าสู่ระบบจากเครื่องอื่นก็เห็นประวัติเดียวกัน
             </p>
           </>
         ) : (
           <>
-            <p className="text-ink-soft">การตรวจอาการที่จบแล้วของเบราว์เซอร์เครื่องนี้ เปิดดูผลย้อนหลังหรือตรวจซ้ำได้</p>
+            <p className="text-ink-soft">การตรวจอาการของเบราว์เซอร์เครื่องนี้ เปิดดูผลย้อนหลัง ตรวจซ้ำ หรือกลับมาทำต่อที่ค้างอยู่ได้</p>
             <p className="text-sm text-ink-faint">
               ประวัติผูกกับเบราว์เซอร์เครื่องนี้และเก็บไว้ {HISTORY_RETENTION_DAYS} วัน ถ้าล้างข้อมูลเบราว์เซอร์หรือเปลี่ยนเครื่องจะไม่เห็นประวัติเดิม
             </p>
@@ -75,7 +75,7 @@ export function HistoryPage() {
       {data !== undefined && data.total === 0 && (
         <div className="space-y-3 rounded-xl border border-line bg-panel p-5">
           <p className="font-semibold">ยังไม่มีประวัติการซ่อม</p>
-          <p className="text-ink-soft">เมื่อตรวจอาการจนจบ รายการจะมาอยู่ที่นี่</p>
+          <p className="text-ink-soft">เมื่อเริ่มตรวจอาการ รายการจะมาอยู่ที่นี่ แม้ยังตรวจไม่จบก็กลับมาทำต่อได้</p>
           <p>
             <Link to="/devices" className={LINK_CLASSES}>
               เลือกเครื่องที่มีปัญหา

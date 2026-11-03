@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { useLocation, useNavigate, useParams } from 'react-router-dom'
-import type { ExecutionAction } from '../api/types'
+import type { ExecutionAction, ModelSelection } from '../api/types'
 import { useAbandonSession, useFlows, useManuals, useSession, useStartSession, useSubmitAction, useSubmitOutcome } from '../api/queries'
 import { EquipmentPanel } from '../components/EquipmentPanel'
 import { OutcomeForm } from '../components/OutcomeForm'
@@ -34,14 +34,28 @@ function SessionView({ sessionId }: { sessionId: string }) {
   const restart = useStartSession()
   const manuals = useManuals()
   const location = useLocation()
-  const modelSelection = modelSelectionFromState(location.state)
+  // ค่าจาก navigate state ก่อน · ไม่มี (เช่น เปิดจากหน้าประวัติ) ใช้ค่าที่ session เก็บไว้ในเซิร์ฟเวอร์
+  const [savedModelSelection, setSavedModelSelection] = useState<ModelSelection | undefined>(undefined)
+  const modelSelection = modelSelectionFromState(location.state) ?? savedModelSelection
   const summary = flows.data?.find((flow) => flow.flowId === session.data?.flowId)
   const otherSymptomPath = otherSymptomsPath(summary?.manualId, modelSelection)
 
   const [trail, setTrail] = useState<TrailEntry[]>([])
+  // ขั้นที่โหลดมาจากเซิร์ฟเวอร์ตอนกลับมาทำต่อ (ไม่ต้องเลื่อนหน้า/โฟกัสเหมือนตอนกดผ่านขั้นเอง)
+  const [loadedTrailLength, setLoadedTrailLength] = useState(0)
+  const [isTrailLoaded, setIsTrailLoaded] = useState(false)
   const isSendingRef = useRef(false)
   const isSavingOutcomeRef = useRef(false)
   const stepRef = useRef<HTMLDivElement>(null)
+
+  // อ่าน trail/modelSelection จากผลของ GET ครั้งแรกครั้งเดียว (ผลของ POST ไม่มีสองค่านี้ และเขียนทับ cache ของ GET)
+  // ตั้งทับ trail ทั้งหมด ไม่ต่อท้าย เพื่อไม่ให้ขั้นซ้ำถ้าผู้ใช้กดไปก่อนที่ข้อมูลจะมา
+  if (!isTrailLoaded && session.data?.trail !== undefined) {
+    setIsTrailLoaded(true)
+    setLoadedTrailLength(session.data.trail.length)
+    setTrail(session.data.trail.map((step) => toTrailEntry(step.state, step.action)))
+    setSavedModelSelection(session.data.modelSelection ?? undefined)
+  }
 
   function handleAction(action: ExecutionAction) {
     if (isSendingRef.current || session.data === undefined) return
@@ -88,10 +102,10 @@ function SessionView({ sessionId }: { sessionId: string }) {
   }
 
   useEffect(() => {
-    if (trail.length === 0 || stepRef.current === null) return
+    if (trail.length <= loadedTrailLength || stepRef.current === null) return
     stepRef.current.scrollIntoView({ block: 'nearest', behavior: 'smooth' })
     stepRef.current.querySelector<HTMLElement>('h2[tabindex="-1"]')?.focus({ preventScroll: true })
-  }, [trail.length])
+  }, [trail.length, loadedTrailLength])
 
   const isWaiting = session.isPending || submit.isPending || restart.isPending || saveOutcome.isPending
   const slowNotice = useSlowWait(isWaiting) && <SlowServerNotice />

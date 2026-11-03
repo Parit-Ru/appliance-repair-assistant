@@ -48,7 +48,9 @@ export async function searchSymptoms(query: string, manualId?: string): Promise<
 }
 
 export async function getSession(sessionId: string): Promise<SessionResponse> {
-  return request<SessionResponse>(`/execution/sessions/${encodeURIComponent(sessionId)}`)
+  return request<SessionResponse>(`/execution/sessions/${encodeURIComponent(sessionId)}`, {
+    headers: ownerHeaders(),
+  })
 }
 
 export async function submitAction(
@@ -57,14 +59,14 @@ export async function submitAction(
 ): Promise<SessionResponse> {
   return request<SessionResponse>(
     `/execution/sessions/${encodeURIComponent(sessionId)}/actions`,
-    { method: 'POST', body: action },
+    { method: 'POST', body: action, headers: ownerHeaders() },
   )
 }
 
 export async function submitOutcome(sessionId: string, text: string): Promise<SessionResponse> {
   return request<SessionResponse>(
     `/execution/sessions/${encodeURIComponent(sessionId)}/outcome`,
-    { method: 'POST', body: { text } },
+    { method: 'POST', body: { text }, headers: ownerHeaders() },
   )
 }
 

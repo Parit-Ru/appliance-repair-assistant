@@ -65,6 +65,9 @@ export interface HistoryListItemDto {
   sessionId: string;
   flowId: string;
   startedAt: string;
+  /** in_progress = ยังเดินผังไม่จบ (ทำต่อได้) · completed = ถึงสถานะสิ้นสุดแล้ว */
+  status: 'in_progress' | 'completed';
+  /** null เมื่อยังไม่จบ หรือผังถูกเปลี่ยนจนหาสถานะไม่เจอ */
   outcomeKind: OutcomeKind | null;
   flow: HistoryFlowInfo | null;
 }
