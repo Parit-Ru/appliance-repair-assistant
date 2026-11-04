@@ -71,15 +71,18 @@ function HistoryDetailView({ sessionId }: { sessionId: string }) {
     remove.mutate(sessionId, { onSuccess: () => navigate('/history', { replace: true }) })
   }
 
+  // An admin deleted this flow: the history is still readable, but the symptom cannot be started again
+  const canRestart = flow !== null && flow.active
+
   function handleRestart() {
-    if (flow === null) return
+    if (flow === null || !flow.active) return
     start(data.flowId, { manualId: flow.manualId, modelSelection: data.modelSelection ?? undefined })
   }
 
   // ไม่ทราบว่ามาจากหน้าเลือกรุ่น (modelSelection null)  กลับรายการทุกรุ่น ไม่พาไปหน้าของรุ่นที่จะถูกบันทึกเป็น 'selected'
   // ตรงกับที่หน้าตรวจอาการทำ (otherSymptomsPath) ป้ายจึงไม่อ้างว่า ของรุ่นนี ในกรณีนั้น
-  const isModelScoped = data.modelSelection !== null && flow !== null
-  const otherSymptomPath = otherSymptomsPath(flow?.manualId, data.modelSelection ?? undefined)
+  const isModelScoped = data.modelSelection !== null && canRestart
+  const otherSymptomPath = otherSymptomsPath(canRestart ? flow.manualId : undefined, data.modelSelection ?? undefined)
 
   return (
     <div className="space-y-6">
@@ -184,10 +187,13 @@ function HistoryDetailView({ sessionId }: { sessionId: string }) {
       {startError !== null && <ErrorNotice error={startError} />}
 
       <div className="space-y-3">
-        {flow !== null && (
+        {canRestart && (
           <Button variant="primary" className="w-full" onClick={handleRestart} isLoading={isStarting}>
             ตรวจอาการนี้อีกครั้ง
           </Button>
+        )}
+        {flow !== null && !flow.active && (
+          <p className="text-sm text-ink-soft">อาการนี้ถูกถอดออกจากรายการแล้ว จึงตรวจซ้ำไม่ได้ ประวัติของคุณยังอยู่ครบ</p>
         )}
         <Button variant="secondary" className="w-full" onClick={() => navigate(otherSymptomPath)} disabled={isStarting}>
           {isModelScoped ? 'ตรวจอาการอื่นของรุ่นนี้' : 'ตรวจอาการอื่น'}

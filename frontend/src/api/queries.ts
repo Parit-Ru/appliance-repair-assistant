@@ -1,10 +1,11 @@
 import { keepPreviousData, queryOptions, useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { useIdentity } from '../lib/authContext'
 import { getAdminFeedback, getAdminSummary } from './admin'
+import { deleteAdminFlow, getAdminFlow, listAdminFlows, restoreAdminFlow, updateAdminFlow } from './flows'
 import { DRAFT_POLL_MS, getDraft, listDrafts, publishDraft, rejectDraft, updateDraft, uploadDraft } from './drafts'
 import { deleteHistory, getHistory, listHistory, submitFeedback } from './history'
 import { abandonSession, getHealth, getSession, listFlows, listManuals, searchSymptoms, startSession, submitAction, submitOutcome } from './execution'
-import type { AdminFeedbackParams, DraftDetail, DraftFlow, DraftUploadInput, HistoryFeedback, ModelSelection, SessionResponse, SymptomSearchResponse, ExecutionAction } from './types'
+import type { AdminFeedbackParams, AdminFlowListParams, AdminFlowStateEdit, DraftDetail, DraftFlow, DraftUploadInput, HistoryFeedback, ModelSelection, SessionResponse, SymptomSearchResponse, ExecutionAction } from './types'
 
 const sessionQuery = (sessionId: string, identity = 'guest') =>
   queryOptions({
@@ -166,6 +167,69 @@ export function useSubmitFeedback(sessionId: string) {
         previous === undefined ? previous : { ...previous, feedback: saved },
       )
     },
+  })
+}
+
+/** Published flows (admin): every key starts with ['admin', identity, 'flows'] so one invalidate covers list and detail */
+const adminFlowQuery = (flowId: string, identity = 'guest') =>
+  queryOptions({
+    queryKey: ['admin', identity, 'flows', 'detail', flowId] as const,
+    queryFn: () => getAdminFlow(flowId),
+  })
+
+export function useAdminFlows(params: AdminFlowListParams) {
+  const identity = useIdentity()
+  return useQuery({
+    queryKey: ['admin', identity, 'flows', 'list', params],
+    queryFn: () => listAdminFlows(params),
+    placeholderData: keepPreviousData,
+  })
+}
+
+export function useAdminFlow(flowId: string) {
+  const identity = useIdentity()
+  return useQuery(adminFlowQuery(flowId, identity))
+}
+
+export function useUpdateAdminFlow(flowId: string) {
+  const queryClient = useQueryClient()
+  const identity = useIdentity()
+  return useMutation({
+    mutationFn: ({ expectedRevision, states }: { expectedRevision: number; states: AdminFlowStateEdit[] }) =>
+      updateAdminFlow(flowId, expectedRevision, states),
+    onSuccess: (result) => {
+      queryClient.setQueryData(adminFlowQuery(flowId, identity).queryKey, result.detail)
+      void queryClient.invalidateQueries({ queryKey: ['admin', identity, 'flows', 'list'] })
+      // The user-facing lists show the symptom names only, so they stay valid; the step texts are read per session
+    },
+  })
+}
+
+/** Delete / restore change what users can pick, so the user-facing lists are refreshed too (they are cached forever) */
+function useFlowVisibilityChange(flowId: string) {
+  const queryClient = useQueryClient()
+  const identity = useIdentity()
+  return () => {
+    void queryClient.invalidateQueries({ queryKey: ['admin', identity, 'flows'] })
+    void queryClient.invalidateQueries({ queryKey: ['flows'] })
+    void queryClient.invalidateQueries({ queryKey: ['manuals'] })
+    void queryClient.invalidateQueries({ queryKey: adminFlowQuery(flowId, identity).queryKey })
+  }
+}
+
+export function useDeleteAdminFlow(flowId: string) {
+  const refresh = useFlowVisibilityChange(flowId)
+  return useMutation({
+    mutationFn: () => deleteAdminFlow(flowId),
+    onSettled: refresh,
+  })
+}
+
+export function useRestoreAdminFlow(flowId: string) {
+  const refresh = useFlowVisibilityChange(flowId)
+  return useMutation({
+    mutationFn: () => restoreAdminFlow(flowId),
+    onSettled: refresh,
   })
 }
 

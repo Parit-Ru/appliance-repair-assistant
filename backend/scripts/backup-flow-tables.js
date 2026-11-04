@@ -16,7 +16,7 @@ const path = require('node:path');
 const mysql = require('mysql2/promise');
 
 /** ลำดับตาม FK: manuals → flows → states → state_transitions (กู้คืนต้องเรียงแบบนี้) */
-const TABLES = ['manuals', 'flows', 'states', 'state_transitions', 'flow_drafts'];
+const TABLES = ['manuals', 'flows', 'states', 'state_transitions', 'flow_drafts', 'flow_revisions'];
 
 function connectionConfig() {
   const required = ['DB_HOST', 'DB_PORT', 'DB_USER', 'DB_NAME'];

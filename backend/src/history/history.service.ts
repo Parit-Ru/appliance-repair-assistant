@@ -83,7 +83,7 @@ export class HistoryService {
   }
 
   private manualsById(): Map<string, ManualSummary> {
-    return new Map(this.flowRepository.listManuals().map((manual) => [manual.manualId, manual]));
+    return new Map(this.flowRepository.listManuals(true).map((manual) => [manual.manualId, manual]));
   }
 
   private toListItem(summary: SessionSummary, manuals: Map<string, ManualSummary>): HistoryListItemDto {
@@ -96,7 +96,7 @@ export class HistoryService {
       startedAt: isoFromEpoch(summary.startedAtEpoch),
       status: summary.status,
       outcomeKind,
-      flow: flowInfoOf(flow, manuals),
+      flow: flowInfoOf(flow, manuals, flow ? this.flowRepository.isActive(flow.flow_id) : false),
     };
   }
 
@@ -112,7 +112,7 @@ export class HistoryService {
       startedAt: isoFromEpoch(session.startedAtEpoch),
       modelSelection: session.modelSelection,
       confidence: session.confidence,
-      flow: flowInfoOf(flow, this.manualsById()),
+      flow: flowInfoOf(flow, this.manualsById(), flow ? this.flowRepository.isActive(flow.flow_id) : false),
       outcome: session.outcomeText,
       feedback,
     };
@@ -164,6 +164,7 @@ export class HistoryService {
 function flowInfoOf(
   flow: TroubleshootingFlow | undefined,
   manuals: Map<string, ManualSummary>,
+  active: boolean,
 ): HistoryFlowInfo | null {
   if (!flow) return null;
   return {
@@ -174,6 +175,7 @@ function flowInfoOf(
     brand: flow.brand,
     modelPattern: flow.model_pattern,
     displayName: manuals.get(flow.manual_id)?.displayName,
+    active,
   };
 }
 

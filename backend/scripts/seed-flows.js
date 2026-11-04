@@ -219,6 +219,30 @@ async function seedManual(conn, manual) {
   return { flows: manual.flows.length, states: stateCount, transitions: transitionCount };
 }
 
+// Refuse to overwrite flows that an admin has edited or deleted (migration 007) unless --force is given.
+// seedManual deletes and re-inserts every state of the flows in the file, so edits made in the admin UI would be lost.
+// PowerShell 5.1 strips "--", so `npm run seed -- --force` arrives as npm_config_force (same case as run-migrations.js).
+async function guardManagedFlows(conn, manual, force) {
+  const [columns] = await conn.query("SHOW COLUMNS FROM flows LIKE 'revision'");
+  if (columns.length === 0) return; // migration 007 not applied: nothing can be edited yet
+
+  const flowIds = manual.flows.map((flow) => flow.flow_id);
+  if (flowIds.length === 0) return;
+  const [rows] = await conn.query(
+    'SELECT flow_id, revision, deleted_at FROM flows WHERE flow_id IN (?) AND (revision > 0 OR deleted_at IS NOT NULL)',
+    [flowIds],
+  );
+  if (rows.length === 0) return;
+
+  const lines = rows.map((r) => `  - ${r.flow_id}${r.revision > 0 ? ` (แก้แล้ว ${r.revision} ครั้ง)` : ''}${r.deleted_at ? ' (ถูกลบ)' : ''}`);
+  if (!force) {
+    console.error(`\nพบ ${rows.length} ผังที่ผู้ดูแลแก้หรือลบไว้ การ seed จะเขียนทับการแก้เหล่านั้น:\n${lines.join('\n')}`);
+    console.error('\nยกเลิกการนำเข้า · ถ้าต้องการเขียนทับจริง ให้ใส่ --force');
+    process.exit(1);
+  }
+  console.warn(`\nคำเตือน: --force เขียนทับ ${rows.length} ผังที่ผู้ดูแลแก้หรือลบไว้:\n${lines.join('\n')}`);
+}
+
 async function report(conn) {
   const [[counts]] = await conn.query(`
     SELECT
@@ -251,6 +275,7 @@ async function report(conn) {
 async function main() {
   const args = process.argv.slice(2).filter((a) => !a.startsWith('--'));
   const verifyOnly = process.argv.includes('--verify');
+  const force = process.argv.includes('--force') || process.env.npm_config_force === 'true';
   const manualPath = args[0] ? path.resolve(args[0]) : DEFAULT_MANUAL;
 
   if (!fs.existsSync(manualPath)) {
@@ -281,6 +306,7 @@ async function main() {
   const conn = await mysql.createConnection(connectionConfig());
 
   try {
+    await guardManagedFlows(conn, manual, force);
     await conn.beginTransaction();
 
     const result = await seedManual(conn, manual);

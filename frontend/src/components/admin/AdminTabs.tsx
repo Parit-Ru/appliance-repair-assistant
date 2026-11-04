@@ -5,6 +5,7 @@ const TABS = [
   { to: '/admin/analytics', label: 'สถิติภาพรวม' },
   { to: '/admin/feedback', label: 'ความเห็นผู้ใช้' },
   { to: '/admin/drafts', label: 'ร่างแผนผังขั้นตอน' },
+  { to: '/admin/flows', label: 'แผนผังที่เผยแพร่' },
 ]
 
 export function AdminTabs() {

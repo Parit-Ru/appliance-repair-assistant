@@ -111,12 +111,14 @@ export class SymptomSearchService {
     try {
       const wanted = new Set(flowIds);
       const flows: SymptomSource[] = [];
-      const info = new Map(this.flowInfo);
+      const infoUpdates = new Map<string, FlowInfo>();
       for (const id of wanted) {
+        // deleted flows (kept in memory for history) must never enter the index
+        if (!this.flows.isActive(id)) continue;
         const flow = this.flows.findById(id);
         if (!flow) continue;
         flows.push(flow);
-        info.set(flow.flow_id, {
+        infoUpdates.set(flow.flow_id, {
           entrySymptom: flow.entry_symptom,
           entrySymptomTh: flow.entry_symptom_th,
           deviceCategory: flow.device_category,
@@ -138,8 +140,11 @@ export class SymptomSearchService {
         added.push({ ...item, vector });
       }
 
+      // No await between reading and writing the index/flowInfo below, and flowInfo is updated in place:
+      // two admins saving at the same time must not overwrite each other's entries with a stale copy
       this.index = [...this.index.filter((item) => !wanted.has(item.flowId)), ...added];
-      this.flowInfo = info;
+      for (const [id, entry] of infoUpdates) this.flowInfo.set(id, entry);
+      for (const id of wanted) if (!infoUpdates.has(id)) this.flowInfo.delete(id);
       this.logger.log(`เพิ่มผังเข้าดัชนีค้นหา ${flows.length} ผัง (${added.length} ข้อความ)`);
       return { indexed: true, addedTexts: added.length };
     } catch (err) {
@@ -147,6 +152,19 @@ export class SymptomSearchService {
       this.logger.error(`เพิ่มผังเข้าดัชนีค้นหาไม่สำเร็จ: ${reason}`);
       return { indexed: false, addedTexts: 0, reason };
     }
+  }
+
+  /** Take deleted flows out of the index so they are not found by search any more */
+  removeFlows(flowIds: string[]): { indexed: boolean; removedTexts: number; reason?: string } {
+    if (this.state !== 'ready') {
+      const reason = this.state === 'disabled' ? 'ระบบค้นหาปิดอยู่ (SYMPTOM_SEARCH_ENABLED ไม่ใช่ true)' : `ดัชนียังไม่พร้อม (สถานะ ${this.state})`;
+      return { indexed: false, removedTexts: 0, reason };
+    }
+    const unwanted = new Set(flowIds);
+    const before = this.index.length;
+    this.index = this.index.filter((item) => !unwanted.has(item.flowId));
+    for (const id of unwanted) this.flowInfo.delete(id);
+    return { indexed: true, removedTexts: before - this.index.length };
   }
 
   async search(query: string, manualId?: string): Promise<SymptomSearchResponseDto> {

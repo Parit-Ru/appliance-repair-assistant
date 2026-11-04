@@ -2,9 +2,9 @@
 
 | | |
 |---|---|
-| **สถานะ** | เอกสารวิเคราะห์และออกแบบ · ยังไม่ได้แก้โค้ด migration หรือ test |
+| **สถานะ** | เอกสารวิเคราะห์และออกแบบ (แก้ล่าสุด 3 พ.ย. 2569) · **ลงมือแล้วชิ้น A, B, C ก่อนสอบ** บน branch `admin-flow-management` + DB `fixbot_admin_test` (migration 007/008, endpoint, frontend) ตรวจ API ผ่านแล้ว **ยังไม่ได้ดูในเบราว์เซอร์ และยังไม่ commit** · ส่วน "หลังสอบ" ยังไม่เริ่ม · ไม่มี test อัตโนมัติ (ข้อ O) · ดูหัวข้อ "ผลการลงมือ" |
 | **ตรวจจาก** | branch `main` commit `725080b` (1 พ.ย. 2569) · backend เป็น Express + `mysql2` |
-| **ความคืบหน้า** | อนุมัติแบบแล้ว · ยังไม่เริ่มแก้โค้ด · ทำตาม Part 4 ทีละ sub-step |
+| **ความคืบหน้า** | อนุมัติแบบแล้ว · เสร็จ step 1.1, 1.2 และชิ้น A, B, C ก่อนสอบ (บน `fixbot_admin_test`) · ทำตาม Part 4 ทีละ sub-step · **ก่อนสอบ 7 พ.ย. ทำเฉพาะ "ขอบเขตก่อนสอบ" (ชิ้น A/B/C) ดูหัวข้อด้านล่าง** (แก้เอกสารรอบ 3 พ.ย. 2569) |
 
 ## คำตอบที่ตัดสินแล้ว
 
@@ -28,8 +28,64 @@
 | N | ลบระดับคู่มือ | N1 ลบทีละผัง |
 | O | Test | **O2 ใช้ checklist ทดสอบด้วยมือ ไม่เพิ่ม test** |
 | P | การเพิ่ม admin | ทำผ่าน `scripts/seed-admin.js` เท่านั้น ไม่มีหน้าจัดการ admin · **บังคับระบุชื่อที่แสดง:** ถ้า `ADMIN_DISPLAY_NAME` ไม่มีหรือว่าง สคริปต์ต้องจบพร้อมข้อความชัดเจน และไม่สร้างอะไร · **ห้ามชื่อซ้ำกับ admin คนอื่น** · อีเมลที่มีอยู่แล้วสคริปต์ไม่เปลี่ยนชื่อให้ · เพื่อให้ `edited_by`, `deleted_by`, `flow_revisions` ชี้ไปยัง admin ที่มีชื่อของตัวเอง |
+| Q | ขอบเขตก่อนสอบ 7 พ.ย. | ทำ 3 ชิ้นตามลำดับ **A ดู → B แก้ข้อความของ state ที่มีอยู่ → C ลบ/กู้คืน** แต่ละชิ้นต้องใช้งานได้ในตัวเอง · เลื่อนไปหลังสอบ: เพิ่ม/ลบ state, แก้เส้นเชื่อม, แก้ข้อความระดับผัง, JSON editor (6.1), Mermaid (เฟส 7) |
+| R | ฐานโค้ด | เขียนเฟส 3 ทับบนโค้ดของงาน resume session (อายุ session 7 วัน, `isOwnedBy`, หน้าประวัติรวม `in_progress`) · commit งาน admin 7 ไฟล์ก่อน แล้วจัดการงาน resume แยกตาม `docs/features/resume-session-handoff-for-admin-session.md` |
+| S | กฎหยุดก่อนสอบ | ถ้าคืนวันที่ 5 พ.ย. checklist ของชิ้นใดยังไม่ผ่านครบ ให้หยุดชิ้นนั้นและเดโมจาก `main` · ชิ้นที่ผ่านครบแล้วเท่านั้นที่นับว่าเสร็จ |
+| T | รูปแบบการแก้ก่อนสอบ | **V2** ไม่ใช้ validator เต็ม (`PUT` รับเฉพาะช่องข้อความ ตรวจไม่ว่าง/ความยาว/ชนิด ส่วนอื่นถูกเพิกเฉย) · **R1** เก็บ `flow_revisions` พร้อม snapshot ทั้งผัง · **T1** transaction + `FOR UPDATE` + `revision` · **F1** แก้ได้เฉพาะ `text_content` และ `safety_warning` (เฉพาะ state ที่ `safety_critical` อยู่แล้ว และต้องไม่ว่าง) |
+| U | เดโมวันสอบ | เดโมจาก branch ในเครื่อง (worktree แยก) · **ไม่ migrate Aiven ก่อนสอบ** จึงตัด step 1.1b และ 1.3 ออกจากขอบเขตก่อนสอบ แต่เก็บไว้เป็นขั้นตอนหลังสอบ |
 
 **การตีความข้อ M ที่ใช้ในแบบนี้:** ไม่มีช่องติ๊กเลย และการบันทึกปกติใช้คลิกเดียว คงไว้เฉพาะปุ่ม "บันทึกต่อ" ใน 3 กรณีที่ B2 กำหนด: ลบขั้นตอนที่มีผู้ใช้อยู่, เอาด่านความปลอดภัยออก, เปลี่ยน `outcome_kind` ถ้าต้องการตัดออกด้วย ให้ลบเงื่อนไข `FLOW_CONFIRM_REQUIRED` ใน 3.2 แต่ session จะหมดอายุและด่านความปลอดภัยจะหายโดยไม่มีการถามก่อน
+
+## ขอบเขตก่อนสอบ 7 พ.ย. (เพิ่มเมื่อ 3 พ.ย. 2569)
+
+> แบบเต็มทั้งหมดในเอกสารนี้ยังเป็นแบบที่อนุมัติ แต่**ก่อนสอบทำเฉพาะส่วนนี้** ส่วนที่เหลือเลื่อนไปหลังสอบโดยไม่ลบทิ้ง · ทุก step ใน Part 4 มีคอลัมน์ "ชิ้น" ระบุว่าอยู่ชิ้นไหน
+
+| ชิ้น | ผู้ใช้ทำอะไรได้ | step ที่ใช้ |
+|---|---|---|
+| **A ดู** | admin เห็นรายการผังทั้งหมด ค้น กรอง และเปิดรายละเอียด (ขั้นตอน เส้นเชื่อม คำเตือนความปลอดภัย `author_note` ผู้แก้ล่าสุด) | 2.1, 4.1, 5.1, 5.2 (บางส่วน), 5.3, 5.4 (ส่วนดู) |
+| **B แก้ข้อความ** | admin แก้ข้อความของ state ที่มีอยู่แล้วและบันทึกคลิกเดียว · ระบบกันแก้ชนกันและบันทึกว่าใครแก้เมื่อไรพร้อมเนื้อหาก่อนแก้ | 2.2, 3.4 (ส่วน reload เข้าคิว), 4.4 (ฉบับย่อ), 4.6, 5.5+5.6 (ฟอร์มข้อความ), 5.7 (เฉพาะแจ้งแก้ชนกัน) |
+| **C ลบ/กู้คืน** | admin ลบผัง (ซ่อนจากผู้ใช้) และกู้คืน · ประวัติ dashboard และ session ที่ค้างยังใช้ได้ | 3.4 (ส่วนผังที่ลบ), 3.5, 3.6, 4.5, 5.2 (`DeleteConfirm`), 5.4 (ปุ่ม), 5.8 |
+
+**ชิ้น B แก้ได้แค่ไหน (ข้อ F1):** เฉพาะ `states.text_content` และ `states.safety_warning` ของ state ที่มีอยู่แล้ว โดย `safety_warning` แก้ได้เฉพาะ state ที่ `safety_critical = TRUE` อยู่แล้วและห้ามแก้เป็นค่าว่าง · **ไม่แก้:** `state_id`, `state_type`, input/regex/`store_as`, `outcome_kind`, `safety_critical`, `author_note`, เส้นเชื่อม, ข้อความระดับผัง (`entry_symptom*` ฯลฯ), คู่มือ · `PUT` ที่ส่งฟิลด์อื่นมา เซิร์ฟเวอร์เพิกเฉยฟิลด์เหล่านั้น (ไม่ตอบ error) เพื่อไม่ให้คำขอที่สร้างเองแก้โครงสร้างได้
+
+**ผลจากการเลือกแบบย่อ (V2 + R1 + T1 + F1):**
+
+| ส่วนของแบบเต็ม | สถานะก่อนสอบ | เหตุผล / ผลเสียที่ยอมรับ |
+|---|---|---|
+| validator โหมด `pages = null` (H1, step 3.2) | **ไม่ทำ** | โครงสร้างผังไม่เปลี่ยน · ผลเสีย: ไม่มีด่านตรวจโครงสร้างตอนบันทึก และผังเดิมที่มีปัญหาไม่ถูกแจ้ง · ต้องเพิ่มตอนเปิดให้แก้เส้นเชื่อม (เพิ่มได้โดยไม่รื้อของเดิม) |
+| ด่านยืนยัน 409 `FLOW_CONFIRM_REQUIRED`, `flow-diff`, `POST /validate` | **ไม่ทำ** | ไม่ลบ state ไม่เปลี่ยนชนิด ไม่แตะ `safety_critical` และ `outcome_kind` จึงไม่มีผลกระทบให้ยืนยัน |
+| ทำ session หมดอายุหลังแก้ | **ไม่ทำ** | ไม่มี state ถูกลบ · session เดินต่อได้และเห็นข้อความใหม่ในขั้นถัดไป |
+| `addFlows([id])` หลังแก้ (ข้อ F) | **ไม่ทำในชิ้น B** | ดัชนีค้นหาสร้างจาก `entry_symptom*` ซึ่งไม่แก้ในชิ้น B (ชิ้น C ยังใช้ `removeFlows`/`addFlows` ตอนลบ/กู้คืน) |
+| `ApiError.details` (3.1), `toDbRows` รักษา `author_note` (3.3) | **ไม่ทำ** | ชิ้น B ไม่สร้างแถว state ใหม่ จึงไม่ผ่าน `toDbRows` · `author_note` ไม่ถูกแตะเพราะ `UPDATE` ระบุเฉพาะ 2 คอลัมน์ |
+| transaction + `FOR UPDATE` + `revision` (G3) | **ทำ** | admin หลายคน และเขียนหลายแถว (หลาย state + `flows` + `flow_revisions`) ต้องสำเร็จหรือล้มพร้อมกัน |
+| `flow_revisions` + `edited_by/edited_at` (I2) | **ทำ** (snapshot ทั้งผัง) | รู้ว่าใครแก้เมื่อไรและกู้ข้อความเดิมได้ |
+| reload เข้าคิว | **ทำ** (ส่วนของ 3.4) | แก้พร้อมกันหลายคนไม่ทับกัน |
+| ด่าน `seed-flows.js` (L2) | **ทำ** (4.6) | กัน `npm run seed` เขียนทับข้อความที่แก้ |
+
+**ข้อตกลงเรื่อง DB:** ทุกอย่างก่อนสอบทำบน `fixbot_admin_test` เท่านั้น · เดโมจาก worktree แยกที่ชี้ DB ในเครื่อง · ไม่ migrate Aiven (step 1.1b และ 1.3 ย้ายไปเป็นขั้นตอนหลังสอบ) · จึงไม่ต้องทำแผน deploy ของฟีเจอร์นี้ก่อนสอบ
+
+### ผลการลงมือชิ้น A, B, C (3 พ.ย. 2569) — จุดที่โค้ดต่างจากแบบข้างบน
+
+ทำครบ 3 ชิ้นบน `fixbot_admin_test` (migration 007, 008) · ตรวจ API ด้วยสคริปต์ครั้งเดียวผ่านทั้งหมด (A 23 ข้อ · B 40 ข้อ · C 47 ข้อ) · frontend ผ่าน `tsc` + build · **ยังไม่ได้ดูหน้าจอในเบราว์เซอร์** (checklist ในเบราว์เซอร์ 2–7, 15–17, 20–25 ต้องทำด้วยมือ) · ส่วนที่ต่างจากแบบ:
+
+| เรื่อง | ในแบบ | ที่ทำจริง |
+|---|---|---|
+| 409 `FLOW_EDIT_CONFLICT` | `details: { currentRevision, editedAt, editedByName }` | ไม่มี `details` (3.1 เลื่อนไปหลังสอบ) ใส่ชื่อผู้บันทึกก่อนและเวลาไว้ใน `message` หน้าเว็บแสดงข้อความนั้น · 409 `FLOW_DELETED`, `FLOW_ALREADY_DELETED` ทำแบบเดียวกัน |
+| response ของ `PUT` | `{ detail, searchIndex, expiredSessions }` | `{ detail, changedStates }` (ตาม "ฉบับก่อนสอบ" ใน 3.2) |
+| `DELETE` | 204 | 204 · ผลอัปเดตดัชนีค้นหาไม่ส่งกลับ (`removeFlows` ทำในเซิร์ฟเวอร์) · `restore` ส่ง `{ detail, searchIndex: { indexed, reason? } }` |
+| step 5.2 | แยก `DraftFlowCard` เป็น `FlowStructure` ใช้ร่วม | **ไม่แยก** (กันกระทบหน้าร่าง) เขียน `FlowStructure` ใหม่ใช้ `pathLines` เดิมร่วมกัน · `DeleteConfirm` ของประวัติไม่ถูกแก้ ใช้ `FlowDeleteConfirm` ใหม่แทน |
+| step 5.5 + 5.6 | `flowEditor.ts` แยกจากฟอร์ม | รวมกันเป็น `flowEditor.ts` + `StateEditorCard.tsx` + `AdminFlowEditPage.tsx` |
+| `GET /admin/flows` | filter `manualId` | API รองรับ แต่หน้าจอยังไม่มีช่องกรอง |
+| `listManuals` | ไม่ระบุ | `listManuals(includeDeleted = false)` · ประวัติและด่านตรวจ `manual_id` ซ้ำของร่างใช้ `true` · เพิ่ม `isActive(flowId)` |
+| `HistoryFlowInfo` | `flow.active`, `flowEditedAfterSession` | เพิ่ม **`active`** เท่านั้น · หน้าประวัติซ่อนปุ่ม "ตรวจอาการนี้อีกครั้ง" เมื่อ `active` เป็น false · **`flowEditedAfterSession` เลื่อนไปหลังสอบ** (ประวัติของผังที่แก้ข้อความยังไม่มีหมายเหตุ "ผังถูกแก้หลังการตรวจนี้") |
+| `startSession` | ปฏิเสธผังที่ลบ | `isActive` เป็น false → 404 `FLOW_NOT_FOUND` · `submitOutcome` ไม่แก้ (ไม่จำเป็น: session เดิมของผังที่ลบ บันทึกผลได้ตามปกติ) |
+| `SymptomSearchService.addFlows` | แก้การเขียนทับ `flowInfo` | อัปเดต `flowInfo` ในที่เดิมทีละรายการ ไม่แทนทั้ง Map · ข้ามผังที่ไม่ active · เพิ่ม `removeFlows` |
+| ตรวจดัชนีค้นหาจริง | embedding จริง | ตรวจด้วย embedding ปลอมใน `dist` (เพิ่ม/ลบ/พร้อมกัน) เพราะไม่ได้เปิด `SYMPTOM_SEARCH_ENABLED` · ยังไม่ได้ตรวจกับโมเดลจริง (checklist ข้อ 8 ยังเลื่อน) |
+| เวลา `reload()` (C17) | รายงานตัวเลข | `PUT` รวม reload ของ 722 ผัง ≈ 0.4–0.7 วินาทีบน MySQL ในเครื่อง (บน Aiven ยังไม่ได้วัด) |
+
+**ข้อควรระวัง:** ตั้งแต่ step 3.4 `FlowRepository` อ่านคอลัมน์ `deleted_at` ตอนบูต backend จึงขึ้นไม่ได้บน DB ที่ยังไม่รัน migration 007 (ฐานที่ใช้ `backend/.env` เช่น Aiven และ `fixbot_eval`) · เดโมต้องรันจากโฟลเดอร์/worktree ที่ชี้ DB ในเครื่องที่ migrate แล้ว
+
+---
 
 ## สรุปสั้น
 
@@ -203,6 +259,22 @@ POST /execution/sessions/:id/actions
 | เปลี่ยนทางเดินของ session ที่จบแล้ว | ประวัติได้ `available: false` ซ่อนขั้นตอนและปุ่ม feedback (feedback ยังอยู่ใน DB) | `HistoryDetailPage.tsx:101, 176` |
 | **แก้แค่ข้อความ** | **ประวัติแสดงข้อความใหม่โดยไม่บอกว่าเปลี่ยน** เพราะ replay ผ่าน | `session_history` ไม่เก็บข้อความ |
 | ผังหายจาก Map | 404 `FLOW_NOT_FOUND` ทั้ง session ที่เดินอยู่และที่จบแล้ว | `execution.service.ts:142` |
+| **(หลัง resume)** ผู้ใช้เปิด session ที่ค้างอยู่จากหน้าประวัติ หลังผังถูกแก้ข้อความ | เดินต่อได้ ขั้นถัดไปเห็นข้อความใหม่ (เหมือนแถว "แก้แค่ข้อความ") | `execution.service.ts` `getSession` |
+| **(หลัง resume)** ผู้ใช้เปิด session ที่ค้างอยู่จากหน้าประวัติ หลังผังถูกลบ (ชิ้น C) | เปิดและเดินต่อได้ เพราะผังที่ลบยังอยู่ใน Map · เริ่ม session ใหม่ของผังนั้นไม่ได้ (404) | `execution.service.ts`, `flow.repository.ts` |
+
+#### ผลของงาน resume session ต่อส่วนที่อ้างถึงด้านบน (เพิ่ม 3 พ.ย. 2569)
+
+งาน resume อยู่ใน working tree เดียวกัน (ยังไม่ commit) ดู `docs/features/resume-session.md` และ `docs/features/resume-session-handoff-for-admin-session.md` · ตรวจกับโค้ดแล้วเมื่อ 3 พ.ย. 2569: `SESSION_TTL_HOURS = 7 * 24` (`session.store.ts:9`), `isOwnedBy` (`session.store.ts:153`, เรียกจาก `execution.service.ts:162`), `findUserId` ไม่มีแล้ว · ข้อความที่อ้างเลขบรรทัดในเอกสารนี้ตรวจจาก `main` `725080b` ก่อน resume เลขบรรทัดในไฟล์ execution/history อาจเลื่อน ให้ตรวจซ้ำก่อนแก้
+
+| เรื่อง | ก่อน resume (ที่เขียนในเอกสารนี้) | หลัง resume (โค้ดปัจจุบัน) |
+|---|---|---|
+| อายุ session ที่ยังไม่จบ | 24 ชั่วโมง | **7 วัน** (`SESSION_TTL_HOURS = 7 * 24` ใน `session.store.ts`) |
+| ตรวจเจ้าของ session | `findUserId` | `isOwnedBy` · endpoint `GET /execution/sessions/:id`, `/actions`, `/outcome` ต้องมีตัวระบุเจ้าของ (ล็อกอิน หรือ header `X-Client-Id`) ไม่งั้น 400 |
+| session ไม่มีเจ้าของ (`user_id` และ `client_id` ว่าง) | เปิดได้ | เปิดผ่าน endpoint ผู้ใช้ไม่ได้ |
+| หน้าประวัติ | เฉพาะ session ที่จบ (`listCompleted`, `deleteCompleted`) | รวม `in_progress` (`listSessions`, `deleteSession`) เรียงของที่ค้างก่อน กรอง `expires_at > NOW()` |
+| `expired_unfinished` ใน dashboard | นับ session ค้างเกิน 24 ชม. | นับค้างเกิน 7 วัน ตัวเลขเปลี่ยนความหมาย · SQL ไม่ต้องแก้ |
+
+ผลต่อฟีเจอร์นี้: (1) session ที่ค้างอยู่มีโอกาสชนกับการแก้/ลบผังมากขึ้น เพราะอยู่ได้นานกว่าเดิม (2) การตัด session ด้วย `expires_at = NOW()` (ชิ้นหลังสอบ) ทำให้รายการนั้น**หายจากหน้าประวัติ**เพราะถูกกรองออก (3) การทดสอบด้วย PowerShell/curl กับ endpoint ผู้ใช้ต้องส่ง `X-Client-Id` (4) ข้อมูลที่ seed เองและไม่มีเจ้าของเดินผ่านหน้าเว็บไม่ได้
 
 ### 1.6 frontend ที่ใช้ซ้ำได้
 
@@ -685,7 +757,7 @@ Body: `{ "flow": { ... } }` · ไม่เขียนอะไรลง DB
 }
 ```
 
-`flow_id` ใช้จาก URL เท่านั้น ถ้าส่งฟิลด์นอกรายการจะถูกปฏิเสธ
+`flow_id` ใช้จาก URL เท่านั้น · **ฉบับเต็ม (หลังสอบ):** ถ้าส่งฟิลด์นอกรายการจะถูกปฏิเสธด้วย 400 `INVALID_FLOW_REQUEST` · **ฉบับก่อนสอบ (ชิ้น B):** body เป็นอีกรูปหนึ่งและฟิลด์ที่ไม่อยู่ในรายการถูก**เพิกเฉย** ไม่ตอบ error ดูหัวข้อ "`PUT /admin/flows/:id` ฉบับก่อนสอบ" ด้านล่าง
 
 ```json
 {
@@ -736,6 +808,45 @@ Body: `{ "flow": { ... } }` · ไม่เขียนอะไรลง DB
 }
 ```
 
+#### `PUT /admin/flows/:id` ฉบับก่อนสอบ (ชิ้น B)
+
+ชื่อฟิลด์ของแต่ละ state ตรงกับที่ `GET /admin/flows/:id` คืนใน `flow.states[]` ทุกตัวอักษร ฟิลด์ข้อความมีชื่อต่างกันตามชนิด (มาจากคอลัมน์ `text_content` เดียวกัน ตาม `flow.repository.ts` `buildState`)
+
+| `type` ของ state | key ของข้อความ (ตรงกับ GET) | คอลัมน์ที่เขียน |
+|---|---|---|
+| `checkpoint` | `question` | `states.text_content` |
+| `input` | `prompt` | `states.text_content` |
+| `instruction`, `resolution`, `escalation` | `content` | `states.text_content` |
+| ทุกชนิด (เฉพาะ state ที่ `safety_critical` เป็น true อยู่แล้ว) | `safety_warning` | `states.safety_warning` |
+
+```json
+{
+  "expectedRevision": 3,
+  "states": [
+    { "state_id": "n1", "question": "ข้อความใหม่ของคำถาม" },
+    { "state_id": "n2", "content": "ข้อความใหม่ของขั้นตอน", "safety_warning": "คำเตือนใหม่" }
+  ]
+}
+```
+
+| กติกา | รายละเอียด |
+|---|---|
+| key ของรายการ | ชื่อ `states` (ไม่ใช่ `flow`) เพราะส่งเฉพาะ state ที่ต้องการแก้ ไม่ใช่ทั้งผัง |
+| `type` ที่ใช้เลือก key | เซิร์ฟเวอร์อ่านจาก DB (ไม่เชื่อ `type` ใน body) · item ต้องมี key ข้อความของ state นั้นตามตารางด้านบน ไม่มี = 400 · key ข้อความของชนิดอื่นถูกเพิกเฉย |
+| ฟิลด์อื่นในรายการและใน body | **เพิกเฉย** (`type`, `on_yes`, `on_no`, `next`, `on_invalid`, `pattern`, `outcome_kind`, `safety_critical`, `author_note`, `flow`, `confirmImpact` ฯลฯ) ไม่ตอบ error และไม่เขียนลง DB |
+| `expectedRevision` | จำนวนเต็ม ≥ 0 บังคับ |
+| ตรวจ 400 `INVALID_FLOW_REQUEST` | `states` ไม่ใช่ array หรือว่าง · `state_id` ซ้ำใน array · `state_id` ไม่มีในผังนี้ · ข้อความไม่ใช่สตริงหรือว่างหลัง trim · ข้อความเกินเพดานความยาว (กำหนดตอนเขียน 4.4 โดยดูเพดานของ `draft-schema.ts` ก่อน) · `safety_warning` ส่งมากับ state ที่ `safety_critical` เป็น false หรือว่าง |
+| ไม่มีอะไรเปลี่ยนจริง | item ที่ข้อความเหมือนเดิมถูกข้าม · ถ้าไม่มี item ที่เปลี่ยนเลย ตอบ 200 โดยไม่เพิ่ม `revision` ไม่เขียน `flow_revisions` และไม่ reload |
+| ผังที่ลบแล้ว | 409 `FLOW_DELETED` (ตรวจ `deleted_at` ใน transaction เดียวกัน) |
+
+Response 200:
+
+```json
+{ "detail": { "...": "รูปเดียวกับ GET /admin/flows/:id (ก่อนสอบไม่มีฟิลด์ validation)" }, "changedStates": 2 }
+```
+
+ก่อนสอบไม่มี `searchIndex` และ `expiredSessions` ใน response · error ที่ใช้ก่อนสอบ: 400 `INVALID_FLOW_REQUEST` · 404 `ADMIN_FLOW_NOT_FOUND` · 409 `FLOW_DELETED` · 409 `FLOW_EDIT_CONFLICT` · 500 `FLOW_RELOAD_FAILED` · `FLOW_INVALID` และ `FLOW_CONFIRM_REQUIRED` ไม่ใช้จนกว่าจะทำ validator หลังสอบ
+
 #### `DELETE /admin/flows/:id`
 
 **204** ไม่มี body · session ที่เดินอยู่เดินต่อได้ · การลบกู้คืนได้ จึงไม่ต้องส่ง `expectedRevision`
@@ -764,6 +875,9 @@ Error: **404** · **409** `FLOW_NOT_DELETED` · **500** `FLOW_RELOAD_FAILED`
 | `flow-admin.store.ts` | SQL ทั้งหมด: list, findDetail (JOIN `users` เอา `display_name`), update (transaction), softDelete, restore, นับ session, เขียน `flow_revisions` |
 
 **ไฟล์ที่แก้**
+
+> **ไฟล์ที่ใช้ร่วมกับงาน resume (มีการแก้ที่ยังไม่ commit):** `execution/execution.service.ts`, `history/history.service.ts`, `history/history.dto.ts` · ในโค้ดปัจจุบันฟังก์ชันที่เกี่ยวคือ `listSessions`, `deleteSession` (เดิม `listCompleted`, `deleteCompleted`), `isOwnedBy` (เดิม `findUserId`) · ก่อนแก้ 3 ไฟล์นี้ (step 3.6) ให้ commit งาน resume ก่อน หรืออ่าน `git diff` เพื่อแยกส่วนของตัวเอง ห้ามเขียนไฟล์ทับ
+> **ไฟล์ที่ไม่แก้ก่อนสอบ** (เลื่อนไปหลังสอบตามขอบเขต): `api-error.ts`/`error-handler.ts`, `flow-validator.ts`, `draft-manual.ts`, `draft-schema.ts`, `flow-diff.ts`
 
 | ไฟล์ | สิ่งที่เปลี่ยน |
 |---|---|
@@ -821,7 +935,7 @@ async reload(): Promise<number> {
 }
 ```
 
-**คิวรี session หมดอายุ** ใช้กลไกเดิม `expires_at > NOW()`
+**คิวรี session หมดอายุ** (ใช้เมื่อลบ state ซึ่ง**เลื่อนไปหลังสอบ**) ใช้กลไกเดิม `expires_at > NOW()` · หลัง resume มีผลเพิ่ม: หน้าประวัติกรองด้วย `expires_at > NOW()` (`history.store.ts`) session ที่ถูกตัดจึง**หายจากรายการประวัติของผู้ใช้**ด้วย ไม่ใช่แค่เดินต่อไม่ได้ · ข้อนี้ไม่เกิดในชิ้น B และ C ก่อนสอบ เพราะไม่ตัด session
 
 ```sql
 UPDATE sessions SET expires_at = NOW()
@@ -1062,6 +1176,19 @@ samsung_ge83mdt_um_not_start · Samsung GE83MDT · คู่มือ xxx.pdf �
 
 ถ้าล้มเหลวระหว่างข้อ 5–10 จะ rollback ทั้งหมด
 
+**ฉบับก่อนสอบ (ชิ้น B) ต่างจากข้างบนดังนี้**
+
+| ข้อ | ฉบับก่อนสอบ |
+|---|---|
+| 2 | ไม่มี "ตรวจโดยไม่บันทึก" และไม่มี `POST /validate` (เลื่อนไปหลังสอบ) |
+| 3 | `PUT` ส่ง `{ expectedRevision, states: [ { state_id, <question\|prompt\|content>, safety_warning? } ] }` ตามรูปใน 3.2 หัวข้อ "ฉบับก่อนสอบ" ไม่มี `confirmImpact` |
+| 4 | `parseUpdateBody` ตรวจรูปร่างตามกติกาใน 3.2 (`expectedRevision` จำนวนเต็ม, `states` เป็น array ไม่ว่างและ `state_id` ไม่ซ้ำ, ข้อความเป็นสตริงไม่ว่างและไม่เกินเพดาน) · ฟิลด์อื่นถูกเพิกเฉย |
+| 7 | แทนด้วยการอ่าน state เดิมของผังนี้ (ใน transaction): ทุก `state_id` ที่ส่งมาต้องมีอยู่จริง (ไม่มี → 400) · เลือก key ข้อความจาก `state_type` ใน DB (`question`/`prompt`/`content`) · `safety_warning` ส่งได้เฉพาะ state ที่ `safety_critical` อยู่แล้ว · ไม่เรียก validator |
+| 8 | ไม่มี (ไม่มี `confirmReasons`) |
+| 9 | `INSERT flow_revisions` (snapshot ทั้งผังก่อนแก้) → `UPDATE flows` (`revision + 1`, `edited_at`, `edited_by`) |
+| 10 | `UPDATE states SET text_content = ?, safety_warning = ? WHERE flow_id = ? AND state_id = ?` ทีละ state ที่เปลี่ยน · **ไม่มี `DELETE`/`INSERT` ของ `states` และ `state_transitions`** |
+| 11 | `flows.reload()` (เข้าคิว) เท่านั้น · ไม่เรียก `addFlows` และไม่ทำ session หมดอายุ |
+
 #### ลบ
 
 1. หน้ารายละเอียดเปิดกล่องยืนยัน แสดงจำนวนคนที่กำลังเดินอยู่
@@ -1176,6 +1303,22 @@ samsung_ge83mdt_um_not_start · Samsung GE83MDT · คู่มือ xxx.pdf �
 | 30 | **JSON:** เปิดโหมดขั้นสูง แก้ค่า แล้วสลับกลับฟอร์ม | ข้อมูลตรงกัน · JSON พังแล้วสลับไม่ได้และมีข้อความบอก |
 | 31 | **Mermaid:** เปิด "ดูแผนภาพ" ในผังใหญ่สุด (25 ขั้นตอน) และผังที่มีเครื่องหมายคำพูดในข้อความ | แผนภาพแสดงถูกต้อง · ถ้าวาดไม่ได้ยังเห็นรายการปกติ |
 | 32 | **Mermaid:** เปิดหน้าผู้ใช้ทั่วไปแล้วดูแท็บ Network | ไม่โหลดไฟล์ของ Mermaid |
+| 33 | **resume (ชิ้น B):** ผู้ใช้เริ่มตรวจแล้วออกจากหน้า Admin แก้ข้อความขั้นถัดไป ผู้ใช้เปิด session ที่ค้างจากหน้าประวัติแล้วกดถัดไป | เดินต่อได้ เห็นข้อความใหม่ |
+| 34 | **resume (ชิ้น C):** ผู้ใช้มี session ค้างอยู่ Admin ลบผัง ผู้ใช้เปิด session นั้นจากหน้าประวัติ | เปิดและเดินต่อจนจบได้ · ผู้ใช้อื่นเริ่มตรวจผังนี้ใหม่ไม่ได้ |
+
+#### แบ่งข้อตรวจตามชิ้น (ก่อนสอบ)
+
+ชิ้นหนึ่งถือว่าผ่านเมื่อข้อของชิ้นนั้น**และข้อถดถอย** (ข้อที่ต้องไล่ซ้ำทุกชิ้น) ผ่านครบ · ผลตรวจต้องแนบผลจริง
+
+| ชิ้น | ข้อ C | ข้อ checklist | หมายเหตุ |
+|---|---|---|---|
+| ข้อถดถอย (ไล่ซ้ำทุกชิ้น) | C3, C14, C15, C18, C19 | 1, 18, 27 | C15 ของชิ้น A ตรวจเฉพาะ 007 · ชิ้น B เพิ่ม 008 |
+| **A ดู** | C3 | 2, 3, 4 | ข้อ 4 ใช้ผัง seed ที่มี `author_note` |
+| **B แก้ข้อความ** | C4 (รูปร่างผิด), C8, C10, C11 (เฉพาะแถว `edit`), C16, C17 | 5, 6, 7, 15, 16, 26, 29, 33 | C4 เปลี่ยนเป็นตรวจ 400 ของ body ที่ไม่มี `expectedRevision` หรือข้อความว่าง · C16 ส่ง `PUT` คนละผังพร้อมกัน · C10 ตรวจว่า `author_note` และคอลัมน์อื่นของ `states` ไม่เปลี่ยน · เพิ่มตรวจ: `PUT` ที่ส่ง `state_type`/เส้นเชื่อมมาด้วย ผลใน DB ต้องไม่เปลี่ยน |
+| **C ลบ/กู้คืน** | C11 (แถว `delete`/`restore`), C12 | 17, 19, 20, 21, 22, 23, 24, 25, 28, 34 | ข้อ 17 คือ B ที่เปิดแก้ค้างอยู่ได้ 409 `FLOW_DELETED` · ข้อ 28 ตรวจเมื่อปิด `SYMPTOM_SEARCH_ENABLED` |
+| **เลื่อนไปหลังสอบ** | C1, C2, C5, C6, C7, C9, C13 | 8, 9–14, 30, 31, 32 | ใช้เมื่อเปิดให้แก้โครงสร้าง/ข้อความระดับผัง |
+
+หมายเหตุ: ข้อ 5, 18, 23, 33, 34 และทุกคำสั่ง PowerShell ที่เรียก `/execution/sessions/...` ต้องมีผู้ใช้ล็อกอินหรือ header `X-Client-Id` (หน้าเว็บส่งให้เอง) ไม่งั้นได้ 400
 
 #### ข้อจำกัดของการทดสอบด้วยมือ
 
@@ -1198,6 +1341,9 @@ samsung_ge83mdt_um_not_start · Samsung GE83MDT · คู่มือ xxx.pdf �
 | admin ชื่อเหมือนกันจนแยกผู้แก้ไม่ออก | กลาง | step 1.1 ตรวจของเดิม · step 1.2 บังคับระบุชื่อ · SQL ใน 3.1 ดูอีเมลได้ |
 | **คำสั่งทดสอบวิ่งไป DB ภายนอก** | สูง | `backend/.env` ไม่ได้ชี้ localhost · ใช้ `DOTENV_CONFIG_PATH` ตาม 3.7 · คำสั่ง one-off มีด่านปฏิเสธถ้าไม่ใช่ localhost + `fixbot_admin_test` · `run-migrations.js` พิมพ์ชื่อ DB และ host ให้ตรวจ |
 | **backend ไม่ขึ้นบน DB ที่ยังไม่ migrate** | สูง | ตั้งแต่ step 3.4 `FlowRepository` อ่านคอลัมน์ใหม่ · ต้อง migrate ก่อนรันโค้ดทุก DB รวม `fixbot_eval` และ Aiven ตามลำดับใน `docs/ops/DEPLOY.md:37` |
+| **สองฟีเจอร์แก้ไฟล์เดียวกัน (admin กับ resume session)** | กลาง | 3 ไฟล์ร่วม (`execution.service.ts`, `history.service.ts`, `history.dto.ts`) · commit งาน resume ก่อน step 3.6 · ดู `git diff` ก่อนแก้ · ห้ามเขียนไฟล์ทับ · ใช้ `git add -p` ตอน commit |
+| **ทำไม่ทันก่อนสอบ** | สูง | แบ่งชิ้น A/B/C ใช้งานได้ในตัวเอง · กฎ: คืน 5 พ.ย. ชิ้นที่ checklist ไม่ผ่านครบให้หยุดและเดโมจาก `main` · เดโมจาก worktree แยกที่ไม่ migrate Aiven |
+| แก้ข้อความแล้วโครงสร้างเปลี่ยนโดยไม่ตั้งใจ (V2 ไม่มี validator) | ต่ำ | `UPDATE` ระบุคอลัมน์ `text_content`, `safety_warning` เท่านั้น ไม่มี `DELETE`/`INSERT` ของ `states` และ `state_transitions` · ตรวจด้วยข้อเพิ่มของชิ้น B |
 | ลืมกรองผังที่ลบบางจุด | กลาง | กรองที่ `FlowRepository` ที่เดียว + checklist ข้อ 20, 24 |
 | seed ทับงานแก้ | กลาง | ด่าน L2 + checklist ข้อ 29 |
 | ประวัติไม่ใช่ภาพ ณ วันตรวจ | กลาง (ยอมรับ) | `replayReaches` + หมายเหตุ + พูดตรง ๆ กับกรรมการ · ทางขยายคือ B3 |
@@ -1222,6 +1368,13 @@ samsung_ge83mdt_um_not_start · Samsung GE83MDT · คู่มือ xxx.pdf �
 - **Branch และ DB:** ทำทุกอย่างบน branch `admin-flow-management` และ DB ทดสอบ `fixbot_admin_test` · **ไม่แตะ `main` และ Aiven จนกว่าเจ้าของโปรเจกต์จะสั่ง**
 - **ทดสอบ DB:** ใช้ `fixbot_admin_test` ในเครื่องตามวิธีใน 3.7 · ยังไม่แตะ Aiven
 - **ก่อน migrate หรือ deploy บน DB จริงต้องรู้:** ชื่อ DB จริง และยังใช้ร่วมกับ FixStep หรือไม่ (`docs/ops/DEPLOY.md:36`) · ยังรอคำตอบจากเจ้าของโปรเจกต์
+- **ขอบเขตก่อนสอบ:** ทำเฉพาะ step ที่คอลัมน์ "ชิ้น" เป็น A, B, C ตามลำดับ A → B → C · step ที่เป็น "หลังสอบ" ห้ามเริ่มจนกว่าจะสั่ง · ชิ้นหนึ่งจบเมื่อข้อตรวจของชิ้นนั้นและข้อถดถอยผ่านครบ (ตาราง "แบ่งข้อตรวจตามชิ้น" ใน 3.7)
+- **ความถี่ในการขอ "ok":** step อ่านอย่างเดียวในชิ้น A เสนอรวมหลาย step ต่อรอบได้ · ชิ้น B ทีละ step หรือเป็นคู่ที่แยกกันไม่ได้ · **ชิ้น C ทำทีละ step** เพราะแตะไฟล์ที่ใช้ร่วมกับงาน resume
+- **ก่อนแก้ไฟล์:** แจ้งไฟล์ สิ่งที่แก้ (ไทยสั้น ๆ) และเหตุผล แล้วรอ "ok"
+- **ลำดับ commit:** (1) งาน admin 7 ไฟล์ (2) งาน resume ตาม handoff (ก่อน step 3.6 ที่แตะ 3 ไฟล์ร่วม) (3) งานของแต่ละชิ้น · ผู้ใช้ commit เอง ห้าม `git add .`/`-A`
+- **กฎหยุด:** คืนวันที่ 5 พ.ย. ชิ้นที่ checklist ไม่ผ่านครบ → หยุด และเดโมจาก `main`
+- **เดโม:** จาก worktree แยกที่ชี้ DB ในเครื่อง · ไม่ migrate Aiven ก่อนสอบ จึงตัด 1.1b และ 1.3 ออกจากขอบเขตก่อนสอบ (เก็บเป็นขั้นตอนหลังสอบ)
+- **step 5.8** ต้องแก้ตาม `HistoryPage.tsx`, `HistoryRow.tsx`, `historyView.ts` ใหม่จากงาน resume ไม่ใช่ฉบับใน `main`
 - **`docs/reference/`:** ถามก่อนแก้
 - อธิบายภาษาไทยแบบง่าย และคงรูปแบบโค้ดเดิม · code, identifier และ comment ที่เขียนใหม่เป็นภาษาอังกฤษ
 - ไม่ลบ `TODO(demo)` ใน `draft-schema.ts:153` ถ้าไม่ได้รับคำสั่ง เพราะอยู่นอกขอบเขต
@@ -1234,76 +1387,78 @@ samsung_ge83mdt_um_not_start · Samsung GE83MDT · คู่มือ xxx.pdf �
 
 ### เฟส 1 — ตรวจก่อนเริ่ม
 
-| Step | ไฟล์ | เสร็จเมื่อ |
-|---|---|---|
-| **1.1** สร้าง `fixbot_admin_test` (migrate 001–006 + seed) แล้วคิวรีอ่านอย่างเดียว: จำนวนผัง · `has_image`, `image_url`, `external_reference`, `config` ไม่ถูกใช้ · รายชื่อ `display_name` ของ admin | ไฟล์ env นอก repo เท่านั้น | ตัวเลขตรงกับที่คำนวณจาก `data/manuals` · ถ้าไม่ตรงให้แจ้ง |
-| **1.1b** คิวรีเดียวกันบน DB จริง **ทำก่อน migrate หรือ deploy บน DB จริง** | ไม่แก้ไฟล์ | ถ้าคอลัมน์เหล่านี้มีค่า ต้องปรับ `toDbRows` ก่อน · ถ้า admin ชื่อซ้ำ ผู้ใช้เปลี่ยนชื่อด้วย SQL ก่อน เพราะแอปไม่มีทางเปลี่ยนชื่อ |
-| **1.2** บังคับระบุชื่อ admin และห้ามชื่อซ้ำตามข้อ P · ตัดค่าเริ่มต้น `Admin` | `backend/scripts/seed-admin.js`, `backend/.env.example` | C18, C19 ผ่าน · สร้าง admin ใหม่พร้อมชื่อได้ตามปกติ |
-| **1.3** สำรองด้วย `backup-flow-tables.js` ก่อนรัน migration บน DB ที่มีข้อมูลจริง | `backend/backups/` (ถูก ignore) | มีไฟล์สำรอง |
+คอลัมน์ "ชิ้น": **A** ดู · **B** แก้ข้อความ · **C** ลบ/กู้คืน · **หลังสอบ** = เลื่อน ไม่ลบทิ้ง
+
+| Step | ชิ้น | ไฟล์ | เสร็จเมื่อ |
+|---|---|---|---|
+| **1.1** สร้าง `fixbot_admin_test` (migrate 001–006 + seed) แล้วคิวรีอ่านอย่างเดียว: จำนวนผัง · `has_image`, `image_url`, `external_reference`, `config` ไม่ถูกใช้ · รายชื่อ `display_name` ของ admin | เสร็จแล้ว | ไฟล์ env นอก repo เท่านั้น | ตัวเลขตรงกับที่คำนวณจาก `data/manuals` · ถ้าไม่ตรงให้แจ้ง |
+| **1.1b** คิวรีเดียวกันบน DB จริง **ทำก่อน migrate หรือ deploy บน DB จริง** | หลังสอบ | ไม่แก้ไฟล์ | ถ้าคอลัมน์เหล่านี้มีค่า ต้องปรับ `toDbRows` ก่อน · ถ้า admin ชื่อซ้ำ ผู้ใช้เปลี่ยนชื่อด้วย SQL ก่อน เพราะแอปไม่มีทางเปลี่ยนชื่อ |
+| **1.2** บังคับระบุชื่อ admin และห้ามชื่อซ้ำตามข้อ P · ตัดค่าเริ่มต้น `Admin` | เสร็จแล้ว | `backend/scripts/seed-admin.js`, `backend/.env.example` | C18, C19 ผ่าน · สร้าง admin ใหม่พร้อมชื่อได้ตามปกติ |
+| **1.3** สำรองด้วย `backup-flow-tables.js` ก่อนรัน migration บน DB ที่มีข้อมูลจริง | หลังสอบ | `backend/backups/` (ถูก ignore) | มีไฟล์สำรอง |
 
 ### เฟส 2 — ฐานข้อมูล
 
-| Step | ไฟล์ | เสร็จเมื่อ |
-|---|---|---|
-| **2.1** Migration คอลัมน์ใหม่ | `backend/migrations/007_flow_management.sql` | `npm run migrate` ผ่านบน DB ทดสอบ · seed และ publish เดิมไม่พัง |
-| **2.2** Migration บันทึกการจัดการ | `backend/migrations/008_flow_revisions.sql` | C15 ผ่าน |
+| Step | ชิ้น | ไฟล์ | เสร็จเมื่อ |
+|---|---|---|---|
+| **2.1** Migration คอลัมน์ใหม่ | A | `backend/migrations/007_flow_management.sql` | `npm run migrate` ผ่านบน DB ทดสอบ (ชื่อ DB และ host ที่ runner พิมพ์ต้องเป็น `fixbot_admin_test` / localhost) · seed และ publish เดิมไม่พัง · ผู้ใช้เป็นคนรัน migration |
+| **2.2** Migration บันทึกการจัดการ | B | `backend/migrations/008_flow_revisions.sql` | C15 ผ่าน |
 
 ### เฟส 3 — ฐานของ backend (ยังไม่มี endpoint ใหม่)
 
-| Step | ไฟล์ | เสร็จเมื่อ |
-|---|---|---|
-| **3.1** `ApiError.details` | `common/api-error.ts`, `common/error-handler.ts` | C14 ผ่าน |
-| **3.2** โหมดผังที่เผยแพร่แล้วของ validator | `authoring/flow-validator.ts` | C1, C2 ผ่าน |
-| **3.3** `toDbRows` รักษา `author_note` · export ตัวตรวจรูปร่าง | `authoring/draft-manual.ts`, `authoring/draft-schema.ts` | checklist ข้อ 1 ผ่าน · ร่างเดิมบันทึก `author_note` เป็น null |
-| **3.4** รู้จักผังที่ลบ และ reload เข้าคิว | `execution/flow.repository.ts` | ยังไม่มีผังที่ถูกลบ พฤติกรรมจึงเหมือนเดิม · ตั้งค่า `deleted_at` ด้วย SQL แล้วรีสตาร์ต: ผังหายจาก `GET /execution/flows` แต่ session เดิมเปิดได้ |
-| **3.5** `removeFlows`, กรองผล, แก้ `flowInfo` | `symptom-search/symptom-search.service.ts` | ค้นหาทำงานเหมือนเดิม · อ่านโค้ดยืนยันการเขียน `flowInfo` |
-| **3.6** ด่านในบริการเดิม | `execution/execution.service.ts`, `history/history.service.ts`, `history/history.dto.ts`, `authoring/drafts.service.ts` | ผังที่ลบเริ่มใหม่ได้ 404 · ประวัติเปิดได้ · dashboard ไม่เป็น `unknown` · อัปโหลด `manual_id` เดิมถูกปฏิเสธ |
+| Step | ชิ้น | ไฟล์ | เสร็จเมื่อ |
+|---|---|---|---|
+| **3.1** `ApiError.details` | หลังสอบ | `common/api-error.ts`, `common/error-handler.ts` | C14 ผ่าน |
+| **3.2** โหมดผังที่เผยแพร่แล้วของ validator | หลังสอบ | `authoring/flow-validator.ts` | C1, C2 ผ่าน |
+| **3.3** `toDbRows` รักษา `author_note` · export ตัวตรวจรูปร่าง | หลังสอบ | `authoring/draft-manual.ts`, `authoring/draft-schema.ts` | checklist ข้อ 1 ผ่าน · ร่างเดิมบันทึก `author_note` เป็น null |
+| **3.4** รู้จักผังที่ลบ และ reload เข้าคิว | B (reload เข้าคิว) + C (ผังที่ลบ) | `execution/flow.repository.ts` | **ส่วน reload เข้าคิว (ชิ้น B):** `reload()` ทำงานเหมือนเดิมเมื่อเรียกครั้งเดียว · เรียกพร้อมกัน 2 ครั้งจบตามลำดับและไม่ทับกัน · **ส่วนผังที่ลบ (ชิ้น C):** ยังไม่มีผังที่ถูกลบ พฤติกรรมจึงเหมือนเดิม · ตั้งค่า `deleted_at` ด้วย SQL แล้วรีสตาร์ต: ผังหายจาก `GET /execution/flows` แต่ session เดิมเปิดได้ · ตั้งแต่ step นี้โค้ดอ่านคอลัมน์ใหม่ DB ที่รันโค้ดต้อง migrate 007 แล้ว |
+| **3.5** `removeFlows`, กรองผล, แก้ `flowInfo` | C | `symptom-search/symptom-search.service.ts` | ค้นหาทำงานเหมือนเดิม · อ่านโค้ดยืนยันการเขียน `flowInfo` |
+| **3.6** ด่านในบริการเดิม | C | `execution/execution.service.ts`, `history/history.service.ts`, `history/history.dto.ts`, `authoring/drafts.service.ts` | ผังที่ลบเริ่มใหม่ได้ 404 · ประวัติเปิดได้ รวม session `in_progress` ที่ค้างอยู่ (ตามโค้ด resume) · dashboard ไม่เป็น `unknown` · อัปโหลด `manual_id` เดิมถูกปฏิเสธ · **3 ไฟล์แรกใช้ร่วมกับงาน resume: ดู `git diff` ก่อนแก้ ห้ามเขียนทับ ทำทีละไฟล์** |
 
 ### เฟส 4 — ฟีเจอร์ของ backend
 
-| Step | ไฟล์ | เสร็จเมื่อ |
-|---|---|---|
-| **4.1** อ่าน: store + service + route ของ 2 GET และ mount | `flow-admin/flow-admin.store.ts`, `.service.ts`, `.routes.ts`, `.dto.ts`, `.errors.ts`, `app.ts` | ทดลองด้วย PowerShell ได้ข้อมูลตาม 3.2 · ผัง seed ได้ `validation.errors` ว่าง · C3 ผ่าน |
-| **4.2** ตัวเทียบรุ่นเก่า-ใหม่ | `flow-admin/flow-diff.ts` | ตรวจผ่าน 4.3 |
-| **4.3** `POST /validate` | service, routes, dto | C13 ผ่าน · รายงานและ `impact` ถูกต้อง |
-| **4.4** `PUT` พร้อม transaction, reload, ดัชนี, หมดอายุ session | store, service, routes | C4–C10, C16 ผ่าน |
-| **4.5** `DELETE` และ `restore` พร้อมบันทึกผู้ทำ | store, service, routes | C11, C12 ผ่าน · ดัชนีและ `flow_count` ถูกต้อง |
-| **4.6** สคริปต์ | `scripts/seed-flows.js`, `scripts/backup-flow-tables.js` | checklist ข้อ 29 ผ่าน · `--force` ผ่าน รวมกรณี PowerShell 5.1 ตัด `--` แล้วส่งมาเป็น `npm_config_force` (ดู `run-migrations.js:60-63`) |
+| Step | ชิ้น | ไฟล์ | เสร็จเมื่อ |
+|---|---|---|---|
+| **4.1** อ่าน: store + service + route ของ 2 GET และ mount | A | `flow-admin/flow-admin.store.ts`, `.service.ts`, `.routes.ts`, `.dto.ts`, `.errors.ts`, `app.ts` | ทดลองด้วย PowerShell ได้ข้อมูลตาม 3.2 **ยกเว้นฟิลด์ `validation` (ยังไม่ส่งจนกว่าจะทำ 3.2 หลังสอบ)** · C3 ผ่าน · ชิ้น A อ่านอย่างเดียว เสนอรวม 4.1 กับ 5.1 ต่อรอบได้ |
+| **4.2** ตัวเทียบรุ่นเก่า-ใหม่ | หลังสอบ | `flow-admin/flow-diff.ts` | ตรวจผ่าน 4.3 |
+| **4.3** `POST /validate` | หลังสอบ | service, routes, dto | C13 ผ่าน · รายงานและ `impact` ถูกต้อง |
+| **4.4** `PUT` **ฉบับย่อก่อนสอบ:** transaction + `FOR UPDATE` + เช็ก `revision` + `INSERT flow_revisions` + `UPDATE states SET text_content, safety_warning` + `reload()` (ไม่มี validator เต็ม ไม่มี `addFlows` ไม่มีหมดอายุ session ไม่มี `confirmImpact`) ตาม "ฉบับก่อนสอบ" ใน 3.6 | B (ฉบับย่อ) | store, service, routes | ข้อ C ของชิ้น B ใน 3.7 ผ่าน · ส่งฟิลด์โครงสร้างมาด้วยแล้ว DB ไม่เปลี่ยน |
+| **4.5** `DELETE` และ `restore` พร้อมบันทึกผู้ทำ | C | store, service, routes | C11, C12 ผ่าน · ดัชนีและ `flow_count` ถูกต้อง |
+| **4.6** สคริปต์ | B | `scripts/seed-flows.js`, `scripts/backup-flow-tables.js` | ก่อนสอบทำเฉพาะด่าน L2 ใน `seed-flows.js` และเพิ่ม `flow_revisions` ใน `TABLES` ของ `backup-flow-tables.js` · checklist ข้อ 29 ผ่าน · `--force` ผ่าน รวมกรณี PowerShell 5.1 ตัด `--` แล้วส่งมาเป็น `npm_config_force` (ดู `run-migrations.js:60-63`) |
 
 **จุดหยุด A:** ถึงตรงนี้ API ครบ ทดสอบด้วย PowerShell ได้
 
 ### เฟส 5 — Frontend ส่วนหลัก (ต้องทำ)
 
-| Step | ไฟล์ | เสร็จเมื่อ |
-|---|---|---|
-| **5.1** ฐาน: `details`, ชนิด, API, hooks, ข้อความ error | `api/http.ts`, `api/types.ts`, `api/flows.ts`, `api/queries.ts`, `lib/errors.ts`, `lib/flowIssueLabels.ts` | `tsc` ผ่าน · error เดิมแสดงเหมือนเดิม |
-| **5.2** แยก component ใช้ร่วม | `DraftFlowCard.tsx`, `FlowStructure.tsx`, `ValidationReportPanel.tsx`, `DeleteConfirm.tsx` | หน้าร่างและหน้าประวัติแสดงผลเหมือนเดิม |
-| **5.3** หน้ารายการ | `pages/AdminFlowsPage.tsx`, `FlowRow.tsx`, `lib/adminFlowParams.ts`, `App.tsx`, `AdminTabs.tsx` | checklist ข้อ 2, 27 ผ่าน |
-| **5.4** หน้ารายละเอียด + ลบ + กู้คืน | `pages/AdminFlowDetailPage.tsx` | checklist ข้อ 3, 4, 20, 25 ผ่าน |
-| **5.5** ตัวช่วยฟอร์มแบบฟังก์ชันล้วน | `lib/flowEditor.ts` | เรียกผ่านหน้าใน 5.6 ได้ถูกต้อง |
-| **5.6** ฟอร์มแก้ (หน้าแก้หลัก) | `pages/AdminFlowEditPage.tsx`, `FlowMetaFields.tsx`, `StateEditorCard.tsx`, `StateTargetSelect.tsx` | checklist ข้อ 6, 7, 9–12 ผ่าน |
-| **5.7** ผลตอบกลับ: ยืนยันและชนกัน | `FlowConfirmPanel.tsx`, `FlowConflictNotice.tsx`, `AdminFlowEditPage.tsx` | checklist ข้อ 13–17 ผ่าน |
-| **5.8** หน้าประวัติและหน้าร่าง | `HistoryDetailPage.tsx`, `AdminDraftReviewPage.tsx`, `api/queries.ts` | checklist ข้อ 22 ผ่าน |
+| Step | ชิ้น | ไฟล์ | เสร็จเมื่อ |
+|---|---|---|---|
+| **5.1** ฐาน: `details`, ชนิด, API, hooks, ข้อความ error | A | `api/types.ts`, `api/flows.ts`, `api/queries.ts` (ก่อนสอบ) · `api/http.ts` (`details`), `lib/errors.ts`, `lib/flowIssueLabels.ts` (หลังสอบ ใช้กับ validator) | `tsc` ผ่าน · error เดิมแสดงเหมือนเดิม |
+| **5.2** แยก component ใช้ร่วม | A (DraftFlowCard, FlowStructure) + C (DeleteConfirm) · ValidationReportPanel หลังสอบ | `DraftFlowCard.tsx`, `FlowStructure.tsx`, `ValidationReportPanel.tsx`, `DeleteConfirm.tsx` | หน้าร่างและหน้าประวัติแสดงผลเหมือนเดิม |
+| **5.3** หน้ารายการ | A | `pages/AdminFlowsPage.tsx`, `FlowRow.tsx`, `lib/adminFlowParams.ts`, `App.tsx`, `AdminTabs.tsx` | checklist ข้อ 2, 27 ผ่าน |
+| **5.4** หน้ารายละเอียด + ลบ + กู้คืน | A (ดู) + C (ลบ/กู้คืน) | `pages/AdminFlowDetailPage.tsx` | ชิ้น A: ข้อ 3, 4 ผ่าน (ยังไม่มีปุ่มลบ/กู้คืน และไม่มีกล่อง validation) · ชิ้น C: เพิ่มปุ่ม ข้อ 20, 25 ผ่าน |
+| **5.5** ตัวช่วยฟอร์มแบบฟังก์ชันล้วน | B | `lib/flowEditor.ts` (ก่อนสอบมีเฉพาะตัวช่วยของข้อความ: รวมการเปลี่ยนแปลงเป็นรายการ `states` ตามรูป body ใน 3.2 "ฉบับก่อนสอบ": `{ state_id, question\|prompt\|content, safety_warning? }` ใช้ key เดียวกับที่ GET คืน) · ทำคู่กับ 5.6 ได้ | เรียกผ่านหน้าใน 5.6 ได้ถูกต้อง |
+| **5.6** ฟอร์มแก้ (หน้าแก้หลัก) | B (ฟอร์มข้อความ) | ก่อนสอบ: `pages/AdminFlowEditPage.tsx`, `StateEditorCard.tsx` (ช่องข้อความเท่านั้น ชนิด/เส้นเชื่อมแสดงอ่านอย่างเดียว) · หลังสอบ: `FlowMetaFields.tsx`, `StateTargetSelect.tsx` | checklist ข้อ 6, 7, 33 ผ่าน (ข้อ 9–12 หลังสอบ) |
+| **5.7** ผลตอบกลับ: ยืนยันและชนกัน | B (FlowConflictNotice) · FlowConfirmPanel หลังสอบ | ก่อนสอบ: `FlowConflictNotice.tsx`, `AdminFlowEditPage.tsx` · หลังสอบ: `FlowConfirmPanel.tsx` | ก่อนสอบ: ข้อ 15, 16 ผ่าน (ข้อ 17 ตรวจในชิ้น C) · หลังสอบ: ข้อ 13, 14 |
+| **5.8** หน้าประวัติและหน้าร่าง | C | `HistoryDetailPage.tsx`, `AdminDraftReviewPage.tsx`, `api/queries.ts` · **`HistoryPage.tsx`, `HistoryRow.tsx`, `historyView.ts` มีการแก้จากงาน resume ที่ยังไม่ commit ให้ดู `git diff` และต่อยอดจากฉบับนั้น** | checklist ข้อ 22 และ 34 ผ่าน |
 
 **จุดหยุด B:** ถึงตรงนี้ฟีเจอร์ดู แก้ และลบครบสำหรับ admin ที่ไม่ใช่โปรแกรมเมอร์
 
 ### เฟส 6 — ตรวจรับและส่วนเสริม
 
-| Step | ไฟล์ | เสร็จเมื่อ |
-|---|---|---|
-| **6.1** โหมด JSON เสริม (ถามก่อนทำ) | `components/admin/JsonEditor.tsx`, `DraftJsonEditor.tsx`, `AdminFlowEditPage.tsx` | checklist ข้อ 30 ผ่าน · หน้าร่างยังทำงานเดิม |
-| **6.2** ตรวจ C1–C19 และ checklist ข้อ 1–29 ครบบน DB ทดสอบ (รวมข้อ 30 ถ้าทำ 6.1) | ไม่แก้ไฟล์ | รายงานผลแต่ละข้อ รวมเวลา `reload()` |
-| **6.3** เอกสาร | `docs/README.md`, `docs/ops/DEPLOY.md` · `docs/reference/DATABASE.md` (ถามก่อน) · แก้ `drafts.service.ts:46` | ขั้นตอน migrate, การเพิ่ม admin, ข้อควรระวังเรื่อง seed ตรงกับของจริง |
+| Step | ชิ้น | ไฟล์ | เสร็จเมื่อ |
+|---|---|---|---|
+| **6.1** โหมด JSON เสริม (ถามก่อนทำ) | หลังสอบ | `components/admin/JsonEditor.tsx`, `DraftJsonEditor.tsx`, `AdminFlowEditPage.tsx` | checklist ข้อ 30 ผ่าน · หน้าร่างยังทำงานเดิม |
+| **6.2** ตรวจตามตาราง "แบ่งข้อตรวจตามชิ้น" ใน 3.7 ครบบน DB ทดสอบ **เมื่อจบแต่ละชิ้น (6.2A, 6.2B, 6.2C)** · ฉบับเต็ม C1–C19 และ checklist ข้อ 1–32 ทำหลังสอบ | A/B/C ตามชิ้น | ไม่แก้ไฟล์ | รายงานผลแต่ละข้อ รวมเวลา `reload()` |
+| **6.3** เอกสาร | ท้ายชิ้น C (ส่วน migrate DB จริงหลังสอบ) | `docs/README.md`, `docs/ops/DEPLOY.md` · `docs/reference/DATABASE.md` (ถามก่อน) · แก้ `drafts.service.ts:46` | ขั้นตอน migrate, การเพิ่ม admin, ข้อควรระวังเรื่อง seed ตรงกับของจริง |
 
 ### เฟส 7 — แผนภาพ Mermaid (step สุดท้าย)
 
 ฟีเจอร์ครบแล้วตั้งแต่จุดหยุด B เฟสนี้ตัดออกได้โดยไม่กระทบส่วนอื่น · ถามก่อนเริ่มว่าจะทำเลยหรือข้าม และเตือนให้รัน `npm install` ใน `frontend`
 
-| Step | ไฟล์ | เสร็จเมื่อ |
-|---|---|---|
-| **7.1** ติดตั้ง `mermaid` และบันทึกขนาด build ก่อน-หลัง | `frontend/package.json`, `frontend/package-lock.json` | `npm run build` ผ่าน · ตรวจ API ของเวอร์ชันที่ติดตั้ง · Render ไม่กระทบเพราะ build เฉพาะ `backend` |
-| **7.2** แปลงผังเป็นข้อความ | `lib/flowDiagram.ts` | ใช้ `s0, s1, …` เป็น id ของจุด กันคำสงวน · escape และตัดป้ายกำกับ · รูปร่างตามชนิด · **ไม่วาด `on_invalid` ที่ชี้ตัวเอง** เพราะมี 938 จุดและรกโดยไม่ได้ข้อมูลเพิ่ม |
-| **7.3** แสดงในหน้ารายละเอียด | `components/admin/flows/FlowDiagram.tsx`, `pages/AdminFlowDetailPage.tsx` | ใช้ `import('mermaid')` เมื่อเปิดส่วน "ดูแผนภาพ" เท่านั้น · `securityLevel: 'strict'` · ล้มเหลวแล้วแสดงข้อความและรายการปกติ · checklist ข้อ 31, 32 ผ่าน · โหลดหน้าผู้ใช้ทั่วไปไม่เพิ่มขึ้น |
+| Step | ชิ้น | ไฟล์ | เสร็จเมื่อ |
+|---|---|---|---|
+| **7.1** ติดตั้ง `mermaid` และบันทึกขนาด build ก่อน-หลัง | หลังสอบ | `frontend/package.json`, `frontend/package-lock.json` | `npm run build` ผ่าน · ตรวจ API ของเวอร์ชันที่ติดตั้ง · Render ไม่กระทบเพราะ build เฉพาะ `backend` |
+| **7.2** แปลงผังเป็นข้อความ | หลังสอบ | `lib/flowDiagram.ts` | ใช้ `s0, s1, …` เป็น id ของจุด กันคำสงวน · escape และตัดป้ายกำกับ · รูปร่างตามชนิด · **ไม่วาด `on_invalid` ที่ชี้ตัวเอง** เพราะมี 938 จุดและรกโดยไม่ได้ข้อมูลเพิ่ม |
+| **7.3** แสดงในหน้ารายละเอียด | หลังสอบ | `components/admin/flows/FlowDiagram.tsx`, `pages/AdminFlowDetailPage.tsx` | ใช้ `import('mermaid')` เมื่อเปิดส่วน "ดูแผนภาพ" เท่านั้น · `securityLevel: 'strict'` · ล้มเหลวแล้วแสดงข้อความและรายการปกติ · checklist ข้อ 31, 32 ผ่าน · โหลดหน้าผู้ใช้ทั่วไปไม่เพิ่มขึ้น |
 
 ---
 
@@ -1315,7 +1470,7 @@ samsung_ge83mdt_um_not_start · Samsung GE83MDT · คู่มือ xxx.pdf �
 เพราะ `sessions.flow_id` เป็น `ON DELETE RESTRICT` ฐานข้อมูลไม่ให้ลบผังที่เคยถูกใช้ และถ้าลบ session ตามไป ประวัติการซ่อม ความเห็น และตัวเลขสถิติก็จะหายตาม เราจึงใส่ `deleted_at` เพื่อซ่อนจากผู้ใช้ ส่วนข้อมูลเดิมยังอยู่และกู้คืนได้
 
 **2. ถ้าผู้ใช้กำลังตรวจอยู่แล้วแอดมินแก้หรือลบผังล่ะ?**
-ถ้าลบผัง ผู้ใช้เดินต่อจนจบได้ แต่ไม่มีใครเริ่มใหม่ได้ และประวัติยังเปิดดูได้ ถ้าแก้ผัง session อ่านผังล่าสุดทุกขั้น จึงเห็นข้อความใหม่ในขั้นถัดไป ซึ่งมีข้อดีคือแก้คำเตือนความปลอดภัยแล้วมีผลทันที ถ้าจะลบขั้นตอนที่มีคนอยู่ ระบบบอกผลกระทบให้ admin กดยืนยันก่อน แล้ว session นั้นหมดอายุ ผู้ใช้ได้ข้อความให้เริ่มใหม่แทนหน้าระบบล้ม
+ถ้าลบผัง ผู้ใช้เดินต่อจนจบได้ แต่ไม่มีใครเริ่มใหม่ได้ และประวัติยังเปิดดูได้ ถ้าแก้ผัง session อ่านผังล่าสุดทุกขั้น จึงเห็นข้อความใหม่ในขั้นถัดไป ซึ่งมีข้อดีคือแก้คำเตือนความปลอดภัยแล้วมีผลทันที ถ้าจะลบขั้นตอนที่มีคนอยู่ ระบบบอกผลกระทบให้ admin กดยืนยันก่อน แล้ว session นั้นหมดอายุ ผู้ใช้ได้ข้อความให้เริ่มใหม่แทนหน้าระบบล้ม · session ที่ค้างและเปิดต่อจากหน้าประวัติ (งาน resume, อยู่ได้ 7 วัน) ก็ใช้หลักเดียวกัน: ผังที่ลบยังอยู่ในหน่วยความจำจึงเดินต่อจนจบได้ ก่อนสอบทำเฉพาะแก้ข้อความและลบ/กู้คืน จึงไม่มีการตัด session
 
 **3. ทำไมไม่ทำ versioning? ประวัติเก่าจะไม่ตรงหรือเปล่า?**
 ตรงนี้เป็นข้อจำกัดที่ยอมรับ: ประวัติไม่ได้เป็นภาพถ่าย ณ วันที่ตรวจ Versioning เต็มรูปแบบต้องเปลี่ยน PK และ FK ของหลายตาราง เกินความจำเป็นสำหรับขนาดโปรเจกต์นี้ แต่ระบบ**ไม่แสดงข้อมูลผิดโดยไม่บอก**: `replayReaches` เดินขั้นที่บันทึกซ้ำบนผังปัจจุบัน ถ้าไปไม่ถึงสถานะเดิมจะแจ้งว่าผังเปลี่ยน และถ้าแก้แต่ข้อความจะมีหมายเหตุบอก ส่วน `flow_revisions` เก็บเนื้อหาก่อนแก้ไว้ตรวจย้อนหลัง ทางขยายถัดไปคือแก้แล้วสร้าง `flow_id` ใหม่
@@ -1329,8 +1484,11 @@ samsung_ge83mdt_um_not_start · Samsung GE83MDT · คู่มือ xxx.pdf �
 **6. ไม่มีติ๊กยืนยันตอนบันทึก แล้วถ้าแอดมินเอาคำเตือนความปลอดภัยออกโดยไม่ตั้งใจ?**
 การบันทึกปกติใช้คลิกเดียวเพื่อไม่ให้ยุ่งยากเกินไป แต่ระบบเทียบผังเก่ากับใหม่ ถ้าด่านความปลอดภัยหายไป จะไม่บันทึกทันที แต่แสดงผลกระทบและให้กด "บันทึกต่อ" อีกครั้ง และเนื้อหาก่อนแก้ถูกเก็บใน `flow_revisions` พร้อมชื่อผู้แก้ จึงกู้คืนได้ · ข้อจำกัดคือระบบ**ตรวจความถูกต้องของเนื้อหาแทนคนไม่ได้** คำเตือนทั่วไปแสดงให้อ่านแต่ไม่ขวางการบันทึก
 
-**7. มีแอดมินหลายคน ถ้าแก้พร้อมกันหรืออยากรู้ว่าใครแก้ล่ะ?**
+**7. ทำไมก่อนสอบแก้ได้แค่ข้อความ? แล้ว resume session กับการแก้ผังเกี่ยวกันอย่างไร?**
+เพราะเวลามีจำกัด จึงทำชิ้นที่ความเสี่ยงต่ำและมีประโยชน์ทันทีก่อน: ดู แก้ข้อความของขั้นตอนที่มีอยู่ และลบ/กู้คืน ซึ่งไม่เปลี่ยนโครงสร้างผัง จึงไม่มีทางทำให้ลูกศรชี้ผิดหรือเดินไม่ถึงจุดจบ และ session ที่ค้างอยู่ไม่ได้รับผลกระทบเกินกว่าเห็นข้อความใหม่ การเพิ่ม/ลบขั้นตอนและแก้เส้นเชื่อมต้องมี validator ตรวจก่อนบันทึก ซึ่งออกแบบไว้แล้วและเลื่อนไปหลังสอบ · ส่วน resume: ตอนนี้ session ค้างได้ 7 วันและเปิดต่อจากหน้าประวัติได้ ผังที่ถูกลบยังอยู่ในหน่วยความจำ ผู้ใช้จึงเดินต่อจนจบได้ และถ้าแก้ข้อความ ขั้นถัดไปแสดงข้อความใหม่ทันที · ถ้าวันหน้าเพิ่มการลบขั้นตอน session ที่ถูกตัดจะหายจากหน้าประวัติด้วย (เพราะกรอง `expires_at > NOW()`) ต้องตัดสินใจเรื่องข้อความแจ้งผู้ใช้ตอนนั้น
+
+**8. มีแอดมินหลายคน ถ้าแก้พร้อมกันหรืออยากรู้ว่าใครแก้ล่ะ?**
 แต่ละผังมี `revision` ตอนบันทึกต้องส่งเลขที่ตัวเองอ่านมา ถ้าไม่ตรงจะได้ 409 พร้อมบอกว่าใครบันทึกไปก่อน งานในฟอร์มไม่หาย ไม่มีการเขียนทับเงียบ ๆ และ `SELECT ... FOR UPDATE` ทำให้การบันทึกเกิดทีละครั้ง เป็นวิธีเดียวกับตอน publish ส่วนการตรวจย้อนหลัง `flows` เก็บคนแก้ล่าสุดและคนลบ และ `flow_revisions` เก็บทุกการแก้ ลบ กู้คืน พร้อมเวลาและผู้ทำ ระบบไม่ได้รวมงานสองคนให้อัตโนมัติ
 
-**8. ทดสอบฟีเจอร์นี้อย่างไร ทำไมไม่มี automated test?**
+**9. ทดสอบฟีเจอร์นี้อย่างไร ทำไมไม่มี automated test?**
 เราเลือกทดสอบด้วยมือตาม checklist ที่ครอบคลุมตั้งแต่สร้าง ดู แก้ เดินผัง ลบ จนถึงเปิดประวัติ รวมถึงกรณีแอดมินสองคนทำงานพร้อมกัน เพราะผู้พัฒนาต้องอ่านและอธิบายทุกส่วนได้ และโปรเจกต์ตัดชุด test ออกไปก่อนหน้านี้แล้ว ข้อแลกเปลี่ยนคือไม่มีตัวกันการถอยอัตโนมัติ เมื่อแก้ validator หรือตัวโหลดผังต้องไล่ checklist ซ้ำ และกรณีชนกันด้านเวลาตรวจด้วยมือได้ไม่แน่นอน

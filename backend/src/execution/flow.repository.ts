@@ -18,6 +18,7 @@ interface FlowRow extends RowDataPacket {
   model_pattern: string;
   display_name: string | null;
   model_aliases: unknown;
+  is_deleted: number;
 }
 
 interface StateRow extends RowDataPacket {
@@ -74,6 +75,14 @@ export class FlowRepository {
   /** ชื่อรุ่นที่ผู้ใช้รู้จักของแต่ละคู่มือ (migration 006) ใช้ใน listManuals เท่านั้น ไม่ปนกับผังของ engine */
   private readonly manualExtras = new Map<string, { displayName?: string; modelAliases?: string[] }>();
 
+  /**
+   * ผังที่ admin ลบ (soft delete, migration 007): ยังอยู่ใน flows เพื่อให้ session เดิม ประวัติ และ dashboard อ่านได้
+   * แต่ไม่โผล่ในรายการของผู้ใช้ ไม่ถูกค้นเจอ และเริ่มตรวจใหม่ไม่ได้
+   */
+  private readonly deletedIds = new Set<string>();
+
+  private reloadQueue: Promise<unknown> = Promise.resolve();
+
   constructor(private readonly pool: Pool) {}
   /** โหลดผังทั้งหมดเข้าหน่วยความจำ — app.ts เรียกตอนบูต ก่อนเปิดรับคำขอ (ข้อมูลเสีย = บูตไม่ขึ้น) */
   async load(): Promise<void> {
@@ -84,8 +93,13 @@ export class FlowRepository {
     return this.flows.get(flowId);
   }
 
+  /** false = ถูก admin ลบแล้ว (findById ยังคืนผังนี้ เพื่อให้ session เดิมและประวัติเดินต่อได้) */
+  isActive(flowId: string): boolean {
+    return this.flows.has(flowId) && !this.deletedIds.has(flowId);
+  }
+
   listAll(): FlowSummary[] {
-    return [...this.flows.values()].map((g) => ({
+    return [...this.flows.values()].filter((g) => !this.deletedIds.has(g.flow_id)).map((g) => ({
       flowId: g.flow_id,
       manualId: g.manual_id,
       entrySymptom: g.entry_symptom,
@@ -96,9 +110,11 @@ export class FlowRepository {
     }));
   }
 
-  listManuals(): ManualSummary[] {
+  /** includeDeleted: ประวัติและด่านตรวจ manual_id ซ้ำต้องเห็นคู่มือที่ผังทั้งหมดถูกลบแล้วด้วย */
+  listManuals(includeDeleted = false): ManualSummary[] {
     const manuals = new Map<string, ManualSummary>();
     for (const g of this.flows.values()) {
+      if (!includeDeleted && this.deletedIds.has(g.flow_id)) continue;
       const found = manuals.get(g.manual_id);
       if (found) {
         found.flowCount += 1;
@@ -123,7 +139,8 @@ export class FlowRepository {
               f.entry_symptom_aliases, f.source, f.page_start, f.page_end,
               f.source_chunk_id, f.initial_state,
               m.device_category, m.brand, m.model_pattern,
-              m.display_name, m.model_aliases
+              m.display_name, m.model_aliases,
+              f.deleted_at IS NOT NULL AS is_deleted
          FROM flows f
          JOIN manuals m ON m.manual_id = f.manual_id
         ORDER BY f.flow_id`,
@@ -158,9 +175,11 @@ export class FlowRepository {
     // สำคัญเมื่อ reload() ถูกเรียกระหว่างระบบทำงาน (publish ผังใหม่) ต่างจากตอนบูตที่ throw แล้วแอปไม่ขึ้นอยู่แล้ว
     const nextFlows = new Map<string, TroubleshootingFlow>();
     const nextExtras = new Map<string, { displayName?: string; modelAliases?: string[] }>();
+    const nextDeleted = new Set<string>();
     for (const flowRow of flowRows) {
       const rows = statesByFlow.get(flowRow.flow_id) ?? [];
       nextFlows.set(flowRow.flow_id, this.buildFlow(flowRow, rows));
+      if (Number(flowRow.is_deleted) === 1) nextDeleted.add(flowRow.flow_id);
 
       const aliases = parseJsonColumn<unknown>(flowRow.model_aliases);
       nextExtras.set(flowRow.manual_id, {
@@ -173,6 +192,8 @@ export class FlowRepository {
 
     this.flows.clear();
     this.manualExtras.clear();
+    this.deletedIds.clear();
+    for (const id of nextDeleted) this.deletedIds.add(id);
     for (const [id, flow] of nextFlows) this.flows.set(id, flow);
     for (const [id, extras] of nextExtras) this.manualExtras.set(id, extras);
 
@@ -183,9 +204,14 @@ export class FlowRepository {
    * โหลดผังจากฐานข้อมูลใหม่โดยไม่ต้องรีสตาร์ต — เรียกหลัง publish ผังใหม่ (โมดูล authoring)
    * ล้มเหลว (ข้อมูลเสีย/ฐานข้อมูลล่ม) → โยน error และผังเดิมในหน่วยความจำไม่เปลี่ยน
    * คืนจำนวนผังหลังโหลด
+   *
+   * เรียกพร้อมกันได้: แต่ละรอบเข้าคิวต่อกัน (admin หลายคนบันทึกพร้อมกัน) รอบหลังอ่าน DB หลัง commit ของตัวเอง
+   * และจบหลังรอบก่อน ผลเก่าจึงทับผลใหม่ไม่ได้ · รอบที่ล้มไม่ทำให้คิวหยุด
    */
   async reload(): Promise<number> {
-    await this.loadAll();
+    const run = this.reloadQueue.then(() => this.loadAll());
+    this.reloadQueue = run.catch(() => undefined);
+    await run;
     return this.flows.size;
   }
 

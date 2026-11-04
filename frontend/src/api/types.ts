@@ -82,6 +82,8 @@ export interface HistoryFlowInfo {
   brand: string
   modelPattern: string
   displayName?: string
+  /** false = an admin deleted this flow: the history stays readable but the symptom cannot be checked again */
+  active: boolean
 }
 
 export interface HistoryListItem {
@@ -299,4 +301,114 @@ export interface DraftPublishResult {
   status: 'published'
   flowIds: string[]
   searchIndex: { indexed: boolean; reason?: string }
+}
+
+export type AdminFlowStatus = 'active' | 'deleted'
+export type AdminFlowStatusFilter = AdminFlowStatus | 'all'
+
+/** GET /admin/flows?... */
+export interface AdminFlowListParams {
+  q?: string
+  deviceCategory?: DeviceCategory
+  status: AdminFlowStatusFilter
+  page: number
+}
+
+export interface AdminFlowListItem {
+  flowId: string
+  manualId: string
+  deviceCategory: DeviceCategory
+  brand: string
+  modelPattern: string
+  displayName: string | null
+  entrySymptom: string
+  entrySymptomTh: string | null
+  stateCount: number
+  status: AdminFlowStatus
+  revision: number
+  editedAt: string | null
+  editedByName: string | null
+  deletedAt: string | null
+  deletedByName: string | null
+  sessionCount: number
+  activeSessionCount: number
+}
+
+export interface AdminFlowListResponse {
+  items: AdminFlowListItem[]
+  total: number
+  page: number
+  pageSize: number
+  totalPages: number
+}
+
+/** One state in GET /admin/flows/:id — the text key depends on type: question / prompt / content */
+export interface AdminFlowState {
+  state_id: string
+  type: string
+  question?: string
+  prompt?: string
+  content?: string
+  on_yes?: string
+  on_no?: string
+  next?: string
+  on_invalid?: string
+  input_type?: string
+  pattern?: string
+  store_as?: string
+  outcome_kind?: string
+  safety_critical: boolean
+  safety_warning: string | null
+  author_note: string | null
+}
+
+/** One item of PUT /admin/flows/:id — the text key matches the state type (question / prompt / content) */
+export interface AdminFlowStateEdit {
+  state_id: string
+  question?: string
+  prompt?: string
+  content?: string
+  safety_warning?: string
+}
+
+export interface AdminFlowRestoreResult {
+  detail: AdminFlowDetail
+  searchIndex: { indexed: boolean; reason?: string }
+}
+
+export interface AdminFlowUpdateResult {
+  detail: AdminFlowDetail
+  changedStates: number
+}
+
+export interface AdminFlowDetail {
+  flowId: string
+  manualId: string
+  deviceCategory: DeviceCategory
+  brand: string
+  modelPattern: string
+  displayName: string | null
+  sourceManual: string
+  source: string
+  sourceChunkId: string
+  status: AdminFlowStatus
+  revision: number
+  createdAt: string
+  updatedAt: string
+  editedAt: string | null
+  editedByName: string | null
+  deletedAt: string | null
+  deletedByName: string | null
+  flow: {
+    flow_id: string
+    entry_symptom: string
+    entry_symptom_th: string | null
+    entry_symptom_aliases: string[]
+    severity: string | null
+    difficulty: string | null
+    page_range: [number, number]
+    initial_state: string
+    states: AdminFlowState[]
+  }
+  usage: { sessions: number; completed: number; feedback: number; activeByState: Record<string, number> }
 }

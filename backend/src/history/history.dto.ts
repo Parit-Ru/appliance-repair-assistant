@@ -59,6 +59,8 @@ export interface HistoryFlowInfo {
   brand: string;
   modelPattern: string;
   displayName?: string;
+  /** false = ผังนี้ถูก admin ลบแล้ว: ดูประวัติได้ แต่ตรวจอาการนี้ซ้ำไม่ได้ */
+  active: boolean;
 }
 
 export interface HistoryListItemDto {

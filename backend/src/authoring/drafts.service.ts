@@ -55,7 +55,7 @@ export class DraftsService {
     this.busy = true;
     try {
       if ((await this.store.countDrafting()) > 0) throw draftBusy();
-      if (this.flowRepository.listManuals().some((m) => m.manualId === fields.manualId)) {
+      if (this.flowRepository.listManuals(true).some((m) => m.manualId === fields.manualId)) {
         throw draftIdConflict([`manual_id '${fields.manualId}' มีอยู่แล้ว (เผยแพร่ได้เฉพาะคู่มือใหม่)`]);
       }
 
@@ -236,7 +236,7 @@ export class DraftsService {
         report.errors.push({ code: 'E_ID_CONFLICT', message: `flow_id '${flow.flow_id}' ชนกับผังที่ใช้งานอยู่ (ไม่เขียนทับ)`, flowId: flow.flow_id });
       }
     }
-    if (this.flowRepository.listManuals().some((m) => m.manualId === manualId)) {
+    if (this.flowRepository.listManuals(true).some((m) => m.manualId === manualId)) {
       report.errors.push({ code: 'E_ID_CONFLICT', message: `manual_id '${manualId}' มีอยู่แล้ว (เผยแพร่ได้เฉพาะคู่มือใหม่)` });
     }
     return report;

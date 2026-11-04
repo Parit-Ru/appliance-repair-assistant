@@ -80,6 +80,8 @@ export class ExecutionService {
     modelSelection?: ModelSelection,
     owner?: SessionOwner,
   ): Promise<SessionResponseDto> {
+    // A flow deleted by an admin cannot be started again (existing sessions still use requireFlow and can finish)
+    if (!this.flowRepository.isActive(flowId)) throw flowNotFound(flowId);
     const flow = this.requireFlow(flowId);
     if (manualId !== undefined && flow.manual_id !== manualId) {
       throw flowManualMismatch(flowId, manualId);

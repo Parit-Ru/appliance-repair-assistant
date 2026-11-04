@@ -141,6 +141,42 @@ const MESSAGES: Record<string, ErrorDescription> = {
     detail: 'ตรวจช่วงวันที่ (วันเริ่มต้องไม่หลังวันสิ้นสุด และช่วงไม่เกิน 366 วัน) แล้วลองอีกครั้ง',
     recovery: 'stay',
   },
+  INVALID_FLOW_REQUEST: {
+    title: 'ข้อมูลที่ส่งไปบันทึกไม่ถูกต้อง',
+    detail: 'ตรวจว่าทุกช่องข้อความไม่ว่างและไม่ยาวเกินกำหนด แล้วลองอีกครั้ง',
+    recovery: 'stay',
+  },
+  FLOW_EDIT_CONFLICT: {
+    title: 'มีผู้ดูแลคนอื่นแก้ผังนี้ไปก่อน',
+    detail: 'โหลดฉบับล่าสุดแล้วแก้ซ้ำ',
+    recovery: 'stay',
+  },
+  FLOW_ALREADY_DELETED: {
+    title: 'แผนผังขั้นตอนนี้ถูกลบไปแล้ว',
+    detail: 'มีผู้ดูแลลบไปก่อนหน้านี้ ดึงข้อมูลล่าสุดมาดูสถานะจริง',
+    recovery: 'stay',
+  },
+  FLOW_NOT_DELETED: {
+    title: 'แผนผังขั้นตอนนี้ไม่ได้ถูกลบ',
+    detail: 'ไม่ต้องกู้คืน ดึงข้อมูลล่าสุดมาดูสถานะจริง',
+    recovery: 'stay',
+  },
+  FLOW_DELETED: {
+    title: 'แผนผังขั้นตอนนี้ถูกลบแล้ว',
+    detail: 'แก้ไขไม่ได้ ต้องกู้คืนก่อน',
+    recovery: 'stay',
+  },
+  FLOW_RELOAD_FAILED: {
+    title: 'บันทึกลงฐานข้อมูลแล้ว แต่ระบบยังไม่โหลดผังใหม่',
+    detail: 'ผังเดิมยังใช้งานได้ตามปกติ รีสตาร์ตเซิร์ฟเวอร์ (backend) เพื่อให้ข้อความใหม่ปรากฏ',
+    recovery: 'stay',
+    code: 'FLOW_RELOAD_FAILED',
+  },
+  ADMIN_FLOW_NOT_FOUND: {
+    title: 'ไม่พบแผนผังขั้นตอนนี้',
+    detail: 'แผนผังขั้นตอนอาจไม่มีในระบบ กลับไปที่รายการแผนผังที่เผยแพร่',
+    recovery: 'stay',
+  },
   INVALID_DRAFT_REQUEST: {
     title: 'ข้อมูลที่ส่งไม่ถูกต้อง',
     detail: 'ตรวจข้อมูลคู่มือ ช่วงหน้า และไฟล์ แล้วลองอีกครั้ง',
@@ -230,6 +266,10 @@ export function describeError(error: unknown): ErrorDescription {
   // 3 รหัสของร่างแผนผังใช้ข้อความจากเซิร์ฟเวอร์ประกอบ เพราะเป็นข้อความภาษาไทยที่เขียนให้ผู้ดูแลอ่าน
   // และบอกจุดที่ผิดเจาะจง (เช่น ฟิลด์ไหน id ไหน)
   if (error.code === 'INVALID_DRAFT_REQUEST' || error.code === 'PDF_PAGE_TOO_LONG') {
+    return { ...known, detail: error.message || known.detail }
+  }
+  // Messages from the flow editor name the state or the admin involved, so they are more specific than the fixed text
+  if (error.code === 'INVALID_FLOW_REQUEST' || error.code === 'FLOW_EDIT_CONFLICT' || error.code === 'FLOW_DELETED' || error.code === 'FLOW_ALREADY_DELETED') {
     return { ...known, detail: error.message || known.detail }
   }
   if (error.code === 'DRAFT_ID_CONFLICT') {

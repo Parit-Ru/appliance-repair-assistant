@@ -17,6 +17,9 @@ import { errorHandler, notFoundHandler } from './common/error-handler';
 import { createLogger } from './common/logger';
 import { createDbPool } from './database/pool';
 import { EmbeddingService } from './embedding/embedding.service';
+import { flowAdminRoutes } from './flow-admin/flow-admin.routes';
+import { FlowAdminService } from './flow-admin/flow-admin.service';
+import { FlowAdminStore } from './flow-admin/flow-admin.store';
 import { healthRoutes } from './health/health.routes';
 import { historyRoutes } from './history/history.routes';
 import { HistoryService } from './history/history.service';
@@ -54,6 +57,7 @@ export async function createApp(): Promise<express.Express> {
   const auth = new AuthService(users, tokens);
   const history = new HistoryService(new HistoryStore(pool), flows);
   const admin = new AdminService(new AdminStore(pool), flows);
+  const flowAdmin = new FlowAdminService(new FlowAdminStore(pool), flows, symptomSearch);
   const drafts = new DraftsService(new DraftsStore(pool), flows, symptomSearch, new UnpdfTextExtractor(), createDraftLlmFromEnv());
 
   await flows.load(); 
@@ -76,6 +80,7 @@ export async function createApp(): Promise<express.Express> {
   app.use('/admin', adminArea(requireAuth, requireAdmin, (router) => {
     router.use(adminRoutes(admin));
     router.use('/drafts', draftsRoutes(drafts));
+    router.use('/flows', flowAdminRoutes(flowAdmin));
   }));
 
   app.use(notFoundHandler); 

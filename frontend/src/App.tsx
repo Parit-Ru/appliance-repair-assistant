@@ -7,6 +7,9 @@ import { AdminAnalyticsPage } from './pages/AdminAnalyticsPage'
 import { AdminDraftReviewPage } from './pages/AdminDraftReviewPage'
 import { AdminDraftsPage } from './pages/AdminDraftsPage'
 import { AdminFeedbackPage } from './pages/AdminFeedbackPage'
+import { AdminFlowDetailPage } from './pages/AdminFlowDetailPage'
+import { AdminFlowEditPage } from './pages/AdminFlowEditPage'
+import { AdminFlowsPage } from './pages/AdminFlowsPage'
 import { AllSymptomsPage } from './pages/AllSymptomsPage'
 import { DevicesPage } from './pages/DevicesPage'
 import { HistoryDetailPage } from './pages/HistoryDetailPage'
@@ -48,6 +51,9 @@ export default function App() {
               <Route path="/admin/feedback" element={<AdminRoute> <AdminFeedbackPage /></AdminRoute> }/>
               <Route path="/admin/drafts" element={ <AdminRoute> <AdminDraftsPage /> </AdminRoute>}/>
               <Route path="/admin/drafts/:id" element={<AdminRoute> <AdminDraftReviewPage /></AdminRoute> }/>
+              <Route path="/admin/flows" element={<AdminRoute> <AdminFlowsPage /> </AdminRoute>} />
+              <Route path="/admin/flows/:id" element={<AdminRoute> <AdminFlowDetailPage /> </AdminRoute>} />
+              <Route path="/admin/flows/:id/edit" element={<AdminRoute> <AdminFlowEditPage /> </AdminRoute>} />
               <Route path="*" element={<NotFoundPage />} />
             </Routes>
           </AppShell>
