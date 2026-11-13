@@ -5,6 +5,18 @@ export const PROMPT_VERSION = 'v1';
 const ENDPOINT = 'https://api.groq.com/openai/v1/chat/completions';
 const DEFAULT_TIMEOUT_MS = 60_000;
 const DEFAULT_MAX_TOKENS = 6000;
+const MAX_RATE_LIMIT_RETRIES = 2;
+const DEFAULT_RETRY_WAIT_MS = 20_000;
+const MAX_RETRY_WAIT_MS = 60_000;
+
+const sleep = (ms: number) => new Promise<void>((resolve) => setTimeout(resolve, ms));
+
+/** รอเท่าที่ Groq บอกใน retry-after (วินาที) ไม่มีก็ใช้ค่าตายตัว · จำกัดไม่เกิน 1 นาที */
+function retryWaitMs(response: Response, attempt: number): number {
+  const seconds = Number(response.headers.get('retry-after'));
+  const wait = Number.isFinite(seconds) && seconds > 0 ? Math.ceil(seconds * 1000) + 500 : DEFAULT_RETRY_WAIT_MS * (attempt + 1);
+  return Math.min(wait, MAX_RETRY_WAIT_MS);
+}
 
 type DraftLlmErrorCode = 'LLM_NOT_CONFIGURED' | 'LLM_TIMEOUT' | 'LLM_HTTP' | 'LLM_BAD_RESPONSE';
 
@@ -75,40 +87,59 @@ class GroqDraftLlmClient implements DraftLlmClient {
     readonly model: string,
     private readonly timeoutMs: number = DEFAULT_TIMEOUT_MS,
     private readonly maxTokens: number = DEFAULT_MAX_TOKENS,
+    private readonly reasoningEffort?: string,
     private readonly fetchImpl: typeof fetch = fetch,
   ) {}
 
   async draft(input: DraftLlmInput): Promise<string> {
     const { system, user } = buildPrompt(input);
-    const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), this.timeoutMs);
+    const body = JSON.stringify({
+      model: this.model,
+      temperature: 0,
+      max_tokens: this.maxTokens,
+      ...(this.reasoningEffort ? { reasoning_effort: this.reasoningEffort } : {}),
+      response_format: { type: 'json_object' },
+      messages: [
+        { role: 'system', content: system },
+        { role: 'user', content: user },
+      ],
+    });
 
+    let controller = new AbortController();
+    let timer: ReturnType<typeof setTimeout> | undefined;
     let response: Response;
-    try {
-      response = await this.fetchImpl(ENDPOINT, {
-        method: 'POST',
-        signal: controller.signal,
-        headers: { 'content-type': 'application/json', authorization: `Bearer ${this.apiKey}` },
-        body: JSON.stringify({
-          model: this.model,
-          temperature: 0,
-          max_tokens: this.maxTokens,
-          response_format: { type: 'json_object' },
-          messages: [
-            { role: 'system', content: system },
-            { role: 'user', content: user },
-          ],
-        }),
-      });
-    } catch (err) {
+    for (let attempt = 0; ; attempt += 1) {
+      const current = new AbortController();
+      controller = current;
+      timer = setTimeout(() => current.abort(), this.timeoutMs);
+      try {
+        response = await this.fetchImpl(ENDPOINT, {
+          method: 'POST',
+          signal: current.signal,
+          headers: { 'content-type': 'application/json', authorization: `Bearer ${this.apiKey}` },
+          body,
+        });
+      } catch (err) {
+        clearTimeout(timer);
+        if (current.signal.aborted) throw new DraftLlmError('LLM_TIMEOUT', `LLM ไม่ตอบภายใน ${Math.round(this.timeoutMs / 1000)} วินาที`);
+        throw new DraftLlmError('LLM_HTTP', `เรียก LLM ไม่ได้: ${err instanceof Error ? err.message : 'ไม่ทราบสาเหตุ'}`);
+      }
+      if (response.status !== 429 || attempt >= MAX_RATE_LIMIT_RETRIES) break;
       clearTimeout(timer);
-      if (controller.signal.aborted) throw new DraftLlmError('LLM_TIMEOUT', `LLM ไม่ตอบภายใน ${Math.round(this.timeoutMs / 1000)} วินาที`);
-      throw new DraftLlmError('LLM_HTTP', `เรียก LLM ไม่ได้: ${err instanceof Error ? err.message : 'ไม่ทราบสาเหตุ'}`);
+      await response.text().catch(() => '');
+      await sleep(retryWaitMs(response, attempt));
     }
 
     try {
       if (!response.ok) {
-        const detail = (await response.text().catch(() => '')).slice(0, 200);
+        const text = await response.text().catch(() => '');
+        if (response.status === 400 && text.includes('json_validate_failed')) {
+          throw new DraftLlmError(
+            'LLM_BAD_RESPONSE',
+            'LLM สร้าง JSON ไม่สำเร็จ (คำตอบว่างหรือไม่ครบ มักเพราะโมเดลใช้ token ไปกับการคิดจนหมด) — ลองเลือกหน้าน้อยลง ตั้ง AUTHORING_LLM_REASONING_EFFORT=low หรือเปลี่ยนโมเดล',
+          );
+        }
+        const detail = text.slice(0, 200);
         throw new DraftLlmError('LLM_HTTP', `LLM ตอบ HTTP ${response.status}${detail ? `: ${detail}` : ''}`);
       }
       let json: { choices?: Array<{ message?: { content?: unknown }; finish_reason?: string }> };
@@ -144,5 +175,6 @@ export function createDraftLlmFromEnv(env: NodeJS.ProcessEnv = process.env): Gro
     model,
     Number.isFinite(timeout) && timeout > 0 ? timeout : DEFAULT_TIMEOUT_MS,
     Number.isFinite(maxTokens) && maxTokens > 0 ? maxTokens : DEFAULT_MAX_TOKENS,
+    env.AUTHORING_LLM_REASONING_EFFORT?.trim() || undefined,
   );
 }
