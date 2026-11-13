@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
 import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import type { ExecutionAction, ModelSelection } from '../api/types'
-import { useAbandonSession, useFlows, useManuals, useSession, useStartSession, useSubmitAction, useSubmitOutcome } from '../api/queries'
+import { useAbandonSession, useFlows, useHistoryDetail, useManuals, useSession, useStartSession, useSubmitAction, useSubmitFeedback, useSubmitOutcome } from '../api/queries'
+import { FeedbackButtons } from '../components/history/FeedbackButtons'
 import { EquipmentPanel } from '../components/EquipmentPanel'
 import { OutcomeForm } from '../components/OutcomeForm'
 import { RephraseNote } from '../components/RephraseNote'
@@ -22,6 +23,21 @@ import { useSlowWait } from '../lib/useSlowWait'
 export function SessionPage() {
   const { sessionId = '' } = useParams()
   return <SessionView key={sessionId} sessionId={sessionId} />
+}
+
+/** ให้คะแนนทันทีที่ถึงสถานะสิ้นสุด · ใช้ endpoint/แคชเดียวกับหน้ารายละเอียดประวัติ */
+function SessionFeedback({ sessionId }: { sessionId: string }) {
+  const detail = useHistoryDetail(sessionId)
+  const feedback = useSubmitFeedback(sessionId)
+  // รอโหลดค่าที่เคยบันทึกไว้ก่อน ไม่งั้นฟอร์มจะเริ่มจากค่าว่างแล้วไม่ซิงก์กับค่าเดิม
+  if (detail.isPending) return null
+  return (
+    <FeedbackButtons
+      saved={detail.data?.feedback ?? null}
+      onSubmit={(value) => feedback.mutate(value)}
+      isSending={feedback.isPending}
+      error={feedback.error}/>
+  )
 }
 
 function SessionView({ sessionId }: { sessionId: string }) {
@@ -179,6 +195,8 @@ function SessionView({ sessionId }: { sessionId: string }) {
           {rephrased !== null && <RephraseNote original={state.text} />}
         </div>
       </PathRail>
+
+      {state.isTerminal && <SessionFeedback sessionId={sessionId} />}
     </div>
   )
 }

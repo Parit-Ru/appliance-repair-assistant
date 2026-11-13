@@ -29,6 +29,7 @@ export function getClientId(): string {
   try {
     localStorage.setItem(STORAGE_KEY, created)
   } catch {
+    // เขียน localStorage ไม่ได้ (เช่น โหมดส่วนตัว) → ใช้ id ในหน่วยความจำของแท็บนี้แทน (บรรทัดล่าง)
   }
 
   memoryId = readStored() ?? created
