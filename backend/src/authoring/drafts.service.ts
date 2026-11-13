@@ -91,12 +91,31 @@ export class DraftsService {
       }
 
       const collected: LlmFlow[] = [];
+      const notes: string[] = [];
+      let firstFailure: DraftLlmError | DraftParseError | undefined;
       const groups = chunkPages(draft.pages);
       for (let index = 0; index < groups.length; index += 1) {
-        const raw = await this.llm.draft({ manualId: draft.manualId, meta: draft.meta, pages: groups[index] });
-        collected.push(...parseLlmOutput(raw));
+        const pages = groups[index];
+        const range = pages.length === 1 ? `${pages[0].page}` : `${pages[0].page}–${pages[pages.length - 1].page}`;
+        try {
+          const raw = await this.llm.draft({ manualId: draft.manualId, meta: draft.meta, pages });
+          const parsed = parseLlmOutput(raw);
+          collected.push(...parsed.flows);
+          notes.push(...parsed.notes.map((note) => `หน้า ${range}: ${note}`));
+        } catch (err) {
+          // ก้อนเดียวพังไม่ทิ้งทั้งร่าง: จดไว้ให้คนตรวจเห็นแล้วทำก้อนถัดไป
+          if (!(err instanceof DraftLlmError) && !(err instanceof DraftParseError)) throw err;
+          firstFailure ??= err;
+          notes.push(`ข้ามหน้า ${range}: ${err.message}`);
+          this.logger.warn(`ร่าง ${id} ข้ามหน้า ${range} [${err instanceof DraftLlmError ? err.code : 'LLM_PARSE_ERROR'}]`);
+          // LLM ใช้ไม่ได้เลย (ไม่ได้ตั้งค่า/ไม่ตอบ/HTTP ผิด) ก้อนต่อไปก็น่าจะพังเหมือนกัน หยุดแล้วเก็บเท่าที่ได้
+          if (err instanceof DraftLlmError && err.code !== 'LLM_BAD_RESPONSE') break;
+        }
         await this.store.setProgress(id, index + 1);
       }
+
+      // ไม่ได้ผังเลยเพราะมีก้อนพัง → ล้มด้วยสาเหตุเดิม (รหัสเดิมให้หน้าเว็บอธิบายได้)
+      if (collected.length === 0 && firstFailure !== undefined) throw firstFailure;
 
       if (collected.length === 0) {
         await this.store.markFailed(id, 'NO_FLOWS_FOUND', 'LLM ไม่พบเนื้อหาการแก้ปัญหาในหน้าที่เลือก — ลองเลือกหน้าส่วน Troubleshooting');
@@ -105,6 +124,8 @@ export class DraftsService {
 
       const flows = assignFlowIds(draft.manualId, collected);
       const report = this.validate(draft.manualId, draft.meta, flows, draft.pages, id);
+      // สิ่งที่ปรับ/ข้ามตอนอ่านผลจาก LLM เป็นคำเตือน: คนตรวจต้องเห็นและกดรับทราบก่อนเผยแพร่ (ไม่ซ่อนเงียบ)
+      for (const note of notes) report.warnings.push({ code: 'W_LLM_ADJUSTED', message: note });
       await this.store.markReady(id, flows, report);
       this.logger.log(`ร่าง ${id} พร้อมตรวจ: ${flows.length} ผัง · error ${report.errors.length} · warning ${report.warnings.length}`);
     } catch (err) {
