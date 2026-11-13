@@ -381,6 +381,19 @@ export interface AdminFlowUpdateResult {
   changedStates: number
 }
 
+/** PUT /admin/flows/:id/structure — replaces initial_state and the states (nodes + edges) of a published flow */
+export interface AdminFlowStructureInput {
+  expectedRevision: number
+  acknowledgedWarnings: boolean
+  initial_state: string
+  states: Array<Record<string, unknown>>
+}
+
+export interface AdminFlowStructureResult {
+  detail: AdminFlowDetail
+  changed: boolean
+}
+
 export interface AdminFlowDetail {
   flowId: string
   manualId: string

@@ -47,6 +47,7 @@ function FlowBody({ detail }: { detail: AdminFlowDetail }) {
   const location = useLocation()
   const savedState = (location.state as { savedStates?: unknown } | null)?.savedStates
   const saved = typeof savedState === 'number' ? savedState : undefined
+  const savedStructure = (location.state as { savedStructure?: unknown } | null)?.savedStructure
 
   return (
     <div className="space-y-6">
@@ -87,11 +88,22 @@ function FlowBody({ detail }: { detail: AdminFlowDetail }) {
         </div>
       )}
 
+      {typeof savedStructure === 'boolean' && (
+        <div role="status">
+          <Notice tone="info" title="บันทึกแล้ว">
+            {savedStructure ? 'แก้โครงสร้างผังแล้ว ผู้ใช้เห็นผังใหม่ทันที' : 'โครงสร้างไม่เปลี่ยน จึงไม่ได้บันทึกอะไร'}
+          </Notice>
+        </div>
+      )}
+
       {detail.status === 'active' && (
         <div className="space-y-3">
           <div className="flex flex-wrap items-center gap-4">
             <Link to={`/admin/flows/${encodeURIComponent(detail.flowId)}/edit`} className={`${LINK_CLASSES} font-semibold`}>
               แก้ไขข้อความของขั้นตอน
+            </Link>
+            <Link to={`/admin/flows/${encodeURIComponent(detail.flowId)}/structure`} className={`${LINK_CLASSES} font-semibold`}>
+              แก้โครงสร้าง (เพิ่ม/ลบขั้นตอน เส้นทาง)
             </Link>
             {!isConfirmingDelete && (
               <Button variant="secondary" onClick={() => setIsConfirmingDelete(true)}>

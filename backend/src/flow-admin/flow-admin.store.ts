@@ -71,6 +71,29 @@ export interface TransitionRecord {
   toStateId: string;
 }
 
+/** One state of the new structure; the image columns are not here, so an existing state keeps its images */
+export interface NewStateRow {
+  stateId: string;
+  stateType: string;
+  textContent: string;
+  inputType: string | null;
+  inputPattern: string | null;
+  storeAs: string | null;
+  outcomeKind: string | null;
+  safetyCritical: boolean;
+  safetyWarning: string | null;
+  authorNote: string | null;
+  displayOrder: number;
+}
+
+/** The whole new structure of a flow plus the snapshot of the flow as it was before */
+export interface StructurePlan {
+  initialState: string;
+  states: NewStateRow[];
+  transitions: TransitionRecord[];
+  snapshot: unknown;
+}
+
 export interface FlowDetailRecord extends FlowHeadRecord {
   sourceManual: string;
   source: string;
@@ -246,6 +269,100 @@ export class FlowAdminStore {
 
       await conn.commit();
       return { changed: changes.length };
+    } catch (err) {
+      await conn.rollback().catch(() => undefined);
+      throw err;
+    } finally {
+      conn.release();
+    }
+  }
+
+  /**
+   * Replace the structure (states, transitions, initial state) of one flow in one transaction.
+   * Same locking and revision check as updateStates. `plan` is pure: it validates the request against the current rows
+   * and returns the new structure, or null when nothing changes.
+   * States are upserted (so image columns of kept states stay) and states missing from the plan are deleted.
+   * sessions.current_state_id has no foreign key, so the caller (plan) must refuse to remove states that sessions stand on.
+   * Logged in flow_revisions as action 'edit' (the ENUM has no other value for it).
+   */
+  async replaceStructure(
+    flowId: string,
+    actorId: string,
+    expectedRevision: number,
+    plan: (current: FlowDetailRecord) => StructurePlan | null,
+  ): Promise<{ changed: boolean }> {
+    const conn = await this.pool.getConnection();
+    try {
+      await conn.beginTransaction();
+
+      const [locked] = await conn.query<Row[]>(
+        `SELECT f.revision, f.deleted_at IS NOT NULL AS is_deleted,
+                UNIX_TIMESTAMP(f.edited_at) AS edited_epoch, eu.display_name AS edited_by_name,
+                UNIX_TIMESTAMP(f.deleted_at) AS deleted_epoch, du.display_name AS deleted_by_name
+           FROM flows f
+           LEFT JOIN users eu ON eu.id = f.edited_by
+           LEFT JOIN users du ON du.id = f.deleted_by
+          WHERE f.flow_id = ?
+          FOR UPDATE`,
+        [flowId],
+      );
+      const row = locked[0];
+      if (!row) throw adminFlowNotFound(flowId);
+      if (num(row.is_deleted) === 1) throw flowDeleted(textOrNull(row.deleted_by_name), numOrNull(row.deleted_epoch));
+      if (num(row.revision) !== expectedRevision) throw flowEditConflict(textOrNull(row.edited_by_name), numOrNull(row.edited_epoch));
+
+      const current = await this.readDetail(conn, flowId);
+      if (!current) throw adminFlowNotFound(flowId);
+
+      const next = plan(current);
+      if (next === null) {
+        await conn.rollback();
+        return { changed: false };
+      }
+      if (next.states.length === 0) throw new Error('replaceStructure: a flow must keep at least one state');
+
+      await conn.query(
+        'INSERT INTO flow_revisions (flow_id, action, revision, snapshot, acted_by) VALUES (?, ?, ?, ?, ?)',
+        [flowId, 'edit', current.revision, JSON.stringify(next.snapshot), actorId],
+      );
+
+      // Transitions first: they reference states on both ends, and are rebuilt from the plan anyway
+      await conn.query('DELETE FROM state_transitions WHERE flow_id = ?', [flowId]);
+
+      await conn.query(
+        `INSERT INTO states
+           (flow_id, state_id, state_type, text_content, input_type, input_pattern, store_as, outcome_kind,
+            safety_critical, safety_warning, author_note, display_order)
+         VALUES ?
+         ON DUPLICATE KEY UPDATE
+           state_type = VALUES(state_type), text_content = VALUES(text_content), input_type = VALUES(input_type),
+           input_pattern = VALUES(input_pattern), store_as = VALUES(store_as), outcome_kind = VALUES(outcome_kind),
+           safety_critical = VALUES(safety_critical), safety_warning = VALUES(safety_warning),
+           author_note = VALUES(author_note), display_order = VALUES(display_order)`,
+        [
+          next.states.map((s) => [
+            flowId, s.stateId, s.stateType, s.textContent, s.inputType, s.inputPattern, s.storeAs, s.outcomeKind,
+            s.safetyCritical ? 1 : 0, s.safetyWarning, s.authorNote, s.displayOrder,
+          ]),
+        ],
+      );
+
+      await conn.query('DELETE FROM states WHERE flow_id = ? AND state_id NOT IN (?)', [flowId, next.states.map((s) => s.stateId)]);
+
+      if (next.transitions.length > 0) {
+        await conn.query('INSERT INTO state_transitions (flow_id, from_state_id, input_symbol, to_state_id) VALUES ?', [
+          next.transitions.map((t) => [flowId, t.fromStateId, t.inputSymbol, t.toStateId]),
+        ]);
+      }
+
+      await conn.query('UPDATE flows SET initial_state = ?, revision = revision + 1, edited_at = NOW(), edited_by = ? WHERE flow_id = ?', [
+        next.initialState,
+        actorId,
+        flowId,
+      ]);
+
+      await conn.commit();
+      return { changed: true };
     } catch (err) {
       await conn.rollback().catch(() => undefined);
       throw err;

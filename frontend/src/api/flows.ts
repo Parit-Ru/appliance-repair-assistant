@@ -1,5 +1,10 @@
 import { request } from './http'
-import type { AdminFlowDetail, AdminFlowListParams, AdminFlowListResponse, AdminFlowRestoreResult, AdminFlowStateEdit, AdminFlowUpdateResult } from './types'
+import type { AdminFlowDetail, AdminFlowListParams, AdminFlowListResponse, AdminFlowRestoreResult, AdminFlowStateEdit, AdminFlowStructureInput, AdminFlowStructureResult, AdminFlowUpdateResult } from './types'
+
+/** PUT /admin/flows/:id/structure — add/remove states and change edges; validated like a draft, 409 on errors, stale revision or states in use */
+export async function updateAdminFlowStructure(flowId: string, input: AdminFlowStructureInput): Promise<AdminFlowStructureResult> {
+  return request<AdminFlowStructureResult>(`/admin/flows/${encodeURIComponent(flowId)}/structure`, { method: 'PUT', body: input })
+}
 
 /** DELETE /admin/flows/:id — soft delete (204): hidden from users, history and running sessions stay readable */
 export async function deleteAdminFlow(flowId: string): Promise<void> {

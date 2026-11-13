@@ -110,6 +110,42 @@ export function parseUpdateBody(body: unknown): UpdateFlowBody {
   return { expectedRevision: expected, items };
 }
 
+// PUT /admin/flows/:id/structure: replace initial_state + states (nodes and edges) of one flow.
+// The states use the same JSON shape GET returns (and the draft editor uses). Flow-level fields never come from the request.
+export interface UpdateStructureBody {
+  expectedRevision: number;
+  acknowledgedWarnings: boolean;
+  initialState: string;
+  states: Array<Record<string, unknown>>;
+}
+
+export function parseStructureBody(body: unknown): UpdateStructureBody {
+  if (!isPlainObject(body)) throw invalidFlowRequest('body ต้องเป็น JSON object');
+
+  const expected = body.expectedRevision;
+  if (typeof expected !== 'number' || !Number.isInteger(expected) || expected < 0) {
+    throw invalidFlowRequest('expectedRevision ต้องเป็นจำนวนเต็มไม่ติดลบ');
+  }
+  if (body.acknowledgedWarnings !== undefined && typeof body.acknowledgedWarnings !== 'boolean') {
+    throw invalidFlowRequest('acknowledgedWarnings ต้องเป็น true/false');
+  }
+  if (typeof body.initial_state !== 'string' || body.initial_state === '') throw invalidFlowRequest('initial_state ต้องเป็นข้อความไม่ว่าง');
+
+  const states = body.states;
+  if (!Array.isArray(states) || states.length === 0) throw invalidFlowRequest('states ต้องเป็นรายการที่ไม่ว่าง');
+  if (states.length > MAX_ITEMS) throw invalidFlowRequest(`states มีได้ไม่เกิน ${MAX_ITEMS} รายการ`);
+  states.forEach((entry, index) => {
+    if (!isPlainObject(entry)) throw invalidFlowRequest(`states[${index}] ต้องเป็น object`);
+  });
+
+  return {
+    expectedRevision: expected,
+    acknowledgedWarnings: body.acknowledgedWarnings === true,
+    initialState: body.initial_state,
+    states: states as Array<Record<string, unknown>>,
+  };
+}
+
 export type FlowStatus = 'active' | 'deleted';
 
 export interface FlowListItemDto {

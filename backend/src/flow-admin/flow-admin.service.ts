@@ -2,10 +2,12 @@ import { totalPagesOf } from '../admin/admin.dto';
 import { isoFromEpoch } from '../common/helpers';
 import type { FlowRepository } from '../execution/flow.repository';
 import type { SymptomSearchService } from '../symptom-search/symptom-search.service';
+import { toDbRows } from '../authoring/draft-manual';
+import { validateManual } from '../authoring/flow-validator';
 import { MAX_STATE_TEXT_LENGTH } from './flow-admin.dto';
-import type { FlowDetailDto, FlowListPageDto, FlowListQuery, FlowStateDto, FlowStatus, UpdateFlowBody } from './flow-admin.dto';
-import { adminFlowNotFound, flowReloadFailed, invalidFlowRequest } from './flow-admin.errors';
-import type { FlowAdminStore, FlowDetailRecord, StateChange, StateRecord } from './flow-admin.store';
+import type { FlowDetailDto, FlowListPageDto, FlowListQuery, FlowStateDto, FlowStatus, UpdateFlowBody, UpdateStructureBody } from './flow-admin.dto';
+import { adminFlowNotFound, flowReloadFailed, invalidFlowRequest, stateInUse, stateTypeInUse, structureInvalid, structureWarningsUnacknowledged } from './flow-admin.errors';
+import type { FlowAdminStore, FlowDetailRecord, NewStateRow, StateChange, StateRecord, StructurePlan } from './flow-admin.store';
 
 const isoOrNull = (epoch: number | null): string | null => (epoch === null ? null : isoFromEpoch(epoch));
 const statusOf = (deletedEpoch: number | null): FlowStatus => (deletedEpoch === null ? 'active' : 'deleted');
@@ -62,6 +64,113 @@ function planChanges(body: UpdateFlowBody, current: FlowDetailRecord): StateChan
   return changes;
 }
 
+/**
+ * Builds the manual the validator expects from the flow in the DB plus the states in the request.
+ * Flow-level fields (symptom, pages, severity, ...) always come from the DB; only initial_state and states come from the request.
+ * author_note is not editable here and null values (as GET prints them) are dropped, so the validator sees the draft shape.
+ */
+function assembleForValidation(current: FlowDetailRecord, initialState: string, states: Array<Record<string, unknown>>): Record<string, unknown> {
+  const cleanStates = states.map((state) => Object.fromEntries(Object.entries(state).filter(([key, value]) => value !== null && key !== 'author_note')));
+  return {
+    manual_id: current.manualId,
+    device_category: current.deviceCategory,
+    brand: current.brand,
+    model_pattern: current.modelPattern,
+    source_manual: current.sourceManual,
+    flows: [
+      {
+        flow_id: current.flowId,
+        device_category: current.deviceCategory,
+        brand: current.brand,
+        model_pattern: current.modelPattern,
+        entry_symptom: current.entrySymptom,
+        ...(current.entrySymptomTh !== null ? { entry_symptom_th: current.entrySymptomTh } : {}),
+        entry_symptom_aliases: current.entrySymptomAliases,
+        source: current.source,
+        page_range: [current.pageStart, current.pageEnd],
+        source_chunk_id: current.sourceChunkId,
+        ...(current.severity !== null ? { severity: current.severity } : {}),
+        ...(current.difficulty !== null ? { difficulty: current.difficulty } : {}),
+        initial_state: initialState,
+        states: cleanStates,
+      },
+    ],
+  };
+}
+
+const stateRowKey = (s: NewStateRow): string => JSON.stringify([s.stateId, s.stateType, s.textContent, s.inputType, s.inputPattern, s.storeAs, s.outcomeKind, s.safetyCritical, s.safetyWarning, s.authorNote, s.displayOrder]);
+const transitionKey = (t: { fromStateId: string; inputSymbol: string; toStateId: string }): string => `${t.fromStateId}\u0000${t.inputSymbol}\u0000${t.toStateId}`;
+
+/**
+ * Validates the requested structure and turns it into rows. Returns null when it equals the current structure.
+ * Throws when the validator finds errors, when warnings are not acknowledged, or when a state that sessions stand on would be removed.
+ */
+function planStructure(body: UpdateStructureBody, current: FlowDetailRecord): StructurePlan | null {
+  const validatorOptions = { skipSourcePage: true, anyStateIdPrefix: true };
+  const manual = assembleForValidation(current, body.initialState, body.states);
+  const report = validateManual(manual, new Map(), validatorOptions);
+  if (report.errors.length > 0) throw structureInvalid(report.errors);
+
+  // Warnings the flow already has (e.g. the retry loops of input states) are not asked about again: only new ones need acknowledgment
+  const baseline = validateManual(
+    assembleForValidation(current, current.initialState, toDetail(current).flow.states as unknown as Array<Record<string, unknown>>),
+    new Map(),
+    validatorOptions,
+  );
+  // W_CYCLE is one message listing every back edge ("a → b, c → d"), so it is compared edge by edge, not as text
+  type Warning = { code: string; stateId?: string; message: string };
+  const backEdges = (w: Warning): string[] => [...w.message.matchAll(/(\w+) → (\w+)/g)].map((m) => `${m[1]}>${m[2]}`);
+  const knownEdges = new Set(baseline.warnings.filter((w) => w.code === 'W_CYCLE').flatMap(backEdges));
+  const knownKeys = new Set(baseline.warnings.filter((w) => w.code !== 'W_CYCLE').map((w) => `${w.code}\u0000${w.stateId ?? ''}`));
+  const newWarnings = report.warnings.filter((w) =>
+    w.code === 'W_CYCLE' ? backEdges(w).some((edge) => !knownEdges.has(edge)) : !knownKeys.has(`${w.code}\u0000${w.stateId ?? ''}`),
+  );
+  if (newWarnings.length > 0 && !body.acknowledgedWarnings) throw structureWarningsUnacknowledged(newWarnings);
+
+  // sessions.current_state_id has no foreign key: nothing in the DB stops a removed state from stranding a user
+  const keptIds = new Set(body.states.map((state) => String(state.state_id)));
+  const stranded = current.states.map((s) => s.stateId).filter((id) => !keptIds.has(id) && (current.usage.activeByState[id] ?? 0) > 0);
+  if (stranded.length > 0) throw stateInUse(stranded);
+
+  // A kept state may change text and edges while sessions stand on it, but not its type: the next action sent by that user
+  // (answer / continue / input) was built for the old type
+  const typeNow = new Map(body.states.map((state) => [String(state.state_id), String(state.type)]));
+  const retyped = current.states
+    .filter((s) => typeNow.has(s.stateId) && typeNow.get(s.stateId) !== s.stateType && (current.usage.activeByState[s.stateId] ?? 0) > 0)
+    .map((s) => s.stateId);
+  if (retyped.length > 0) throw stateTypeInUse(retyped);
+
+  const rows = toDbRows(manual);
+  const authorNotes = new Map(current.states.map((s) => [s.stateId, s.authorNote]));
+  const states: NewStateRow[] = rows.states.map((row) => ({
+    stateId: String(row.state_id),
+    stateType: String(row.state_type),
+    textContent: String(row.text_content),
+    inputType: (row.input_type as string | null) ?? null,
+    inputPattern: (row.input_pattern as string | null) ?? null,
+    storeAs: (row.store_as as string | null) ?? null,
+    outcomeKind: (row.outcome_kind as string | null) ?? null,
+    safetyCritical: row.safety_critical === true,
+    safetyWarning: (row.safety_warning as string | null) ?? null,
+    authorNote: authorNotes.get(String(row.state_id)) ?? null,
+    displayOrder: Number(row.display_order),
+  }));
+  const transitions = rows.transitions.map((row) => ({
+    fromStateId: String(row.from_state_id),
+    inputSymbol: String(row.input_symbol),
+    toStateId: String(row.to_state_id),
+  }));
+
+  const currentStates: NewStateRow[] = current.states.map((s, index) => ({ ...s, displayOrder: index }));
+  const same =
+    body.initialState === current.initialState &&
+    JSON.stringify(states.map(stateRowKey)) === JSON.stringify(currentStates.map(stateRowKey)) &&
+    JSON.stringify(transitions.map(transitionKey).sort()) === JSON.stringify(current.transitions.map(transitionKey).sort());
+  if (same) return null;
+
+  return { initialState: body.initialState, states, transitions, snapshot: toDetail(current) };
+}
+
 export class FlowAdminService {
   constructor(
     private readonly store: FlowAdminStore,
@@ -106,6 +215,13 @@ export class FlowAdminService {
 
     if (changed > 0) await this.reloadAfterCommit();
     return { detail: await this.get(flowId), changedStates: changed };
+  }
+
+  /** Replace the structure (states and edges) of a flow. Only the text-only edit above existed before. */
+  async updateStructure(flowId: string, actorId: string, body: UpdateStructureBody): Promise<{ detail: FlowDetailDto; changed: boolean }> {
+    const { changed } = await this.store.replaceStructure(flowId, actorId, body.expectedRevision, (current) => planStructure(body, current));
+    if (changed) await this.reloadAfterCommit();
+    return { detail: await this.get(flowId), changed };
   }
 
   async remove(flowId: string, actorId: string): Promise<{ searchIndex: SearchIndexResult }> {

@@ -151,6 +151,21 @@ const MESSAGES: Record<string, ErrorDescription> = {
     detail: 'โหลดฉบับล่าสุดแล้วแก้ซ้ำ',
     recovery: 'stay',
   },
+  FLOW_STRUCTURE_INVALID: {
+    title: 'โครงสร้างผังไม่ผ่านการตรวจ จึงยังไม่บันทึก',
+    detail: 'แก้ข้อผิดพลาดตามรายการแล้วกดบันทึกอีกครั้ง — ไม่มีทางข้ามการตรวจนี้',
+    recovery: 'stay',
+  },
+  FLOW_STRUCTURE_WARNINGS_UNACKNOWLEDGED: {
+    title: 'มีคำเตือนใหม่ ต้องยืนยันก่อนบันทึก',
+    detail: 'อ่านคำเตือน แล้วติ๊กยืนยันว่าตั้งใจ จากนั้นกดบันทึกอีกครั้ง',
+    recovery: 'stay',
+  },
+  FLOW_STATE_IN_USE: {
+    title: 'ลบขั้นตอนนี้ไม่ได้ เพราะมีผู้ใช้กำลังเดินอยู่',
+    detail: 'รอให้การตรวจเหล่านั้นจบหรือหมดอายุก่อน หรือเก็บขั้นตอนนี้ไว้',
+    recovery: 'stay',
+  },
   FLOW_ALREADY_DELETED: {
     title: 'แผนผังขั้นตอนนี้ถูกลบไปแล้ว',
     detail: 'มีผู้ดูแลลบไปก่อนหน้านี้ ดึงข้อมูลล่าสุดมาดูสถานะจริง',
@@ -270,6 +285,10 @@ export function describeError(error: unknown): ErrorDescription {
   }
   // Messages from the flow editor name the state or the admin involved, so they are more specific than the fixed text
   if (error.code === 'INVALID_FLOW_REQUEST' || error.code === 'FLOW_EDIT_CONFLICT' || error.code === 'FLOW_DELETED' || error.code === 'FLOW_ALREADY_DELETED') {
+    return { ...known, detail: error.message || known.detail }
+  }
+  // These name the exact state and rule that failed, so the server text is the useful part
+  if (error.code === 'FLOW_STRUCTURE_INVALID' || error.code === 'FLOW_STRUCTURE_WARNINGS_UNACKNOWLEDGED' || error.code === 'FLOW_STATE_IN_USE') {
     return { ...known, detail: error.message || known.detail }
   }
   if (error.code === 'DRAFT_ID_CONFLICT') {

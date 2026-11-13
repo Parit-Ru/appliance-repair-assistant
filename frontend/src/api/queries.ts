@@ -1,11 +1,11 @@
 import { keepPreviousData, queryOptions, useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { useIdentity } from '../lib/authContext'
 import { getAdminFeedback, getAdminSummary } from './admin'
-import { deleteAdminFlow, getAdminFlow, listAdminFlows, restoreAdminFlow, updateAdminFlow } from './flows'
+import { deleteAdminFlow, getAdminFlow, listAdminFlows, restoreAdminFlow, updateAdminFlow, updateAdminFlowStructure } from './flows'
 import { DRAFT_POLL_MS, getDraft, listDrafts, publishDraft, rejectDraft, updateDraft, uploadDraft } from './drafts'
 import { deleteHistory, getHistory, listHistory, submitFeedback } from './history'
 import { abandonSession, getHealth, getSession, listFlows, listManuals, searchSymptoms, startSession, submitAction, submitOutcome } from './execution'
-import type { AdminFeedbackParams, AdminFlowListParams, AdminFlowStateEdit, DraftDetail, DraftFlow, DraftUploadInput, HistoryFeedback, ModelSelection, SessionResponse, SymptomSearchResponse, ExecutionAction } from './types'
+import type { AdminFeedbackParams, AdminFlowListParams, AdminFlowStateEdit, AdminFlowStructureInput, DraftDetail, DraftFlow, DraftUploadInput, HistoryFeedback, ModelSelection, SessionResponse, SymptomSearchResponse, ExecutionAction } from './types'
 
 const sessionQuery = (sessionId: string, identity = 'guest') =>
   queryOptions({
@@ -201,6 +201,18 @@ export function useUpdateAdminFlow(flowId: string) {
       queryClient.setQueryData(adminFlowQuery(flowId, identity).queryKey, result.detail)
       void queryClient.invalidateQueries({ queryKey: ['admin', identity, 'flows', 'list'] })
       // The user-facing lists show the symptom names only, so they stay valid; the step texts are read per session
+    },
+  })
+}
+
+export function useUpdateAdminFlowStructure(flowId: string) {
+  const queryClient = useQueryClient()
+  const identity = useIdentity()
+  return useMutation({
+    mutationFn: (input: AdminFlowStructureInput) => updateAdminFlowStructure(flowId, input),
+    onSuccess: (result) => {
+      queryClient.setQueryData(adminFlowQuery(flowId, identity).queryKey, result.detail)
+      void queryClient.invalidateQueries({ queryKey: ['admin', identity, 'flows', 'list'] })
     },
   })
 }

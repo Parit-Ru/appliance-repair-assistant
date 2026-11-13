@@ -18,8 +18,8 @@ export const DEVICE_CATEGORIES = ['Microwave', 'Refrigerator', 'Washing Machine'
 const STATE_TYPES = ['checkpoint', 'instruction', 'input', 'resolution', 'escalation'] as const;
 const OUTCOME_KINDS = ['user_fixed', 'normal_behavior', 'handoff_informed', 'handoff_unknown'] as const;
 const INPUT_TYPES = ['error_code', 'model_number', 'number', 'text'] as const;
-const SEVERITIES = ['low', 'medium', 'high', 'critical'] as const;
-const DIFFICULTIES = ['easy', 'medium', 'hard'] as const;
+export const SEVERITIES = ['low', 'medium', 'high', 'critical'] as const;
+export const DIFFICULTIES = ['easy', 'medium', 'hard'] as const;
 
 export const MAX_STATES_PER_FLOW = 60;
 const MAX_PATH_LENGTH = 40;
@@ -82,15 +82,25 @@ type Where = { flowId?: string; stateId?: string };
 
 const idRule = (max: number): Rule => ({ max, re: ID_PATTERN, hint: ID_HINT });
 
-export function validateManual(manual: unknown, pages: ReadonlyMap<number, string>): ValidationReport {
-  return new Validator(pages).run(manual);
+export interface ValidateOptions {
+  /** ผังที่เผยแพร่แล้วไม่มีข้อความหน้า PDF ให้เทียบ: true = ไม่เช็ก source_page (ค่าเริ่มต้น false = เช็กเหมือนตอนร่าง) */
+  skipSourcePage?: boolean;
+  /** ผังที่เผยแพร่แล้วบางผังใช้ state_id ที่ไม่ขึ้นต้นด้วย 'n' (เช่น g1): true = รับ a-z 0-9 _ ทุกแบบ (ค่าเริ่มต้น false = ต้องขึ้นต้นด้วย n เหมือนตอนร่าง) */
+  anyStateIdPrefix?: boolean;
+}
+
+export function validateManual(manual: unknown, pages: ReadonlyMap<number, string>, options: ValidateOptions = {}): ValidationReport {
+  return new Validator(pages, options).run(manual);
 }
 
 class Validator {
   private readonly errors: ValidationIssue[] = [];
   private readonly warnings: ValidationIssue[] = [];
 
-  constructor(private readonly pages: ReadonlyMap<number, string>) {}
+  constructor(
+    private readonly pages: ReadonlyMap<number, string>,
+    private readonly options: ValidateOptions = {},
+  ) {}
 
   run(manual: unknown): ValidationReport {
     let flowCount = 0;
@@ -249,7 +259,8 @@ class Validator {
 
     this.unknownKeys(state, STATE_KEYS, where);
 
-    this.field(state, 'state_id', { max: 60, re: DRAFT_STATE_ID_PATTERN, hint: `ต้องขึ้นต้นด้วย 'n' และ${ID_HINT}` }, where);
+    if (this.options.anyStateIdPrefix === true) this.field(state, 'state_id', { max: 60, re: ID_PATTERN, hint: ID_HINT }, where);
+    else this.field(state, 'state_id', { max: 60, re: DRAFT_STATE_ID_PATTERN, hint: `ต้องขึ้นต้นด้วย 'n' และ${ID_HINT}` }, where);
 
     const type = state.type;
     if (typeof type !== 'string' || !(STATE_TYPES as readonly string[]).includes(type)) {
@@ -305,7 +316,8 @@ class Validator {
       this.error('E_SAFETY_WARNING_WITHOUT_FLAG', 'มี safety_warning แต่ไม่ได้ตั้ง safety_critical เป็น true (คำเตือนจะไม่ถูกบังคับให้ยืนยัน)', where);
     }
 
-    // source_page
+    // source_page (ข้ามเมื่อตรวจผังที่เผยแพร่แล้ว: ไม่มีข้อความหน้า PDF ให้เทียบ)
+    if (this.options.skipSourcePage === true) return;
     const page = state.source_page;
     if (!isPositiveInt(page)) {
         this.error('E_SOURCE_PAGE_MISSING', 'ทุกสถานะต้องระบุ source_page (เลขหน้าในคู่มือที่สถานะนี้มาจาก)', where);
