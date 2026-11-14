@@ -8,7 +8,8 @@ import {buildSymptomTexts,rankFlows,selectMatches, type IndexedSymptom,type Symp
 import type {SearchState,SearchStatusDto,SymptomSearchResponseDto,} from './symptom-search.dto';
 
 
-const MATCH_THRESHOLD = 0.55;
+// เกณฑ์ 0.7 (เดิม 0.55) · เหตุผลและตัวเลขเทียบ: docs/decisions/match-threshold.md
+const MATCH_THRESHOLD = 0.7;
 const MAX_RESULTS = 3;
 const ENABLE_ENV_NAME = 'SYMPTOM_SEARCH_ENABLED';
 

@@ -38,7 +38,7 @@ const DEFAULT_QUERIES = [
 
 // ค่าที่ระบบใช้จริงอยู่ใน symptom-search.service.ts (MATCH_THRESHOLD, MAX_RESULTS) — ไม่ได้ export จึงระบุซ้ำที่นี่
 // ถ้าแก้ค่าในระบบต้องแก้ที่นี่ด้วย
-const MATCH_THRESHOLD = 0.55;
+const MATCH_THRESHOLD = 0.7;
 const MAX_RESULTS = 3;
 
 function requireDist(rel) {

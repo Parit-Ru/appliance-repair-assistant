@@ -1,0 +1,6157 @@
+{
+ "cats": [
+  "Microwave",
+  "Range",
+  "Refrigerator",
+  "Television",
+  "Washing Machine"
+ ],
+ "rows": [
+  {
+   "cat": "chat",
+   "query": "สวัสดี",
+   "manual": "samsung_ge83mdt_um_de68_04111e",
+   "best": 0.7296830681381461,
+   "top": "ขึ้น SE"
+  },
+  {
+   "cat": "chat",
+   "query": "สวัสดี",
+   "manual": "samsung_mc32k7055_um_de68_04387m",
+   "best": 0.4173457591045523,
+   "top": "ปุ่มค้าง"
+  },
+  {
+   "cat": "chat",
+   "query": "สวัสดี",
+   "manual": "samsung_me16a4021a_um_service_manual",
+   "best": 0.38674556963547974,
+   "top": "ไมโครเวฟขึ้น SE"
+  },
+  {
+   "cat": "chat",
+   "query": "สวัสดี",
+   "manual": "samsung_me73md_um_de68_04091q",
+   "best": 0.27767166064369825,
+   "top": "กด start แล้วไม่ทำงาน"
+  },
+  {
+   "cat": "chat",
+   "query": "สวัสดี",
+   "manual": "samsung_mg23t5018c_um_de68_04594r",
+   "best": 0.4173457591045523,
+   "top": "ปุ่มค้าง"
+  },
+  {
+   "cat": "chat",
+   "query": "สวัสดี",
+   "manual": "samsung_mg28h5125_um_de68_04246j",
+   "best": 0.7296830681381461,
+   "top": "ขึ้น SE"
+  },
+  {
+   "cat": "chat",
+   "query": "สวัสดี",
+   "manual": "samsung_ms20a3010a_um",
+   "best": 0.3735216463841667,
+   "top": "จานหมุนติด"
+  },
+  {
+   "cat": "chat",
+   "query": "สวัสดี",
+   "manual": "samsung_nse6d8100_um_service_manual",
+   "best": 0.3669691926400052,
+   "top": "เตาขึ้น bAd LInE"
+  },
+  {
+   "cat": "chat",
+   "query": "สวัสดี",
+   "manual": "samsung_nsi6d9500_um_service_manual",
+   "best": 0.3669691926400052,
+   "top": "เตาขึ้น bAd LInE"
+  },
+  {
+   "cat": "chat",
+   "query": "สวัสดี",
+   "manual": "samsung_rb5300d_um_da68_04817a",
+   "best": 0.677982748392965,
+   "top": "HiSS!"
+  },
+  {
+   "cat": "chat",
+   "query": "สวัสดี",
+   "manual": "samsung_rb6000d_um_da68_04800b",
+   "best": 0.677982748392965,
+   "top": "HiSS!"
+  },
+  {
+   "cat": "chat",
+   "query": "สวัสดี",
+   "manual": "samsung_rf29a_um_service_manual",
+   "best": 0.627953549418756,
+   "top": "โหมดซับบาธ"
+  },
+  {
+   "cat": "chat",
+   "query": "สวัสดี",
+   "manual": "samsung_rf_sm2009",
+   "best": 0.4490381623937735,
+   "top": "door bin"
+  },
+  {
+   "cat": "chat",
+   "query": "สวัสดี",
+   "manual": "samsung_rf_um_da68_02676a",
+   "best": 0.2902392546177346,
+   "top": "bubbling sound"
+  },
+  {
+   "cat": "chat",
+   "query": "สวัสดี",
+   "manual": "samsung_rr39m7_um_service_manual",
+   "best": 0.27106438153654083,
+   "top": "ไฟ alarm ตู้เย็นกะพริบ"
+  },
+  {
+   "cat": "chat",
+   "query": "สวัสดี",
+   "manual": "samsung_rs5000fc_um_da68_04852n",
+   "best": 0.5154172876064459,
+   "top": "เสียงจ๊อกแจ๊ก"
+  },
+  {
+   "cat": "chat",
+   "query": "สวัสดี",
+   "manual": "samsung_tv2_um_km2dvbadn",
+   "best": 0.42480002066363204,
+   "top": "ภาพกะพริบหรือหรี่ลง"
+  },
+  {
+   "cat": "chat",
+   "query": "สวัสดี",
+   "manual": "samsung_tv3_um_jzdvbadk",
+   "best": 0.434793704681525,
+   "top": "ภาพทีวีซ้อน"
+  },
+  {
+   "cat": "chat",
+   "query": "สวัสดี",
+   "manual": "samsung_tv4_um_musdvbadr",
+   "best": 0.4498908721631446,
+   "top": "พูด Hi, Bixby แล้ว Bixby ไม่ตอบ"
+  },
+  {
+   "cat": "chat",
+   "query": "สวัสดี",
+   "manual": "samsung_tv5_um_nldvbas4m",
+   "best": 0.4931352789681436,
+   "top": "ช่องอนาล็อกภาพซ่า"
+  },
+  {
+   "cat": "chat",
+   "query": "สวัสดี",
+   "manual": "samsung_tv_um_bn81_28760d",
+   "best": 0.49956947067781926,
+   "top": "alexa ตอบเอง"
+  },
+  {
+   "cat": "chat",
+   "query": "สวัสดี",
+   "manual": "samsung_wa21a_um_dc68_04154a",
+   "best": 0.7252790874224394,
+   "top": "hc"
+  },
+  {
+   "cat": "chat",
+   "query": "สวัสดี",
+   "manual": "samsung_wa40f_um_21wa40f",
+   "best": 0.7252790874224394,
+   "top": "hc"
+  },
+  {
+   "cat": "chat",
+   "query": "สวัสดี",
+   "manual": "samsung_wa45t3400a_um_service_manual",
+   "best": 0.3715886996668023,
+   "top": "ซักผ้าขึ้น LC"
+  },
+  {
+   "cat": "chat",
+   "query": "สวัสดี",
+   "manual": "samsung_wa5000r_um_dc68_04088a",
+   "best": 0.6826355852862177,
+   "top": "ฮีตเตอร์"
+  },
+  {
+   "cat": "chat",
+   "query": "สวัสดี",
+   "manual": "samsung_wt10j7_um_dc68_01942k",
+   "best": 0.4647049048791742,
+   "top": "เครื่องสั่น"
+  },
+  {
+   "cat": "chat",
+   "query": "สวัสดี",
+   "manual": "samsung_ww_um_dc68_04382a",
+   "best": 0.7252790874224394,
+   "top": "hc"
+  },
+  {
+   "cat": "chat",
+   "query": "วันนี้ฝนตก",
+   "manual": "samsung_ge83mdt_um_de68_04111e",
+   "best": 0.3013744743880004,
+   "top": "ขึ้น SE"
+  },
+  {
+   "cat": "chat",
+   "query": "วันนี้ฝนตก",
+   "manual": "samsung_mc32k7055_um_de68_04387m",
+   "best": 0.44466437372736073,
+   "top": "ย่างแล้วมีควัน"
+  },
+  {
+   "cat": "chat",
+   "query": "วันนี้ฝนตก",
+   "manual": "samsung_me16a4021a_um_service_manual",
+   "best": 0.1504919650169047,
+   "top": "ไมโครเวฟเปิดประตูแล้วยังทำงาน"
+  },
+  {
+   "cat": "chat",
+   "query": "วันนี้ฝนตก",
+   "manual": "samsung_me73md_um_de68_04091q",
+   "best": 0.2474968766582702,
+   "top": "มีลมออกรอบประตูไมโครเวฟ"
+  },
+  {
+   "cat": "chat",
+   "query": "วันนี้ฝนตก",
+   "manual": "samsung_mg23t5018c_um_de68_04594r",
+   "best": 0.44466437372736073,
+   "top": "ย่างแล้วมีควัน"
+  },
+  {
+   "cat": "chat",
+   "query": "วันนี้ฝนตก",
+   "manual": "samsung_mg28h5125_um_de68_04246j",
+   "best": 0.41813741244639574,
+   "top": "ความชื้นสูง"
+  },
+  {
+   "cat": "chat",
+   "query": "วันนี้ฝนตก",
+   "manual": "samsung_ms20a3010a_um",
+   "best": 0.3565776590627168,
+   "top": "มีน้ำหยด ไอน้ำออกตามรอยแยกประตู หรือมีน้ำค้างอยู่ในเตา"
+  },
+  {
+   "cat": "chat",
+   "query": "วันนี้ฝนตก",
+   "manual": "samsung_nse6d8100_um_service_manual",
+   "best": 0.19244424419227096,
+   "top": "เตาขึ้น C20"
+  },
+  {
+   "cat": "chat",
+   "query": "วันนี้ฝนตก",
+   "manual": "samsung_nsi6d9500_um_service_manual",
+   "best": 0.34549087048777566,
+   "top": "over temperature C1"
+  },
+  {
+   "cat": "chat",
+   "query": "วันนี้ฝนตก",
+   "manual": "samsung_rb5300d_um_da68_04817a",
+   "best": 0.4386800869305314,
+   "top": "ได้ยินเสียงฟู่หรือเสียงน้ำหยดลงบนฮีตเตอร์ขณะละลายน้ำแข็ง"
+  },
+  {
+   "cat": "chat",
+   "query": "วันนี้ฝนตก",
+   "manual": "samsung_rb6000d_um_da68_04800b",
+   "best": 0.4386800869305314,
+   "top": "ได้ยินเสียงฟู่หรือเสียงน้ำหยดลงบนฮีตเตอร์ขณะละลายน้ำแข็ง"
+  },
+  {
+   "cat": "chat",
+   "query": "วันนี้ฝนตก",
+   "manual": "samsung_rf29a_um_service_manual",
+   "best": 0.4160931594134751,
+   "top": "fridge wet with dew"
+  },
+  {
+   "cat": "chat",
+   "query": "วันนี้ฝนตก",
+   "manual": "samsung_rf_sm2009",
+   "best": 0.32661732412534256,
+   "top": "เสียงบี๊บตู้เย็นดังไม่หยุด"
+  },
+  {
+   "cat": "chat",
+   "query": "วันนี้ฝนตก",
+   "manual": "samsung_rf_um_da68_02676a",
+   "best": 0.3850407522239814,
+   "top": "มุมและด้านข้างตู้เย็นด้านหน้าอุ่น มีหยดน้ำเกาะด้านนอก"
+  },
+  {
+   "cat": "chat",
+   "query": "วันนี้ฝนตก",
+   "manual": "samsung_rr39m7_um_service_manual",
+   "best": 0.3167363140003414,
+   "top": "ไฟ alarm ตู้เย็นกะพริบ"
+  },
+  {
+   "cat": "chat",
+   "query": "วันนี้ฝนตก",
+   "manual": "samsung_rs5000fc_um_da68_04852n",
+   "best": 0.5013598194432117,
+   "top": "เสียงน้ำยาแอร์ไหล"
+  },
+  {
+   "cat": "chat",
+   "query": "วันนี้ฝนตก",
+   "manual": "samsung_tv2_um_km2dvbadn",
+   "best": 0.2781943967106647,
+   "top": "ภาพเป็นขาวดำ"
+  },
+  {
+   "cat": "chat",
+   "query": "วันนี้ฝนตก",
+   "manual": "samsung_tv3_um_jzdvbadk",
+   "best": 0.2781943967106647,
+   "top": "ภาพเป็นขาวดำ"
+  },
+  {
+   "cat": "chat",
+   "query": "วันนี้ฝนตก",
+   "manual": "samsung_tv4_um_musdvbadr",
+   "best": 0.2781943967106647,
+   "top": "ภาพเป็นขาวดำ"
+  },
+  {
+   "cat": "chat",
+   "query": "วันนี้ฝนตก",
+   "manual": "samsung_tv5_um_nldvbas4m",
+   "best": 0.24494385559658496,
+   "top": "เสียงทีวีก้อง"
+  },
+  {
+   "cat": "chat",
+   "query": "วันนี้ฝนตก",
+   "manual": "samsung_tv_um_bn81_28760d",
+   "best": 0.347523414296055,
+   "top": "จอดับแต่ได้ยินเสียง"
+  },
+  {
+   "cat": "chat",
+   "query": "วันนี้ฝนตก",
+   "manual": "samsung_wa21a_um_dc68_04154a",
+   "best": 0.5074031084953151,
+   "top": "ผ้าเปียกมาก"
+  },
+  {
+   "cat": "chat",
+   "query": "วันนี้ฝนตก",
+   "manual": "samsung_wa40f_um_21wa40f",
+   "best": 0.5074031084953151,
+   "top": "ผ้าเปียกมาก"
+  },
+  {
+   "cat": "chat",
+   "query": "วันนี้ฝนตก",
+   "manual": "samsung_wa45t3400a_um_service_manual",
+   "best": 0.4089205191010397,
+   "top": "Wet Clothes"
+  },
+  {
+   "cat": "chat",
+   "query": "วันนี้ฝนตก",
+   "manual": "samsung_wa5000r_um_dc68_04088a",
+   "best": 0.5074031084953151,
+   "top": "ผ้าเปียกมาก"
+  },
+  {
+   "cat": "chat",
+   "query": "วันนี้ฝนตก",
+   "manual": "samsung_wt10j7_um_dc68_01942k",
+   "best": 0.37371043001648163,
+   "top": "น้ำไหลออกตลอด"
+  },
+  {
+   "cat": "chat",
+   "query": "วันนี้ฝนตก",
+   "manual": "samsung_ww_um_dc68_04382a",
+   "best": 0.5074031084953151,
+   "top": "ผ้าเปียกมาก"
+  },
+  {
+   "cat": "chat",
+   "query": "ขอบคุณครับ",
+   "manual": "samsung_ge83mdt_um_de68_04111e",
+   "best": 0.6462549828996959,
+   "top": "ขึ้น SE"
+  },
+  {
+   "cat": "chat",
+   "query": "ขอบคุณครับ",
+   "manual": "samsung_mc32k7055_um_de68_04387m",
+   "best": 0.4582556828885817,
+   "top": "ปุ่มค้าง"
+  },
+  {
+   "cat": "chat",
+   "query": "ขอบคุณครับ",
+   "manual": "samsung_me16a4021a_um_service_manual",
+   "best": 0.40899738021737264,
+   "top": "ไมโครเวฟขึ้น SE"
+  },
+  {
+   "cat": "chat",
+   "query": "ขอบคุณครับ",
+   "manual": "samsung_me73md_um_de68_04091q",
+   "best": 0.22519212134875816,
+   "top": "แสงลอดรอบประตูไมโครเวฟ"
+  },
+  {
+   "cat": "chat",
+   "query": "ขอบคุณครับ",
+   "manual": "samsung_mg23t5018c_um_de68_04594r",
+   "best": 0.4582556828885817,
+   "top": "ปุ่มค้าง"
+  },
+  {
+   "cat": "chat",
+   "query": "ขอบคุณครับ",
+   "manual": "samsung_mg28h5125_um_de68_04246j",
+   "best": 0.6462549828996959,
+   "top": "ขึ้น SE"
+  },
+  {
+   "cat": "chat",
+   "query": "ขอบคุณครับ",
+   "manual": "samsung_ms20a3010a_um",
+   "best": 0.42034344534483314,
+   "top": "จานหมุนติด"
+  },
+  {
+   "cat": "chat",
+   "query": "ขอบคุณครับ",
+   "manual": "samsung_nse6d8100_um_service_manual",
+   "best": 0.33533458871417243,
+   "top": "เตาขึ้น C20"
+  },
+  {
+   "cat": "chat",
+   "query": "ขอบคุณครับ",
+   "manual": "samsung_nsi6d9500_um_service_manual",
+   "best": 0.34721412067364643,
+   "top": "เตาขึ้น C1"
+  },
+  {
+   "cat": "chat",
+   "query": "ขอบคุณครับ",
+   "manual": "samsung_rb5300d_um_da68_04817a",
+   "best": 0.6047038705679587,
+   "top": "HiSS!"
+  },
+  {
+   "cat": "chat",
+   "query": "ขอบคุณครับ",
+   "manual": "samsung_rb6000d_um_da68_04800b",
+   "best": 0.6047038705679587,
+   "top": "HiSS!"
+  },
+  {
+   "cat": "chat",
+   "query": "ขอบคุณครับ",
+   "manual": "samsung_rf29a_um_service_manual",
+   "best": 0.6295372206197021,
+   "top": "โหมดซับบาธ"
+  },
+  {
+   "cat": "chat",
+   "query": "ขอบคุณครับ",
+   "manual": "samsung_rf_sm2009",
+   "best": 0.3939427829925113,
+   "top": "door bin"
+  },
+  {
+   "cat": "chat",
+   "query": "ขอบคุณครับ",
+   "manual": "samsung_rf_um_da68_02676a",
+   "best": 0.2401107013274364,
+   "top": "ตู้เย็นข้างๆ อุ่น"
+  },
+  {
+   "cat": "chat",
+   "query": "ขอบคุณครับ",
+   "manual": "samsung_rr39m7_um_service_manual",
+   "best": 0.2978786919549036,
+   "top": "ปลดล็อกปุ่มตู้เย็น"
+  },
+  {
+   "cat": "chat",
+   "query": "ขอบคุณครับ",
+   "manual": "samsung_rs5000fc_um_da68_04852n",
+   "best": 0.5473330971408531,
+   "top": "เสียงจ๊อกแจ๊ก"
+  },
+  {
+   "cat": "chat",
+   "query": "ขอบคุณครับ",
+   "manual": "samsung_tv2_um_km2dvbadn",
+   "best": 0.3739573795000157,
+   "top": "ทีวีเอียง"
+  },
+  {
+   "cat": "chat",
+   "query": "ขอบคุณครับ",
+   "manual": "samsung_tv3_um_jzdvbadk",
+   "best": 0.41508816031866463,
+   "top": "ภาพทีวีซ้อน"
+  },
+  {
+   "cat": "chat",
+   "query": "ขอบคุณครับ",
+   "manual": "samsung_tv4_um_musdvbadr",
+   "best": 0.3946029312140666,
+   "top": "ทีวีพูดเอง"
+  },
+  {
+   "cat": "chat",
+   "query": "ขอบคุณครับ",
+   "manual": "samsung_tv5_um_nldvbas4m",
+   "best": 0.4898556419523702,
+   "top": "ช่องอนาล็อกภาพซ่า"
+  },
+  {
+   "cat": "chat",
+   "query": "ขอบคุณครับ",
+   "manual": "samsung_tv_um_bn81_28760d",
+   "best": 0.507718631485309,
+   "top": "alexa ตอบเอง"
+  },
+  {
+   "cat": "chat",
+   "query": "ขอบคุณครับ",
+   "manual": "samsung_wa21a_um_dc68_04154a",
+   "best": 0.6388312296633524,
+   "top": "hc"
+  },
+  {
+   "cat": "chat",
+   "query": "ขอบคุณครับ",
+   "manual": "samsung_wa40f_um_21wa40f",
+   "best": 0.6388312296633524,
+   "top": "hc"
+  },
+  {
+   "cat": "chat",
+   "query": "ขอบคุณครับ",
+   "manual": "samsung_wa45t3400a_um_service_manual",
+   "best": 0.4095416524732593,
+   "top": "ซักผ้าขึ้น LC"
+  },
+  {
+   "cat": "chat",
+   "query": "ขอบคุณครับ",
+   "manual": "samsung_wa5000r_um_dc68_04088a",
+   "best": 0.6379685337138757,
+   "top": "ฮีตเตอร์"
+  },
+  {
+   "cat": "chat",
+   "query": "ขอบคุณครับ",
+   "manual": "samsung_wt10j7_um_dc68_01942k",
+   "best": 0.4170261697964945,
+   "top": "เครื่องสั่น"
+  },
+  {
+   "cat": "chat",
+   "query": "ขอบคุณครับ",
+   "manual": "samsung_ww_um_dc68_04382a",
+   "best": 0.6388312296633524,
+   "top": "hc"
+  },
+  {
+   "cat": "chat",
+   "query": "คุณชื่ออะไร",
+   "manual": "samsung_ge83mdt_um_de68_04111e",
+   "best": 0.3692100157590388,
+   "top": "ขึ้น SE"
+  },
+  {
+   "cat": "chat",
+   "query": "คุณชื่ออะไร",
+   "manual": "samsung_mc32k7055_um_de68_04387m",
+   "best": 0.23321604858980788,
+   "top": "ฮอตบลาสต์ไม่ร้อน"
+  },
+  {
+   "cat": "chat",
+   "query": "คุณชื่ออะไร",
+   "manual": "samsung_me16a4021a_um_service_manual",
+   "best": 0.18914988051406803,
+   "top": "ไมโครเวฟขึ้น SE"
+  },
+  {
+   "cat": "chat",
+   "query": "คุณชื่ออะไร",
+   "manual": "samsung_me73md_um_de68_04091q",
+   "best": 0.1495696826461093,
+   "top": "ไมโครเวฟอาหารไหม้"
+  },
+  {
+   "cat": "chat",
+   "query": "คุณชื่ออะไร",
+   "manual": "samsung_mg23t5018c_um_de68_04594r",
+   "best": 0.23190947087617422,
+   "top": "ย่างแล้วมีควัน"
+  },
+  {
+   "cat": "chat",
+   "query": "คุณชื่ออะไร",
+   "manual": "samsung_mg28h5125_um_de68_04246j",
+   "best": 0.3692100157590388,
+   "top": "ขึ้น SE"
+  },
+  {
+   "cat": "chat",
+   "query": "คุณชื่ออะไร",
+   "manual": "samsung_ms20a3010a_um",
+   "best": 0.19747708334259056,
+   "top": "ไมโครเวฟดับเอง"
+  },
+  {
+   "cat": "chat",
+   "query": "คุณชื่ออะไร",
+   "manual": "samsung_nse6d8100_um_service_manual",
+   "best": 0.21896351762597654,
+   "top": "self clean ขึ้น F"
+  },
+  {
+   "cat": "chat",
+   "query": "คุณชื่ออะไร",
+   "manual": "samsung_nsi6d9500_um_service_manual",
+   "best": 0.21896351762597654,
+   "top": "self clean ขึ้น F"
+  },
+  {
+   "cat": "chat",
+   "query": "คุณชื่ออะไร",
+   "manual": "samsung_rb5300d_um_da68_04817a",
+   "best": 0.4500130071508533,
+   "top": "HiSS!"
+  },
+  {
+   "cat": "chat",
+   "query": "คุณชื่ออะไร",
+   "manual": "samsung_rb6000d_um_da68_04800b",
+   "best": 0.4500130071508533,
+   "top": "HiSS!"
+  },
+  {
+   "cat": "chat",
+   "query": "คุณชื่ออะไร",
+   "manual": "samsung_rf29a_um_service_manual",
+   "best": 0.4403174213071882,
+   "top": "โหมดซับบาธ"
+  },
+  {
+   "cat": "chat",
+   "query": "คุณชื่ออะไร",
+   "manual": "samsung_rf_sm2009",
+   "best": 0.24437275794654295,
+   "top": "door bin"
+  },
+  {
+   "cat": "chat",
+   "query": "คุณชื่ออะไร",
+   "manual": "samsung_rf_um_da68_02676a",
+   "best": 0.12726442162546903,
+   "top": "bubbling sound"
+  },
+  {
+   "cat": "chat",
+   "query": "คุณชื่ออะไร",
+   "manual": "samsung_rr39m7_um_service_manual",
+   "best": 0.1344238500980185,
+   "top": "ปลดล็อกปุ่มตู้เย็น"
+  },
+  {
+   "cat": "chat",
+   "query": "คุณชื่ออะไร",
+   "manual": "samsung_rs5000fc_um_da68_04852n",
+   "best": 0.35945658122557833,
+   "top": "เสียงจ๊อกแจ๊ก"
+  },
+  {
+   "cat": "chat",
+   "query": "คุณชื่ออะไร",
+   "manual": "samsung_tv2_um_km2dvbadn",
+   "best": 0.32082839822602377,
+   "top": "ภาพผิดเพี้ยน"
+  },
+  {
+   "cat": "chat",
+   "query": "คุณชื่ออะไร",
+   "manual": "samsung_tv3_um_jzdvbadk",
+   "best": 0.32082839822602377,
+   "top": "ภาพผิดเพี้ยน"
+  },
+  {
+   "cat": "chat",
+   "query": "คุณชื่ออะไร",
+   "manual": "samsung_tv4_um_musdvbadr",
+   "best": 0.3958599026823055,
+   "top": "พูด Hi, Bixby แล้ว Bixby ไม่ตอบ"
+  },
+  {
+   "cat": "chat",
+   "query": "คุณชื่ออะไร",
+   "manual": "samsung_tv5_um_nldvbas4m",
+   "best": 0.32334946879370274,
+   "top": "เพลงใน usb เสียงเพี้ยน"
+  },
+  {
+   "cat": "chat",
+   "query": "คุณชื่ออะไร",
+   "manual": "samsung_tv_um_bn81_28760d",
+   "best": 0.40828242379234914,
+   "top": "พูด Hi Bixby หรือ Alexa แล้วไม่ตอบ"
+  },
+  {
+   "cat": "chat",
+   "query": "คุณชื่ออะไร",
+   "manual": "samsung_wa21a_um_dc68_04154a",
+   "best": 0.4070104265064699,
+   "top": "คลัตช์"
+  },
+  {
+   "cat": "chat",
+   "query": "คุณชื่ออะไร",
+   "manual": "samsung_wa40f_um_21wa40f",
+   "best": 0.4070104265064699,
+   "top": "คลัตช์"
+  },
+  {
+   "cat": "chat",
+   "query": "คุณชื่ออะไร",
+   "manual": "samsung_wa45t3400a_um_service_manual",
+   "best": 0.19511983292725602,
+   "top": "ซักผ้าขึ้น LC"
+  },
+  {
+   "cat": "chat",
+   "query": "คุณชื่ออะไร",
+   "manual": "samsung_wa5000r_um_dc68_04088a",
+   "best": 0.4070104265064699,
+   "top": "คลัตช์"
+  },
+  {
+   "cat": "chat",
+   "query": "คุณชื่ออะไร",
+   "manual": "samsung_wt10j7_um_dc68_01942k",
+   "best": 0.19901879830534921,
+   "top": "เครื่องสั่น"
+  },
+  {
+   "cat": "chat",
+   "query": "คุณชื่ออะไร",
+   "manual": "samsung_ww_um_dc68_04382a",
+   "best": 0.39078753153080564,
+   "top": "hc"
+  },
+  {
+   "cat": "chat",
+   "query": "ช่วยด้วย",
+   "manual": "samsung_ge83mdt_um_de68_04111e",
+   "best": 0.6956265791332444,
+   "top": "ขึ้น SE"
+  },
+  {
+   "cat": "chat",
+   "query": "ช่วยด้วย",
+   "manual": "samsung_mc32k7055_um_de68_04387m",
+   "best": 0.5248995900213683,
+   "top": "จานหมุนติด"
+  },
+  {
+   "cat": "chat",
+   "query": "ช่วยด้วย",
+   "manual": "samsung_me16a4021a_um_service_manual",
+   "best": 0.38823648449134884,
+   "top": "ไมโครเวฟขึ้น SE"
+  },
+  {
+   "cat": "chat",
+   "query": "ช่วยด้วย",
+   "manual": "samsung_me73md_um_de68_04091q",
+   "best": 0.2933168818624913,
+   "top": "กด start แล้วไม่ทำงาน"
+  },
+  {
+   "cat": "chat",
+   "query": "ช่วยด้วย",
+   "manual": "samsung_mg23t5018c_um_de68_04594r",
+   "best": 0.5248995900213683,
+   "top": "จานหมุนติด"
+  },
+  {
+   "cat": "chat",
+   "query": "ช่วยด้วย",
+   "manual": "samsung_mg28h5125_um_de68_04246j",
+   "best": 0.6956265791332444,
+   "top": "ขึ้น SE"
+  },
+  {
+   "cat": "chat",
+   "query": "ช่วยด้วย",
+   "manual": "samsung_ms20a3010a_um",
+   "best": 0.5248995900213683,
+   "top": "จานหมุนติด"
+  },
+  {
+   "cat": "chat",
+   "query": "ช่วยด้วย",
+   "manual": "samsung_nse6d8100_um_service_manual",
+   "best": 0.41485828285500215,
+   "top": "self clean ขึ้น F"
+  },
+  {
+   "cat": "chat",
+   "query": "ช่วยด้วย",
+   "manual": "samsung_nsi6d9500_um_service_manual",
+   "best": 0.41485828285500215,
+   "top": "self clean ขึ้น F"
+  },
+  {
+   "cat": "chat",
+   "query": "ช่วยด้วย",
+   "manual": "samsung_rb5300d_um_da68_04817a",
+   "best": 0.5789663816906475,
+   "top": "HiSS!"
+  },
+  {
+   "cat": "chat",
+   "query": "ช่วยด้วย",
+   "manual": "samsung_rb6000d_um_da68_04800b",
+   "best": 0.5789663816906475,
+   "top": "HiSS!"
+  },
+  {
+   "cat": "chat",
+   "query": "ช่วยด้วย",
+   "manual": "samsung_rf29a_um_service_manual",
+   "best": 0.6321073917296819,
+   "top": "โหมดซับบาธ"
+  },
+  {
+   "cat": "chat",
+   "query": "ช่วยด้วย",
+   "manual": "samsung_rf_sm2009",
+   "best": 0.40277840031575834,
+   "top": "door bin"
+  },
+  {
+   "cat": "chat",
+   "query": "ช่วยด้วย",
+   "manual": "samsung_rf_um_da68_02676a",
+   "best": 0.2949658983758629,
+   "top": "bubbling sound"
+  },
+  {
+   "cat": "chat",
+   "query": "ช่วยด้วย",
+   "manual": "samsung_rr39m7_um_service_manual",
+   "best": 0.3417205287250653,
+   "top": "ปลดล็อกปุ่มตู้เย็น"
+  },
+  {
+   "cat": "chat",
+   "query": "ช่วยด้วย",
+   "manual": "samsung_rs5000fc_um_da68_04852n",
+   "best": 0.4889867499517332,
+   "top": "เสียงจ๊อกแจ๊ก"
+  },
+  {
+   "cat": "chat",
+   "query": "ช่วยด้วย",
+   "manual": "samsung_tv2_um_km2dvbadn",
+   "best": 0.47026412263239764,
+   "top": "หาช่องไม่เจอ"
+  },
+  {
+   "cat": "chat",
+   "query": "ช่วยด้วย",
+   "manual": "samsung_tv3_um_jzdvbadk",
+   "best": 0.47026412263239764,
+   "top": "หาช่องไม่เจอ"
+  },
+  {
+   "cat": "chat",
+   "query": "ช่วยด้วย",
+   "manual": "samsung_tv4_um_musdvbadr",
+   "best": 0.47026412263239764,
+   "top": "หาช่องไม่เจอ"
+  },
+  {
+   "cat": "chat",
+   "query": "ช่วยด้วย",
+   "manual": "samsung_tv5_um_nldvbas4m",
+   "best": 0.4736662389733443,
+   "top": "ช่องอนาล็อกภาพซ่า"
+  },
+  {
+   "cat": "chat",
+   "query": "ช่วยด้วย",
+   "manual": "samsung_tv_um_bn81_28760d",
+   "best": 0.47026412263239764,
+   "top": "หาช่องไม่เจอ"
+  },
+  {
+   "cat": "chat",
+   "query": "ช่วยด้วย",
+   "manual": "samsung_wa21a_um_dc68_04154a",
+   "best": 0.6881598172761677,
+   "top": "hc"
+  },
+  {
+   "cat": "chat",
+   "query": "ช่วยด้วย",
+   "manual": "samsung_wa40f_um_21wa40f",
+   "best": 0.6881598172761677,
+   "top": "hc"
+  },
+  {
+   "cat": "chat",
+   "query": "ช่วยด้วย",
+   "manual": "samsung_wa45t3400a_um_service_manual",
+   "best": 0.4462929800543475,
+   "top": "ผ้าเปียกหลังซัก"
+  },
+  {
+   "cat": "chat",
+   "query": "ช่วยด้วย",
+   "manual": "samsung_wa5000r_um_dc68_04088a",
+   "best": 0.7168224222394318,
+   "top": "ฮีตเตอร์"
+  },
+  {
+   "cat": "chat",
+   "query": "ช่วยด้วย",
+   "manual": "samsung_wt10j7_um_dc68_01942k",
+   "best": 0.5297149940749065,
+   "top": "ผ้าแน่นถัง"
+  },
+  {
+   "cat": "chat",
+   "query": "ช่วยด้วย",
+   "manual": "samsung_ww_um_dc68_04382a",
+   "best": 0.6881598172761677,
+   "top": "hc"
+  },
+  {
+   "cat": "chat",
+   "query": "ทดสอบ",
+   "manual": "samsung_ge83mdt_um_de68_04111e",
+   "best": 0.5458161251855839,
+   "top": "SE"
+  },
+  {
+   "cat": "chat",
+   "query": "ทดสอบ",
+   "manual": "samsung_mc32k7055_um_de68_04387m",
+   "best": 0.400030240882155,
+   "top": "จานหมุนติด"
+  },
+  {
+   "cat": "chat",
+   "query": "ทดสอบ",
+   "manual": "samsung_me16a4021a_um_service_manual",
+   "best": 0.2444334288878142,
+   "top": "ไมโครเวฟขึ้น SE"
+  },
+  {
+   "cat": "chat",
+   "query": "ทดสอบ",
+   "manual": "samsung_me73md_um_de68_04091q",
+   "best": 0.22563244400552732,
+   "top": "มีประกายไฟและเสียงแตกเปรี๊ยะภายในเตา (arcing)"
+  },
+  {
+   "cat": "chat",
+   "query": "ทดสอบ",
+   "manual": "samsung_mg23t5018c_um_de68_04594r",
+   "best": 0.400030240882155,
+   "top": "จานหมุนติด"
+  },
+  {
+   "cat": "chat",
+   "query": "ทดสอบ",
+   "manual": "samsung_mg28h5125_um_de68_04246j",
+   "best": 0.5458161251855839,
+   "top": "SE"
+  },
+  {
+   "cat": "chat",
+   "query": "ทดสอบ",
+   "manual": "samsung_ms20a3010a_um",
+   "best": 0.400030240882155,
+   "top": "จานหมุนติด"
+  },
+  {
+   "cat": "chat",
+   "query": "ทดสอบ",
+   "manual": "samsung_nse6d8100_um_service_manual",
+   "best": 0.39386205666403823,
+   "top": "self clean ขึ้น F"
+  },
+  {
+   "cat": "chat",
+   "query": "ทดสอบ",
+   "manual": "samsung_nsi6d9500_um_service_manual",
+   "best": 0.39386205666403823,
+   "top": "self clean ขึ้น F"
+  },
+  {
+   "cat": "chat",
+   "query": "ทดสอบ",
+   "manual": "samsung_rb5300d_um_da68_04817a",
+   "best": 0.4005552361110182,
+   "top": "HiSS!"
+  },
+  {
+   "cat": "chat",
+   "query": "ทดสอบ",
+   "manual": "samsung_rb6000d_um_da68_04800b",
+   "best": 0.4005552361110182,
+   "top": "HiSS!"
+  },
+  {
+   "cat": "chat",
+   "query": "ทดสอบ",
+   "manual": "samsung_rf29a_um_service_manual",
+   "best": 0.46905132970725505,
+   "top": "โหมดซับบาธ"
+  },
+  {
+   "cat": "chat",
+   "query": "ทดสอบ",
+   "manual": "samsung_rf_sm2009",
+   "best": 0.3231975083143458,
+   "top": "door alarm"
+  },
+  {
+   "cat": "chat",
+   "query": "ทดสอบ",
+   "manual": "samsung_rf_um_da68_02676a",
+   "best": 0.2299076389560802,
+   "top": "bubbling sound"
+  },
+  {
+   "cat": "chat",
+   "query": "ทดสอบ",
+   "manual": "samsung_rr39m7_um_service_manual",
+   "best": 0.3927554658532036,
+   "top": "When the Power Cool or Power Freezer button is pressed once during the Test mode, “FF” lights up on the Display Panel indicating that it is in the Forced Operation. At this time, it starts alarming with “Beep” sounds."
+  },
+  {
+   "cat": "chat",
+   "query": "ทดสอบ",
+   "manual": "samsung_rs5000fc_um_da68_04852n",
+   "best": 0.3557095691832524,
+   "top": "เมื่อเห็นไอคอนตัวกรองน้ำ"
+  },
+  {
+   "cat": "chat",
+   "query": "ทดสอบ",
+   "manual": "samsung_tv2_um_km2dvbadn",
+   "best": 0.40016299267590094,
+   "top": "weak or no signal"
+  },
+  {
+   "cat": "chat",
+   "query": "ทดสอบ",
+   "manual": "samsung_tv3_um_jzdvbadk",
+   "best": 0.4054202670354985,
+   "top": "ภาพซ้อน เบลอ หรือกระตุก"
+  },
+  {
+   "cat": "chat",
+   "query": "ทดสอบ",
+   "manual": "samsung_tv4_um_musdvbadr",
+   "best": 0.40016299267590094,
+   "top": "weak or no signal"
+  },
+  {
+   "cat": "chat",
+   "query": "ทดสอบ",
+   "manual": "samsung_tv5_um_nldvbas4m",
+   "best": 0.6000801398620152,
+   "top": "ทดสอบภาพทีวี"
+  },
+  {
+   "cat": "chat",
+   "query": "ทดสอบ",
+   "manual": "samsung_tv_um_bn81_28760d",
+   "best": 0.40016299267590094,
+   "top": "weak or no signal"
+  },
+  {
+   "cat": "chat",
+   "query": "ทดสอบ",
+   "manual": "samsung_wa21a_um_dc68_04154a",
+   "best": 0.554735245488154,
+   "top": "hc"
+  },
+  {
+   "cat": "chat",
+   "query": "ทดสอบ",
+   "manual": "samsung_wa40f_um_21wa40f",
+   "best": 0.554735245488154,
+   "top": "hc"
+  },
+  {
+   "cat": "chat",
+   "query": "ทดสอบ",
+   "manual": "samsung_wa45t3400a_um_service_manual",
+   "best": 0.34639700935363277,
+   "top": "UE Check the type of laundry. Check whether it may cause an unbalanced situation."
+  },
+  {
+   "cat": "chat",
+   "query": "ทดสอบ",
+   "manual": "samsung_wa5000r_um_dc68_04088a",
+   "best": 0.5604259982055709,
+   "top": "ฮีตเตอร์"
+  },
+  {
+   "cat": "chat",
+   "query": "ทดสอบ",
+   "manual": "samsung_wt10j7_um_dc68_01942k",
+   "best": 0.4205563304676897,
+   "top": "ผ้าแน่นถัง"
+  },
+  {
+   "cat": "chat",
+   "query": "ทดสอบ",
+   "manual": "samsung_ww_um_dc68_04382a",
+   "best": 0.5558856188787162,
+   "top": "uc"
+  },
+  {
+   "cat": "chat",
+   "query": "วันนี้กินอะไรดี",
+   "manual": "samsung_ge83mdt_um_de68_04111e",
+   "best": 0.545858208619603,
+   "top": "อาหารสุกไม่ทั่ว"
+  },
+  {
+   "cat": "chat",
+   "query": "วันนี้กินอะไรดี",
+   "manual": "samsung_mc32k7055_um_de68_04387m",
+   "best": 0.51366190297446,
+   "top": "อาหารไม่ร้อน"
+  },
+  {
+   "cat": "chat",
+   "query": "วันนี้กินอะไรดี",
+   "manual": "samsung_me16a4021a_um_service_manual",
+   "best": 0.09832589382393131,
+   "top": "microwave buttons not working"
+  },
+  {
+   "cat": "chat",
+   "query": "วันนี้กินอะไรดี",
+   "manual": "samsung_me73md_um_de68_04091q",
+   "best": 0.545858208619603,
+   "top": "อาหารสุกไม่ทั่ว"
+  },
+  {
+   "cat": "chat",
+   "query": "วันนี้กินอะไรดี",
+   "manual": "samsung_mg23t5018c_um_de68_04594r",
+   "best": 0.51366190297446,
+   "top": "อาหารไม่ร้อน"
+  },
+  {
+   "cat": "chat",
+   "query": "วันนี้กินอะไรดี",
+   "manual": "samsung_mg28h5125_um_de68_04246j",
+   "best": 0.545858208619603,
+   "top": "อาหารสุกไม่ทั่ว"
+  },
+  {
+   "cat": "chat",
+   "query": "วันนี้กินอะไรดี",
+   "manual": "samsung_ms20a3010a_um",
+   "best": 0.51366190297446,
+   "top": "อาหารไม่ร้อน"
+  },
+  {
+   "cat": "chat",
+   "query": "วันนี้กินอะไรดี",
+   "manual": "samsung_nse6d8100_um_service_manual",
+   "best": 0.2573390587300717,
+   "top": "Do Not Cook on Broken Cook-Top"
+  },
+  {
+   "cat": "chat",
+   "query": "วันนี้กินอะไรดี",
+   "manual": "samsung_nsi6d9500_um_service_manual",
+   "best": 0.2573390587300717,
+   "top": "Do Not Cook on Broken Cook-Top"
+  },
+  {
+   "cat": "chat",
+   "query": "วันนี้กินอะไรดี",
+   "manual": "samsung_rb5300d_um_da68_04817a",
+   "best": 0.38212872453058,
+   "top": "ผักแข็ง"
+  },
+  {
+   "cat": "chat",
+   "query": "วันนี้กินอะไรดี",
+   "manual": "samsung_rb6000d_um_da68_04800b",
+   "best": 0.38212872453058,
+   "top": "ผักแข็ง"
+  },
+  {
+   "cat": "chat",
+   "query": "วันนี้กินอะไรดี",
+   "manual": "samsung_rf29a_um_service_manual",
+   "best": 0.3314332507803466,
+   "top": "อาหารในช่องแช่เย็นแข็งตัว"
+  },
+  {
+   "cat": "chat",
+   "query": "วันนี้กินอะไรดี",
+   "manual": "samsung_rf_sm2009",
+   "best": 0.22881350144565937,
+   "top": "ต้องการถอดลิ้นชักผักผลไม้ ชั้นรองลิ้นชัก และแผ่นกั้น"
+  },
+  {
+   "cat": "chat",
+   "query": "วันนี้กินอะไรดี",
+   "manual": "samsung_rf_um_da68_02676a",
+   "best": 0.3314332507803466,
+   "top": "อาหารในช่องแช่เย็นแข็งตัว"
+  },
+  {
+   "cat": "chat",
+   "query": "วันนี้กินอะไรดี",
+   "manual": "samsung_rr39m7_um_service_manual",
+   "best": 0.18589232551155882,
+   "top": "ตู้เย็นโหมดตัวอย่าง"
+  },
+  {
+   "cat": "chat",
+   "query": "วันนี้กินอะไรดี",
+   "manual": "samsung_rs5000fc_um_da68_04852n",
+   "best": 0.23626988566845972,
+   "top": "เสียงจ๊อกแจ๊ก"
+  },
+  {
+   "cat": "chat",
+   "query": "วันนี้กินอะไรดี",
+   "manual": "samsung_tv2_um_km2dvbadn",
+   "best": 0.2661794101201498,
+   "top": "ภาพกะพริบหรือหรี่ลง"
+  },
+  {
+   "cat": "chat",
+   "query": "วันนี้กินอะไรดี",
+   "manual": "samsung_tv3_um_jzdvbadk",
+   "best": 0.2661794101201498,
+   "top": "ภาพกะพริบหรือหรี่ลง"
+  },
+  {
+   "cat": "chat",
+   "query": "วันนี้กินอะไรดี",
+   "manual": "samsung_tv4_um_musdvbadr",
+   "best": 0.2661794101201498,
+   "top": "ภาพกะพริบหรือหรี่ลง"
+  },
+  {
+   "cat": "chat",
+   "query": "วันนี้กินอะไรดี",
+   "manual": "samsung_tv5_um_nldvbas4m",
+   "best": 0.20281254922653694,
+   "top": "ทีวีดับเอง"
+  },
+  {
+   "cat": "chat",
+   "query": "วันนี้กินอะไรดี",
+   "manual": "samsung_tv_um_bn81_28760d",
+   "best": 0.2686167332438107,
+   "top": "เสียงทีวีอู้อี้"
+  },
+  {
+   "cat": "chat",
+   "query": "วันนี้กินอะไรดี",
+   "manual": "samsung_wa21a_um_dc68_04154a",
+   "best": 0.2521978605897864,
+   "top": "ผงซักฟอกค้าง"
+  },
+  {
+   "cat": "chat",
+   "query": "วันนี้กินอะไรดี",
+   "manual": "samsung_wa40f_um_21wa40f",
+   "best": 0.2521978605897864,
+   "top": "ผงซักฟอกค้าง"
+  },
+  {
+   "cat": "chat",
+   "query": "วันนี้กินอะไรดี",
+   "manual": "samsung_wa45t3400a_um_service_manual",
+   "best": 0.2654580251033391,
+   "top": "ซักผ้าขึ้น UB"
+  },
+  {
+   "cat": "chat",
+   "query": "วันนี้กินอะไรดี",
+   "manual": "samsung_wa5000r_um_dc68_04088a",
+   "best": 0.2521978605897864,
+   "top": "ผงซักฟอกค้าง"
+  },
+  {
+   "cat": "chat",
+   "query": "วันนี้กินอะไรดี",
+   "manual": "samsung_wt10j7_um_dc68_01942k",
+   "best": 0.20352498141390196,
+   "top": "ปั่นแห้งไม่ทำงาน"
+  },
+  {
+   "cat": "chat",
+   "query": "วันนี้กินอะไรดี",
+   "manual": "samsung_ww_um_dc68_04382a",
+   "best": 0.2521978605897864,
+   "top": "ผงซักฟอกค้าง"
+  },
+  {
+   "cat": "chat",
+   "query": "ราคาทองวันนี้เท่าไหร่",
+   "manual": "samsung_ge83mdt_um_de68_04111e",
+   "best": 0.2608901364376345,
+   "top": "ขึ้น SE"
+  },
+  {
+   "cat": "chat",
+   "query": "ราคาทองวันนี้เท่าไหร่",
+   "manual": "samsung_mc32k7055_um_de68_04387m",
+   "best": 0.25532549240505653,
+   "top": "ฮอตบลาสต์ไม่ร้อน"
+  },
+  {
+   "cat": "chat",
+   "query": "ราคาทองวันนี้เท่าไหร่",
+   "manual": "samsung_me16a4021a_um_service_manual",
+   "best": 0.09676391026130259,
+   "top": "ไมโครเวฟเปิดประตูแล้วยังทำงาน"
+  },
+  {
+   "cat": "chat",
+   "query": "ราคาทองวันนี้เท่าไหร่",
+   "manual": "samsung_me73md_um_de68_04091q",
+   "best": 0.1759804883585543,
+   "top": "อาหารสุกไม่ทั่ว"
+  },
+  {
+   "cat": "chat",
+   "query": "ราคาทองวันนี้เท่าไหร่",
+   "manual": "samsung_mg23t5018c_um_de68_04594r",
+   "best": 0.2371281000620448,
+   "top": "ปรุงเสร็จแล้วพัดลมไม่หยุด"
+  },
+  {
+   "cat": "chat",
+   "query": "ราคาทองวันนี้เท่าไหร่",
+   "manual": "samsung_mg28h5125_um_de68_04246j",
+   "best": 0.2608901364376345,
+   "top": "ขึ้น SE"
+  },
+  {
+   "cat": "chat",
+   "query": "ราคาทองวันนี้เท่าไหร่",
+   "manual": "samsung_ms20a3010a_um",
+   "best": 0.1924037052768987,
+   "top": "ตัวเตาร้อน"
+  },
+  {
+   "cat": "chat",
+   "query": "ราคาทองวันนี้เท่าไหร่",
+   "manual": "samsung_nse6d8100_um_service_manual",
+   "best": 0.20172554501332207,
+   "top": "range C-20"
+  },
+  {
+   "cat": "chat",
+   "query": "ราคาทองวันนี้เท่าไหร่",
+   "manual": "samsung_nsi6d9500_um_service_manual",
+   "best": 0.20049522193506047,
+   "top": "สัญลักษณ์หม้อมีเครื่องหมายตกใจ"
+  },
+  {
+   "cat": "chat",
+   "query": "ราคาทองวันนี้เท่าไหร่",
+   "manual": "samsung_rb5300d_um_da68_04817a",
+   "best": 0.2408379899526907,
+   "top": "Demand Response"
+  },
+  {
+   "cat": "chat",
+   "query": "ราคาทองวันนี้เท่าไหร่",
+   "manual": "samsung_rb6000d_um_da68_04800b",
+   "best": 0.20636640775238704,
+   "top": "HiSS!"
+  },
+  {
+   "cat": "chat",
+   "query": "ราคาทองวันนี้เท่าไหร่",
+   "manual": "samsung_rf29a_um_service_manual",
+   "best": 0.2077465555137691,
+   "top": "โหมดซับบาธ"
+  },
+  {
+   "cat": "chat",
+   "query": "ราคาทองวันนี้เท่าไหร่",
+   "manual": "samsung_rf_sm2009",
+   "best": 0.14800245124018938,
+   "top": "พัดลมตู้เย็นหน่วงเวลา"
+  },
+  {
+   "cat": "chat",
+   "query": "ราคาทองวันนี้เท่าไหร่",
+   "manual": "samsung_rf_um_da68_02676a",
+   "best": 0.11276449533224621,
+   "top": "ตู้เย็นข้างๆ อุ่น"
+  },
+  {
+   "cat": "chat",
+   "query": "ราคาทองวันนี้เท่าไหร่",
+   "manual": "samsung_rr39m7_um_service_manual",
+   "best": 0.16595703604206385,
+   "top": "ตู้เย็นขึ้น 72"
+  },
+  {
+   "cat": "chat",
+   "query": "ราคาทองวันนี้เท่าไหร่",
+   "manual": "samsung_rs5000fc_um_da68_04852n",
+   "best": 0.23064786647686492,
+   "top": "สัญลักษณ์ไวไฟกะพริบ"
+  },
+  {
+   "cat": "chat",
+   "query": "ราคาทองวันนี้เท่าไหร่",
+   "manual": "samsung_tv2_um_km2dvbadn",
+   "best": 0.2178304821751177,
+   "top": "ค่าที่ตั้งไว้หายหลัง 5 นาทีหรือทุกครั้งที่ปิดทีวี"
+  },
+  {
+   "cat": "chat",
+   "query": "ราคาทองวันนี้เท่าไหร่",
+   "manual": "samsung_tv3_um_jzdvbadk",
+   "best": 0.2178304821751177,
+   "top": "ค่าที่ตั้งไว้หายหลัง 5 นาทีหรือทุกครั้งที่ปิดทีวี"
+  },
+  {
+   "cat": "chat",
+   "query": "ราคาทองวันนี้เท่าไหร่",
+   "manual": "samsung_tv4_um_musdvbadr",
+   "best": 0.2178304821751177,
+   "top": "ค่าที่ตั้งไว้หายหลัง 5 นาทีหรือทุกครั้งที่ปิดทีวี"
+  },
+  {
+   "cat": "chat",
+   "query": "ราคาทองวันนี้เท่าไหร่",
+   "manual": "samsung_tv5_um_nldvbas4m",
+   "best": 0.2949031007837382,
+   "top": "อัปเดตทีวีแล้วตั้งค่าหาย"
+  },
+  {
+   "cat": "chat",
+   "query": "ราคาทองวันนี้เท่าไหร่",
+   "manual": "samsung_tv_um_bn81_28760d",
+   "best": 0.2178304821751177,
+   "top": "ค่าที่ตั้งไว้หายหลัง 5 นาทีหรือทุกครั้งที่ปิดทีวี"
+  },
+  {
+   "cat": "chat",
+   "query": "ราคาทองวันนี้เท่าไหร่",
+   "manual": "samsung_wa21a_um_dc68_04154a",
+   "best": 0.25049709098710754,
+   "top": "ขึ้น HC"
+  },
+  {
+   "cat": "chat",
+   "query": "ราคาทองวันนี้เท่าไหร่",
+   "manual": "samsung_wa40f_um_21wa40f",
+   "best": 0.25049709098710754,
+   "top": "ขึ้น HC"
+  },
+  {
+   "cat": "chat",
+   "query": "ราคาทองวันนี้เท่าไหร่",
+   "manual": "samsung_wa45t3400a_um_service_manual",
+   "best": 0.1987665861787904,
+   "top": "ซักผ้าขึ้น UB"
+  },
+  {
+   "cat": "chat",
+   "query": "ราคาทองวันนี้เท่าไหร่",
+   "manual": "samsung_wa5000r_um_dc68_04088a",
+   "best": 0.25666763302661716,
+   "top": "ไฟรั่ว"
+  },
+  {
+   "cat": "chat",
+   "query": "ราคาทองวันนี้เท่าไหร่",
+   "manual": "samsung_wt10j7_um_dc68_01942k",
+   "best": 0.16613157191724465,
+   "top": "น้ำทิ้งไหลไม่หยุด"
+  },
+  {
+   "cat": "chat",
+   "query": "ราคาทองวันนี้เท่าไหร่",
+   "manual": "samsung_ww_um_dc68_04382a",
+   "best": 0.25859514660284133,
+   "top": "เลข 0"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "แอร์ไม่เย็น",
+   "manual": "samsung_ge83mdt_um_de68_04111e",
+   "best": 0.5692208150913436,
+   "top": "มีไอน้ำควบแน่นในเตา ลมออกรอบประตูและตัวเตา แสงสะท้อนรอบประตู หรือไอน้ำออกตามประตูหรือช่องระบายอากาศ"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "แอร์ไม่เย็น",
+   "manual": "samsung_mc32k7055_um_de68_04387m",
+   "best": 0.6213396066350588,
+   "top": "มีควันออกระหว่างอุ่นเตาเริ่มต้น"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "แอร์ไม่เย็น",
+   "manual": "samsung_me16a4021a_um_service_manual",
+   "best": 0.39738321170263396,
+   "top": "ประตูไมโครเวฟเปิดอยู่แต่เตายังเดิน"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "แอร์ไม่เย็น",
+   "manual": "samsung_me73md_um_de68_04091q",
+   "best": 0.5692208150913436,
+   "top": "มีไอน้ำควบแน่นในเตา ลมออกรอบประตูและตัวเตา แสงสะท้อนรอบประตู หรือไอน้ำออกตามประตูหรือช่องระบายอากาศ"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "แอร์ไม่เย็น",
+   "manual": "samsung_mg23t5018c_um_de68_04594r",
+   "best": 0.6213396066350588,
+   "top": "มีควันออกระหว่างอุ่นเตาเริ่มต้น"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "แอร์ไม่เย็น",
+   "manual": "samsung_mg28h5125_um_de68_04246j",
+   "best": 0.5692208150913436,
+   "top": "มีไอน้ำควบแน่นในเตา ลมออกรอบประตูและตัวเตา แสงสะท้อนรอบประตู หรือไอน้ำออกตามประตูหรือช่องระบายอากาศ"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "แอร์ไม่เย็น",
+   "manual": "samsung_ms20a3010a_um",
+   "best": 0.6213396066350588,
+   "top": "มีควันออกระหว่างอุ่นเตาเริ่มต้น"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "แอร์ไม่เย็น",
+   "manual": "samsung_nse6d8100_um_service_manual",
+   "best": 0.5838264947958082,
+   "top": "สายไฟเตาขาด"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "แอร์ไม่เย็น",
+   "manual": "samsung_nsi6d9500_um_service_manual",
+   "best": 0.5838264947958082,
+   "top": "สายไฟเตาขาด"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "แอร์ไม่เย็น",
+   "manual": "samsung_rb5300d_um_da68_04817a",
+   "best": 0.6060226892307831,
+   "top": "ช่องแช่แข็งไม่เย็น"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "แอร์ไม่เย็น",
+   "manual": "samsung_rb6000d_um_da68_04800b",
+   "best": 0.6060226892307831,
+   "top": "ช่องแช่แข็งไม่เย็น"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "แอร์ไม่เย็น",
+   "manual": "samsung_rf29a_um_service_manual",
+   "best": 0.675333875926281,
+   "top": "ช่องแช่เย็นไม่เย็น"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "แอร์ไม่เย็น",
+   "manual": "samsung_rf_sm2009",
+   "best": 0.5870178859173716,
+   "top": "ไฟในห้องแช่เย็นไม่ติด หลอดไฟในตู้เย็นดับ"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "แอร์ไม่เย็น",
+   "manual": "samsung_rf_um_da68_02676a",
+   "best": 0.5663678843485589,
+   "top": "The front corners and sides of the appliance are warm and condensation starts to form."
+  },
+  {
+   "cat": "other_appliance",
+   "query": "แอร์ไม่เย็น",
+   "manual": "samsung_rr39m7_um_service_manual",
+   "best": 0.5451011834703828,
+   "top": "ไฟตู้เย็นไม่ติด"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "แอร์ไม่เย็น",
+   "manual": "samsung_rs5000fc_um_da68_04852n",
+   "best": 0.7589993890889711,
+   "top": "เสียงน้ำยาแอร์ไหล"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "แอร์ไม่เย็น",
+   "manual": "samsung_tv2_um_km2dvbadn",
+   "best": 0.41642969523294776,
+   "top": "The picture is good but there is no sound."
+  },
+  {
+   "cat": "other_appliance",
+   "query": "แอร์ไม่เย็น",
+   "manual": "samsung_tv3_um_jzdvbadk",
+   "best": 0.41642969523294776,
+   "top": "The picture is good but there is no sound."
+  },
+  {
+   "cat": "other_appliance",
+   "query": "แอร์ไม่เย็น",
+   "manual": "samsung_tv4_um_musdvbadr",
+   "best": 0.48827536215989226,
+   "top": "ถ่านรีโมตหมดเร็ว"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "แอร์ไม่เย็น",
+   "manual": "samsung_tv5_um_nldvbas4m",
+   "best": 0.34355198029334394,
+   "top": "tv auto power off"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "แอร์ไม่เย็น",
+   "manual": "samsung_tv_um_bn81_28760d",
+   "best": 0.41642969523294776,
+   "top": "The picture is good but there is no sound."
+  },
+  {
+   "cat": "other_appliance",
+   "query": "แอร์ไม่เย็น",
+   "manual": "samsung_wa21a_um_dc68_04154a",
+   "best": 0.5855473141239519,
+   "top": "น้ำไม่ร้อน"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "แอร์ไม่เย็น",
+   "manual": "samsung_wa40f_um_21wa40f",
+   "best": 0.5855473141239519,
+   "top": "น้ำไม่ร้อน"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "แอร์ไม่เย็น",
+   "manual": "samsung_wa45t3400a_um_service_manual",
+   "best": 0.528138345327948,
+   "top": "น้ำเครื่องซักผ้าไม่ร้อน"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "แอร์ไม่เย็น",
+   "manual": "samsung_wa5000r_um_dc68_04088a",
+   "best": 0.5855473141239519,
+   "top": "น้ำไม่ร้อน"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "แอร์ไม่เย็น",
+   "manual": "samsung_wt10j7_um_dc68_01942k",
+   "best": 0.5020126012681864,
+   "top": "ถังปั่นไม่หมุน"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "แอร์ไม่เย็น",
+   "manual": "samsung_ww_um_dc68_04382a",
+   "best": 0.5855473141239519,
+   "top": "น้ำไม่ร้อน"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "พัดลมไม่หมุน",
+   "manual": "samsung_ge83mdt_um_de68_04111e",
+   "best": 0.3457737353808231,
+   "top": "ไมโครเวฟไม่ทำให้อาหารร้อน"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "พัดลมไม่หมุน",
+   "manual": "samsung_mc32k7055_um_de68_04387m",
+   "best": 0.6004208776123336,
+   "top": "ปรุงเสร็จแล้วพัดลมไม่หยุด"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "พัดลมไม่หมุน",
+   "manual": "samsung_me16a4021a_um_service_manual",
+   "best": 0.3524571867348607,
+   "top": "ปุ่มบนแผงควบคุมไมโครเวฟกดไม่ติด"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "พัดลมไม่หมุน",
+   "manual": "samsung_me73md_um_de68_04091q",
+   "best": 0.3457737353808231,
+   "top": "ไมโครเวฟไม่ทำให้อาหารร้อน"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "พัดลมไม่หมุน",
+   "manual": "samsung_mg23t5018c_um_de68_04594r",
+   "best": 0.6004208776123336,
+   "top": "ปรุงเสร็จแล้วพัดลมไม่หยุด"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "พัดลมไม่หมุน",
+   "manual": "samsung_mg28h5125_um_de68_04246j",
+   "best": 0.3457737353808231,
+   "top": "ไมโครเวฟไม่ทำให้อาหารร้อน"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "พัดลมไม่หมุน",
+   "manual": "samsung_ms20a3010a_um",
+   "best": 0.4157792725944124,
+   "top": "ไมโครเวฟไม่ทำความร้อน"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "พัดลมไม่หมุน",
+   "manual": "samsung_nse6d8100_um_service_manual",
+   "best": 0.4609006383806165,
+   "top": "แผงควบคุมเตากดไม่ติด"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "พัดลมไม่หมุน",
+   "manual": "samsung_nsi6d9500_um_service_manual",
+   "best": 0.4609006383806165,
+   "top": "แผงควบคุมเตากดไม่ติด"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "พัดลมไม่หมุน",
+   "manual": "samsung_rb5300d_um_da68_04817a",
+   "best": 0.4186457879364687,
+   "top": "ฟังก์ชันจัดการพลังงานไม่ทำงาน"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "พัดลมไม่หมุน",
+   "manual": "samsung_rb6000d_um_da68_04800b",
+   "best": 0.3794478882075561,
+   "top": "เสียงพัดลมตู้เย็น"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "พัดลมไม่หมุน",
+   "manual": "samsung_rf29a_um_service_manual",
+   "best": 0.7258402920135579,
+   "top": "พัดลมตู้เย็นไม่หมุน"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "พัดลมไม่หมุน",
+   "manual": "samsung_rf_sm2009",
+   "best": 0.6022445731203911,
+   "top": "พัดลมในตู้เย็นไม่หมุนทันทีหลังเปิดปิดประตู หรือหลังไฟกลับมา"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "พัดลมไม่หมุน",
+   "manual": "samsung_rf_um_da68_02676a",
+   "best": 0.31956577645899137,
+   "top": "refrigerator not cooling"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "พัดลมไม่หมุน",
+   "manual": "samsung_rr39m7_um_service_manual",
+   "best": 0.7459651869033069,
+   "top": "C-Fan ไม่หมุน"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "พัดลมไม่หมุน",
+   "manual": "samsung_rs5000fc_um_da68_04852n",
+   "best": 0.5169949275369307,
+   "top": "เสียงขณะพัดลมทำงาน (เสียงหวี่ๆ เสียงลมพัด)"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "พัดลมไม่หมุน",
+   "manual": "samsung_tv2_um_km2dvbadn",
+   "best": 0.5407758461314492,
+   "top": "รีโมตทีวีกดไม่ติด"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "พัดลมไม่หมุน",
+   "manual": "samsung_tv3_um_jzdvbadk",
+   "best": 0.5407758461314492,
+   "top": "รีโมตทีวีกดไม่ติด"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "พัดลมไม่หมุน",
+   "manual": "samsung_tv4_um_musdvbadr",
+   "best": 0.5407758461314492,
+   "top": "รีโมตทีวีกดไม่ติด"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "พัดลมไม่หมุน",
+   "manual": "samsung_tv5_um_nldvbas4m",
+   "best": 0.5111815179591028,
+   "top": "ทีวีไม่อ่านแฟลชไดรฟ์"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "พัดลมไม่หมุน",
+   "manual": "samsung_tv_um_bn81_28760d",
+   "best": 0.5407758461314492,
+   "top": "รีโมตทีวีกดไม่ติด"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "พัดลมไม่หมุน",
+   "manual": "samsung_wa21a_um_dc68_04154a",
+   "best": 0.5013364396938231,
+   "top": "Does not turn on."
+  },
+  {
+   "cat": "other_appliance",
+   "query": "พัดลมไม่หมุน",
+   "manual": "samsung_wa40f_um_21wa40f",
+   "best": 0.5013364396938231,
+   "top": "Does not turn on."
+  },
+  {
+   "cat": "other_appliance",
+   "query": "พัดลมไม่หมุน",
+   "manual": "samsung_wa45t3400a_um_service_manual",
+   "best": 0.4314484450413957,
+   "top": "Will Not Spin"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "พัดลมไม่หมุน",
+   "manual": "samsung_wa5000r_um_dc68_04088a",
+   "best": 0.5013364396938231,
+   "top": "Does not turn on."
+  },
+  {
+   "cat": "other_appliance",
+   "query": "พัดลมไม่หมุน",
+   "manual": "samsung_wt10j7_um_dc68_01942k",
+   "best": 0.5866506978121081,
+   "top": "ถังปั่นไม่หมุน"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "พัดลมไม่หมุน",
+   "manual": "samsung_ww_um_dc68_04382a",
+   "best": 0.45320982753794525,
+   "top": "Spinning does not work."
+  },
+  {
+   "cat": "other_appliance",
+   "query": "หม้อหุงข้าวไม่สุก",
+   "manual": "samsung_ge83mdt_um_de68_04111e",
+   "best": 0.7662128581234633,
+   "top": "อาหารไม่สุกเลย"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "หม้อหุงข้าวไม่สุก",
+   "manual": "samsung_mc32k7055_um_de68_04387m",
+   "best": 0.7091031003650493,
+   "top": "เตาอบไม่ร้อน"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "หม้อหุงข้าวไม่สุก",
+   "manual": "samsung_me16a4021a_um_service_manual",
+   "best": 0.3328936419345286,
+   "top": "ประตูไมโครเวฟเปิดอยู่แต่เตายังเดิน"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "หม้อหุงข้าวไม่สุก",
+   "manual": "samsung_me73md_um_de68_04091q",
+   "best": 0.7662128581234633,
+   "top": "อาหารไม่สุกเลย"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "หม้อหุงข้าวไม่สุก",
+   "manual": "samsung_mg23t5018c_um_de68_04594r",
+   "best": 0.6927357832191074,
+   "top": "ไมโครเวฟอาหารไม่สุก"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "หม้อหุงข้าวไม่สุก",
+   "manual": "samsung_mg28h5125_um_de68_04246j",
+   "best": 0.7662128581234633,
+   "top": "อาหารไม่สุกเลย"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "หม้อหุงข้าวไม่สุก",
+   "manual": "samsung_ms20a3010a_um",
+   "best": 0.6927357832191074,
+   "top": "ไมโครเวฟอาหารไม่สุก"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "หม้อหุงข้าวไม่สุก",
+   "manual": "samsung_nse6d8100_um_service_manual",
+   "best": 0.6355444932206933,
+   "top": "เตาไม่ติด"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "หม้อหุงข้าวไม่สุก",
+   "manual": "samsung_nsi6d9500_um_service_manual",
+   "best": 0.6084142680454385,
+   "top": "Do Not Cook on Broken Cook-Top"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "หม้อหุงข้าวไม่สุก",
+   "manual": "samsung_rb5300d_um_da68_04817a",
+   "best": 0.5220662968793122,
+   "top": "ผักแข็ง"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "หม้อหุงข้าวไม่สุก",
+   "manual": "samsung_rb6000d_um_da68_04800b",
+   "best": 0.5220662968793122,
+   "top": "ผักแข็ง"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "หม้อหุงข้าวไม่สุก",
+   "manual": "samsung_rf29a_um_service_manual",
+   "best": 0.5522554206931484,
+   "top": "อาหารในช่องแช่เย็นแข็งตัว"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "หม้อหุงข้าวไม่สุก",
+   "manual": "samsung_rf_sm2009",
+   "best": 0.5127998587091112,
+   "top": "ลิ้นชักผักผลไม้ถอดไม่ออก"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "หม้อหุงข้าวไม่สุก",
+   "manual": "samsung_rf_um_da68_02676a",
+   "best": 0.5522554206931484,
+   "top": "อาหารในช่องแช่เย็นแข็งตัว"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "หม้อหุงข้าวไม่สุก",
+   "manual": "samsung_rr39m7_um_service_manual",
+   "best": 0.38746405373465204,
+   "top": "ตู้เย็นไม่เดินเครื่อง"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "หม้อหุงข้าวไม่สุก",
+   "manual": "samsung_rs5000fc_um_da68_04852n",
+   "best": 0.48101300932770413,
+   "top": "เสียงผิดปกติจากตู้เย็น"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "หม้อหุงข้าวไม่สุก",
+   "manual": "samsung_tv2_um_km2dvbadn",
+   "best": 0.34766427180759424,
+   "top": "ภาพปกติแต่ไม่มีเสียง"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "หม้อหุงข้าวไม่สุก",
+   "manual": "samsung_tv3_um_jzdvbadk",
+   "best": 0.3832367043700259,
+   "top": "pip ใช้ไม่ได้"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "หม้อหุงข้าวไม่สุก",
+   "manual": "samsung_tv4_um_musdvbadr",
+   "best": 0.39646289527900797,
+   "top": "ถ่านรีโมตหมดเร็ว"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "หม้อหุงข้าวไม่สุก",
+   "manual": "samsung_tv5_um_nldvbas4m",
+   "best": 0.45253406191071693,
+   "top": "ภาพดูไม่เป็นธรรมชาติ"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "หม้อหุงข้าวไม่สุก",
+   "manual": "samsung_tv_um_bn81_28760d",
+   "best": 0.4148925401050966,
+   "top": "เสียงขาดๆ หายๆ"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "หม้อหุงข้าวไม่สุก",
+   "manual": "samsung_wa21a_um_dc68_04154a",
+   "best": 0.6910447837394142,
+   "top": "ปั่นแห้งไม่ทำงาน"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "หม้อหุงข้าวไม่สุก",
+   "manual": "samsung_wa40f_um_21wa40f",
+   "best": 0.6910447837394142,
+   "top": "ปั่นแห้งไม่ทำงาน"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "หม้อหุงข้าวไม่สุก",
+   "manual": "samsung_wa45t3400a_um_service_manual",
+   "best": 0.5276442470003649,
+   "top": "ผ้าไม่แห้งหลังปั่น"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "หม้อหุงข้าวไม่สุก",
+   "manual": "samsung_wa5000r_um_dc68_04088a",
+   "best": 0.6910447837394142,
+   "top": "ปั่นแห้งไม่ทำงาน"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "หม้อหุงข้าวไม่สุก",
+   "manual": "samsung_wt10j7_um_dc68_01942k",
+   "best": 0.6910447837394142,
+   "top": "ปั่นแห้งไม่ทำงาน"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "หม้อหุงข้าวไม่สุก",
+   "manual": "samsung_ww_um_dc68_04382a",
+   "best": 0.6910447837394142,
+   "top": "ปั่นแห้งไม่ทำงาน"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "มือถือชาร์จไม่เข้า",
+   "manual": "samsung_ge83mdt_um_de68_04111e",
+   "best": 0.48602253245676136,
+   "top": "หลอดไฟไมโครเวฟเสีย"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "มือถือชาร์จไม่เข้า",
+   "manual": "samsung_mc32k7055_um_de68_04387m",
+   "best": 0.5255055714318009,
+   "top": "Power Defrost ไม่ทำงาน"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "มือถือชาร์จไม่เข้า",
+   "manual": "samsung_me16a4021a_um_service_manual",
+   "best": 0.41092985997201753,
+   "top": "แผงควบคุมไมโครเวฟไม่ตอบสนอง"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "มือถือชาร์จไม่เข้า",
+   "manual": "samsung_me73md_um_de68_04091q",
+   "best": 0.43488014219595267,
+   "top": "ไมโครเวฟกดเริ่มไม่ติด"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "มือถือชาร์จไม่เข้า",
+   "manual": "samsung_mg23t5018c_um_de68_04594r",
+   "best": 0.4708141155350057,
+   "top": "The power turns off during operation."
+  },
+  {
+   "cat": "other_appliance",
+   "query": "มือถือชาร์จไม่เข้า",
+   "manual": "samsung_mg28h5125_um_de68_04246j",
+   "best": 0.48602253245676136,
+   "top": "หลอดไฟไมโครเวฟเสีย"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "มือถือชาร์จไม่เข้า",
+   "manual": "samsung_ms20a3010a_um",
+   "best": 0.4708141155350057,
+   "top": "The power turns off during operation."
+  },
+  {
+   "cat": "other_appliance",
+   "query": "มือถือชาร์จไม่เข้า",
+   "manual": "samsung_nse6d8100_um_service_manual",
+   "best": 0.4788304395998779,
+   "top": "range no power"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "มือถือชาร์จไม่เข้า",
+   "manual": "samsung_nsi6d9500_um_service_manual",
+   "best": 0.4714505310810329,
+   "top": "เตาต่อ wifi ไม่ได้"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "มือถือชาร์จไม่เข้า",
+   "manual": "samsung_rb5300d_um_da68_04817a",
+   "best": 0.5143433047157515,
+   "top": "ไฟ Wi-Fi กะพริบ"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "มือถือชาร์จไม่เข้า",
+   "manual": "samsung_rb6000d_um_da68_04800b",
+   "best": 0.5143433047157515,
+   "top": "ไฟ Wi-Fi กะพริบ"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "มือถือชาร์จไม่เข้า",
+   "manual": "samsung_rf29a_um_service_manual",
+   "best": 0.49644851251876965,
+   "top": "Wi-Fi ของตู้เย็นใช้งานไม่ได้"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "มือถือชาร์จไม่เข้า",
+   "manual": "samsung_rf_sm2009",
+   "best": 0.41013357022155517,
+   "top": "ตู้เย็นไม่มีไฟเข้า ไม่ติด จอไม่แสดงผล"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "มือถือชาร์จไม่เข้า",
+   "manual": "samsung_rf_um_da68_02676a",
+   "best": 0.33697081571586035,
+   "top": "The interior or exterior LED lamp has gone out."
+  },
+  {
+   "cat": "other_appliance",
+   "query": "มือถือชาร์จไม่เข้า",
+   "manual": "samsung_rr39m7_um_service_manual",
+   "best": 0.567261082104735,
+   "top": "Samsung fridge Comp Low Voltage Error"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "มือถือชาร์จไม่เข้า",
+   "manual": "samsung_rs5000fc_um_da68_04852n",
+   "best": 0.5143433047157515,
+   "top": "ไฟ Wi-Fi กะพริบ"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "มือถือชาร์จไม่เข้า",
+   "manual": "samsung_tv2_um_km2dvbadn",
+   "best": 0.6337463509988283,
+   "top": "เชื่อมต่อเราเตอร์ไร้สายไม่ได้"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "มือถือชาร์จไม่เข้า",
+   "manual": "samsung_tv3_um_jzdvbadk",
+   "best": 0.6337463509988283,
+   "top": "เชื่อมต่อเราเตอร์ไร้สายไม่ได้"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "มือถือชาร์จไม่เข้า",
+   "manual": "samsung_tv4_um_musdvbadr",
+   "best": 0.6857037931059824,
+   "top": "แบตเตอรี่รีโมตหมดเร็ว"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "มือถือชาร์จไม่เข้า",
+   "manual": "samsung_tv5_um_nldvbas4m",
+   "best": 0.6041094479052985,
+   "top": "เชื่อมต่อมือถือด้วย Wi-Fi Direct ไม่ได้"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "มือถือชาร์จไม่เข้า",
+   "manual": "samsung_tv_um_bn81_28760d",
+   "best": 0.667821130943146,
+   "top": "รีโมตผ่านมือถือใช้ไม่ได้"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "มือถือชาร์จไม่เข้า",
+   "manual": "samsung_wa21a_um_dc68_04154a",
+   "best": 0.47663731385134134,
+   "top": "low voltage"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "มือถือชาร์จไม่เข้า",
+   "manual": "samsung_wa40f_um_21wa40f",
+   "best": 0.47663731385134134,
+   "top": "low voltage"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "มือถือชาร์จไม่เข้า",
+   "manual": "samsung_wa45t3400a_um_service_manual",
+   "best": 0.5136994571574759,
+   "top": "samsung washer not draining"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "มือถือชาร์จไม่เข้า",
+   "manual": "samsung_wa5000r_um_dc68_04088a",
+   "best": 0.47663731385134134,
+   "top": "low voltage"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "มือถือชาร์จไม่เข้า",
+   "manual": "samsung_wt10j7_um_dc68_01942k",
+   "best": 0.3984447711879949,
+   "top": "เครื่องไม่ทำงาน"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "มือถือชาร์จไม่เข้า",
+   "manual": "samsung_ww_um_dc68_04382a",
+   "best": 0.424785092160475,
+   "top": "Information code UC: The electronic control needs to be checked. / Low voltage detected."
+  },
+  {
+   "cat": "other_appliance",
+   "query": "รถสตาร์ทไม่ติด",
+   "manual": "samsung_ge83mdt_um_de68_04111e",
+   "best": 0.6346556414625403,
+   "top": "กดปุ่ม Start แล้วเตาไม่เริ่มทำงาน"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "รถสตาร์ทไม่ติด",
+   "manual": "samsung_mc32k7055_um_de68_04387m",
+   "best": 0.48037166928465386,
+   "top": "เสียบปลั๊กแล้วเตาเริ่มทำงานทันที"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "รถสตาร์ทไม่ติด",
+   "manual": "samsung_me16a4021a_um_service_manual",
+   "best": 0.39273640889846884,
+   "top": "ปุ่มบนแผงควบคุมไมโครเวฟกดไม่ติด"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "รถสตาร์ทไม่ติด",
+   "manual": "samsung_me73md_um_de68_04091q",
+   "best": 0.6346556414625403,
+   "top": "กดปุ่ม Start แล้วเตาไม่เริ่มทำงาน"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "รถสตาร์ทไม่ติด",
+   "manual": "samsung_mg23t5018c_um_de68_04594r",
+   "best": 0.48037166928465386,
+   "top": "เสียบปลั๊กแล้วเตาเริ่มทำงานทันที"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "รถสตาร์ทไม่ติด",
+   "manual": "samsung_mg28h5125_um_de68_04246j",
+   "best": 0.6113418688821924,
+   "top": "กด start แล้วไม่ทำงาน"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "รถสตาร์ทไม่ติด",
+   "manual": "samsung_ms20a3010a_um",
+   "best": 0.48037166928465386,
+   "top": "เสียบปลั๊กแล้วเตาเริ่มทำงานทันที"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "รถสตาร์ทไม่ติด",
+   "manual": "samsung_nse6d8100_um_service_manual",
+   "best": 0.6156434002518202,
+   "top": "แผงควบคุมเตากดไม่ติด"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "รถสตาร์ทไม่ติด",
+   "manual": "samsung_nsi6d9500_um_service_manual",
+   "best": 0.6156434002518202,
+   "top": "แผงควบคุมเตากดไม่ติด"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "รถสตาร์ทไม่ติด",
+   "manual": "samsung_rb5300d_um_da68_04817a",
+   "best": 0.42437112694175905,
+   "top": "เสียงเครื่องยนต์ตู้เย็น"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "รถสตาร์ทไม่ติด",
+   "manual": "samsung_rb6000d_um_da68_04800b",
+   "best": 0.42437112694175905,
+   "top": "เสียงเครื่องยนต์ตู้เย็น"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "รถสตาร์ทไม่ติด",
+   "manual": "samsung_rf29a_um_service_manual",
+   "best": 0.49977971603122157,
+   "top": "พัดลมช่องแช่เย็นไม่ทำงาน"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "รถสตาร์ทไม่ติด",
+   "manual": "samsung_rf_sm2009",
+   "best": 0.5880721021121802,
+   "top": "compressor not starting"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "รถสตาร์ทไม่ติด",
+   "manual": "samsung_rf_um_da68_02676a",
+   "best": 0.4043426402740956,
+   "top": "The appliance is not operating at all or the temperature is too high."
+  },
+  {
+   "cat": "other_appliance",
+   "query": "รถสตาร์ทไม่ติด",
+   "manual": "samsung_rr39m7_um_service_manual",
+   "best": 0.44324648420675133,
+   "top": "พัดลมตู้เย็นไม่หมุน"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "รถสตาร์ทไม่ติด",
+   "manual": "samsung_rs5000fc_um_da68_04852n",
+   "best": 0.5011541520451216,
+   "top": "แผงควบคุมไม่ทำงาน"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "รถสตาร์ทไม่ติด",
+   "manual": "samsung_tv2_um_km2dvbadn",
+   "best": 0.5291728682768807,
+   "top": "ทีวีไม่ติด"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "รถสตาร์ทไม่ติด",
+   "manual": "samsung_tv3_um_jzdvbadk",
+   "best": 0.5291728682768807,
+   "top": "ทีวีไม่ติด"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "รถสตาร์ทไม่ติด",
+   "manual": "samsung_tv4_um_musdvbadr",
+   "best": 0.5291728682768807,
+   "top": "ทีวีไม่ติด"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "รถสตาร์ทไม่ติด",
+   "manual": "samsung_tv5_um_nldvbas4m",
+   "best": 0.4347207463235875,
+   "top": "tv auto power off"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "รถสตาร์ทไม่ติด",
+   "manual": "samsung_tv_um_bn81_28760d",
+   "best": 0.5291728682768807,
+   "top": "ทีวีไม่ติด"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "รถสตาร์ทไม่ติด",
+   "manual": "samsung_wa21a_um_dc68_04154a",
+   "best": 0.6636340163164703,
+   "top": "Does not start."
+  },
+  {
+   "cat": "other_appliance",
+   "query": "รถสตาร์ทไม่ติด",
+   "manual": "samsung_wa40f_um_21wa40f",
+   "best": 0.6636340163164703,
+   "top": "Does not start."
+  },
+  {
+   "cat": "other_appliance",
+   "query": "รถสตาร์ทไม่ติด",
+   "manual": "samsung_wa45t3400a_um_service_manual",
+   "best": 0.6085458182342007,
+   "top": "Will Not Start"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "รถสตาร์ทไม่ติด",
+   "manual": "samsung_wa5000r_um_dc68_04088a",
+   "best": 0.6636340163164703,
+   "top": "Does not start."
+  },
+  {
+   "cat": "other_appliance",
+   "query": "รถสตาร์ทไม่ติด",
+   "manual": "samsung_wt10j7_um_dc68_01942k",
+   "best": 0.5631366513140221,
+   "top": "ถังปั่นไม่หมุน"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "รถสตาร์ทไม่ติด",
+   "manual": "samsung_ww_um_dc68_04382a",
+   "best": 0.6636340163164703,
+   "top": "Does not start."
+  },
+  {
+   "cat": "other_appliance",
+   "query": "คอมพิวเตอร์ค้าง",
+   "manual": "samsung_ge83mdt_um_de68_04111e",
+   "best": 0.6024803308651514,
+   "top": "ไมโครเวฟไม่เริ่มทำงาน"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "คอมพิวเตอร์ค้าง",
+   "manual": "samsung_mc32k7055_um_de68_04387m",
+   "best": 0.7289100331447804,
+   "top": "จอไมโครเวฟดับ"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "คอมพิวเตอร์ค้าง",
+   "manual": "samsung_me16a4021a_um_service_manual",
+   "best": 0.5511276554037337,
+   "top": "ไมโครเวฟเปิดประตูแล้วยังทำงาน"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "คอมพิวเตอร์ค้าง",
+   "manual": "samsung_me73md_um_de68_04091q",
+   "best": 0.6024803308651514,
+   "top": "ไมโครเวฟไม่เริ่มทำงาน"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "คอมพิวเตอร์ค้าง",
+   "manual": "samsung_mg23t5018c_um_de68_04594r",
+   "best": 0.7289100331447804,
+   "top": "จอไมโครเวฟดับ"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "คอมพิวเตอร์ค้าง",
+   "manual": "samsung_mg28h5125_um_de68_04246j",
+   "best": 0.6024803308651514,
+   "top": "ไมโครเวฟไม่เริ่มทำงาน"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "คอมพิวเตอร์ค้าง",
+   "manual": "samsung_ms20a3010a_um",
+   "best": 0.712264233398478,
+   "top": "ไมโครเวฟดับเอง"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "คอมพิวเตอร์ค้าง",
+   "manual": "samsung_nse6d8100_um_service_manual",
+   "best": 0.612728175269377,
+   "top": "Oven not operating (No power, No display)"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "คอมพิวเตอร์ค้าง",
+   "manual": "samsung_nsi6d9500_um_service_manual",
+   "best": 0.5350351362008822,
+   "top": "จอเตาดับ"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "คอมพิวเตอร์ค้าง",
+   "manual": "samsung_rb5300d_um_da68_04817a",
+   "best": 0.5208637241378983,
+   "top": "แอปเชื่อมต่อแล้วแต่ไม่ทำงาน"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "คอมพิวเตอร์ค้าง",
+   "manual": "samsung_rb6000d_um_da68_04800b",
+   "best": 0.5208637241378983,
+   "top": "แอปเชื่อมต่อแล้วแต่ไม่ทำงาน"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "คอมพิวเตอร์ค้าง",
+   "manual": "samsung_rf29a_um_service_manual",
+   "best": 0.7037822630911502,
+   "top": "คอมตู้เย็นไม่ติด"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "คอมพิวเตอร์ค้าง",
+   "manual": "samsung_rf_sm2009",
+   "best": 0.7035522691153913,
+   "top": "คอมเพรสเซอร์ไม่ทำงานแต่จอติด"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "คอมพิวเตอร์ค้าง",
+   "manual": "samsung_rf_um_da68_02676a",
+   "best": 0.41771960013194,
+   "top": "ตู้เย็นไม่ทำงาน"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "คอมพิวเตอร์ค้าง",
+   "manual": "samsung_rr39m7_um_service_manual",
+   "best": 0.6068688895752165,
+   "top": "ตู้เย็นไม่เย็นคอมไม่ทำงาน"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "คอมพิวเตอร์ค้าง",
+   "manual": "samsung_rs5000fc_um_da68_04852n",
+   "best": 0.5587962339731678,
+   "top": "แผงควบคุมไม่ทำงาน"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "คอมพิวเตอร์ค้าง",
+   "manual": "samsung_tv2_um_km2dvbadn",
+   "best": 0.6307479154984824,
+   "top": "ภาพไม่เต็มจอ"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "คอมพิวเตอร์ค้าง",
+   "manual": "samsung_tv3_um_jzdvbadk",
+   "best": 0.6307479154984824,
+   "top": "ภาพไม่เต็มจอ"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "คอมพิวเตอร์ค้าง",
+   "manual": "samsung_tv4_um_musdvbadr",
+   "best": 0.6307479154984824,
+   "top": "ภาพไม่เต็มจอ"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "คอมพิวเตอร์ค้าง",
+   "manual": "samsung_tv5_um_nldvbas4m",
+   "best": 0.5857266870603131,
+   "top": "หน้าจอติดสว่างเล็กน้อยเองระหว่าง Auto Update"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "คอมพิวเตอร์ค้าง",
+   "manual": "samsung_tv_um_bn81_28760d",
+   "best": 0.8294382970524764,
+   "top": "ต่อคอมแล้วจอไม่ขึ้น"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "คอมพิวเตอร์ค้าง",
+   "manual": "samsung_wa21a_um_dc68_04154a",
+   "best": 0.695453581275024,
+   "top": "PC"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "คอมพิวเตอร์ค้าง",
+   "manual": "samsung_wa40f_um_21wa40f",
+   "best": 0.695453581275024,
+   "top": "PC"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "คอมพิวเตอร์ค้าง",
+   "manual": "samsung_wa45t3400a_um_service_manual",
+   "best": 0.5086829622414208,
+   "top": "ซักผ้าขึ้น PC"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "คอมพิวเตอร์ค้าง",
+   "manual": "samsung_wa5000r_um_dc68_04088a",
+   "best": 0.695453581275024,
+   "top": "PC"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "คอมพิวเตอร์ค้าง",
+   "manual": "samsung_wt10j7_um_dc68_01942k",
+   "best": 0.67028315169352,
+   "top": "เครื่องไม่ทำงาน"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "คอมพิวเตอร์ค้าง",
+   "manual": "samsung_ww_um_dc68_04382a",
+   "best": 0.67028315169352,
+   "top": "เครื่องไม่ทำงาน"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "เครื่องทำน้ำอุ่นไม่ร้อน",
+   "manual": "samsung_ge83mdt_um_de68_04111e",
+   "best": 0.5289329239912045,
+   "top": "ปุ่มมีน้ำ"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "เครื่องทำน้ำอุ่นไม่ร้อน",
+   "manual": "samsung_mc32k7055_um_de68_04387m",
+   "best": 0.6787708350090346,
+   "top": "เตาไม่ให้ความร้อนตามปกติ (รวมถึงฟังก์ชัน Warm)"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "เครื่องทำน้ำอุ่นไม่ร้อน",
+   "manual": "samsung_me16a4021a_um_service_manual",
+   "best": 0.3991883087705914,
+   "top": "เตาไมโครเวฟทำงานทั้งที่ประตูเปิดอยู่"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "เครื่องทำน้ำอุ่นไม่ร้อน",
+   "manual": "samsung_me73md_um_de68_04091q",
+   "best": 0.5194692110440489,
+   "top": "ไมโครเวฟไม่ทำให้อาหารร้อน"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "เครื่องทำน้ำอุ่นไม่ร้อน",
+   "manual": "samsung_mg23t5018c_um_de68_04594r",
+   "best": 0.6787708350090346,
+   "top": "เตาไม่ให้ความร้อนตามปกติ (รวมถึงฟังก์ชัน Warm)"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "เครื่องทำน้ำอุ่นไม่ร้อน",
+   "manual": "samsung_mg28h5125_um_de68_04246j",
+   "best": 0.5289329239912045,
+   "top": "ปุ่มมีน้ำ"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "เครื่องทำน้ำอุ่นไม่ร้อน",
+   "manual": "samsung_ms20a3010a_um",
+   "best": 0.6787708350090346,
+   "top": "เตาไม่ให้ความร้อนตามปกติ (รวมถึงฟังก์ชัน Warm)"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "เครื่องทำน้ำอุ่นไม่ร้อน",
+   "manual": "samsung_nse6d8100_um_service_manual",
+   "best": 0.5621835253450692,
+   "top": "เตาไม่ติด"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "เครื่องทำน้ำอุ่นไม่ร้อน",
+   "manual": "samsung_nsi6d9500_um_service_manual",
+   "best": 0.6015367603929276,
+   "top": "เตาไม่ทำงานเพราะภาชนะ"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "เครื่องทำน้ำอุ่นไม่ร้อน",
+   "manual": "samsung_rb5300d_um_da68_04817a",
+   "best": 0.6082934295149801,
+   "top": "ตู้เย็นมีเสียงน้ำเดือด"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "เครื่องทำน้ำอุ่นไม่ร้อน",
+   "manual": "samsung_rb6000d_um_da68_04800b",
+   "best": 0.6082934295149801,
+   "top": "ตู้เย็นมีเสียงน้ำเดือด"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "เครื่องทำน้ำอุ่นไม่ร้อน",
+   "manual": "samsung_rf29a_um_service_manual",
+   "best": 0.7061630254198275,
+   "top": "รีเซ็ตไส้กรองน้ำ"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "เครื่องทำน้ำอุ่นไม่ร้อน",
+   "manual": "samsung_rf_sm2009",
+   "best": 0.5687548800078372,
+   "top": "ไฟในห้องแช่เย็นไม่ติด หลอดไฟในตู้เย็นดับ"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "เครื่องทำน้ำอุ่นไม่ร้อน",
+   "manual": "samsung_rf_um_da68_02676a",
+   "best": 0.6374103498617297,
+   "top": "มุมและด้านข้างตู้เย็นด้านหน้าอุ่น มีหยดน้ำเกาะด้านนอก"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "เครื่องทำน้ำอุ่นไม่ร้อน",
+   "manual": "samsung_rr39m7_um_service_manual",
+   "best": 0.5661595875907932,
+   "top": "ไฟตู้เย็นไม่ติด"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "เครื่องทำน้ำอุ่นไม่ร้อน",
+   "manual": "samsung_rs5000fc_um_da68_04852n",
+   "best": 0.7286398630504345,
+   "top": "ไฟตู้เย็นไม่ติดพร้อมเครื่องจ่ายน้ำ"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "เครื่องทำน้ำอุ่นไม่ร้อน",
+   "manual": "samsung_tv2_um_km2dvbadn",
+   "best": 0.33335184076810087,
+   "top": "There is no sound or the sound is too low at maximum volume."
+  },
+  {
+   "cat": "other_appliance",
+   "query": "เครื่องทำน้ำอุ่นไม่ร้อน",
+   "manual": "samsung_tv3_um_jzdvbadk",
+   "best": 0.40075948492077884,
+   "top": "pip ใช้ไม่ได้"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "เครื่องทำน้ำอุ่นไม่ร้อน",
+   "manual": "samsung_tv4_um_musdvbadr",
+   "best": 0.37636904199024934,
+   "top": "ถ่านรีโมตหมดเร็ว"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "เครื่องทำน้ำอุ่นไม่ร้อน",
+   "manual": "samsung_tv5_um_nldvbas4m",
+   "best": 0.3216152733224398,
+   "top": "ภาพดูไม่เป็นธรรมชาติ"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "เครื่องทำน้ำอุ่นไม่ร้อน",
+   "manual": "samsung_tv_um_bn81_28760d",
+   "best": 0.33505611987780776,
+   "top": "รีโมตใช้ไม่ได้"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "เครื่องทำน้ำอุ่นไม่ร้อน",
+   "manual": "samsung_wa21a_um_dc68_04154a",
+   "best": 0.8307445591843013,
+   "top": "น้ำที่เติมเข้าเครื่องมีอุณหภูมิไม่ถูกต้อง"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "เครื่องทำน้ำอุ่นไม่ร้อน",
+   "manual": "samsung_wa40f_um_21wa40f",
+   "best": 0.8307445591843013,
+   "top": "น้ำที่เติมเข้าเครื่องมีอุณหภูมิไม่ถูกต้อง"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "เครื่องทำน้ำอุ่นไม่ร้อน",
+   "manual": "samsung_wa45t3400a_um_service_manual",
+   "best": 0.8139888827299365,
+   "top": "น้ำเครื่องซักผ้าไม่ร้อน"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "เครื่องทำน้ำอุ่นไม่ร้อน",
+   "manual": "samsung_wa5000r_um_dc68_04088a",
+   "best": 0.8307445591843013,
+   "top": "น้ำที่เติมเข้าเครื่องมีอุณหภูมิไม่ถูกต้อง"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "เครื่องทำน้ำอุ่นไม่ร้อน",
+   "manual": "samsung_wt10j7_um_dc68_01942k",
+   "best": 0.7161755610354799,
+   "top": "น้ำไม่ขังในถัง"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "เครื่องทำน้ำอุ่นไม่ร้อน",
+   "manual": "samsung_ww_um_dc68_04382a",
+   "best": 0.8307445591843013,
+   "top": "น้ำที่เติมเข้าเครื่องมีอุณหภูมิไม่ถูกต้อง"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "หลอดไฟดับ",
+   "manual": "samsung_ge83mdt_um_de68_04111e",
+   "best": 0.6881596320916332,
+   "top": "ไฟในเตาดับ"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "หลอดไฟดับ",
+   "manual": "samsung_mc32k7055_um_de68_04387m",
+   "best": 0.6913232067703693,
+   "top": "The power turns off during operation."
+  },
+  {
+   "cat": "other_appliance",
+   "query": "หลอดไฟดับ",
+   "manual": "samsung_me16a4021a_um_service_manual",
+   "best": 0.43290431180170386,
+   "top": "ไมโครเวฟทำงานตอนประตูไม่ปิด"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "หลอดไฟดับ",
+   "manual": "samsung_me73md_um_de68_04091q",
+   "best": 0.5171512927530657,
+   "top": "แสงลอดรอบประตูไมโครเวฟ"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "หลอดไฟดับ",
+   "manual": "samsung_mg23t5018c_um_de68_04594r",
+   "best": 0.6913232067703693,
+   "top": "The power turns off during operation."
+  },
+  {
+   "cat": "other_appliance",
+   "query": "หลอดไฟดับ",
+   "manual": "samsung_mg28h5125_um_de68_04246j",
+   "best": 0.6881596320916332,
+   "top": "ไฟในเตาดับ"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "หลอดไฟดับ",
+   "manual": "samsung_ms20a3010a_um",
+   "best": 0.6913232067703693,
+   "top": "The power turns off during operation."
+  },
+  {
+   "cat": "other_appliance",
+   "query": "หลอดไฟดับ",
+   "manual": "samsung_nse6d8100_um_service_manual",
+   "best": 0.7908477771310051,
+   "top": "สายไฟเตาขาด"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "หลอดไฟดับ",
+   "manual": "samsung_nsi6d9500_um_service_manual",
+   "best": 0.7908477771310051,
+   "top": "สายไฟเตาขาด"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "หลอดไฟดับ",
+   "manual": "samsung_rb5300d_um_da68_04817a",
+   "best": 0.6898718837989792,
+   "top": "ไฟ Wi-Fi กะพริบ"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "หลอดไฟดับ",
+   "manual": "samsung_rb6000d_um_da68_04800b",
+   "best": 0.6898718837989792,
+   "top": "ไฟ Wi-Fi กะพริบ"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "หลอดไฟดับ",
+   "manual": "samsung_rf29a_um_service_manual",
+   "best": 0.5496635717328237,
+   "top": "fridge light off display off"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "หลอดไฟดับ",
+   "manual": "samsung_rf_sm2009",
+   "best": 0.854301170673779,
+   "top": "หลอดไฟช่องแช่แข็งดับ"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "หลอดไฟดับ",
+   "manual": "samsung_rf_um_da68_02676a",
+   "best": 0.7650965000606464,
+   "top": "The interior or exterior LED lamp has gone out."
+  },
+  {
+   "cat": "other_appliance",
+   "query": "หลอดไฟดับ",
+   "manual": "samsung_rr39m7_um_service_manual",
+   "best": 0.6262608200006852,
+   "top": "fridge light off"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "หลอดไฟดับ",
+   "manual": "samsung_rs5000fc_um_da68_04852n",
+   "best": 0.6898718837989792,
+   "top": "ไฟ Wi-Fi กะพริบ"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "หลอดไฟดับ",
+   "manual": "samsung_tv2_um_km2dvbadn",
+   "best": 0.6381674191001115,
+   "top": "ทีวีดับเอง"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "หลอดไฟดับ",
+   "manual": "samsung_tv3_um_jzdvbadk",
+   "best": 0.6381674191001115,
+   "top": "ทีวีดับเอง"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "หลอดไฟดับ",
+   "manual": "samsung_tv4_um_musdvbadr",
+   "best": 0.6381674191001115,
+   "top": "ทีวีดับเอง"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "หลอดไฟดับ",
+   "manual": "samsung_tv5_um_nldvbas4m",
+   "best": 0.6381674191001115,
+   "top": "ทีวีดับเอง"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "หลอดไฟดับ",
+   "manual": "samsung_tv_um_bn81_28760d",
+   "best": 0.6381674191001115,
+   "top": "ทีวีดับเอง"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "หลอดไฟดับ",
+   "manual": "samsung_wa21a_um_dc68_04154a",
+   "best": 0.6579427181659069,
+   "top": "เปิดเครื่องไม่ติด"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "หลอดไฟดับ",
+   "manual": "samsung_wa40f_um_21wa40f",
+   "best": 0.6579427181659069,
+   "top": "เปิดเครื่องไม่ติด"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "หลอดไฟดับ",
+   "manual": "samsung_wa45t3400a_um_service_manual",
+   "best": 0.3734352143521604,
+   "top": "Leaking"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "หลอดไฟดับ",
+   "manual": "samsung_wa5000r_um_dc68_04088a",
+   "best": 0.6579427181659069,
+   "top": "เปิดเครื่องไม่ติด"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "หลอดไฟดับ",
+   "manual": "samsung_wt10j7_um_dc68_01942k",
+   "best": 0.6088990713802015,
+   "top": "เปิดไม่ติด"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "หลอดไฟดับ",
+   "manual": "samsung_ww_um_dc68_04382a",
+   "best": 0.5726688295427397,
+   "top": "เครื่องไม่ทำงาน"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "ปั๊มน้ำไม่ทำงาน",
+   "manual": "samsung_ge83mdt_um_de68_04111e",
+   "best": 0.5822726001172112,
+   "top": "หลอดไฟในเตาไม่ทำงาน"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "ปั๊มน้ำไม่ทำงาน",
+   "manual": "samsung_mc32k7055_um_de68_04387m",
+   "best": 0.6602544580902177,
+   "top": "Power Defrost ไม่ทำงาน"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "ปั๊มน้ำไม่ทำงาน",
+   "manual": "samsung_me16a4021a_um_service_manual",
+   "best": 0.47140943319786144,
+   "top": "แผงควบคุมไมโครเวฟไม่ตอบสนอง"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "ปั๊มน้ำไม่ทำงาน",
+   "manual": "samsung_me73md_um_de68_04091q",
+   "best": 0.5164831600913954,
+   "top": "ไมโครเวฟไม่เริ่มทำงาน"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "ปั๊มน้ำไม่ทำงาน",
+   "manual": "samsung_mg23t5018c_um_de68_04594r",
+   "best": 0.6081987569928977,
+   "top": "The power turns off during operation."
+  },
+  {
+   "cat": "other_appliance",
+   "query": "ปั๊มน้ำไม่ทำงาน",
+   "manual": "samsung_mg28h5125_um_de68_04246j",
+   "best": 0.5822726001172112,
+   "top": "หลอดไฟในเตาไม่ทำงาน"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "ปั๊มน้ำไม่ทำงาน",
+   "manual": "samsung_ms20a3010a_um",
+   "best": 0.6081987569928977,
+   "top": "The power turns off during operation."
+  },
+  {
+   "cat": "other_appliance",
+   "query": "ปั๊มน้ำไม่ทำงาน",
+   "manual": "samsung_nse6d8100_um_service_manual",
+   "best": 0.622985055011421,
+   "top": "เตาไม่ทำงาน"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "ปั๊มน้ำไม่ทำงาน",
+   "manual": "samsung_nsi6d9500_um_service_manual",
+   "best": 0.6825383192122582,
+   "top": "เตาไม่ทำงานเพราะภาชนะ"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "ปั๊มน้ำไม่ทำงาน",
+   "manual": "samsung_rb5300d_um_da68_04817a",
+   "best": 0.5748623463671158,
+   "top": "Energy Management ไม่ทำงาน"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "ปั๊มน้ำไม่ทำงาน",
+   "manual": "samsung_rb6000d_um_da68_04800b",
+   "best": 0.5522745392581692,
+   "top": "ตู้เย็นไม่ทำงาน"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "ปั๊มน้ำไม่ทำงาน",
+   "manual": "samsung_rf29a_um_service_manual",
+   "best": 0.6328670503657247,
+   "top": "คอมเพรสเซอร์ไม่ทำงาน"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "ปั๊มน้ำไม่ทำงาน",
+   "manual": "samsung_rf_sm2009",
+   "best": 0.6114658979789006,
+   "top": "คอมเพรสเซอร์ตู้เย็นไม่ทำงาน"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "ปั๊มน้ำไม่ทำงาน",
+   "manual": "samsung_rf_um_da68_02676a",
+   "best": 0.5522745392581692,
+   "top": "ตู้เย็นไม่ทำงาน"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "ปั๊มน้ำไม่ทำงาน",
+   "manual": "samsung_rr39m7_um_service_manual",
+   "best": 0.6328670503657247,
+   "top": "คอมเพรสเซอร์ไม่ทำงาน"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "ปั๊มน้ำไม่ทำงาน",
+   "manual": "samsung_rs5000fc_um_da68_04852n",
+   "best": 0.8055207363078859,
+   "top": "เครื่องไม่สามารถจ่ายน้ำ"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "ปั๊มน้ำไม่ทำงาน",
+   "manual": "samsung_tv2_um_km2dvbadn",
+   "best": 0.4714057438487345,
+   "top": "เชื่อมต่อเราเตอร์ไร้สายไม่ได้"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "ปั๊มน้ำไม่ทำงาน",
+   "manual": "samsung_tv3_um_jzdvbadk",
+   "best": 0.5349707148248061,
+   "top": "pip ใช้ไม่ได้"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "ปั๊มน้ำไม่ทำงาน",
+   "manual": "samsung_tv4_um_musdvbadr",
+   "best": 0.46568751434085576,
+   "top": "รีโมตทีวีไม่ทำงาน"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "ปั๊มน้ำไม่ทำงาน",
+   "manual": "samsung_tv5_um_nldvbas4m",
+   "best": 0.4764979632922578,
+   "top": "ปรับโหมดเสียงทีวีไม่ได้"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "ปั๊มน้ำไม่ทำงาน",
+   "manual": "samsung_tv_um_bn81_28760d",
+   "best": 0.5266356242775533,
+   "top": "Unable to power on"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "ปั๊มน้ำไม่ทำงาน",
+   "manual": "samsung_wa21a_um_dc68_04154a",
+   "best": 0.7867440145145681,
+   "top": "น้ำไม่เข้าเครื่อง"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "ปั๊มน้ำไม่ทำงาน",
+   "manual": "samsung_wa40f_um_21wa40f",
+   "best": 0.7867440145145681,
+   "top": "น้ำไม่เข้าเครื่อง"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "ปั๊มน้ำไม่ทำงาน",
+   "manual": "samsung_wa45t3400a_um_service_manual",
+   "best": 0.6967033145636037,
+   "top": "เครื่องซักผ้าน้ำไม่เข้า"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "ปั๊มน้ำไม่ทำงาน",
+   "manual": "samsung_wa5000r_um_dc68_04088a",
+   "best": 0.7867440145145681,
+   "top": "น้ำไม่เข้าเครื่อง"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "ปั๊มน้ำไม่ทำงาน",
+   "manual": "samsung_wt10j7_um_dc68_01942k",
+   "best": 0.7229488470353128,
+   "top": "water won't drain"
+  },
+  {
+   "cat": "other_appliance",
+   "query": "ปั๊มน้ำไม่ทำงาน",
+   "manual": "samsung_ww_um_dc68_04382a",
+   "best": 0.7867440145145681,
+   "top": "น้ำไม่เข้าเครื่อง"
+  },
+  {
+   "cat": "vague",
+   "query": "เสีย",
+   "manual": "samsung_ge83mdt_um_de68_04111e",
+   "best": 0.7921891791538814,
+   "top": "ขึ้น SE"
+  },
+  {
+   "cat": "vague",
+   "query": "เสีย",
+   "manual": "samsung_mc32k7055_um_de68_04387m",
+   "best": 0.6103510523951587,
+   "top": "จานหมุนหยุด"
+  },
+  {
+   "cat": "vague",
+   "query": "เสีย",
+   "manual": "samsung_me16a4021a_um_service_manual",
+   "best": 0.36976522716098625,
+   "top": "ไมโครเวฟขึ้น SE"
+  },
+  {
+   "cat": "vague",
+   "query": "เสีย",
+   "manual": "samsung_me73md_um_de68_04091q",
+   "best": 0.3468566342140136,
+   "top": "ไมโครเวฟอาหารไหม้"
+  },
+  {
+   "cat": "vague",
+   "query": "เสีย",
+   "manual": "samsung_mg23t5018c_um_de68_04594r",
+   "best": 0.6103510523951587,
+   "top": "จานหมุนหยุด"
+  },
+  {
+   "cat": "vague",
+   "query": "เสีย",
+   "manual": "samsung_mg28h5125_um_de68_04246j",
+   "best": 0.7921891791538814,
+   "top": "ขึ้น SE"
+  },
+  {
+   "cat": "vague",
+   "query": "เสีย",
+   "manual": "samsung_ms20a3010a_um",
+   "best": 0.6103510523951587,
+   "top": "จานหมุนหยุด"
+  },
+  {
+   "cat": "vague",
+   "query": "เสีย",
+   "manual": "samsung_nse6d8100_um_service_manual",
+   "best": 0.5451949077020392,
+   "top": "หน้าเตาแตก"
+  },
+  {
+   "cat": "vague",
+   "query": "เสีย",
+   "manual": "samsung_nsi6d9500_um_service_manual",
+   "best": 0.5451949077020392,
+   "top": "หน้าเตาแตก"
+  },
+  {
+   "cat": "vague",
+   "query": "เสีย",
+   "manual": "samsung_rb5300d_um_da68_04817a",
+   "best": 0.6787625486483333,
+   "top": "HiSS!"
+  },
+  {
+   "cat": "vague",
+   "query": "เสีย",
+   "manual": "samsung_rb6000d_um_da68_04800b",
+   "best": 0.6787625486483333,
+   "top": "HiSS!"
+  },
+  {
+   "cat": "vague",
+   "query": "เสีย",
+   "manual": "samsung_rf29a_um_service_manual",
+   "best": 0.9079371418835903,
+   "top": "โหมดซับบาธ"
+  },
+  {
+   "cat": "vague",
+   "query": "เสีย",
+   "manual": "samsung_rf_sm2009",
+   "best": 0.5466853600958385,
+   "top": "ถอดถาดเลื่อนไม่ออก"
+  },
+  {
+   "cat": "vague",
+   "query": "เสีย",
+   "manual": "samsung_rf_um_da68_02676a",
+   "best": 0.38814500901512095,
+   "top": "bubbling sound"
+  },
+  {
+   "cat": "vague",
+   "query": "เสีย",
+   "manual": "samsung_rr39m7_um_service_manual",
+   "best": 0.3116079059234713,
+   "top": "Fan Error 22 21 21"
+  },
+  {
+   "cat": "vague",
+   "query": "เสีย",
+   "manual": "samsung_rs5000fc_um_da68_04852n",
+   "best": 0.6435893284056815,
+   "top": "เสียงจ๊อกแจ๊ก"
+  },
+  {
+   "cat": "vague",
+   "query": "เสีย",
+   "manual": "samsung_tv2_um_km2dvbadn",
+   "best": 0.7371506852447144,
+   "top": "ภาพผิดเพี้ยน"
+  },
+  {
+   "cat": "vague",
+   "query": "เสีย",
+   "manual": "samsung_tv3_um_jzdvbadk",
+   "best": 0.7371506852447144,
+   "top": "ภาพผิดเพี้ยน"
+  },
+  {
+   "cat": "vague",
+   "query": "เสีย",
+   "manual": "samsung_tv4_um_musdvbadr",
+   "best": 0.7371506852447144,
+   "top": "ภาพผิดเพี้ยน"
+  },
+  {
+   "cat": "vague",
+   "query": "เสีย",
+   "manual": "samsung_tv5_um_nldvbas4m",
+   "best": 0.5769656407658341,
+   "top": "ช่องอนาล็อกภาพซ่า"
+  },
+  {
+   "cat": "vague",
+   "query": "เสีย",
+   "manual": "samsung_tv_um_bn81_28760d",
+   "best": 0.7609221602660123,
+   "top": "เสียงขาดๆ หายๆ"
+  },
+  {
+   "cat": "vague",
+   "query": "เสีย",
+   "manual": "samsung_wa21a_um_dc68_04154a",
+   "best": 0.8153712960554006,
+   "top": "hc"
+  },
+  {
+   "cat": "vague",
+   "query": "เสีย",
+   "manual": "samsung_wa40f_um_21wa40f",
+   "best": 0.8153712960554006,
+   "top": "hc"
+  },
+  {
+   "cat": "vague",
+   "query": "เสีย",
+   "manual": "samsung_wa45t3400a_um_service_manual",
+   "best": 0.5485837766206584,
+   "top": "Leaking"
+  },
+  {
+   "cat": "vague",
+   "query": "เสีย",
+   "manual": "samsung_wa5000r_um_dc68_04088a",
+   "best": 0.8181243510614261,
+   "top": "ฮีตเตอร์"
+  },
+  {
+   "cat": "vague",
+   "query": "เสีย",
+   "manual": "samsung_wt10j7_um_dc68_01942k",
+   "best": 0.6243170377324807,
+   "top": "เครื่องไม่ทำงาน"
+  },
+  {
+   "cat": "vague",
+   "query": "เสีย",
+   "manual": "samsung_ww_um_dc68_04382a",
+   "best": 0.8153712960554006,
+   "top": "hc"
+  },
+  {
+   "cat": "vague",
+   "query": "ไม่ทำงาน",
+   "manual": "samsung_ge83mdt_um_de68_04111e",
+   "best": 0.6305269256292654,
+   "top": "กด start แล้วไม่ทำงาน"
+  },
+  {
+   "cat": "vague",
+   "query": "ไม่ทำงาน",
+   "manual": "samsung_mc32k7055_um_de68_04387m",
+   "best": 0.6636117081007262,
+   "top": "ฟังก์ชันละลายน้ำแข็ง (thaw) ไม่ทำงาน"
+  },
+  {
+   "cat": "vague",
+   "query": "ไม่ทำงาน",
+   "manual": "samsung_me16a4021a_um_service_manual",
+   "best": 0.4661616022015776,
+   "top": "ไมโครเวฟกดปุ่มแล้วไม่ทำงาน"
+  },
+  {
+   "cat": "vague",
+   "query": "ไม่ทำงาน",
+   "manual": "samsung_me73md_um_de68_04091q",
+   "best": 0.6305269256292654,
+   "top": "กด start แล้วไม่ทำงาน"
+  },
+  {
+   "cat": "vague",
+   "query": "ไม่ทำงาน",
+   "manual": "samsung_mg23t5018c_um_de68_04594r",
+   "best": 0.6636117081007262,
+   "top": "ฟังก์ชันละลายน้ำแข็ง (thaw) ไม่ทำงาน"
+  },
+  {
+   "cat": "vague",
+   "query": "ไม่ทำงาน",
+   "manual": "samsung_mg28h5125_um_de68_04246j",
+   "best": 0.6305269256292654,
+   "top": "กด start แล้วไม่ทำงาน"
+  },
+  {
+   "cat": "vague",
+   "query": "ไม่ทำงาน",
+   "manual": "samsung_ms20a3010a_um",
+   "best": 0.6636117081007262,
+   "top": "ฟังก์ชันละลายน้ำแข็ง (thaw) ไม่ทำงาน"
+  },
+  {
+   "cat": "vague",
+   "query": "ไม่ทำงาน",
+   "manual": "samsung_nse6d8100_um_service_manual",
+   "best": 0.6093911415405333,
+   "top": "ปุ่มเตากดไม่ได้"
+  },
+  {
+   "cat": "vague",
+   "query": "ไม่ทำงาน",
+   "manual": "samsung_nsi6d9500_um_service_manual",
+   "best": 0.6093911415405333,
+   "top": "ปุ่มเตากดไม่ได้"
+  },
+  {
+   "cat": "vague",
+   "query": "ไม่ทำงาน",
+   "manual": "samsung_rb5300d_um_da68_04817a",
+   "best": 0.6577119405150981,
+   "top": "เข้าแอปไม่ได้"
+  },
+  {
+   "cat": "vague",
+   "query": "ไม่ทำงาน",
+   "manual": "samsung_rb6000d_um_da68_04800b",
+   "best": 0.6577119405150981,
+   "top": "เข้าแอปไม่ได้"
+  },
+  {
+   "cat": "vague",
+   "query": "ไม่ทำงาน",
+   "manual": "samsung_rf29a_um_service_manual",
+   "best": 0.6342751156892501,
+   "top": "คอมเพรสเซอร์ไม่ทำงาน"
+  },
+  {
+   "cat": "vague",
+   "query": "ไม่ทำงาน",
+   "manual": "samsung_rf_sm2009",
+   "best": 0.5599735240911252,
+   "top": "ถาดเดลิดึงไม่ออก"
+  },
+  {
+   "cat": "vague",
+   "query": "ไม่ทำงาน",
+   "manual": "samsung_rf_um_da68_02676a",
+   "best": 0.3631574442001603,
+   "top": "ตู้เย็นไม่ทำงานเลย หรืออุณหภูมิสูงเกินไป ตู้เย็นไม่เย็น"
+  },
+  {
+   "cat": "vague",
+   "query": "ไม่ทำงาน",
+   "manual": "samsung_rr39m7_um_service_manual",
+   "best": 0.6342751156892501,
+   "top": "คอมเพรสเซอร์ไม่ทำงาน"
+  },
+  {
+   "cat": "vague",
+   "query": "ไม่ทำงาน",
+   "manual": "samsung_rs5000fc_um_da68_04852n",
+   "best": 0.553219152525762,
+   "top": "SmartThings ไม่ทำงาน"
+  },
+  {
+   "cat": "vague",
+   "query": "ไม่ทำงาน",
+   "manual": "samsung_tv2_um_km2dvbadn",
+   "best": 0.5929864995941575,
+   "top": "ต่อคอมแล้วไม่มีเสียง"
+  },
+  {
+   "cat": "vague",
+   "query": "ไม่ทำงาน",
+   "manual": "samsung_tv3_um_jzdvbadk",
+   "best": 0.5929864995941575,
+   "top": "ต่อคอมแล้วไม่มีเสียง"
+  },
+  {
+   "cat": "vague",
+   "query": "ไม่ทำงาน",
+   "manual": "samsung_tv4_um_musdvbadr",
+   "best": 0.5929864995941575,
+   "top": "ต่อคอมแล้วไม่มีเสียง"
+  },
+  {
+   "cat": "vague",
+   "query": "ไม่ทำงาน",
+   "manual": "samsung_tv5_um_nldvbas4m",
+   "best": 0.5402065466953094,
+   "top": "ภาพดูไม่เป็นธรรมชาติ"
+  },
+  {
+   "cat": "vague",
+   "query": "ไม่ทำงาน",
+   "manual": "samsung_tv_um_bn81_28760d",
+   "best": 0.6046059278775934,
+   "top": "เสียงขาดๆ หายๆ"
+  },
+  {
+   "cat": "vague",
+   "query": "ไม่ทำงาน",
+   "manual": "samsung_wa21a_um_dc68_04154a",
+   "best": 0.6988691119600874,
+   "top": "เครื่องไม่ทำงาน"
+  },
+  {
+   "cat": "vague",
+   "query": "ไม่ทำงาน",
+   "manual": "samsung_wa40f_um_21wa40f",
+   "best": 0.6988691119600874,
+   "top": "เครื่องไม่ทำงาน"
+  },
+  {
+   "cat": "vague",
+   "query": "ไม่ทำงาน",
+   "manual": "samsung_wa45t3400a_um_service_manual",
+   "best": 0.511172920372532,
+   "top": "Will Not Start"
+  },
+  {
+   "cat": "vague",
+   "query": "ไม่ทำงาน",
+   "manual": "samsung_wa5000r_um_dc68_04088a",
+   "best": 0.6988691119600874,
+   "top": "เครื่องไม่ทำงาน"
+  },
+  {
+   "cat": "vague",
+   "query": "ไม่ทำงาน",
+   "manual": "samsung_wt10j7_um_dc68_01942k",
+   "best": 0.8093835507348878,
+   "top": "ปั่นหมาดไม่ทำงาน"
+  },
+  {
+   "cat": "vague",
+   "query": "ไม่ทำงาน",
+   "manual": "samsung_ww_um_dc68_04382a",
+   "best": 0.6988691119600874,
+   "top": "เครื่องไม่ทำงาน"
+  },
+  {
+   "cat": "vague",
+   "query": "มีปัญหา",
+   "manual": "samsung_ge83mdt_um_de68_04111e",
+   "best": 0.5558825954910535,
+   "top": "ขึ้น SE"
+  },
+  {
+   "cat": "vague",
+   "query": "มีปัญหา",
+   "manual": "samsung_mc32k7055_um_de68_04387m",
+   "best": 0.47597964527836417,
+   "top": "จานหมุนหยุด"
+  },
+  {
+   "cat": "vague",
+   "query": "มีปัญหา",
+   "manual": "samsung_me16a4021a_um_service_manual",
+   "best": 0.2481408361085242,
+   "top": "ไมโครเวฟขึ้น SE"
+  },
+  {
+   "cat": "vague",
+   "query": "มีปัญหา",
+   "manual": "samsung_me73md_um_de68_04091q",
+   "best": 0.3535484164433927,
+   "top": "อาหารไม่สุกพอ"
+  },
+  {
+   "cat": "vague",
+   "query": "มีปัญหา",
+   "manual": "samsung_mg23t5018c_um_de68_04594r",
+   "best": 0.47597964527836417,
+   "top": "จานหมุนหยุด"
+  },
+  {
+   "cat": "vague",
+   "query": "มีปัญหา",
+   "manual": "samsung_mg28h5125_um_de68_04246j",
+   "best": 0.5558825954910535,
+   "top": "ขึ้น SE"
+  },
+  {
+   "cat": "vague",
+   "query": "มีปัญหา",
+   "manual": "samsung_ms20a3010a_um",
+   "best": 0.47597964527836417,
+   "top": "จานหมุนหยุด"
+  },
+  {
+   "cat": "vague",
+   "query": "มีปัญหา",
+   "manual": "samsung_nse6d8100_um_service_manual",
+   "best": 0.47095530413474423,
+   "top": "เตาขึ้น bad line"
+  },
+  {
+   "cat": "vague",
+   "query": "มีปัญหา",
+   "manual": "samsung_nsi6d9500_um_service_manual",
+   "best": 0.47095530413474423,
+   "top": "เตาขึ้น bad line"
+  },
+  {
+   "cat": "vague",
+   "query": "มีปัญหา",
+   "manual": "samsung_rb5300d_um_da68_04817a",
+   "best": 0.5527593933835083,
+   "top": "Cracking!"
+  },
+  {
+   "cat": "vague",
+   "query": "มีปัญหา",
+   "manual": "samsung_rb6000d_um_da68_04800b",
+   "best": 0.5527593933835083,
+   "top": "Cracking!"
+  },
+  {
+   "cat": "vague",
+   "query": "มีปัญหา",
+   "manual": "samsung_rf29a_um_service_manual",
+   "best": 0.5911084908079163,
+   "top": "โหมดซับบาธ"
+  },
+  {
+   "cat": "vague",
+   "query": "มีปัญหา",
+   "manual": "samsung_rf_sm2009",
+   "best": 0.39973607497971525,
+   "top": "ถาดเดลิดึงไม่ออก"
+  },
+  {
+   "cat": "vague",
+   "query": "มีปัญหา",
+   "manual": "samsung_rf_um_da68_02676a",
+   "best": 0.3062760099426573,
+   "top": "The interior or exterior LED lamp has gone out."
+  },
+  {
+   "cat": "vague",
+   "query": "มีปัญหา",
+   "manual": "samsung_rr39m7_um_service_manual",
+   "best": 0.4189573724945193,
+   "top": "Defrosting Error - 24 24"
+  },
+  {
+   "cat": "vague",
+   "query": "มีปัญหา",
+   "manual": "samsung_rs5000fc_um_da68_04852n",
+   "best": 0.4271632843891214,
+   "top": "เสียงจ๊อกแจ๊ก"
+  },
+  {
+   "cat": "vague",
+   "query": "มีปัญหา",
+   "manual": "samsung_tv2_um_km2dvbadn",
+   "best": 0.6001251510188599,
+   "top": "ภาพผิดเพี้ยน"
+  },
+  {
+   "cat": "vague",
+   "query": "มีปัญหา",
+   "manual": "samsung_tv3_um_jzdvbadk",
+   "best": 0.6001251510188599,
+   "top": "ภาพผิดเพี้ยน"
+  },
+  {
+   "cat": "vague",
+   "query": "มีปัญหา",
+   "manual": "samsung_tv4_um_musdvbadr",
+   "best": 0.6001251510188599,
+   "top": "ภาพผิดเพี้ยน"
+  },
+  {
+   "cat": "vague",
+   "query": "มีปัญหา",
+   "manual": "samsung_tv5_um_nldvbas4m",
+   "best": 0.47636346510076866,
+   "top": "ภาพทีวีมีปัญหา"
+  },
+  {
+   "cat": "vague",
+   "query": "มีปัญหา",
+   "manual": "samsung_tv_um_bn81_28760d",
+   "best": 0.6001251510188599,
+   "top": "ภาพผิดเพี้ยน"
+  },
+  {
+   "cat": "vague",
+   "query": "มีปัญหา",
+   "manual": "samsung_wa21a_um_dc68_04154a",
+   "best": 0.5755117341268015,
+   "top": "hc"
+  },
+  {
+   "cat": "vague",
+   "query": "มีปัญหา",
+   "manual": "samsung_wa40f_um_21wa40f",
+   "best": 0.5755117341268015,
+   "top": "hc"
+  },
+  {
+   "cat": "vague",
+   "query": "มีปัญหา",
+   "manual": "samsung_wa45t3400a_um_service_manual",
+   "best": 0.4060052370669613,
+   "top": "Leaking"
+  },
+  {
+   "cat": "vague",
+   "query": "มีปัญหา",
+   "manual": "samsung_wa5000r_um_dc68_04088a",
+   "best": 0.5723950477029468,
+   "top": "ฮีตเตอร์"
+  },
+  {
+   "cat": "vague",
+   "query": "มีปัญหา",
+   "manual": "samsung_wt10j7_um_dc68_01942k",
+   "best": 0.5301402063728313,
+   "top": "เครื่องไม่ทำงาน"
+  },
+  {
+   "cat": "vague",
+   "query": "มีปัญหา",
+   "manual": "samsung_ww_um_dc68_04382a",
+   "best": 0.5755117341268015,
+   "top": "hc"
+  },
+  {
+   "cat": "vague",
+   "query": "ไม่รู้เป็นอะไร",
+   "manual": "samsung_ge83mdt_um_de68_04111e",
+   "best": 0.42727623480003374,
+   "top": "อาหารไม่สุกเลย"
+  },
+  {
+   "cat": "vague",
+   "query": "ไม่รู้เป็นอะไร",
+   "manual": "samsung_mc32k7055_um_de68_04387m",
+   "best": 0.46403191219230544,
+   "top": "ไม่แสดงเวลา"
+  },
+  {
+   "cat": "vague",
+   "query": "ไม่รู้เป็นอะไร",
+   "manual": "samsung_me16a4021a_um_service_manual",
+   "best": 0.20972007567673542,
+   "top": "ปุ่มไมโครเวฟกดไม่ได้"
+  },
+  {
+   "cat": "vague",
+   "query": "ไม่รู้เป็นอะไร",
+   "manual": "samsung_me73md_um_de68_04091q",
+   "best": 0.42727623480003374,
+   "top": "อาหารไม่สุกเลย"
+  },
+  {
+   "cat": "vague",
+   "query": "ไม่รู้เป็นอะไร",
+   "manual": "samsung_mg23t5018c_um_de68_04594r",
+   "best": 0.46403191219230544,
+   "top": "ไม่แสดงเวลา"
+  },
+  {
+   "cat": "vague",
+   "query": "ไม่รู้เป็นอะไร",
+   "manual": "samsung_mg28h5125_um_de68_04246j",
+   "best": 0.42727623480003374,
+   "top": "อาหารไม่สุกเลย"
+  },
+  {
+   "cat": "vague",
+   "query": "ไม่รู้เป็นอะไร",
+   "manual": "samsung_ms20a3010a_um",
+   "best": 0.39324743852518024,
+   "top": "ฟังก์ชันละลายน้ำแข็ง (thaw) ไม่ทำงาน"
+  },
+  {
+   "cat": "vague",
+   "query": "ไม่รู้เป็นอะไร",
+   "manual": "samsung_nse6d8100_um_service_manual",
+   "best": 0.3418577030579702,
+   "top": "เตาไม่ทำงาน (ไม่มีไฟ จอไม่แสดงผล)"
+  },
+  {
+   "cat": "vague",
+   "query": "ไม่รู้เป็นอะไร",
+   "manual": "samsung_nsi6d9500_um_service_manual",
+   "best": 0.3095947162036502,
+   "top": "No display"
+  },
+  {
+   "cat": "vague",
+   "query": "ไม่รู้เป็นอะไร",
+   "manual": "samsung_rb5300d_um_da68_04817a",
+   "best": 0.4700893810502941,
+   "top": "เข้าแอปไม่ได้"
+  },
+  {
+   "cat": "vague",
+   "query": "ไม่รู้เป็นอะไร",
+   "manual": "samsung_rb6000d_um_da68_04800b",
+   "best": 0.4700893810502941,
+   "top": "เข้าแอปไม่ได้"
+  },
+  {
+   "cat": "vague",
+   "query": "ไม่รู้เป็นอะไร",
+   "manual": "samsung_rf29a_um_service_manual",
+   "best": 0.3885011213485881,
+   "top": "โหมดซับบาธ"
+  },
+  {
+   "cat": "vague",
+   "query": "ไม่รู้เป็นอะไร",
+   "manual": "samsung_rf_sm2009",
+   "best": 0.33619708008491017,
+   "top": "ไฟช่องฟรีซไม่ติด"
+  },
+  {
+   "cat": "vague",
+   "query": "ไม่รู้เป็นอะไร",
+   "manual": "samsung_rf_um_da68_02676a",
+   "best": 0.27880965422034104,
+   "top": "ตู้เย็นไม่ทำงานเลย หรืออุณหภูมิสูงเกินไป ตู้เย็นไม่เย็น"
+  },
+  {
+   "cat": "vague",
+   "query": "ไม่รู้เป็นอะไร",
+   "manual": "samsung_rr39m7_um_service_manual",
+   "best": 0.34463345204532353,
+   "top": "คอมเพรสเซอร์ไม่ทำงาน"
+  },
+  {
+   "cat": "vague",
+   "query": "ไม่รู้เป็นอะไร",
+   "manual": "samsung_rs5000fc_um_da68_04852n",
+   "best": 0.43437277290030907,
+   "top": "ไม่มีน้ำแข็ง"
+  },
+  {
+   "cat": "vague",
+   "query": "ไม่รู้เป็นอะไร",
+   "manual": "samsung_tv2_um_km2dvbadn",
+   "best": 0.5813731503002578,
+   "top": "ไม่มีเสียงหรือเสียงเบาแม้เปิดสุด"
+  },
+  {
+   "cat": "vague",
+   "query": "ไม่รู้เป็นอะไร",
+   "manual": "samsung_tv3_um_jzdvbadk",
+   "best": 0.5813731503002578,
+   "top": "ไม่มีเสียงหรือเสียงเบาแม้เปิดสุด"
+  },
+  {
+   "cat": "vague",
+   "query": "ไม่รู้เป็นอะไร",
+   "manual": "samsung_tv4_um_musdvbadr",
+   "best": 0.5813731503002578,
+   "top": "ไม่มีเสียงหรือเสียงเบาแม้เปิดสุด"
+  },
+  {
+   "cat": "vague",
+   "query": "ไม่รู้เป็นอะไร",
+   "manual": "samsung_tv5_um_nldvbas4m",
+   "best": 0.5363826795042199,
+   "top": "ภาพดูไม่เป็นธรรมชาติ"
+  },
+  {
+   "cat": "vague",
+   "query": "ไม่รู้เป็นอะไร",
+   "manual": "samsung_tv_um_bn81_28760d",
+   "best": 0.5813731503002578,
+   "top": "ไม่มีเสียงหรือเสียงเบาแม้เปิดสุด"
+  },
+  {
+   "cat": "vague",
+   "query": "ไม่รู้เป็นอะไร",
+   "manual": "samsung_wa21a_um_dc68_04154a",
+   "best": 0.46260990889985715,
+   "top": "Does not start."
+  },
+  {
+   "cat": "vague",
+   "query": "ไม่รู้เป็นอะไร",
+   "manual": "samsung_wa40f_um_21wa40f",
+   "best": 0.46260990889985715,
+   "top": "Does not start."
+  },
+  {
+   "cat": "vague",
+   "query": "ไม่รู้เป็นอะไร",
+   "manual": "samsung_wa45t3400a_um_service_manual",
+   "best": 0.31847213256981505,
+   "top": "ซักผ้าไม่ระบายน้ำ"
+  },
+  {
+   "cat": "vague",
+   "query": "ไม่รู้เป็นอะไร",
+   "manual": "samsung_wa5000r_um_dc68_04088a",
+   "best": 0.46260990889985715,
+   "top": "Does not start."
+  },
+  {
+   "cat": "vague",
+   "query": "ไม่รู้เป็นอะไร",
+   "manual": "samsung_wt10j7_um_dc68_01942k",
+   "best": 0.4715095892898771,
+   "top": "ปั่นหมาดไม่ทำงาน"
+  },
+  {
+   "cat": "vague",
+   "query": "ไม่รู้เป็นอะไร",
+   "manual": "samsung_ww_um_dc68_04382a",
+   "best": 0.5390728909065385,
+   "top": "เลข 0"
+  },
+  {
+   "cat": "vague",
+   "query": "เครื่องแปลกๆ",
+   "manual": "samsung_ge83mdt_um_de68_04111e",
+   "best": 0.529523889745864,
+   "top": "ขึ้น SE"
+  },
+  {
+   "cat": "vague",
+   "query": "เครื่องแปลกๆ",
+   "manual": "samsung_mc32k7055_um_de68_04387m",
+   "best": 0.5771546724925337,
+   "top": "จานหมุนครูด"
+  },
+  {
+   "cat": "vague",
+   "query": "เครื่องแปลกๆ",
+   "manual": "samsung_me16a4021a_um_service_manual",
+   "best": 0.4770084215056035,
+   "top": "ไมโครเวฟขึ้น SE"
+  },
+  {
+   "cat": "vague",
+   "query": "เครื่องแปลกๆ",
+   "manual": "samsung_me73md_um_de68_04091q",
+   "best": 0.443517120400651,
+   "top": "มีลมออกรอบประตูไมโครเวฟ"
+  },
+  {
+   "cat": "vague",
+   "query": "เครื่องแปลกๆ",
+   "manual": "samsung_mg23t5018c_um_de68_04594r",
+   "best": 0.5771546724925337,
+   "top": "จานหมุนครูด"
+  },
+  {
+   "cat": "vague",
+   "query": "เครื่องแปลกๆ",
+   "manual": "samsung_mg28h5125_um_de68_04246j",
+   "best": 0.529523889745864,
+   "top": "ขึ้น SE"
+  },
+  {
+   "cat": "vague",
+   "query": "เครื่องแปลกๆ",
+   "manual": "samsung_ms20a3010a_um",
+   "best": 0.5771546724925337,
+   "top": "จานหมุนครูด"
+  },
+  {
+   "cat": "vague",
+   "query": "เครื่องแปลกๆ",
+   "manual": "samsung_nse6d8100_um_service_manual",
+   "best": 0.4540038830585273,
+   "top": "ต่อสายไฟเตาไม่ถูกต้อง"
+  },
+  {
+   "cat": "vague",
+   "query": "เครื่องแปลกๆ",
+   "manual": "samsung_nsi6d9500_um_service_manual",
+   "best": 0.6016461677189402,
+   "top": "สัญลักษณ์หม้อมีเครื่องหมายตกใจ"
+  },
+  {
+   "cat": "vague",
+   "query": "เครื่องแปลกๆ",
+   "manual": "samsung_rb5300d_um_da68_04817a",
+   "best": 0.5629938747548903,
+   "top": "ได้ยินเสียงแก๊กหรือเสียงเคาะจากชิ้นส่วนพลาสติก"
+  },
+  {
+   "cat": "vague",
+   "query": "เครื่องแปลกๆ",
+   "manual": "samsung_rb6000d_um_da68_04800b",
+   "best": 0.5629938747548903,
+   "top": "ได้ยินเสียงแก๊กหรือเสียงเคาะจากชิ้นส่วนพลาสติก"
+  },
+  {
+   "cat": "vague",
+   "query": "เครื่องแปลกๆ",
+   "manual": "samsung_rf29a_um_service_manual",
+   "best": 0.6339000940229789,
+   "top": "โหมดซับบาธ"
+  },
+  {
+   "cat": "vague",
+   "query": "เครื่องแปลกๆ",
+   "manual": "samsung_rf_sm2009",
+   "best": 0.45494095141117646,
+   "top": "door bin"
+  },
+  {
+   "cat": "vague",
+   "query": "เครื่องแปลกๆ",
+   "manual": "samsung_rf_um_da68_02676a",
+   "best": 0.5341543248678053,
+   "top": "There are unusual noises."
+  },
+  {
+   "cat": "vague",
+   "query": "เครื่องแปลกๆ",
+   "manual": "samsung_rr39m7_um_service_manual",
+   "best": 0.4320845778589971,
+   "top": "ตู้เย็นส่งเสียงเตือน (Ding Dong หรือบี๊บ) ไม่หยุด"
+  },
+  {
+   "cat": "vague",
+   "query": "เครื่องแปลกๆ",
+   "manual": "samsung_rs5000fc_um_da68_04852n",
+   "best": 0.5792472750157,
+   "top": "สัญลักษณ์ไวไฟกะพริบ"
+  },
+  {
+   "cat": "vague",
+   "query": "เครื่องแปลกๆ",
+   "manual": "samsung_tv2_um_km2dvbadn",
+   "best": 0.736956071535219,
+   "top": "ภาพผิดเพี้ยน"
+  },
+  {
+   "cat": "vague",
+   "query": "เครื่องแปลกๆ",
+   "manual": "samsung_tv3_um_jzdvbadk",
+   "best": 0.736956071535219,
+   "top": "ภาพผิดเพี้ยน"
+  },
+  {
+   "cat": "vague",
+   "query": "เครื่องแปลกๆ",
+   "manual": "samsung_tv4_um_musdvbadr",
+   "best": 0.736956071535219,
+   "top": "ภาพผิดเพี้ยน"
+  },
+  {
+   "cat": "vague",
+   "query": "เครื่องแปลกๆ",
+   "manual": "samsung_tv5_um_nldvbas4m",
+   "best": 0.5716188586010014,
+   "top": "ภาพทีวีดูแปลกๆ"
+  },
+  {
+   "cat": "vague",
+   "query": "เครื่องแปลกๆ",
+   "manual": "samsung_tv_um_bn81_28760d",
+   "best": 0.736956071535219,
+   "top": "ภาพผิดเพี้ยน"
+  },
+  {
+   "cat": "vague",
+   "query": "เครื่องแปลกๆ",
+   "manual": "samsung_wa21a_um_dc68_04154a",
+   "best": 0.6304169286514687,
+   "top": "ฝาล็อก"
+  },
+  {
+   "cat": "vague",
+   "query": "เครื่องแปลกๆ",
+   "manual": "samsung_wa40f_um_21wa40f",
+   "best": 0.6304169286514687,
+   "top": "ฝาล็อก"
+  },
+  {
+   "cat": "vague",
+   "query": "เครื่องแปลกๆ",
+   "manual": "samsung_wa45t3400a_um_service_manual",
+   "best": 0.4095107379498762,
+   "top": "เครื่องซักผ้าเสียงดัง"
+  },
+  {
+   "cat": "vague",
+   "query": "เครื่องแปลกๆ",
+   "manual": "samsung_wa5000r_um_dc68_04088a",
+   "best": 0.631735753904361,
+   "top": "ฮีตเตอร์"
+  },
+  {
+   "cat": "vague",
+   "query": "เครื่องแปลกๆ",
+   "manual": "samsung_wt10j7_um_dc68_01942k",
+   "best": 0.6061705632744997,
+   "top": "เครื่องไม่ทำงาน"
+  },
+  {
+   "cat": "vague",
+   "query": "เครื่องแปลกๆ",
+   "manual": "samsung_ww_um_dc68_04382a",
+   "best": 0.6061705632744997,
+   "top": "เครื่องไม่ทำงาน"
+  },
+  {
+   "cat": "vague",
+   "query": "ใช้ไม่ได้",
+   "manual": "samsung_ge83mdt_um_de68_04111e",
+   "best": 0.40195245683345165,
+   "top": "กด start แล้วไม่ทำงาน"
+  },
+  {
+   "cat": "vague",
+   "query": "ใช้ไม่ได้",
+   "manual": "samsung_mc32k7055_um_de68_04387m",
+   "best": 0.5348719230620186,
+   "top": "ไม่แสดงเวลา"
+  },
+  {
+   "cat": "vague",
+   "query": "ใช้ไม่ได้",
+   "manual": "samsung_me16a4021a_um_service_manual",
+   "best": 0.42327779335689514,
+   "top": "ปุ่มไมโครเวฟกดไม่ได้"
+  },
+  {
+   "cat": "vague",
+   "query": "ใช้ไม่ได้",
+   "manual": "samsung_me73md_um_de68_04091q",
+   "best": 0.40195245683345165,
+   "top": "กด start แล้วไม่ทำงาน"
+  },
+  {
+   "cat": "vague",
+   "query": "ใช้ไม่ได้",
+   "manual": "samsung_mg23t5018c_um_de68_04594r",
+   "best": 0.5348719230620186,
+   "top": "ไม่แสดงเวลา"
+  },
+  {
+   "cat": "vague",
+   "query": "ใช้ไม่ได้",
+   "manual": "samsung_mg28h5125_um_de68_04246j",
+   "best": 0.40195245683345165,
+   "top": "กด start แล้วไม่ทำงาน"
+  },
+  {
+   "cat": "vague",
+   "query": "ใช้ไม่ได้",
+   "manual": "samsung_ms20a3010a_um",
+   "best": 0.5178426158987037,
+   "top": "ละลายของแช่แข็งไม่ได้"
+  },
+  {
+   "cat": "vague",
+   "query": "ใช้ไม่ได้",
+   "manual": "samsung_nse6d8100_um_service_manual",
+   "best": 0.5781731893970942,
+   "top": "ปุ่มเตากดไม่ได้"
+  },
+  {
+   "cat": "vague",
+   "query": "ใช้ไม่ได้",
+   "manual": "samsung_nsi6d9500_um_service_manual",
+   "best": 0.5781731893970942,
+   "top": "ปุ่มเตากดไม่ได้"
+  },
+  {
+   "cat": "vague",
+   "query": "ใช้ไม่ได้",
+   "manual": "samsung_rb5300d_um_da68_04817a",
+   "best": 0.7881029702677871,
+   "top": "เข้าแอปไม่ได้"
+  },
+  {
+   "cat": "vague",
+   "query": "ใช้ไม่ได้",
+   "manual": "samsung_rb6000d_um_da68_04800b",
+   "best": 0.7881029702677871,
+   "top": "เข้าแอปไม่ได้"
+  },
+  {
+   "cat": "vague",
+   "query": "ใช้ไม่ได้",
+   "manual": "samsung_rf29a_um_service_manual",
+   "best": 0.47697342873834775,
+   "top": "โหมดซับบาธ"
+  },
+  {
+   "cat": "vague",
+   "query": "ใช้ไม่ได้",
+   "manual": "samsung_rf_sm2009",
+   "best": 0.6154242210245605,
+   "top": "ถาดเดลิดึงไม่ออก"
+  },
+  {
+   "cat": "vague",
+   "query": "ใช้ไม่ได้",
+   "manual": "samsung_rf_um_da68_02676a",
+   "best": 0.2816116112416721,
+   "top": "ตู้เย็นไม่ทำงานเลย หรืออุณหภูมิสูงเกินไป ตู้เย็นไม่เย็น"
+  },
+  {
+   "cat": "vague",
+   "query": "ใช้ไม่ได้",
+   "manual": "samsung_rr39m7_um_service_manual",
+   "best": 0.37428167097825604,
+   "top": "คอมเพรสเซอร์ไม่ทำงาน"
+  },
+  {
+   "cat": "vague",
+   "query": "ใช้ไม่ได้",
+   "manual": "samsung_rs5000fc_um_da68_04852n",
+   "best": 0.6081750452403497,
+   "top": "กดน้ำไม่ออก"
+  },
+  {
+   "cat": "vague",
+   "query": "ใช้ไม่ได้",
+   "manual": "samsung_tv2_um_km2dvbadn",
+   "best": 0.6446479528750954,
+   "top": "ตั้งค่าเน็ตเสร็จแล้วแต่ใช้ไม่ได้"
+  },
+  {
+   "cat": "vague",
+   "query": "ใช้ไม่ได้",
+   "manual": "samsung_tv3_um_jzdvbadk",
+   "best": 0.6262834912874081,
+   "top": "ตั้งค่าเน็ตสายแลนเสร็จแล้วแต่ใช้ไม่ได้"
+  },
+  {
+   "cat": "vague",
+   "query": "ใช้ไม่ได้",
+   "manual": "samsung_tv4_um_musdvbadr",
+   "best": 0.7289490699194011,
+   "top": "รีโมตใช้ไม่ได้"
+  },
+  {
+   "cat": "vague",
+   "query": "ใช้ไม่ได้",
+   "manual": "samsung_tv5_um_nldvbas4m",
+   "best": 0.5438048300426677,
+   "top": "ภาพดูไม่เป็นธรรมชาติ"
+  },
+  {
+   "cat": "vague",
+   "query": "ใช้ไม่ได้",
+   "manual": "samsung_tv_um_bn81_28760d",
+   "best": 0.7289490699194011,
+   "top": "รีโมตใช้ไม่ได้"
+  },
+  {
+   "cat": "vague",
+   "query": "ใช้ไม่ได้",
+   "manual": "samsung_wa21a_um_dc68_04154a",
+   "best": 0.5425889897781951,
+   "top": "เครื่องไม่ทำงาน"
+  },
+  {
+   "cat": "vague",
+   "query": "ใช้ไม่ได้",
+   "manual": "samsung_wa40f_um_21wa40f",
+   "best": 0.5425889897781951,
+   "top": "เครื่องไม่ทำงาน"
+  },
+  {
+   "cat": "vague",
+   "query": "ใช้ไม่ได้",
+   "manual": "samsung_wa45t3400a_um_service_manual",
+   "best": 0.48556072427973906,
+   "top": "Will Not Drain"
+  },
+  {
+   "cat": "vague",
+   "query": "ใช้ไม่ได้",
+   "manual": "samsung_wa5000r_um_dc68_04088a",
+   "best": 0.5425889897781951,
+   "top": "เครื่องไม่ทำงาน"
+  },
+  {
+   "cat": "vague",
+   "query": "ใช้ไม่ได้",
+   "manual": "samsung_wt10j7_um_dc68_01942k",
+   "best": 0.6055740844729198,
+   "top": "ปั่นหมาดไม่ทำงาน"
+  },
+  {
+   "cat": "vague",
+   "query": "ใช้ไม่ได้",
+   "manual": "samsung_ww_um_dc68_04382a",
+   "best": 0.6504199409120189,
+   "top": "ใส่น้ำยาปรับผ้านุ่มไม่ได้"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "วิธีทำความสะอาดเครื่อง",
+   "manual": "samsung_ge83mdt_um_de68_04111e",
+   "best": 0.42668240645337707,
+   "top": "ปุ่มค้าง"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "วิธีทำความสะอาดเครื่อง",
+   "manual": "samsung_mc32k7055_um_de68_04387m",
+   "best": 0.5129808743765699,
+   "top": "จานหมุนครูด"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "วิธีทำความสะอาดเครื่อง",
+   "manual": "samsung_me16a4021a_um_service_manual",
+   "best": 0.4202064231064928,
+   "top": "เตาไมโครเวฟทำงานทั้งที่ประตูเปิดอยู่"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "วิธีทำความสะอาดเครื่อง",
+   "manual": "samsung_me73md_um_de68_04091q",
+   "best": 0.41033823884675547,
+   "top": "มีไอน้ำควบแน่นในเตา ลมออกรอบประตูและตัวเตา แสงสะท้อนรอบประตู หรือไอน้ำออกตามประตูหรือช่องระบายอากาศ"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "วิธีทำความสะอาดเครื่อง",
+   "manual": "samsung_mg23t5018c_um_de68_04594r",
+   "best": 0.5129808743765699,
+   "top": "จานหมุนครูด"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "วิธีทำความสะอาดเครื่อง",
+   "manual": "samsung_mg28h5125_um_de68_04246j",
+   "best": 0.42668240645337707,
+   "top": "ปุ่มค้าง"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "วิธีทำความสะอาดเครื่อง",
+   "manual": "samsung_ms20a3010a_um",
+   "best": 0.5129808743765699,
+   "top": "จานหมุนครูด"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "วิธีทำความสะอาดเครื่อง",
+   "manual": "samsung_nse6d8100_um_service_manual",
+   "best": 0.6332606009940186,
+   "top": "เตาขึ้นรหัส F ตอน self clean"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "วิธีทำความสะอาดเครื่อง",
+   "manual": "samsung_nsi6d9500_um_service_manual",
+   "best": 0.6332606009940186,
+   "top": "เตาขึ้นรหัส F ตอน self clean"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "วิธีทำความสะอาดเครื่อง",
+   "manual": "samsung_rb5300d_um_da68_04817a",
+   "best": 0.5494175707615048,
+   "top": "หยดน้ำในตู้เย็น"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "วิธีทำความสะอาดเครื่อง",
+   "manual": "samsung_rb6000d_um_da68_04800b",
+   "best": 0.5494175707615048,
+   "top": "หยดน้ำในตู้เย็น"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "วิธีทำความสะอาดเครื่อง",
+   "manual": "samsung_rf29a_um_service_manual",
+   "best": 0.5648056700912922,
+   "top": "ปุ่มล็อกตู้เย็น"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "วิธีทำความสะอาดเครื่อง",
+   "manual": "samsung_rf_sm2009",
+   "best": 0.6276553067368184,
+   "top": "ต้องการถอดช่องเก็บของที่ประตูตู้เย็น"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "วิธีทำความสะอาดเครื่อง",
+   "manual": "samsung_rf_um_da68_02676a",
+   "best": 0.5205358288570718,
+   "top": "There is a bad smell inside the appliance."
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "วิธีทำความสะอาดเครื่อง",
+   "manual": "samsung_rr39m7_um_service_manual",
+   "best": 0.5637085478469455,
+   "top": "ปลดล็อกปุ่มตู้เย็น"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "วิธีทำความสะอาดเครื่อง",
+   "manual": "samsung_rs5000fc_um_da68_04852n",
+   "best": 0.5494175707615048,
+   "top": "หยดน้ำในตู้เย็น"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "วิธีทำความสะอาดเครื่อง",
+   "manual": "samsung_tv2_um_km2dvbadn",
+   "best": 0.42585401729689254,
+   "top": "Unwanted Powering Off"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "วิธีทำความสะอาดเครื่อง",
+   "manual": "samsung_tv3_um_jzdvbadk",
+   "best": 0.42585401729689254,
+   "top": "Unwanted Powering Off"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "วิธีทำความสะอาดเครื่อง",
+   "manual": "samsung_tv4_um_musdvbadr",
+   "best": 0.42585401729689254,
+   "top": "Unwanted Powering Off"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "วิธีทำความสะอาดเครื่อง",
+   "manual": "samsung_tv5_um_nldvbas4m",
+   "best": 0.38327798679209407,
+   "top": "digital clean view"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "วิธีทำความสะอาดเครื่อง",
+   "manual": "samsung_tv_um_bn81_28760d",
+   "best": 0.41415262105339706,
+   "top": "ต่อคอมแล้วจอกะพริบ"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "วิธีทำความสะอาดเครื่อง",
+   "manual": "samsung_wa21a_um_dc68_04154a",
+   "best": 0.7218613800619341,
+   "top": "ผงซักฟอกค้างในช่องใส่ผงซักฟอกอัตโนมัติหลังซักเสร็จ"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "วิธีทำความสะอาดเครื่อง",
+   "manual": "samsung_wa40f_um_21wa40f",
+   "best": 0.7218613800619341,
+   "top": "ผงซักฟอกค้างในช่องใส่ผงซักฟอกอัตโนมัติหลังซักเสร็จ"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "วิธีทำความสะอาดเครื่อง",
+   "manual": "samsung_wa45t3400a_um_service_manual",
+   "best": 0.6966264839186507,
+   "top": "ซักผ้าฟองล้นถัง"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "วิธีทำความสะอาดเครื่อง",
+   "manual": "samsung_wa5000r_um_dc68_04088a",
+   "best": 0.7218613800619341,
+   "top": "ผงซักฟอกค้างในช่องใส่ผงซักฟอกอัตโนมัติหลังซักเสร็จ"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "วิธีทำความสะอาดเครื่อง",
+   "manual": "samsung_wt10j7_um_dc68_01942k",
+   "best": 0.5342209623301043,
+   "top": "เครื่องซักผ้าไม่ติด"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "วิธีทำความสะอาดเครื่อง",
+   "manual": "samsung_ww_um_dc68_04382a",
+   "best": 0.6806844348201738,
+   "top": "ผงซักฟอกค้างในช่องใส่ผงซักฟอกหลังซักเสร็จ"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ราคาค่าซ่อมเท่าไหร่",
+   "manual": "samsung_ge83mdt_um_de68_04111e",
+   "best": 0.23591231767928136,
+   "top": "ขึ้น SE"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ราคาค่าซ่อมเท่าไหร่",
+   "manual": "samsung_mc32k7055_um_de68_04387m",
+   "best": 0.29229941922364816,
+   "top": "ปรุงเสร็จแล้วแต่พัดลมระบายความร้อนยังทำงานอยู่"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ราคาค่าซ่อมเท่าไหร่",
+   "manual": "samsung_me16a4021a_um_service_manual",
+   "best": 0.1840148327592834,
+   "top": "ไมโครเวฟเปิดประตูแล้วยังทำงาน"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ราคาค่าซ่อมเท่าไหร่",
+   "manual": "samsung_me73md_um_de68_04091q",
+   "best": 0.16540257489501559,
+   "top": "microwave sparks"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ราคาค่าซ่อมเท่าไหร่",
+   "manual": "samsung_mg23t5018c_um_de68_04594r",
+   "best": 0.29229941922364816,
+   "top": "ปรุงเสร็จแล้วแต่พัดลมระบายความร้อนยังทำงานอยู่"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ราคาค่าซ่อมเท่าไหร่",
+   "manual": "samsung_mg28h5125_um_de68_04246j",
+   "best": 0.23591231767928136,
+   "top": "ขึ้น SE"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ราคาค่าซ่อมเท่าไหร่",
+   "manual": "samsung_ms20a3010a_um",
+   "best": 0.2498570054437354,
+   "top": "จานหมุนครูด"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ราคาค่าซ่อมเท่าไหร่",
+   "manual": "samsung_nse6d8100_um_service_manual",
+   "best": 0.29268240751803365,
+   "top": "สายไฟของเตาชำรุดหรือเสียหาย"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ราคาค่าซ่อมเท่าไหร่",
+   "manual": "samsung_nsi6d9500_um_service_manual",
+   "best": 0.29268240751803365,
+   "top": "สายไฟของเตาชำรุดหรือเสียหาย"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ราคาค่าซ่อมเท่าไหร่",
+   "manual": "samsung_rb5300d_um_da68_04817a",
+   "best": 0.26505099452128017,
+   "top": "fridge cracking"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ราคาค่าซ่อมเท่าไหร่",
+   "manual": "samsung_rb6000d_um_da68_04800b",
+   "best": 0.26505099452128017,
+   "top": "fridge cracking"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ราคาค่าซ่อมเท่าไหร่",
+   "manual": "samsung_rf29a_um_service_manual",
+   "best": 0.2708919642673199,
+   "top": "รีเซ็ตไส้กรองน้ำ"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ราคาค่าซ่อมเท่าไหร่",
+   "manual": "samsung_rf_sm2009",
+   "best": 0.24020093766848036,
+   "top": "ตู้เย็นแจ้งเซนเซอร์เสีย"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ราคาค่าซ่อมเท่าไหร่",
+   "manual": "samsung_rf_um_da68_02676a",
+   "best": 0.2271801300949002,
+   "top": "ผนังตู้เย็นเปียก"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ราคาค่าซ่อมเท่าไหร่",
+   "manual": "samsung_rr39m7_um_service_manual",
+   "best": 0.43830319556526487,
+   "top": "Early Defrosting Restoration Error 35 35 35"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ราคาค่าซ่อมเท่าไหร่",
+   "manual": "samsung_rs5000fc_um_da68_04852n",
+   "best": 0.29701523769063726,
+   "top": "เสียงรอยแตกตู้เย็น"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ราคาค่าซ่อมเท่าไหร่",
+   "manual": "samsung_tv2_um_km2dvbadn",
+   "best": 0.27341544914331384,
+   "top": "ตั้งค่าเน็ตเสร็จแล้วแต่ใช้ไม่ได้"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ราคาค่าซ่อมเท่าไหร่",
+   "manual": "samsung_tv3_um_jzdvbadk",
+   "best": 0.2518466582976813,
+   "top": "tv settings reset"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ราคาค่าซ่อมเท่าไหร่",
+   "manual": "samsung_tv4_um_musdvbadr",
+   "best": 0.27341544914331384,
+   "top": "ตั้งค่าเน็ตเสร็จแล้วแต่ใช้ไม่ได้"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ราคาค่าซ่อมเท่าไหร่",
+   "manual": "samsung_tv5_um_nldvbas4m",
+   "best": 0.37902351189988764,
+   "top": "ค่าภาพถูกรีเซ็ตทุก 5 นาที (โหมด Store Demo)"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ราคาค่าซ่อมเท่าไหร่",
+   "manual": "samsung_tv_um_bn81_28760d",
+   "best": 0.2518466582976813,
+   "top": "tv settings reset"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ราคาค่าซ่อมเท่าไหร่",
+   "manual": "samsung_wa21a_um_dc68_04154a",
+   "best": 0.3451251407451535,
+   "top": "ผงซักฟอกค้างในช่องใส่ผงซักฟอกอัตโนมัติหลังซักเสร็จ"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ราคาค่าซ่อมเท่าไหร่",
+   "manual": "samsung_wa40f_um_21wa40f",
+   "best": 0.3451251407451535,
+   "top": "ผงซักฟอกค้างในช่องใส่ผงซักฟอกอัตโนมัติหลังซักเสร็จ"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ราคาค่าซ่อมเท่าไหร่",
+   "manual": "samsung_wa45t3400a_um_service_manual",
+   "best": 0.3612655284258543,
+   "top": "เครื่องซักผ้าขึ้น LC"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ราคาค่าซ่อมเท่าไหร่",
+   "manual": "samsung_wa5000r_um_dc68_04088a",
+   "best": 0.3451251407451535,
+   "top": "ผงซักฟอกค้างในช่องใส่ผงซักฟอกอัตโนมัติหลังซักเสร็จ"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ราคาค่าซ่อมเท่าไหร่",
+   "manual": "samsung_wt10j7_um_dc68_01942k",
+   "best": 0.32141148264256375,
+   "top": "เครื่องไม่ทำงาน"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ราคาค่าซ่อมเท่าไหร่",
+   "manual": "samsung_ww_um_dc68_04382a",
+   "best": 0.3533427983378721,
+   "top": "ผงซักฟอกค้างในช่องใส่ผงซักฟอกหลังซักเสร็จ"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ประกันหมดหรือยัง",
+   "manual": "samsung_ge83mdt_um_de68_04111e",
+   "best": 0.2813850687127828,
+   "top": "Smoke and bad smell when initial operating."
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ประกันหมดหรือยัง",
+   "manual": "samsung_mc32k7055_um_de68_04387m",
+   "best": 0.23398918807669286,
+   "top": "ปุ่มค้าง"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ประกันหมดหรือยัง",
+   "manual": "samsung_me16a4021a_um_service_manual",
+   "best": 0.12516675336245928,
+   "top": "microwave door open still works"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ประกันหมดหรือยัง",
+   "manual": "samsung_me73md_um_de68_04091q",
+   "best": 0.1564825443875236,
+   "top": "อาหารไม่สุกพอ"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ประกันหมดหรือยัง",
+   "manual": "samsung_mg23t5018c_um_de68_04594r",
+   "best": 0.23398918807669286,
+   "top": "ปุ่มค้าง"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ประกันหมดหรือยัง",
+   "manual": "samsung_mg28h5125_um_de68_04246j",
+   "best": 0.2813850687127828,
+   "top": "Smoke and bad smell when initial operating."
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ประกันหมดหรือยัง",
+   "manual": "samsung_ms20a3010a_um",
+   "best": 0.23178755447703184,
+   "top": "ประตูเปิดยาก"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ประกันหมดหรือยัง",
+   "manual": "samsung_nse6d8100_um_service_manual",
+   "best": 0.2929400556972439,
+   "top": "สายไฟเตาขาด"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ประกันหมดหรือยัง",
+   "manual": "samsung_nsi6d9500_um_service_manual",
+   "best": 0.2929400556972439,
+   "top": "สายไฟเตาขาด"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ประกันหมดหรือยัง",
+   "manual": "samsung_rb5300d_um_da68_04817a",
+   "best": 0.29835004775432206,
+   "top": "Energy Management ไม่ทำงาน"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ประกันหมดหรือยัง",
+   "manual": "samsung_rb6000d_um_da68_04800b",
+   "best": 0.2929522706087317,
+   "top": "SmartThings ค้าง"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ประกันหมดหรือยัง",
+   "manual": "samsung_rf29a_um_service_manual",
+   "best": 0.32299543877218023,
+   "top": "wifi ตู้เย็นหลุด"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ประกันหมดหรือยัง",
+   "manual": "samsung_rf_sm2009",
+   "best": 0.27242983357874156,
+   "top": "ถาดเดลิดึงไม่ออก"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ประกันหมดหรือยัง",
+   "manual": "samsung_rf_um_da68_02676a",
+   "best": 0.23209196210916866,
+   "top": "หลอดไฟตู้เย็นดับ"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ประกันหมดหรือยัง",
+   "manual": "samsung_rr39m7_um_service_manual",
+   "best": 0.2506716235272202,
+   "top": "ไฟในตู้เย็นดับ"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ประกันหมดหรือยัง",
+   "manual": "samsung_rs5000fc_um_da68_04852n",
+   "best": 0.26547349397841785,
+   "top": "ตู้เย็นเย็นน้อย"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ประกันหมดหรือยัง",
+   "manual": "samsung_tv2_um_km2dvbadn",
+   "best": 0.3566155835944545,
+   "top": "ตั้งค่าเน็ตเสร็จแล้วแต่ใช้ไม่ได้"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ประกันหมดหรือยัง",
+   "manual": "samsung_tv3_um_jzdvbadk",
+   "best": 0.3381451053928788,
+   "top": "ตั้งค่าเน็ตสายแลนเสร็จแล้วแต่ใช้ไม่ได้"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ประกันหมดหรือยัง",
+   "manual": "samsung_tv4_um_musdvbadr",
+   "best": 0.38209546570542074,
+   "top": "ถ่านรีโมตหมดเร็ว"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ประกันหมดหรือยัง",
+   "manual": "samsung_tv5_um_nldvbas4m",
+   "best": 0.30898895700765083,
+   "top": "อัปเดตทีวีแล้วตั้งค่าหาย"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ประกันหมดหรือยัง",
+   "manual": "samsung_tv_um_bn81_28760d",
+   "best": 0.30040294761697356,
+   "top": "หาช่องไม่เจอ"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ประกันหมดหรือยัง",
+   "manual": "samsung_wa21a_um_dc68_04154a",
+   "best": 0.29933346381717335,
+   "top": "เครื่องไม่ทำงาน"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ประกันหมดหรือยัง",
+   "manual": "samsung_wa40f_um_21wa40f",
+   "best": 0.29933346381717335,
+   "top": "เครื่องไม่ทำงาน"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ประกันหมดหรือยัง",
+   "manual": "samsung_wa45t3400a_um_service_manual",
+   "best": 0.3431130423817942,
+   "top": "Leaking"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ประกันหมดหรือยัง",
+   "manual": "samsung_wa5000r_um_dc68_04088a",
+   "best": 0.29933346381717335,
+   "top": "เครื่องไม่ทำงาน"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ประกันหมดหรือยัง",
+   "manual": "samsung_wt10j7_um_dc68_01942k",
+   "best": 0.29933346381717335,
+   "top": "เครื่องไม่ทำงาน"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ประกันหมดหรือยัง",
+   "manual": "samsung_ww_um_dc68_04382a",
+   "best": 0.29933346381717335,
+   "top": "เครื่องไม่ทำงาน"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ซื้อรุ่นไหนดี",
+   "manual": "samsung_ge83mdt_um_de68_04111e",
+   "best": 0.30851117304918957,
+   "top": "ขึ้น SE"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ซื้อรุ่นไหนดี",
+   "manual": "samsung_mc32k7055_um_de68_04387m",
+   "best": 0.32268926685172933,
+   "top": "ขึ้น C-21"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ซื้อรุ่นไหนดี",
+   "manual": "samsung_me16a4021a_um_service_manual",
+   "best": 0.1847823770036161,
+   "top": "ไมโครเวฟขึ้น SE"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ซื้อรุ่นไหนดี",
+   "manual": "samsung_me73md_um_de68_04091q",
+   "best": 0.1730336470987409,
+   "top": "อาหารสุกเกินไปหรือสุกไม่พอ"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ซื้อรุ่นไหนดี",
+   "manual": "samsung_mg23t5018c_um_de68_04594r",
+   "best": 0.22654143543250663,
+   "top": "ปรุงเสร็จแล้วพัดลมไม่หยุด"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ซื้อรุ่นไหนดี",
+   "manual": "samsung_mg28h5125_um_de68_04246j",
+   "best": 0.3388108910180115,
+   "top": "ขึ้น E-12"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ซื้อรุ่นไหนดี",
+   "manual": "samsung_ms20a3010a_um",
+   "best": 0.21284017258538593,
+   "top": "จานหมุนติด"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ซื้อรุ่นไหนดี",
+   "manual": "samsung_nse6d8100_um_service_manual",
+   "best": 0.29074285458049504,
+   "top": "range C-20"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ซื้อรุ่นไหนดี",
+   "manual": "samsung_nsi6d9500_um_service_manual",
+   "best": 0.26863455426778365,
+   "top": "เตาขึ้น C-20"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ซื้อรุ่นไหนดี",
+   "manual": "samsung_rb5300d_um_da68_04817a",
+   "best": 0.3228265153302795,
+   "top": "SSSRRR! Whir!"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ซื้อรุ่นไหนดี",
+   "manual": "samsung_rb6000d_um_da68_04800b",
+   "best": 0.3228265153302795,
+   "top": "SSSRRR! Whir!"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ซื้อรุ่นไหนดี",
+   "manual": "samsung_rf29a_um_service_manual",
+   "best": 0.26141292533299604,
+   "top": "โหมดซับบาธ"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ซื้อรุ่นไหนดี",
+   "manual": "samsung_rf_sm2009",
+   "best": 0.20289364219571387,
+   "top": "พัดลมตู้เย็นหน่วงเวลา"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ซื้อรุ่นไหนดี",
+   "manual": "samsung_rf_um_da68_02676a",
+   "best": 0.20509576414724873,
+   "top": "ตู้เย็นข้างๆ อุ่น"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ซื้อรุ่นไหนดี",
+   "manual": "samsung_rr39m7_um_service_manual",
+   "best": 0.24924534203937057,
+   "top": "ตู้เย็นโหมดตัวอย่าง"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ซื้อรุ่นไหนดี",
+   "manual": "samsung_rs5000fc_um_da68_04852n",
+   "best": 0.26150604545345274,
+   "top": "หาแอป SmartThings ไม่เจอ"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ซื้อรุ่นไหนดี",
+   "manual": "samsung_tv2_um_km2dvbadn",
+   "best": 0.2902060507536819,
+   "top": "สีผิดหรือไม่มีสี"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ซื้อรุ่นไหนดี",
+   "manual": "samsung_tv3_um_jzdvbadk",
+   "best": 0.2902060507536819,
+   "top": "สีผิดหรือไม่มีสี"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ซื้อรุ่นไหนดี",
+   "manual": "samsung_tv4_um_musdvbadr",
+   "best": 0.2902060507536819,
+   "top": "สีผิดหรือไม่มีสี"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ซื้อรุ่นไหนดี",
+   "manual": "samsung_tv5_um_nldvbas4m",
+   "best": 0.2838482597342545,
+   "top": "ตั้งเวลาทีวีใหม่"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ซื้อรุ่นไหนดี",
+   "manual": "samsung_tv_um_bn81_28760d",
+   "best": 0.2875326498000365,
+   "top": "ภาพเบลอหรือกระตุก"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ซื้อรุ่นไหนดี",
+   "manual": "samsung_wa21a_um_dc68_04154a",
+   "best": 0.3070080759644721,
+   "top": "ขึ้น LC"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ซื้อรุ่นไหนดี",
+   "manual": "samsung_wa40f_um_21wa40f",
+   "best": 0.3070080759644721,
+   "top": "ขึ้น LC"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ซื้อรุ่นไหนดี",
+   "manual": "samsung_wa45t3400a_um_service_manual",
+   "best": 0.21466617731534723,
+   "top": "ซักผ้าขึ้น LC"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ซื้อรุ่นไหนดี",
+   "manual": "samsung_wa5000r_um_dc68_04088a",
+   "best": 0.32173608936664533,
+   "top": "ฮีตเตอร์"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ซื้อรุ่นไหนดี",
+   "manual": "samsung_wt10j7_um_dc68_01942k",
+   "best": 0.21755919195494333,
+   "top": "ผ้าแน่นถัง"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ซื้อรุ่นไหนดี",
+   "manual": "samsung_ww_um_dc68_04382a",
+   "best": 0.29935511478425625,
+   "top": "dc"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ศูนย์บริการอยู่ที่ไหน",
+   "manual": "samsung_ge83mdt_um_de68_04111e",
+   "best": 0.27940101284939045,
+   "top": "ขึ้น SE"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ศูนย์บริการอยู่ที่ไหน",
+   "manual": "samsung_mc32k7055_um_de68_04387m",
+   "best": 0.3420001946734726,
+   "top": "ไมโครเวฟร้องระหว่างทำงาน"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ศูนย์บริการอยู่ที่ไหน",
+   "manual": "samsung_me16a4021a_um_service_manual",
+   "best": 0.2953668722925602,
+   "top": "ไมโครเวฟขึ้น SE"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ศูนย์บริการอยู่ที่ไหน",
+   "manual": "samsung_me73md_um_de68_04091q",
+   "best": 0.2453017315766224,
+   "top": "แสงลอดรอบประตูไมโครเวฟ"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ศูนย์บริการอยู่ที่ไหน",
+   "manual": "samsung_mg23t5018c_um_de68_04594r",
+   "best": 0.3420001946734726,
+   "top": "ไมโครเวฟร้องระหว่างทำงาน"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ศูนย์บริการอยู่ที่ไหน",
+   "manual": "samsung_mg28h5125_um_de68_04246j",
+   "best": 0.27940101284939045,
+   "top": "ขึ้น SE"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ศูนย์บริการอยู่ที่ไหน",
+   "manual": "samsung_ms20a3010a_um",
+   "best": 0.3035362136275986,
+   "top": "ไมโครเวฟเอียง"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ศูนย์บริการอยู่ที่ไหน",
+   "manual": "samsung_nse6d8100_um_service_manual",
+   "best": 0.22940659224327978,
+   "top": "main sub communication C-F0"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ศูนย์บริการอยู่ที่ไหน",
+   "manual": "samsung_nsi6d9500_um_service_manual",
+   "best": 0.25404054699972484,
+   "top": "F0 Communications Error"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ศูนย์บริการอยู่ที่ไหน",
+   "manual": "samsung_rb5300d_um_da68_04817a",
+   "best": 0.36225255524493233,
+   "top": "Chef Zone"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ศูนย์บริการอยู่ที่ไหน",
+   "manual": "samsung_rb6000d_um_da68_04800b",
+   "best": 0.29630545629707544,
+   "top": "SmartThings login"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ศูนย์บริการอยู่ที่ไหน",
+   "manual": "samsung_rf29a_um_service_manual",
+   "best": 0.26947311320277556,
+   "top": "wifi ตู้เย็นหลุด"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ศูนย์บริการอยู่ที่ไหน",
+   "manual": "samsung_rf_sm2009",
+   "best": 0.318315420127723,
+   "top": "door bin"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ศูนย์บริการอยู่ที่ไหน",
+   "manual": "samsung_rf_um_da68_02676a",
+   "best": 0.2263885854003538,
+   "top": "มุมและด้านข้างตู้เย็นด้านหน้าอุ่น มีหยดน้ำเกาะด้านนอก"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ศูนย์บริการอยู่ที่ไหน",
+   "manual": "samsung_rr39m7_um_service_manual",
+   "best": 0.285458474976277,
+   "top": "ไฟ alarm ตู้เย็นกะพริบ"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ศูนย์บริการอยู่ที่ไหน",
+   "manual": "samsung_rs5000fc_um_da68_04852n",
+   "best": 0.29856516308986997,
+   "top": "registration error"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ศูนย์บริการอยู่ที่ไหน",
+   "manual": "samsung_tv2_um_km2dvbadn",
+   "best": 0.2974726724518141,
+   "top": "Unable to connect to the network"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ศูนย์บริการอยู่ที่ไหน",
+   "manual": "samsung_tv3_um_jzdvbadk",
+   "best": 0.2996221183673712,
+   "top": "ตั้งค่า wifi เสร็จแล้วแต่ใช้เน็ตไม่ได้"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ศูนย์บริการอยู่ที่ไหน",
+   "manual": "samsung_tv4_um_musdvbadr",
+   "best": 0.2867040870540327,
+   "top": "ตั้งค่าเครือข่ายเสร็จแล้วแต่ยังเชื่อมต่ออินเทอร์เน็ตไม่ได้"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ศูนย์บริการอยู่ที่ไหน",
+   "manual": "samsung_tv5_um_nldvbas4m",
+   "best": 0.28464801578286447,
+   "top": "ช่องอนาล็อกภาพซ่า"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ศูนย์บริการอยู่ที่ไหน",
+   "manual": "samsung_tv_um_bn81_28760d",
+   "best": 0.2659813496447427,
+   "top": "one connect ไร้สายต่อใหม่"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ศูนย์บริการอยู่ที่ไหน",
+   "manual": "samsung_wa21a_um_dc68_04154a",
+   "best": 0.38901055266192724,
+   "top": "สายระบายน้ำ"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ศูนย์บริการอยู่ที่ไหน",
+   "manual": "samsung_wa40f_um_21wa40f",
+   "best": 0.38901055266192724,
+   "top": "สายระบายน้ำ"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ศูนย์บริการอยู่ที่ไหน",
+   "manual": "samsung_wa45t3400a_um_service_manual",
+   "best": 0.3372748638586709,
+   "top": "เครื่องซักผ้าขึ้น dC"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ศูนย์บริการอยู่ที่ไหน",
+   "manual": "samsung_wa5000r_um_dc68_04088a",
+   "best": 0.39027953598930915,
+   "top": "ขึ้น dC"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ศูนย์บริการอยู่ที่ไหน",
+   "manual": "samsung_wt10j7_um_dc68_01942k",
+   "best": 0.2517829069783699,
+   "top": "เครื่องไม่ทำงาน"
+  },
+  {
+   "cat": "related_nonfault",
+   "query": "ศูนย์บริการอยู่ที่ไหน",
+   "manual": "samsung_ww_um_dc68_04382a",
+   "best": 0.39027953598930915,
+   "top": "ขึ้น dC"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "ตู้เย็นไม่เย็น",
+   "manual": "samsung_ge83mdt_um_de68_04111e",
+   "best": 0.5254636172440581,
+   "top": "ไมโครเวฟอาหารไม่สุก"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "ตู้เย็นไม่เย็น",
+   "manual": "samsung_mc32k7055_um_de68_04387m",
+   "best": 0.5254636172440581,
+   "top": "ไมโครเวฟอาหารไม่สุก"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "ตู้เย็นไม่เย็น",
+   "manual": "samsung_me16a4021a_um_service_manual",
+   "best": 0.4448471072956538,
+   "top": "ประตูไมโครเวฟเปิดอยู่แต่เตายังเดิน"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "ตู้เย็นไม่เย็น",
+   "manual": "samsung_me73md_um_de68_04091q",
+   "best": 0.5254636172440581,
+   "top": "ไมโครเวฟอาหารไม่สุก"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "ตู้เย็นไม่เย็น",
+   "manual": "samsung_mg23t5018c_um_de68_04594r",
+   "best": 0.5254636172440581,
+   "top": "ไมโครเวฟอาหารไม่สุก"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "ตู้เย็นไม่เย็น",
+   "manual": "samsung_mg28h5125_um_de68_04246j",
+   "best": 0.5254636172440581,
+   "top": "ไมโครเวฟอาหารไม่สุก"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "ตู้เย็นไม่เย็น",
+   "manual": "samsung_ms20a3010a_um",
+   "best": 0.5254636172440581,
+   "top": "ไมโครเวฟอาหารไม่สุก"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "ตู้เย็นไม่เย็น",
+   "manual": "samsung_nse6d8100_um_service_manual",
+   "best": 0.4861838878973591,
+   "top": "จอเตาไม่ติด"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "ตู้เย็นไม่เย็น",
+   "manual": "samsung_nsi6d9500_um_service_manual",
+   "best": 0.4861838878973591,
+   "top": "จอเตาไม่ติด"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "ตู้เย็นไม่เย็น",
+   "manual": "samsung_tv2_um_km2dvbadn",
+   "best": 0.37852543872684463,
+   "top": "ภาพที่บ้านไม่สวยเท่าตอนอยู่ที่ร้าน"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "ตู้เย็นไม่เย็น",
+   "manual": "samsung_tv3_um_jzdvbadk",
+   "best": 0.37852543872684463,
+   "top": "ภาพที่บ้านไม่สวยเท่าตอนอยู่ที่ร้าน"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "ตู้เย็นไม่เย็น",
+   "manual": "samsung_tv4_um_musdvbadr",
+   "best": 0.37852543872684463,
+   "top": "ภาพที่บ้านไม่สวยเท่าตอนอยู่ที่ร้าน"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "ตู้เย็นไม่เย็น",
+   "manual": "samsung_tv5_um_nldvbas4m",
+   "best": 0.28338915685821586,
+   "top": "ปรับโหมดเสียงทีวีไม่ได้"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "ตู้เย็นไม่เย็น",
+   "manual": "samsung_tv_um_bn81_28760d",
+   "best": 0.37852543872684463,
+   "top": "ภาพที่บ้านไม่สวยเท่าตอนอยู่ที่ร้าน"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "ตู้เย็นไม่เย็น",
+   "manual": "samsung_wa21a_um_dc68_04154a",
+   "best": 0.5328398666357029,
+   "top": "washing machine frozen"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "ตู้เย็นไม่เย็น",
+   "manual": "samsung_wa40f_um_21wa40f",
+   "best": 0.5328398666357029,
+   "top": "washing machine frozen"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "ตู้เย็นไม่เย็น",
+   "manual": "samsung_wa45t3400a_um_service_manual",
+   "best": 0.49288347205024235,
+   "top": "น้ำเครื่องซักผ้าเย็นเกินไป"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "ตู้เย็นไม่เย็น",
+   "manual": "samsung_wa5000r_um_dc68_04088a",
+   "best": 0.5328398666357029,
+   "top": "washing machine frozen"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "ตู้เย็นไม่เย็น",
+   "manual": "samsung_wt10j7_um_dc68_01942k",
+   "best": 0.4619749311474285,
+   "top": "เครื่องซักผ้าไม่ติด"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "ตู้เย็นไม่เย็น",
+   "manual": "samsung_ww_um_dc68_04382a",
+   "best": 0.5328398666357029,
+   "top": "washing machine frozen"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "น้ำไม่เข้าเครื่องซักผ้า",
+   "manual": "samsung_ge83mdt_um_de68_04111e",
+   "best": 0.5185722044773616,
+   "top": "ปุ่มมีน้ำ"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "น้ำไม่เข้าเครื่องซักผ้า",
+   "manual": "samsung_mc32k7055_um_de68_04387m",
+   "best": 0.5679157211399752,
+   "top": "ภาชนะปิดฝาแตก"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "น้ำไม่เข้าเครื่องซักผ้า",
+   "manual": "samsung_me16a4021a_um_service_manual",
+   "best": 0.36794261618874785,
+   "top": "แผงควบคุมไมโครเวฟไม่ตอบสนอง"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "น้ำไม่เข้าเครื่องซักผ้า",
+   "manual": "samsung_me73md_um_de68_04091q",
+   "best": 0.41384542551421133,
+   "top": "ไมโครเวฟอาหารไม่สุก"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "น้ำไม่เข้าเครื่องซักผ้า",
+   "manual": "samsung_mg23t5018c_um_de68_04594r",
+   "best": 0.5679157211399752,
+   "top": "ภาชนะปิดฝาแตก"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "น้ำไม่เข้าเครื่องซักผ้า",
+   "manual": "samsung_mg28h5125_um_de68_04246j",
+   "best": 0.5185722044773616,
+   "top": "ปุ่มมีน้ำ"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "น้ำไม่เข้าเครื่องซักผ้า",
+   "manual": "samsung_ms20a3010a_um",
+   "best": 0.5679157211399752,
+   "top": "ภาชนะปิดฝาแตก"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "น้ำไม่เข้าเครื่องซักผ้า",
+   "manual": "samsung_nse6d8100_um_service_manual",
+   "best": 0.4329921984813093,
+   "top": "ปุ่มเตากดไม่ได้"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "น้ำไม่เข้าเครื่องซักผ้า",
+   "manual": "samsung_nsi6d9500_um_service_manual",
+   "best": 0.44732257192249114,
+   "top": "เตาไม่ทำงานเพราะภาชนะ"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "น้ำไม่เข้าเครื่องซักผ้า",
+   "manual": "samsung_rb5300d_um_da68_04817a",
+   "best": 0.5818230251719285,
+   "top": "หยดน้ำในตู้เย็น"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "น้ำไม่เข้าเครื่องซักผ้า",
+   "manual": "samsung_rb6000d_um_da68_04800b",
+   "best": 0.5818230251719285,
+   "top": "หยดน้ำในตู้เย็น"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "น้ำไม่เข้าเครื่องซักผ้า",
+   "manual": "samsung_rf29a_um_service_manual",
+   "best": 0.5715586614941143,
+   "top": "fridge wet with dew"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "น้ำไม่เข้าเครื่องซักผ้า",
+   "manual": "samsung_rf_sm2009",
+   "best": 0.6028728788091098,
+   "top": "ชั้นกระจกในตู้เย็นดึงออกไม่ได้ ชั้นติดฝืด"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "น้ำไม่เข้าเครื่องซักผ้า",
+   "manual": "samsung_rf_um_da68_02676a",
+   "best": 0.5508384784538551,
+   "top": "ในตู้เย็นมีหยดน้ำ"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "น้ำไม่เข้าเครื่องซักผ้า",
+   "manual": "samsung_rr39m7_um_service_manual",
+   "best": 0.5393933069823174,
+   "top": "คอมเพรสเซอร์ตู้เย็นไม่ทำงาน"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "น้ำไม่เข้าเครื่องซักผ้า",
+   "manual": "samsung_rs5000fc_um_da68_04852n",
+   "best": 0.7541868322815959,
+   "top": "เครื่องไม่สามารถจ่ายน้ำ"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "น้ำไม่เข้าเครื่องซักผ้า",
+   "manual": "samsung_tv2_um_km2dvbadn",
+   "best": 0.3421926397511432,
+   "top": "รีโมตหรือการสั่งงานด้วยเสียงใช้ไม่ได้"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "น้ำไม่เข้าเครื่องซักผ้า",
+   "manual": "samsung_tv3_um_jzdvbadk",
+   "best": 0.34384005050320265,
+   "top": "pip ใช้ไม่ได้"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "น้ำไม่เข้าเครื่องซักผ้า",
+   "manual": "samsung_tv4_um_musdvbadr",
+   "best": 0.40811038342890044,
+   "top": "รีโมตใช้ไม่ได้"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "น้ำไม่เข้าเครื่องซักผ้า",
+   "manual": "samsung_tv5_um_nldvbas4m",
+   "best": 0.3657111149902419,
+   "top": "ทีวีไม่อ่านแฟลชไดรฟ์"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "น้ำไม่เข้าเครื่องซักผ้า",
+   "manual": "samsung_tv_um_bn81_28760d",
+   "best": 0.40811038342890044,
+   "top": "รีโมตใช้ไม่ได้"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "ไมโครเวฟไม่ร้อน",
+   "manual": "samsung_nse6d8100_um_service_manual",
+   "best": 0.607663773709786,
+   "top": "แผงควบคุมเตากดไม่ติด"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "ไมโครเวฟไม่ร้อน",
+   "manual": "samsung_nsi6d9500_um_service_manual",
+   "best": 0.607663773709786,
+   "top": "แผงควบคุมเตากดไม่ติด"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "ไมโครเวฟไม่ร้อน",
+   "manual": "samsung_rb5300d_um_da68_04817a",
+   "best": 0.5168142039791617,
+   "top": "ฟังก์ชันจัดการพลังงานไม่ทำงาน"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "ไมโครเวฟไม่ร้อน",
+   "manual": "samsung_rb6000d_um_da68_04800b",
+   "best": 0.5066502623594314,
+   "top": "ไฟ Wi-Fi กะพริบ"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "ไมโครเวฟไม่ร้อน",
+   "manual": "samsung_rf29a_um_service_manual",
+   "best": 0.6526918324809245,
+   "top": "คอมตู้เย็นไม่ติด"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "ไมโครเวฟไม่ร้อน",
+   "manual": "samsung_rf_sm2009",
+   "best": 0.6100125761154251,
+   "top": "คอมเพรสเซอร์ไม่ทำงานแต่จอติด"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "ไมโครเวฟไม่ร้อน",
+   "manual": "samsung_rf_um_da68_02676a",
+   "best": 0.5329991598030541,
+   "top": "The appliance is not operating at all or the temperature is too high."
+  },
+  {
+   "cat": "wrong_device",
+   "query": "ไมโครเวฟไม่ร้อน",
+   "manual": "samsung_rr39m7_um_service_manual",
+   "best": 0.5844937029268502,
+   "top": "ตู้เย็นไม่เย็นคอมไม่ทำงาน"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "ไมโครเวฟไม่ร้อน",
+   "manual": "samsung_rs5000fc_um_da68_04852n",
+   "best": 0.5133487722725633,
+   "top": "แผงควบคุมไม่ทำงาน"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "ไมโครเวฟไม่ร้อน",
+   "manual": "samsung_tv2_um_km2dvbadn",
+   "best": 0.6270395204922514,
+   "top": "เครื่องเล่น hdmi cec ไม่เล่น"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "ไมโครเวฟไม่ร้อน",
+   "manual": "samsung_tv3_um_jzdvbadk",
+   "best": 0.6270395204922514,
+   "top": "เครื่องเล่น hdmi cec ไม่เล่น"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "ไมโครเวฟไม่ร้อน",
+   "manual": "samsung_tv4_um_musdvbadr",
+   "best": 0.6270395204922514,
+   "top": "เครื่องเล่น hdmi cec ไม่เล่น"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "ไมโครเวฟไม่ร้อน",
+   "manual": "samsung_tv5_um_nldvbas4m",
+   "best": 0.5599015530336584,
+   "top": "ตั้งเวลาเปิดทีวีเล่นเพลงจาก usb ไม่ได้"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "ไมโครเวฟไม่ร้อน",
+   "manual": "samsung_tv_um_bn81_28760d",
+   "best": 0.6270395204922514,
+   "top": "เครื่องเล่น hdmi cec ไม่เล่น"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "ไมโครเวฟไม่ร้อน",
+   "manual": "samsung_wa21a_um_dc68_04154a",
+   "best": 0.5265511737415962,
+   "top": "เครื่องไม่ทำงาน"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "ไมโครเวฟไม่ร้อน",
+   "manual": "samsung_wa40f_um_21wa40f",
+   "best": 0.5265511737415962,
+   "top": "เครื่องไม่ทำงาน"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "ไมโครเวฟไม่ร้อน",
+   "manual": "samsung_wa45t3400a_um_service_manual",
+   "best": 0.43652942597103145,
+   "top": "washer low voltage 9C2"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "ไมโครเวฟไม่ร้อน",
+   "manual": "samsung_wa5000r_um_dc68_04088a",
+   "best": 0.5265511737415962,
+   "top": "เครื่องไม่ทำงาน"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "ไมโครเวฟไม่ร้อน",
+   "manual": "samsung_wt10j7_um_dc68_01942k",
+   "best": 0.5265511737415962,
+   "top": "เครื่องไม่ทำงาน"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "ไมโครเวฟไม่ร้อน",
+   "manual": "samsung_ww_um_dc68_04382a",
+   "best": 0.5418266042026205,
+   "top": "เครื่องไม่ปั่นแห้ง"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "เครื่องซักผ้าไม่ปั่นแห้ง",
+   "manual": "samsung_ge83mdt_um_de68_04111e",
+   "best": 0.42346874747525765,
+   "top": "ไมโครเวฟไม่ทำให้อาหารร้อน"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "เครื่องซักผ้าไม่ปั่นแห้ง",
+   "manual": "samsung_mc32k7055_um_de68_04387m",
+   "best": 0.5330586006062387,
+   "top": "จานไมโครเวฟไม่หมุน"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "เครื่องซักผ้าไม่ปั่นแห้ง",
+   "manual": "samsung_me16a4021a_um_service_manual",
+   "best": 0.34620695319419104,
+   "top": "microwave door open still works"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "เครื่องซักผ้าไม่ปั่นแห้ง",
+   "manual": "samsung_me73md_um_de68_04091q",
+   "best": 0.42346874747525765,
+   "top": "ไมโครเวฟไม่ทำให้อาหารร้อน"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "เครื่องซักผ้าไม่ปั่นแห้ง",
+   "manual": "samsung_mg23t5018c_um_de68_04594r",
+   "best": 0.5330586006062387,
+   "top": "จานไมโครเวฟไม่หมุน"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "เครื่องซักผ้าไม่ปั่นแห้ง",
+   "manual": "samsung_mg28h5125_um_de68_04246j",
+   "best": 0.42346874747525765,
+   "top": "ไมโครเวฟไม่ทำให้อาหารร้อน"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "เครื่องซักผ้าไม่ปั่นแห้ง",
+   "manual": "samsung_ms20a3010a_um",
+   "best": 0.5330586006062387,
+   "top": "จานไมโครเวฟไม่หมุน"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "เครื่องซักผ้าไม่ปั่นแห้ง",
+   "manual": "samsung_nse6d8100_um_service_manual",
+   "best": 0.4854408646467453,
+   "top": "แผงควบคุมเตากดไม่ติด"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "เครื่องซักผ้าไม่ปั่นแห้ง",
+   "manual": "samsung_nsi6d9500_um_service_manual",
+   "best": 0.4854408646467453,
+   "top": "แผงควบคุมเตากดไม่ติด"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "เครื่องซักผ้าไม่ปั่นแห้ง",
+   "manual": "samsung_rb5300d_um_da68_04817a",
+   "best": 0.4853290076295832,
+   "top": "ตู้เย็น/ช่องแช่แข็งไม่ทำงานหรือไม่เย็น"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "เครื่องซักผ้าไม่ปั่นแห้ง",
+   "manual": "samsung_rb6000d_um_da68_04800b",
+   "best": 0.4853290076295832,
+   "top": "ตู้เย็น/ช่องแช่แข็งไม่ทำงานหรือไม่เย็น"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "เครื่องซักผ้าไม่ปั่นแห้ง",
+   "manual": "samsung_rf29a_um_service_manual",
+   "best": 0.561158530423867,
+   "top": "ตู้เย็นไม่ตัด"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "เครื่องซักผ้าไม่ปั่นแห้ง",
+   "manual": "samsung_rf_sm2009",
+   "best": 0.4780610683828024,
+   "top": "ชั้นกระจกในตู้เย็นดึงออกไม่ได้ ชั้นติดฝืด"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "เครื่องซักผ้าไม่ปั่นแห้ง",
+   "manual": "samsung_rf_um_da68_02676a",
+   "best": 0.4757307618330812,
+   "top": "refrigerator not cooling"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "เครื่องซักผ้าไม่ปั่นแห้ง",
+   "manual": "samsung_rr39m7_um_service_manual",
+   "best": 0.5303258596441693,
+   "top": "refrigerator compressor not running"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "เครื่องซักผ้าไม่ปั่นแห้ง",
+   "manual": "samsung_rs5000fc_um_da68_04852n",
+   "best": 0.5215241790346936,
+   "top": "เครื่องกดน้ำตู้เย็นไม่ออก"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "เครื่องซักผ้าไม่ปั่นแห้ง",
+   "manual": "samsung_tv2_um_km2dvbadn",
+   "best": 0.31931038262287226,
+   "top": "ต่อ HDMI มีภาพแต่ไม่มีเสียง"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "เครื่องซักผ้าไม่ปั่นแห้ง",
+   "manual": "samsung_tv3_um_jzdvbadk",
+   "best": 0.31931038262287226,
+   "top": "ต่อ HDMI มีภาพแต่ไม่มีเสียง"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "เครื่องซักผ้าไม่ปั่นแห้ง",
+   "manual": "samsung_tv4_um_musdvbadr",
+   "best": 0.32879978652663416,
+   "top": "รีโมตใช้ไม่ได้"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "เครื่องซักผ้าไม่ปั่นแห้ง",
+   "manual": "samsung_tv5_um_nldvbas4m",
+   "best": 0.3447204567214308,
+   "top": "ทีวีไม่อ่านแฟลชไดรฟ์"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "เครื่องซักผ้าไม่ปั่นแห้ง",
+   "manual": "samsung_tv_um_bn81_28760d",
+   "best": 0.32879978652663416,
+   "top": "รีโมตใช้ไม่ได้"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "ช่องแช่แข็งไม่แข็ง",
+   "manual": "samsung_ge83mdt_um_de68_04111e",
+   "best": 0.44486774552041314,
+   "top": "ไมโครเวฟไม่ทำให้อาหารร้อน"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "ช่องแช่แข็งไม่แข็ง",
+   "manual": "samsung_mc32k7055_um_de68_04387m",
+   "best": 0.7589634518467344,
+   "top": "ละลายของแช่แข็งไม่ได้"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "ช่องแช่แข็งไม่แข็ง",
+   "manual": "samsung_me16a4021a_um_service_manual",
+   "best": 0.401733015448079,
+   "top": "If the oven operates with the door open"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "ช่องแช่แข็งไม่แข็ง",
+   "manual": "samsung_me73md_um_de68_04091q",
+   "best": 0.44486774552041314,
+   "top": "ไมโครเวฟไม่ทำให้อาหารร้อน"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "ช่องแช่แข็งไม่แข็ง",
+   "manual": "samsung_mg23t5018c_um_de68_04594r",
+   "best": 0.7589634518467344,
+   "top": "ละลายของแช่แข็งไม่ได้"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "ช่องแช่แข็งไม่แข็ง",
+   "manual": "samsung_mg28h5125_um_de68_04246j",
+   "best": 0.44486774552041314,
+   "top": "ไมโครเวฟไม่ทำให้อาหารร้อน"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "ช่องแช่แข็งไม่แข็ง",
+   "manual": "samsung_ms20a3010a_um",
+   "best": 0.7589634518467344,
+   "top": "ละลายของแช่แข็งไม่ได้"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "ช่องแช่แข็งไม่แข็ง",
+   "manual": "samsung_nse6d8100_um_service_manual",
+   "best": 0.5625431027700785,
+   "top": "แผงควบคุมเตากดไม่ติด"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "ช่องแช่แข็งไม่แข็ง",
+   "manual": "samsung_nsi6d9500_um_service_manual",
+   "best": 0.5625431027700785,
+   "top": "แผงควบคุมเตากดไม่ติด"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "ช่องแช่แข็งไม่แข็ง",
+   "manual": "samsung_tv2_um_km2dvbadn",
+   "best": 0.39855412332966994,
+   "top": "ไม่มีเสียงหรือเสียงเบาแม้เปิดสุด"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "ช่องแช่แข็งไม่แข็ง",
+   "manual": "samsung_tv3_um_jzdvbadk",
+   "best": 0.39855412332966994,
+   "top": "ไม่มีเสียงหรือเสียงเบาแม้เปิดสุด"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "ช่องแช่แข็งไม่แข็ง",
+   "manual": "samsung_tv4_um_musdvbadr",
+   "best": 0.39855412332966994,
+   "top": "ไม่มีเสียงหรือเสียงเบาแม้เปิดสุด"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "ช่องแช่แข็งไม่แข็ง",
+   "manual": "samsung_tv5_um_nldvbas4m",
+   "best": 0.42226583363135506,
+   "top": "เสียงอุปกรณ์ที่ต่อกับทีวีไม่เปลี่ยน"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "ช่องแช่แข็งไม่แข็ง",
+   "manual": "samsung_tv_um_bn81_28760d",
+   "best": 0.39855412332966994,
+   "top": "ไม่มีเสียงหรือเสียงเบาแม้เปิดสุด"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "ช่องแช่แข็งไม่แข็ง",
+   "manual": "samsung_wa21a_um_dc68_04154a",
+   "best": 0.6830221371248248,
+   "top": "ผงซักฟอกไม่ละลาย"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "ช่องแช่แข็งไม่แข็ง",
+   "manual": "samsung_wa40f_um_21wa40f",
+   "best": 0.6830221371248248,
+   "top": "ผงซักฟอกไม่ละลาย"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "ช่องแช่แข็งไม่แข็ง",
+   "manual": "samsung_wa45t3400a_um_service_manual",
+   "best": 0.506331540387518,
+   "top": "5C Water is not draining."
+  },
+  {
+   "cat": "wrong_device",
+   "query": "ช่องแช่แข็งไม่แข็ง",
+   "manual": "samsung_wa5000r_um_dc68_04088a",
+   "best": 0.6830221371248248,
+   "top": "ผงซักฟอกไม่ละลาย"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "ช่องแช่แข็งไม่แข็ง",
+   "manual": "samsung_wt10j7_um_dc68_01942k",
+   "best": 0.5913301266579436,
+   "top": "ปั่นแห้งไม่หมุน"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "ช่องแช่แข็งไม่แข็ง",
+   "manual": "samsung_ww_um_dc68_04382a",
+   "best": 0.6830221371248248,
+   "top": "ผงซักฟอกไม่ละลาย"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "จานหมุนไม่หมุน",
+   "manual": "samsung_nse6d8100_um_service_manual",
+   "best": 0.6465512618031197,
+   "top": "แผงควบคุมเตากดไม่ติด"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "จานหมุนไม่หมุน",
+   "manual": "samsung_nsi6d9500_um_service_manual",
+   "best": 0.6465512618031197,
+   "top": "แผงควบคุมเตากดไม่ติด"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "จานหมุนไม่หมุน",
+   "manual": "samsung_rb5300d_um_da68_04817a",
+   "best": 0.5676290039397651,
+   "top": "ฟังก์ชันจัดการพลังงานไม่ทำงาน"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "จานหมุนไม่หมุน",
+   "manual": "samsung_rb6000d_um_da68_04800b",
+   "best": 0.46862999680782264,
+   "top": "เข้าแอปไม่ได้"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "จานหมุนไม่หมุน",
+   "manual": "samsung_rf29a_um_service_manual",
+   "best": 0.5599427942328132,
+   "top": "ตู้เย็นไม่ตัด"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "จานหมุนไม่หมุน",
+   "manual": "samsung_rf_sm2009",
+   "best": 0.6355728824911502,
+   "top": "ถาดเลื่อน (Moving Tray) ดึงออกไม่ได้ ถาดติดฝืด"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "จานหมุนไม่หมุน",
+   "manual": "samsung_rf_um_da68_02676a",
+   "best": 0.4570855054019397,
+   "top": "ตู้เย็นไม่ทำงานเลย หรืออุณหภูมิสูงเกินไป ตู้เย็นไม่เย็น"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "จานหมุนไม่หมุน",
+   "manual": "samsung_rr39m7_um_service_manual",
+   "best": 0.5208839986698257,
+   "top": "ปุ่มตู้เย็นกดไม่ติด"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "จานหมุนไม่หมุน",
+   "manual": "samsung_rs5000fc_um_da68_04852n",
+   "best": 0.5261658174712412,
+   "top": "กดน้ำไม่ออก"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "จานหมุนไม่หมุน",
+   "manual": "samsung_tv2_um_km2dvbadn",
+   "best": 0.49085559053218925,
+   "top": "รีโมตทีวีกดไม่ติด"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "จานหมุนไม่หมุน",
+   "manual": "samsung_tv3_um_jzdvbadk",
+   "best": 0.49085559053218925,
+   "top": "รีโมตทีวีกดไม่ติด"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "จานหมุนไม่หมุน",
+   "manual": "samsung_tv4_um_musdvbadr",
+   "best": 0.5070474475480411,
+   "top": "รีโมตใช้ไม่ได้"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "จานหมุนไม่หมุน",
+   "manual": "samsung_tv5_um_nldvbas4m",
+   "best": 0.4909397289451445,
+   "top": "สไลด์โชว์ไม่เล่น"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "จานหมุนไม่หมุน",
+   "manual": "samsung_tv_um_bn81_28760d",
+   "best": 0.5128618607330553,
+   "top": "รีโมตสั่งเสียงไม่ได้"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "จานหมุนไม่หมุน",
+   "manual": "samsung_wa21a_um_dc68_04154a",
+   "best": 0.66279505519877,
+   "top": "ผงซักฟอกไม่ละลาย"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "จานหมุนไม่หมุน",
+   "manual": "samsung_wa40f_um_21wa40f",
+   "best": 0.66279505519877,
+   "top": "ผงซักฟอกไม่ละลาย"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "จานหมุนไม่หมุน",
+   "manual": "samsung_wa45t3400a_um_service_manual",
+   "best": 0.6732972366713513,
+   "top": "เครื่องซักผ้าปั่นไม่หมุน"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "จานหมุนไม่หมุน",
+   "manual": "samsung_wa5000r_um_dc68_04088a",
+   "best": 0.66279505519877,
+   "top": "ผงซักฟอกไม่ละลาย"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "จานหมุนไม่หมุน",
+   "manual": "samsung_wt10j7_um_dc68_01942k",
+   "best": 0.8286768741760281,
+   "top": "ผ้าไม่หมุน"
+  },
+  {
+   "cat": "wrong_device",
+   "query": "จานหมุนไม่หมุน",
+   "manual": "samsung_ww_um_dc68_04382a",
+   "best": 0.6856328520291287,
+   "top": "ไม่ปั่นผ้า"
+  }
+ ]
+}
