@@ -14,7 +14,7 @@ import { StepView } from '../components/step/StepView'
 import { TerminalActions } from '../components/TerminalActions'
 import { Notice } from '../components/ui/Notice'
 import { LoadingText } from '../components/LoadingText'
-import { modelSelectionFromState, otherSymptomsPath } from '../lib/modelSelection'
+import { modelSelectionFromState, otherSymptomsPath, UNKNOWN_MODEL_NOTICE_TITLE } from '../lib/modelSelection'
 import { manualTitle } from '../lib/models'
 import { toTrailEntry } from '../lib/trail'
 import type { TrailEntry } from '../lib/trail'
@@ -176,7 +176,7 @@ function SessionView({ sessionId }: { sessionId: string }) {
       <EquipmentPanel items={equipment} deviceCategory={summary?.deviceCategory} />
 
       {modelSelection === 'unknown' && (
-        <Notice tone="info" title="คุณเลือกรุ่นที่ใกล้เคียง ขั้นตอนอาจไม่ตรงกับเครื่อง" />
+        <Notice tone="info" title={UNKNOWN_MODEL_NOTICE_TITLE} />
       )}
 
       {slowNotice}

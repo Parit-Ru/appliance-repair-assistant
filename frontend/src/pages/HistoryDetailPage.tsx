@@ -81,7 +81,7 @@ function HistoryDetailView({ sessionId }: { sessionId: string }) {
 
   // ไม่ทราบว่ามาจากหน้าเลือกรุ่น (modelSelection null)  กลับรายการทุกรุ่น ไม่พาไปหน้าของรุ่นที่จะถูกบันทึกเป็น 'selected'
   // ตรงกับที่หน้าตรวจอาการทำ (otherSymptomsPath) ป้ายจึงไม่อ้างว่า ของรุ่นนี ในกรณีนั้น
-  const isModelScoped = data.modelSelection !== null && canRestart
+  const isModelScoped = data.modelSelection === 'selected' && canRestart
   const otherSymptomPath = otherSymptomsPath(canRestart ? flow.manualId : undefined, data.modelSelection ?? undefined)
 
   return (

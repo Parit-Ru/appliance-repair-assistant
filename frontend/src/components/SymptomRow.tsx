@@ -10,11 +10,13 @@ interface SymptomRowProps {
   onSelect: (flowId: string) => void
   score?: number
   matchedText?: string
+  /** ชื่อรุ่นของอาการนี้ แสดงใต้ชื่ออาการ (ใช้ตอนค้นข้ามหลายรุ่น เพื่อให้เห็นชัดว่าแต่ละแถวเป็นของรุ่นไหน) */
+  modelLabel?: string
 }
 
 const BASE_CLASSES = 'flex min-h-12 w-full items-center gap-3 px-1 py-3 text-left transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent'
 
-export function SymptomRow({ summary, isStarting, disabled, onSelect, score, matchedText }: SymptomRowProps) {
+export function SymptomRow({ summary, isStarting, disabled, onSelect, score, matchedText, modelLabel }: SymptomRowProps) {
   const stateClasses = isStarting ? 'cursor-wait' : disabled ? 'cursor-not-allowed opacity-40' : 'hover:bg-panel'
   const classes = `${BASE_CLASSES} ${stateClasses}`
 
@@ -23,6 +25,11 @@ export function SymptomRow({ summary, isStarting, disabled, onSelect, score, mat
       <button type="button" disabled={isStarting || disabled} aria-busy={isStarting || undefined} className={classes} onClick={() => onSelect(summary.flowId)}>
         <span className="min-w-0 flex-1">
           <span className="block font-semibold">{symptomName(summary)}</span>
+          {modelLabel !== undefined && (
+            <span className="block text-sm font-medium text-ink-soft">
+              รุ่น: <span className="font-mono">{modelLabel}</span>
+            </span>
+          )}
 
           <span className="block text-sm text-ink-faint">{summary.entrySymptom}</span>
           {score !== undefined && (

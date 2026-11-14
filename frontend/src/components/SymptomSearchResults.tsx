@@ -7,9 +7,11 @@ interface SymptomSearchResultsProps {
   startingId: string | null
   isStarting: boolean
   onSelect: (flowId: string) => void
+  /** ตัวหาชื่อรุ่นของแต่ละอาการ ใส่เมื่อค้นข้ามหลายรุ่น (ไม่ใส่ = ไม่แสดงรุ่นในแถว) */
+  modelLabelFor?: (flowId: string) => string | undefined
 }
 
-export function SymptomSearchResults({ result, startingId, isStarting, onSelect }: SymptomSearchResultsProps) {
+export function SymptomSearchResults({ result, startingId, isStarting, onSelect, modelLabelFor }: SymptomSearchResultsProps) {
   if (result.matches.length === 0) {
     return (
       <Notice tone="info" title="ไม่พบอาการที่ใกล้เคียงกับที่พิมพ์">
@@ -25,7 +27,7 @@ export function SymptomSearchResults({ result, startingId, isStarting, onSelect 
 
       <ul className="border-t border-line">
         {result.matches.map((match) => (
-          <SymptomRow key={match.flowId} summary={match} score={match.score} matchedText={match.matchedText} isStarting={isStarting && startingId === match.flowId} disabled={isStarting && startingId !== match.flowId} onSelect={onSelect} />
+          <SymptomRow key={match.flowId} summary={match} score={match.score} matchedText={match.matchedText} modelLabel={modelLabelFor?.(match.flowId)} isStarting={isStarting && startingId === match.flowId} disabled={isStarting && startingId !== match.flowId} onSelect={onSelect} />
         ))}
       </ul>
     </section>
